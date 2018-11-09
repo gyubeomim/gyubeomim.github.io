@@ -1,8 +1,8 @@
 ---
-layout: post
-title: git 자주 쓰는 명령어 모음 
-categories: git
-tags: [git]
+<!-- layout: post -->
+<!-- title: git 자주 쓰는 명령어 모음  -->
+<!-- categories: git -->
+<!-- tags: [git] -->
 ---
 
 이 포스트는 자주 쓰는 git 명령어를 적어놓는 용도이다.

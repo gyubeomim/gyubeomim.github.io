@@ -1,8 +1,8 @@
 ---
-layout: post
-title: ESLint no-path-concat
-category: react
-tag: [eslint, react, webstorm]
+<!-- layout: post -->
+<!-- title: ESLint no-path-concat -->
+<!-- category: react -->
+<!-- tag: [eslint, react, webstorm] -->
 ---
 
 Udemy에서 react강좌를 구매했었다. 영어라서 아무 사전 지식 없이 들으면 시간이 너무 오래 걸릴 것 같았는데, [무료 한국어 강좌](https://www.inflearn.com/course/react-%EA%B0%95%EC%A2%8C-velopert/)가 있어서 먼저 빠르게 훑어보기로 했다. 

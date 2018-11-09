@@ -1,8 +1,8 @@
 ---
-layout: post
-title: emacs configuration
-category: tool
-tag: [emacs]
+<!-- layout: post -->
+<!-- title: emacs configuration -->
+<!-- category: tool -->
+<!-- tag: [emacs] -->
 ---
 
 이맥스를 처음 설치하면 UI가 멋있지도 않고 무슨 유용한 설정이 있는지도 잘 파악하기 힘들다.[Emacs configuration in 24 minutes](https://www.youtube.com/watch?v=FRu8SRWuUko)라는 강좌를 보고 emacs의 초기 설정 방법을 정리한다.

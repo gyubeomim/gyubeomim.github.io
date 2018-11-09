@@ -1,8 +1,8 @@
 ---
-layout: post
-title: React 초기 프로젝트 세팅
-category: react
-tag: react
+<!-- layout: post -->
+<!-- title: React 초기 프로젝트 세팅 -->
+<!-- category: react -->
+<!-- tag: react -->
 ---
 
 react 프로젝트 초기 설정했던 내용을 간단하게 요약해서 적어놓는다. 그냥 복붙하기 좋게.

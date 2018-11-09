@@ -1,8 +1,8 @@
 ---
-title: 루프 돌며 이벤트 리스너 추가하기
-layout: post
-categories: [javascript]
-tags: [javascript, functional-javascript]
+<!-- title: 루프 돌며 이벤트 리스너 추가하기 -->
+<!-- layout: post -->
+<!-- categories: [javascript] -->
+<!-- tags: [javascript, functional-javascript] -->
 ---
 
 [함수형 자바스크립트](http://www.insightbook.co.kr/book/programming-insight/%ED%95%A8%EC%88%98%ED%98%95-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D) 책을 보다가 예전에 코딩하며 문제가 됐던 내용이 생각났다.

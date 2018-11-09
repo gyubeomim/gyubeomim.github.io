@@ -1,8 +1,8 @@
 ---
-layout: post
-title: velopert님의 react 강좌를 듣고
-category: react
-tag: [react, redux] 
+<!-- layout: post -->
+<!-- title: velopert님의 react 강좌를 듣고 -->
+<!-- category: react -->
+<!-- tag: [react, redux]  -->
 ---
 
 [velopert님의 react 강좌](https://www.inflearn.com/course/react-%EA%B0%95%EC%A2%8C-velopert/) 를 듣고 느낀점과 메모해두고 싶은 내용을 적어봤다.

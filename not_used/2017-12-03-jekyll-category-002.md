@@ -1,8 +1,8 @@
 ---
-layout: post
-title: 지킬에 카테고리와 태그 적용하기 (2)
-categories: jekyll
-tags: jekyll
+<!-- layout: post -->
+<!-- title: 지킬에 카테고리와 태그 적용하기 (2) -->
+<!-- categories: jekyll -->
+<!-- tags: jekyll -->
 ---
 사이드바에서 카테고리와 태그 페이지로 이동하는 기능을 구현한다.
 현재 카테고리 항목을 클릭하면 `[블로그 주소]/category/#[카테고리명]`로 이동한다.

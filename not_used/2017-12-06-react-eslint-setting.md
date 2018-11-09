@@ -1,8 +1,8 @@
 ---
-layout: post
-title: React 개발 환경, Webstorm + eslint(airbnb)
-category: react
-tag: [react, webstorm, eslint] 
+<!-- layout: post -->
+<!-- title: React 개발 환경, Webstorm + eslint(airbnb) -->
+<!-- category: react -->
+<!-- tag: [react, webstorm, eslint]  -->
 ---
 
 코딩 컨벤션은 한번도 써 본 적이 없어서 한번 써보기로 했다. 

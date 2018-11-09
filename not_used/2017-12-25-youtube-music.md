@@ -1,7 +1,7 @@
 ---
-layout: post
-title: youtube api로 음악 재생 목록 가져오기
-tag: [open-api, youtube] 
+<!-- layout: post -->
+<!-- title: youtube api로 음악 재생 목록 가져오기 -->
+<!-- tag: [open-api, youtube]  -->
 ---
 
 youtube로 음악 데이터를 가져와보자.

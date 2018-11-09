@@ -1,8 +1,8 @@
 ---
-layout: post
-title: 지킬 시작하기
-categories: jekyll
-tags: jekyll
+<!-- layout: post -->
+<!-- title: 지킬 시작하기 -->
+<!-- categories: jekyll -->
+<!-- tags: jekyll -->
 ---
 어떤 경험이든 정리해 놓지 않으면 완벽히 내것이 되지 않는 것 같다는 생각이 들었다.
 블로그를 하면서 경험하는 모든 것을 정리해 놓기로 결정했다.

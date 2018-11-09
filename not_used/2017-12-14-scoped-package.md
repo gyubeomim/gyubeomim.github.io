@@ -1,8 +1,8 @@
 ---
-layout: post
-title: npm scoped package
-category: tool
-tag: [npm] 
+<!-- layout: post -->
+<!-- title: npm scoped package -->
+<!-- category: tool -->
+<!-- tag: [npm]  -->
 ---
 
 npm 패키지 중 @types/react처럼 앞에 @가 붙고 /로 구분되어있는 패키지가 있다. 이런 패키지를 `scoped package`라고 한다. 

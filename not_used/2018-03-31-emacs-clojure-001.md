@@ -1,8 +1,8 @@
 ---
-title: emacs에서 clojure 개발 환경 세팅
-layout: post
-categories: [clojure]
-tags: [emacs, clojure]
+<!-- title: emacs에서 clojure 개발 환경 세팅 -->
+<!-- layout: post -->
+<!-- categories: [clojure] -->
+<!-- tags: [emacs, clojure] -->
 ---
 emacs에서 clojure 개발 환경을 세팅해봤다. windows에서 하려니 좀 까다로웠던 것 같다.
 결국 [braveclojure.com](https://www.braveclojure.com/basic-emacs/)의 글을 보고 따라하면 세팅된다.

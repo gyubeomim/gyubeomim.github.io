@@ -1,8 +1,8 @@
 ---
-layout: post
-title: stateless function
-category: react
-tag: [react, webstorm, eslint] 
+<!-- layout: post -->
+<!-- title: stateless function -->
+<!-- category: react -->
+<!-- tag: [react, webstorm, eslint]  -->
 ---
 
 eslint(airbnb) 환경에서 아래와 같은 에러가 표시됐다.

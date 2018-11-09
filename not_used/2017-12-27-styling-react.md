@@ -1,8 +1,8 @@
 ---
-layout: post
-title: 리액트 컴포넌트 스타일링
-category: react
-tag: [react, css]
+<!-- layout: post -->
+<!-- title: 리액트 컴포넌트 스타일링 -->
+<!-- category: react -->
+<!-- tag: [react, css] -->
 ---
 verlopert 님의 [리액트 컴포넌트 스타일링](https://velopert.com/3447) 을 통해 공부한 것을 기록해 놓는 포스터다.
 

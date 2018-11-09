@@ -1,8 +1,8 @@
 ---
-layout: post
-title: prop types
-category: react
-tag: [react] 
+<!-- layout: post -->
+<!-- title: prop types -->
+<!-- category: react -->
+<!-- tag: [react]  -->
 ---
 
 다음과 같은 구문에서 에러가 발생했다.

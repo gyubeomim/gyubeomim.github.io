@@ -1,8 +1,8 @@
 ---
-title: emacs yasnippet 사용하기
-layout: post
-categories: [tool]
-tags: [emacs, snippet]
+<!-- title: emacs yasnippet 사용하기 -->
+<!-- layout: post -->
+<!-- categories: [tool] -->
+<!-- tags: [emacs, snippet] -->
 ---
 
 ## yasnippet 설치

@@ -1,8 +1,8 @@
 ---
-title: 이전 커서 위치로 이동하기
-layout: post
-categories: [tool]
-tags: [emacs]
+<!-- title: 이전 커서 위치로 이동하기 -->
+<!-- layout: post -->
+<!-- categories: [tool] -->
+<!-- tags: [emacs] -->
 ---
 
 ## 현재 버퍼에서 이전 커서 위치로 이동

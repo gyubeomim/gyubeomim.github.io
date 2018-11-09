@@ -1,8 +1,8 @@
 ---
-layout: post
-title: 노마드코더님의 ReactJS로 웹서비스 만들기 강좌를 듣고
-category: react
-tag: [react, redux] 
+<!-- layout: post -->
+<!-- title: 노마드코더님의 ReactJS로 웹서비스 만들기 강좌를 듣고 -->
+<!-- category: react -->
+<!-- tag: [react, redux]  -->
 ---
 
 velopert님의 강좌에 이어 노마드코더님의 [ReactJS로 웹서비스 만들기](https://www.inflearn.com/course/reactjs-web/) 강좌를 봤다.

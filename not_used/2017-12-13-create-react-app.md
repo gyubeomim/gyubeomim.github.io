@@ -1,8 +1,8 @@
 ---
-layout: post
-title: create-react-app으로 프로젝트 생성하기
-category: react
-tag: [react, redux] 
+<!-- layout: post -->
+<!-- title: create-react-app으로 프로젝트 생성하기 -->
+<!-- category: react -->
+<!-- tag: [react, redux]  -->
 ---
 
 create-react-app로 프로젝트를 생성하고 eslint 설정이나 추가적으로 필요한 패키지 설치를 정리해본다.

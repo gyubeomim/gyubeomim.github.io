@@ -1,8 +1,8 @@
 ---
-layout: post
-title: 지킬에 카테고리와 태그 적용하기 (1)
-categories: jekyll
-tags: jekyll
+<!-- layout: post -->
+<!-- title: 지킬에 카테고리와 태그 적용하기 (1) -->
+<!-- categories: jekyll -->
+<!-- tags: jekyll -->
 ---
 포스팅한 글들을 분류하려면 카테고리와 태그를 적용해야겠다고 생각했다. 
 다른 지킬 블로그 중 내가 원하는 카테고리와 태그를 적용해 놓은 곳을 찾아보았다.

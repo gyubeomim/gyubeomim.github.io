@@ -1,8 +1,8 @@
 ---
-layout: post
-title: Git CRLF와 LF 이슈
-category: git
-tag: git
+<!-- layout: post -->
+<!-- title: Git CRLF와 LF 이슈 -->
+<!-- category: git -->
+<!-- tag: git -->
 ---
 
 윈도우즈에서는 줄바꿈 문자가 CRLF이고 리눅스나 맥에서는 LF이다. 서로 다른 OS를 사용하는 사람끼리 협업할 때 줄바꿈 문자가 통일되지 않아 문제가 되는 경우가 있다. 

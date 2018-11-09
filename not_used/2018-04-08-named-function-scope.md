@@ -1,8 +1,8 @@
 ---
-title: 유명 함수 스코프
-layout: post
-categories: [javascript]
-tags: [javascript, functional-javascript]
+<!-- title: 유명 함수 스코프 -->
+<!-- layout: post -->
+<!-- categories: [javascript] -->
+<!-- tags: [javascript, functional-javascript] -->
 ---
 
 함수형 자바스크립트 책을 보다가 간단한데 몰랐던 내용이 있었다.

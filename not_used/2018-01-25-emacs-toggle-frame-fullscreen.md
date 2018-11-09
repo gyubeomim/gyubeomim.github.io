@@ -1,8 +1,8 @@
 ---
-title: 윈도우에서 emacs 타이틀바 보이기/숨기기
-layout: post
-categories: [tool]
-tags: [emacs, windows]
+<!-- title: 윈도우에서 emacs 타이틀바 보이기/숨기기 -->
+<!-- layout: post -->
+<!-- categories: [tool] -->
+<!-- tags: [emacs, windows] -->
 ---
 
 실수로 눌렀는지 모르겠지만 갑자기 윈도우의 타이틀바가 없어지는

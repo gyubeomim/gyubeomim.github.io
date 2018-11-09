@@ -1,8 +1,8 @@
 ---
-layout: post
-title: window 환경에서 npm update하기 
-category: npm
-tag: [npm] 
+<!-- layout: post -->
+<!-- title: window 환경에서 npm update하기  -->
+<!-- category: npm -->
+<!-- tag: [npm]  -->
 ---
 
 윈도우 환경에서 npm을 업데이트 하는 방법은 리눅스나 맥OS와 좀 다르다. 

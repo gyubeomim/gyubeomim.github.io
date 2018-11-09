@@ -1,8 +1,8 @@
 ---
-layout: post
-title: 함수형 자바스크립트(1) 세미나 후기
-categories: javascript
-tags: javascript, 함수형프로그래밍
+<!-- layout: post -->
+<!-- title: 함수형 자바스크립트(1) 세미나 후기 -->
+<!-- categories: javascript -->
+<!-- tags: javascript, 함수형프로그래밍 -->
 ---
 
 ## 세미나

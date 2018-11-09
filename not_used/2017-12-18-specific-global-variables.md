@@ -1,8 +1,8 @@
 ---
-layout: post
-title: eslint - 명시적 전역 변수
-category: eslint
-tag: [eslint, airbnb] 
+<!-- layout: post -->
+<!-- title: eslint - 명시적 전역 변수 -->
+<!-- category: eslint -->
+<!-- tag: [eslint, airbnb]  -->
 ---
 react 예제를 분석하는 중 clone받은 소스에서는 에러가 나지 않았던 부분인데, 새로 만든 프로젝트에서는 ESLint상에서 에러가 발생하는 걸 발견했다.
 
