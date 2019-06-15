@@ -144,3 +144,12 @@
     url(/fonts/NanumGothic.svg#NanumGothic) format(svg)
     src:local(※), url(/fonts/NanumGothic.woff) format(woff);
 }
+@font-face {
+  font-family: "NG";
+  src: url( '../../assets/fonts/NanumGothic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "NGL";
+  src: url( '../../assets/fonts/NanumGothicLight.ttf') format('truetype');
+}
