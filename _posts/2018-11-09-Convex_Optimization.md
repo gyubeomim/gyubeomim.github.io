@@ -6,6 +6,7 @@ date: 2018-11-09
 categories: [Optimization]
 tags: [Convex,Concave,Optimization]
 use_math: true
+comments: true
 ---
 
 ## Convex Optimization

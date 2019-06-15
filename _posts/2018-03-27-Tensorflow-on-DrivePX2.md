@@ -6,6 +6,7 @@ date: 2018-03-27
 categories: [Drive PX2]
 tags: []
 use_math: true
+comments: true
 ---
 
 - Drive PX2에 `Tensorflow`를 설치하려면 `aarch64(arm)` cpu 버전에 맞는 Tensorflow를 설치해야한다
