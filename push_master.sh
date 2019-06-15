@@ -1,8 +1,3 @@
 git add . -A
-if [ -z "$1" ]
-then
-	git commit -m "$(date +%Y%m%d) from Windows" 
-else
-	git commit -m "$1" 
-fi
+git commit -m "from linux : $(lsb_release -sd)" 
 git push origin master
