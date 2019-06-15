@@ -40,10 +40,15 @@ body {
   overflow-x: hidden;
 }
 
-/*@font-face {*/
-  /*font-family: "D2Coding";*/
-  /*src: url( '../../assets/fonts/D2Coding.ttf') format('truetype');*/
-/*}*/
+@font-face {
+  font-family: "NanumGothic";
+  src: url( '../../assets/fonts/NanumGothic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "NanumGothicLight";
+  src: url( '../../assets/fonts/NanumGothicLight.ttf') format('truetype');
+}
 
 /*html {
   font-family: "D2Coding", Georgia, "Times New Roman", serif;
@@ -54,7 +59,7 @@ body {
 /*}*/
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: "NanumGothicLight" "PT Sans", Helvetica, Arial, sans-serif;
   font-weight: 400;
   color: #313131;
   letter-spacing: -.025rem;

@@ -24,12 +24,6 @@ discus-identifier: tigerk0430-github-io # add your discus identifier
 # Custom vars
 version:             1.0.0
 
-# Sass/SCSS
-sass:
-  sass_dir: _sass
-  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
-
-
 plugins: [jekyll-paginate]
 
 # Tag setting
