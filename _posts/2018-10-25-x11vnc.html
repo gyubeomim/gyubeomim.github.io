@@ -7,13 +7,13 @@ categories: [Linux]
 use_math: true
 comments: true
 ---
-<div id="outline-container-org9765249" class="outline-2">
-<h2 id="org9765249"><b>x11vnc</b></h2>
-<div class="outline-text-2" id="text-org9765249">
+<div id="outline-container-org7aa1a2f" class="outline-2">
+<h2 id="org7aa1a2f"><b>x11vnc</b></h2>
+<div class="outline-text-2" id="text-org7aa1a2f">
 </div>
-<div id="outline-container-org1c21d55" class="outline-3">
-<h3 id="org1c21d55">패스워드 저장 및 변경</h3>
-<div class="outline-text-3" id="text-org1c21d55">
+<div id="outline-container-org53fdd51" class="outline-3">
+<h3 id="org53fdd51">패스워드 저장 및 변경</h3>
+<div class="outline-text-3" id="text-org53fdd51">
 <div class="org-src-container">
 <pre class="src src-sh">$ sudo x11vnc -storepasswd
 
@@ -22,36 +22,36 @@ Verify password: [enter the new password again]
 Write password to /home/ubuntu/.vnc/passwd? [y]/n y
 Password written to : /home/ubuntu/.vnc/passwd
 
-<span style="color: #32cd32;"># </span><span style="color: #32cd32;">.vnc/passwd &#54028;&#51068;&#51012; /etc/x11vnc.pass &#54028;&#51068;&#47196; &#48373;&#49324;&#54620;&#45796;</span>
+<span style="color: #228b22;"># </span><span style="color: #32cd32;">.vnc/passwd &#54028;&#51068;&#51012; /etc/x11vnc.pass &#54028;&#51068;&#47196; &#48373;&#49324;&#54620;&#45796;</span>
 $ sudo cp ~/.vnc/passwd /etc/x11vnc.pass
 
-<span style="color: #32cd32;"># </span><span style="color: #32cd32;">x11vnc service&#47484; &#51116;&#49884;&#51089;&#54620;&#45796;</span>
+<span style="color: #228b22;"># </span><span style="color: #32cd32;">x11vnc service&#47484; &#51116;&#49884;&#51089;&#54620;&#45796;</span>
 $ sudo service x11vnc restart
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgbdaeb9f" class="outline-3">
-<h3 id="orgbdaeb9f">서비스 업로드 및 시작</h3>
-<div class="outline-text-3" id="text-orgbdaeb9f">
+<div id="outline-container-org860da78" class="outline-3">
+<h3 id="org860da78">서비스 업로드 및 시작</h3>
+<div class="outline-text-3" id="text-org860da78">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #32cd32;"># </span><span style="color: #32cd32;">&#50500;&#47000; &#54028;&#51068;&#51012; &#49688;&#51221;&#54620;&#45796;</span>
+<pre class="src src-sh"><span style="color: #228b22;"># </span><span style="color: #32cd32;">&#50500;&#47000; &#54028;&#51068;&#51012; &#49688;&#51221;&#54620;&#45796;</span>
 $ sudo vim /lib/systemd/system/x11vnc.service
 
-<span style="color: #32cd32;"># </span><span style="color: #32cd32;">daemin reload </span>
+<span style="color: #228b22;"># </span><span style="color: #32cd32;">daemin reload </span>
 $ sudo systemctl daemon-reload
 
-<span style="color: #32cd32;"># </span><span style="color: #32cd32;">start service</span>
+<span style="color: #228b22;"># </span><span style="color: #32cd32;">start service</span>
 $ sudo systemctl restart x11vnc.service
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org4af155d" class="outline-3">
-<h3 id="org4af155d">whitelist 추가</h3>
-<div class="outline-text-3" id="text-org4af155d">
+<div id="outline-container-org722a897" class="outline-3">
+<h3 id="org722a897">whitelist 추가</h3>
+<div class="outline-text-3" id="text-org722a897">
 <p>
 특정 IP만 접속 가능하도록 설정
 </p>
@@ -62,7 +62,7 @@ $ sudo systemctl restart x11vnc.service
 <span style="color: #268bd2;">After</span>=display-manager.service
 
 [Service]
-<span style="color: #32cd32;"># </span><span style="color: #32cd32;">&#50668;&#44592;&#50640; -allow 147.47. &#51004;&#47196; subnet mask whitelist&#47484; &#49444;&#51221;&#54664;&#45796;</span>
+<span style="color: #228b22;"># </span><span style="color: #32cd32;">&#50668;&#44592;&#50640; -allow 147.47. &#51004;&#47196; subnet mask whitelist&#47484; &#49444;&#51221;&#54664;&#45796;</span>
 <span style="color: #268bd2;">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -env <span style="color: #268bd2;">FD_TAG</span>=my_gnome1 -env <span style="color: #268bd2;">FD_SESS</span>=gnome -allow 147.47.
 <span style="color: #268bd2;">ExecStop</span>=/usr/bin/killall x11vnc
 <span style="color: #268bd2;">Restart</span>=on-failure
