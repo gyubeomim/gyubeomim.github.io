@@ -6,7 +6,7 @@ permalink:           pretty
 
 # Setup
 title:               lockdpwn's blog
-tagline:             'Researcher & Engineer & Tech Evangelist'
+tagline:             "Researcher & Engineer & Tech Evangelist"
 description:         ''
 url:                 https://tigerk0430.github.io
 baseurl:             ''
@@ -23,6 +23,12 @@ discus-identifier: tigerk0430-github-io # add your discus identifier
   
 # Custom vars
 version:             1.0.0
+
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
 
 plugins: [jekyll-paginate]
 
@@ -49,3 +55,39 @@ category_dir: category/
 tag_dir: tag/
 
 excerpt_separator: ""
+
+# Reading Files
+include:
+  - .htaccess
+  - _pages
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - vendor
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+    - assets/js/plugins
+  - assets/js/_main.js
+  - assets/js/vendor
+  - Capfile
+  - CHANGELOG
+  - config
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - log
+  - node_modules
+  - package.json
+  - Rakefile
+  - README
+  - tmp
+  - /docs # ignore Minimal Mistakes /docs
+  - /test # ignore Minimal Mistakes /test
+keep_files:
+  - .git
+  - .svn
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
