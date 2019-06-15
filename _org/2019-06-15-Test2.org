@@ -1,7 +1,8 @@
+#+HTML_MATHJAX: align: left indent: 5em tagside: left font: Neo-Euler
+#+HTML_MATHJAX: cancel.js noErrors.js
 #+OPTIONS: num:nil toc:nil
 #+BEGIN_EXPORT html
 ---
-
 layout: post
 title: org-mode jekyll posting
 description: 
