@@ -2,18 +2,18 @@
 layout: post
 title: X11VNC
 description: 
-date: 2019-06-15
+date: 2018-10-25
 categories: [Linux]
 use_math: true
 comments: true
 ---
-<div id="outline-container-orgdff79f2" class="outline-2">
-<h2 id="orgdff79f2"><b>x11vnc</b></h2>
-<div class="outline-text-2" id="text-orgdff79f2">
+<div id="outline-container-org9765249" class="outline-2">
+<h2 id="org9765249"><b>x11vnc</b></h2>
+<div class="outline-text-2" id="text-org9765249">
 </div>
-<div id="outline-container-org04e4497" class="outline-3">
-<h3 id="org04e4497">패스워드 저장 및 변경</h3>
-<div class="outline-text-3" id="text-org04e4497">
+<div id="outline-container-org1c21d55" class="outline-3">
+<h3 id="org1c21d55">패스워드 저장 및 변경</h3>
+<div class="outline-text-3" id="text-org1c21d55">
 <div class="org-src-container">
 <pre class="src src-sh">$ sudo x11vnc -storepasswd
 
@@ -32,9 +32,9 @@ $ sudo service x11vnc restart
 </div>
 </div>
 
-<div id="outline-container-org11372fb" class="outline-3">
-<h3 id="org11372fb">서비스 업로드 및 시작</h3>
-<div class="outline-text-3" id="text-org11372fb">
+<div id="outline-container-orgbdaeb9f" class="outline-3">
+<h3 id="orgbdaeb9f">서비스 업로드 및 시작</h3>
+<div class="outline-text-3" id="text-orgbdaeb9f">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #32cd32;"># </span><span style="color: #32cd32;">&#50500;&#47000; &#54028;&#51068;&#51012; &#49688;&#51221;&#54620;&#45796;</span>
 $ sudo vim /lib/systemd/system/x11vnc.service
@@ -49,9 +49,9 @@ $ sudo systemctl restart x11vnc.service
 </div>
 </div>
 
-<div id="outline-container-org3ea384f" class="outline-3">
-<h3 id="org3ea384f">whitelist 추가</h3>
-<div class="outline-text-3" id="text-org3ea384f">
+<div id="outline-container-org4af155d" class="outline-3">
+<h3 id="org4af155d">whitelist 추가</h3>
+<div class="outline-text-3" id="text-org4af155d">
 <p>
 특정 IP만 접속 가능하도록 설정
 </p>

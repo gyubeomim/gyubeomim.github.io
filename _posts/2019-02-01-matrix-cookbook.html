@@ -1,0 +1,223 @@
+---
+layout: post
+title: Matrix Cookbook
+description: 
+date: 2019-02-01
+categories: [Mathematics]
+use_math: true
+comments: true
+---
+<div id="outline-container-org434ef70" class="outline-2">
+<h2 id="org434ef70">origin of matrix</h2>
+<div class="outline-text-2" id="text-org434ef70">
+<p>
+연립일차방정식을 풀기 위해 고안되었다
+</p>
+</div>
+</div>
+<div id="outline-container-orgffe9edc" class="outline-2">
+<h2 id="orgffe9edc">multiplicaition of matrix</h2>
+<div class="outline-text-2" id="text-orgffe9edc">
+<p>
+<a href="https://youtu.be/83UnOz6HiOY?t=958">https://youtu.be/83UnOz6HiOY?t=958</a>
+</p>
+
+<p>
+행렬의 곱은 행렬의 합성으로 볼 수 있다.
+</p>
+
+<p>
+함수의 합성과 비슷하다
+아래 두 함수의 합성을 살펴보면
+</p>
+
+<p>
+$$f(x,y) = (ax+by, cx+dy)$$
+$$g(x,y) = (px+qy, rx+sy)$$
+</p>
+
+<p>
+$f \cdot g = ((ap+br)x + (aq+bs)y, (cp+dr)x + (cq+ds)y)$
+</p>
+
+<p>
+이는 곧
+</p>
+
+<p>
+$$F = \begin{bmatrix}
+a &amp; b\\ 
+c &amp; d
+\end{bmatrix}$$
+$$G = \begin{bmatrix}
+p &amp; q\\ 
+r &amp; s
+\end{bmatrix}$$
+</p>
+
+<p>
+$$FG = \begin{bmatrix}
+ap+br &amp; aq+bs\\ 
+cp+dr &amp; cq+ds
+\end{bmatrix}$$
+</p>
+
+<p>
+와 같다
+</p>
+</div>
+</div>
+<div id="outline-container-orge8d2b25" class="outline-2">
+<h2 id="orge8d2b25">gauss-jordan elimination</h2>
+<div class="outline-text-2" id="text-orge8d2b25">
+<p>
+다음의 세 가지 기본 행 연산을 통해 연립일차방정식의 첨가행렬을 기약 행 사다리꼴로 변환하여 해를 구한다.
+</p>
+<ol class="org-ol">
+<li>한 행을 상수배한다.</li>
+<li>한 행을 상수배하여 다른 행에 더한다.</li>
+<li>두 행을 맞바꾼다.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org58953b0" class="outline-2">
+<h2 id="org58953b0">determinant</h2>
+<div class="outline-text-2" id="text-org58953b0">
+<p>
+정사각행렬 A를 하나의 수로써 대응시키는 특별한 함수
+</p>
+
+<p>
+$\det(A) = |A|$
+</p>
+
+<p>
+행렬식은 행렬보다도 더 전에 있었던 방법이다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4d08c81" class="outline-2">
+<h2 id="org4d08c81">inverse of matrix</h2>
+<div class="outline-text-2" id="text-org4d08c81">
+<p>
+<a href="https://youtu.be/83UnOz6HiOY?t=4065">수학의신이상엽</a>
+</p>
+
+<p>
+행렬식이 0이면 역행렬이 존재하지 않는다.
+</p>
+
+<p>
+즉 행렬식이 0이 아닌 정사각행렬 $A$의 역행렬 $A^{-1}$는
+</p>
+
+<p>
+$A^{-1} = \frac{1}{\det(A)} adj(A)$이다.
+</p>
+
+<p>
+<code>Proof)</code>
+</p>
+
+<p>
+$A \cdot ? = \mathbf{I}$와 같은 식이 있을 때 ?를 A의 역행렬이라고 하면 
+</p>
+
+<p>
+$A \cdot adj(A) = \det(A) \cdot \mathbf{I}$와 같은 꼴이 성립하고
+</p>
+
+<p>
+$A \cdot \frac{adj(A)}{\det(A)} = \mathbf{I}$꼴이 되므로
+</p>
+
+<p>
+$\therefore A^{-1} = \frac{adj(A)}{\det(A)}$이 된다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org208878d" class="outline-2">
+<h2 id="org208878d">cramer formula</h2>
+<div class="outline-text-2" id="text-org208878d">
+<p>
+연립일차방정식 $AX = B$에서, A가 행렬식이 0이 아닌 정사각행렬일 때
+</p>
+
+<p>
+$x_{j} = \frac{\det(A_{j})}{\det(A)}$
+</p>
+
+<p>
+단 $j=1,\cdots,n$이고 $A_{j}$는 $A$의 $j$번째 열을 $B$의 $j$번째 열로 바꾼 행렬이다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb38937c" class="outline-2">
+<h2 id="orgb38937c">trace of matrix</h2>
+<div class="outline-text-2" id="text-orgb38937c">
+<p>
+행렬의 대각 성분의 합을 의미하며 $\textbf{tr}(A)$와 같이 표시한다.
+</p>
+
+<p>
+다음과 같은 특징을 지니고 있다
+</p>
+
+<p>
+$$\mathbf{X}^{T}\mathbf{A}\mathbf{X} = \textbf{tr}(\mathbf{X}^{T}\mathbf{A}\mathbf{X}) = \textbf{tr}(\mathbf{A}\mathbf{X}^{T}\mathbf{X})$$
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge6e653d" class="outline-2">
+<h2 id="orge6e653d">diagonal matrix 대각행렬</h2>
+<div class="outline-text-2" id="text-orge6e653d">
+<p>
+대각성분만 값이 있고 나머지 부분이 0인 행렬을 말한다.
+</p>
+
+<p>
+기호는 보통 $\Lambda$로 나타낸다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4c1219a" class="outline-2">
+<h2 id="org4c1219a">adjacency matrix 인접행렬</h2>
+</div>
+<div id="outline-container-orga8cea80" class="outline-2">
+<h2 id="orga8cea80">hermite matrix 헤르미트 행렬</h2>
+</div>
+<div id="outline-container-org3cf8d5d" class="outline-2">
+<h2 id="org3cf8d5d">adjoint matrix  수반행렬</h2>
+<div class="outline-text-2" id="text-org3cf8d5d">
+<p>
+n차 정방행렬 $A = (a_{ij})$에 대해 A의 여인수 행렬의 전치행렬을 A의 수반행렬이라고 하고
+$\text{adj}A$라고 표기한다.
+</p>
+
+<p>
+수반행렬은 다음과 같은 특징을 가진다.
+$$A^{-1} = \frac{\text{adj}A}{\left | A \right |}$$
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0fda51d" class="outline-2">
+<h2 id="org0fda51d">vandemonde matrix 반데몬데 행렬</h2>
+</div>
+
+<div id="outline-container-orgab52f46" class="outline-2">
+<h2 id="orgab52f46">determinant 행렬식</h2>
+</div>
+
+<div id="outline-container-org1c949df" class="outline-2">
+<h2 id="org1c949df">positive semidefinite</h2>
+</div>
+
+<div id="outline-container-org93051ae" class="outline-2">
+<h2 id="org93051ae">eigenvalue and eigenvector</h2>
+</div>
