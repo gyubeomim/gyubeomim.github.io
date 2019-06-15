@@ -1,8 +1,8 @@
-#+OPTIONS: num:nil toc:nil src_latex{$x+1$}
+#+OPTIONS: num:nil toc:nil tex:verbatim
 #+BEGIN_EXPORT html
 ---
 layout: post
-title: org-mode jekyll posting3
+title: org-mode jekyll posting4
 description: 
 date: 2019-06-15
 categories: [Optimization]
