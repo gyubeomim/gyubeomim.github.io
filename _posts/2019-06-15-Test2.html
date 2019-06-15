@@ -1,6 +1,6 @@
 ---
 layout: post
-title: org-mode jekyll posting2
+title: org-mode jekyll posting3
 description: 
 date: 2019-06-15
 categories: [Optimization]
@@ -8,18 +8,20 @@ use_math: true
 comments: true
 
 ---
-<div id="outline-container-sec-" class="outline-2">
-<h2 id="sec-"><b>Lie Group</b></h2>
-<div class="outline-text-2" id="text-">
+<div id="outline-container-org3eebfd4" class="outline-2">
+<h2 id="org3eebfd4"><b>Lie Group</b></h2>
+<div class="outline-text-2" id="text-org3eebfd4">
 <p>
-군(Group)은 집합과 연산으로 이루어진 대수적 구조를 말한다. 예를 들어, 어떤 집합을 \(A\) 라고 하고 어떤 연산을 \(\cdot\) 으로 표시했을 때, 군은 \(G = (A, \cdot)\) 으로 나타낼 수 있다.
+군(Group)은 집합과 연산으로 이루어진 대수적 구조를 말한다. 예를 들어, 어떤 집합을 \(A\) 라고 하고 어떤 연산을 \(\cdot\) 으로 표시했을 때, 군은
+\(G = (A, \cdot)\)
+으로 나타낼 수 있다.
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-" class="outline-2">
-<h2 id="sec-"><b>Reasons why Lie theory is used in SLAM</b></h2>
-<div class="outline-text-2" id="text-">
+<div id="outline-container-org23e16a2" class="outline-2">
+<h2 id="org23e16a2"><b>Reasons why Lie theory is used in SLAM</b></h2>
+<div class="outline-text-2" id="text-org23e16a2">
 <p>
 SLAM에서 카메라 포즈 값을 업데이트하면서 최적의 값을 찾을 때 일반적으로 최적화 문제로 구성을 한 다음 최적의 \(\mathbf{R}\) 을 풀고 \(\mathbf{t}\) 를 최소화해서 오류를 최소화 하는 방식으로 접근한다. 이 때 회전 행렬의 경우 \(\text{det}(\mathbf{R})=1\) 인 직교행렬이라는 제약조건으로 인해 복잡도가 증가한다. 이 때 <b>Lie Group, Lie Algebra</b> 의 변환관계를 사용하면 카메라의 Pose 추정 문제를 제약없는 최적화 문제로 단순화하여 접근이 가능하기 때문에 사용한다.
 </p>
@@ -64,9 +66,9 @@ SLAM에서 카메라 포즈 값을 업데이트하면서 최적의 값을 찾을
 </div>
 </div>
 
-<div id="outline-container-sec-" class="outline-2">
-<h2 id="sec-"><b>Derivation of Lie Group</b></h2>
-<div class="outline-text-2" id="text-">
+<div id="outline-container-org4f826f4" class="outline-2">
+<h2 id="org4f826f4"><b>Derivation of Lie Group</b></h2>
+<div class="outline-text-2" id="text-org4f826f4">
 <p>
 임의의 회전 행렬은 다음과 같은 성질을 만족한다.
 </p>
