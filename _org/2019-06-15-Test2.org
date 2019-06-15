@@ -1,6 +1,7 @@
 #+OPTIONS: num:nil toc:nil
 #+BEGIN_EXPORT html
 ---
+
 layout: post
 title: org-mode jekyll posting
 description: 
@@ -8,6 +9,7 @@ date: 2019-06-15
 categories: [Optimization]
 use_math: true
 comments: true
+
 ---
 #+END_EXPORT
 #+BEGIN_COMMENT
