@@ -40,16 +40,6 @@ body {
   overflow-x: hidden;
 }
 
-@font-face {
-  font-family: "NanumGothic";
-  src: url( '../../assets/fonts/NanumGothic.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: "NanumGothicLight";
-  src: url( '../../assets/fonts/NanumGothicLight.ttf') format('truetype');
-}
-
 /*html {
   font-family: "D2Coding", Georgia, "Times New Roman", serif;
 }*/
