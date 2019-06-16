@@ -7,33 +7,33 @@ categories: [Computer Science]
 use_math: true
 comments: true
 ---
-<div id="outline-container-orgdc6ce6d" class="outline-2">
-<h2 id="orgdc6ce6d">CMAKE</h2>
-<div class="outline-text-2" id="text-orgdc6ce6d">
+<div id="outline-container-org7755778" class="outline-2">
+<h2 id="org7755778">CMAKE</h2>
+<div class="outline-text-2" id="text-org7755778">
 </div>
-<div id="outline-container-orgc1603cd" class="outline-3">
-<h3 id="orgc1603cd">Commands</h3>
-<div class="outline-text-3" id="text-orgc1603cd">
+<div id="outline-container-org656a7ab" class="outline-3">
+<h3 id="org656a7ab">Commands</h3>
+<div class="outline-text-3" id="text-org656a7ab">
 </div>
-<div id="outline-container-org2a248c4" class="outline-4">
-<h4 id="org2a248c4">CMAKE<sub>MINIMUM</sub><sub>REQUIRED</sub>()</h4>
-<div class="outline-text-4" id="text-org2a248c4">
+<div id="outline-container-org199ca89" class="outline-4">
+<h4 id="org199ca89">CMAKE<sub>MINIMUM</sub><sub>REQUIRED</sub>()</h4>
+<div class="outline-text-4" id="text-org199ca89">
 <ul class="org-ul">
 <li>필요 CMake 최소 버전 명시</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4ee3945" class="outline-4">
-<h4 id="org4ee3945">PROJECT()</h4>
-<div class="outline-text-4" id="text-org4ee3945">
+<div id="outline-container-orgb29b22f" class="outline-4">
+<h4 id="orgb29b22f">PROJECT()</h4>
+<div class="outline-text-4" id="text-orgb29b22f">
 <ul class="org-ul">
 <li>프로젝트 이름 설정</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf527e74" class="outline-4">
-<h4 id="orgf527e74">MESSAGE()</h4>
-<div class="outline-text-4" id="text-orgf527e74">
+<div id="outline-container-orgb365b68" class="outline-4">
+<h4 id="orgb365b68">MESSAGE()</h4>
+<div class="outline-text-4" id="text-orgb365b68">
 <ul class="org-ul">
 <li>콘솔에 메세지 출력</li>
 </ul>
@@ -55,9 +55,9 @@ ex: $ MESSAGE ( FATAL_ERROR <span style="color: #2aa198;">"Fatal error occurred!
 </div>
 </div>
 
-<div id="outline-container-orgd5d2d10" class="outline-4">
-<h4 id="orgd5d2d10">ADD<sub>EXECUTABLE</sub>()</h4>
-<div class="outline-text-4" id="text-orgd5d2d10">
+<div id="outline-container-orga086a96" class="outline-4">
+<h4 id="orga086a96">ADD<sub>EXECUTABLE</sub>()</h4>
+<div class="outline-text-4" id="text-orga086a96">
 <ul class="org-ul">
 <li>빌드 최종 결과물로 생성할 실행 파일을 추가합니다. 이 명령을 반복하여 생성할 실행 파일을 계속 추가할 수 있습니다.</li>
 </ul>
@@ -68,9 +68,9 @@ ex: $ MESSAGE ( FATAL_ERROR <span style="color: #2aa198;">"Fatal error occurred!
 </div>
 </div>
 
-<div id="outline-container-orgbd724f5" class="outline-4">
-<h4 id="orgbd724f5">ADD<sub>LIBRARY</sub>()</h4>
-<div class="outline-text-4" id="text-orgbd724f5">
+<div id="outline-container-org42dbcac" class="outline-4">
+<h4 id="org42dbcac">ADD<sub>LIBRARY</sub>()</h4>
+<div class="outline-text-4" id="text-org42dbcac">
 <ul class="org-ul">
 <li>빌드 최종 결과물로 생성할 라이브러리를 추가합니다. 이 명령을 반복하여 생성할 라이브러리를 계속 추가할 수 있습니다.</li>
 </ul>
@@ -87,9 +87,9 @@ ex: $ ADD_LIBRARY ( app STATIC foo.c bar.c )
 </div>
 </div>
 
-<div id="outline-container-org584edbd" class="outline-4">
-<h4 id="org584edbd">ADD<sub>CUSTOM</sub><sub>TARGET</sub>()</h4>
-<div class="outline-text-4" id="text-org584edbd">
+<div id="outline-container-org8afd25b" class="outline-4">
+<h4 id="org8afd25b">ADD<sub>CUSTOM</sub><sub>TARGET</sub>()</h4>
+<div class="outline-text-4" id="text-org8afd25b">
 <ul class="org-ul">
 <li>사용자 정의 Target 추가</li>
 <li>통상적인 빌드 절차로 생성할 수 없는 Target을 추가합니다.. 라지만, 실상은 make 매크로를 정의할 때 더 많이 사용합니다.(make flash 라던가.)</li>
@@ -118,9 +118,9 @@ $ ADD_CUSTOM_TARGET ( flash
 </div>
 </div>
 
-<div id="outline-container-org40b09f7" class="outline-4">
-<h4 id="org40b09f7">ADD<sub>DEPENDENCIES</sub>()</h4>
-<div class="outline-text-4" id="text-org40b09f7">
+<div id="outline-container-orge5370b7" class="outline-4">
+<h4 id="orge5370b7">ADD<sub>DEPENDENCIES</sub>()</h4>
+<div class="outline-text-4" id="text-orge5370b7">
 <ul class="org-ul">
 <li>Top-level Target간의 의존성을 지정합니다. Top-level Target이란 ADD<sub>EXECUTABLE</sub>, ADD<sub>LIBRARY</sub>, ADD<sub>CUSTOM</sub><sub>TARGET</sub> 명령으로 정의한 Target들을 의미합니다.</li>
 </ul>
@@ -132,9 +132,9 @@ $ ADD_DEPENDENCIES ( flash app.out )
 </div>
 </div>
 
-<div id="outline-container-org484fb25" class="outline-4">
-<h4 id="org484fb25">INSTALL()</h4>
-<div class="outline-text-4" id="text-org484fb25">
+<div id="outline-container-org213800a" class="outline-4">
+<h4 id="org213800a">INSTALL()</h4>
+<div class="outline-text-4" id="text-org213800a">
 <ul class="org-ul">
 <li>Makefile에서 관용적으로 설치용 Target으로 사용되는 install target의 동작 방식을 정의합니다. 즉, <b>make install</b> 명령을 실행했을 때 무슨 동작을 수행할지를 지정합니다.</li>
 </ul>
@@ -155,26 +155,26 @@ ex: $ INSTALL ( TARGETS app.out app
 </div>
 </div>
 </div>
-<div id="outline-container-org96f909f" class="outline-3">
-<h3 id="org96f909f">Variables</h3>
-<div class="outline-text-3" id="text-org96f909f">
+<div id="outline-container-org1b356d0" class="outline-3">
+<h3 id="org1b356d0">Variables</h3>
+<div class="outline-text-3" id="text-org1b356d0">
 <ul class="org-ul">
 <li>변수를 설정하는 방법은 <b>set($VARIABLE value)</b> 로 설정할 수 있다</li>
 <li>변수를 확인하는 방법은 <b>message(${VARIABLE})</b> 로 확인할 수 있다</li>
 </ul>
 </div>
-<div id="outline-container-org89bb600" class="outline-4">
-<h4 id="org89bb600">${CMAKE<sub>PROJECT</sub><sub>NAME</sub>}</h4>
-<div class="outline-text-4" id="text-org89bb600">
+<div id="outline-container-org7439fba" class="outline-4">
+<h4 id="org7439fba">${CMAKE<sub>PROJECT</sub><sub>NAME</sub>}</h4>
+<div class="outline-text-4" id="text-org7439fba">
 <ul class="org-ul">
 <li>프로젝트 이름</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd6fabfb" class="outline-4">
-<h4 id="orgd6fabfb">${CMAKE<sub>BUILD</sub><sub>TYPE</sub>}</h4>
-<div class="outline-text-4" id="text-orgd6fabfb">
+<div id="outline-container-org9df78d7" class="outline-4">
+<h4 id="org9df78d7">${CMAKE<sub>BUILD</sub><sub>TYPE</sub>}</h4>
+<div class="outline-text-4" id="text-org9df78d7">
 <ul class="org-ul">
 <li>빌드 형상(Configuration)
 <ul class="org-ul">
@@ -187,9 +187,9 @@ ex: $ INSTALL ( TARGETS app.out app
 </div>
 </div>
 
-<div id="outline-container-org847ec65" class="outline-4">
-<h4 id="org847ec65">${CMAKE<sub>VERBOSE</sub><sub>MAKEFILE</sub>}</h4>
-<div class="outline-text-4" id="text-org847ec65">
+<div id="outline-container-org6aed0eb" class="outline-4">
+<h4 id="org6aed0eb">${CMAKE<sub>VERBOSE</sub><sub>MAKEFILE</sub>}</h4>
+<div class="outline-text-4" id="text-org6aed0eb">
 <ul class="org-ul">
 <li>Verbose Makefile 작성 여부</li>
 <li>이 변수는 Switch변수이며, 다음과 같이 값을 true(또는 1)로 지정하면 빌드 상세 과정을 모두 출력하는 Makefile을 생성합니다.</li>
@@ -201,9 +201,9 @@ ex: $ INSTALL ( TARGETS app.out app
 </div>
 </div>
 
-<div id="outline-container-org397e18a" class="outline-4">
-<h4 id="org397e18a">${CMAKE<sub>INSTALL</sub><sub>PREFIX</sub>}</h4>
-<div class="outline-text-4" id="text-org397e18a">
+<div id="outline-container-org38b16e3" class="outline-4">
+<h4 id="org38b16e3">${CMAKE<sub>INSTALL</sub><sub>PREFIX</sub>}</h4>
+<div class="outline-text-4" id="text-org38b16e3">
 <ul class="org-ul">
 <li>설치 매크로(make install)에서 실행 바이너리와 라이브러리 등의 최종 생성물을 복사할 설치 디렉토리를 지정합니다. INSTALL() 명령에서 상대 경로를 사용한 경우, 이 변수에 지정한 디렉토리가 Base 디렉토리가 됩니다.</li>
 </ul>
