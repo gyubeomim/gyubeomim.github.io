@@ -58,8 +58,8 @@ $ sudo systemctl restart x11vnc.service
 <span style="color: #268bd2;">After</span>=display-manager.service
 
 [Service]
-<span style="color: #228b22;"># </span><span style="color: #32cd32;">&#50668;&#44592;&#50640; -allow 147.47. &#51004;&#47196; subnet mask whitelist&#47484; &#49444;&#51221;&#54664;&#45796;</span>
-<span style="color: #268bd2;">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -env <span style="color: #268bd2;">FD_TAG</span>=my_gnome1 -env <span style="color: #268bd2;">FD_SESS</span>=gnome -allow 147.47.
+<span style="color: #228b22;"># </span><span style="color: #32cd32;">&#50668;&#44592;&#50640; -allow 123.23. &#51004;&#47196; subnet mask whitelist&#47484; &#49444;&#51221;&#54664;&#45796;</span>
+<span style="color: #268bd2;">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -env <span style="color: #268bd2;">FD_TAG</span>=my_gnome1 -env <span style="color: #268bd2;">FD_SESS</span>=gnome -allow 123.23
 <span style="color: #268bd2;">ExecStop</span>=/usr/bin/killall x11vnc
 <span style="color: #268bd2;">Restart</span>=on-failure
 Restart-sec=2
