@@ -11,9 +11,9 @@ comments: true
 <h2 id="orgc1603cd">Commands</h2>
 <div class="outline-text-2" id="text-orgc1603cd">
 </div>
-<div id="outline-container-org2a248c4" class="outline-3">
-<h3 id="org2a248c4">CMAKE<sub>MINIMUM</sub><sub>REQUIRED</sub>()</h3>
-<div class="outline-text-3" id="text-org2a248c4">
+<div id="outline-container-org3abb2ad" class="outline-3">
+<h3 id="org3abb2ad">CMAKE\<sub>MINIMUM</sub>\<sub>REQUIRED</sub>()</h3>
+<div class="outline-text-3" id="text-org3abb2ad">
 <ul class="org-ul">
 <li>필요 CMake 최소 버전 명시</li>
 </ul>
@@ -43,70 +43,70 @@ ex: $ MESSAGE ( FATAL_ERROR <span style="color: #2aa198;">"Fatal error occurred!
 <ul class="org-ul">
 <li>STATUS : 상태 메시지 출력 (메시지 앞에 '&#x2013;'가 추가되서 출력됨)</li>
 <li>WARNING : 경고 메시지를 출력하고, 계속 진행</li>
-<li>AUTHOR<sub>WARNING</sub> : 프로젝트 개발자용 경고 메시지를 출력하고, 계속 진행</li>
-<li>SEND<sub>ERROR</sub> : 오류 메시지를 출력하고 계속 진행하지만, Makefile 생성은 하지 않음</li>
-<li>FATAL<sub>ERROR</sub> : 오류 메시지를 출력하고, 작업을 즉시 중단</li>
+<li>AUTHOR\<sub>WARNING</sub> : 프로젝트 개발자용 경고 메시지를 출력하고, 계속 진행</li>
+<li>SEND\<sub>ERROR</sub> : 오류 메시지를 출력하고 계속 진행하지만, Makefile 생성은 하지 않음</li>
+<li>FATAL\<sub>ERROR</sub> : 오류 메시지를 출력하고, 작업을 즉시 중단</li>
 </ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd5d2d10" class="outline-3">
-<h3 id="orgd5d2d10">ADD<sub>EXECUTABLE</sub>()</h3>
-<div class="outline-text-3" id="text-orgd5d2d10">
+<div id="outline-container-org730716c" class="outline-3">
+<h3 id="org730716c">ADD\<sub>EXECUTABLE</sub>()</h3>
+<div class="outline-text-3" id="text-org730716c">
 <ul class="org-ul">
 <li>빌드 최종 결과물로 생성할 실행 파일을 추가합니다. 이 명령을 반복하여 생성할 실행 파일을 계속 추가할 수 있습니다.</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-sh">$ ADD_EXECUTABLE ( app.out main.c foo.c bar.c )
+<pre class="src src-sh">$ ADD<span style="color: #2aa198;">\_</span>EXECUTABLE ( app.out main.c foo.c bar.c )
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgbd724f5" class="outline-3">
-<h3 id="orgbd724f5">ADD<sub>LIBRARY</sub>()</h3>
-<div class="outline-text-3" id="text-orgbd724f5">
+<div id="outline-container-org90db1c4" class="outline-3">
+<h3 id="org90db1c4">ADD\<sub>LIBRARY</sub>()</h3>
+<div class="outline-text-3" id="text-org90db1c4">
 <ul class="org-ul">
 <li>빌드 최종 결과물로 생성할 라이브러리를 추가합니다. 이 명령을 반복하여 생성할 라이브러리를 계속 추가할 수 있습니다.</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-sh">$ ADD_LIBRARY ( &lt;&#46972;&#51060;&#48652;&#47084;&#47532;_&#51060;&#47492;&gt; [STATIC|SHARED|MODULE] &lt;&#49548;&#49828;_&#54028;&#51068;&gt; &lt;&#49548;&#49828;_&#54028;&#51068;&gt; ... )
-ex: $ ADD_LIBRARY ( app STATIC foo.c bar.c )
+<pre class="src src-sh">$ ADD<span style="color: #2aa198;">\_</span>LIBRARY ( &lt;&#46972;&#51060;&#48652;&#47084;&#47532;<span style="color: #2aa198;">\_</span>&#51060;&#47492;&gt; [STATIC|SHARED|MODULE] &lt;&#49548;&#49828;<span style="color: #2aa198;">\_</span>&#54028;&#51068;&gt; &lt;&#49548;&#49828;<span style="color: #2aa198;">\_</span>&#54028;&#51068;&gt; ... )
+ex: $ ADD<span style="color: #2aa198;">\_</span>LIBRARY ( app STATIC foo.c bar.c )
 </pre>
 </div>
 <ul class="org-ul">
-<li>&lt;라이브러리<sub>이름</sub>&gt; : 생성할 라이브러리 이름 (lib~.a / lib~.so 에서 ~에 들어갈 값)</li>
+<li>&lt;라이브러리\<sub>이름</sub>&gt; : 생성할 라이브러리 이름 (lib~.a / lib~.so 에서 ~에 들어갈 값)</li>
 <li>[STATIC|SHARED|MODULE] : 라이브러리 종류 (생략시 STATIC)</li>
-<li>&lt;소스<sub>파일</sub>&gt; : 라이브러리를 생성하는 데 필요한 소스 파일</li>
+<li>&lt;소스\<sub>파일</sub>&gt; : 라이브러리를 생성하는 데 필요한 소스 파일</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org584edbd" class="outline-3">
-<h3 id="org584edbd">ADD<sub>CUSTOM</sub><sub>TARGET</sub>()</h3>
-<div class="outline-text-3" id="text-org584edbd">
+<div id="outline-container-orga6291d0" class="outline-3">
+<h3 id="orga6291d0">ADD\<sub>CUSTOM</sub>\<sub>TARGET</sub>()</h3>
+<div class="outline-text-3" id="text-orga6291d0">
 <ul class="org-ul">
 <li>사용자 정의 Target 추가</li>
 <li>통상적인 빌드 절차로 생성할 수 없는 Target을 추가합니다.. 라지만, 실상은 make 매크로를 정의할 때 더 많이 사용합니다.(make flash 라던가.)</li>
 <li>Taget의 Recipe를 직접 지정해야 하는 경우 유용하게 활용할 수 있습니다.</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-sh">$ ADD_CUSTOM_TARGET (
+<pre class="src src-sh">$ ADD<span style="color: #2aa198;">\_</span>CUSTOM<span style="color: #2aa198;">\_</span>TARGET (
                 &lt;&#51060;&#47492;&gt; [ALL]
-                [COMMENT &lt;&#52636;&#47141;_&#47700;&#49884;&#51648;&gt;]
-                [DEPENDS &lt;&#51032;&#51316;_&#45824;&#49345;_&#47785;&#47197;&gt;]
-                [WORKING_DIRECTORY &lt;&#51089;&#50629;_&#46356;&#47113;&#53664;&#47532;&gt;]
+                [COMMENT &lt;&#52636;&#47141;<span style="color: #2aa198;">\_</span>&#47700;&#49884;&#51648;&gt;]
+                [DEPENDS &lt;&#51032;&#51316;<span style="color: #2aa198;">\_</span>&#45824;&#49345;<span style="color: #2aa198;">\_</span>&#47785;&#47197;&gt;]
+                [WORKING<span style="color: #2aa198;">\_</span>DIRECTORY &lt;&#51089;&#50629;<span style="color: #2aa198;">\_</span>&#46356;&#47113;&#53664;&#47532;&gt;]
                 COMMAND &lt;&#47749;&#47161;&gt;
                 [COMMAND &lt;&#47749;&#47161;&gt;]
                 ...
 )
 
 ex:
-$ ADD_CUSTOM_TARGET ( flash
+$ ADD<span style="color: #2aa198;">\_</span>CUSTOM<span style="color: #2aa198;">\_</span>TARGET ( flash
         COMMENT <span style="color: #2aa198;">"Flashing binary"</span>
-        WORKING_DIRECTORY ${<span style="color: #268bd2;">CMAKE_RUNTIME_OUTPUT_DIRECTORY</span>}
-        COMMAND python esptool.py write_flash app.bin
+        WORKING<span style="color: #2aa198;">\_</span>DIRECTORY ${<span style="color: #268bd2;">CMAKE</span><span style="color: #2aa198;">\_</span>RUNTIME<span style="color: #2aa198;">\_</span>OUTPUT<span style="color: #2aa198;">\_</span>DIRECTORY}
+        COMMAND python esptool.py write<span style="color: #2aa198;">\_</span>flash app.bin
         DEPENDS app.out
         )
 </pre>
@@ -114,15 +114,15 @@ $ ADD_CUSTOM_TARGET ( flash
 </div>
 </div>
 
-<div id="outline-container-org40b09f7" class="outline-3">
-<h3 id="org40b09f7">ADD<sub>DEPENDENCIES</sub>()</h3>
-<div class="outline-text-3" id="text-org40b09f7">
+<div id="outline-container-org01e1e18" class="outline-3">
+<h3 id="org01e1e18">ADD\<sub>DEPENDENCIES</sub>()</h3>
+<div class="outline-text-3" id="text-org01e1e18">
 <ul class="org-ul">
-<li>Top-level Target간의 의존성을 지정합니다. Top-level Target이란 ADD<sub>EXECUTABLE</sub>, ADD<sub>LIBRARY</sub>, ADD<sub>CUSTOM</sub><sub>TARGET</sub> 명령으로 정의한 Target들을 의미합니다.</li>
+<li>Top-level Target간의 의존성을 지정합니다. Top-level Target이란 ADD\<sub>EXECUTABLE</sub>, ADD\<sub>LIBRARY</sub>, ADD\<sub>CUSTOM</sub>\<sub>TARGET</sub> 명령으로 정의한 Target들을 의미합니다.</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-sh">$ ADD_DEPENDENCIES ( &lt;Target_&#51060;&#47492;&gt; &lt;&#51032;&#51316;_&#45824;&#49345;&gt; &lt;&#51032;&#51316;_&#45824;&#49345;&gt; ... )
-$ ADD_DEPENDENCIES ( flash app.out )
+<pre class="src src-sh">$ ADD<span style="color: #2aa198;">\_</span>DEPENDENCIES ( &lt;Target<span style="color: #2aa198;">\_</span>&#51060;&#47492;&gt; &lt;&#51032;&#51316;<span style="color: #2aa198;">\_</span>&#45824;&#49345;&gt; &lt;&#51032;&#51316;<span style="color: #2aa198;">\_</span>&#45824;&#49345;&gt; ... )
+$ ADD<span style="color: #2aa198;">\_</span>DEPENDENCIES ( flash app.out )
 </pre>
 </div>
 </div>
@@ -135,15 +135,15 @@ $ ADD_DEPENDENCIES ( flash app.out )
 <li>Makefile에서 관용적으로 설치용 Target으로 사용되는 install target의 동작 방식을 정의합니다. 즉, <b>make install</b> 명령을 실행했을 때 무슨 동작을 수행할지를 지정합니다.</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-sh">$ INSTALL ( TARGETS &lt;Target_&#47785;&#47197;&gt;
-        RUNTIME DESTINATION &lt;&#48148;&#51060;&#45320;&#47532;_&#49444;&#52824;_&#44221;&#47196;&gt;
-        LIBRARY DESTINATION &lt;&#46972;&#51060;&#48652;&#47084;&#47532;_&#49444;&#52824;_&#44221;&#47196;&gt;
-        ARCHIVE DESTINATION &lt;&#50500;&#52852;&#51060;&#48652;_&#49444;&#52824;_&#44221;&#47196;&gt;
+<pre class="src src-sh">$ INSTALL ( TARGETS &lt;Target<span style="color: #2aa198;">\_</span>&#47785;&#47197;&gt;
+        RUNTIME DESTINATION &lt;&#48148;&#51060;&#45320;&#47532;<span style="color: #2aa198;">\_</span>&#49444;&#52824;<span style="color: #2aa198;">\_</span>&#44221;&#47196;&gt;
+        LIBRARY DESTINATION &lt;&#46972;&#51060;&#48652;&#47084;&#47532;<span style="color: #2aa198;">\_</span>&#49444;&#52824;<span style="color: #2aa198;">\_</span>&#44221;&#47196;&gt;
+        ARCHIVE DESTINATION &lt;&#50500;&#52852;&#51060;&#48652;<span style="color: #2aa198;">\_</span>&#49444;&#52824;<span style="color: #2aa198;">\_</span>&#44221;&#47196;&gt;
         )
 
 ex: $ INSTALL ( TARGETS app.out app
-        RUNTIME_DESTINATION /usr/local/bin
-        ARCHIVE_DESTINATION /usr/local/lib
+        RUNTIME<span style="color: #2aa198;">\_</span>DESTINATION /usr/local/bin
+        ARCHIVE<span style="color: #2aa198;">\_</span>DESTINATION /usr/local/lib
         )
 &#50696;: &#50948; &#47749;&#47161;&#51008; app.out&#51008; /usr/local/bin&#50640;, libapp.a&#45716; /usr/local/lib&#50640; &#49444;&#52824;&#54616;&#45716; install target&#51012; &#52628;&#44032;&#54633;&#45768;&#45796;.
 </pre>
@@ -159,18 +159,18 @@ ex: $ INSTALL ( TARGETS app.out app
 <li>변수를 확인하는 방법은 <b>message(${VARIABLE})</b> 로 확인할 수 있다</li>
 </ul>
 </div>
-<div id="outline-container-org89bb600" class="outline-3">
-<h3 id="org89bb600">${CMAKE<sub>PROJECT</sub><sub>NAME</sub>}</h3>
-<div class="outline-text-3" id="text-org89bb600">
+<div id="outline-container-orgf858630" class="outline-3">
+<h3 id="orgf858630">${CMAKE\<sub>PROJECT</sub>\<sub>NAME</sub>}</h3>
+<div class="outline-text-3" id="text-orgf858630">
 <ul class="org-ul">
 <li>프로젝트 이름</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd6fabfb" class="outline-3">
-<h3 id="orgd6fabfb">${CMAKE<sub>BUILD</sub><sub>TYPE</sub>}</h3>
-<div class="outline-text-3" id="text-orgd6fabfb">
+<div id="outline-container-org4288768" class="outline-3">
+<h3 id="org4288768">${CMAKE\<sub>BUILD</sub>\<sub>TYPE</sub>}</h3>
+<div class="outline-text-3" id="text-org4288768">
 <ul class="org-ul">
 <li>빌드 형상(Configuration)
 <ul class="org-ul">
@@ -183,28 +183,28 @@ ex: $ INSTALL ( TARGETS app.out app
 </div>
 </div>
 
-<div id="outline-container-org847ec65" class="outline-3">
-<h3 id="org847ec65">${CMAKE<sub>VERBOSE</sub><sub>MAKEFILE</sub>}</h3>
-<div class="outline-text-3" id="text-org847ec65">
+<div id="outline-container-orgf077a1b" class="outline-3">
+<h3 id="orgf077a1b">${CMAKE\<sub>VERBOSE</sub>\<sub>MAKEFILE</sub>}</h3>
+<div class="outline-text-3" id="text-orgf077a1b">
 <ul class="org-ul">
 <li>Verbose Makefile 작성 여부</li>
 <li>이 변수는 Switch변수이며, 다음과 같이 값을 true(또는 1)로 지정하면 빌드 상세 과정을 모두 출력하는 Makefile을 생성합니다.</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-sh">$ SET ( CMAKE_VERBOSE_MAKEFILE true )
+<pre class="src src-sh">$ SET ( CMAKE<span style="color: #2aa198;">\_</span>VERBOSE<span style="color: #2aa198;">\_</span>MAKEFILE true )
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org397e18a" class="outline-3">
-<h3 id="org397e18a">${CMAKE<sub>INSTALL</sub><sub>PREFIX</sub>}</h3>
-<div class="outline-text-3" id="text-org397e18a">
+<div id="outline-container-orga16c92a" class="outline-3">
+<h3 id="orga16c92a">${CMAKE\<sub>INSTALL</sub>\<sub>PREFIX</sub>}</h3>
+<div class="outline-text-3" id="text-orga16c92a">
 <ul class="org-ul">
 <li>설치 매크로(make install)에서 실행 바이너리와 라이브러리 등의 최종 생성물을 복사할 설치 디렉토리를 지정합니다. INSTALL() 명령에서 상대 경로를 사용한 경우, 이 변수에 지정한 디렉토리가 Base 디렉토리가 됩니다.</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-sh">$ SET ( CMAKE_INSTALL_PREFIX /usr/bin )
+<pre class="src src-sh">$ SET ( CMAKE<span style="color: #2aa198;">\_</span>INSTALL<span style="color: #2aa198;">\_</span>PREFIX /usr/bin )
 </pre>
 </div>
 <ul class="org-ul">
