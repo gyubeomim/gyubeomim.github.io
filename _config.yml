@@ -10,7 +10,7 @@ tagline:             "Researcher & Engineer & Tech Evangelist"
 description:         ''
 url:                 https://tigerk0430.github.io
 baseurl:             ''
-paginate:            5
+paginate:            10
 
 # About/contact
 author:
