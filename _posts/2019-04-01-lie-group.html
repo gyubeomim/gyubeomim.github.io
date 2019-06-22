@@ -7,20 +7,20 @@ categories: [Mathematics]
 use_math: true
 comments: true
 ---
-<div id="outline-container-orge3ef78b" class="outline-2">
-<h2 id="orge3ef78b">Introduction</h2>
-<div class="outline-text-2" id="text-orge3ef78b">
+<div id="outline-container-org2d97106" class="outline-2">
+<h2 id="org2d97106">Lie Group &amp; Lie Algebra란?</h2>
+<div class="outline-text-2" id="text-org2d97106">
 <p>
 군(Group)은 집합과 연산으로 이루어진 대수적 구조를 말한다. 예를 들어, 어떤 집합을 $A$라고 하고 어떤 연산을 $\cdot$으로 표시했을 때, 군은 $G = (A, \cdot)$으로 나타낼 수 있다.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org365949f" class="outline-2">
-<h2 id="org365949f">Reasons why Lie theory is used in SLAM</h2>
-<div class="outline-text-2" id="text-org365949f">
+<div id="outline-container-org59767cd" class="outline-2">
+<h2 id="org59767cd">Lie Theory가 SLAM 분야에서 사용되는 이유</h2>
+<div class="outline-text-2" id="text-org59767cd">
 <p>
-SLAM에서 카메라 포즈 값을 업데이트하면서 최적의 값을 찾을 때 일반적으로 최적화 문제로 구성을 한 다음 최적의 $\mathbf{R}$을 풀고 $\mathbf{t}$를 최소화해서 오류를 최소화 하는 방식으로 접근한다. 이 때 회전 행렬의 경우 $\text{det}(\mathbf{R})=1$인 직교행렬이라는 제약조건으로 인해 복잡도가 증가한다. 이 때 <b>Lie Group, Lie Algebra</b> 의 변환관계를 사용하면 카메라의 Pose 추정 문제를 제약없는 최적화 문제로 단순화하여 접근이 가능하기 때문에 사용한다.
+SLAM 분야에서 Lie Theory는 최적화를 수행할 때 효율적으로 수행하기 위해 사용된다. SLAM에서 카메라 포즈 값을 업데이트하면서 최적의 값을 찾을 때 일반적으로 최적화 문제로 구성을 한 다음 최적의 $\mathbf{R}$을 풀고 $\mathbf{t}$를 최소화해서 오류를 최소화 하는 방식으로 접근한다. 이 때 회전 행렬의 경우 $\text{det}(\mathbf{R})=1$인 직교행렬이라는 제약조건으로 인해 복잡도가 증가한다. 이 때 <b>Lie Group, Lie Algebra</b> 의 변환관계를 사용하면 카메라의 Pose 추정 문제를 제약없는 최적화 문제로 단순화하여 접근이 가능하기 때문에 사용한다.
 </p>
 
 <p>
@@ -63,9 +63,9 @@ $$\mathbf{R}_{1}\mathbf{R}_{2} \in SO(3), \ \ \ \mathbf{T}_{1}\mathbf{T}_{2} \in
 </div>
 </div>
 
-<div id="outline-container-org31f24c5" class="outline-2">
-<h2 id="org31f24c5">Derivation of Lie Group</h2>
-<div class="outline-text-2" id="text-org31f24c5">
+<div id="outline-container-org1022097" class="outline-2">
+<h2 id="org1022097">Lie Group 유도</h2>
+<div class="outline-text-2" id="text-org1022097">
 <p>
 임의의 회전 행렬은 다음과 같은 성질을 만족한다.
 </p>
