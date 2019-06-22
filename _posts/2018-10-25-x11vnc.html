@@ -9,7 +9,7 @@ comments: true
 ---
 
 <p>
-x11vnc는 원격에서 리눅스 환경으로 접속할 수 있게 해주는 VNC 서버 프로그램이다. 현재 x11vnc를 서버 프로그램으로 사용하고 <a href="https://www.realvnc.com/en/connect/download/viewer/">RealVNC Viewer</a> 프로그램을 클라이언트 프로그램으로 사용하여 끊김없이 빠르게 잘 사용하고 있다. 우분투 16.04 환경에서 `apt` 를 사용하여 쉽게 설치할 수 있고 다양한 옵션들이 존재하므로 목적에 맞게 설정할 수 있다.
+x11vnc는 원격에서 리눅스 환경으로 접속할 수 있게 해주는 VNC 서버 프로그램이다. 현재 x11vnc를 서버 프로그램으로 사용하고 <a href="https://www.realvnc.com/en/connect/download/viewer/">RealVNC Viewer</a> 프로그램을 클라이언트 프로그램으로 사용하여 끊김없이 빠르게 잘 사용하고 있다. 우분투 16.04 환경에서 <code>apt</code> 를 사용하여 쉽게 설치할 수 있고 다양한 옵션들이 존재하므로 목적에 맞게 설정할 수 있다.
 </p>
 
 <div id="outline-container-orgddf7865" class="outline-2">
@@ -60,7 +60,7 @@ $ sudo systemctl restart x11vnc.service
 <h2 id="org722a897">whitelist 추가</h2>
 <div class="outline-text-2" id="text-org722a897">
 <p>
-허용하는 IP들만 접속 가능하도록 설정하는 옵션이다. `-allow` 옵션으로 설정할 수 있다.
+허용하는 IP들만 접속 가능하도록 설정하는 옵션이다. <code>-allow</code> 옵션으로 설정할 수 있다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">[Unit]
