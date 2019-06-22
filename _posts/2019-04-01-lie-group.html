@@ -12,19 +12,14 @@ comments: true
 <div class="outline-text-2" id="text-org2d97106">
 <p>
 군(Group)은 집합과 연산으로 이루어진 대수적 구조를 말한다. 예를 들어, 어떤 집합을 $A$라고 하고 어떤 연산을 $\cdot$으로 표시했을 때, 군은 $G = (A, \cdot)$으로 나타낼 수 있다.
+Lie Group과 Lie Algera의 정의는 아래와 같다.
 </p>
 </div>
-</div>
 
-<div id="outline-container-org59767cd" class="outline-2">
-<h2 id="org59767cd">Lie Theory가 SLAM 분야에서 사용되는 이유</h2>
-<div class="outline-text-2" id="text-org59767cd">
+<div id="outline-container-org7b41003" class="outline-3">
+<h3 id="org7b41003">Lie Group</h3>
+<div class="outline-text-3" id="text-org7b41003">
 <p>
-SLAM 분야에서 Lie Theory는 최적화를 수행할 때 효율적으로 수행하기 위해 사용된다. SLAM에서 카메라 포즈 값을 업데이트하면서 최적의 값을 찾을 때 일반적으로 최적화 문제로 구성을 한 다음 최적의 $\mathbf{R}$을 풀고 $\mathbf{t}$를 최소화해서 오류를 최소화 하는 방식으로 접근한다. 이 때 회전 행렬의 경우 $\text{det}(\mathbf{R})=1$인 직교행렬이라는 제약조건으로 인해 복잡도가 증가한다. 이 때 <b>Lie Group, Lie Algebra</b> 의 변환관계를 사용하면 카메라의 Pose 추정 문제를 제약없는 최적화 문제로 단순화하여 접근이 가능하기 때문에 사용한다.
-</p>
-
-<p>
-<code>Lie Group</code>
 $$SO(3) = \{ \mathbf{R} \in \mathbb{R}^{3 \times 3} \ | \ \mathbf{R}\mathbf{R}^{T} = \mathbf{I}, \text{det}(\mathbf{R})=1 \}$$
 $$SE(3) = \left \{ \mathbf{T} =  
 \begin{bmatrix}
@@ -32,9 +27,12 @@ $$SE(3) = \left \{ \mathbf{T} =
 \mathbf{0}^{T} &amp; 1
 \end{bmatrix} \in \mathbb{R}^{4\times4} \ | \ \mathbf{R} \in SO(3), \mathbf{t} \in \mathbb{R}^{3}  \right \} $$
 </p>
-
+</div>
+</div>
+<div id="outline-container-org6395931" class="outline-3">
+<h3 id="org6395931">Lie Algebra</h3>
+<div class="outline-text-3" id="text-org6395931">
 <p>
-<code>Lie Algebra</code>
 $$\text{so}(3) = \{ \phi \in \mathbb{R}^{3} \ | \ \Phi = \phi^{\wedge} \in \mathbb{R}^{3\times 3} \}$$
 $$\text{se}(3) = \{ \xi = \begin{bmatrix}
 \rho \\ 
@@ -44,7 +42,13 @@ $$\text{se}(3) = \{ \xi = \begin{bmatrix}
 \mathbf{0} &amp; 1 
 \end{bmatrix} \in \mathbb{R}^{4 \times 4} \}$$
 </p>
+</div>
+</div>
+</div>
 
+<div id="outline-container-org0fb17f3" class="outline-2">
+<h2 id="org0fb17f3">Properties of Lie Group</h2>
+<div class="outline-text-2" id="text-org0fb17f3">
 <p>
 임의의 두 회전행렬 $\mathbf{R}_{1},\mathbf{R}_{2}$가 존재할 때 행렬의 덧셈을 수행하면 더 이상 회전 행렬이 아니게 된다.
 </p>
@@ -125,6 +129,15 @@ $$\dot{\mathbf{R}}(t) = \phi(t)^{\wedge}\mathbf{R}(t) = \begin{bmatrix}
 \phi_{3} &amp; 0 &amp; -\phi_{1} \\ 
 -\phi_{2} &amp; \phi_{1}  &amp; 0
 \end{bmatrix} \mathbf{R}(t)$$
+</p>
+</div>
+</div>
+
+<div id="outline-container-org59767cd" class="outline-2">
+<h2 id="org59767cd">Lie Theory가 SLAM 분야에서 사용되는 이유</h2>
+<div class="outline-text-2" id="text-org59767cd">
+<p>
+SLAM 분야에서 Lie Theory는 최적화를 효율적으로 수행하기 위해 사용된다. SLAM에서 카메라 포즈 값을 업데이트하면서 최적의 값을 찾을 때 일반적으로 최적화 문제로 구성을 한 다음 최적의 $\mathbf{R}$을 풀고 $\mathbf{t}$를 최소화해서 오류를 최소화 하는 방식으로 접근한다. 이 때 회전 행렬의 경우 $\text{det}(\mathbf{R})=1$인 직교행렬이라는 제약조건으로 인해 복잡도가 증가한다. 이 때 <b>Lie Group, Lie Algebra</b> 의 변환관계를 사용하면 카메라의 Pose 추정 문제를 제약없는 최적화 문제로 단순화하여 접근이 가능하기 때문에 사용한다.
 </p>
 </div>
 </div>
