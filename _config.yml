@@ -5,7 +5,7 @@ permalink:           pretty
 #relative_permalinks: true
 
 # Setup
-title:               starlaw's blog
+title:               GBEI's
 tagline:             "Researcher & Engineer & Tech Evangelist"
 description:         ''
 url:                 https://tigerk0430.github.io
@@ -49,4 +49,3 @@ category_dir: category/
 tag_dir: tag/
 
 excerpt_separator: ""
-
