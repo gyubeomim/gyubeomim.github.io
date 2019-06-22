@@ -11,18 +11,18 @@ comments: true
 <p>
 [Work in Progress&#x2026;]
 </p>
-<div id="outline-container-org82474be" class="outline-2">
-<h2 id="org82474be">행렬의 기원</h2>
-<div class="outline-text-2" id="text-org82474be">
+<div id="outline-container-org9f6b2ae" class="outline-2">
+<h2 id="org9f6b2ae">행렬의 기원</h2>
+<div class="outline-text-2" id="text-org9f6b2ae">
 <p>
 연립일차방정식을 풀기 위해 고안되었다
 </p>
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-org473e016" class="outline-2">
-<h2 id="org473e016">행렬곱과 함수합성의 관계</h2>
-<div class="outline-text-2" id="text-org473e016">
+<div id="outline-container-org6fcf803" class="outline-2">
+<h2 id="org6fcf803">행렬곱과 함수합성의 관계</h2>
+<div class="outline-text-2" id="text-org6fcf803">
 <p>
 <a href="https://youtu.be/83UnOz6HiOY?t=958">https://youtu.be/83UnOz6HiOY?t=958</a>
 </p>
@@ -67,12 +67,12 @@ cp+dr &amp; cq+ds
 \end{bmatrix}$$
 와 같다
 </p>
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-org1136f09" class="outline-2">
-<h2 id="org1136f09">gauss-jordan elimination 가우스 조던 소거법</h2>
-<div class="outline-text-2" id="text-org1136f09">
+<div id="outline-container-orgc3ff18d" class="outline-2">
+<h2 id="orgc3ff18d">gauss-jordan elimination 가우스 조던 소거법</h2>
+<div class="outline-text-2" id="text-orgc3ff18d">
 <p>
 다음의 세 가지 기본 행 연산을 통해 연립일차방정식의 첨가행렬을 기약 행 사다리꼴로 변환하여 해를 구한다.
 </p>
@@ -81,12 +81,12 @@ cp+dr &amp; cq+ds
 <li>한 행을 상수배하여 다른 행에 더한다.</li>
 <li>두 행을 맞바꾼다.</li>
 </ol>
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-org239010a" class="outline-2">
-<h2 id="org239010a">determinant 행렬식</h2>
-<div class="outline-text-2" id="text-org239010a">
+<div id="outline-container-orgd676443" class="outline-2">
+<h2 id="orgd676443">determinant 행렬식</h2>
+<div class="outline-text-2" id="text-orgd676443">
 <p>
 정사각행렬 A를 하나의 수로써 대응시키는 특별한 함수
 </p>
@@ -99,12 +99,12 @@ $\det(A) = |A|$
 행렬식은 행렬보다도 더 전에 있었던 방법이다.
 </p>
 
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-orgcef2c2b" class="outline-2">
-<h2 id="orgcef2c2b">inverse of matrix 역행렬</h2>
-<div class="outline-text-2" id="text-orgcef2c2b">
+<div id="outline-container-org700e7b5" class="outline-2">
+<h2 id="org700e7b5">inverse of matrix 역행렬</h2>
+<div class="outline-text-2" id="text-org700e7b5">
 <p>
 <a href="https://youtu.be/83UnOz6HiOY?t=4065">출처: 수학의신이상엽</a>
 </p>
@@ -129,55 +129,55 @@ $A^{-1} = \frac{1}{\det(A)} adj(A)$이다.
 $A \cdot ? = \mathbf{I}$와 같은 식이 있을 때 ?를 A의 역행렬이라고 하면 $A \cdot adj(A) = \det(A) \cdot \mathbf{I}$와 같은 꼴이 성립하고 $A \cdot \frac{adj(A)}{\det(A)} = \mathbf{I}$꼴이 되므로 $\therefore A^{-1} = \frac{adj(A)}{\det(A)}$이 된다.
 </p>
 
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-org856c840" class="outline-2">
-<h2 id="org856c840">cramer formula</h2>
-<div class="outline-text-2" id="text-org856c840">
+<div id="outline-container-org208878d" class="outline-2">
+<h2 id="org208878d">cramer formula</h2>
+<div class="outline-text-2" id="text-org208878d">
 <p>
 연립일차방정식 $AX = B$에서, A가 행렬식이 0이 아닌 정사각행렬일 때 $x_{j} = \frac{\det(A_{j})}{\det(A)}$단 $j=1,\cdots,n$이고 $A_{j}$는 $A$의 $j$번째 열을 $B$의 $j$번째 열로 바꾼 행렬이다.
 </p>
 
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-org3854429" class="outline-2">
-<h2 id="org3854429">trace of matrix</h2>
-<div class="outline-text-2" id="text-org3854429">
+<div id="outline-container-orgb38937c" class="outline-2">
+<h2 id="orgb38937c">trace of matrix</h2>
+<div class="outline-text-2" id="text-orgb38937c">
 <p>
 행렬의 대각 성분의 합을 의미하며 $\textbf{tr}(A)$와 같이 표시한다. 다음과 같은 특징을 지니고 있다
 $$\mathbf{X}^{T}\mathbf{A}\mathbf{X} = \textbf{tr}(\mathbf{X}^{T}\mathbf{A}\mathbf{X}) = \textbf{tr}(\mathbf{A}\mathbf{X}^{T}\mathbf{X})$$
 </p>
 
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-orge9999a9" class="outline-2">
-<h2 id="orge9999a9">diagonal matrix 대각행렬</h2>
-<div class="outline-text-2" id="text-orge9999a9">
+<div id="outline-container-orge6e653d" class="outline-2">
+<h2 id="orge6e653d">diagonal matrix 대각행렬</h2>
+<div class="outline-text-2" id="text-orge6e653d">
 <p>
 대각성분만 값이 있고 나머지 부분이 0인 행렬을 말한다. 기호는 보통 $\Lambda$로 나타낸다.
 </p>
 
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-org3f5a34b" class="outline-2">
-<h2 id="org3f5a34b">adjacency matrix 인접행렬</h2>
-<div class="outline-text-2" id="text-org3f5a34b">
-<hr />
+<div id="outline-container-org4c1219a" class="outline-2">
+<h2 id="org4c1219a">adjacency matrix 인접행렬</h2>
+<div class="outline-text-2" id="text-org4c1219a">
+<hr>
 </div>
 </div>
-<div id="outline-container-org982a744" class="outline-2">
-<h2 id="org982a744">hermite matrix 헤르미트 행렬</h2>
-<div class="outline-text-2" id="text-org982a744">
-<hr />
+<div id="outline-container-orga8cea80" class="outline-2">
+<h2 id="orga8cea80">hermite matrix 헤르미트 행렬</h2>
+<div class="outline-text-2" id="text-orga8cea80">
+<hr>
 </div>
 </div>
-<div id="outline-container-org96d701b" class="outline-2">
-<h2 id="org96d701b">adjoint matrix  수반행렬</h2>
-<div class="outline-text-2" id="text-org96d701b">
+<div id="outline-container-org3cf8d5d" class="outline-2">
+<h2 id="org3cf8d5d">adjoint matrix  수반행렬</h2>
+<div class="outline-text-2" id="text-org3cf8d5d">
 <p>
 n차 정방행렬 $A = (a_{ij})$에 대해 A의 여인수 행렬의 전치행렬을 A의 수반행렬이라고 하고
 $\text{adj}A$라고 표기한다.
@@ -185,30 +185,30 @@ $\text{adj}A$라고 표기한다.
 $$A^{-1} = \frac{\text{adj}A}{\left | A \right |}$$
 </p>
 
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-org8af578a" class="outline-2">
-<h2 id="org8af578a">vandemonde matrix 반데몬데 행렬</h2>
-<div class="outline-text-2" id="text-org8af578a">
-<hr />
+<div id="outline-container-org0fda51d" class="outline-2">
+<h2 id="org0fda51d">vandemonde matrix 반데몬데 행렬</h2>
+<div class="outline-text-2" id="text-org0fda51d">
+<hr>
 </div>
 </div>
-<div id="outline-container-orgc483a01" class="outline-2">
-<h2 id="orgc483a01">determinant 행렬식</h2>
-<div class="outline-text-2" id="text-orgc483a01">
-<hr />
+<div id="outline-container-orgad16dc8" class="outline-2">
+<h2 id="orgad16dc8">determinant 행렬식</h2>
+<div class="outline-text-2" id="text-orgad16dc8">
+<hr>
 </div>
 </div>
-<div id="outline-container-org4a57cda" class="outline-2">
-<h2 id="org4a57cda">positive semidefinite</h2>
-<div class="outline-text-2" id="text-org4a57cda">
-<hr />
+<div id="outline-container-org1c949df" class="outline-2">
+<h2 id="org1c949df">positive semidefinite</h2>
+<div class="outline-text-2" id="text-org1c949df">
+<hr>
 </div>
 </div>
-<div id="outline-container-org058d1ba" class="outline-2">
-<h2 id="org058d1ba">eigenvalue and eigenvector</h2>
-<div class="outline-text-2" id="text-org058d1ba">
-<hr />
+<div id="outline-container-org93051ae" class="outline-2">
+<h2 id="org93051ae">eigenvalue and eigenvector</h2>
+<div class="outline-text-2" id="text-org93051ae">
+<hr>
 </div>
 </div>
