@@ -7,9 +7,17 @@ categories: [Linux]
 use_math: true
 comments: true
 ---
-<div id="outline-container-org53fdd51" class="outline-2">
-<h2 id="org53fdd51">패스워드 저장 및 변경</h2>
-<div class="outline-text-2" id="text-org53fdd51">
+
+<p>
+x11vnc는 원격에서 리눅스 환경으로 접속할 수 있게 해주는 VNC 서버 프로그램이다. 현재 x11vnc를 서버 프로그램으로 사용하고 <a href="https://www.realvnc.com/en/connect/download/viewer/">RealVNC Viewer</a> 프로그램을 클라이언트 프로그램으로 사용하여 끊김없이 빠르게 잘 사용하고 있다. 우분투 16.04 환경에서 `apt` 를 사용하여 쉽게 설치할 수 있고 다양한 옵션들이 존재하므로 목적에 맞게 설정할 수 있다.
+</p>
+
+<div id="outline-container-orgddf7865" class="outline-2">
+<h2 id="orgddf7865">비밀번호 저장 및 변경</h2>
+<div class="outline-text-2" id="text-orgddf7865">
+<p>
+원격에서 접속할 때 비밀번호를 입력해야 하는데 이를 설정하고 변경할 수 있게 해주는 옵션이다.
+</p>
 <div class="org-src-container">
 <pre class="src src-sh">$ sudo x11vnc -storepasswd
 
@@ -31,6 +39,9 @@ $ sudo service x11vnc restart
 <div id="outline-container-org860da78" class="outline-2">
 <h2 id="org860da78">서비스 업로드 및 시작</h2>
 <div class="outline-text-2" id="text-org860da78">
+<p>
+우분투를 재부팅하는 경우 자동으로 x11vnc가 실행될 수 있도록 daemon에 등록해주는 명령들이다.
+</p>
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #228b22;"># </span><span style="color: #32cd32; background-color: #262626;">&#50500;&#47000; &#54028;&#51068;&#51012; &#49688;&#51221;&#54620;&#45796;</span>
 $ sudo vim /lib/systemd/system/x11vnc.service
@@ -49,7 +60,7 @@ $ sudo systemctl restart x11vnc.service
 <h2 id="org722a897">whitelist 추가</h2>
 <div class="outline-text-2" id="text-org722a897">
 <p>
-특정 IP만 접속 가능하도록 설정
+허용하는 IP들만 접속 가능하도록 설정하는 옵션이다. `-allow` 옵션으로 설정할 수 있다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">[Unit]
