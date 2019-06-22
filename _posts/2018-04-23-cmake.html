@@ -18,8 +18,14 @@ cmake는 리눅스, 윈도우, 맥 등 운영체제에 관계없이 하나의 �
 <p>
 <code>CMAKE_MINIMUM_REQUIRED()</code>
 필요 CMake 최소 버전 명시
+</p>
+
+<p>
 <code>PROJECT()</code>
 프로젝트 이름 설정
+</p>
+
+<p>
 <code>MESSAGE()</code>
 콘솔에 메세지 출력
 </p>
@@ -41,14 +47,13 @@ ex: $ MESSAGE ( FATAL_ERROR <span style="color: #2aa198;">"Fatal error occurred!
 
 <p>
 <code>ADD_EXECUTABLE()</code>
+빌드 최종 결과물로 생성할 실행 파일을 추가합니다. 이 명령을 반복하여 생성할 실행 파일을 계속 추가할 수 있습니다.
 </p>
-<ul class="org-ul">
-<li>빌드 최종 결과물로 생성할 실행 파일을 추가합니다. 이 명령을 반복하여 생성할 실행 파일을 계속 추가할 수 있습니다.</li>
-</ul>
 <div class="org-src-container">
 <pre class="src src-sh">$ ADD_EXECUTABLE ( app.out main.c foo.c bar.c )
 </pre>
 </div>
+
 
 <p>
 <code>ADD_LIBRARY()</code>
@@ -64,6 +69,7 @@ ex: $ ADD_LIBRARY ( app STATIC foo.c bar.c )
 [STATIC|SHARED|MODULE] : 라이브러리 종류 (생략시 STATIC)
 &lt;소스_파일&gt; : 라이브러리를 생성하는 데 필요한 소스 파일
 </p>
+
 
 <p>
 <code>ADD_CUSTOM_TARGET()</code>
@@ -91,6 +97,7 @@ $ ADD_CUSTOM_TARGET ( flash
 </pre>
 </div>
 
+
 <p>
 <code>ADD_DEPENDENCIES()</code>
 Top-level Target간의 의존성을 지정합니다. Top-level Target이란 ADD_EXECUTABLE, ADD_LIBRARY, ADD_CUSTOM_TARGET 명령으로 정의한 Target들을 의미합니다.
@@ -100,6 +107,7 @@ Top-level Target간의 의존성을 지정합니다. Top-level Target이란 ADD_
 $ ADD_DEPENDENCIES ( flash app.out )
 </pre>
 </div>
+
 
 <p>
 <code>INSTALL()</code>
@@ -119,16 +127,15 @@ ex: $ INSTALL ( TARGETS app.out app
 &#50696;: &#50948; &#47749;&#47161;&#51008; app.out&#51008; /usr/local/bin&#50640;, libapp.a&#45716; /usr/local/lib&#50640; &#49444;&#52824;&#54616;&#45716; install target&#51012; &#52628;&#44032;&#54633;&#45768;&#45796;.
 </pre>
 </div>
+
+<hr>
 </div>
 </div>
 <div id="outline-container-org1b356d0" class="outline-2">
 <h2 id="org1b356d0">Variables</h2>
 <div class="outline-text-2" id="text-org1b356d0">
-<ul class="org-ul">
-<li>변수를 설정하는 방법은 <b>set($VARIABLE value)</b> 로 설정할 수 있다</li>
-<li>변수를 확인하는 방법은 <b>message(${VARIABLE})</b> 로 확인할 수 있다</li>
-</ul>
 <p>
+변수를 설정하는 방법은 <b>set($VARIABLE value)</b> 로 설정할 수 있다. 변수를 확인하는 방법은 <b>message(${VARIABLE})</b> 로 확인할 수 있다.
 <code>${CMAKE_PROJECT_NAME}</code>
 프로젝트 이름
 </p>
