@@ -11,24 +11,24 @@ comments: true
 <p>
 [Work in Progress&#x2026;]
 </p>
-<div id="outline-container-org6bbbcb9" class="outline-2">
-<h2 id="org6bbbcb9">Group Theory (군이론) 이란?</h2>
-<div class="outline-text-2" id="text-org6bbbcb9">
+<div id="outline-container-orge1b5308" class="outline-2">
+<h2 id="orge1b5308">Group Theory (군이론) 이란?</h2>
+<div class="outline-text-2" id="text-orge1b5308">
 <p>
 군(Group)은 집합과 연산으로 이루어진 대수적 구조를 말한다. 예를 들어, 어떤 집합을 $A$라고 하고 어떤 연산을 $\cdot$으로 표시했을 때, 군은 $G = (A, \cdot)$으로 나타낼 수 있다.
 Lie Group과 Lie Algera의 정의는 아래와 같다.
 </p>
 
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-org2d97106" class="outline-2">
-<h2 id="org2d97106">Lie Group &amp; Lie Algebra란?</h2>
-<div class="outline-text-2" id="text-org2d97106">
+<div id="outline-container-org96f9571" class="outline-2">
+<h2 id="org96f9571">Lie Group &amp; Lie Algebra란?</h2>
+<div class="outline-text-2" id="text-org96f9571">
 </div>
-<div id="outline-container-org7b41003" class="outline-3">
-<h3 id="org7b41003">Lie Group</h3>
-<div class="outline-text-3" id="text-org7b41003">
+<div id="outline-container-orgf495d05" class="outline-3">
+<h3 id="orgf495d05">Lie Group</h3>
+<div class="outline-text-3" id="text-orgf495d05">
 <p>
 $$SO(3) = \{ \mathbf{R} \in \mathbb{R}^{3 \times 3} \ | \ \mathbf{R}\mathbf{R}^{T} = \mathbf{I}, \text{det}(\mathbf{R})=1 \}$$
 $$SE(3) = \left \{ \mathbf{T} =  
@@ -39,9 +39,9 @@ $$SE(3) = \left \{ \mathbf{T} =
 </p>
 </div>
 </div>
-<div id="outline-container-org6395931" class="outline-3">
-<h3 id="org6395931">Lie Algebra</h3>
-<div class="outline-text-3" id="text-org6395931">
+<div id="outline-container-orgdba22d7" class="outline-3">
+<h3 id="orgdba22d7">Lie Algebra</h3>
+<div class="outline-text-3" id="text-orgdba22d7">
 <p>
 $$\text{so}(3) = \{ \phi \in \mathbb{R}^{3} \ | \ \Phi = \phi^{\wedge} \in \mathbb{R}^{3\times 3} \}$$
 $$\text{se}(3) = \{ \xi = \begin{bmatrix}
@@ -53,13 +53,13 @@ $$\text{se}(3) = \{ \xi = \begin{bmatrix}
 \end{bmatrix} \in \mathbb{R}^{4 \times 4} \}$$
 </p>
 
-<hr />
+<hr>
 </div>
 </div>
 </div>
-<div id="outline-container-org0fb17f3" class="outline-2">
-<h2 id="org0fb17f3">Properties of Lie Group</h2>
-<div class="outline-text-2" id="text-org0fb17f3">
+<div id="outline-container-orge8dfb4b" class="outline-2">
+<h2 id="orge8dfb4b">Properties of Lie Group</h2>
+<div class="outline-text-2" id="text-orge8dfb4b">
 <p>
 임의의 두 회전행렬 $\mathbf{R}_{1},\mathbf{R}_{2}$가 존재할 때 행렬의 덧셈을 수행하면 더 이상 회전 행렬이 아니게 된다.
 </p>
@@ -76,12 +76,12 @@ $$\mathbf{R}_{1} + \mathbf{R}_{2} \notin SO(3)$$
 $$\mathbf{R}_{1}\mathbf{R}_{2} \in SO(3), \ \ \ \mathbf{T}_{1}\mathbf{T}_{2} \in SE(3)$$
 </p>
 
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-org1022097" class="outline-2">
-<h2 id="org1022097">Lie Group 유도</h2>
-<div class="outline-text-2" id="text-org1022097">
+<div id="outline-container-org8299ff1" class="outline-2">
+<h2 id="org8299ff1">Lie Group 유도</h2>
+<div class="outline-text-2" id="text-org8299ff1">
 <p>
 임의의 회전 행렬은 다음과 같은 성질을 만족한다.
 </p>
@@ -143,12 +143,12 @@ $$\dot{\mathbf{R}}(t) = \phi(t)^{\wedge}\mathbf{R}(t) = \begin{bmatrix}
 \end{bmatrix} \mathbf{R}(t)$$
 </p>
 
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-org59767cd" class="outline-2">
-<h2 id="org59767cd">Lie Theory가 SLAM 분야에서 사용되는 이유</h2>
-<div class="outline-text-2" id="text-org59767cd">
+<div id="outline-container-org9a4ef87" class="outline-2">
+<h2 id="org9a4ef87">Lie Theory가 SLAM 분야에서 사용되는 이유</h2>
+<div class="outline-text-2" id="text-org9a4ef87">
 <p>
 SLAM 분야에서 Lie Theory는 최적화를 효율적으로 수행하기 위해 사용된다. SLAM에서 카메라 포즈 값을 업데이트하면서 최적의 값을 찾을 때 일반적으로 최적화 문제로 구성을 한 다음 최적의 $\mathbf{R}$을 풀고 $\mathbf{t}$를 최소화해서 오류를 최소화 하는 방식으로 접근한다. 하지만 회전 행렬의 경우 $\text{det}(\mathbf{R})=1$인 직교행렬이라는 제약조건으로 인해 복잡도가 증가한다. 이 때 Lie Group, Lie Algebra 의 변환관계를 사용하면 <b>카메라의 Pose 추정 문제를 제약없는 최적화 문제로 단순화하여 접근이 가능하기 때문에</b> 사용한다.
 </p>
