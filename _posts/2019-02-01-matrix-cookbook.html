@@ -84,9 +84,9 @@ cp+dr &amp; cq+ds
 </ol>
 </div>
 </div>
-<div id="outline-container-orgc20f579" class="outline-2">
-<h2 id="orgc20f579">Determinant 행렬식</h2>
-<div class="outline-text-2" id="text-orgc20f579">
+<div id="outline-container-orgbe0f226" class="outline-2">
+<h2 id="orgbe0f226">Determinant 행렬식</h2>
+<div class="outline-text-2" id="text-orgbe0f226">
 <p>
 정사각행렬 A를 하나의 수로써 대응시키는 특별한 함수
 </p>
@@ -214,8 +214,8 @@ $$A^{-1} = \frac{\text{adj}A}{\left | A \right |}$$
 <h2 id="orgc65233e">Vandemonde matrix 반데몬데 행렬</h2>
 </div>
 
-<div id="outline-container-orgbe0f226" class="outline-2">
-<h2 id="orgbe0f226">Determinant 행렬식</h2>
+<div id="outline-container-org6f89c98" class="outline-2">
+<h2 id="org6f89c98">Determinant 행렬식</h2>
 </div>
 
 <div id="outline-container-org00f822f" class="outline-2">
@@ -257,7 +257,7 @@ $A \mathbf{x} = \lambda \mathbf{x}$을 생각해보면 $\lambda$는 $A$의 고�
 <h2 id="orgb2aac84">Jacobian Matrix 자코비안 행렬</h2>
 <div class="outline-text-2" id="text-orgb2aac84">
 <p>
-$D \subset \mathbb{R}^{n}$에서 정의된 다변수 벡터 함수 $\mathbf{f} : D \to \mathbb{R}^{m}$가 각각의 스칼라 함수 $f_{1} , \cdots , f_{m} : D \to \mathbb{R}$에 대해 $\mathbf{f} ( x_{1} , \cdots , x_{n} )  : = \begin{bmatrix} f_{1} ( x_{1} , \cdots , x_{n} )  \\ \vdots \\ f_{m} ( x_{1} , \cdots , x_{n} ) \end{bmatrix}$과 같이 정의되었다고 하자. 이 때 $J := \begin{bmatrix} {{\partial f_{1} } \over {\partial x_{1} }} &amp; \cdots &amp;  {{\partial f_{1} } \over {\partial x_{n} }} \\ \vdots &amp; \ddots &amp; \vdots \\  {{\partial f_{m} } \over {\partial x_{1} }} &amp; \cdots &amp;  {{\partial f_{m} } \over {\partial x_{n} }}  \end{bmatrix}$행렬을 $f$의 Jacobian Matrix(자코비안 행렬)이라고 한다.
+$D \subset \mathbb{R}^{n}$에서 정의된 다변수 벡터 함수 $\mathbf{f} : D \to \mathbb{R}^{m}$가 각각의 스칼라 함수 $f_{1} , \cdots , f_{m} : D \to \mathbb{R}$에 대해 $\mathbf{f} ( x_{1} , \cdots , x_{n} )  : = \begin{bmatrix} f_{1} ( x_{1} , \cdots , x_{n} )  \\ \vdots \\ f_{m} ( x_{1} , \cdots , x_{n} ) \end{bmatrix}$과 같이 정의되었다고 하자. 이 때 $J := \begin{bmatrix} {\partial f_{1}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{1}  \over \partial x_{n} } \\ \vdots &amp; \ddots &amp; \vdots \\  {\partial f_{m}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{m}  \over \partial x_{n} }  \end{bmatrix}$행렬을 $f$의 Jacobian Matrix(자코비안 행렬)이라고 한다.
 자코비안 행렬이라는 명칭은 19세기 독일의 수학자였던 Carl Gustav Jacob Jacobi에게서 따온 것이다. 다변수 함수에 대해 자코비안 행렬이 존재하면 미분 가능하다고 하며, 오히려 미분 가능한 함수 $f : \mathbb{R} \to \mathbb{R}$가 $1\times1$사이즈의 자코비안 행렬을 가진다고 생각할 수도 있다. 실제로 응용수학에서는 자코비안 행렬이 벡터함수의 미분계수 역할을 하는 경우가 많다.
 </p>
 </div>
@@ -266,7 +266,7 @@ $D \subset \mathbb{R}^{n}$에서 정의된 다변수 벡터 함수 $\mathbf{f} :
 <h2 id="org7fcbfb7">Hessian Matrix 헤시안 행렬</h2>
 <div class="outline-text-2" id="text-org7fcbfb7">
 <p>
-$D \subset \mathbb{R}^{n}$에서 정의된 다변수 스칼라 함수 $f : D \to \mathbb{R}$에 대해 $H := \begin{bmatrix} {{\partial^2 f } \over {\partial x_{1}^2 }} &amp; \cdots &amp;  {{\partial^2 f } \over { \partial x_{1} \partial x_{n} }} \\ \vdots &amp; \ddots &amp; \vdots \\  {{\partial^2 f } \over {\partial x_{n} \partial x_{1} }} &amp; \cdots &amp;  {{\partial^2 f_{m} } \over {\partial x_{n}^2 }}  \end{bmatrix}$를 $f$의 Hessian Matrix(헤시안 행렬)이라고 한다.
+$D \subset \mathbb{R}^{n}$에서 정의된 다변수 스칼라 함수 $f : D \to \mathbb{R}$에 대해 $H := \begin{bmatrix} {\partial^2 f  \over \partial x_{1}^2 } &amp; \cdots &amp;  {\partial^2 f  \over  \partial x_{1} \partial x_{n} } \\ \vdots &amp; \ddots &amp; \vdots \\  {\partial^2 f  \over \partial x_{n} \partial x_{1} } &amp; \cdots &amp;  {\partial^2 f_{m}  \over \partial x_{n}^2 }  \end{bmatrix}$를 $f$의 Hessian Matrix(헤시안 행렬)이라고 한다.
 자코비안 행렬이 함수의 고차원적인 도함수에 해당한다면 헤시안 행렬은 고차원적인 이계도함수라고 볼 수 있다. 물론 자코비안만큼 빈번하게 보이지는 않지만 수리통계학처럼 뜬금없는 곳에 간혹 등장하곤 한다. 또 헤시안 행렬은 <b>스칼라 함수</b> 에 대해서만 정의된다는 점에 주의해야한다.
 </p>
 </div>
