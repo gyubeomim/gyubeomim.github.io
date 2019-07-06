@@ -10,6 +10,7 @@ comments: true
 
 <p>
 [Work in Progress&#x2026;]
+선형대수학을 배우면서 행렬에는 정말 많은 성질들과 종류들이 존재한다는 것을 알았고 대학원 과정의 모든 학문(최적화기법, 추정이론, 확률과 통계 등등)들은 기본적으로 행렬 연산을 수행하므로 행렬에 대한 지식은 필수로 숙지해야 한다. 해당 포스트는 내가 직접 공부하면서 좋다고 생각되는 행렬에 대한 블로그 포스트, 유튜브 영상, 논문 및 책 등의 내용을 모아 추후에 보기 편하도록 편집/수정한 포스트이다.
 </p>
 <div id="outline-container-org97e8a6d" class="outline-2">
 <h2 id="org97e8a6d">Origin of matrix 행렬의 기원</h2>
@@ -87,24 +88,6 @@ cp+dr &amp; cq+ds
 <hr />
 </div>
 </div>
-<div id="outline-container-org0ca41d0" class="outline-2">
-<h2 id="org0ca41d0">Determinant 행렬식</h2>
-<div class="outline-text-2" id="text-org0ca41d0">
-<p>
-정사각행렬 A를 하나의 수로써 대응시키는 특별한 함수
-</p>
-
-<p>
-$\det(A) = |A|$
-</p>
-
-<p>
-행렬식은 행렬보다도 더 전에 있었던 방법이다.
-</p>
-
-<hr />
-</div>
-</div>
 <div id="outline-container-orgb55baa3" class="outline-2">
 <h2 id="orgb55baa3">Inverse of matrix 역행렬</h2>
 <div class="outline-text-2" id="text-orgb55baa3">
@@ -147,6 +130,24 @@ $\therefore A^{-1} = \frac{adj(A)}{\det(A)}$이 된다.
 <hr />
 </div>
 </div>
+<div id="outline-container-org72e7bf8" class="outline-2">
+<h2 id="org72e7bf8">Determinant 행렬식</h2>
+<div class="outline-text-2" id="text-org72e7bf8">
+<p>
+정사각행렬 A를 하나의 수로써 대응시키는 특별한 함수
+</p>
+
+<p>
+$\det(A) = |A|$
+</p>
+
+<p>
+행렬식은 행렬보다도 더 전에 있었던 방법이다.
+</p>
+
+<hr />
+</div>
+</div>
 <div id="outline-container-org790ad3f" class="outline-2">
 <h2 id="org790ad3f">Cramer formula 크래머 공식</h2>
 <div class="outline-text-2" id="text-org790ad3f">
@@ -180,6 +181,12 @@ $x_{j} = \frac{\det(A_{j})}{\det(A)}$
 $$\mathbf{X}^{T}\mathbf{A}\mathbf{X} = \textbf{tr}(\mathbf{X}^{T}\mathbf{A}\mathbf{X}) = \textbf{tr}(\mathbf{A}\mathbf{X}^{T}\mathbf{X})$$
 </p>
 
+<hr />
+</div>
+</div>
+<div id="outline-container-orgbba3360" class="outline-2">
+<h2 id="orgbba3360">Eigenvalue and Eigenvector  고유값과 고유벡터</h2>
+<div class="outline-text-2" id="text-orgbba3360">
 <hr />
 </div>
 </div>
@@ -231,12 +238,6 @@ $$A^{-1} = \frac{\text{adj}A}{\left | A \right |}$$
 <hr />
 </div>
 </div>
-<div id="outline-container-org72e7bf8" class="outline-2">
-<h2 id="org72e7bf8">Determinant 행렬식</h2>
-<div class="outline-text-2" id="text-org72e7bf8">
-<hr />
-</div>
-</div>
 <div id="outline-container-org00f822f" class="outline-2">
 <h2 id="org00f822f">Positive Definite Matrix 양의 정부호 행렬</h2>
 <div class="outline-text-2" id="text-org00f822f">
@@ -273,12 +274,6 @@ $A \mathbf{x} = \lambda \mathbf{x}$을 생각해보면 $\lambda$는 $A$의 고�
 <div id="outline-container-org4d591e1" class="outline-2">
 <h2 id="org4d591e1">Positive Semi-Definite Matrix 양의 준정부호 행렬</h2>
 <div class="outline-text-2" id="text-org4d591e1">
-<hr />
-</div>
-</div>
-<div id="outline-container-orgbd5b2d9" class="outline-2">
-<h2 id="orgbd5b2d9">Eigenvalue and Eigenvector</h2>
-<div class="outline-text-2" id="text-orgbd5b2d9">
 <hr />
 </div>
 </div>
