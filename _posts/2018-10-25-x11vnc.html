@@ -16,9 +16,9 @@ comments: true
 x11vnc는 원격에서 리눅스 환경으로 접속할 수 있게 해주는 VNC 서버 프로그램이다. 현재 x11vnc를 서버 프로그램으로 사용하고 <a href="https://www.realvnc.com/en/connect/download/viewer/">RealVNC Viewer</a> 프로그램을 클라이언트 프로그램으로 사용하여 끊김없이 빠르게 잘 사용하고 있다. 우분투 16.04 환경에서 <code>apt</code> 를 사용하여 쉽게 설치할 수 있고 다양한 옵션들이 존재하므로 목적에 맞게 설정할 수 있다.
 </p>
 
-<div id="outline-container-orgddf7865" class="outline-2">
-<h2 id="orgddf7865">비밀번호 저장 및 변경</h2>
-<div class="outline-text-2" id="text-orgddf7865">
+<div id="outline-container-orga489aaf" class="outline-2">
+<h2 id="orga489aaf">비밀번호 저장 및 변경</h2>
+<div class="outline-text-2" id="text-orga489aaf">
 <p>
 원격에서 접속할 때 비밀번호를 입력해야 하는데 이를 설정하고 변경할 수 있게 해주는 옵션이다.
 </p>
@@ -30,58 +30,64 @@ Verify password: [enter the new password again]
 Write password to /home/ubuntu/.vnc/passwd? [y]/n y
 Password written to : /home/ubuntu/.vnc/passwd
 
-<span style="color: #228b22;"># </span><span style="color: #32cd32; background-color: #262626;">.vnc/passwd &#54028;&#51068;&#51012; /etc/x11vnc.pass &#54028;&#51068;&#47196; &#48373;&#49324;&#54620;&#45796;</span>
+<span style="color: #32cd32;"># </span><span style="color: #32cd32; background-color: #262626;">.vnc/passwd &#54028;&#51068;&#51012; /etc/x11vnc.pass &#54028;&#51068;&#47196; &#48373;&#49324;&#54620;&#45796;</span>
 $ sudo cp ~/.vnc/passwd /etc/x11vnc.pass
 
-<span style="color: #228b22;"># </span><span style="color: #32cd32; background-color: #262626;">x11vnc service&#47484; &#51116;&#49884;&#51089;&#54620;&#45796;</span>
+<span style="color: #32cd32;"># </span><span style="color: #32cd32; background-color: #262626;">x11vnc service&#47484; &#51116;&#49884;&#51089;&#54620;&#45796;</span>
 $ sudo service x11vnc restart
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org860da78" class="outline-2">
-<h2 id="org860da78">서비스 업로드 및 시작</h2>
-<div class="outline-text-2" id="text-org860da78">
+<div id="outline-container-orgbdaeb9f" class="outline-2">
+<h2 id="orgbdaeb9f">서비스 업로드 및 시작</h2>
+<div class="outline-text-2" id="text-orgbdaeb9f">
 <p>
 우분투를 재부팅하는 경우 자동으로 x11vnc가 실행될 수 있도록 daemon에 등록해주는 명령들이다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #228b22;"># </span><span style="color: #32cd32; background-color: #262626;">&#50500;&#47000; &#54028;&#51068;&#51012; &#49688;&#51221;&#54620;&#45796;</span>
+<pre class="src src-sh"><span style="color: #32cd32;"># </span><span style="color: #32cd32; background-color: #262626;">&#50500;&#47000; &#54028;&#51068;&#51012; &#49688;&#51221;&#54620;&#45796;</span>
 $ sudo vim /lib/systemd/system/x11vnc.service
 
-<span style="color: #228b22;"># </span><span style="color: #32cd32; background-color: #262626;">daemin reload </span>
+  [Unit]
+  <span style="color: #8787d7;">Description</span>=<span style="color: #2aa198;">"x11vnc"</span>
+  <span style="color: #8787d7;">Requires</span>=display-manager.service
+  <span style="color: #8787d7;">After</span>=display-manager.service
+
+  [Service]
+  <span style="color: #8787d7;">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -env <span style="color: #8787d7;">FD_TAG</span>=my_gnome1 -env <span style="color: #8787d7;">FD_SESS</span>=gnome
+  <span style="color: #8787d7;">ExecStop</span>=/usr/bin/killall x11vnc
+  <span style="color: #8787d7;">Restart</span>=on-failure
+  Restart-sec=2
+
+  [Install]
+  <span style="color: #8787d7;">WantedBy</span>=multi-user.target
+
+<span style="color: #32cd32;"># </span><span style="color: #32cd32; background-color: #262626;">daemin reload </span>
 $ sudo systemctl daemon-reload
 
-<span style="color: #228b22;"># </span><span style="color: #32cd32; background-color: #262626;">start service</span>
+<span style="color: #32cd32;"># </span><span style="color: #32cd32; background-color: #262626;">start service</span>
 $ sudo systemctl restart x11vnc.service
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org722a897" class="outline-2">
-<h2 id="org722a897">whitelist 추가</h2>
-<div class="outline-text-2" id="text-org722a897">
-<p>
-허용하는 IP들만 접속 가능하도록 설정하는 옵션이다. <code>-allow</code> 옵션으로 설정할 수 있다.
+<div id="outline-container-orgdfceaaf" class="outline-2">
+<h2 id="orgdfceaaf">옵션</h2>
+<div class="outline-text-2" id="text-orgdfceaaf">
+<ul class="org-ul">
+<li><p>
+allow: whitelist를 설정하여 허용한 IP들만 접속 가능하도록 설정한다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">[Unit]
-<span style="color: #8787d7;">Description</span>=<span style="color: #2aa198;">"x11vnc"</span>
-<span style="color: #8787d7;">Requires</span>=display-manager.service
-<span style="color: #8787d7;">After</span>=display-manager.service
-
-[Service]
-<span style="color: #228b22;"># </span><span style="color: #32cd32; background-color: #262626;">&#50668;&#44592;&#50640; -allow 123.23. &#51004;&#47196; subnet mask whitelist&#47484; &#49444;&#51221;&#54664;&#45796;</span>
-<span style="color: #8787d7;">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -env <span style="color: #8787d7;">FD_TAG</span>=my_gnome1 -env <span style="color: #8787d7;">FD_SESS</span>=gnome -allow 123.23
-<span style="color: #8787d7;">ExecStop</span>=/usr/bin/killall x11vnc
-<span style="color: #8787d7;">Restart</span>=on-failure
-Restart-sec=2
-
-[Install]
-<span style="color: #8787d7;">WantedBy</span>=multi-user.target
+<pre class="src src-sh">[Service]
+<span style="color: #8787d7;">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -env <span style="color: #8787d7;">FD_TAG</span>=my_gnome1 -env <span style="color: #8787d7;">FD_SESS</span>=gnome -allow 123.23 <span style="color: #32cd32;"># </span><span style="color: #32cd32; background-color: #262626;">123.23.x.x &#51032; IP &#45824;&#50669;&#47564; &#51217;&#49549;&#54624; &#49688; &#51080;&#45796;.</span>
 </pre>
-</div>
+</div></li>
+<li>shared: 다중 클라이언트들의 접속을 허용한다.</li>
+<li>forever: 한 번 접속을 끊은 상태에서도 계속 서버를 유지한다. (default: off)</li>
+</ul>
 </div>
 </div>
