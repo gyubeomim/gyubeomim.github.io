@@ -30,10 +30,10 @@ Verify password: [enter the new password again]
 Write password to /home/ubuntu/.vnc/passwd? [y]/n y
 Password written to : /home/ubuntu/.vnc/passwd
 
-<span style="color: #228b22;"># </span><span style="color: #32cd32; background-color: #262626;">.vnc/passwd &#54028;&#51068;&#51012; /etc/x11vnc.pass &#54028;&#51068;&#47196; &#48373;&#49324;&#54620;&#45796;</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">.vnc/passwd &#54028;&#51068;&#51012; /etc/x11vnc.pass &#54028;&#51068;&#47196; &#48373;&#49324;&#54620;&#45796;</span>
 $ sudo cp ~/.vnc/passwd /etc/x11vnc.pass
 
-<span style="color: #228b22;"># </span><span style="color: #32cd32; background-color: #262626;">x11vnc service&#47484; &#51116;&#49884;&#51089;&#54620;&#45796;</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">x11vnc service&#47484; &#51116;&#49884;&#51089;&#54620;&#45796;</span>
 $ sudo service x11vnc restart
 </pre>
 </div>
@@ -47,27 +47,27 @@ $ sudo service x11vnc restart
 우분투를 재부팅하는 경우 자동으로 x11vnc가 실행될 수 있도록 daemon에 등록해주는 명령들이다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #228b22;"># </span><span style="color: #32cd32; background-color: #262626;">&#50500;&#47000; &#54028;&#51068;&#51012; &#49688;&#51221;&#54620;&#45796;</span>
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">&#50500;&#47000; &#54028;&#51068;&#51012; &#49688;&#51221;&#54620;&#45796;</span>
 $ sudo vim /lib/systemd/system/x11vnc.service
 
   [Unit]
-  <span style="color: #8787d7;">Description</span>=<span style="color: #2aa198;">"x11vnc"</span>
-  <span style="color: #8787d7;">Requires</span>=display-manager.service
-  <span style="color: #8787d7;">After</span>=display-manager.service
+  <span class="org-variable-name">Description</span>=<span class="org-string">"x11vnc"</span>
+  <span class="org-variable-name">Requires</span>=display-manager.service
+  <span class="org-variable-name">After</span>=display-manager.service
 
   [Service]
-  <span style="color: #8787d7;">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -env <span style="color: #8787d7;">FD_TAG</span>=my_gnome1 -env <span style="color: #8787d7;">FD_SESS</span>=gnome
-  <span style="color: #8787d7;">ExecStop</span>=/usr/bin/killall x11vnc
-  <span style="color: #8787d7;">Restart</span>=on-failure
+  <span class="org-variable-name">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -env <span class="org-variable-name">FD_TAG</span>=my_gnome1 -env <span class="org-variable-name">FD_SESS</span>=gnome
+  <span class="org-variable-name">ExecStop</span>=/usr/bin/killall x11vnc
+  <span class="org-variable-name">Restart</span>=on-failure
   Restart-sec=2
 
   [Install]
-  <span style="color: #8787d7;">WantedBy</span>=multi-user.target
+  <span class="org-variable-name">WantedBy</span>=multi-user.target
 
-<span style="color: #228b22;"># </span><span style="color: #32cd32; background-color: #262626;">daemin reload </span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">daemin reload </span>
 $ sudo systemctl daemon-reload
 
-<span style="color: #228b22;"># </span><span style="color: #32cd32; background-color: #262626;">start service</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">start service</span>
 $ sudo systemctl restart x11vnc.service
 </pre>
 </div>
@@ -83,7 +83,7 @@ allow: whitelist를 설정하여 허용한 IP들만 접속 가능하도록 설�
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">[Service]
-<span style="color: #8787d7;">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -env <span style="color: #8787d7;">FD_TAG</span>=my_gnome1 -env <span style="color: #8787d7;">FD_SESS</span>=gnome -allow 123.23 <span style="color: #228b22;"># </span><span style="color: #32cd32; background-color: #262626;">123.23.x.x &#51032; IP &#45824;&#50669;&#47564; &#51217;&#49549;&#54624; &#49688; &#51080;&#45796;.</span>
+<span class="org-variable-name">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -env <span class="org-variable-name">FD_TAG</span>=my_gnome1 -env <span class="org-variable-name">FD_SESS</span>=gnome -allow 123.23 <span class="org-comment-delimiter"># </span><span class="org-comment">123.23.x.x &#51032; IP &#45824;&#50669;&#47564; &#51217;&#49549;&#54624; &#49688; &#51080;&#45796;.</span>
 </pre>
 </div></li>
 <li>shared: 다중 클라이언트들의 접속을 허용한다.</li>

@@ -36,7 +36,7 @@ cmake는 리눅스, 윈도우, 맥 등 운영체제에 관계없이 하나의 �
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">$ MESSAGE ( [&lt;Type&gt;] &lt;&#47700;&#49884;&#51648;&gt; )
-ex: $ MESSAGE ( FATAL_ERROR <span style="color: #2aa198;">"Fatal error occurred!"</span> )
+ex: $ MESSAGE ( FATAL_ERROR <span class="org-string">"Fatal error occurred!"</span> )
 </pre>
 </div>
 <ul class="org-ul">
@@ -94,8 +94,8 @@ ex: $ ADD_LIBRARY ( app STATIC foo.c bar.c )
 
 ex:
 $ ADD_CUSTOM_TARGET ( flash
-        COMMENT <span style="color: #2aa198;">"Flashing binary"</span>
-        WORKING_DIRECTORY ${<span style="color: #8787d7;">CMAKE_RUNTIME_OUTPUT_DIRECTORY</span>}
+        COMMENT <span class="org-string">"Flashing binary"</span>
+        WORKING_DIRECTORY ${<span class="org-variable-name">CMAKE_RUNTIME_OUTPUT_DIRECTORY</span>}
         COMMAND python esptool.py write_flash app.bin
         DEPENDS app.out
         )
