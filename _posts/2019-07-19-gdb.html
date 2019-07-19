@@ -23,37 +23,37 @@ gdb는 리눅스에서 바이너리(실행) 파일을 디버깅하기 위한 프
 <li><code>bt</code> (back trace)</li>
 <li><code>i</code> (info)
 <ul class="org-ul">
-<li>i b 1: 1번 breakpoint의 정보를 확인합니다.</li>
-<li>i t 1: 1번 thread의 정보를 확인합니다.</li>
+<li><code>i b 1</code>: 1번 breakpoint의 정보를 확인합니다.</li>
+<li><code>i t 1</code>: 1번 thread의 정보를 확인합니다.</li>
 </ul></li>
 <li><code>f</code> (file)</li>
 <li><code>p</code> (print)
 <ul class="org-ul">
-<li>p vec.size()</li>
+<li><code>p vec.size()</code></li>
 </ul></li>
 <li><code>b</code> (breakpoint)
 <ul class="org-ul">
-<li>b test.cpp:30</li>
+<li><code>b test.cpp:30</code></li>
 </ul></li>
 <li><code>s</code> (step)</li>
 <li><code>d</code> (disable)
 <ul class="org-ul">
-<li>d br 1 (or, d 1)</li>
+<li><code>d br 1 (or, d 1)</code></li>
 </ul></li>
 <li><code>n</code> (next): step over functions</li>
 <li><code>s</code> (step): setp into functions</li>
 <li><code>c</code> (continue)</li>
 <li><code>l</code> (list)
 <ul class="org-ul">
-<li>l 10</li>
-<li>l thisIsFunction()</li>
+<li><code>l 10</code></li>
+<li><code>l thisIsFunction()</code></li>
 </ul></li>
 <li><code>finish</code></li>
 <li><p>
 <code>cond</code> (condition)
 </p>
 <ul class="org-ul">
-<li>cond 8 i == 456: i가 456이 될 때 8번 bp에서 멈추도록 지정합니다.
+<li><code>cond 8 i =</code> 456=: i가 456이 될 때 8번 bp에서 멈추도록 지정합니다.
 ignore 8 455도 가능합니다.</li>
 </ul>
 <div class="org-src-container">
@@ -65,7 +65,7 @@ ignore 8 455도 가능합니다.</li>
 </pre>
 </div>
 <ul class="org-ul">
-<li>cond 8 foo(i) &gt; bar(rand())</li>
+<li><code>cond 8 foo(i) &gt; bar(rand())</code></li>
 </ul></li>
 </ul>
 </div>
