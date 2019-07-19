@@ -1,0 +1,97 @@
+---
+layout: post
+title: gdb 사용법 정리
+description: 
+date: 2019-07-19
+categories: [Computer Science]
+use_math: true
+comments: true
+---
+<div id="outline-container-orga3f9f5a" class="outline-2">
+<h2 id="orga3f9f5a">commands 명령어</h2>
+<div class="outline-text-2" id="text-orga3f9f5a">
+<ul class="org-ul">
+<li>t (thread)</li>
+<li>bt (back trace)</li>
+<li>i (info)
+<ul class="org-ul">
+<li>i b 1: 1번 breakpoint의 정보를 확인합니다.</li>
+<li>i t 1: 1번 thread의 정보를 확인합니다.</li>
+</ul></li>
+<li>f (file)</li>
+<li>p (print)
+<ul class="org-ul">
+<li>p vec.size()</li>
+</ul></li>
+<li>b (breakpoint)
+<ul class="org-ul">
+<li>b test.cpp:30</li>
+</ul></li>
+<li>s (step)</li>
+<li>d (disable)
+<ul class="org-ul">
+<li>d br 1 (or, d 1)</li>
+</ul></li>
+<li>n (next): step over functions</li>
+<li>s (step): setp into functions</li>
+<li>c (continue)</li>
+<li>l (list)
+<ul class="org-ul">
+<li>l 10</li>
+<li>l thisIsFunction()</li>
+</ul></li>
+<li>finish</li>
+<li><p>
+cond (condition)
+</p>
+<ul class="org-ul">
+<li>cond 8 i == 456: i가 456이 될 때 8번 bp에서 멈추도록 지정합니다.
+ignore 8 455도 가능합니다.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-c++"><span style="color: #df005f; font-weight: bold;">int</span> <span style="color: #8787d7;">i</span>=0;
+<span style="color: #228b22;">// </span><span style="color: #32cd32; background-color: #262626;">do something</span>
+<span style="color: #268bd2; font-weight: bold;">for</span>(<span style="color: #df005f; font-weight: bold;">int</span> <span style="color: #8787d7;">i</span>=0; i&lt;1000; i++) {
+  <span style="color: #228b22;">// </span><span style="color: #32cd32; background-color: #262626;">do something</span>
+}
+</pre>
+</div>
+<ul class="org-ul">
+<li>cond 8 foo(i) &gt; bar(rand())</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org23af024" class="outline-2">
+<h2 id="org23af024">shortcuts 단축키</h2>
+<div class="outline-text-2" id="text-org23af024">
+<ul class="org-ul">
+<li>C-x C-a:</li>
+<li>C-l</li>
+<li>C-p, C-n</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org90fc978" class="outline-2">
+<h2 id="org90fc978">.gdbinit settings .gdbinit 설정</h2>
+<div class="outline-text-2" id="text-org90fc978">
+<ul class="org-ul">
+<li>set listsize &lt;number&gt;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org739dba6" class="outline-2">
+<h2 id="org739dba6">options 실행 옵션</h2>
+<div class="outline-text-2" id="text-org739dba6">
+<ul class="org-ul">
+<li>-i=mi (&#x2013;interface=mi)
+<ul class="org-ul">
+<li>it makes gdb present a machine-oriented text interface rather than the human-oriented command prompt you get without it. see <a href="https://stackoverflow.com/a/28901568/7402755">reference</a></li>
+</ul></li>
+<li>-tui</li>
+<li>-q</li>
+<li>&#x2013;ex</li>
+<li>&#x2013;args</li>
+</ul>
+</div>
+</div>
