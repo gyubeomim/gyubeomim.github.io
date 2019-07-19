@@ -3,10 +3,15 @@ layout: post
 title: gdb 사용법 정리
 description: 
 date: 2019-07-19
-categories: [Computer Science]
+categories: [Linux]
 use_math: true
 comments: true
 ---
+
+<p>
+[Work in Progress&#x2026;]
+gdb는 리눅스에서 바이너리(실행) 파일을 디버깅하기 위한 프로그램입니다. 다양한 옵션들이 존재하므로 따로 정리했습니다. 
+</p>
 <div id="outline-container-orga3f9f5a" class="outline-2">
 <h2 id="orga3f9f5a">commands 명령어</h2>
 <div class="outline-text-2" id="text-orga3f9f5a">
@@ -72,9 +77,9 @@ ignore 8 455도 가능합니다.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org90fc978" class="outline-2">
-<h2 id="org90fc978">.gdbinit settings .gdbinit 설정</h2>
-<div class="outline-text-2" id="text-org90fc978">
+<div id="outline-container-orgac21cfa" class="outline-2">
+<h2 id="orgac21cfa">.gdbinit settings (.gdbinit 설정)</h2>
+<div class="outline-text-2" id="text-orgac21cfa">
 <ul class="org-ul">
 <li><code>set listsize &lt;number&gt;</code></li>
 </ul>
@@ -86,6 +91,7 @@ ignore 8 455도 가능합니다.</li>
 <ul class="org-ul">
 <li><code>-i=mi</code> (&#x2013;interface=mi)
 <ul class="org-ul">
+<li>emacs에서만 동작하는 옵션입니다.</li>
 <li>it makes gdb present a machine-oriented text interface rather than the human-oriented command prompt you get without it. see <a href="https://stackoverflow.com/a/28901568/7402755">reference</a></li>
 </ul></li>
 <li><code>-tui</code></li>
