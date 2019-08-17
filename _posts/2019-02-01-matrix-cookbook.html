@@ -13,8 +13,11 @@ comments: true
 </p>
 
 <p>
-선형대수학을 배우면서 행렬에는 정말 많은 성질들과 종류들이 존재한다는 것을 알았고 대학원 과정에서 배웠던 학문들은(최적화기법, 추정이론 등등) 기본적으로 행렬 연산을 수행하므로 행렬에 대한 지식은 필수로 숙지해야 한다. 해당 포스트는 내가 직접 공부하면서 설명이 잘 되어있는 블로그 포스트, 유튜브 영상, 논문 및 책 등의 내용을 모아 추후에 보기 편하도록 편집/수정한 포스트이다.
+선형대수학을 배우면서 행렬에는 정말 많은 종류들과 성질들이 존재한다는 것을 알았다.
+대학원 과정에서 배웠던 학문들은(최적화기법, 추정이론 등등) 기본적으로 행렬 연산을 수행하므로 행렬에 대한 지식은 필수로 숙지해야 한다.
+해당 포스트는 내가 직접 공부하면서 설명이 잘 되어있는 블로그 포스트, 유튜브 영상, 논문 및 책 등의 내용을 모아 추후에 보기 편하도록 편집/수정한 포스트이다.
 </p>
+
 <div id="outline-container-org6420081" class="outline-2">
 <h2 id="org6420081">Origin of matrix 행렬의 기원</h2>
 <div class="outline-text-2" id="text-org6420081">
@@ -23,7 +26,7 @@ reference: <a href="https://youtu.be/83UnOz6HiOY?t=958">수학의신이상엽-�
 </p>
 
 <p>
-연립일차방정식을 풀기 위해 고안되었다
+연립일차방정식을 풀기 위해 고안되었다.
 </p>
 <hr>
 </div>
@@ -40,7 +43,7 @@ reference: <a href="https://youtu.be/83UnOz6HiOY?t=958">수학의신이상엽-�
 </p>
 
 <p>
-함수의 합성과 비슷하다
+함수의 합성과 비슷한다
 아래 두 함수의 합성을 살펴보면
 </p>
 
@@ -76,7 +79,7 @@ cp+dr &amp; cq+ds
 </p>
 
 <p>
-와 같다
+와 같다.
 </p>
 <hr>
 </div>
@@ -93,6 +96,15 @@ cp+dr &amp; cq+ds
 <li>두 행을 맞바꾼다.</li>
 </ol>
 <hr>
+</div>
+</div>
+<div id="outline-container-orgf7da56d" class="outline-2">
+<h2 id="orgf7da56d">Orthogonal matrix</h2>
+<div class="outline-text-2" id="text-orgf7da56d">
+<ul class="org-ul">
+<li>A matrix $\mathbf{U}$is known as <i>orthogonal</i> <span class="underline">if its transpose is its inverse</span> -symbolically $\mathbf{U}^{T}\mathbf{U}=\mathbf{I}$, where $\mathbf{I}$is the identity matrix. this means that the column vectors of $\mathbf{U}$are all of unit norm and are orthogonal. this may be written $\mathbf{u}_{i}^{T}\mathbf{u}_{j}=\delta_{ij}$. from the condition $\mathbf{U}^{T} \mathbf{U} = \mathbf{I}$one easily deduces that $\mathbf{U}\mathbf{U}^{T}=\mathbf{I}$. hence the row vectors of $\mathbf{U}$are also of unit norm and are orthogonal.</li>
+<li>consider once more the equation $\mathbf{U}^{T}\mathbf{U}=\mathbf{I}$, taking determiants leads to the equation $(\det{\mathbf{U}})^{2}=1$, since $\det{\mathbf{U}} = \det{\mathbf{U}}^{T}$. Thus if $\mathbf{U}$is orthogonal, then $\det \mathbf{U} = \pm 1$</li>
+</ul>
 </div>
 </div>
 <div id="outline-container-org74d4520" class="outline-2">
@@ -181,7 +193,7 @@ $x_{j} = \frac{\det(A_{j})}{\det(A)}$
 </p>
 
 <p>
-다음과 같은 특징을 지니고 있다
+다음과 같은 특징을 지니고 있다.
 </p>
 
 <p>
@@ -259,7 +271,7 @@ reference: <a href="https://freshrimpsushi.tistory.com/989?category=721572">생�
 
 <p>
 이러한 정의는 깔끔하지만 많은 것이 생략되어 있어 머리로 따라가기가 어렵다.
-차근차근 수식과 설명을 봐가면서 개념 자체를 받아들여보도록 하자.
+차근차근 수식과 설명을 봐가면서 개념 자체를 받아 들여보자
 </p>
 
 <p>
@@ -286,7 +298,7 @@ reference: <a href="https://freshrimpsushi.tistory.com/989?category=721572">생�
 </p>
 
 <p>
-[Definition] $D \subset \mathbb{R}^{n}$에서 정의된 다변수 벡터 함수 $\mathbf{f} : D \to \mathbb{R}^{m}$가 각각의 스칼라 함수 $f_{1} , \cdots , f_{m} : D \to \mathbb{R}$에 대해 $\mathbf{f} ( x_{1} , \cdots , x_{n} )  : = \begin{bmatrix} f_{1} ( x_{1} , \cdots , x_{n} )  \\ \vdots \\ f_{m} ( x_{1} , \cdots , x_{n} ) \end{bmatrix}$과 같이 정의되었다고 하자. 이 때 $J := \begin{bmatrix} {\partial f_{1}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{1}  \over \partial x_{n} } \\ \vdots &amp; \ddots &amp; \vdots \\  {\partial f_{m}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{m}  \over \partial x_{n} }  \end{bmatrix}$행렬을 $f$의 Jacobian Matrix(자코비안 행렬)이라고 한다.
+[Definition] $D \subset \mathbb{R}^{n}$에서 정의된 다변수 벡터 함수 $\mathbf{f} : D \to \mathbb{R}^{m}$가 각각의 스칼라 함수 $f_{1} , \cdots , f_{m} : D \to \mathbb{R}$에 대해 $\mathbf{f} ( x_{1} , \cdots , x_{n} )  : = \begin{bmatrix} f_{1} ( x_{1} , \cdots , x_{n} )  \\ \vdots \\ f_{m} ( x_{1} , \cdots , x_{n} ) \end{bmatrix}$과 같이 정의된다. 이 때 $J := \begin{bmatrix} {\partial f_{1}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{1}  \over \partial x_{n} } \\ \vdots &amp; \ddots &amp; \vdots \\  {\partial f_{m}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{m}  \over \partial x_{n} }  \end{bmatrix}$행렬을 $f$의 Jacobian Matrix(자코비안 행렬)이라고 한다.
 </p>
 
 <p>
