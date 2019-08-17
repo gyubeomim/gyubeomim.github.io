@@ -13,36 +13,61 @@ comments: true
 </p>
 
 <p>
+<<<<<<< HEAD
 gdb는 리눅스에서 바이너리(실행) 파일을 디버깅하기 위한 프로그램이다. 다양한 옵션들이 존재하므로 따로 정리했다. 
 </p>
 <div id="outline-container-orge3306f8" class="outline-2">
 <h2 id="orge3306f8">commands 명령어</h2>
 <div class="outline-text-2" id="text-orge3306f8">
+=======
+gdb는 리눅스에서 바이너리(실행) 파일을 디버깅하기 위한 프로그램입니다. 다양한 옵션들이 존재하므로 따로 정리했습니다. 
+</p>
+<div id="outline-container-orga3f9f5a" class="outline-2">
+<h2 id="orga3f9f5a">commands 명령어</h2>
+<div class="outline-text-2" id="text-orga3f9f5a">
+>>>>>>> b346b0bce67c530737bfbe6849250501744dab09
 <ul class="org-ul">
 <li><code>t</code> (thread)</li>
 <li><code>bt</code> (back trace)</li>
 <li><code>i</code> (info)
 <ul class="org-ul">
+<<<<<<< HEAD
 <li><code>i b 1</code>: 1번 breakpoint의 정보를 확인한다.</li>
 <li><code>i t 1</code>: 1번 thread의 정보를 확인한다.</li>
+=======
+<li><code>i b 1</code>: 1번 breakpoint의 정보를 확인합니다.</li>
+<li><code>i t 1</code>: 1번 thread의 정보를 확인합니다.</li>
+>>>>>>> b346b0bce67c530737bfbe6849250501744dab09
 </ul></li>
 <li><code>f</code> (file)</li>
 <li><p>
 <code>p</code> (print)
 </p>
 <ul class="org-ul">
+<<<<<<< HEAD
 <li><code>p vec.size()</code> : vec 변수의 크기를 확인한다.</li>
+=======
+<li><code>p vec.size()</code> : vec 변수의 크기를 확인합니다.</li>
+>>>>>>> b346b0bce67c530737bfbe6849250501744dab09
 </ul>
 <ul class="org-ul">
 <li><code>b</code> (breakpoint)
 <ul class="org-ul">
+<<<<<<< HEAD
 <li><code>b test.cpp:30</code> : test.cpp 30번줄에 breakpoint를 설정한다</li>
+=======
+<li><code>b test.cpp:30</code> : test.cpp 30번줄에 breakpoint를 설정합니다</li>
+>>>>>>> b346b0bce67c530737bfbe6849250501744dab09
 </ul></li>
 </ul></li>
 <li><code>s</code> (step)</li>
 <li><code>d</code> (disable)
 <ul class="org-ul">
+<<<<<<< HEAD
 <li><code>d br 1 (or, d 1)</code>: 1번 breakpoint를 제거한다.</li>
+=======
+<li><code>d br 1 (or, d 1)</code>: 1번 breakpoint를 제거합니다</li>
+>>>>>>> b346b0bce67c530737bfbe6849250501744dab09
 </ul></li>
 <li><code>n</code> (next): step over functions</li>
 <li><code>s</code> (step): setp into functions</li>
@@ -57,8 +82,13 @@ gdb는 리눅스에서 바이너리(실행) 파일을 디버깅하기 위한 프
 <code>cond</code> (condition)
 </p>
 <ul class="org-ul">
+<<<<<<< HEAD
 <li><code>cond 8 i = 456</code>: i가 456이 될 때 8번 bp에서 멈추도록 지정한다.
 ignore 8 455도 가능하다.</li>
+=======
+<li><code>cond 8 i = 456</code>: i가 456이 될 때 8번 bp에서 멈추도록 지정합니다.
+ignore 8 455도 가능합니다.</li>
+>>>>>>> b346b0bce67c530737bfbe6849250501744dab09
 </ul>
 <div class="org-src-container">
 <pre class="src src-c++"><span class="org-type">int</span> <span class="org-variable-name">i</span>=0;
@@ -69,14 +99,24 @@ ignore 8 455도 가능하다.</li>
 </pre>
 </div>
 <ul class="org-ul">
+<<<<<<< HEAD
 <li><code>cond 8 foo(i) &gt; bar(rand())</code> : 8번 breakpoint를 foo(i) &gt; bar(rand())를 만족할 때만 실행하도록 설정한다.</li>
+=======
+<li><code>cond 8 foo(i) &gt; bar(rand())</code> : 8번 breakpoint를 foo(i) &gt; bar(rand())를 만족할 때만 실행하도록 설정합니다.</li>
+>>>>>>> b346b0bce67c530737bfbe6849250501744dab09
 </ul></li>
 </ul>
 </div>
 </div>
+<<<<<<< HEAD
 <div id="outline-container-orgbf9cae6" class="outline-2">
 <h2 id="orgbf9cae6">shortcuts 단축키</h2>
 <div class="outline-text-2" id="text-orgbf9cae6">
+=======
+<div id="outline-container-org23af024" class="outline-2">
+<h2 id="org23af024">shortcuts 단축키</h2>
+<div class="outline-text-2" id="text-org23af024">
+>>>>>>> b346b0bce67c530737bfbe6849250501744dab09
 <ul class="org-ul">
 <li><code>C-x C-a</code> :</li>
 <li><code>C-l</code></li>
@@ -84,14 +124,21 @@ ignore 8 455도 가능하다.</li>
 </ul>
 </div>
 </div>
+<<<<<<< HEAD
 <div id="outline-container-org91e9d51" class="outline-2">
 <h2 id="org91e9d51">.gdbinit settings (.gdbinit 설정)</h2>
 <div class="outline-text-2" id="text-org91e9d51">
+=======
+<div id="outline-container-orgac21cfa" class="outline-2">
+<h2 id="orgac21cfa">.gdbinit settings (.gdbinit 설정)</h2>
+<div class="outline-text-2" id="text-orgac21cfa">
+>>>>>>> b346b0bce67c530737bfbe6849250501744dab09
 <ul class="org-ul">
 <li><code>set listsize &lt;number&gt;</code></li>
 </ul>
 </div>
 </div>
+<<<<<<< HEAD
 <div id="outline-container-orgd51688e" class="outline-2">
 <h2 id="orgd51688e">options 실행 옵션</h2>
 <div class="outline-text-2" id="text-orgd51688e">
@@ -99,6 +146,15 @@ ignore 8 455도 가능하다.</li>
 <li><code>-i=mi</code> (&#x2013;interface=mi)
 <ul class="org-ul">
 <li>emacs에서만 동작하는 옵션이다.</li>
+=======
+<div id="outline-container-org739dba6" class="outline-2">
+<h2 id="org739dba6">options 실행 옵션</h2>
+<div class="outline-text-2" id="text-org739dba6">
+<ul class="org-ul">
+<li><code>-i=mi</code> (&#x2013;interface=mi)
+<ul class="org-ul">
+<li>emacs에서만 동작하는 옵션입니다.</li>
+>>>>>>> b346b0bce67c530737bfbe6849250501744dab09
 <li>it makes gdb present a machine-oriented text interface rather than the human-oriented command prompt you get without it. see <a href="https://stackoverflow.com/a/28901568/7402755">reference</a></li>
 </ul></li>
 <li><code>-tui</code>
@@ -107,7 +163,11 @@ ignore 8 455도 가능하다.</li>
 </ul></li>
 <li><code>-q</code>
 <ul class="org-ul">
+<<<<<<< HEAD
 <li>gdb를 시작할 때 나오는 intro message들을 출력하지 않는다.</li>
+=======
+<li>gdb를 시작할 때 나오는 intro message들을 출력하지 않습니다.</li>
+>>>>>>> b346b0bce67c530737bfbe6849250501744dab09
 </ul></li>
 <li><code>--ex</code></li>
 <li><code>--args</code></li>
