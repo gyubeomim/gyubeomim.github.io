@@ -82,11 +82,14 @@ allow: whitelist를 설정하여 허용한 IP들만 접속 가능하도록 설�
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">[Service]
-<span class="org-variable-name">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -env <span class="org-variable-name">FD_TAG</span>=my_gnome1 -env <span class="org-variable-name">FD_SESS</span>=gnome -allow 123.23 <span class="org-comment-delimiter"># </span><span class="org-comment">123.23.x.x &#51032; IP &#45824;&#50669;&#47564; &#51217;&#49549;&#54624; &#49688; &#51080;&#45796;.</span>
+<span class="org-variable-name">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -allow 123.23 <span class="org-comment-delimiter"># </span><span class="org-comment">123.23.x.x &#51032; IP &#45824;&#50669;&#47564; &#51217;&#49549;&#54624; &#49688; &#51080;&#45796;.</span>
 </pre>
 </div></li>
-<li>shared: 다중 클라이언트들의 접속을 허용한다.</li>
-<li>forever: 한 번 접속을 끊은 상태에서도 계속 서버를 유지한다. (default: off)</li>
+<li>forever: 한 번 접속을 끊은 상태에서도 계속 서버를 유지</li>
+<li>shared: 다중 클라이언트들의 접속을 허용 (없으면 1명만 접속 가능)</li>
+<li>rfbport: 특정 포트 번호를 vnc 포트로 사용 (해당 글에서는 5902 포트를 사용)</li>
+<li>rfbauth: 비밀번호를 통한 vnc 접속을 위한 비밀번호 파일 경로 설정 (-storepasswd 명령을 통해 생성된 파일을 연결하면 된다)</li>
+<li>o: vnc 접속 기록을 저장하는 파일의 경로</li>
 </ul>
 </div>
 </div>
