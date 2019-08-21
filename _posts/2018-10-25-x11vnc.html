@@ -31,7 +31,7 @@ $ sudo vim /lib/systemd/system/x11vnc.service
   <span class="org-variable-name">After</span>=display-manager.service
 
   [Service]
-  <span class="org-variable-name">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -env <span class="org-variable-name">FD_TAG</span>=my_gnome1 -env <span class="org-variable-name">FD_SESS</span>=gnome
+  <span class="org-variable-name">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 
   <span class="org-variable-name">ExecStop</span>=/usr/bin/killall x11vnc
   <span class="org-variable-name">Restart</span>=on-failure
   Restart-sec=2
