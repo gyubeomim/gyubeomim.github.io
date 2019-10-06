@@ -32,6 +32,7 @@ comments: true
 <div class="org-src-container">
 <pre class="src src-sh">sudo vim /lib/systemd/system/x11vnc.service
 
+<span class="org-comment-delimiter"># </span><span class="org-comment">write codes below.</span>
 [Unit]
 <span class="org-variable-name">Description</span>=<span class="org-string">"x11vnc"</span>
 <span class="org-variable-name">Requires</span>=display-manager.service
@@ -76,6 +77,7 @@ $ sudo systemctl enable x11vnc.service
 <div class="org-src-container">
 <pre class="src src-sh">sudo x11vnc -storepasswd
 
+<span class="org-comment-delimiter"># </span><span class="org-comment">Out[]:</span>
 Enter VNC passwd: [enter new password]
 Verify password: [enter the new password again]
 Write password to /home/ubuntu/.vnc/passwd? [y]/n y
