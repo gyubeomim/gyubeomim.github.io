@@ -12,84 +12,114 @@ comments: true
 </p>
 
 <p>
-x11vnc는 원격에서 리눅스 환경으로 접속할 수 있게 해주는 VNC 서버 프로그램이다. 현재 x11vnc를 서버 프로그램으로 사용하고 <a href="https://www.realvnc.com/en/connect/download/viewer/">RealVNC Viewer</a> 프로그램을 클라이언트 프로그램으로 사용하여 끊김없이 빠르게 잘 사용하고 있다. 우분투 16.04 환경에서 <code>apt</code> 를 사용하여 쉽게 설치할 수 있고 다양한 옵션들이 존재하므로 목적에 맞게 설정할 수 있다.
+x11vnc는 원격에서 리눅스 환경으로 접속할 수 있게 해주는 VNC 서버 프로그램을 말한다. Ubuntu 16.04 LTS 환경에서 쉽게 설치할 수 있어서 vnc 서버 프로그램으로 주로 사용된다. 본 포스트에서는 설치 방법 및 다양한 옵션들에 대해 설명한다.
 </p>
-
-<div id="outline-container-orgfeff9c9" class="outline-2">
-<h2 id="orgfeff9c9">서비스 업로드 및 시작</h2>
-<div class="outline-text-2" id="text-orgfeff9c9">
+<div id="outline-container-orga643d3d" class="outline-2">
+<h2 id="orga643d3d">설치</h2>
+<div class="outline-text-2" id="text-orga643d3d">
 <p>
-우분투를 재부팅하는 경우 자동으로 x11vnc가 실행될 수 있도록 daemon에 등록해주는 명령들이다.
+<code>x11vnc</code> 서버 프로그램은 터미널을 연 상태에서 아래의 명령어를 통해 쉽게 설치할 수 있다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">&#50500;&#47000; &#54028;&#51068;&#51012; &#49688;&#51221;&#54620;&#45796; (&#50630;&#45796;&#47732; &#50500;&#47000; &#53076;&#46300;&#47484; &#52628;&#44032;&#54620;&#45796;)</span>
-$ sudo vim /lib/systemd/system/x11vnc.service
+<pre class="src src-sh">sudo  apt-get  install  x11vnc
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org2a79dd8" class="outline-2">
+<h2 id="org2a79dd8">서비스 등록 및 시작</h2>
+<div class="outline-text-2" id="text-org2a79dd8">
+<p>
+<code>x11vnc</code> 를 daemon 서비스로 등록하면 PC가 재부팅될 때도 프로그램이 자동으로 백그라운드에서 실행된다. 따라서 매번 부팅 때마다 서버 프로그램을 시작하지 않아도 된다.
+<code>/lib/systemd/system</code> 폴더에 <code>x11vnc.service</code> 파일을 아래와 같이 작성한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">sudo vim /lib/systemd/system/x11vnc.service
 
-  [Unit]
-  <span class="org-variable-name">Description</span>=<span class="org-string">"x11vnc"</span>
-  <span class="org-variable-name">Requires</span>=display-manager.service
-  <span class="org-variable-name">After</span>=display-manager.service
+[Unit]
+<span class="org-variable-name">Description</span>=<span class="org-string">"x11vnc"</span>
+<span class="org-variable-name">Requires</span>=display-manager.service
+<span class="org-variable-name">After</span>=display-manager.service
 
-  [Service]
-  <span class="org-variable-name">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 
-  <span class="org-variable-name">ExecStop</span>=/usr/bin/killall x11vnc
-  <span class="org-variable-name">Restart</span>=on-failure
-  Restart-sec=2
+[Service]
+<span class="org-variable-name">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 
+<span class="org-variable-name">ExecStop</span>=/usr/bin/killall x11vnc
+<span class="org-variable-name">Restart</span>=on-failure
+Restart-sec=2
 
-  [Install]
-  <span class="org-variable-name">WantedBy</span>=multi-user.target
+[Install]
+<span class="org-variable-name">WantedBy</span>=multi-user.target
+</pre>
+</div>
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">daemin reload </span>
-$ sudo systemctl daemon-reload
+<p>
+위 파일을 저장한 후 daemon reload를 통해 서비스 목록에 추가한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ sudo systemctl daemon-reload
+</pre>
+</div>
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">start service</span>
-$ sudo systemctl restart x11vnc.service
+<p>
+서비스를 시작한다. 또한 부팅시 마다 자동으로 실행하기 위해 enable 명령어를 사용한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ sudo systemctl start x11vnc.service
+$ sudo systemctl enable x11vnc.service
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgdd9981e" class="outline-2">
-<h2 id="orgdd9981e">비밀번호 저장 및 변경</h2>
-<div class="outline-text-2" id="text-orgdd9981e">
+<div id="outline-container-orga489aaf" class="outline-2">
+<h2 id="orga489aaf">비밀번호 저장 및 변경</h2>
+<div class="outline-text-2" id="text-orga489aaf">
 <p>
-원격에서 접속할 때 비밀번호를 입력해야 하는데 이를 설정하고 변경할 수 있게 해주는 옵션이다.
+<code>x11vnc</code> 는 기본적으로 비밀번호없이 접속할 수 있다. 보안을 위해 접속할 때 비밀번호를 설정하고 싶으면 아래 명령어를 통해 설정한다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ sudo x11vnc -storepasswd
+<pre class="src src-sh">sudo x11vnc -storepasswd
 
 Enter VNC passwd: [enter new password]
 Verify password: [enter the new password again]
 Write password to /home/ubuntu/.vnc/passwd? [y]/n y
 Password written to : /home/ubuntu/.vnc/passwd
+</pre>
+</div>
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">.vnc/passwd &#54028;&#51068;&#51012; /etc/x11vnc.pass &#54028;&#51068;&#47196; &#48373;&#49324;&#54620;&#45796;</span>
-$ sudo cp ~/.vnc/passwd /etc/x11vnc.pass
+<p>
+위 명령어가 끝나면 <code>.vnc/passwd</code> 파일이 생성된다. 저장된 파일을 <code>/etc/x11vnc.pass</code> 파일로 복사한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ sudo cp ~/.vnc/passwd /etc/x11vnc.pass
+</pre>
+</div>
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">x11vnc service&#47484; &#51116;&#49884;&#51089;&#54620;&#45796;</span>
-$ sudo service x11vnc restart
+<p>
+비밀번호를 적용하기 위해 <code>x11vnc</code> 서버를 재시작한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ sudo service x11vnc restart
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc54fe0b" class="outline-2">
-<h2 id="orgc54fe0b">옵션</h2>
-<div class="outline-text-2" id="text-orgc54fe0b">
-<ul class="org-ul">
-<li><p>
-allow: whitelist를 설정하여 허용한 IP들만 접속 가능하도록 설정한다.
-</p>
+<div id="outline-container-orgdfceaaf" class="outline-2">
+<h2 id="orgdfceaaf">옵션</h2>
+<div class="outline-text-2" id="text-orgdfceaaf">
 <div class="org-src-container">
 <pre class="src src-sh">[Service]
 <span class="org-variable-name">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -allow 123.23 <span class="org-comment-delimiter"># </span><span class="org-comment">123.23.x.x &#51032; IP &#45824;&#50669;&#47564; &#51217;&#49549;&#54624; &#49688; &#51080;&#45796;.</span>
 </pre>
-</div></li>
-<li>forever: 한 번 접속을 끊은 상태에서도 계속 서버를 유지</li>
-<li>shared: 다중 클라이언트들의 접속을 허용 (없으면 1명만 접속 가능)</li>
-<li>rfbport: 특정 포트 번호를 vnc 포트로 사용 (해당 글에서는 5902 포트를 사용)</li>
-<li>rfbauth: 비밀번호를 통한 vnc 접속을 위한 비밀번호 파일 경로 설정 (-storepasswd 명령을 통해 생성된 파일을 연결하면 된다)</li>
-<li>o: vnc 접속 기록을 저장하는 파일의 경로</li>
+</div>
+<ul class="org-ul">
+<li><code>forever</code>: 한 번 접속을 끊은 상태에서도 계속 서버를 유지</li>
+<li><code>shared</code>: 다중 클라이언트들의 접속을 허용 (없으면 1명만 접속 가능)</li>
+<li><code>rfbport</code>: 특정 포트 번호를 vnc 포트로 사용 (해당 글에서는 5902 포트를 사용)</li>
+<li><code>rfbauth</code>: 비밀번호를 통한 vnc 접속을 위한 비밀번호 파일 경로 설정 (-storepasswd 명령을 통해 생성된 파일을 연결하면 된다)</li>
+<li><code>o</code>: vnc 접속 기록을 저장하는 파일의 경로</li>
+<li><code>allow</code>: whitelist를 설정하여 허용한 IP들만 접속 가능하도록 설정한다.</li>
 </ul>
 </div>
 </div>
