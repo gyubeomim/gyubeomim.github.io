@@ -21,17 +21,17 @@ cmake는 리눅스, 윈도우, 맥 등 운영체제에 관계없이 하나의 �
 <h2 id="org656a7ab">Commands</h2>
 <div class="outline-text-2" id="text-org656a7ab">
 <p>
-<code>CMAKE_MINIMUM_REQUIRED()</code>
+<code>cmake_minimum_required()</code>
 필요 CMake 최소 버전 명시
 </p>
 
 <p>
-<code>PROJECT()</code>
+<code>project()</code>
 프로젝트 이름 설정
 </p>
 
 <p>
-<code>MESSAGE()</code>
+<code>message()</code>
 콘솔에 메세지 출력
 </p>
 <div class="org-src-container">
@@ -51,7 +51,7 @@ ex: $ MESSAGE ( FATAL_ERROR <span class="org-string">"Fatal error occurred!"</sp
 </ul>
 
 <p>
-<code>ADD_EXECUTABLE()</code>
+<code>add_executable()</code>
 빌드 최종 결과물로 생성할 실행 파일을 추가한다. 이 명령을 반복하여 생성할 실행 파일을 계속 추가할 수 있다.
 </p>
 <div class="org-src-container">
@@ -61,7 +61,7 @@ ex: $ MESSAGE ( FATAL_ERROR <span class="org-string">"Fatal error occurred!"</sp
 
 
 <p>
-<code>ADD_LIBRARY()</code>
+<code>add_library()</code>
 빌드 최종 결과물로 생성할 라이브러리를 추가한다. 이 명령을 반복하여 생성할 라이브러리를 계속 추가할 수 있다.
 </p>
 <div class="org-src-container">
@@ -77,7 +77,7 @@ ex: $ ADD_LIBRARY ( app STATIC foo.c bar.c )
 
 
 <p>
-<code>ADD_CUSTOM_TARGET()</code>
+<code>add_custom_target()</code>
 사용자 정의 Target 추가
 통상적인 빌드 절차로 생성할 수 없는 Target을 추가한다.. 라지만, 실상은 make 매크로를 정의할 때 더 많이 사용한다.(make flash 라던가.) Taget의 Recipe를 직접 지정해야 하는 경우 유용하게 활용할 수 있다.
 </p>
@@ -93,7 +93,7 @@ ex: $ ADD_LIBRARY ( app STATIC foo.c bar.c )
 )
 
 ex:
-$ ADD_CUSTOM_TARGET ( flash
+$ add_custom_target ( flash
         COMMENT <span class="org-string">"Flashing binary"</span>
         WORKING_DIRECTORY ${<span class="org-variable-name">CMAKE_RUNTIME_OUTPUT_DIRECTORY</span>}
         COMMAND python esptool.py write_flash app.bin
@@ -104,7 +104,7 @@ $ ADD_CUSTOM_TARGET ( flash
 
 
 <p>
-<code>ADD_DEPENDENCIES()</code>
+<code>add_dependencies()</code>
 Top-level Target간의 의존성을 지정한다. Top-level Target이란 ADD_EXECUTABLE, ADD_LIBRARY, ADD_CUSTOM_TARGET 명령으로 정의한 Target들을 의미한다.
 </p>
 <div class="org-src-container">
@@ -115,7 +115,7 @@ $ ADD_DEPENDENCIES ( flash app.out )
 
 
 <p>
-<code>INSTALL()</code>
+<code>install()</code>
 Makefile에서 관용적으로 설치용 Target으로 사용되는 install target의 동작 방식을 정의한다. 즉, <b>make install</b> 명령을 실행했을 때 무슨 동작을 수행할지를 지정한다.
 </p>
 <div class="org-src-container">
