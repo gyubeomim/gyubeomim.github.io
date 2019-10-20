@@ -37,7 +37,8 @@
 /* Prevent scroll on narrow devices */
 html,
 body {
-  overflow-x: hidden;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 /*html {
@@ -77,16 +78,16 @@ h1, h2, h3, h4, h5, h6 {
  */
 
 .container {
-  max-width: 47rem;
+  max-width: 28rem;
 }
 @media (min-width: 38em) {
   .container {
-    max-width: 47rem;
+    max-width: 32rem;
   }
 }
 @media (min-width: 56em) {
   .container {
-    max-width: 47rem;
+    max-width: 38rem;
   }
 }
 
