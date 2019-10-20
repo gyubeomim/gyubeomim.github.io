@@ -7,14 +7,14 @@ permalink:           pretty
 # Setup
 title:               starlaw's blog
 tagline:             "Researcher & Engineer & Tech Evangelist"
-description:         ''
+#description:        ''
 url:                 https://tigerk0430.github.io
-baseurl:             ''
+#baseurl:            ''
 paginate:            10
 
 # About/contact
 author:
-  name:              Edward Im
+  name:              Gyubeom Edward Im
   url:               https://tigerk0430.github.io
   email:             gyurse@gmail.com
 
