@@ -32,6 +32,7 @@ collections:
         output: true
         matrix:
             output: true
+
 #defaults:
 #  - scope:
 #      path: ''
