@@ -7,7 +7,7 @@ permalink:           pretty
 # Setup
 title:               starlaw's blog
 tagline:             "Researcher & Engineer & Tech Evangelist"
-description:         "starlaw's blog"
+description:         "starlaw"
 url:                 https://tigerk0430.github.io
 baseurl:            ''
 paginate:            10
@@ -27,11 +27,11 @@ version:             1.0.0
 plugins: [jekyll-paginate]
 
 # Tag setting
-#collections:
-#  tags:
-#    output: true
-#    permalink: /tags/:path/
-
+collections:
+    mathematics:
+        output: true
+        matrix:
+            output: true
 #defaults:
 #  - scope:
 #      path: ''

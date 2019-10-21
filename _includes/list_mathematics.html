@@ -1,0 +1,6 @@
+{% assign mathematics = site.mathematics| sort:'title' %}
+{% for math in mathematics %}
+{% if page.url != math.url  and include.taxonomy == nil or math.url contains include.taxonomy %}
+    <a  href={{ math.url | prepend: site.baseurl }}>{{math.title}}</a>
+{% endif %}
+{% endfor %} 
