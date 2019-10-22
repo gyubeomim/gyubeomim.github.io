@@ -9,13 +9,13 @@ use_math: true
 comments: true
 ---
 <p>
-<code>x11vnc</code> 는 원격에서 리눅스 환경으로 접속할 수 있게 해주는 VNC 서버 프로그램이다. Ubuntu 16.04 LTS 환경에서 쉽게 설치 및 사용할 수 있어서 vnc 서버 프로그램으로 주로 사용된다. 본 포스트에서는 설치 방법 및 다양한 옵션들에 대해 설명한다.
+<b>x11vnc</b> 는 원격에서 리눅스 환경으로 접속할 수 있게 해주는 VNC 서버 프로그램이다. Ubuntu 16.04 LTS 환경에서 쉽게 설치 및 사용할 수 있어서 vnc 서버 프로그램으로 주로 사용된다. 본 포스트에서는 설치 방법 및 다양한 옵션들에 대해 설명한다.
 </p>
 <div id="outline-container-orgc1398bc" class="outline-2">
 <h2 id="orgc1398bc">Installation</h2>
 <div class="outline-text-2" id="text-orgc1398bc">
 <p>
-<code>x11vnc</code> 는 터미널을 연 상태에서 아래의 명령어를 통해 쉽게 설치할 수 있다.
+<b>x11vnc</b> 는 터미널을 연 상태에서 아래의 명령어를 통해 쉽게 설치할 수 있다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">sudo apt-get install x11vnc
@@ -73,7 +73,7 @@ $ sudo systemctl enable x11vnc.service
 <h2 id="org8cfb5c8">Set custom password</h2>
 <div class="outline-text-2" id="text-org8cfb5c8">
 <p>
-<code>x11vnc</code> 는 기본적으로 비밀번호없이 접속할 수 있다. 보안을 위해 접속할 때 비밀번호를 설정하고 싶으면 아래 명령어를 통해 설정한다.
+<b>x11vnc</b> 는 기본적으로 비밀번호없이 접속할 수 있다. 보안을 위해 접속할 때 비밀번호를 설정하고 싶으면 아래 명령어를 통해 설정한다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">sudo x11vnc -storepasswd
@@ -95,7 +95,7 @@ Password written to : /home/ubuntu/.vnc/passwd
 </div>
 
 <p>
-비밀번호를 적용하기 위해 <code>x11vnc</code> 서버를 재시작한다.
+비밀번호를 적용하기 위해 <b>x11vnc</b> 서버를 재시작한다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">$ sudo service x11vnc restart
