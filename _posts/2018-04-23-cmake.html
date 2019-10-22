@@ -14,7 +14,7 @@ comments: true
 </p>
 
 <p>
-cmake는 리눅스, 윈도우, 맥 등 운영체제에 관계없이 하나의 코드만으로 실행 파일을 생성해주는 크로스 컴파일러 프로그램이다. 처음에 익숙해지기까지 알아야 될 정보들이 많지만 한 번 익숙해진다면 운영체제에 독립적으로 개발할 수 있기 때문에 매우 편리하고 효율적으로 작업할 수 있다. 해당 포스트는 <a href="https://tuwlab.com/27260">이 블로그</a>의 내용을 참고하였다.
+cmake는 리눅스, 윈도우, 맥 등 운영체제에 관계없이 하나의 코드만으로 실행 파일을 생성해주는 크로스 컴파일러 프로그램이다. 처음에 익숙해지기까지 알아야 될 정보들이 많지만 한 번 익숙해진다면 운영체제에 독립적으로 개발할 수 있기 때문에 매우 편리하고 효율적으로 작업할 수 있다. 해당 포스트는 <a href="https://tuwlab.com/27260">TUWLAB님의 블로그</a>의 내용을 참고하였다.
 </p>
 
 <hr>
@@ -36,8 +36,8 @@ cmake는 리눅스, 윈도우, 맥 등 운영체제에 관계없이 하나의 �
 콘솔에 메세지 출력
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ MESSAGE ( [&lt;Type&gt;] &lt;&#47700;&#49884;&#51648;&gt; )
-ex: $ MESSAGE ( FATAL_ERROR <span class="org-string">"Fatal error occurred!"</span> )
+<pre class="src src-sh">$ message ( [&lt;Type&gt;] &lt;&#47700;&#49884;&#51648;&gt; )
+ex: $ message ( FATAL_ERROR <span class="org-string">"Fatal error occurred!"</span> )
 </pre>
 </div>
 <ul class="org-ul">
@@ -56,7 +56,7 @@ ex: $ MESSAGE ( FATAL_ERROR <span class="org-string">"Fatal error occurred!"</sp
 빌드 최종 결과물로 생성할 실행 파일을 추가한다. 이 명령을 반복하여 생성할 실행 파일을 계속 추가할 수 있다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ ADD_EXECUTABLE ( app.out main.c foo.c bar.c )
+<pre class="src src-sh">$ add_executable ( app.out main.c foo.c bar.c )
 </pre>
 </div>
 
@@ -66,8 +66,8 @@ ex: $ MESSAGE ( FATAL_ERROR <span class="org-string">"Fatal error occurred!"</sp
 빌드 최종 결과물로 생성할 라이브러리를 추가한다. 이 명령을 반복하여 생성할 라이브러리를 계속 추가할 수 있다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ ADD_LIBRARY ( &lt;&#46972;&#51060;&#48652;&#47084;&#47532;_&#51060;&#47492;&gt; [STATIC|SHARED|MODULE] &lt;&#49548;&#49828;_&#54028;&#51068;&gt; &lt;&#49548;&#49828;_&#54028;&#51068;&gt; ... )
-ex: $ ADD_LIBRARY ( app STATIC foo.c bar.c )
+<pre class="src src-sh">$ add_library ( &lt;&#46972;&#51060;&#48652;&#47084;&#47532;_&#51060;&#47492;&gt; [STATIC|SHARED|MODULE] &lt;&#49548;&#49828;_&#54028;&#51068;&gt; &lt;&#49548;&#49828;_&#54028;&#51068;&gt; ... )
+ex: $ add_library ( app STATIC foo.c bar.c )
 </pre>
 </div>
 <p>
@@ -109,8 +109,8 @@ $ add_custom_target ( flash
 Top-level Target간의 의존성을 지정한다. Top-level Target이란 ADD_EXECUTABLE, ADD_LIBRARY, ADD_CUSTOM_TARGET 명령으로 정의한 Target들을 의미한다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ ADD_DEPENDENCIES ( &lt;Target_&#51060;&#47492;&gt; &lt;&#51032;&#51316;_&#45824;&#49345;&gt; &lt;&#51032;&#51316;_&#45824;&#49345;&gt; ... )
-$ ADD_DEPENDENCIES ( flash app.out )
+<pre class="src src-sh">$ add_dependencies ( &lt;Target_&#51060;&#47492;&gt; &lt;&#51032;&#51316;_&#45824;&#49345;&gt; &lt;&#51032;&#51316;_&#45824;&#49345;&gt; ... )
+$ add_dependencies ( flash app.out )
 </pre>
 </div>
 
@@ -120,13 +120,13 @@ $ ADD_DEPENDENCIES ( flash app.out )
 Makefile에서 관용적으로 설치용 Target으로 사용되는 install target의 동작 방식을 정의한다. 즉, <b>make install</b> 명령을 실행했을 때 무슨 동작을 수행할지를 지정한다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ INSTALL ( TARGETS &lt;Target_&#47785;&#47197;&gt;
+<pre class="src src-sh">$ install ( TARGETS &lt;Target_&#47785;&#47197;&gt;
         RUNTIME DESTINATION &lt;&#48148;&#51060;&#45320;&#47532;_&#49444;&#52824;_&#44221;&#47196;&gt;
         LIBRARY DESTINATION &lt;&#46972;&#51060;&#48652;&#47084;&#47532;_&#49444;&#52824;_&#44221;&#47196;&gt;
         ARCHIVE DESTINATION &lt;&#50500;&#52852;&#51060;&#48652;_&#49444;&#52824;_&#44221;&#47196;&gt;
         )
 
-ex: $ INSTALL ( TARGETS app.out app
+ex: $ install ( TARGETS app.out app
         RUNTIME_DESTINATION /usr/local/bin
         ARCHIVE_DESTINATION /usr/local/lib
         )
@@ -164,7 +164,7 @@ Verbose Makefile 작성 여부
 이 변수는 Switch변수이며, 다음과 같이 값을 true(또는 1)로 지정하면 빌드 상세 과정을 모두 출력하는 Makefile을 생성한다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ SET ( CMAKE_VERBOSE_MAKEFILE true )
+<pre class="src src-sh">$ set ( CMAKE_VERBOSE_MAKEFILE true )
 </pre>
 </div>
 
@@ -173,7 +173,7 @@ Verbose Makefile 작성 여부
 설치 매크로(make install)에서 실행 바이너리와 라이브러리 등의 최종 생성물을 복사할 설치 디렉토리를 지정한다. INSTALL() 명령에서 상대 경로를 사용한 경우, 이 변수에 지정한 디렉토리가 Base 디렉토리가 됩니다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ SET ( CMAKE_INSTALL_PREFIX /usr/bin )
+<pre class="src src-sh">$ set ( CMAKE_INSTALL_PREFIX /usr/bin )
 </pre>
 </div>
 <ul class="org-ul">
