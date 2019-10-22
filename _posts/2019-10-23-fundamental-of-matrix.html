@@ -1,0 +1,83 @@
+---
+layout: post
+title: Fundamental of matrix 행렬 기초
+description: 
+date: 2019-10-22
+categories: [Mathematics]
+tag: [Linear Algebra, Matrix]
+use_math: true
+comments: true
+---
+
+<p>
+선형대수학을 배우면서 행렬에는 정말 많은 종류들과 성질들이 존재한다는 것을 알았다.
+대학원 과정에서 배웠던 학문들은(최적화기법, 추정이론 등등) 기본적으로 행렬 연산을 수행하므로 행렬에 대한 지식은 필수로 숙지해야 한다.
+해당 포스트는 내가 직접 공부하면서 설명이 잘 되어있는 블로그 포스트, 유튜브 영상, 논문 및 책 등의 내용을 모아 추후에 보기 편하도록 편집/수정한 포스트이다.
+</p>
+
+<div id="outline-container-org557f518" class="outline-2">
+<h2 id="org557f518">Origin of matrix 행렬의 기원</h2>
+<div class="outline-text-2" id="text-org557f518">
+<p>
+reference: <a href="https://youtu.be/83UnOz6HiOY?t=958">수학의신이상엽-선형대수학 관련 영상 중</a>
+</p>
+
+<p>
+연립일차방정식을 풀기 위해 고안되었다.
+</p>
+<hr>
+</div>
+</div>
+<div id="outline-container-org1bb449a" class="outline-2">
+<h2 id="org1bb449a">Multiplicaition of matrix 행렬의 곱셈</h2>
+<div class="outline-text-2" id="text-org1bb449a">
+<p>
+reference: <a href="https://youtu.be/83UnOz6HiOY?t=958">수학의신이상엽-선형대수학 관련 영상 중</a>
+</p>
+
+<p>
+행렬의 곱은 행렬의 합성으로 볼 수 있다.
+</p>
+
+<p>
+함수의 합성과 비슷한다
+아래 두 함수의 합성을 살펴보면
+</p>
+
+<p>
+$$f(x,y) = (ax+by, cx+dy)$$
+$$g(x,y) = (px+qy, rx+sy)$$
+</p>
+
+<p>
+$f \cdot g = ((ap+br)x + (aq+bs)y, (cp+dr)x + (cq+ds)y)$
+</p>
+
+<p>
+이는 곧
+</p>
+
+<p>
+$$F = \begin{bmatrix}
+a &amp; b\\ 
+c &amp; d
+\end{bmatrix}$$
+$$G = \begin{bmatrix}
+p &amp; q\\ 
+r &amp; s
+\end{bmatrix}$$
+</p>
+
+<p>
+$$FG = \begin{bmatrix}
+ap+br &amp; aq+bs\\ 
+cp+dr &amp; cq+ds
+\end{bmatrix}$$
+</p>
+
+<p>
+와 같다.
+</p>
+<hr>
+</div>
+</div>
