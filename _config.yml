@@ -27,11 +27,11 @@ version:             1.0.0
 plugins: [jekyll-paginate]
 
 # Tag setting
-collections:
-    mathematics:
-        output: true
-        matrix:
-            output: true
+# collections:
+#     mathematics:
+#         output: true
+#         matrix:
+#             output: true
 
 #defaults:
 #  - scope:
