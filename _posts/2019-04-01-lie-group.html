@@ -17,6 +17,7 @@ comments: true
 대부분 내용은 <a href="https://www.youtube.com/watch?v=_i8PaekcguA&amp;list=PLubUquiqNQdOTNocmWCSWk9ZaWhV7ubCD">SLAMKR Study Season1 유튜브 강의</a>와 <a href="https://www.facebook.com/groups/slamkr/learning_content/?filter=242316043076666">입문 Visual SLAM 번역서</a> 를 참고했다.
 </p>
 
+<hr>
 <div id="outline-container-orgbf1fc3c" class="outline-2">
 <h2 id="orgbf1fc3c">Lie Theory가 SLAM 분야에서 사용되는 이유</h2>
 <div class="outline-text-2" id="text-orgbf1fc3c">
@@ -25,6 +26,7 @@ comments: true
 <li>SLAM에서 카메라 포즈 값을 업데이트하면서 최적의 값을 찾을 때 일반적으로 최적화 문제로 구성을 한 다음 최적의 $\mathbf{R}$을 풀고 $\mathbf{t}$를 최소화해서 오류를 최소화 하는 방식으로 접근한다.</li>
 <li>하지만 회전 행렬의 경우 $\text{det}(\mathbf{R})=1$인 직교행렬이라는 제약조건으로 인해 복잡도가 증가한다. 이 때 Lie Group, Lie Algebra 의 변환관계를 사용하면 <b>카메라의 Pose 추정 문제를 제약없는 최적화 문제로 단순화하여 접근이 가능하기 때문에</b> 사용한다.</li>
 </ul>
+<hr>
 </div>
 </div>
 <div id="outline-container-org202f3d3" class="outline-2">
