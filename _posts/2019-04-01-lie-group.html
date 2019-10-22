@@ -18,20 +18,9 @@ comments: true
 </p>
 
 <hr>
-<div id="outline-container-orgbf1fc3c" class="outline-2">
-<h2 id="orgbf1fc3c">Lie Theory가 SLAM 분야에서 사용되는 이유</h2>
-<div class="outline-text-2" id="text-orgbf1fc3c">
-<ul class="org-ul">
-<li>SLAM 분야에서 Lie Theory는 최적화를 효율적으로 수행하기 위해 사용된다.</li>
-<li>SLAM에서 카메라 포즈 값을 업데이트하면서 최적의 값을 찾을 때 일반적으로 최적화 문제로 구성을 한 다음 최적의 $\mathbf{R}$을 풀고 $\mathbf{t}$를 최소화해서 오류를 최소화 하는 방식으로 접근한다.</li>
-<li>하지만 회전 행렬의 경우 $\text{det}(\mathbf{R})=1$인 직교행렬이라는 제약조건으로 인해 복잡도가 증가한다. 이 때 Lie Group, Lie Algebra 의 변환관계를 사용하면 <b>카메라의 Pose 추정 문제를 제약없는 최적화 문제로 단순화하여 접근이 가능하기 때문에</b> 사용한다.</li>
-</ul>
-<hr>
-</div>
-</div>
-<div id="outline-container-org202f3d3" class="outline-2">
-<h2 id="org202f3d3">Group Theory?</h2>
-<div class="outline-text-2" id="text-org202f3d3">
+<div id="outline-container-org7051aaa" class="outline-2">
+<h2 id="org7051aaa">Group Theory</h2>
+<div class="outline-text-2" id="text-org7051aaa">
 <ul class="org-ul">
 <li>군(Group)은 집합과 연산으로 이루어진 대수적 구조를 말한다. 예를 들어, 어떤 집합을 $A$라고 하고 어떤 연산을 $\cdot$으로 표시했을 때, 군은 $G = (A, \cdot)$으로 나타낼 수 있다.</li>
 <li>Lie Group과 Lie Algera의 정의는 아래와 같다.</li>
@@ -39,9 +28,9 @@ comments: true
 <hr>
 </div>
 </div>
-<div id="outline-container-orgb40f4e1" class="outline-2">
-<h2 id="orgb40f4e1">Lie Group &amp; Lie Algebra?</h2>
-<div class="outline-text-2" id="text-orgb40f4e1">
+<div id="outline-container-org40195b6" class="outline-2">
+<h2 id="org40195b6">Lie Group &amp; Lie Algebra</h2>
+<div class="outline-text-2" id="text-org40195b6">
 </div>
 <div id="outline-container-org13cfd54" class="outline-3">
 <h3 id="org13cfd54">Lie Group</h3>
@@ -159,5 +148,17 @@ $$\dot{\mathbf{R}}(t) = \phi(t)^{\wedge}\mathbf{R}(t) = \begin{bmatrix}
 -\phi_{2} &amp; \phi_{1}  &amp; 0
 \end{bmatrix} \mathbf{R}(t)$$
 </p>
+<hr>
+</div>
+</div>
+<div id="outline-container-orgbf1fc3c" class="outline-2">
+<h2 id="orgbf1fc3c">Lie Theory가 SLAM 분야에서 사용되는 이유</h2>
+<div class="outline-text-2" id="text-orgbf1fc3c">
+<ul class="org-ul">
+<li>SLAM 분야에서 Lie Theory는 최적화를 효율적으로 수행하기 위해 사용된다.</li>
+<li>SLAM에서 카메라 포즈 값을 업데이트하면서 최적의 값을 찾을 때 일반적으로 최적화 문제로 구성을 한 다음 최적의 $\mathbf{R}$을 풀고 $\mathbf{t}$를 최소화해서 오류를 최소화 하는 방식으로 접근한다.</li>
+<li>하지만 회전 행렬의 경우 $\text{det}(\mathbf{R})=1$인 직교행렬이라는 제약조건으로 인해 복잡도가 증가한다. 이 때 Lie Group, Lie Algebra 의 변환관계를 사용하면 <b>카메라의 Pose 추정 문제를 제약없는 최적화 문제로 단순화하여 접근이 가능하기 때문에</b> 사용한다.</li>
+</ul>
+<hr>
 </div>
 </div>
