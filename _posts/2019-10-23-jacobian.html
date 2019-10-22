@@ -1,0 +1,34 @@
+<p>
+#+BEGIN_EXPORT html
+&#x2014;
+layout: post
+title: Jacobian Matrix 자코비안 행렬
+description: 
+date: 2019-10-23
+categories: [Mathematics]
+tag: [Linear Algebra, Matrix]
+use_math: true
+comments: true
+&#x2014;
+</p>
+
+<p>
+reference: <a href="https://freshrimpsushi.tistory.com/989?category=721572">생새우초밥집</a>
+</p>
+<div id="outline-container-org59cc04a" class="outline-2">
+<h2 id="org59cc04a">Definition</h2>
+<div class="outline-text-2" id="text-org59cc04a">
+<p>
+$D \subset \mathbb{R}^{n}$에서 정의된 다변수 벡터 함수 $\mathbf{f} : D \to \mathbb{R}^{m}$가 각각의 스칼라 함수 $f_{1} , \cdots , f_{m} : D \to \mathbb{R}$에 대해 $\mathbf{f} ( x_{1} , \cdots , x_{n} )  : = \begin{bmatrix} f_{1} ( x_{1} , \cdots , x_{n} )  \\ \vdots \\ f_{m} ( x_{1} , \cdots , x_{n} ) \end{bmatrix}$과 같이 정의된다. 이 때 $J := \begin{bmatrix} {\partial f_{1}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{1}  \over \partial x_{n} } \\ \vdots &amp; \ddots &amp; \vdots \\  {\partial f_{m}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{m}  \over \partial x_{n} }  \end{bmatrix}$행렬을 $f$의 Jacobian Matrix(자코비안 행렬)이라고 한다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb43e50f" class="outline-2">
+<h2 id="orgb43e50f">Introduction</h2>
+<div class="outline-text-2" id="text-orgb43e50f">
+<p>
+자코비안 행렬이라는 명칭은 19세기 독일의 수학자였던 Carl Gustav Jacob Jacobi에게서 따온 것이다. 다변수 함수에 대해 자코비안 행렬이 존재하면 미분 가능하다고 하며, 오히려 미분 가능한 함수 $f : \mathbb{R} \to \mathbb{R}$가 $1\times1$사이즈의 자코비안 행렬을 가진다고 생각할 수도 있다. 실제로 응용수학에서는 자코비안 행렬이 벡터함수의 미분계수 역할을 하는 경우가 많다.
+</p>
+<hr>
+</div>
+</div>
