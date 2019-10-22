@@ -106,7 +106,7 @@ $ add_custom_target ( flash
 
 <p>
 <code>add_dependencies()</code>
-Top-level Target간의 의존성을 지정한다. Top-level Target이란 ADD_EXECUTABLE, ADD_LIBRARY, ADD_CUSTOM_TARGET 명령으로 정의한 Target들을 의미한다.
+Top-level Target간의 의존성을 지정한다. Top-level Target이란 add_executable, add_library, add_custom_target 명령으로 정의한 Target들을 의미한다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">$ add_dependencies ( &lt;Target_&#51060;&#47492;&gt; &lt;&#51032;&#51316;_&#45824;&#49345;&gt; &lt;&#51032;&#51316;_&#45824;&#49345;&gt; ... )
@@ -170,7 +170,7 @@ Verbose Makefile 작성 여부
 
 <p>
 <code>${CMAKE_INSTALL_PREFIX}</code>
-설치 매크로(make install)에서 실행 바이너리와 라이브러리 등의 최종 생성물을 복사할 설치 디렉토리를 지정한다. INSTALL() 명령에서 상대 경로를 사용한 경우, 이 변수에 지정한 디렉토리가 Base 디렉토리가 됩니다.
+설치 매크로(make install)에서 실행 바이너리와 라이브러리 등의 최종 생성물을 복사할 설치 디렉토리를 지정한다. install() 명령에서 상대 경로를 사용한 경우, 이 변수에 지정한 디렉토리가 Base 디렉토리가 됩니다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">$ set ( CMAKE_INSTALL_PREFIX /usr/bin )
