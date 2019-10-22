@@ -1,6 +1,6 @@
 ---
 layout: post
-title: x11vnc - 리눅스 원격접속 서버 프로그램
+title: x11vnc 사용법 정리
 description: 
 date: 2018-10-25
 categories: [Technology]
@@ -11,9 +11,9 @@ comments: true
 <p>
 <code>x11vnc</code> 는 원격에서 리눅스 환경으로 접속할 수 있게 해주는 VNC 서버 프로그램이다. Ubuntu 16.04 LTS 환경에서 쉽게 설치 및 사용할 수 있어서 vnc 서버 프로그램으로 주로 사용된다. 본 포스트에서는 설치 방법 및 다양한 옵션들에 대해 설명한다.
 </p>
-<div id="outline-container-org1aec608" class="outline-2">
-<h2 id="org1aec608">설치</h2>
-<div class="outline-text-2" id="text-org1aec608">
+<div id="outline-container-orgc1398bc" class="outline-2">
+<h2 id="orgc1398bc">Installation</h2>
+<div class="outline-text-2" id="text-orgc1398bc">
 <p>
 <code>x11vnc</code> 는 터미널을 연 상태에서 아래의 명령어를 통해 쉽게 설치할 수 있다.
 </p>
@@ -23,9 +23,9 @@ comments: true
 </div>
 </div>
 </div>
-<div id="outline-container-org05f5a76" class="outline-2">
-<h2 id="org05f5a76">서비스 등록 및 시작</h2>
-<div class="outline-text-2" id="text-org05f5a76">
+<div id="outline-container-org8f4f241" class="outline-2">
+<h2 id="org8f4f241">Service (daemon) registration</h2>
+<div class="outline-text-2" id="text-org8f4f241">
 <p>
 <code>x11vnc</code> 를 daemon 서비스로 등록하면 PC가 재부팅될 때도 프로그램이 자동으로 백그라운드에서 실행된다. 따라서 매번 부팅 때마다 서버 프로그램을 시작하지 않아도 된다.
 <code>/lib/systemd/system</code> 폴더에 <code>x11vnc.service</code> 파일을 아래와 같이 작성한다.
@@ -69,9 +69,9 @@ $ sudo systemctl enable x11vnc.service
 </div>
 </div>
 
-<div id="outline-container-org13c1fdf" class="outline-2">
-<h2 id="org13c1fdf">비밀번호 저장 및 변경</h2>
-<div class="outline-text-2" id="text-org13c1fdf">
+<div id="outline-container-org8cfb5c8" class="outline-2">
+<h2 id="org8cfb5c8">Set custom password</h2>
+<div class="outline-text-2" id="text-org8cfb5c8">
 <p>
 <code>x11vnc</code> 는 기본적으로 비밀번호없이 접속할 수 있다. 보안을 위해 접속할 때 비밀번호를 설정하고 싶으면 아래 명령어를 통해 설정한다.
 </p>
@@ -104,9 +104,9 @@ Password written to : /home/ubuntu/.vnc/passwd
 </div>
 </div>
 
-<div id="outline-container-org7cf0dd6" class="outline-2">
-<h2 id="org7cf0dd6">옵션</h2>
-<div class="outline-text-2" id="text-org7cf0dd6">
+<div id="outline-container-org39fed91" class="outline-2">
+<h2 id="org39fed91">Options</h2>
+<div class="outline-text-2" id="text-org39fed91">
 <div class="org-src-container">
 <pre class="src src-sh">[Service]
 <span class="org-variable-name">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -allow 123.23 <span class="org-comment-delimiter"># </span><span class="org-comment">123.23.x.x &#51032; IP &#45824;&#50669;&#47564; &#51217;&#49549;&#54624; &#49688; &#51080;&#45796;.</span>
