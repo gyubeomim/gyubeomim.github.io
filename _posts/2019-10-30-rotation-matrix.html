@@ -60,7 +60,7 @@ $$(\hat{x},\hat{y},\hat{z}), (r_{11},r_{12},r_{13},r_{21},r_{22},r_{23},r_{31},r
 </p>
 
 <p>
-제약조건은 다음과 같다.
+제약조건 및 회전행렬의 특징은 다음과 같다.
 </p>
 <ol class="org-ol">
 <li>$\{B\}$frame의 축들은 단위벡터라는 조건
@@ -68,6 +68,27 @@ $$\begin{array}{ll} \text{(i) } &amp; \left | \hat{x} \right |^2 = 1: r_{11}^2+r
 <li>$\{B\}$frame의 축들은 서로 수직하다는 조건
 $$\begin{array}{ll} \text{(iv) } &amp; \hat{x} \perp \hat{y} : r_{11}r_{12}+r_{21}r_{22}+r_{31}r_{32}=0 \\   \text{(v) } &amp; \hat{x} \perp \hat{z} : r_{11}r_{13}+r_{21}r_{23}+r_{31}r_{33}=0  \\   \text{(vi) } &amp; \hat{y} \perp \hat{z} : r_{12}r_{13}+r_{22}r_{23}+r_{32}r_{33}=0  \end{array}$$
 위 조건들을 합쳐서 보통 다음과 같이 표현한다. $\color{red}{(\text{i}\sim\text{vi}) \quad R^\text{T}R=\mathbf{I}}$. 이를 Orthogonal property라고 한다.</li>
+<li>(일반적으로) 오른손 좌표계를 사용한다는 조건
+$$\text{(vii) det}R=1 \Leftrightarrow \hat{x} \times \hat{y} = \hat{z}$$</li>
+<li><p>
+다음과 같은 연속적인 회전을 나타낼 때는 회전 행렬의 곱셈을 통해 표현할 수 있다.
+</p>
+
+<figure>
+<img src="/pictures/191030/04.PNG" alt="04.PNG" width="300px">
+
+</figure>
+
+<p>
+$$^{a}_{b}R^{b}_{c}R \ =\ ^{a}_{c}R$$
+</p>
+     \begin{equation*}
+     \begin{aligned}
+        \color{red}{[\hat{x}_{b},\hat{y}_{b},\hat{z}_{b}] = [\hat{x}_{a},\hat{y}_{a},\hat{z}_{a}]^{a}_{b}R}
+        \\ \color{red}{[\hat{x}_{c},\hat{y}_{c},\hat{z}_{c}] = [\hat{x}_{b},\hat{y}_{b},\hat{z}_{b}]^{b}_{c}R}
+        \\ \color{blue}{\therefore [\hat{x}_{c},\hat{y}_{c},\hat{z}_{c}] = [\hat{x}_{a},\hat{y}_{a},\hat{z}_{a}]^{a}_{c}R^{b}_{c}R}
+     \end{aligned}
+     \end{equation*}</li>
 </ol>
 </div>
 </div>
