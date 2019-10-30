@@ -8,9 +8,9 @@ tag: [Robotics, SLAM, Transformation, Geometry, Spatial Description]
 use_math: true
 comments: true
 ---
-<div id="outline-container-org3ca9867" class="outline-2">
-<h2 id="org3ca9867">Derivation of Rotation Matrix 회전행렬의 유도</h2>
-<div class="outline-text-2" id="text-org3ca9867">
+<div id="outline-container-org2ae19d4" class="outline-2">
+<h2 id="org2ae19d4">Introduction</h2>
+<div class="outline-text-2" id="text-org2ae19d4">
 
 <figure>
 <img src="/pictures/191030/03.PNG" alt="03.PNG" width="300px">
@@ -45,8 +45,29 @@ $${\color{red}{P}} =\left[\begin{array}{c}P1\\P2\\P3\end{array}\right], {\color{
   \end{aligned}
   \end{equation*}
 <p>
-이 때, $(\hat{X},\hat{Y},\hat{Z}) \rightarrow (\hat{x},\hat{y},\hat{z})$변환은 크기는 변하지 않고 오직 회전에만 관여하므로 이 변환에 사용하는 행렬 $R$을 회전행렬 (Rotation Matrix)라고 한다.
+이 때, $(\hat{X},\hat{Y},\hat{Z}) \rightarrow (\hat{x},\hat{y},\hat{z})$변환은 크기는 변하지 않고 오직 회전에만 관여하므로 이 변환에 사용하는 행렬 $R$을 <b>회전행렬 (Rotation Matrix)</b> 이라고 한다.
 그리고 $R$은 보통 $^{S}_{B}R$또는 $R_{SB}$로 표기한다. 이 표현의 의미는 $\{S\}$frame에서 바라본 $\{S\}$frame의 회전(량)을 의미한다.
 </p>
+</div>
+</div>
+<div id="outline-container-orgffc50a0" class="outline-2">
+<h2 id="orgffc50a0">Properties of Rotation Matrix 회전행렬의 성질</h2>
+<div class="outline-text-2" id="text-orgffc50a0">
+<p>
+다음과 같이 총 12개의 변수를 사용하여 $\{B\}$frame을 $\{S\}$frame 기준으로 표현할 수 있다.
+$$(\hat{x},\hat{y},\hat{z}), (r_{11},r_{12},r_{13},r_{21},r_{22},r_{23},r_{31},r_{32},r_{33})$$
+하지만 3차원 공개에서 물체를 6자유도(=6DOF, 6 Degree of Freedom)를 갖는다. 따라서 12개의 변수는 모두 독립이 아니고 종속적이라는 것을 알 수 있다. 즉, 독립적으로 6개를 정하면 제약조건에 의해 나머지 6개의 변수는 결정된다는 것을 알 수 있다.
+</p>
+
+<p>
+제약조건은 다음과 같다.
+</p>
+<ol class="org-ol">
+<li>$\{B\}$frame의 축들은 단위벡터라는 조건
+$$\begin{array}{ll} \text{(i) } &amp; \left | \hat{x} \right |^2 = 1: r_{11}^2+r_{21}^2+r_{31}^2=1 \\   \text{(ii) } &amp; \left | \hat{y} \right |^2 = 1: r_{12}^2+r_{22}^2+r_{32}^2=1 \\   \text{(iii) } &amp; \left | \hat{z} \right |^2 = 1: r_{13}^2+r_{23}^2+r_{33}^2=1 \end{array}$$</li>
+<li>$\{B\}$frame의 축들은 서로 수직하다는 조건
+$$\begin{array}{ll} \text{(iv) } &amp; \hat{x} \perp \hat{y} : r_{11}r_{12}+r_{21}r_{22}+r_{31}r_{32}=0 \\   \text{(v) } &amp; \hat{x} \perp \hat{z} : r_{11}r_{13}+r_{21}r_{23}+r_{31}r_{33}=0  \\   \text{(vi) } &amp; \hat{y} \perp \hat{z} : r_{12}r_{13}+r_{22}r_{23}+r_{32}r_{33}=0  \end{array}$$
+위 조건들을 합쳐서 보통 다음과 같이 표현한다. $\color{red}$(\text{i}&sim;\text{vi}) \quadR^\text{T}R=\mathbf{I}$. 이를 Orthogonal property라고 한다.</li>
+</ol>
 </div>
 </div>
