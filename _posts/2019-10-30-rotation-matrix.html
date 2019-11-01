@@ -152,3 +152,27 @@ frame이 회전할 때 frame 위에 있는 사람이 보면 vector가 회전하�
 </ol>
 </div>
 </div>
+<div id="outline-container-org05207e2" class="outline-2">
+<h2 id="org05207e2">Special Orthogonal Group (SO)</h2>
+<div class="outline-text-2" id="text-org05207e2">
+<p>
+회전행렬과 같이 순수한 회전에만 관여하는 행렬을 따로 Group으로 묶을 수 있다. 회전행렬의 성질을 만족하는 모든 집합은 Special Orthogonal Group (SO)에 속하며 본 자료에서 다루는 3차원 공간 상의 회전행렬은 SO(3)에 속한다. SO(3) 그룹은 Lie Group에 속한다. 
+</p>
+<p width="500">
+<img src="/pictures/191102/05.PNG" alt="05.PNG" width="500">
+SO(3) 그룹(또는 집합)의 정의는 다음과 같다.
+$$\text{SO}(3) = \{ R \in \mathbb{R}^{3 \times 3} \ | \ RR^{T} = \mathbf{I}, \text{det}(R)=1 \}$$
+</p>
+
+<p>
+SO(3) 성질 중 $\det(R)=1$이 없는 Group을 Orthogonal Group (O) 라고 한다.
+$$\text{O}(3) = \{ R \in \mathbb{R}^{3 \times 3} \ | \ RR^{T} = \mathbf{I}, \}$$
+따라서 SO(3) 그룹은 O(3) 그룹의 특징에 Special한 특징 ($\det(R)=1$)이 추가된 형태로 볼 수 있다.
+</p>
+
+<p>
+임의의 회전행렬 $R_{1}, R_{2}$가 존재할 때 이들은 덧셈에 닫혀있지 않지만 곱셈에 닫혀있다.
+$$R_{1} + R_{2} \notin SO(3) \quad \text{and} \quad $$R_{1}R_{2} &isin; SO(3)$$
+</p>
+</div>
+</div>
