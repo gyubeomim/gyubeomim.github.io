@@ -66,13 +66,22 @@ $$(\hat{x},\hat{y},\hat{z}), (r_{11},r_{12},r_{13},r_{21},r_{22},r_{23},r_{31},r
 제약조건 및 회전행렬의 특징은 다음과 같다.
 </p>
 <ol class="org-ol">
-<li>$\{B\}$frame의 축들은 단위벡터라는 조건
-$$\begin{array}{ll} \text{(i) } &amp; \left | \hat{x} \right |^2 = 1: r_{11}^2+r_{21}^2+r_{31}^2=1 \\   \text{(ii) } &amp; \left | \hat{y} \right |^2 = 1: r_{12}^2+r_{22}^2+r_{32}^2=1 \\   \text{(iii) } &amp; \left | \hat{z} \right |^2 = 1: r_{13}^2+r_{23}^2+r_{33}^2=1 \end{array}$$</li>
-<li>$\{B\}$frame의 축들은 서로 수직하다는 조건
+<li><p>
+$\{B\}$frame의 축들은 단위벡터라는 조건
+$$\begin{array}{ll} \text{(i) } &amp; \left | \hat{x} \right |^2 = 1: r_{11}^2+r_{21}^2+r_{31}^2=1 \\   \text{(ii) } &amp; \left | \hat{y} \right |^2 = 1: r_{12}^2+r_{22}^2+r_{32}^2=1 \\   \text{(iii) } &amp; \left | \hat{z} \right |^2 = 1: r_{13}^2+r_{23}^2+r_{33}^2=1 \end{array}$$
+</p>
+<hr></li>
+<li><p>
+$\{B\}$frame의 축들은 서로 수직하다는 조건
 $$\begin{array}{ll} \text{(iv) } &amp; \hat{x} \perp \hat{y} : r_{11}r_{12}+r_{21}r_{22}+r_{31}r_{32}=0 \\   \text{(v) } &amp; \hat{x} \perp \hat{z} : r_{11}r_{13}+r_{21}r_{23}+r_{31}r_{33}=0  \\   \text{(vi) } &amp; \hat{y} \perp \hat{z} : r_{12}r_{13}+r_{22}r_{23}+r_{32}r_{33}=0  \end{array}$$
-위 조건들을 합쳐서 보통 다음과 같이 표현한다. $\color{red}{(\text{i}\sim\text{vi}) \quad R^\text{T}R=\mathbf{I}}$. 이를 Orthogonal property라고 한다.</li>
-<li>(일반적으로) 오른손 좌표계를 사용한다는 조건
-$$\text{(vii) det}R=1 \Leftrightarrow \hat{x} \times \hat{y} = \hat{z}$$</li>
+위 조건들을 합쳐서 보통 다음과 같이 표현한다. $\color{red}{(\text{i}\sim\text{vi}) \quad R^\text{T}R=\mathbf{I}}$. 이를 Orthogonal property라고 한다.
+</p>
+<hr></li>
+<li><p>
+(일반적으로) 오른손 좌표계를 사용한다는 조건
+$$\text{(vii) det}R=1 \Leftrightarrow \hat{x} \times \hat{y} = \hat{z}$$
+</p>
+<hr></li>
 <li><p>
 다음과 같은 연속적인 회전을 나타낼 때는 회전 행렬의 곱셈을 통해 표현할 수 있다.
 </p>
@@ -92,8 +101,11 @@ $$^{a}_{b}R^{b}_{c}R \ =\ ^{a}_{c}R$$
         \\ \color{blue}{\therefore [\hat{x}_{c},\hat{y}_{c},\hat{z}_{c}] = [\hat{x}_{a},\hat{y}_{a},\hat{z}_{a}]^{a}_{c}R^{b}_{c}R}
      \end{aligned}
      \end{equation*}</li>
-<li>$\{a\} \rightarrow \{b\}$만큼 회전한 다음 다시 $\{b\} \rightarrow \{a\}$만큼 회전하면 원래 $\{a\}$frame이 된다. 즉, 회전하지 않은 것과 동일하다.
-$$^{a}_{b}R^{b}_{a}R = \mathbf{I}$$</li>
+<li><p>
+$\{a\} \rightarrow \{b\}$만큼 회전한 다음 다시 $\{b\} \rightarrow \{a\}$만큼 회전하면 원래 $\{a\}$frame이 된다. 즉, 회전하지 않은 것과 동일하다.
+$$^{a}_{b}R^{b}_{a}R = \mathbf{I}$$
+</p>
+<hr></li>
 <li><p>
 또한 다음과 조건들로부터 아래와 같은 식을 유도할 수 있다.
 </p>
@@ -104,7 +116,8 @@ $$^{a}_{b}R\ ^{a}_{b}R^\text{T}=\mathbf{I} \quad \text{and} \quad ^{a}_{b}R\ ^{b
 $$R^\text{T}R=\mathbf{I} \quad \leftrightarrow \quad R^{\text{T}} = R^{-1}$$
 $$\therefore \  ^{a}_{b}R^{-1} = \ ^{a}_{b}R^{T} = \ ^{b}_{a}R$$
 따라서 <b>회전행렬은 역행렬과 전치행렬이 동일</b> 하며 이는 반대방향으로 회전을 나타냄을 알 수 있다.
-</p></li>
+</p>
+<hr></li>
 <li><p>
 회전행렬을 통해 특정 vector의 기준 좌표계 또한 변환할 수 있다.
 </p>
@@ -124,7 +137,8 @@ $\vec{v}$벡터를 $\{a\}$frame과 $\{b\}$frame에서 각각 표현하면 다음
 <p width="500px">
 <img src="/pictures/191102/03.PNG" alt="03.PNG" width="500px">
 $$\therefore \vec{v}_a \ = \ ^{a}_{b}R\vec{v}_b$$
-</p></li>
+</p>
+<hr></li>
 <li><p>
 회전행렬을 사용하여 특정 vector를 회전시킬 수도 있다.
 $$v' \ = \ ^{a}_{b}Rv$$
