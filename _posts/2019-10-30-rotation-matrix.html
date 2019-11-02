@@ -9,11 +9,11 @@ use_math: true
 comments: true
 ---
 <p>
-이전 포스트: <a href="../rigid-body-transformation">Rigid Body Transformation (강체 변환)</a> 
+이전 포스트: <a href="../coordinate-system">Coordinate System (좌표계)</a> 
 </p>
-<div id="outline-container-orgb30b4a3" class="outline-2">
-<h2 id="orgb30b4a3">Introduction</h2>
-<div class="outline-text-2" id="text-orgb30b4a3">
+<div id="outline-container-org2ae19d4" class="outline-2">
+<h2 id="org2ae19d4">Introduction</h2>
+<div class="outline-text-2" id="text-org2ae19d4">
 
 <figure>
 <img src="/pictures/191030/03.PNG" alt="03.PNG" width="300px">
@@ -53,9 +53,9 @@ $${\color{red}{P}} =\left[\begin{array}{c}P1\\P2\\P3\end{array}\right], {\color{
 </p>
 </div>
 </div>
-<div id="outline-container-org7b608f3" class="outline-2">
-<h2 id="org7b608f3">Properties of Rotation Matrix 회전행렬의 성질</h2>
-<div class="outline-text-2" id="text-org7b608f3">
+<div id="outline-container-orgffc50a0" class="outline-2">
+<h2 id="orgffc50a0">Properties of Rotation Matrix 회전행렬의 성질</h2>
+<div class="outline-text-2" id="text-orgffc50a0">
 <p>
 다음과 같이 총 12개의 변수를 사용하여 $\{B\}$frame을 $\{S\}$frame 기준으로 표현할 수 있다.
 $$(\hat{x},\hat{y},\hat{z}), (r_{11},r_{12},r_{13},r_{21},r_{22},r_{23},r_{31},r_{32},r_{33})$$
@@ -152,9 +152,9 @@ frame이 회전할 때 frame 위에 있는 사람이 보면 vector가 회전하�
 </ol>
 </div>
 </div>
-<div id="outline-container-org05207e2" class="outline-2">
-<h2 id="org05207e2">Special Orthogonal Group (SO)</h2>
-<div class="outline-text-2" id="text-org05207e2">
+<div id="outline-container-orgcfec033" class="outline-2">
+<h2 id="orgcfec033">Special Orthogonal Group (SO)</h2>
+<div class="outline-text-2" id="text-orgcfec033">
 <p>
 회전행렬과 같이 순수한 회전에만 관여하는 행렬을 따로 Group으로 묶을 수 있다. 회전행렬의 성질을 만족하는 모든 집합은 Special Orthogonal Group (SO)에 속하며 본 자료에서 다루는 3차원 공간 상의 회전행렬은 SO(3)에 속한다. SO(3) 그룹은 Lie Group에 속한다. 
 </p>
@@ -171,8 +171,9 @@ $$\text{O}(3) = \{ R \in \mathbb{R}^{3 \times 3} \ | \ RR^{T} = \mathbf{I}, \}$$
 </p>
 
 <p>
-임의의 회전행렬 $R_{1}, R_{2}$가 존재할 때 이들은 덧셈에 닫혀있지 않지만 곱셈에 닫혀있다.
-$$R_{1} + R_{2} \notin SO(3) \quad \text{and} \quad R_{1}R_{2} \in SO(3)$$
+   임의의 회전행렬 $R_{1}, R_{2}$가 존재할 때 이들은 덧셈에 닫혀있지 않지만 곱셈에 닫혀있다.
+   $$R_{1} + R_{2} \notin SO(3) \quad \text{and} \quad R_{1}R_{2} \in SO(3)$$
+다음 포스트: <a href="../rigid-body-transformation">Rigid Body Transformation (강체 변환)</a>
 </p>
 </div>
 </div>

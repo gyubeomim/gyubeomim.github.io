@@ -1,0 +1,29 @@
+---
+layout: post
+title: (Robotics) Rigid Body Transformation 강체 변환
+description: 
+date: 2019-11-02
+categories: [Engineering]
+tag: [Robotics, SLAM, Transformation, Geometry, Spatial Description]
+use_math: true
+comments: true
+---
+<p>
+이전 포스트: <a href="../rotation-matrix">Rotation Matrix (회전 행렬)</a> 
+</p>
+<div id="outline-container-orga09e68a" class="outline-2">
+<h2 id="orga09e68a">Introduction</h2>
+<div class="outline-text-2" id="text-orga09e68a">
+<p>
+본 자료는 강체 변환 (Rigid Body Transformation)에 대해 다룬다. 강체(Rigid Body)란 이론적으로 무한대의 강성을 가지는 물체를 말한다. 따라서 강체에 힘을 가해도 변형이 되지 않으며 무게중심으로 지정되는 하나의 점에 의해 운동이 결정되는 특징이 있다. Simultaneous Localization and Mapping (SLAM)에서 움직이는 로봇은 형태가 일정하다고 가정하므로 결국 강체 변환 (Rigid Body Transformation)을 사용하여 수학적으로 표현할 수 있다.
+</p>
+
+<p>
+해당 자료는 강체 변환에 대해 공부 목적으로 작성한 포스트이고 이미 잘 정리된 여러 블로그 포스트들의 내용을 참고하여 작성하였다. 대표적으로 <a href="https://keunjun.blog">Keunjun님 블로그</a>를 많이 참고하였다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcb78140" class="outline-2">
+<h2 id="orgcb78140">Rigid Body Transformation (강체 변환)</h2>
+</div>
