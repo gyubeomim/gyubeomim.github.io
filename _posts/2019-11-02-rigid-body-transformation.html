@@ -78,7 +78,7 @@ T
 이 때 변환행렬 $T$의 마지막 행은 항상 $\begin{bmatrix} 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}$인데 이는 3차원 벡터 $\vec{v}=(x,y,z)$의 회전과 이동이 포함된 $R\vec{v}+p$를 하나의 간결한 행렬 곱만으로 표현할 수 없기 때문에 마지막 한 행을 추가한 것이다.
 $$\left[\begin{array}{cc}R &amp; p \end{array}\right]\left[\begin{array}{c}v \end{array}\right] = ?$$
 $$\rightarrow \left[\begin{array}{cc}R &amp; p \\ {\color{red}{\mathbf{0}_{3\times3}}} &amp; {\color{red}{1}}\end{array}\right]\left[\begin{array}{c}v \\ {\color{red}{1}} \end{array}\right] = \left[\begin{array}{c} Rv+p \\ {\color{red}{1}} \end{array}\right]$$
-이와 같이 기존 3차원 벡터 $[\begin{array}{c}v \end{array}]$의 마지막 행에 1을 추가하여 4차원 벡터로 만든 형태를 $[\begin{array}{c}v \\ 1 \end{array}]$homogeneous coordinate라고 부른다.
+이와 같이 기존 3차원 벡터 $[\begin{array}{c}v \end{array}]$의 마지막 행에 1을 추가하여 4차원 벡터로 만든 형태 $[\begin{array}{c}v \\ 1 \end{array}]$를 homogeneous coordinate라고 부른다.
 </p>
 </div>
 </div>
@@ -86,12 +86,21 @@ $$\rightarrow \left[\begin{array}{cc}R &amp; p \\ {\color{red}{\mathbf{0}_{3\tim
 <div id="outline-container-org0dd4a93" class="outline-2">
 <h2 id="org0dd4a93">Properties of Transformation Matrix 변환행렬의 성질</h2>
 <div class="outline-text-2" id="text-org0dd4a93">
-<p>
+<ol class="org-ol">
+<li><p>
 다음과 같은 연속적인 변환을 나타낼 때는 변환행렬의 곱셈을 통해 표현할 수 있다.
 </p>
 <p width="400">
 <img src="/pictures/191106/02.PNG" alt="02.PNG" width="400">
 $$^{a}_{b}T^{b}_{c}T \ =\ ^{a}_{c}T  \quad \text{where,} ^{a}_{c}T = \ (^{a}_{c}R,\ ^{a}_{c}p)=\left[\begin{array}{cc} ^{a}_{c}R &amp; ^{a}_{c}p \\ 0 &amp; 1 \end{array}\right]$$
+</p></li>
+<li><p>
+$\{a\} \rightarrow \{b\}$로 변환한 다음 다시 $\{b\} \rightarrow \{a\}$로 변환하면 원래 $\{a\}$frame이 된다. 즉, 변환하지 않은 것과 동일하다.
 </p>
+<p width="400">
+<img src="/pictures/191106/02.PNG" alt="02.PNG" width="400">
+$$^{a}_{b}T^{b}_{a}T = \mathbf{I}$$
+</p></li>
+</ol>
 </div>
 </div>
