@@ -117,6 +117,14 @@ $\{b\}$frame에서 3차원 공간 상의 점 $v$를 표현하면 $\vec{v}_{b}$�
    $$\vec{v}_{a} = \ ^{a}_{b}R\vec{v}_{b} + \ ^{a}_{b}p$$
    $$\vec{v}_{a} = \ ^{a}_{b}T\vec{v}_{b}$$
 </p></li>
+<li><p>
+frame 뿐만 아니라 특정 벡터를 회전 및 이동하는 연산자로써 변환행렬을 사용할 수 있다. 두 $\{a\}$frame 위의 벡터 $\vec{v}_{1}, \vec{v}_{2}$의 변환관계는 다음과 같이 표현할 수 있다.
+</p>
+<p width="350">
+<img src="/pictures/191106/06.PNG" alt="06.PNG" width="350">
+   $$\begin{bmatrix} x_{v_{2}}\\ y_{v_{2}}\\ z_{v_{2}}\\ 1 \end{bmatrix} = \begin{bmatrix} r_{11} &amp; r_{13} &amp; r_{13} &amp; p_{x}\\  r_{21} &amp; r_{22} &amp; r_{23} &amp; p_{y} \\  r_{31} &amp; r_{32} &amp; r_{33} &amp; p_{z}\\  0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}\begin{bmatrix} x_{v_{1}}\\  y_{v_{1}}\\  z_{v_{1}}\\ 1 \end{bmatrix}$$
+   $$\vec{v}_{2} = T\vec{v}_{1}$$
+</p></li>
 </ol>
 </div>
 </div>
