@@ -98,8 +98,16 @@ $$^{a}_{b}T^{b}_{c}T \ =\ ^{a}_{c}T  \quad \text{where,} ^{a}_{c}T = \ (^{a}_{c}
 $\{a\} \rightarrow \{b\}$로 변환한 다음 다시 $\{b\} \rightarrow \{a\}$로 변환하면 원래 $\{a\}$frame이 된다. 즉, 변환하지 않은 것과 동일하다.
 </p>
 <p width="400">
-<img src="/pictures/191106/02.PNG" alt="02.PNG" width="400">
+<img src="/pictures/191106/03.PNG" alt="03.PNG" width="400">
 $$^{a}_{b}T^{b}_{a}T = \mathbf{I}$$
+</p></li>
+<li><p>
+변환행렬의 역행렬은 다음과 같다. 회전행렬은 $R^{-1}=R^{T}$이지만 변환행렬은 $T^{-1} \neq T^{T}$이다.
+</p>
+<p width="400">
+<img src="/pictures/191106/04.PNG" alt="04.PNG" width="400">
+$$^{a}_{b}T = \left[\begin{array}{cc} ^{a}_{b}R &amp; ^{a}_{b}p \\ 0 &amp; 1 \end{array}\right]$$
+$$^{a}_{b}T^{-1} = \ ^{b}_{a}T = \left[\begin{array}{cc} ^{a}_{b}R^{T} &amp; {\color{red}{-^{a}_{b}R^{T}\ ^{a}_{b}p}} \\ 0 &amp; 1 \end{array}\right]$$
 </p></li>
 </ol>
 </div>
