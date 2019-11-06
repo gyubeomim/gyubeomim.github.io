@@ -128,3 +128,28 @@ frame 뿐만 아니라 특정 벡터를 회전 및 이동하는 연산자로써 
 </ol>
 </div>
 </div>
+
+<div id="outline-container-orgd91a8c7" class="outline-2">
+<h2 id="orgd91a8c7">Special Euclidean Group (SE)</h2>
+<div class="outline-text-2" id="text-orgd91a8c7">
+<p>
+이와 같이 강체의 이동과 회전에 관여하는 행렬을 따로 Group으로 묶을 수 있다. 변환행렬의 성질을 만족하는 모든 집합은 Special Euclidean Group (SE)에 속한다. 3차원 공간의 경우 SE(3)이다. SE(3) Group은 Lie Group에 속한다.
+</p>
+<p width="350">
+   <img src="/pictures/191106/07.PNG" alt="07.PNG" width="350">
+$$SE(3) = \left \{ T = \begin{bmatrix} R &amp; p \\  \mathbf{0}_{3\times3} &amp; 1 \end{bmatrix} \in \mathbb{R}^{4\times4} \ | \ R \in SO(3), p \in \mathbb{R}^{3}  \right \} $$
+</p>
+
+<p>
+임의의 변환행렬 $T_{1}, T_{2} \in SE(3)$가 존재할 때 이들은 덧셈에 닫혀있지 않고 곱셈에만 닫혀있는 특징이 있다.
+$$T_{1} + T_{2} \notin SE(3)$$
+$$T_{1}T_{2} \in SE(3)$$
+</p>
+
+<p>
+임의의 변환행렬 $T_{1}, T_{2}, T_{3} \in SE(3)$가 존재할 때 이들은 곱셈에 대한 결합법칙은 만족하지만 교환법칙은 만족하지 않는다.
+$$(T_1 T_2) T_3 = T_1 (T_2 T_3)$$
+$$T_1 T_2 \neq T_2 T_1$$
+</p>
+</div>
+</div>
