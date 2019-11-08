@@ -55,7 +55,7 @@ $ docker restart {...}
 
 $ docker start {...}
 
-$ docker run -it --name ros -v ~/docker:/root/data dyros:aorus
+$ docker run -it --name ros -v ~/docker:/root/data edward:starlaw
 $ docker run -i -t --name hello ubuntu:16.04 /bin/bash
 $ docker run -i --net host --name hello -t ubuntu:16.04 /bin/bash
 <span class="org-comment-delimiter"># </span><span class="org-comment">i : interactive</span>
@@ -88,8 +88,8 @@ $ sudo service docker restart
 <h2 id="org9ceef28">docker commit</h2>
 <div class="outline-text-2" id="text-org9ceef28">
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">ros_kinetic&#51060;&#46972;&#45716; &#52968;&#53580;&#51060;&#45320;&#47484; dyros:aorus &#51060;&#48120;&#51648;&#47196; &#51200;&#51109;&#54633;&#45768;&#45796;. &#51089;&#49457;&#51088;&#45716; edward0im, &#47700;&#49464;&#51648;&#45716; {...}</span>
-$ docker commit -a <span class="org-string">"edward0im"</span> -m <span class="org-string">"catkin_ws installed"</span> ros_kinetic dyros:aorus
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">ros_kinetic&#51060;&#46972;&#45716; &#52968;&#53580;&#51060;&#45320;&#47484; edward:starlaw &#51060;&#48120;&#51648;&#47196; &#51200;&#51109;&#54633;&#45768;&#45796;. &#51089;&#49457;&#51088;&#45716; edward0im, &#47700;&#49464;&#51648;&#45716; {...}</span>
+$ docker commit -a <span class="org-string">"edward0im"</span> -m <span class="org-string">"catkin_ws installed"</span> ros_kinetic edward:starlaw
 </pre>
 </div>
 </div>
@@ -154,7 +154,7 @@ $ sudo add-apt-repository <span class="org-string">"deb [arch=amd64] https://dow
 </ul>
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">-e NVIDIA_VISIBLE_DEVICES=all &#51012; &#51077;&#47141;&#54616;&#47732; non-CUDA &#51060;&#48120;&#51648;&#50640;&#49436;&#46020; gpu&#47484; &#49324;&#50857;&#54624; &#49688; &#51080;&#45716; &#46319;</span>
-$ docker run --runtime=nvidia -e <span class="org-variable-name">NVIDIA_VISIBLE_DEVICES</span>=all -it --name ros_nvidia2 dyros:aorus
+$ docker run --runtime=nvidia -e <span class="org-variable-name">NVIDIA_VISIBLE_DEVICES</span>=all -it --name ros_nvidia2 edward:starlaw
 </pre>
 </div>
 </div>
@@ -168,8 +168,8 @@ docker도 github처럼 사이트를 운영하고 있다. 여기에 가입하고 
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">$ docker login
-$ docker tag dyros:aorus edward0im/docker_dyrosvehicle
-$ docker push edward0im/docker_dyrosvehicle
+$ docker tag edward:starlaw edward0im/docker
+$ docker push edward0im/docker
 </pre>
 </div>
 
@@ -178,9 +178,9 @@ $ docker push edward0im/docker_dyrosvehicle
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">tag&#47484; &#45804;&#44256;</span>
-$ docker tag edward0im:ubuntu_cuda9.0 edward0im/dyrosvehicle:ubuntu_cuda9.0
+$ docker tag edward0im:ubuntu_cuda9.0 edward0im/ubuntu_cuda9.0
 <span class="org-comment-delimiter"># </span><span class="org-comment">dockerhub&#50640; push&#54620;&#45796;</span>
-$ docker push edward0im/dyrosvehicle:ubuntu_cuda9.0 
+$ docker push edward0im/ubuntu_cuda9.0 
 </pre>
 </div>
 </div>
