@@ -11,12 +11,12 @@ comments: true
 <p>
 이전 포스트: <a href="../../../../2019/10/30/coordinate-system">Coordinate System (좌표계)</a> 
 </p>
-<div id="outline-container-org65e423d" class="outline-2">
-<h2 id="org65e423d">Introduction</h2>
-<div class="outline-text-2" id="text-org65e423d">
+<div id="outline-container-org025e17a" class="outline-2">
+<h2 id="org025e17a">Introduction</h2>
+<div class="outline-text-2" id="text-org025e17a">
 
 <figure>
-<img src="/pictures/191030/03.PNG" alt="03.PNG" width="300px">
+<img src="/pictures/191030/03.PNG" alt="03.PNG" align="center" width="300px">
 
 </figure>
 
@@ -53,9 +53,9 @@ $${\color{red}{P}} =\left[\begin{array}{c}P1\\P2\\P3\end{array}\right], {\color{
 </p>
 </div>
 </div>
-<div id="outline-container-org4bd7a24" class="outline-2">
-<h2 id="org4bd7a24">Properties of Rotation Matrix 회전행렬의 성질</h2>
-<div class="outline-text-2" id="text-org4bd7a24">
+<div id="outline-container-orgd43f863" class="outline-2">
+<h2 id="orgd43f863">Properties of Rotation Matrix 회전행렬의 성질</h2>
+<div class="outline-text-2" id="text-orgd43f863">
 <p>
 다음과 같이 총 12개의 변수를 사용하여 $\{B\}$frame을 $\{S\}$frame 기준으로 표현할 수 있다.
 $$(\hat{x},\hat{y},\hat{z}), (r_{11},r_{12},r_{13},r_{21},r_{22},r_{23},r_{31},r_{32},r_{33})$$
@@ -87,7 +87,7 @@ $$\text{(vii) det}R=1 \Leftrightarrow \hat{x} \times \hat{y} = \hat{z}$$
 </p>
 
 <figure>
-<img src="/pictures/191030/04.PNG" alt="04.PNG" width="300px">
+<img src="/pictures/191030/04.PNG" alt="04.PNG" align="center" width="300px">
 
 </figure>
 
@@ -109,8 +109,8 @@ $$^{a}_{b}R^{b}_{a}R = \mathbf{I}$$
 <li><p>
 또한 다음과 조건들로부터 아래와 같은 식을 유도할 수 있다.
 </p>
-<p width="300px">
-<img src="/pictures/191030/05.PNG" alt="05.PNG" width="300px">
+<p align="center" width="300px">
+<img src="/pictures/191030/05.PNG" alt="05.PNG" align="center" width="300px">
 $$^{a}_{b}R\ ^{a}_{b}R^\text{T}=\mathbf{I} \quad \text{and} \quad ^{a}_{b}R\ ^{b}_{a}R = \mathbf{I}$$
 로부터
 $$R^\text{T}R=\mathbf{I} \quad \leftrightarrow \quad R^{\text{T}} = R^{-1}$$
@@ -121,21 +121,21 @@ $$\therefore \  ^{a}_{b}R^{-1} = \ ^{a}_{b}R^{T} = \ ^{b}_{a}R$$
 <li><p>
 회전행렬을 통해 특정 vector의 기준 좌표계 또한 변환할 수 있다.
 </p>
-<p width="300px">
-<img src="/pictures/191030/05.PNG" alt="05.PNG" width="300px">
+<p align="center" width="300px">
+<img src="/pictures/191030/05.PNG" alt="05.PNG" align="center" width="300px">
 $$\vec{v}_a \ = \ ^{a}_{b}R\vec{v}_b$$
 $\vec{v}$벡터를 $\{a\}$frame과 $\{b\}$frame에서 각각 표현하면 다음과 같다.
 </p>
-<p width="450px">
-<img src="/pictures/191102/01.PNG" alt="01.PNG" width="450px">
+<p align="center" width="450px">
+<img src="/pictures/191102/01.PNG" alt="01.PNG" align="center" width="450px">
 이 때 $\{b\}$frame은 $\{a\}$frame과 회전행렬을 통해 표현이 가능하므로
 </p>
-<p width="300px">
-<img src="/pictures/191102/02.PNG" alt="02.PNG" width="300px">
+<p align="center" width="300px">
+<img src="/pictures/191102/02.PNG" alt="02.PNG" align="center" width="300px">
 따라서 아래와 같이 특정 vector의 기준좌표계를 회전행렬을 통해 변환할 수 있다.
 </p>
-<p width="500px">
-<img src="/pictures/191102/03.PNG" alt="03.PNG" width="500px">
+<p align="center" width="500px">
+<img src="/pictures/191102/03.PNG" alt="03.PNG" align="center" width="500px">
 $$\therefore \vec{v}_a \ = \ ^{a}_{b}R\vec{v}_b$$
 </p>
 <hr></li>
@@ -146,20 +146,20 @@ frame이 회전할 때 frame 위에 있는 사람이 보면 vector가 회전하�
 </p>
 
 <figure>
-<img src="/pictures/191102/04.PNG" alt="04.PNG" width="600">
+<img src="/pictures/191102/04.PNG" alt="04.PNG" align="center" width="600">
 
 </figure></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org9333141" class="outline-2">
-<h2 id="org9333141">Special Orthogonal Group (SO)</h2>
-<div class="outline-text-2" id="text-org9333141">
+<div id="outline-container-org84c736b" class="outline-2">
+<h2 id="org84c736b">Special Orthogonal Group (SO)</h2>
+<div class="outline-text-2" id="text-org84c736b">
 <p>
 회전행렬과 같이 순수한 회전에만 관여하는 행렬을 따로 Group으로 묶을 수 있다. 회전행렬의 성질을 만족하는 모든 집합은 Special Orthogonal Group (SO)에 속하며 본 자료에서 다루는 3차원 공간 상의 회전행렬은 SO(3)에 속한다. SO(3) 그룹은 Lie Group에 속한다. 
 </p>
-<p width="350">
-<img src="/pictures/191102/05.PNG" alt="05.PNG" width="350">
+<p align="center" width="350">
+<img src="/pictures/191102/05.PNG" alt="05.PNG" align="center" width="350">
 SO(3) 그룹(또는 집합)의 정의는 다음과 같다.
 $$\text{SO}(3) = \{ R \in \mathbb{R}^{3 \times 3} \ | \ RR^{T} = \mathbf{I}, \text{det}(R)=1 \}$$
 </p>
