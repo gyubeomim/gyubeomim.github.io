@@ -20,11 +20,11 @@ comments: true
 </p>
 </div>
 </div>
-<div id="outline-container-org3b6b7cd" class="outline-2">
-<h2 id="org3b6b7cd">Setup</h2>
-<div class="outline-text-2" id="text-org3b6b7cd">
+<div id="outline-container-org842ee93" class="outline-2">
+<h2 id="org842ee93">Installation</h2>
+<div class="outline-text-2" id="text-org842ee93">
 <p>
-우분투 환경에서 docker는 다음 명령어를 통해 간단하게 설치할 수 있다.
+Ubuntu 16.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 설치할 수 있다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">$ sudo apt-get install docker*
@@ -39,22 +39,22 @@ comments: true
 가장 자주 사용하는 docker 명령어들을 정리하였다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ docker rm {...}
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">&#53945;&#51221; &#52968;&#53580;&#51060;&#45320; &#49325;&#51228;</span>
+$ docker rm {...}
 
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#53945;&#51221; &#51060;&#48120;&#51648; &#49325;&#51228;</span>
 $ docker rmi {...}
 
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#52968;&#53580;&#51060;&#45320; &#47785;&#47197; &#44160;&#49353;</span>
 $ docker ps -a
 
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#51060;&#48120;&#51648; &#47785;&#47197; &#44160;&#49353;</span>
 $ docker images
 
-$ docker exec hello echo <span class="org-string">"Hello World"</span>
-
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#53945;&#51221; &#52968;&#53580;&#51060;&#45320;&#50640; &#51217;&#49549;</span>
 $ docker attach {...}
 
-$ docker restart {...}
-
-$ docker start {...}
-
+<span class="org-comment-delimiter"># </span><span class="org-comment">docker run&#51008; &#53552;&#48120;&#45328;&#50640;&#49436; &#48148;&#47196; &#49892;&#54665;&#54616;&#44592;&#48372;&#45796; &#48372;&#53685; shell script (.sh) &#54028;&#51068;&#47196; &#51200;&#51109;&#54616;&#50668; &#54620; &#48264;&#50640; &#49892;&#54665;&#54620;&#45796;.</span>
 $ docker run -it --name ros -v ~/docker:/root/data edward:starlaw
 $ docker run -i -t --name hello ubuntu:16.04 /bin/bash
 $ docker run -i --net host --name hello -t ubuntu:16.04 /bin/bash
@@ -63,9 +63,8 @@ $ docker run -i --net host --name hello -t ubuntu:16.04 /bin/bash
 <span class="org-comment-delimiter"># </span><span class="org-comment">--net :</span>
 <span class="org-comment-delimiter"># </span><span class="org-comment">--name : &#51060;&#47492;</span>
 
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#50896;&#44201; dockerhub&#50640;&#49436; &#53945;&#51221; &#51060;&#48120;&#51648;&#47484; &#48155;&#50500;&#50740;</span>
 $ docker pull ubuntu:16.04
-
-$ docker search ubuntu
 </pre>
 </div>
 </div>
@@ -108,9 +107,9 @@ $ sudo service docker status
 <h2 id="orgc6c4b3c">nvidia-docker</h2>
 <div class="outline-text-2" id="text-orgc6c4b3c">
 </div>
-<div id="outline-container-org842ee93" class="outline-3">
-<h3 id="org842ee93">Installation</h3>
-<div class="outline-text-3" id="text-org842ee93">
+<div id="outline-container-org7f08fa8" class="outline-3">
+<h3 id="org7f08fa8">Installation</h3>
+<div class="outline-text-3" id="text-org7f08fa8">
 <ul class="org-ul">
 <li><b>nvidia-docker</b> 는 호스트 컴퓨터에 NVIDIA 드라이버가 있을 경우 컨테이너에서 편리하게 GPU를 사용할 수 있도록 해주는 프로그램이다.</li>
 <li>자세한 내용은 <a href="https://github.com/NVIDIA/nvidia-docker">여기</a>에 소개되어 있다.</li>
