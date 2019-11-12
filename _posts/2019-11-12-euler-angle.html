@@ -19,9 +19,9 @@ comments: true
 </p>
 </div>
 </div>
-<div id="outline-container-orgc2d8edb" class="outline-2">
-<h2 id="orgc2d8edb">Euler angle vs Fixed angle</h2>
-<div class="outline-text-2" id="text-orgc2d8edb">
+<div id="outline-container-org830c0d4" class="outline-2">
+<h2 id="org830c0d4">Euler angle vs Fixed angle</h2>
+<div class="outline-text-2" id="text-org830c0d4">
 <p>
 3개의 각도로 물체의 방향을 표현할 때 크게 고정 각도(fixed angle)표현법과 오일러 각도(euler angle) 표현법이 있는데 <b>오일러 각도는 회전한 축을 기준으로 다음 회전을 한다는 점</b> 이 고정 각도 표현법과 다르다. 아래 그림과 같이 $Z,Y$축을 순차적으로 돌리는 경우를 생각해보자. 오일러 각도는 회전한 축을 기준으로 다음 회전이 적용된다.
 </p>
@@ -44,6 +44,17 @@ comments: true
 <img src="/pictures/191112/13.PNG" alt="13.PNG" width="700px">
 
 </figure>
+
+<p>
+이 때, 오일러 각도는 다음과 모든 회전을 같이 하나로 합쳐서 표현한다.
+</p>
+  \begin{equation*}
+  \begin{aligned}
+    &amp; R_{ZYX} \left(\alpha,\beta,\gamma\right) =\text{Rot}\left(\hat{z},\alpha\right) \text{Rot}\left(\hat{y},\beta\right)\text{Rot}\left(\hat{x},\gamma\right) = R_{Z}\left(\alpha\right)R_{Y}\left(\beta\right)R_{X}\left(\gamma\right) \\
+    &amp; R_{ZYX} \left(\alpha,\beta,\gamma\right) = \begin{bmatrix}
+    c_{\alpha}c_{\beta} &amp; c_{\alpha}s_{\beta}s_{\gamma}-s_{\alpha}c_{\gamma}  &amp; c_{\alpha}s_{\beta}c_{\gamma}+s_{\alpha}s_{\gamma} \\ s_{\alpha}c_{\beta} &amp; s_{\alpha}s_{\beta}s_{\gamma}+c_{\alpha}c_{\gamma} &amp; s_{\alpha}s_{\beta}c_{\gamma}-c_{\alpha}s_{\gamma}\\ -s_{\beta} &amp; c_{\beta}s_{\gamma}  &amp; c_{\beta}c_{\gamma} \end{bmatrix}
+  \end{aligned}
+  \end{equation*}
 </div>
 </div>
 
@@ -90,9 +101,9 @@ comments: true
 </div>
 </div>
 
-<div id="outline-container-org830c0d4" class="outline-2">
-<h2 id="org830c0d4">Euler angle vs Fixed angle</h2>
-<div class="outline-text-2" id="text-org830c0d4">
+<div id="outline-container-orgef5d1b9" class="outline-2">
+<h2 id="orgef5d1b9">Euler angle vs Fixed angle</h2>
+<div class="outline-text-2" id="text-orgef5d1b9">
 <p>
 오일러 
 </p>
