@@ -1,0 +1,81 @@
+---
+layout: post
+title: (Robotics) Euler Angle 오일러 각도
+description: 
+date: 2019-11-12
+categories: [Engineering]
+tag: [Robotics, SLAM, Transformation, Geometry, Spatial Description]
+use_math: true
+comments: true
+---
+<p>
+이전 포스트: <a href="../../../../2019/11/02/rigid-body-transformation">Rigid Body Transformation (강체 변환)</a>
+</p>
+<div id="outline-container-org0d1ebc0" class="outline-2">
+<h2 id="org0d1ebc0">Introduction</h2>
+<div class="outline-text-2" id="text-org0d1ebc0">
+<p>
+해당 포스트에서는 오일러 각도 (Euler Angle) 표현법에 대해 다룬다.
+</p>
+</div>
+</div>
+<div id="outline-container-org46154d4" class="outline-2">
+<h2 id="org46154d4">Representation of euler angle</h2>
+<div class="outline-text-2" id="text-org46154d4">
+<p>
+오일러 각은 3차원 물체의 방향(orientation)을 3개의 서로 수직인 X,Y,Z축 각도로 표현하는 방법 중 하나이다. 3개의 각도로 물체의 방향을 표현할 때 크게 고정 각도(fixed angle)표현법과 오일러 각도(euler angle) 표현법이 있는데 <b>오일러 각도는 회전한 축을 기준으로 다음 회전을 한다는 점</b> 이 고정 각도 표현법과 다르다. 예를 들어, 오일러 각도가 x,y,z 축 순서로 $(\gamma, \beta, \alpha)$라고 하면 이는 우선 $x$축으로 $\gamma$회전한 다음, 회전한 축 $(x^{'},y^{'},z^{'})$의 $y^{'}$축을 기준으로 $\beta$만큼 회전한다. 그리고 마지막으로 회전한 축 $(x^{''},y^{''},z^{''})$의 $z^{''}$축을 기준으로 $\alpha$만큼 회전한다. 오일러 각도는 회전 순서에 따라 XYZ,ZXY,ZXZ,XYX,YXY,YZY,ZYZ,ZXZ,XZY,YXZ,YZX,ZYX와 같이 12개의 서로 다른 표현법이 존재하며 ZYX의 경우 아래 그림과 같다.
+</p>
+
+<figure>
+<img src="/pictures/191112/13.PNG" alt="13.PNG" width="500px">
+
+</figure>
+
+
+<p>
+모든 오일러 각도는 회전행렬로 변환이 가능하다. 아래 그림과 같이 $\hat{x}, \hat{y}, \hat{z}$축을 기준으로 frame을 각각 $\gamma, \beta, \alpha$만큼 회전시킬 때 회전행렬은 다음과 같다.
+</p>
+
+<figure>
+<img src="/pictures/191112/10.PNG" alt="10.PNG" width="500px">
+
+</figure>
+
+  \begin{equation*}
+  \begin{aligned}
+    R_{x}\left(\gamma\right) =  \text{Rot}\left(\hat{x},\gamma \right) = \left[\begin{array}{ccc} 1 &amp; 0 &amp; 0 \\ 0 &amp; \cos{\gamma } &amp; -\sin{\gamma } \\ 0 &amp; \sin{\gamma } &amp; \cos{\gamma } \end{array}\right]
+  \end{aligned}
+  \end{equation*}
+
+<figure>
+<img src="/pictures/191112/11.PNG" alt="11.PNG" width="500px">
+
+</figure>
+
+  \begin{equation*}
+  \begin{aligned}
+    R_{y}\left(\beta\right) =  \text{Rot}\left(\hat{y},\beta\right) = \left[\begin{array}{ccc} \cos{\beta} &amp; 0 &amp; \sin{\beta}   \\ 0 &amp;1 &amp; 0   \\ -\sin{\beta} &amp; 0 &amp;  \cos{\beta} \end{array}\right]
+  \end{aligned}
+  \end{equation*}
+
+<figure>
+<img src="/pictures/191112/12.PNG" alt="12.PNG" width="500px">
+
+</figure>
+
+  \begin{equation*}
+  \begin{aligned}
+        R_{z}\left(\alpha\right) = \text{Rot}\left(\hat{z},\alpha\right) = \left[\begin{array}{ccc} \cos{\alpha} &amp; -\sin{\alpha} &amp; 0 \\ \sin{\alpha} &amp; \cos{\alpha} &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{array}\right]
+  \end{aligned}
+  \end{equation*}
+</div>
+</div>
+
+<div id="outline-container-orgf5f64b4" class="outline-2">
+<h2 id="orgf5f64b4">Euler angle vs Fixed angle</h2>
+<div class="outline-text-2" id="text-orgf5f64b4">
+<p>
+오일러 
+</p>
+</div>
+</div>
