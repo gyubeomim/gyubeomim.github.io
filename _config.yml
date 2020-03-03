@@ -6,8 +6,8 @@ permalink:           pretty
 
 # Setup
 title:               edward0im blog
-tagline:             "Researcher & Engineer & Tech Evangelist"
-description:         "edward blog"
+tagline:             "Robotics Researcher & Engineer & Tech Evangelist"
+description:         "edward0im blog"
 url:                 https://edward0im.github.io
 baseurl:            ''
 paginate:            10
