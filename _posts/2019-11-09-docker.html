@@ -1,0 +1,297 @@
+---
+layout: post
+title: docker 사용법 정리
+description: 
+date: 2019-11-09
+categories: [Technology]
+tag: 
+use_math: true
+comments: true
+---
+<div id="outline-container-org3a96d45" class="outline-2">
+<h2 id="org3a96d45">Introduction</h2>
+<div class="outline-text-2" id="text-org3a96d45">
+<p>
+리눅스에서 프로그램을 빌드하다가 한 번쯤은 버전 문제로 제대로 실행하지 못한 경험이 있을 것이다. Docker는 이러한 빌드 문제를 해결해줄 수 있는 좋은 솔루션이다. 필자 또한 빌드 문제로 많은 시간을 낭비하다가 결국 Docker를 사용하기 시작했다. 해당 포스트는 필자가 docker를 사용하면서 필요한 정보들을 정리해놓은 포스트이다. 대부분의 내용은 도커 무작정 따라하기 (<a href="https://www.slideshare.net/pyrasis/docker-fordummies-44424016">link</a>)를 참고하였다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgfc8ecba" class="outline-2">
+<h2 id="orgfc8ecba">Installation</h2>
+<div class="outline-text-2" id="text-orgfc8ecba">
+<p>
+Ubuntu 16.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 설치할 수 있다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ sudo apt-get install docker*
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgec0eaca" class="outline-2">
+<h2 id="orgec0eaca">Docker commands</h2>
+<div class="outline-text-2" id="text-orgec0eaca">
+<p>
+가장 자주 사용하는 docker 명령어들을 정리하였다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">&#53945;&#51221; &#52968;&#53580;&#51060;&#45320; &#49325;&#51228;</span>
+$ docker rm {...}
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#53945;&#51221; &#51060;&#48120;&#51648; &#49325;&#51228;</span>
+$ docker rmi {...}
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#52968;&#53580;&#51060;&#45320; &#47785;&#47197; &#44160;&#49353;</span>
+$ docker ps -a
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#51060;&#48120;&#51648; &#47785;&#47197; &#44160;&#49353;</span>
+$ docker images
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#53945;&#51221; &#52968;&#53580;&#51060;&#45320;&#50640; &#51217;&#49549;</span>
+$ docker attach {...}
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">docker run&#51008; &#53552;&#48120;&#45328;&#50640;&#49436; &#48148;&#47196; &#49892;&#54665;&#54616;&#44592;&#48372;&#45796; &#48372;&#53685; shell script (.sh) &#54028;&#51068;&#47196; &#51200;&#51109;&#54616;&#50668; &#54620; &#48264;&#50640; &#49892;&#54665;&#54620;&#45796;.</span>
+$ docker run -it --name ros -v ~/docker:/root/data edward:starlaw
+$ docker run -i -t --name hello ubuntu:16.04 /bin/bash
+$ docker run -i --net host --name hello -t ubuntu:16.04 /bin/bash
+<span class="org-comment-delimiter"># </span><span class="org-comment">i : interactive</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">t : pseudo-tty</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">--net :</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">--name : &#51060;&#47492;</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">ros_kinetic&#51060;&#46972;&#45716; &#52968;&#53580;&#51060;&#45320;&#47484; edward:starlaw &#51060;&#48120;&#51648;&#47196; &#51200;&#51109;&#54620;&#45796;. &#51089;&#49457;&#51088;&#45716; edward0im, &#47700;&#49464;&#51648;&#45716; {...}</span>
+$ docker commit -a <span class="org-string">"edward0im"</span> -m <span class="org-string">"catkin_ws installed"</span> ros_kinetic edward:starlaw
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#50896;&#44201; dockerhub&#50640;&#49436; &#53945;&#51221; &#51060;&#48120;&#51648;&#47484; &#48155;&#50500;&#50740;</span>
+$ docker pull ubuntu:16.04
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org1d2af50" class="outline-2">
+<h2 id="org1d2af50">w/o sudo command</h2>
+<div class="outline-text-2" id="text-org1d2af50">
+<p>
+우분투에서 docker를 처음 설치하고 실행하면 매번 실행할 때마다 sudo 명령어를 입력해줘야 한다. 이를 sudo 명령어없이 편하게 사용하려면 현재 계정을 docker 그룹에 포함시키면 된다. 명령어는 아래와 같다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ sudo usermod -aG docker ${<span class="org-variable-name">USER</span>}
+$ sudo service docker restart
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#54788;&#51116; &#44228;&#51221;&#51012; &#47196;&#44536;&#50500;&#50883;&#54616;&#44256; &#51116;&#51217;&#49549;&#54616;&#47732; &#51201;&#50857;&#46108;&#45796;</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga6474e1" class="outline-2">
+<h2 id="orga6474e1">docker service</h2>
+<div class="outline-text-2" id="text-orga6474e1">
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">&#49436;&#48708;&#49828; &#46041;&#51089; &#49345;&#53468; &#54869;&#51064;</span>
+$ sudo service docker status
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc6c4b3c" class="outline-2">
+<h2 id="orgc6c4b3c">nvidia-docker</h2>
+<div class="outline-text-2" id="text-orgc6c4b3c">
+<p>
+<b>nvidia-docker</b> 는 호스트 컴퓨터에 NVIDIA 드라이버가 있을 경우 컨테이너에서 GPU를 사용할 수 있도록 해주는 프로그램이다.
+</p>
+</div>
+<div id="outline-container-org12f9b12" class="outline-3">
+<h3 id="org12f9b12">Installation</h3>
+<div class="outline-text-3" id="text-org12f9b12">
+<ul class="org-ul">
+<li>자세한 내용은 <a href="https://github.com/NVIDIA/nvidia-docker">여기</a>에 소개되어 있다.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Add the package repositories</span>
+$ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+$ <span class="org-variable-name">distribution</span>=$(. /etc/os-release;<span class="org-builtin">echo</span> $<span class="org-variable-name">ID</span>$<span class="org-variable-name">VERSION_ID</span>)
+$ curl -s -L https://nvidia.github.io/nvidia-docker/$<span class="org-variable-name">distribution</span>/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+$ sudo apt-get update
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Install nvidia-docker2 and reload the Docker daemon configuration</span>
+$ sudo apt-get install -y nvidia-docker2
+$ sudo pkill -SIGHUP dockerd
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Test nvidia-smi with the latest official CUDA image</span>
+$ docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
+</pre>
+</div>
+<p>
+만약 설치 도중 <b>docker-ce</b> 의존성 에러가 나는 경우 다음 코드를 추가적으로 실행해준다. 아래 코드는 <a href="https://github.com/NVIDIA/nvidia-docker/issues/607#issuecomment-358855221">여기</a>에서 가져왔다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ sudo apt-key fingerprint 0EBFCD88
+$ sudo add-apt-repository <span class="org-string">"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable</span>
+<span class="org-string">$ sudo apt-get update</span>
+<span class="org-string">$ sudo apt-get install docker-ce</span>
+<span class="org-string">$ sudo service docker restart</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga14c423" class="outline-3">
+<h3 id="orga14c423">Usage</h3>
+<div class="outline-text-3" id="text-orga14c423">
+<p>
+<b>nvidia-docker</b> 명령어는 <b>docker run &#x2013;runtime=nvidia</b> 와 동일하다. 만약 non-cuda 이미지에서 GPU를 사용하고 싶을 경우 아래와 같은 명령어를 사용하면 된다. 출처는 <a href="https://github.com/NVIDIA/nvidia-docker/wiki/Usage#non-cuda-image">여기</a>이다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">-e NVIDIA_VISIBLE_DEVICES=all &#51012; &#51077;&#47141;&#54616;&#47732; non-CUDA &#51060;&#48120;&#51648;&#50640;&#49436;&#46020; gpu&#47484; &#49324;&#50857;&#54624; &#49688; &#51080;&#45716; &#46319;</span>
+$ docker run --runtime=nvidia -e <span class="org-variable-name">NVIDIA_VISIBLE_DEVICES</span>=all -it --name ros_nvidia2 edward:starlaw
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org88f1803" class="outline-2">
+<h2 id="org88f1803">Docker hub</h2>
+<div class="outline-text-2" id="text-org88f1803">
+<p>
+docker도 github처럼 사이트를 운영하고 있다. 여기에 가입하고 명령어를 통해 터미널에서 로그인할 수 있다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ docker login
+$ docker tag edward:starlaw edward0im/docker
+$ docker push edward0im/docker
+</pre>
+</div>
+<p>
+간단하게 정리한 docker hub push 명령어는 아래와 같다
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">tag&#47484; &#45804;&#44256;</span>
+$ docker tag edward0im:ubuntu_cuda9.0 edward0im/ubuntu_cuda9.0
+<span class="org-comment-delimiter"># </span><span class="org-comment">dockerhub&#50640; push&#54620;&#45796;</span>
+$ docker push edward0im/ubuntu_cuda9.0 
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgde9b032" class="outline-2">
+<h2 id="orgde9b032">Connect to internet in docker container</h2>
+<div class="outline-text-2" id="text-orgde9b032">
+<p>
+Docker 컨테이너는 NAT 기술을 사용하여 외부 네트워크로 통신한다. 실제 인터넷 선은 하나 밖에 제공되어 있지 않고 그 선을 통해 데이터가 나가야 하기 때문에 Linux의 <b>iptables</b> 명령을 사용해서 해당 브릿지 인터페이스에 MASQUERADE 기능을 부여하거나 SNAT 값을 줘야 한다. 해당 방법은 이 <a href="https://blog.neonkid.xyz/87">블로그</a>를 통해 얻은 정보이다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">  <span class="org-comment-delimiter"># </span><span class="org-comment">host &#47672;&#49888;&#50640;&#49436; &#50500;&#47000; &#47749;&#47161;&#50612;&#47484; &#49892;&#54665;&#54620;&#45796;. &#50500;&#47000; &#47749;&#47161;&#50612;&#47484; &#53685;&#54644; iptables&#50640; NAT &#51221;&#48372;&#47484; &#51077;&#47141;&#54620;&#45796;</span>
+  $ sudo iptables -t nat -A PREROUTING -d 0.0.0.0/0 -m addrtype --dst-type LOCAL -j DOCKER
+  $ sudo iptables -t nat -A OUTPUT -m addrtype --dst-type LOCAL -j DOCKER
+  $ sudo iptables -t nat -A POSTROUTING -s 172.17.0.0/16 -j MASQUERADE
+
+  <span class="org-comment-delimiter"># </span><span class="org-comment">&#47749;&#47161;&#50612;&#44032; &#51221;&#49345;&#51201;&#51004;&#47196; &#51089;&#46041;&#54664;&#45716;&#51648; &#54869;&#51064;&#54620;&#45796;.</span>
+  $ sudo iptables -t nat -L
+
+Chain PREROUTING (policy ACCEPT)
+target     prot opt source               destination         
+DOCKER     all  --  anywhere             anywhere             ADDRTYPE match dst-type LOCAL
+DOCKER     all  --  anywhere             anywhere             ADDRTYPE match dst-type LOCAL
+
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+DOCKER     all  --  anywhere            !127.0.0.0/8          ADDRTYPE match dst-type LOCAL
+DOCKER     all  --  anywhere             anywhere             ADDRTYPE match dst-type LOCAL
+
+Chain POSTROUTING (policy ACCEPT)
+target     prot opt source               destination         
+MASQUERADE  all  --  172.17.0.0/16        anywhere            
+MASQUERADE  all  --  172.17.0.0/16        anywhere            
+
+Chain DOCKER (4 references)
+target     prot opt source               destination         
+RETURN     all  --  anywhere             anywhere  
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orge8e2b8b" class="outline-2">
+<h2 id="orge8e2b8b">Bash autocompletion in docker</h2>
+<div class="outline-text-2" id="text-orge8e2b8b">
+<p>
+Docker에 접속하면 기본적으로 bash에서 tab 자동 완성(autocompletion)이 작동하지 않는다. 아래 작성한 방법들 모두 적용해본 결과 정상적으로 작동하는 걸 확인했다. 정확히 어느 파트는 필요없는 지에 대한 내용은 아직 모르겠다. ROS 명령어들을 자동완성하고 싶은 경우 <b>source /opt/ros/kinetic/setup.bash</b> 를 .bashrc 파일에 넣어줘야 한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">  $ apt-get install bash_completion
+
+  <span class="org-comment-delimiter"># </span><span class="org-comment">download bash completion file into /etc/bash_completion.d/ </span>
+  $ curl https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker -o /etc/bash_completion.d/docker.sh
+
+  <span class="org-comment-delimiter"># </span><span class="org-comment">.bash.bashrc &#54028;&#51068;&#51012; &#50676;&#44256; </span>
+  $ vim /etc/bash.bashrc
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#50500;&#47000; &#53076;&#46300;&#47484; &#51452;&#49437; &#54644;&#51228;&#54620;&#45796;.</span>
+<span class="org-keyword">if</span> <span class="org-negation-char">!</span> shopt -oq posix; <span class="org-keyword">then</span>
+ <span class="org-keyword">if</span> [ -f /usr/share/bash-completion/bash_completion ]; <span class="org-keyword">then</span>
+   . /usr/share/bash-completion/bash_completion
+ <span class="org-keyword">elif</span> [ -f /etc/bash_completion ]; <span class="org-keyword">then</span>
+   . /etc/bash_completion
+ <span class="org-keyword">fi</span>
+<span class="org-keyword">fi</span>
+
+  <span class="org-comment-delimiter"># </span><span class="org-comment">&#54644;&#45817; &#53076;&#46300;&#47484; &#49892;&#54665;&#54620;&#45796;.</span>
+  $ source /etc/bash.bashrc
+
+  <span class="org-comment-delimiter"># </span><span class="org-comment">~/.bashrc &#50640;&#46020; &#48708;&#49847;&#54620; completion &#53076;&#46300;&#44032; &#51080;&#45716;&#45936; &#51452;&#49437; &#54644;&#51228; &#54980; source&#47484; &#54644;&#51456;&#45796;.</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org27445f8" class="outline-2">
+<h2 id="org27445f8">Dockerfile</h2>
+<div class="outline-text-2" id="text-org27445f8">
+<p>
+Dockerfile은 <code>docker build</code> 명령어를 사용하여 docker 이미지를 생성할 수 있는 파일이다. 아래에 Dockerfile의 간단한 사용 예시를 작성했다. 우선 example 폴더를 만들고 그 안에 아래와 같은 Dockerfile을 생성한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ mkdir example &amp;&amp; <span class="org-builtin">cd</span> example
+$ vim Dockerfile
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Dockerfile</span>
+  FROM ubuntu:16.04   <span class="org-comment-delimiter"># </span><span class="org-comment">&#50612;&#46500; &#51060;&#48120;&#51648;&#47484; &#44592;&#48152;&#51004;&#47196; &#54624;&#51648; &#49444;&#51221; {&#51060;&#48120;&#51648;&#51060;&#47492;}:{&#53468;&#44536;}</span>
+  MAINTAINER Foo Bar foo@bar.com <span class="org-comment-delimiter"># </span><span class="org-comment">&#44288;&#47532;&#51088; &#51221;&#48372;</span>
+
+  RUN apt-get update  <span class="org-comment-delimiter"># </span><span class="org-comment">RUN&#51004;&#47196; &#49752;&#49828;&#53356;&#47549;&#53944; &#54841;&#51008; &#47749;&#47161; &#49892;&#54665;</span>
+  RUN apt-get install -y nginx  <span class="org-comment-delimiter"># </span><span class="org-comment">&#51060;&#48120;&#51648; &#49373;&#49457; &#51473;&#50640;&#45716; &#49324;&#50857;&#51088; &#51077;&#47141;&#51012; &#48155;&#51012; &#49688; &#50630;&#51004;&#48064;&#47196;</span>
+  RUN echo <span class="org-string">"\ndaemon off;"</span> &gt;&gt; /etc/nginx/nginx.conf <span class="org-comment-delimiter"># </span><span class="org-comment">apt-get install -y &#50741;&#49496; &#49324;&#50857;</span>
+  RUN chown -R www-data:www-data /var/lib/nginx
+
+  VOLUME [<span class="org-string">"/data"</span>, <span class="org-string">"/etc/nginx/site-enabled"</span>,<span class="org-string">"/var/log/nginx"</span>] <span class="org-comment-delimiter"># </span><span class="org-comment">&#54840;&#49828;&#53944;&#50752; &#44277;&#50976;&#54624; &#46356;&#47113;&#53664;&#47532; &#47785;&#47197;</span>
+
+  WORKDIR /etc/nginx  <span class="org-comment-delimiter"># </span><span class="org-comment">&#45796;&#51020; CMD&#50640;&#49436; &#49444;&#51221;&#54620; &#49892;&#54665; &#54028;&#51068;&#51060; &#49892;&#54665;&#46112; &#46356;&#47113;&#53664;&#47532;</span>
+
+  CMD [<span class="org-string">"nginx"</span>] <span class="org-comment-delimiter"># </span><span class="org-comment">&#52968;&#53580;&#51060;&#45320;&#44032; &#49884;&#51089;&#46104;&#50632;&#51012; &#46412; &#49892;&#54665;&#54624; &#49892;&#54665; &#54028;&#51068; &#46608;&#45716; &#49828;&#53356;&#47549;&#53944;</span>
+
+  EXPOSE 80   <span class="org-comment-delimiter"># </span><span class="org-comment">&#54840;&#49828;&#53944;&#50752; &#50672;&#44208;&#54624; &#54252;&#53944; &#48264;&#54840;</span>
+  EXPOSE 443
+</pre>
+</div>
+<p>
+위와 같이 Dockerfile을 작성하고 해당 폴더에서 다음 명령을 실행하면 빌드된다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ docker build --tag hello:0.1 .
+<span class="org-comment-delimiter"># </span><span class="org-comment">--tag &#50741;&#49496;&#51004;&#47196; &#51060;&#48120;&#51648; &#51060;&#47492;&#44284; &#53468;&#44536;&#47484; &#49444;&#51221;&#54624; &#49688; &#51080;&#45796;</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#51060;&#48120;&#51648; &#51060;&#47492;&#47564; &#49444;&#51221;&#54616;&#47732; &#53468;&#44536;&#45716; latest&#47196; &#49444;&#51221;&#46108;&#45796;.</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#51104;&#49884; &#44592;&#45796;&#47532;&#47732; &#51060;&#48120;&#51648;&#44032; &#49373;&#49457;&#46108;&#45796;. &#51060;&#48120;&#51648; &#47785;&#47197;&#51012; &#52636;&#47141;&#54616;&#47732;</span>
+$ docker images
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#50526;&#50640;&#49436; &#49373;&#49457;&#54620; &#51060;&#48120;&#51648;&#47484; &#49892;&#54665;&#54644;&#48372;&#44592;</span>
+$ sudo docker run --name hello-nginx -d -p 80:80 -v /root/data:/data hello:0.1
+<span class="org-comment-delimiter"># </span><span class="org-comment">-d : &#52968;&#53580;&#51060;&#45320;&#47484; &#48177;&#44536;&#46972;&#50868;&#46300;&#47196; &#49892;&#54665;</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">-p 80:80 : &#54840;&#49828;&#53944;&#51032; 80&#48264; &#54252;&#53944;&#50752; &#52968;&#53580;&#51060;&#45320;&#51032; 80&#48264; &#54252;&#53944;&#47484; &#50672;&#44208;&#54616;&#44256; &#50808;&#48512;&#50640; &#45432;&#52636;</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">-v /root/data:/data : &#54840;&#49828;&#53944;&#51032; /root/data &#46356;&#47113;&#53664;&#47532;&#47484; &#52968;&#53580;&#51060;&#45320;&#51032; /data &#46356;&#47113;&#53664;&#47532;&#50640; &#50672;&#44208;</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#50937; &#48652;&#46972;&#50864;&#51200;&#47484; &#49892;&#54665;&#54616;&#44256; http://{IP}:80 &#51004;&#47196; &#51217;&#49549;&#54616;&#47732; nginx &#54168;&#51060;&#51648;&#44032; &#54364;&#49884;&#46108;&#45796;. &#51060;&#47111;&#44172; &#45208;&#50724;&#47732; &#51221;&#49345;</span>
+</pre>
+</div>
+</div>
+</div>

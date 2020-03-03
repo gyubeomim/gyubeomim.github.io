@@ -1,0 +1,130 @@
+---
+layout: post
+title: (Robotics) Euler Angle 오일러 각도
+description: 
+date: 2019-11-12
+categories: [Engineering]
+tag: [Robotics, SLAM, Transformation, Geometry, Spatial Description]
+use_math: true
+comments: true
+---
+<p>
+이전 포스트: <a href="../../../../2019/11/02/rigid-body-transformation">Rigid Body Transformation (강체 변환)</a>
+</p>
+<div id="outline-container-org0d1ebc0" class="outline-2">
+<h2 id="org0d1ebc0">Introduction</h2>
+<div class="outline-text-2" id="text-org0d1ebc0">
+<p>
+해당 포스트에서는 오일러 각도 (Euler Angle) 표현법에 대해 다룬다. 오일러 각은 3차원 물체의 방향(orientation)을 3개의 서로 수직인 X,Y,Z축 각도로 표현하는 방법 중 하나이다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgef5d1b9" class="outline-2">
+<h2 id="orgef5d1b9">Euler angle vs Fixed angle</h2>
+<div class="outline-text-2" id="text-orgef5d1b9">
+<p>
+3개의 각도로 물체의 방향을 표현할 때 크게 고정 각도(fixed angle)표현법과 오일러 각도(euler angle) 표현법이 있는데 <b>오일러 각도는 회전한 축을 기준으로 다음 회전을 한다는 점</b> 이 고정 각도 표현법과 다르다. 아래 그림과 같이 $Z,Y$축을 순차적으로 돌리는 경우를 생각해보자. 오일러 각도는 회전한 축을 기준으로 다음 회전이 적용된다.
+</p>
+
+<figure>
+<img src="/pictures/191112/14.PNG" alt="14.PNG" align="center" width="800px">
+
+</figure>
+</div>
+</div>
+
+<div id="outline-container-org46154d4" class="outline-2">
+<h2 id="org46154d4">Representation of euler angle</h2>
+<div class="outline-text-2" id="text-org46154d4">
+<p>
+예를 들어, 오일러 각도가 $x,y,z$축 순서로 $(\gamma, \beta, \alpha)$라고 하면 이는 우선 $x$축으로 $\gamma$만큼 회전한 다음, 회전한 축 $(x^{'},y^{'},z^{'})$의 $y^{'}$축을 기준으로 $\beta$만큼 회전한다. 그리고 마지막으로 회전한 축 $(x^{''},y^{''},z^{''})$의 $z^{''}$축을 기준으로 $\alpha$만큼 회전한다. 오일러 각도는 회전 순서에 따라 XYZ,ZXY,ZXZ,XYX,YXY,YZY,ZYZ,ZXZ,XZY,YXZ,YZX,ZYX와 같이 12개의 서로 다른 표현법이 존재하며 ZYX의 경우 아래 그림과 같다.
+</p>
+
+<figure>
+<img src="/pictures/191112/13.PNG" alt="13.PNG" align="center" width="700px">
+
+</figure>
+
+<p>
+이 때, 오일러 각도는 다음과 모든 회전을 같이 하나로 합쳐서 표현한다.
+</p>
+  \begin{equation*}
+  \begin{aligned}
+    R_{ZYX} \left(\alpha,\beta,\gamma\right) &amp; =\text{Rot}\left(\hat{z},\alpha\right) \text{Rot}\left(\hat{y},\beta\right)\text{Rot}\left(\hat{x},\gamma\right) = R_{Z}\left(\alpha\right)R_{Y}\left(\beta\right)R_{X}\left(\gamma\right) \\
+    &amp; = \begin{bmatrix}
+    c_{\alpha}c_{\beta} &amp; c_{\alpha}s_{\beta}s_{\gamma}-s_{\alpha}c_{\gamma}  &amp; c_{\alpha}s_{\beta}c_{\gamma}+s_{\alpha}s_{\gamma} \\ s_{\alpha}c_{\beta} &amp; s_{\alpha}s_{\beta}s_{\gamma}+c_{\alpha}c_{\gamma} &amp; s_{\alpha}s_{\beta}c_{\gamma}-c_{\alpha}s_{\gamma}\\ -s_{\beta} &amp; c_{\beta}s_{\gamma}  &amp; c_{\beta}c_{\gamma} \end{bmatrix}
+  \end{aligned}
+  \end{equation*}
+</div>
+</div>
+
+<div id="outline-container-org0efac75" class="outline-2">
+<h2 id="org0efac75">Euler angle to Rotation Matrix</h2>
+<div class="outline-text-2" id="text-org0efac75">
+<p>
+모든 오일러 각도는 회전행렬로 변환이 가능하다. 아래 그림과 같이 $\hat{x}, \hat{y}, \hat{z}$축을 기준으로 frame을 각각 $\gamma, \beta, \alpha$만큼 회전시킬 때 회전행렬은 다음과 같다.
+</p>
+
+<figure>
+<img src="/pictures/191112/10.PNG" alt="10.PNG" align="center" width="500px">
+
+</figure>
+
+  \begin{equation*}
+  \begin{aligned}
+    R_{x}\left(\gamma\right) =  \text{Rot}\left(\hat{x},\gamma \right) = \left[\begin{array}{ccc} 1 &amp; 0 &amp; 0 \\ 0 &amp; \cos{\gamma } &amp; -\sin{\gamma } \\ 0 &amp; \sin{\gamma } &amp; \cos{\gamma } \end{array}\right]
+  \end{aligned}
+  \end{equation*}
+
+<figure>
+<img src="/pictures/191112/11.PNG" alt="11.PNG" align="center" width="500px">
+
+</figure>
+
+  \begin{equation*}
+  \begin{aligned}
+    R_{y}\left(\beta\right) =  \text{Rot}\left(\hat{y},\beta\right) = \left[\begin{array}{ccc} \cos{\beta} &amp; 0 &amp; \sin{\beta}   \\ 0 &amp;1 &amp; 0   \\ -\sin{\beta} &amp; 0 &amp;  \cos{\beta} \end{array}\right]
+  \end{aligned}
+  \end{equation*}
+
+<figure>
+<img src="/pictures/191112/12.PNG" alt="12.PNG" align="center" width="500px">
+
+</figure>
+
+  \begin{equation*}
+  \begin{aligned}
+        R_{z}\left(\alpha\right) = \text{Rot}\left(\hat{z},\alpha\right) = \left[\begin{array}{ccc} \cos{\alpha} &amp; -\sin{\alpha} &amp; 0 \\ \sin{\alpha} &amp; \cos{\alpha} &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{array}\right]
+  \end{aligned}
+  \end{equation*}
+</div>
+</div>
+
+<div id="outline-container-org25dbd88" class="outline-2">
+<h2 id="org25dbd88">Limitation</h2>
+<div class="outline-text-2" id="text-org25dbd88">
+<p>
+오일러 각도는 3차원 상의 물체의 방향(orientation)을 3개의 파라미터만으로 간결하게 표현할 수 있다는 점과 대략적인 방향에 대한 직관적인 정보를 준다는 점에서 좋지만 다음과 같은 한계점들을 가지고 있다.
+</p>
+</div>
+<div id="outline-container-org0c22f45" class="outline-3">
+<h3 id="org0c22f45">짐벌락 (Gimbal Lock) 문제</h3>
+<div class="outline-text-3" id="text-org0c22f45">
+<p>
+오일러 각도 표현 법은 짐벌락이라는 치명적인 문제점을 가지고 있다. 오일러 각도로 물체를 표현할 때 <b>같은 방향으로 두 회전 축이 겹치는 경우 해당 2개의 축이 더이상 분리되지 않는 고정 상태</b> 가 되는데 이를 짐벌락이라고 한다. 따라서 3개의 자유도 중 1개의 자유도를 잃어버리게 되므로 다양한 방향 표현이 불가능해진다. <a href="https://www.youtube.com/watch?v=zc8b2Jo7mno">짐벌락 유튜브</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org1109287" class="outline-3">
+<h3 id="org1109287">보간 (Interpolation) 문제</h3>
+<div class="outline-text-3" id="text-org1109287">
+<p>
+오릴러 각도 표현법은 고정 각도 표현법과 다르게 <b>3축에 대해 회전이 종속적이므로 2개의 오일러 각도 사이를 보간할 때에도 문제</b> 가 발생한다. 이는 컴퓨터로 구현할 때 문제가 된다. 따라서 물체의 방향(orientation)을 표현할 때는 오일러 각도를 종종 사용하지만 물체의 회전(rotation)을 표현할 때는 오일러 각도를 거의 사용하지 않는다.
+</p>
+
+<p>
+예를 들어 $R_{ZYX}(0,180,0) = R_{ZYX}(180,0,180)$은 같은 물체의 방향(orientation)을 표현한다. 이 때 $(0,0,0) \rightarrow (0,180,0)$으로 보간하는 경우 중간값은 $(0,90,0)$이지만 $(0,0,0) \rightarrow (180,0,180)$으로 보간하는 경우 중간값은 $(90,0,90)$이 되어 서로 완전 다른 방향으로 회전하게 된다.
+</p>
+</div>
+</div>
+</div>
