@@ -27,30 +27,42 @@ Lie Group과 Lie Algera의 정의는 아래와 같다.
 <div id="outline-container-orgeee6263" class="outline-3">
 <h3 id="orgeee6263">Lie Group</h3>
 <div class="outline-text-3" id="text-orgeee6263">
-<p>
-$$SO(3) = \{ \mathbf{R} \in \mathbb{R}^{3 \times 3} \ | \ \mathbf{R}\mathbf{R}^{T} = \mathbf{I}, \text{det}(\mathbf{R})=1 \}$$
-$$SE(3) = \left \{ \mathbf{T} =  
+\begin{equation}
+\begin{aligned}
+SO(3) = \{ \mathbf{R} \in \mathbb{R}^{3 \times 3} \ | \ \mathbf{R}\mathbf{R}^{T} = \mathbf{I}, \text{det}(\mathbf{R})=1 \}
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+SE(3) = \left \{ \mathbf{T} =  
 \begin{bmatrix}
 \mathbf{R} &amp; \mathbf{t} \\ 
 \mathbf{0}^{T} &amp; 1
-\end{bmatrix} \in \mathbb{R}^{4\times4} \ | \ \mathbf{R} \in SO(3), \mathbf{t} \in \mathbb{R}^{3}  \right \} $$
-</p>
+\end{bmatrix} \in \mathbb{R}^{4\times4} \ | \ \mathbf{R} \in SO(3), \mathbf{t} \in \mathbb{R}^{3}  \right \} 
+\end{aligned}
+\end{equation}
 </div>
 </div>
+
 <div id="outline-container-orga7cae95" class="outline-3">
 <h3 id="orga7cae95">Lie Algebra</h3>
 <div class="outline-text-3" id="text-orga7cae95">
-<p>
-$$\text{so}(3) = \{ \phi \in \mathbb{R}^{3} \ | \ \Phi = \phi^{\wedge} \in \mathbb{R}^{3\times 3} \}$$
-$$\text{se}(3) = \{ \xi = \begin{bmatrix}
+\begin{equation}
+\begin{aligned}
+\text{so}(3) = \{ \phi \in \mathbb{R}^{3} \ | \ \Phi = \phi^{\wedge} \in \mathbb{R}^{3\times 3} \}
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\text{se}(3) = \{ \xi = \begin{bmatrix}
 \rho \\ 
 \phi
 \end{bmatrix} \in \mathbb{R}^{6}, \rho \in \mathbb{R}^{3}, \phi \in \text{so}(3)\ | \ \xi^{\wedge} = \begin{bmatrix}
 \phi^{\wedge} &amp; \rho \\ 
 \mathbf{0} &amp; 1 
-\end{bmatrix} \in \mathbb{R}^{4 \times 4} \}$$
-</p>
-
+\end{bmatrix} \in \mathbb{R}^{4 \times 4} \}
+\end{aligned}
+\end{equation}
 <hr />
 </div>
 </div>
@@ -61,19 +73,20 @@ $$\text{se}(3) = \{ \xi = \begin{bmatrix}
 <p>
 임의의 두 회전행렬 $\mathbf{R}_{1},\mathbf{R}_{2}$가 존재할 때 행렬의 덧셈을 수행하면 더 이상 회전 행렬이 아니게 된다.
 </p>
-
-<p>
-$$\mathbf{R}_{1} + \mathbf{R}_{2} \notin SO(3)$$
-</p>
-
+\begin{equation}
+\begin{aligned}
+\mathbf{R}_{1} + \mathbf{R}_{2} \notin SO(3)
+\end{aligned}
+\end{equation}
 <p>
 이와 반대로 <b>곱셈 연산</b> 의 경우 회전행렬과 변환 행렬의 합성에 해당하고 두 회전행렬의 곱은 두 개의 회전이 연속적으로 이뤄짐을 의미한다.
 </p>
 
-<p>
-$$\mathbf{R}_{1}\mathbf{R}_{2} \in SO(3), \ \ \ \mathbf{T}_{1}\mathbf{T}_{2} \in SE(3)$$
-</p>
-
+\begin{equation}
+\begin{aligned}
+\mathbf{R}_{1}\mathbf{R}_{2} \in SO(3), \ \ \ \mathbf{T}_{1}\mathbf{T}_{2} \in SE(3)
+\end{aligned}
+\end{equation}
 <hr />
 </div>
 </div>
