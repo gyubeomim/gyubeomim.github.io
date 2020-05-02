@@ -11,9 +11,9 @@ comments: true
 <p>
 이전 포스트: <a href="../../../../2019/10/31/rotation-matrix">Rotation Matrix (회전 행렬)</a> 
 </p>
-<div id="outline-container-orgb6ad39e" class="outline-2">
-<h2 id="orgb6ad39e">Introduction</h2>
-<div class="outline-text-2" id="text-orgb6ad39e">
+<div id="outline-container-org8940ae5" class="outline-2">
+<h2 id="org8940ae5">Introduction</h2>
+<div class="outline-text-2" id="text-org8940ae5">
 <p>
 본 포스트는 강체 변환 (Rigid Body Transformation)에 대해 다룬다. 강체(Rigid Body)란 이론적으로 무한대의 강성을 가지는 물체를 말한다. 따라서 강체에 힘을 가해도 변형이 되지 않으며 무게중심으로 지정되는 하나의 점에 의해 운동이 결정되는 특징이 있다. 필자가 공부하고 있는 Simultaneous Localization and Mapping (SLAM)에서 움직이는 로봇은 형태가 일정하다고 가정하므로 결국 강체 변환 (Rigid Body Transformation)을 사용하여 수학적으로 표현한다.
 </p>
@@ -24,18 +24,18 @@ comments: true
 </div>
 </div>
 
-<div id="outline-container-org8ada40d" class="outline-2">
-<h2 id="org8ada40d">Rigid Body Transformation (강체 변환)</h2>
-<div class="outline-text-2" id="text-org8ada40d">
+<div id="outline-container-org3e9ef13" class="outline-2">
+<h2 id="org3e9ef13">Rigid Body Transformation (강체 변환)</h2>
+<div class="outline-text-2" id="text-org3e9ef13">
 <p>
 이전 포스트에서는 회전행렬을 통한 강체의 순수한 회전에 대해 다뤘다. 하지만 3차원 상의 물체는 회전과 이동을 모두 표현할 수 있어야하므로 회전행렬만으로는 부족하다. 따라서 물체의 회전과 이동을 한 번에 표현하는 변환행렬 (homogeneous transformation matrix)를 아래와 같이 정의한다.
 </p>
 
 
-<figure>
-<img src="/pictures/191106/01.PNG" alt="01.PNG" align="center" width="350">
-
-</figure>
+<div class="figure">
+<p><img src="/pictures/191106/01.PNG" alt="01.PNG" align="center" width="350" />
+</p>
+</div>
 
 <p>
 위와 같이 고정좌표계 $\{S\}$를 기준으로 바위에 붙어있는 이동프레임 $\{B\}$가 있다고 가정해보자. 이 때 이동프레임 $\{B\}$원점의 좌표 및 축의 회전 각도는 다음과 같이 표현할 수 있다.
@@ -83,29 +83,29 @@ $$\rightarrow \left[\begin{array}{cc}R &amp; p \\ {\color{red}{\mathbf{0}_{3\tim
 </div>
 </div>
 
-<div id="outline-container-orgbb678f5" class="outline-2">
-<h2 id="orgbb678f5">Properties of Transformation Matrix 변환행렬의 성질</h2>
-<div class="outline-text-2" id="text-orgbb678f5">
+<div id="outline-container-orga458209" class="outline-2">
+<h2 id="orga458209">Properties of Transformation Matrix 변환행렬의 성질</h2>
+<div class="outline-text-2" id="text-orga458209">
 <ol class="org-ol">
 <li><p>
 다음과 같은 연속적인 변환을 나타낼 때는 변환행렬의 곱셈을 통해 표현할 수 있다.
 </p>
 <p align="center" width="350">
-<img src="/pictures/191106/02.PNG" alt="02.PNG" align="center" width="350">
+<img src="/pictures/191106/02.PNG" alt="02.PNG" align="center" width="350" />
 $$^{a}_{b}T^{b}_{c}T \ =\ ^{a}_{c}T  \quad \text{where,} ^{a}_{c}T = \ (^{a}_{c}R,\ ^{a}_{c}p)=\left[\begin{array}{cc} ^{a}_{c}R &amp; ^{a}_{c}p \\ 0 &amp; 1 \end{array}\right]$$
 </p></li>
 <li><p>
 $\{a\} \rightarrow \{b\}$로 변환한 다음 다시 $\{b\} \rightarrow \{a\}$로 변환하면 원래 $\{a\}$frame이 된다. 즉, 변환하지 않은 것과 동일하다.
 </p>
 <p align="center" width="350">
-<img src="/pictures/191106/03.PNG" alt="03.PNG" align="center" width="350">
+<img src="/pictures/191106/03.PNG" alt="03.PNG" align="center" width="350" />
 $$^{a}_{b}T^{b}_{a}T = \mathbf{I}$$
 </p></li>
 <li><p>
 변환행렬의 역행렬은 다음과 같다. 회전행렬은 $R^{-1}=R^{T}$이지만 변환행렬은 $T^{-1} \neq T^{T}$이다.
 </p>
 <p align="center" width="350">
-<img src="/pictures/191106/04.PNG" alt="04.PNG" align="center" width="350">
+<img src="/pictures/191106/04.PNG" alt="04.PNG" align="center" width="350" />
 $$^{a}_{b}T = \left[\begin{array}{cc} ^{a}_{b}R &amp; ^{a}_{b}p \\ 0 &amp; 1 \end{array}\right]$$
 $$^{a}_{b}T^{-1} = \ ^{b}_{a}T = \left[\begin{array}{cc} ^{a}_{b}R^{T} &amp; {\color{red}{-^{a}_{b}R^{T}\ ^{a}_{b}p}} \\ 0 &amp; 1 \end{array}\right]$$
 </p></li>
@@ -113,7 +113,7 @@ $$^{a}_{b}T^{-1} = \ ^{b}_{a}T = \left[\begin{array}{cc} ^{a}_{b}R^{T} &amp; {\c
 $\{b\}$frame에서 3차원 공간 상의 점 $v$를 표현하면 $\vec{v}_{b}$와 같고 이를 $\{a\}$frame에서 $\vec{v}_{a}$로 표현하기 위해서는 아래와 같은 변환이 필요하다.
 </p>
 <p align="center" width="350">
-<img src="/pictures/191106/05.PNG" alt="05.PNG" align="center" width="350">
+<img src="/pictures/191106/05.PNG" alt="05.PNG" align="center" width="350" />
    $$\vec{v}_{a} = \ ^{a}_{b}R\vec{v}_{b} + \ ^{a}_{b}p$$
    $$\vec{v}_{a} = \ ^{a}_{b}T\vec{v}_{b}$$
 </p></li>
@@ -121,7 +121,7 @@ $\{b\}$frame에서 3차원 공간 상의 점 $v$를 표현하면 $\vec{v}_{b}$�
 frame 뿐만 아니라 특정 벡터를 회전 및 이동하는 연산자로써 변환행렬을 사용할 수 있다. 두 $\{a\}$frame 위의 벡터 $\vec{v}_{1}, \vec{v}_{2}$의 변환관계는 다음과 같이 표현할 수 있다.
 </p>
 <p align="center" width="350">
-<img src="/pictures/191106/06.PNG" alt="06.PNG" align="center" width="350">
+<img src="/pictures/191106/06.PNG" alt="06.PNG" align="center" width="350" />
    $$\begin{bmatrix} x_{v_{2}}\\ y_{v_{2}}\\ z_{v_{2}}\\ 1 \end{bmatrix} = \begin{bmatrix} r_{11} &amp; r_{13} &amp; r_{13} &amp; p_{x}\\  r_{21} &amp; r_{22} &amp; r_{23} &amp; p_{y} \\  r_{31} &amp; r_{32} &amp; r_{33} &amp; p_{z}\\  0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}\begin{bmatrix} x_{v_{1}}\\  y_{v_{1}}\\  z_{v_{1}}\\ 1 \end{bmatrix}$$
    $$\vec{v}_{2} = T\vec{v}_{1}$$
 </p></li>
@@ -129,14 +129,14 @@ frame 뿐만 아니라 특정 벡터를 회전 및 이동하는 연산자로써 
 </div>
 </div>
 
-<div id="outline-container-org16db37a" class="outline-2">
-<h2 id="org16db37a">Special Euclidean Group (SE)</h2>
-<div class="outline-text-2" id="text-org16db37a">
+<div id="outline-container-org167aa6b" class="outline-2">
+<h2 id="org167aa6b">Special Euclidean Group (SE)</h2>
+<div class="outline-text-2" id="text-org167aa6b">
 <p>
 이와 같이 강체의 이동과 회전에 관여하는 행렬을 따로 Group으로 묶을 수 있다. 변환행렬의 성질을 만족하는 모든 집합은 Special Euclidean Group (SE)에 속한다. 3차원 공간의 경우 SE(3)이다. SE(3) Group은 Lie Group에 속한다.
 </p>
 <p align="center" width="350">
-   <img src="/pictures/191106/07.PNG" alt="07.PNG" align="center" width="350">
+   <img src="/pictures/191106/07.PNG" alt="07.PNG" align="center" width="350" />
 $$SE(3) = \left \{ T = \begin{bmatrix} R &amp; p \\  \mathbf{0}_{3\times3} &amp; 1 \end{bmatrix} \in \mathbb{R}^{4\times4} \ | \ R \in SO(3), p \in \mathbb{R}^{3}  \right \} $$
 </p>
 
