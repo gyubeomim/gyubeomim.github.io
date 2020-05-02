@@ -34,9 +34,8 @@ comments: true
 </p>
 <ol class="org-ol">
 <li>어디를 기준으로 돌이 어디에 있는가?</li>
-<li>돌의 표면 중 정확히 어느 점을 물어보고 있는가?</li>
-</ol>
-<p>
+<li><p>
+돌의 표면 중 정확히 어느 점을 물어보고 있는가?
 이처럼 물체의 위치와 자세를 이야기할 때 어디를 기준으로 표현하는가? (기준좌표계) 그리고 그 물체의 어디를 말하고자 하는가? (이동물체 좌표계)를 명확하게 해야한다.
 </p>
 
@@ -53,26 +52,27 @@ comments: true
 강체의 경우 $\{B\}$좌표계를 아무 곳이나 물체의 한 곳에 잡으면 된다. 보통은 무게중심에 잡는다. $\{B\}$좌표계가 움직여도 강체는 형태가 변하지 않으므로 강체의 다른부분의 위치가 자동으로 결정된다.
 base frame $\{B\}$의 원점을 $P$, 축을 $(\hat{x},\hat{y},\hat{z})$하고 space frame $\{S\}$의 축을 $(\hat{X},\hat{Y},\hat{Z})$라고 하자. 이 때 space frame $\{S\}$를 기준으로 base frame $\{B\}$를 표현해보면 다음과 같다.
 </p>
-  \begin{equation}
-\begin{aligned}
-  \vec{P}=P_1\hat{X}+P_2\hat{Y}+P_3\hat{Z}
-\end{aligned}
-\end{equation}
+   \begin{equation}
+   \begin{aligned}
+   \vec{P}=P_1\hat{X}+P_2\hat{Y}+P_3\hat{Z}
+   \end{aligned}
+   \end{equation}
 <p>
 그리고 base frame $\{B\}$의 축 $(\hat{x},\hat{y},\hat{z})$를 $(\hat{X},\hat{Y},\hat{Z})$의 선형결합으로 표현하면 다음과 같다.
 </p>
-  \begin{equation}
-  \begin{aligned}
-      \hat{x}=r_{11}\hat{X}+r_{21}\hat{Y}+r_{31}\hat{Z}
-      \\ \hat{y}=r_{12}\hat{X}+r_{22}\hat{Y}+r_{32}\hat{Z}
-      \\ \hat{z}=r_{13}\hat{X}+r_{23}\hat{Y}+r_{33}\hat{Z}
-  \end{aligned}
-  \end{equation}
+   \begin{equation}
+   \begin{aligned}
+       \hat{x}=r_{11}\hat{X}+r_{21}\hat{Y}+r_{31}\hat{Z}
+       \\ \hat{y}=r_{12}\hat{X}+r_{22}\hat{Y}+r_{32}\hat{Z}
+       \\ \hat{z}=r_{13}\hat{X}+r_{23}\hat{Y}+r_{33}\hat{Z}
+   \end{aligned}
+   \end{equation}
 <hr />
 <p>
 다음 포스트: <a href="../../../../2019/10/31/rotation-matrix">Rotation Matrix (회전 행렬)</a>
 </p>
-<hr />
+<hr /></li>
+</ol>
 <p>
 Reference: <a href="https://keunjun.blog">Keunjun's blog</a>
 </p>
