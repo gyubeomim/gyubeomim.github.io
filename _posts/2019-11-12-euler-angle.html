@@ -20,29 +20,29 @@ comments: true
 <hr />
 </div>
 </div>
-<div id="outline-container-orgd890941" class="outline-2">
-<h2 id="orgd890941">Euler angle vs Fixed angle</h2>
-<div class="outline-text-2" id="text-orgd890941">
+<div id="outline-container-orgf56fa5f" class="outline-2">
+<h2 id="orgf56fa5f">Euler Angle vs Fixed Angle</h2>
+<div class="outline-text-2" id="text-orgf56fa5f">
 <p>
 3개의 각도로 물체의 방향을 표현할 때 크게 고정 각도(fixed angle)표현법과 오일러 각도(euler angle) 표현법이 있는데 <b>오일러 각도는 회전한 축을 기준으로 다음 회전을 한다는 점</b> 이 고정 각도 표현법과 다르다. 아래 그림과 같이 $Z,Y$축을 순차적으로 돌리는 경우를 생각해보자. 오일러 각도는 회전한 축을 기준으로 다음 회전이 적용된다.
 </p>
 
 <div class="figure">
-<p><img src="/pictures/191112/14.PNG" alt="14.PNG" align="center" width="800px" />
+<p><img src="../../pictures/191112/14.PNG" alt="14.PNG" align="center" width="800px" />
 </p>
 </div>
 <hr />
 </div>
 </div>
-<div id="outline-container-org7c68c9d" class="outline-2">
-<h2 id="org7c68c9d">Representation of euler angle</h2>
-<div class="outline-text-2" id="text-org7c68c9d">
+<div id="outline-container-org8d9510a" class="outline-2">
+<h2 id="org8d9510a">Representation of Euler Angle</h2>
+<div class="outline-text-2" id="text-org8d9510a">
 <p>
 예를 들어, 오일러 각도가 $x,y,z$축 순서로 $(\gamma, \beta, \alpha)$라고 하면 이는 우선 $x$축으로 $\gamma$만큼 회전한 다음, 회전한 축 $(x^{'},y^{'},z^{'})$의 $y^{'}$축을 기준으로 $\beta$만큼 회전한다. 그리고 마지막으로 회전한 축 $(x^{''},y^{''},z^{''})$의 $z^{''}$축을 기준으로 $\alpha$만큼 회전한다. 오일러 각도는 회전 순서에 따라 XYZ,ZXY,ZXZ,XYX,YXY,YZY,ZYZ,ZXZ,XZY,YXZ,YZX,ZYX와 같이 12개의 서로 다른 표현법이 존재하며 ZYX의 경우 아래 그림과 같다.
 </p>
 
 <div class="figure">
-<p><img src="/pictures/191112/13.PNG" alt="13.PNG" align="center" width="700px" />
+<p><img src="../../pictures/191112/13.PNG" alt="13.PNG" align="center" width="700px" />
 </p>
 </div>
 
@@ -59,15 +59,15 @@ comments: true
 <hr />
 </div>
 </div>
-<div id="outline-container-org013fc1d" class="outline-2">
-<h2 id="org013fc1d">Euler angle to Rotation Matrix</h2>
-<div class="outline-text-2" id="text-org013fc1d">
+<div id="outline-container-org2c81a56" class="outline-2">
+<h2 id="org2c81a56">Euler Angle to Rotation Matrix</h2>
+<div class="outline-text-2" id="text-org2c81a56">
 <p>
 모든 오일러 각도는 회전행렬로 변환이 가능하다. 아래 그림과 같이 $\hat{x}, \hat{y}, \hat{z}$축을 기준으로 frame을 각각 $\gamma, \beta, \alpha$만큼 회전시킬 때 회전행렬은 다음과 같다.
 </p>
 
 <div class="figure">
-<p><img src="/pictures/191112/10.PNG" alt="10.PNG" align="center" width="500px" />
+<p><img src="../../pictures/191112/10.PNG" alt="10.PNG" align="center" width="500px" />
 </p>
 </div>
 
@@ -78,7 +78,7 @@ comments: true
 \end{equation}
 
 <div class="figure">
-<p><img src="/pictures/191112/11.PNG" alt="11.PNG" align="center" width="500px" />
+<p><img src="../../pictures/191112/11.PNG" alt="11.PNG" align="center" width="500px" />
 </p>
 </div>
 
@@ -89,7 +89,7 @@ comments: true
 \end{equation}
 
 <div class="figure">
-<p><img src="/pictures/191112/12.PNG" alt="12.PNG" align="center" width="500px" />
+<p><img src="../../pictures/191112/12.PNG" alt="12.PNG" align="center" width="500px" />
 </p>
 </div>
 
