@@ -22,9 +22,12 @@ comments: true
 
 <p>
 표현을 간략하게 하기 위해 아래와 같은 기호를 사용한다.
-$${\color{red}{P}} =\left[\begin{array}{c}P1\\P2\\P3\end{array}\right], {\color{red}{R}} =\left[\begin{array}{ccc}r_{11}&amp;r_{12}&amp;r_{13}\\r_{21}&amp;r_{22}&amp;r_{23}\\r_{31}&amp;r_{32}&amp;r_{33}\end{array}\right]$$
 </p>
-
+\begin{equation}
+\begin{aligned}
+{\color{red}{P}} =\left[\begin{array}{c}P1\\P2\\P3\end{array}\right], {\color{red}{R}} =\left[\begin{array}{ccc}r_{11}&amp;r_{12}&amp;r_{13}\\r_{21}&amp;r_{22}&amp;r_{23}\\r_{31}&amp;r_{32}&amp;r_{33}\end{array}\right]
+\end{aligned}
+\end{equation}
 <p>
 위의 기호를 사용하면 아래와 같은 복잡한 수식을 
 </p>
@@ -59,7 +62,13 @@ $${\color{red}{P}} =\left[\begin{array}{c}P1\\P2\\P3\end{array}\right], {\color{
 <div class="outline-text-2" id="text-org1d11780">
 <p>
 다음과 같이 총 12개의 변수를 사용하여 $\{B\}$frame을 $\{S\}$frame 기준으로 표현할 수 있다.
-$$(\hat{x},\hat{y},\hat{z}), (r_{11},r_{12},r_{13},r_{21},r_{22},r_{23},r_{31},r_{32},r_{33})$$
+</p>
+\begin{equation}
+\begin{aligned}
+(\hat{x},\hat{y},\hat{z}), (r_{11},r_{12},r_{13},r_{21},r_{22},r_{23},r_{31},r_{32},r_{33})
+\end{aligned}
+\end{equation}
+<p>
 하지만 3차원 공간에서 물체는 회전 3자유도와 이동 3자유도를 합한 6자유도(=6DOF, 6 Degree of Freedom)를 갖는다. 회전은 3자유도를 가지므로 이에 따라 12개의 변수는 모두 독립이 아니고 종속적이라는 것을 알 수 있다. 즉, 독립적으로 3개를 정하면 제약조건에 의해 나머지 9개의 변수는 결정된다는 것을 알 수 있다.
 </p>
 
@@ -67,22 +76,45 @@ $$(\hat{x},\hat{y},\hat{z}), (r_{11},r_{12},r_{13},r_{21},r_{22},r_{23},r_{31},r
 제약조건 및 회전행렬의 특징은 다음과 같다.
 </p>
 <ol class="org-ol">
-<li><p>
-$\{B\}$frame의 축들은 단위벡터라는 조건
-$$\begin{array}{ll} \text{(i) } &amp; \left | \hat{x} \right |^2 = 1: r_{11}^2+r_{21}^2+r_{31}^2=1 \\   \text{(ii) } &amp; \left | \hat{y} \right |^2 = 1: r_{12}^2+r_{22}^2+r_{32}^2=1 \\   \text{(iii) } &amp; \left | \hat{z} \right |^2 = 1: r_{13}^2+r_{23}^2+r_{33}^2=1 \end{array}$$
+<li>$\{B\}$frame의 축들은 단위벡터라는 조건
+\begin{equation}</li>
+</ol>
+\begin{aligned}
+   \begin{array}{ll} \text{(i) } &amp; \left | \hat{x} \right |^2 = 1: r_{11}^2+r_{21}^2+r_{31}^2=1 \\   \text{(ii) } &amp; \left | \hat{y} \right |^2 = 1: r_{12}^2+r_{22}^2+r_{32}^2=1 \\   \text{(iii) } &amp; \left | \hat{z} \right |^2 = 1: r_{13}^2+r_{23}^2+r_{33}^2=1 \end{array}
+\end{aligned}
+<p>
+\end{equation}
 </p>
-<hr /></li>
-<li><p>
-$\{B\}$frame의 축들은 서로 수직하다는 조건
-$$\begin{array}{ll} \text{(iv) } &amp; \hat{x} \perp \hat{y} : r_{11}r_{12}+r_{21}r_{22}+r_{31}r_{32}=0 \\   \text{(v) } &amp; \hat{x} \perp \hat{z} : r_{11}r_{13}+r_{21}r_{23}+r_{31}r_{33}=0  \\   \text{(vi) } &amp; \hat{y} \perp \hat{z} : r_{12}r_{13}+r_{22}r_{23}+r_{32}r_{33}=0  \end{array}$$
+
+<hr />
+<ol class="org-ol">
+<li>$\{B\}$frame의 축들은 서로 수직하다는 조건
+\begin{equation}</li>
+</ol>
+\begin{aligned}
+   \begin{array}{ll} \text{(iv) } &amp; \hat{x} \perp \hat{y} : r_{11}r_{12}+r_{21}r_{22}+r_{31}r_{32}=0 \\   \text{(v) } &amp; \hat{x} \perp \hat{z} : r_{11}r_{13}+r_{21}r_{23}+r_{31}r_{33}=0  \\   \text{(vi) } &amp; \hat{y} \perp \hat{z} : r_{12}r_{13}+r_{22}r_{23}+r_{32}r_{33}=0  \end{array}
+\end{aligned}
+<p>
+\end{equation}
+</p>
+
+<p>
 위 조건들을 합쳐서 보통 다음과 같이 표현한다. $\color{red}{(\text{i}\sim\text{vi}) \quad R^\text{T}R=\mathbf{I}}$. 이를 Orthogonal property라고 한다.
 </p>
-<hr /></li>
-<li><p>
-(일반적으로) 오른손 좌표계를 사용한다는 조건
-$$\text{(vii) det}R=1 \Leftrightarrow \hat{x} \times \hat{y} = \hat{z}$$
+<hr />
+<ol class="org-ol">
+<li>(일반적으로) 오른손 좌표계를 사용한다는 조건
+\begin{equation}</li>
+</ol>
+\begin{aligned}
+   \text{(vii) det}R=1 \Leftrightarrow \hat{x} \times \hat{y} = \hat{z}
+\end{aligned}
+<p>
+\end{equation}
 </p>
-<hr /></li>
+
+<hr />
+<ol class="org-ol">
 <li><p>
 다음과 같은 연속적인 회전을 나타낼 때는 회전 행렬의 곱셈을 통해 표현할 수 있다.
 </p>
@@ -93,38 +125,86 @@ $$\text{(vii) det}R=1 \Leftrightarrow \hat{x} \times \hat{y} = \hat{z}$$
 </div>
 
 <p>
-$$^{a}_{b}R^{b}_{c}R \ =\ ^{a}_{c}R$$
+\begin{equation}
+</p></li>
+</ol>
+\begin{aligned}
+   ^{a}_{b}R^{b}_{c}R \ =\ ^{a}_{c}R
+\end{aligned}
+<p>
+\end{equation}
 </p>
+
    \begin{equation}
    \begin{aligned}
       \color{red}{[\hat{x}_{b},\hat{y}_{b},\hat{z}_{b}] = [\hat{x}_{a},\hat{y}_{a},\hat{z}_{a}]^{a}_{b}R}
       \\ \color{red}{[\hat{x}_{c},\hat{y}_{c},\hat{z}_{c}] = [\hat{x}_{b},\hat{y}_{b},\hat{z}_{b}]^{b}_{c}R}
       \\ \color{blue}{\therefore [\hat{x}_{c},\hat{y}_{c},\hat{z}_{c}] = [\hat{x}_{a},\hat{y}_{a},\hat{z}_{a}]^{a}_{c}R^{b}_{c}R}
    \end{aligned}
-   \end{equation}</li>
-<li><p>
-$\{a\} \rightarrow \{b\}$만큼 회전한 다음 다시 $\{b\} \rightarrow \{a\}$만큼 회전하면 원래 $\{a\}$frame이 된다. 즉, 회전하지 않은 것과 동일하다.
-$$^{a}_{b}R^{b}_{a}R = \mathbf{I}$$
+   \end{equation}
+<ol class="org-ol">
+<li>$\{a\} \rightarrow \{b\}$만큼 회전한 다음 다시 $\{b\} \rightarrow \{a\}$만큼 회전하면 원래 $\{a\}$frame이 된다. 즉, 회전하지 않은 것과 동일하다.
+\begin{equation}</li>
+</ol>
+\begin{aligned}
+   ^{a}_{b}R^{b}_{a}R = \mathbf{I}
+\end{aligned}
+<p>
+\end{equation}
 </p>
-<hr /></li>
+
+<hr />
+<ol class="org-ol">
 <li><p>
 또한 다음과 조건들로부터 아래와 같은 식을 유도할 수 있다.
 </p>
 <p align="center" width="300px">
 <img src="/pictures/191030/05.PNG" alt="05.PNG" align="center" width="300px" />
-$$^{a}_{b}R\ ^{a}_{b}R^\text{T}=\mathbf{I} \quad \text{and} \quad ^{a}_{b}R\ ^{b}_{a}R = \mathbf{I}$$
+\begin{equation}
+</p></li>
+</ol>
+\begin{aligned}
+   ^{a}_{b}R\ ^{a}_{b}R^\text{T}=\mathbf{I} \quad \text{and} \quad ^{a}_{b}R\ ^{b}_{a}R = \mathbf{I}
+\end{aligned}
+<p>
+\end{equation}
+</p>
+
+<p>
 로부터
-$$R^\text{T}R=\mathbf{I} \quad \leftrightarrow \quad R^{\text{T}} = R^{-1}$$
-$$\therefore \  ^{a}_{b}R^{-1} = \ ^{a}_{b}R^{T} = \ ^{b}_{a}R$$
+</p>
+   \begin{equation}
+\begin{aligned}
+   &amp; R^\text{T}R=\mathbf{I} \quad \leftrightarrow \quad R^{\text{T}} = R^{-1} \\
+   &amp; \therefore \  ^{a}_{b}R^{-1} = \ ^{a}_{b}R^{T} = \ ^{b}_{a}R
+\end{aligned}
+\end{equation}
+<p>
 따라서 <b>회전행렬은 역행렬과 전치행렬이 동일</b> 하며 이는 반대방향으로 회전을 나타냄을 알 수 있다.
 </p>
-<hr /></li>
+<hr />
+<ol class="org-ol">
 <li><p>
 회전행렬을 통해 특정 vector의 기준 좌표계 또한 변환할 수 있다.
 </p>
-<p align="center" width="300px">
-<img src="/pictures/191030/05.PNG" alt="05.PNG" align="center" width="300px" />
-$$\vec{v}_a \ = \ ^{a}_{b}R\vec{v}_b$$
+
+<div class="figure">
+<p><img src="/pictures/191030/05.PNG" alt="05.PNG" align="center" width="300px" />
+</p>
+</div>
+
+<p>
+\begin{equation}
+</p></li>
+</ol>
+\begin{aligned}
+\vec{v}_a \ = \ ^{a}_{b}R\vec{v}_b
+\end{aligned}
+<p>
+\end{equation}
+</p>
+
+<p>
 $\vec{v}$벡터를 $\{a\}$frame과 $\{b\}$frame에서 각각 표현하면 다음과 같다.
 </p>
 <p align="center" width="450px">
@@ -135,14 +215,29 @@ $\vec{v}$벡터를 $\{a\}$frame과 $\{b\}$frame에서 각각 표현하면 다음
 <img src="/pictures/191102/02.PNG" alt="02.PNG" align="center" width="300px" />
 따라서 아래와 같이 특정 vector의 기준좌표계를 회전행렬을 통해 변환할 수 있다.
 </p>
-<p align="center" width="500px">
-<img src="/pictures/191102/03.PNG" alt="03.PNG" align="center" width="500px" />
-$$\therefore \vec{v}_a \ = \ ^{a}_{b}R\vec{v}_b$$
+
+<div class="figure">
+<p><img src="/pictures/191102/03.PNG" alt="03.PNG" align="center" width="500px" />
 </p>
-<hr /></li>
-<li><p>
-회전행렬을 사용하여 특정 vector를 회전시킬 수도 있다.
-$$v' \ = \ ^{a}_{b}Rv$$
+</div>
+   \begin{equation}
+\begin{aligned}
+   \therefore \vec{v}_a \ = \ ^{a}_{b}R\vec{v}_b
+\end{aligned}
+\end{equation}
+<hr />
+<ol class="org-ol">
+<li>회전행렬을 사용하여 특정 vector를 회전시킬 수도 있다.
+\begin{equation}</li>
+</ol>
+\begin{aligned}
+   v' \ = \ ^{a}_{b}Rv
+\end{aligned}
+<p>
+\end{equation}
+</p>
+
+<p>
 frame이 회전할 때 frame 위에 있는 사람이 보면 vector가 회전하는 것처럼 보인다.
 </p>
 
@@ -150,8 +245,7 @@ frame이 회전할 때 frame 위에 있는 사람이 보면 vector가 회전하�
 <p><img src="/pictures/191102/04.PNG" alt="04.PNG" align="center" width="600" />
 </p>
 </div>
-<hr /></li>
-</ol>
+<hr />
 </div>
 </div>
 <div id="outline-container-org7483e6f" class="outline-2">
@@ -163,19 +257,32 @@ frame이 회전할 때 frame 위에 있는 사람이 보면 vector가 회전하�
 <p align="center" width="350">
 <img src="/pictures/191102/05.PNG" alt="05.PNG" align="center" width="350" />
 SO(3) 그룹(또는 집합)의 정의는 다음과 같다.
-$$\text{SO}(3) = \{ R \in \mathbb{R}^{3 \times 3} \ | \ RR^{T} = \mathbf{I}, \text{det}(R)=1 \}$$
 </p>
-
+\begin{equation}
+\begin{aligned}
+\text{SO}(3) = \{ R \in \mathbb{R}^{3 \times 3} \ | \ RR^{T} = \mathbf{I}, \text{det}(R)=1 \}
+\end{aligned}
+\end{equation}
 <p>
 SO(3) 성질 중 $\det(R)=1$이 없는 Group을 Orthogonal Group (O) 라고 한다.
-$$\text{O}(3) = \{ R \in \mathbb{R}^{3 \times 3} \ | \ RR^{T} = \mathbf{I}, \}$$
+</p>
+\begin{equation}
+\begin{aligned}
+\text{O}(3) = \{ R \in \mathbb{R}^{3 \times 3} \ | \ RR^{T} = \mathbf{I}, \}
+\end{aligned}
+\end{equation}
+<p>
 따라서 SO(3) 그룹은 O(3) 그룹의 특징에 Special한 특징 ($\det(R)=1$)이 추가된 형태로 볼 수 있다.
 </p>
 
 <p>
 임의의 회전행렬 $R_{1}, R_{2}$가 존재할 때 이들은 덧셈에 닫혀있지 않지만 곱셈에 닫혀있다.
-$$R_{1} + R_{2} \notin SO(3) \quad \text{and} \quad R_{1}R_{2} \in SO(3)$$
 </p>
+\begin{equation}
+\begin{aligned}
+R_{1} + R_{2} \notin SO(3) \quad \text{and} \quad R_{1}R_{2} \in SO(3)
+\end{aligned}
+\end{equation}
 <hr />
 <p>
 다음 포스트: <a href="../../../../2019/11/02/rigid-body-transformation">Rigid Body Transformation (강체 변환)</a>
