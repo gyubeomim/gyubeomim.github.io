@@ -1,17 +1,45 @@
-<p>
-#+BEGIN_EXPORT html
-&#x2014;
+---
 layout: post
 title: (Linux) Introduction to gdb
 description: 
 date: 2019-07-19
 categories: [Technology]
-tag: [Linux, debuggekpoint)
+tag: [Linux, debugger]
+use_math: true
+comments: true
+---
+
+<p>
+[Work in Progress&#x2026;]
+</p>
+
+<p>
+gdb는 리눅스에서 바이너리(실행) 파일을 디버깅하기 위한 프로그램이다. 다양한 옵션들이 존재하므로 따로 정리했다. 
+</p>
+<div id="outline-container-orgb04d344" class="outline-2">
+<h2 id="orgb04d344">commands 명령어</h2>
+<div class="outline-text-2" id="text-orgb04d344">
+<ul class="org-ul">
+<li><code>t</code> (thread)</li>
+<li><code>bt</code> (back trace)</li>
+<li><code>i</code> (info)
+<ul class="org-ul">
+<li><code>i b 1</code>: 1번 breakpoint의 정보를 확인한다.</li>
+<li><code>i t 1</code>: 1번 thread의 정보를 확인한다.</li>
+</ul></li>
+<li><code>f</code> (file)</li>
+<li><p>
+<code>p</code> (print)
 </p>
 <ul class="org-ul">
-<li><code>b test.cpp:30</code> : test.cpp 30번줄에 breakpoint를 설정한다</li>
+<li><code>p vec.size()</code> : vec 변수의 크기를 확인한다.</li>
 </ul>
 <ul class="org-ul">
+<li><code>b</code> (breakpoint)
+<ul class="org-ul">
+<li><code>b test.cpp:30</code> : test.cpp 30번줄에 breakpoint를 설정한다</li>
+</ul></li>
+</ul></li>
 <li><code>s</code> (step)</li>
 <li><code>d</code> (disable)
 <ul class="org-ul">
@@ -45,6 +73,8 @@ ignore 8 455도 가능하다.</li>
 <li><code>cond 8 foo(i) &gt; bar(rand())</code> : 8번 breakpoint를 foo(i) &gt; bar(rand())를 만족할 때만 실행하도록 설정한다.</li>
 </ul></li>
 </ul>
+</div>
+</div>
 <div id="outline-container-org1b58cbd" class="outline-2">
 <h2 id="org1b58cbd">shortcuts 단축키</h2>
 <div class="outline-text-2" id="text-org1b58cbd">
