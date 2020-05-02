@@ -12,14 +12,14 @@ comments: true
 <h2 id="orgda90c10">Introduction</h2>
 <div class="outline-text-2" id="text-orgda90c10">
 <p>
-리눅스에서 프로그램을 빌드하다가 한 번쯤은 버전 문제로 제대로 실행하지 못한 경험이 있을 것이다. Docker는 이러한 빌드 문제를 해결해줄 수 있는 좋은 솔루션이다. 필자 또한 빌드 문제로 많은 시간을 낭비하다가 결국 Docker를 사용하기 시작했다. 해당 포스트는 필자가 docker를 사용하면서 필요한 정보들을 정리해놓은 포스트이다. 대부분의 내용은 도커 무작정 따라하기 (<a href="https://www.slideshare.net/pyrasis/docker-fordummies-44424016">link</a>)를 참고하였다.
+리눅스에서 프로그램을 빌드하다가 한 번쯤은 버전 문제로 제대로 실행하지 못한 경험이 있을 것이다. Docker는 이러한 빌드 문제를 해결해줄 수 있는 좋은 솔루션이다. 필자 또한 빌드 문제로 많은 시간을 낭비하다가 결국 Docker를 사용하기 시작했다. 해당 포스트는 필자가 docker를 사용하면서 필요한 정보들을 정리해놓은 포스트이다. 
 </p>
 <hr />
 </div>
 </div>
-<div id="outline-container-org841c499" class="outline-2">
-<h2 id="org841c499">Installation</h2>
-<div class="outline-text-2" id="text-org841c499">
+<div id="outline-container-org7238d0a" class="outline-2">
+<h2 id="org7238d0a">Installation</h2>
+<div class="outline-text-2" id="text-org7238d0a">
 <p>
 Ubuntu 16.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 설치할 수 있다.
 </p>
@@ -104,9 +104,9 @@ $ sudo service docker status
 <b>nvidia-docker</b> 는 호스트 컴퓨터에 NVIDIA 드라이버가 있을 경우 컨테이너에서 GPU를 사용할 수 있도록 해주는 프로그램이다.
 </p>
 </div>
-<div id="outline-container-org7238d0a" class="outline-3">
-<h3 id="org7238d0a">Installation</h3>
-<div class="outline-text-3" id="text-org7238d0a">
+<div id="outline-container-org0a72e03" class="outline-3">
+<h3 id="org0a72e03">Installation</h3>
+<div class="outline-text-3" id="text-org0a72e03">
 <ul class="org-ul">
 <li>자세한 내용은 <a href="https://github.com/NVIDIA/nvidia-docker">여기</a>에 소개되어 있다.</li>
 </ul>
@@ -302,5 +302,9 @@ $ sudo docker run --name hello-nginx -d -p 80:80 -v /root/data:/data hello:0.1
 <span class="org-comment-delimiter"># </span><span class="org-comment">&#50937; &#48652;&#46972;&#50864;&#51200;&#47484; &#49892;&#54665;&#54616;&#44256; http://{IP}:80 &#51004;&#47196; &#51217;&#49549;&#54616;&#47732; nginx &#54168;&#51060;&#51648;&#44032; &#54364;&#49884;&#46108;&#45796;. &#51060;&#47111;&#44172; &#45208;&#50724;&#47732; &#51221;&#49345;</span>
 </pre>
 </div>
+<hr />
+<p>
+Reference: <a href="https://www.slideshare.net/pyrasis/docker-fordummies-44424016">도커 무작정 따라하기</a>
+</p>
 </div>
 </div>
