@@ -51,6 +51,7 @@ $${\color{red}{P}} =\left[\begin{array}{c}P1\\P2\\P3\end{array}\right], {\color{
 이 때, $(\hat{X},\hat{Y},\hat{Z}) \rightarrow (\hat{x},\hat{y},\hat{z})$변환은 크기는 변하지 않고 오직 회전에만 관여하므로 이 변환에 사용하는 행렬 $R$을 <b>회전행렬 (Rotation Matrix)</b> 이라고 한다.
 그리고 $R$은 보통 $^{S}_{B}R$또는 $R_{SB}$로 표기한다. 이 표현의 의미는 $\{S\}$frame에서 바라본 $\{S\}$frame의 회전(량)을 의미한다.
 </p>
+<hr />
 </div>
 </div>
 <div id="outline-container-org1d11780" class="outline-2">
@@ -150,6 +151,7 @@ frame이 회전할 때 frame 위에 있는 사람이 보면 vector가 회전하�
 </p>
 </div></li>
 </ol>
+<hr />
 </div>
 </div>
 <div id="outline-container-orgb317261" class="outline-2">
@@ -171,8 +173,11 @@ $$\text{O}(3) = \{ R \in \mathbb{R}^{3 \times 3} \ | \ RR^{T} = \mathbf{I}, \}$$
 </p>
 
 <p>
-   임의의 회전행렬 $R_{1}, R_{2}$가 존재할 때 이들은 덧셈에 닫혀있지 않지만 곱셈에 닫혀있다.
-   $$R_{1} + R_{2} \notin SO(3) \quad \text{and} \quad R_{1}R_{2} \in SO(3)$$
+임의의 회전행렬 $R_{1}, R_{2}$가 존재할 때 이들은 덧셈에 닫혀있지 않지만 곱셈에 닫혀있다.
+$$R_{1} + R_{2} \notin SO(3) \quad \text{and} \quad R_{1}R_{2} \in SO(3)$$
+</p>
+<hr />
+<p>
 다음 포스트: <a href="../../../../2019/11/02/rigid-body-transformation">Rigid Body Transformation (강체 변환)</a>
 </p>
 </div>
