@@ -81,35 +81,8 @@ ex: $ add_library ( app STATIC foo.c bar.c )
 
 
 <p>
-<code>add_custom_target()</code>
-사용자 정의 Target 추가
-통상적인 빌드 절차로 생성할 수 없는 Target을 추가한다.. 라지만, 실상은 make 매크로를 정의할 때 더 많이 사용한다.(make flash 라던가.) Taget의 Recipe를 직접 지정해야 하는 경우 유용하게 활용할 수 있다.
-</p>
-<div class="org-src-container">
-<pre class="src src-sh">$ ADD_CUSTOM_TARGET (
-                &lt;&#51060;&#47492;&gt; [ALL]
-                [COMMENT &lt;&#52636;&#47141;_&#47700;&#49884;&#51648;&gt;]
-                [DEPENDS &lt;&#51032;&#51316;_&#45824;&#49345;_&#47785;&#47197;&gt;]
-                [WORKING_DIRECTORY &lt;&#51089;&#50629;_&#46356;&#47113;&#53664;&#47532;&gt;]
-                COMMAND &lt;&#47749;&#47161;&gt;
-                [COMMAND &lt;&#47749;&#47161;&gt;]
-                ...
-)
-
-ex:
-$ add_custom_target ( flash
-        COMMENT <span class="org-string">"Flashing binary"</span>
-        WORKING_DIRECTORY ${<span class="org-variable-name">CMAKE_RUNTIME_OUTPUT_DIRECTORY</span>}
-        COMMAND python esptool.py write_flash app.bin
-        DEPENDS app.out
-        )
-</pre>
-</div>
-
-
-<p>
 <code>add_dependencies()</code>
-Top-level Target간의 의존성을 지정한다. Top-level Target이란 add_executable, add_library, add_custom_target 명령으로 정의한 Target들을 의미한다.
+Top-level target간의 의존성을 지정한다. Top-level target이란 add_executable, add_library, add_custom_target 명령으로 정의한 target들을 의미한다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">$ add_dependencies ( &lt;Target_&#51060;&#47492;&gt; &lt;&#51032;&#51316;_&#45824;&#49345;&gt; &lt;&#51032;&#51316;_&#45824;&#49345;&gt; ... )
@@ -120,7 +93,7 @@ $ add_dependencies ( flash app.out )
 
 <p>
 <code>install()</code>
-Makefile에서 관용적으로 설치용 Target으로 사용되는 install target의 동작 방식을 정의한다. 즉, <b>make install</b> 명령을 실행했을 때 무슨 동작을 수행할지를 지정한다.
+<b>make install</b> 명령을 실행했을 때 무슨 동작을 수행할지를 지정한다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">$ install ( TARGETS &lt;Target_&#47785;&#47197;&gt;
@@ -154,12 +127,16 @@ ex: $ install ( TARGETS app.out app
 
 <p>
 <code>${CMAKE_BUILD_TYPE}</code>
-빌드 형상(Configuration)
-Debug : 디버깅 목적의 빌드
-Release : 배포 목적의 빌드
-RelWithDebInfo : 배포 목적의 빌드지만, 디버깅 정보 포함
-MinSizeRel : 최소 크기로 최적화한 배포 목적 빌드
 </p>
+<ul class="org-ul">
+<li>빌드 형상(Configuration)
+<ul class="org-ul">
+<li>Debug : 디버깅 목적의 빌드</li>
+<li>Release : 배포 목적의 빌드</li>
+<li>RelWithDebInfo : 배포 목적의 빌드지만, 디버깅 정보 포함</li>
+<li>MinSizeRel : 최소 크기로 최적화한 배포 목적 빌드</li>
+</ul></li>
+</ul>
 
 <p>
 <code>${CMAKE_VERBOSE_MAKEFILE}</code>
