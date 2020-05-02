@@ -84,39 +84,43 @@ $$\mathbf{R}_{1}\mathbf{R}_{2} \in SO(3), \ \ \ \mathbf{T}_{1}\mathbf{T}_{2} \in
 임의의 회전 행렬은 다음과 같은 성질을 만족한다.
 </p>
 
-<p>
-$$\mathbf{R}\mathbf{R}^{T} = \mathbf{I}$$
-</p>
-
+\begin{equation}
+\begin{aligned}
+\mathbf{R}\mathbf{R}^{T} = \mathbf{I}
+\end{aligned}
+\end{equation}
 <p>
 $\mathbf{R}$을 시간에 따라 지속적으로 변화하는 카메라 회전으로 보면 시간의 함수 $\mathbf{R}(t)$로 표기할 수 있다. 
 </p>
 
-<p>
-$$\mathbf{R}(t)\mathbf{R}(t)^{T} = \mathbf{I}$$
-</p>
-
+\begin{equation}
+\begin{aligned}
+\mathbf{R}(t)\mathbf{R}(t)^{T} = \mathbf{I}
+\end{aligned}
+\end{equation}
 <p>
 위 식을 양측에서 시간에 대한 미분을 수행하면
 </p>
 
-<p>
-$$\dot{\mathbf{R}}(t)\mathbf{R}^{T}(t) + \mathbf{R}(t)\dot{\mathbf{R}}(t)^{T} = 0$$
-$$\dot{\mathbf{R}}(t)\mathbf{R}^{T}(t) = -\biggl( \mathbf{R}(t)\dot{\mathbf{R}}(t)^{T} \biggl)^{T}$$
-</p>
-
+\begin{equation}
+\begin{aligned}
+\dot{\mathbf{R}}(t)\mathbf{R}^{T}(t) + \mathbf{R}(t)\dot{\mathbf{R}}(t)^{T} = 0
+\dot{\mathbf{R}}(t)\mathbf{R}^{T}(t) = -\biggl( \mathbf{R}(t)\dot{\mathbf{R}}(t)^{T} \biggl)^{T}
+\end{aligned}
+\end{equation}
 <p>
 이를 통해 $\mathbf{R}(t)\mathbf{R}(t)^{T}$이 반대칭 행렬인 것을 알 수 있다. 임의의 반대칭 행렬 $\mathbf{a}^{\wedge}$은 아래와 같다. 
 </p>
 
-<p>
-$$\mathbf{a}^{\wedge} = \mathbf{A} = \begin{bmatrix}
+\begin{equation}
+\begin{aligned}
+\mathbf{a}^{\wedge} = \mathbf{A} = \begin{bmatrix}
 0 &amp; -a_{3} &amp; a_{2} \\ 
 a_{3} &amp; 0 &amp; -a_{1} \\ 
 -a_{2} &amp; a_{1}  &amp; 0
-\end{bmatrix}, \ \ \mathbf{A}^{\vee} = \mathbf{a}$$
-</p>
-
+\end{bmatrix}, \ \ \mathbf{A}^{\vee} = \mathbf{a}
+\end{aligned}
+\end{equation}
 <p>
 어떠한 반대칭 행렬에서도 그에 대응하는 벡터를 찾을 수 있다.
 </p>
@@ -125,21 +129,24 @@ a_{3} &amp; 0 &amp; -a_{1} \\
 따라서 $\mathbf{R}(t)\mathbf{R}(t)^{T}$도 그에 상응하는 3차원 벡터 $\phi(t) \in \mathbb{R}^{3}$를 찾을 수 있다.
 </p>
 
-<p>
-$$\dot{\mathbf{R}}(t)\mathbf{R}^{T}(t) = \phi(t)^{\wedge}.$$
-</p>
-
+\begin{equation}
+\begin{aligned}
+\dot{\mathbf{R}}(t)\mathbf{R}^{T}(t) = \phi(t)^{\wedge}.
+\end{aligned}
+\end{equation}
 <p>
 이 때, 방정식 양쪽에 $\mathbf{R}(t)$를 곱한다. $\mathbf{R}$은 직교 행렬이므로 아래와 같은 식을 얻을 수 있다.
 </p>
 
-<p>
-$$\dot{\mathbf{R}}(t) = \phi(t)^{\wedge}\mathbf{R}(t) = \begin{bmatrix}
+\begin{equation}
+\begin{aligned}
+\dot{\mathbf{R}}(t) = \phi(t)^{\wedge}\mathbf{R}(t) = \begin{bmatrix}
 0 &amp; -\phi_{3} &amp; \phi_{2} \\ 
 \phi_{3} &amp; 0 &amp; -\phi_{1} \\ 
 -\phi_{2} &amp; \phi_{1}  &amp; 0
-\end{bmatrix} \mathbf{R}(t)$$
-</p>
+\end{bmatrix} \mathbf{R}(t)
+\end{aligned}
+\end{equation}
 <hr />
 </div>
 </div>

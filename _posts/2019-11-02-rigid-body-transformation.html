@@ -45,14 +45,14 @@ $$P =\left[\begin{array}{c}p_{1}\\p_{2}\\p_{3}\end{array}\right], R =\left[\begi
 <p>
 이를 통해 $\{S\}$좌표계를 기준으로 $\{B\}$의 원점과 축의 각도를 표현하면 아래와 같다.
 </p>
-\begin{equation*}
+\begin{equation}
 \begin{aligned}
 \vec{P}=p_1\hat{X}+p_2\hat{Y}+p_3\hat{Z}
 \\ \hat{x}=r_{11}\hat{X}+r_{21}\hat{Y}+r_{31}\hat{Z}
 \\ \hat{y}=r_{12}\hat{X}+r_{22}\hat{Y}+r_{32}\hat{Z}
 \\ \hat{z}=r_{13}\hat{X}+r_{23}\hat{Y}+r_{33}\hat{Z}
 \end{aligned}
-\end{equation*}
+\end{equation}
 <p>
 이를 아래와 같은 변환행렬을 사용하면 믈체의 이동과 회전을 훨씬 더 간결하게 표현할 수 있다.
 $$T = \left[\begin{array}{ccc|c} r_{11} &amp; r_{12} &amp; r_{13} &amp; p_1 \\ r_{21} &amp; r_{22} &amp; r_{23} &amp; p_2 \\ r_{31} &amp; r_{32} &amp; r_{33} &amp; p_3 \\ \hline 0 &amp; 0 &amp; 0 &amp; 1 \end{array}\right] = \left[\begin{array}{cc} R &amp; P \\ 0 &amp; 1 \end{array}\right]$$
