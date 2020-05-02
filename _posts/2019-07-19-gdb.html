@@ -77,7 +77,9 @@ gdb는 리눅스에서 바이너리(실행) 파일을 디버깅하기 위한 프
 <li><code>l thisIsFunction()</code></li>
 </ul></li>
 <li><code>finish</code></li>
-<li><code>cond</code> (condition)
+<li><p>
+<code>cond</code> (condition)
+</p>
 <ul class="org-ul">
 <li><code>cond 8 i = 456</code>
 <ul class="org-ul">
@@ -94,9 +96,9 @@ i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가
 </div></li>
 </ul></li>
 <li><code>cond 8 foo(i) &gt; bar(rand())</code> : 8번 breakpoint를 foo(i) &gt; bar(rand())를 만족할 때만 실행하도록 설정한다.</li>
-</ul></li>
 </ul>
-<hr />
+<hr /></li>
+</ul>
 </div>
 </div>
 <div id="outline-container-org0509c02" class="outline-2">
@@ -108,18 +110,22 @@ i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가
 <li>현재 디버깅 중인 코드 화면을 보여준다.</li>
 </ul></li>
 <li><code>C-l</code></li>
-<li><code>C-p C-n</code></li>
+<li><p>
+<code>C-p C-n</code>
+</p>
+<hr /></li>
 </ul>
-<hr />
 </div>
 </div>
 <div id="outline-container-org1759b4a" class="outline-2">
 <h2 id="org1759b4a">.gdbinit settings</h2>
 <div class="outline-text-2" id="text-org1759b4a">
 <ul class="org-ul">
-<li><code>set listsize &lt;number&gt;</code></li>
+<li><p>
+<code>set listsize &lt;number&gt;</code> 
+</p>
+<hr /></li>
 </ul>
-<hr />
 </div>
 </div>
 <div id="outline-container-org0488dd1" class="outline-2">
@@ -143,11 +149,13 @@ i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가
 <ul class="org-ul">
 <li>&#x2013;ex "b test.cc::121" 과 같이 gdb를 시작하자마자 같이 실행할 명령어를 입력하는 옵션.</li>
 </ul></li>
-<li><code>--args</code>
+<li><p>
+<code>--args</code>
+</p>
 <ul class="org-ul">
 <li>디버깅하는 프로그램의 파라미터를 같이 입력하는 옵션.</li>
-</ul></li>
 </ul>
-<hr />
+<hr /></li>
+</ul>
 </div>
 </div>

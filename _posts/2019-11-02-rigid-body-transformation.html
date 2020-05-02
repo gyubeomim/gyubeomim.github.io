@@ -45,14 +45,14 @@ $$P =\left[\begin{array}{c}p_{1}\\p_{2}\\p_{3}\end{array}\right], R =\left[\begi
 <p>
 이를 통해 $\{S\}$좌표계를 기준으로 $\{B\}$의 원점과 축의 각도를 표현하면 아래와 같다.
 </p>
-  \begin{equation*}
-  \begin{aligned}
-  \vec{P}=p_1\hat{X}+p_2\hat{Y}+p_3\hat{Z}
-  \\ \hat{x}=r_{11}\hat{X}+r_{21}\hat{Y}+r_{31}\hat{Z}
-  \\ \hat{y}=r_{12}\hat{X}+r_{22}\hat{Y}+r_{32}\hat{Z}
-  \\ \hat{z}=r_{13}\hat{X}+r_{23}\hat{Y}+r_{33}\hat{Z}
-  \end{aligned}
-  \end{equation*}
+\begin{equation*}
+\begin{aligned}
+\vec{P}=p_1\hat{X}+p_2\hat{Y}+p_3\hat{Z}
+\\ \hat{x}=r_{11}\hat{X}+r_{21}\hat{Y}+r_{31}\hat{Z}
+\\ \hat{y}=r_{12}\hat{X}+r_{22}\hat{Y}+r_{32}\hat{Z}
+\\ \hat{z}=r_{13}\hat{X}+r_{23}\hat{Y}+r_{33}\hat{Z}
+\end{aligned}
+\end{equation*}
 <p>
 이를 아래와 같은 변환행렬을 사용하면 믈체의 이동과 회전을 훨씬 더 간결하게 표현할 수 있다.
 $$T = \left[\begin{array}{ccc|c} r_{11} &amp; r_{12} &amp; r_{13} &amp; p_1 \\ r_{21} &amp; r_{22} &amp; r_{23} &amp; p_2 \\ r_{31} &amp; r_{32} &amp; r_{33} &amp; p_3 \\ \hline 0 &amp; 0 &amp; 0 &amp; 1 \end{array}\right] = \left[\begin{array}{cc} R &amp; P \\ 0 &amp; 1 \end{array}\right]$$
@@ -114,19 +114,19 @@ $\{b\}$frame에서 3차원 공간 상의 점 $v$를 표현하면 $\vec{v}_{b}$�
 </p>
 <p align="center" width="350">
 <img src="/pictures/191106/05.PNG" alt="05.PNG" align="center" width="350" />
-   $$\vec{v}_{a} = \ ^{a}_{b}R\vec{v}_{b} + \ ^{a}_{b}p$$
-   $$\vec{v}_{a} = \ ^{a}_{b}T\vec{v}_{b}$$
+$$\vec{v}_{a} = \ ^{a}_{b}R\vec{v}_{b} + \ ^{a}_{b}p$$
+$$\vec{v}_{a} = \ ^{a}_{b}T\vec{v}_{b}$$
 </p></li>
 <li><p>
 frame 뿐만 아니라 특정 벡터를 회전 및 이동하는 연산자로써 변환행렬을 사용할 수 있다. 두 $\{a\}$frame 위의 벡터 $\vec{v}_{1}, \vec{v}_{2}$의 변환관계는 다음과 같이 표현할 수 있다.
 </p>
 <p align="center" width="350">
 <img src="/pictures/191106/06.PNG" alt="06.PNG" align="center" width="350" />
-   $$\begin{bmatrix} x_{v_{2}}\\ y_{v_{2}}\\ z_{v_{2}}\\ 1 \end{bmatrix} = \begin{bmatrix} r_{11} &amp; r_{13} &amp; r_{13} &amp; p_{x}\\  r_{21} &amp; r_{22} &amp; r_{23} &amp; p_{y} \\  r_{31} &amp; r_{32} &amp; r_{33} &amp; p_{z}\\  0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}\begin{bmatrix} x_{v_{1}}\\  y_{v_{1}}\\  z_{v_{1}}\\ 1 \end{bmatrix}$$
-   $$\vec{v}_{2} = T\vec{v}_{1}$$
-</p></li>
+$$\begin{bmatrix} x_{v_{2}}\\ y_{v_{2}}\\ z_{v_{2}}\\ 1 \end{bmatrix} = \begin{bmatrix} r_{11} &amp; r_{13} &amp; r_{13} &amp; p_{x}\\  r_{21} &amp; r_{22} &amp; r_{23} &amp; p_{y} \\  r_{31} &amp; r_{32} &amp; r_{33} &amp; p_{z}\\  0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}\begin{bmatrix} x_{v_{1}}\\  y_{v_{1}}\\  z_{v_{1}}\\ 1 \end{bmatrix}$$
+$$\vec{v}_{2} = T\vec{v}_{1}$$
+</p>
+<hr /></li>
 </ol>
-<hr />
 </div>
 </div>
 <div id="outline-container-org38d968c" class="outline-2">
@@ -136,7 +136,7 @@ frame 뿐만 아니라 특정 벡터를 회전 및 이동하는 연산자로써 
 이와 같이 강체의 이동과 회전에 관여하는 행렬을 따로 Group으로 묶을 수 있다. 변환행렬의 성질을 만족하는 모든 집합은 Special Euclidean Group (SE)에 속한다. 3차원 공간의 경우 SE(3)이다. SE(3) Group은 Lie Group에 속한다.
 </p>
 <p align="center" width="350">
-   <img src="/pictures/191106/07.PNG" alt="07.PNG" align="center" width="350" />
+<img src="/pictures/191106/07.PNG" alt="07.PNG" align="center" width="350" />
 $$SE(3) = \left \{ T = \begin{bmatrix} R &amp; p \\  \mathbf{0}_{3\times3} &amp; 1 \end{bmatrix} \in \mathbb{R}^{4\times4} \ | \ R \in SO(3), p \in \mathbb{R}^{3}  \right \} $$
 </p>
 
