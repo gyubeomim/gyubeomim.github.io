@@ -21,33 +21,55 @@ gdb는 리눅스에서 바이너리(실행) 파일을 디버깅하기 위한 프
 <h2 id="orgd784034">Commands</h2>
 <div class="outline-text-2" id="text-orgd784034">
 <ul class="org-ul">
-<li><code>t</code> (thread)</li>
-<li><code>bt</code> (back trace)</li>
+<li><code>t</code> (thread)
+<ul class="org-ul">
+<li>현재 실행 중인 스레드의 정보를 표시한다.</li>
+</ul></li>
+<li><code>bt</code> (back trace)
+<ul class="org-ul">
+<li>함수의 호출 스택 정보를 표시한다.</li>
+</ul></li>
 <li><code>i</code> (info)
 <ul class="org-ul">
-<li><code>i b 1</code>: 1번 breakpoint의 정보를 확인한다.</li>
-<li><code>i t 1</code>: 1번 thread의 정보를 확인한다.</li>
+<li><code>i b 1</code>
+<ul class="org-ul">
+<li>1번 breakpoint의 정보를 확인한다.</li>
+</ul></li>
+<li><code>i t 1</code>
+<ul class="org-ul">
+<li>1번 thread의 정보를 확인한다.</li>
+</ul></li>
 </ul></li>
 <li><code>f</code> (file)</li>
-<li><p>
-<code>p</code> (print)
-</p>
+<li><code>p</code> (print)
 <ul class="org-ul">
-<li><code>p vec.size()</code> : vec 변수의 크기를 확인한다.</li>
-</ul>
+<li><code>p vec.size()</code>
 <ul class="org-ul">
+<li>vec 변수의 크기를 확인한다.</li>
+</ul></li>
+</ul></li>
 <li><code>b</code> (breakpoint)
 <ul class="org-ul">
-<li><code>b test.cpp:30</code> : test.cpp 30번줄에 breakpoint를 설정한다</li>
+<li><code>b test.cpp:30</code>
+<ul class="org-ul">
+<li>test.cpp 30번줄에 breakpoint를 설정한다</li>
 </ul></li>
 </ul></li>
-<li><code>s</code> (step)</li>
 <li><code>d</code> (disable)
 <ul class="org-ul">
-<li><code>d br 1 (or, d 1)</code>: 1번 breakpoint를 제거한다.</li>
+<li><code>d br 1 (or, d 1)</code>
+<ul class="org-ul">
+<li>1번 breakpoint를 제거한다.</li>
 </ul></li>
-<li><code>n</code> (next): step over functions</li>
-<li><code>s</code> (step): setp into functions</li>
+</ul></li>
+<li><code>n</code> (next)
+<ul class="org-ul">
+<li>현재 커서가 가르키는 라인을 실행하고 다음 라인으로 넘어간다. (함수를 실행하면 함수 안으로 들어가지 않는다.)</li>
+</ul></li>
+<li><code>s</code> (step)
+<ul class="org-ul">
+<li>현재 커서가 가르키는 라인을 실행하고 다음 라인으로 넘어간다. (함수를 실행하면 함수 안으로 들어간다.)</li>
+</ul></li>
 <li><code>c</code> (continue)</li>
 <li><code>l</code> (list)
 <ul class="org-ul">
@@ -55,13 +77,13 @@ gdb는 리눅스에서 바이너리(실행) 파일을 디버깅하기 위한 프
 <li><code>l thisIsFunction()</code></li>
 </ul></li>
 <li><code>finish</code></li>
-<li><p>
-<code>cond</code> (condition)
-</p>
+<li><code>cond</code> (condition)
 <ul class="org-ul">
-<li><code>cond 8 i = 456</code>: i가 456이 될 때 8번 bp에서 멈추도록 지정한다.
-ignore 8 455도 가능하다.</li>
-</ul>
+<li><code>cond 8 i = 456</code>
+<ul class="org-ul">
+<li><p>
+i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가능하다.
+</p>
 <div class="org-src-container">
 <pre class="src src-c++"><span class="org-type">int</span> <span class="org-variable-name">i</span>=0;
 <span class="org-comment-delimiter">// </span><span class="org-comment">do something</span>
@@ -69,8 +91,8 @@ ignore 8 455도 가능하다.</li>
   <span class="org-comment-delimiter">// </span><span class="org-comment">do something</span>
 }
 </pre>
-</div>
-<ul class="org-ul">
+</div></li>
+</ul></li>
 <li><code>cond 8 foo(i) &gt; bar(rand())</code> : 8번 breakpoint를 foo(i) &gt; bar(rand())를 만족할 때만 실행하도록 설정한다.</li>
 </ul></li>
 </ul>
@@ -81,7 +103,10 @@ ignore 8 455도 가능하다.</li>
 <h2 id="org0509c02">Shortcuts</h2>
 <div class="outline-text-2" id="text-org0509c02">
 <ul class="org-ul">
-<li><code>C-x C-a</code> :</li>
+<li><code>C-x C-a</code>
+<ul class="org-ul">
+<li>현재 디버깅 중인 코드 화면을 보여준다.</li>
+</ul></li>
 <li><code>C-l</code></li>
 <li><code>C-p C-n</code></li>
 </ul>
@@ -103,19 +128,25 @@ ignore 8 455도 가능하다.</li>
 <ul class="org-ul">
 <li><code>-i=mi</code> (&#x2013;interface=mi)
 <ul class="org-ul">
-<li>emacs에서만 동작하는 옵션이다.</li>
+<li>emacs에서만 동작하는 옵션.</li>
 <li>it makes gdb present a machine-oriented text interface rather than the human-oriented command prompt you get without it. see <a href="https://stackoverflow.com/a/28901568/7402755">reference</a></li>
 </ul></li>
 <li><code>-tui</code>
 <ul class="org-ul">
-<li></li>
+<li>현재 디버깅 중인 코드 화면을 보여주는 옵션.</li>
 </ul></li>
 <li><code>-q</code>
 <ul class="org-ul">
-<li>gdb를 시작할 때 나오는 intro message들을 출력하지 않는다.</li>
+<li>gdb를 시작할 때 나오는 intro message들을 출력하지 않는 옵션.</li>
 </ul></li>
-<li><code>--ex</code></li>
-<li><code>--args</code></li>
+<li><code>--ex</code>
+<ul class="org-ul">
+<li>&#x2013;ex "b test.cc::121" 과 같이 gdb를 시작하자마자 같이 실행할 명령어를 입력하는 옵션.</li>
+</ul></li>
+<li><code>--args</code>
+<ul class="org-ul">
+<li>디버깅하는 프로그램의 파라미터를 같이 입력하는 옵션.</li>
+</ul></li>
 </ul>
 <hr />
 </div>
