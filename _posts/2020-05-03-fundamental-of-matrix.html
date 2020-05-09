@@ -8,22 +8,22 @@ tag: [Linear Algebra, Matrix]
 use_math: true
 comments: true
 ---
-<div id="outline-container-org1bcb8fe" class="outline-2">
-<h2 id="org1bcb8fe">Origin of Matrix</h2>
-<div class="outline-text-2" id="text-org1bcb8fe">
+<div id="outline-container-org2618ec2" class="outline-2">
+<h2 id="org2618ec2">Origin of Matrix</h2>
+<div class="outline-text-2" id="text-org2618ec2">
 <p>
 행렬의 기원은 연립일차방정식을 보다 쉽게 풀기 위해 고안되었다.
 </p>
 <hr />
 </div>
 </div>
-<div id="outline-container-org8f60363" class="outline-2">
-<h2 id="org8f60363">Properties</h2>
-<div class="outline-text-2" id="text-org8f60363">
+<div id="outline-container-org57c8958" class="outline-2">
+<h2 id="org57c8958">Properties</h2>
+<div class="outline-text-2" id="text-org57c8958">
 </div>
-<div id="outline-container-orgda13714" class="outline-3">
-<h3 id="orgda13714">Multiplicaition of matrix</h3>
-<div class="outline-text-3" id="text-orgda13714">
+<div id="outline-container-orga9e38ea" class="outline-3">
+<h3 id="orga9e38ea">Multiplicaition of matrix</h3>
+<div class="outline-text-3" id="text-orga9e38ea">
 <p>
 행렬의 곱은 행렬의 합성으로 볼 수 있으며 함수의 합성과 비슷하다. 다음과 같이 두 함수의 합성을 살펴보면
 </p>
@@ -68,16 +68,16 @@ cp+dr &amp; cq+ds
 <hr />
 </div>
 </div>
-<div id="outline-container-org2d3dd70" class="outline-3">
-<h3 id="org2d3dd70">Inverse of matrix</h3>
-<div class="outline-text-3" id="text-org2d3dd70">
+<div id="outline-container-org86c816a" class="outline-3">
+<h3 id="org86c816a">Inverse of matrix</h3>
+<div class="outline-text-3" id="text-org86c816a">
 <p>
 행렬식이 0이면 역행렬이 존재하지 않는다. 즉 행렬식이 0이 아닌 정사각행렬 $A$의 역행렬 $A^{-1}$는 $A^{-1} = \frac{1}{\det(A)} adj(A)$이다.
 </p>
 </div>
-<div id="outline-container-orgb72c985" class="outline-4">
-<h4 id="orgb72c985">Proof)</h4>
-<div class="outline-text-4" id="text-orgb72c985">
+<div id="outline-container-orga64d8f5" class="outline-4">
+<h4 id="orga64d8f5">Proof)</h4>
+<div class="outline-text-4" id="text-orga64d8f5">
 <p>
 $A \cdot ? = \mathbf{I}$와 같은 식이 있을 때 ?를 A의 역행렬이라고 하면 $A \cdot adj(A) = \det(A) \cdot \mathbf{I}$와 같은 꼴이 성립하고 $A \cdot \frac{adj(A)}{\det(A)} = \mathbf{I}$꼴이 되므로 $\therefore A^{-1} = \frac{adj(A)}{\det(A)}$이 된다.
 </p>
@@ -85,31 +85,31 @@ $A \cdot ? = \mathbf{I}$와 같은 식이 있을 때 ?를 A의 역행렬이라�
 </div>
 </div>
 </div>
-<div id="outline-container-org55175f9" class="outline-3">
-<h3 id="org55175f9">Determinant</h3>
-<div class="outline-text-3" id="text-org55175f9">
+<div id="outline-container-org73da6fe" class="outline-3">
+<h3 id="org73da6fe">Determinant</h3>
+<div class="outline-text-3" id="text-org73da6fe">
 <p>
 정사각행렬 A를 하나의 수로써 대응시키는 특별한 함수이다. $\det(A) = |A|$. 행렬식은 행렬보다도 더 전에 있었던 방법이다.
 </p>
 <hr />
 </div>
 </div>
-<div id="outline-container-org064cdbc" class="outline-3">
-<h3 id="org064cdbc">Positive Definite</h3>
-<div class="outline-text-3" id="text-org064cdbc">
+<div id="outline-container-org612eee4" class="outline-3">
+<h3 id="org612eee4">Positive Definite</h3>
+<div class="outline-text-3" id="text-org612eee4">
 </div>
-<div id="outline-container-org22ac2ab" class="outline-4">
-<h4 id="org22ac2ab">Definition</h4>
-<div class="outline-text-4" id="text-org22ac2ab">
+<div id="outline-container-orgf72a226" class="outline-4">
+<h4 id="orgf72a226">Definition</h4>
+<div class="outline-text-4" id="text-orgf72a226">
 <p>
 행렬 $A \in \mathbb{C}^{m \times m}$가 $A=A^{*}$즉, 에르미트 행렬일 때 임의의 벡터 $\mathbf{x} \ne 0$에 대해 $\mathbf{x}^{*}A\mathbf{x} &gt; 0$이면 $A$는 <span class="underline">양의 정부호</span> 라고 부르고 $A&gt;0$로 쓴다.
 행렬 $A \in \mathbb{R}^{m \times m}$에 대해서는 $A = A^{T}$즉, 대칭행렬이고 $\mathbf{x} \ne 0$에 대해 $\mathbf{x}^{T} A \mathbf{x}&gt;0$일 때 $A&gt;0$로 정의한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org9761c4b" class="outline-4">
-<h4 id="org9761c4b">Introduction</h4>
-<div class="outline-text-4" id="text-org9761c4b">
+<div id="outline-container-org1c5aaf3" class="outline-4">
+<h4 id="org1c5aaf3">Introduction</h4>
+<div class="outline-text-4" id="text-org1c5aaf3">
 <p>
 이러한 정의는 깔끔하지만 많은 것이 생략되어 있어 머리로 따라가기가 어렵다.
 차근차근 수식과 설명을 봐가면서 개념 자체를 받아 들여보자
@@ -131,9 +131,9 @@ $A \mathbf{x} = \lambda \mathbf{x}$을 생각해보면 $\lambda$는 $A$의 고�
 </div>
 </div>
 </div>
-<div id="outline-container-org62f13b3" class="outline-3">
-<h3 id="org62f13b3">Trace</h3>
-<div class="outline-text-3" id="text-org62f13b3">
+<div id="outline-container-org80d30bc" class="outline-3">
+<h3 id="org80d30bc">Trace</h3>
+<div class="outline-text-3" id="text-org80d30bc">
 <p>
 행렬의 대각 성분의 합을 의미하며 $\textbf{tr}(A)$와 같이 표시한다. 다음과 같은 특징을 지니고 있다.
 </p>
@@ -147,13 +147,13 @@ $A \mathbf{x} = \lambda \mathbf{x}$을 생각해보면 $\lambda$는 $A$의 고�
 </div>
 </div>
 </div>
-<div id="outline-container-orgdf61a80" class="outline-2">
-<h2 id="orgdf61a80">Matrix Types</h2>
-<div class="outline-text-2" id="text-orgdf61a80">
+<div id="outline-container-org5536abd" class="outline-2">
+<h2 id="org5536abd">Matrix Types</h2>
+<div class="outline-text-2" id="text-org5536abd">
 </div>
-<div id="outline-container-orgf40fceb" class="outline-3">
-<h3 id="orgf40fceb">Orthogonal Matrix</h3>
-<div class="outline-text-3" id="text-orgf40fceb">
+<div id="outline-container-org988bd57" class="outline-3">
+<h3 id="org988bd57">Orthogonal Matrix</h3>
+<div class="outline-text-3" id="text-org988bd57">
 <p>
 A matrix $\mathbf{U}$is known as <i>orthogonal</i> <span class="underline">if its transpose is its inverse</span> -symbolically $\mathbf{U}^{T}\mathbf{U}=\mathbf{I}$, where $\mathbf{I}$is the identity matrix. this means that the column vectors of $\mathbf{U}$are all of unit norm and are orthogonal. this may be written $\mathbf{u}_{i}^{T}\mathbf{u}_{j}=\delta_{ij}$. from the condition $\mathbf{U}^{T} \mathbf{U} = \mathbf{I}$one easily deduces that $\mathbf{U}\mathbf{U}^{T}=\mathbf{I}$. hence the row vectors of $\mathbf{U}$are also of unit norm and are orthogonal.
 </p>
@@ -164,9 +164,9 @@ consider once more the equation $\mathbf{U}^{T}\mathbf{U}=\mathbf{I}$, taking de
 <hr />
 </div>
 </div>
-<div id="outline-container-org6529e2c" class="outline-3">
-<h3 id="org6529e2c">Adjoint Matrix</h3>
-<div class="outline-text-3" id="text-org6529e2c">
+<div id="outline-container-orge018e81" class="outline-3">
+<h3 id="orge018e81">Adjoint Matrix</h3>
+<div class="outline-text-3" id="text-orge018e81">
 <p>
 n차 정방행렬 $A = (a_{ij})$에 대해 A의 여인수 행렬의 전치행렬을 A의 수반행렬이라고 하고 $\text{adj}A$라고 표기한다. 수반행렬은 다음과 같은 특징을 가진다.
 </p>
@@ -178,30 +178,30 @@ A^{-1} = \frac{\text{adj}A}{\left | A \right |}
 <hr />
 </div>
 </div>
-<div id="outline-container-orgb667dc5" class="outline-3">
-<h3 id="orgb667dc5">Diagonal Matrix</h3>
-<div class="outline-text-3" id="text-orgb667dc5">
+<div id="outline-container-org6f4e970" class="outline-3">
+<h3 id="org6f4e970">Diagonal Matrix</h3>
+<div class="outline-text-3" id="text-org6f4e970">
 <p>
 대각성분만 값이 있고 나머지 부분이 0인 행렬을 말한다. 기호는 보통 $\Lambda$로 나타낸다.
 </p>
 <hr />
 </div>
 </div>
-<div id="outline-container-org2c7688a" class="outline-3">
-<h3 id="org2c7688a">Hessian Matrix</h3>
-<div class="outline-text-3" id="text-org2c7688a">
+<div id="outline-container-org0e544f2" class="outline-3">
+<h3 id="org0e544f2">Hessian Matrix</h3>
+<div class="outline-text-3" id="text-org0e544f2">
 </div>
-<div id="outline-container-org349099e" class="outline-4">
-<h4 id="org349099e">Definition</h4>
-<div class="outline-text-4" id="text-org349099e">
+<div id="outline-container-org4aa6dd0" class="outline-4">
+<h4 id="org4aa6dd0">Definition</h4>
+<div class="outline-text-4" id="text-org4aa6dd0">
 <p>
 $D \subset \mathbb{R}^{n}$에서 정의된 다변수 스칼라 함수 $f : D \to \mathbb{R}$에 대해 $H := \begin{bmatrix} {\partial^2 f  \over \partial x_{1}^2 } &amp; \cdots &amp;  {\partial^2 f  \over  \partial x_{1} \partial x_{n} } \\ \vdots &amp; \ddots &amp; \vdots \\  {\partial^2 f  \over \partial x_{n} \partial x_{1} } &amp; \cdots &amp;  {\partial^2 f_{m}  \over \partial x_{n}^2 }  \end{bmatrix}$를 $f$의 Hessian Matrix(헤시안 행렬)이라고 한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org2cf831f" class="outline-4">
-<h4 id="org2cf831f">Introduction</h4>
-<div class="outline-text-4" id="text-org2cf831f">
+<div id="outline-container-org527d3d0" class="outline-4">
+<h4 id="org527d3d0">Introduction</h4>
+<div class="outline-text-4" id="text-org527d3d0">
 <p>
 자코비안 행렬이 벡터함수의 도함수에 해당한다면 헤시안 행렬은 스칼라함수의 이계도함수라고 볼 수 있다. 이 때 헤시안 행렬은 <b>스칼라함수</b> $f(x,y,z,&#x2026;)$에 대해서만 정의된다는 점에 주의해야한다. 따라서 <b>벡터함수</b> $f_{i}(x,y,z,&#x2026;)$의 미분 행렬인 자코비안의 2차 미분 버전이 아니다. 벡터함수의 이계도함수 행렬은 별도로 정의하지 않는다.
 </p>
@@ -209,21 +209,21 @@ $D \subset \mathbb{R}^{n}$에서 정의된 다변수 스칼라 함수 $f : D \to
 </div>
 </div>
 </div>
-<div id="outline-container-org7d89265" class="outline-3">
-<h3 id="org7d89265">Jacobian Matrix</h3>
-<div class="outline-text-3" id="text-org7d89265">
+<div id="outline-container-org467d76d" class="outline-3">
+<h3 id="org467d76d">Jacobian Matrix</h3>
+<div class="outline-text-3" id="text-org467d76d">
 </div>
-<div id="outline-container-orgc7e5b8a" class="outline-4">
-<h4 id="orgc7e5b8a">Definition</h4>
-<div class="outline-text-4" id="text-orgc7e5b8a">
+<div id="outline-container-org90c0cc3" class="outline-4">
+<h4 id="org90c0cc3">Definition</h4>
+<div class="outline-text-4" id="text-org90c0cc3">
 <p>
 $D \subset \mathbb{R}^{n}$에서 정의된 다변수 벡터 함수 $\mathbf{f} : D \to \mathbb{R}^{m}$가 각각의 스칼라 함수 $f_{1} , \cdots , f_{m} : D \to \mathbb{R}$에 대해 $\mathbf{f} ( x_{1} , \cdots , x_{n} )  : = \begin{bmatrix} f_{1} ( x_{1} , \cdots , x_{n} )  \\ \vdots \\ f_{m} ( x_{1} , \cdots , x_{n} ) \end{bmatrix}$과 같이 정의된다. 이 때 $J := \begin{bmatrix} {\partial f_{1}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{1}  \over \partial x_{n} } \\ \vdots &amp; \ddots &amp; \vdots \\  {\partial f_{m}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{m}  \over \partial x_{n} }  \end{bmatrix}$행렬을 $f$의 Jacobian Matrix(자코비안 행렬)이라고 한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org86b7a5a" class="outline-4">
-<h4 id="org86b7a5a">Introduction</h4>
-<div class="outline-text-4" id="text-org86b7a5a">
+<div id="outline-container-orgf54fa2b" class="outline-4">
+<h4 id="orgf54fa2b">Introduction</h4>
+<div class="outline-text-4" id="text-orgf54fa2b">
 <p>
 자코비안 행렬이라는 명칭은 19세기 독일의 수학자였던 Carl Gustav Jacob Jacobi에게서 따온 것이다. 다변수 함수에 대해 자코비안 행렬이 존재하면 미분 가능하다고 하며, 오히려 미분 가능한 함수 $f : \mathbb{R} \to \mathbb{R}$가 $1\times1$사이즈의 자코비안 행렬을 가진다고 생각할 수도 있다. 실제로 응용수학에서는 자코비안 행렬이 벡터함수의 미분계수 역할을 하는 경우가 많다.
 </p>
@@ -232,18 +232,18 @@ $D \subset \mathbb{R}^{n}$에서 정의된 다변수 벡터 함수 $\mathbf{f} :
 </div>
 </div>
 </div>
-<div id="outline-container-orge057070" class="outline-2">
-<h2 id="orge057070">Cremers Formula</h2>
-<div class="outline-text-2" id="text-orge057070">
+<div id="outline-container-org4cc3b99" class="outline-2">
+<h2 id="org4cc3b99">Cremers Formula</h2>
+<div class="outline-text-2" id="text-org4cc3b99">
 <p>
 연립일차방정식 $AX = B$에서, A가 행렬식이 0이 아닌 정사각행렬일 때 $x_{j} = \frac{\det(A_{j})}{\det(A)}$. 단, $j=1,\cdots,n$이고 $A_{j}$는 $A$의 $j$번째 열을 $B$의 $j$번째 열로 바꾼 행렬이다.
 </p>
 <hr />
 </div>
 </div>
-<div id="outline-container-org72437a6" class="outline-2">
-<h2 id="org72437a6">Eigenvalue and EigenVector</h2>
-<div class="outline-text-2" id="text-org72437a6">
+<div id="outline-container-org69b6022" class="outline-2">
+<h2 id="org69b6022">Eigenvalue and EigenVector</h2>
+<div class="outline-text-2" id="text-org69b6022">
 <p>
 $Ax = \lambda x$를 만족하는 $x$와 $\lambda$를 각각 <b>eigenvector</b>, <b>eigenvalue</b> 라고 한다. $\lambda x$를 알면 이를 계산하는 것이 기존 $Ax$를 계산하는 것보다 연산량 측면에서 매우 우수하기 때문에 자주 사용된다.
 </p>
@@ -263,9 +263,9 @@ $(A-\lambda I) = \begin{bmatrix}-6&amp;6\\5&amp;-5\end{bmatrix}$가 되고 보�
 <hr />
 </div>
 </div>
-<div id="outline-container-org204a32e" class="outline-2">
-<h2 id="org204a32e">Singular Value Decomposition</h2>
-<div class="outline-text-2" id="text-org204a32e">
+<div id="outline-container-orgf4b96af" class="outline-2">
+<h2 id="orgf4b96af">Singular Value Decomposition</h2>
+<div class="outline-text-2" id="text-orgf4b96af">
 <p>
 $A \in \mathbb{R}^{m \times n}$의 직사각형 행렬이 주어진 경우 $A$는 다음과 같이 분해할 수 있다
 </p>
