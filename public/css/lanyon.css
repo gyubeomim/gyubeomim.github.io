@@ -49,8 +49,11 @@ body {
   /*font-family: Georgia, "Times New Roman", serif;*/
 /*}*/
 
+/*
+ change the color of bold font.
+*/
 b {
-    color: #3333ff;
+    color: #007fff;
 }
 
 h1, h2, h3, h4, h5, h6 {
