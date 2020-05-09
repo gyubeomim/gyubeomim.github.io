@@ -12,7 +12,7 @@ comments: true
 <h2 id="org2911b07">SE3-based Optimization in SLAM</h2>
 <div class="outline-text-2" id="text-org2911b07">
 <p>
-SLAM에서 3차원 카메라의 포즈를 의미하는 $\mathbf{T}&isin; \text{SE(3)}$는 덧셈에 대하여 닫혀있지 않으므로 카메라 포즈의 변화량 $&delta;\mathbf{T}$를 바로 업데이트할 수 없는 반면 3차원 물체의 속도를 의미하는 twist $&delta; &xi;<sup>&and;</sup> &isin; \text{se(3)}$를 사용하여 업데이트하면 별도의 제약조건 없이 업데이트가 가능한 장점이 있다. 다시 말하면, <b>SE(3) 매니폴드 상에서는 변화량을 바로 업데이트할 수 없으므로 국부적인 접평면(Tangential Plane)인 se(3) 공간으로 Logarithm Mapping(SE3 &rarr; se3)을 통해 이동한 후 변화량을 업데이트하고 다시 Exponential Mapping(se3 $\rightarrow$SE3)을 통해 SE3 공간으로 돌아오는 과정을 반복하는 것</b> 을 말한다. 
+SLAM에서 3차원 카메라의 포즈를 의미하는 $\mathbf{T}&isin; \text{SE(3)}$는 덧셈에 대하여 닫혀있지 않으므로 카메라 포즈의 변화량 $&delta;\mathbf{T}$를 바로 업데이트할 수 없는 반면 3차원 물체의 속도를 의미하는 twist $\delta \xi^{\wedge} \in \text{se(3)}$를 사용하여 업데이트하면 별도의 제약조건 없이 업데이트가 가능한 장점이 있다. 다시 말하면, *SE(3) 매니폴드 상에서는 변화량을 바로 업데이트할 수 없으므로 국부적인 접평면(Tangential Plane)인 se(3) 공간으로 Logarithm Mapping(SE3 &rarr; se3)을 통해 이동한 후 변화량을 업데이트하고 다시 Exponential Mapping(se3 $\rightarrow$SE3)을 통해 SE3 공간으로 돌아오는 과정을 반복하는 것*을 SE3-based Optimization이라고 한다.
 </p>
 
 <p>
