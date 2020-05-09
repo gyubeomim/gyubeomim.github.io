@@ -8,9 +8,9 @@ tag: [Group Theory, Lie Group, SE3, SO3, SLAM, Optimization]
 use_math: true
 comments: true
 ---
-<div id="outline-container-orgecf8265" class="outline-2">
-<h2 id="orgecf8265">Group Theory</h2>
-<div class="outline-text-2" id="text-orgecf8265">
+<div id="outline-container-org6942b4a" class="outline-2">
+<h2 id="org6942b4a">Group Theory</h2>
+<div class="outline-text-2" id="text-org6942b4a">
 <ul class="org-ul">
 <li>군(Group)은 집합과 연산으로 이루어진 대수적 구조를 말한다. 예를 들어, 어떤 집합을 $A$라고 하고 어떤 연산을 $\cdot$으로 표시했을 때, 군은 $G = (A, \cdot)$으로 나타낼 수 있다.</li>
 <li><p>
@@ -20,13 +20,13 @@ Lie Group과 Lie Algera의 정의는 아래와 같다.
 </ul>
 </div>
 </div>
-<div id="outline-container-org03014dc" class="outline-2">
-<h2 id="org03014dc">Lie Group &amp; Lie Algebra</h2>
-<div class="outline-text-2" id="text-org03014dc">
+<div id="outline-container-orgf10f4cb" class="outline-2">
+<h2 id="orgf10f4cb">Lie Group &amp; Lie Algebra</h2>
+<div class="outline-text-2" id="text-orgf10f4cb">
 </div>
-<div id="outline-container-org4f28416" class="outline-3">
-<h3 id="org4f28416">Lie Group</h3>
-<div class="outline-text-3" id="text-org4f28416">
+<div id="outline-container-orgeee6263" class="outline-3">
+<h3 id="orgeee6263">Lie Group</h3>
+<div class="outline-text-3" id="text-orgeee6263">
 \begin{equation}
 \begin{aligned}
 SO(3) = \{ \mathbf{R} \in \mathbb{R}^{3 \times 3} \ | \ \mathbf{R}\mathbf{R}^{T} = \mathbf{I}, \text{det}(\mathbf{R})=1 \}
@@ -44,9 +44,9 @@ SE(3) = \left \{ \mathbf{T} =
 </div>
 </div>
 
-<div id="outline-container-org225765e" class="outline-3">
-<h3 id="org225765e">Lie Algebra</h3>
-<div class="outline-text-3" id="text-org225765e">
+<div id="outline-container-orga7cae95" class="outline-3">
+<h3 id="orga7cae95">Lie Algebra</h3>
+<div class="outline-text-3" id="text-orga7cae95">
 \begin{equation}
 \begin{aligned}
 \text{so}(3) = \{ \phi \in \mathbb{R}^{3} \ | \ \Phi = \phi^{\wedge} \in \mathbb{R}^{3\times 3} \}
@@ -67,9 +67,9 @@ SE(3) = \left \{ \mathbf{T} =
 </div>
 </div>
 </div>
-<div id="outline-container-org569e3ef" class="outline-2">
-<h2 id="org569e3ef">Properties of Lie Group</h2>
-<div class="outline-text-2" id="text-org569e3ef">
+<div id="outline-container-org1dc9369" class="outline-2">
+<h2 id="org1dc9369">Properties of Lie Group</h2>
+<div class="outline-text-2" id="text-org1dc9369">
 <p>
 임의의 두 회전행렬 $\mathbf{R}_{1},\mathbf{R}_{2}$가 존재할 때 행렬의 덧셈을 수행하면 더 이상 회전 행렬이 아니게 된다.
 </p>
@@ -90,9 +90,9 @@ SE(3) = \left \{ \mathbf{T} =
 <hr />
 </div>
 </div>
-<div id="outline-container-org4b02391" class="outline-2">
-<h2 id="org4b02391">Lie Group Derivation</h2>
-<div class="outline-text-2" id="text-org4b02391">
+<div id="outline-container-org3bcb1f5" class="outline-2">
+<h2 id="org3bcb1f5">Lie Group Derivation</h2>
+<div class="outline-text-2" id="text-org3bcb1f5">
 <p>
 임의의 회전 행렬은 다음과 같은 성질을 만족한다.
 </p>
@@ -163,9 +163,9 @@ a_{3} &amp; 0 &amp; -a_{1} \\
 <hr />
 </div>
 </div>
-<div id="outline-container-org212a4ea" class="outline-2">
-<h2 id="org212a4ea">Lie Theory가 SLAM 분야에서 사용되는 이유</h2>
-<div class="outline-text-2" id="text-org212a4ea">
+<div id="outline-container-orge4e45a8" class="outline-2">
+<h2 id="orge4e45a8">Lie Theory가 SLAM 분야에서 사용되는 이유</h2>
+<div class="outline-text-2" id="text-orge4e45a8">
 <ul class="org-ul">
 <li>SLAM 분야에서 Lie Theory는 최적화를 효율적으로 수행하기 위해 사용된다.</li>
 <li>SLAM에서 카메라 포즈 값을 업데이트하면서 최적의 값을 찾을 때 일반적으로 최적화 문제로 구성을 한 다음 최적의 $\mathbf{R}$을 풀고 $\mathbf{t}$를 최소화해서 오류를 최소화 하는 방식으로 접근한다.</li>
