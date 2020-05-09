@@ -36,9 +36,9 @@ comments: true
 <p>
 이 때, $\mathbf{a}= \begin{bmatrix}a_{1} \\ \vdots\\ a_{n} \end{bmatrix}$이고 $\mathbf{x}= \begin{bmatrix}x_{1} \\ \vdots\\ x_{n} \end{bmatrix}$이다.
 </p>
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org652b42a" class="outline-3">
 <h3 id="org652b42a">Linear System</h3>
 <div class="outline-text-3" id="text-org652b42a">
@@ -51,9 +51,9 @@ comments: true
     \mathbf{Ax} = \mathbf{b}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org9d66cf6" class="outline-3">
 <h3 id="org9d66cf6">Identity Matrix</h3>
 <div class="outline-text-3" id="text-org9d66cf6">
@@ -75,9 +75,9 @@ comments: true
     \forall \mathbf{x} \in \mathbb{R}^{n}, \quad \mathbf{I}\mathbf{x} = \mathbf{x}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-orgc51fa4e" class="outline-3">
 <h3 id="orgc51fa4e">Inverse Matrix</h3>
 <div class="outline-text-3" id="text-orgc51fa4e">
@@ -99,9 +99,9 @@ $2\times 2$크기의 정방행렬 $\mathbf{A}= \begin{bmatrix}a &amp; b \\ c &am
     \mathbf{A}^{-1} = \frac{1}{ad-bc} \begin{bmatrix} d &amp; -b \\ -c &amp; a \end{bmatrix}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org4b7c82d" class="outline-3">
 <h3 id="org4b7c82d">Solving Linear System</h3>
 <div class="outline-text-3" id="text-org4b7c82d">
@@ -119,9 +119,10 @@ $2\times 2$크기의 정방행렬 $\mathbf{A}= \begin{bmatrix}a &amp; b \\ c &am
 <p>
 그러나, 행렬 $\mathbf{A}$의 판별식 $det{\mathbf{A}}=0$인 경우 역행렬이 존재하지 않게되고 위와 같이 문제를 풀 수 없다. <b>이런 경우 선형시스템은 해가 존재하지 않거나 무수히 많은 해가 존재한다.</b>
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-orgce9ea3f" class="outline-3">
 <h3 id="orgce9ea3f">Linear Combination</h3>
 <div class="outline-text-3" id="text-orgce9ea3f">
@@ -137,9 +138,10 @@ $2\times 2$크기의 정방행렬 $\mathbf{A}= \begin{bmatrix}a &amp; b \\ c &am
 <p>
 을 벡터 $\mathbf{v}_{1}, &ctdot;, \mathbf{v}_{n}$의 가중치 계수 $c_{1},&ctdot;, c_{n}$에 대한  <b>선형결합 (Linear Combination)</b> 이라고 한다. 이 때 가중치 계수 $c_{1},&ctdot;, c_{n}$는 0을 포함한 실수 값을 가진다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-orge7710f3" class="outline-3">
 <h3 id="orge7710f3">Span</h3>
 <div class="outline-text-3" id="text-orge7710f3">
@@ -155,9 +157,10 @@ $2\times 2$크기의 정방행렬 $\mathbf{A}= \begin{bmatrix}a &amp; b \\ c &am
 <p>
 이는 또한 $\mathbf{v}_{1}, &ctdot;, \mathbf{v}_{n}$에 의해 span된 $\mathbb{R}^{n}$공간 상의 subset이라고도 불린다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org443ac57" class="outline-3">
 <h3 id="org443ac57">From Matrix Equation to Vector Equation</h3>
 <div class="outline-text-3" id="text-org443ac57">
@@ -182,10 +185,10 @@ $\mathbf{Ax}= \mathbf{b}$와 같은 선형 시스템을 다음과 같이 열벡�
 <p>
 와 같이 <b>열벡터들의 선형결합으로 표현</b> 할 수 있게 된다. 만약 $\mathbf{b}$가 Span $\{ \mathbf{a}_{1}, &ctdot;, \mathbf{a}_{n} \}$에 포함되어 있다면 이들의 선형결합으로 표현할 수 있으므로 해가 존재한다. 따라서 $\mathbf{b}&isin; \text{Span}\{ \mathbf{a}_{1}, &ctdot;, \mathbf{a}_{n} \}$일 때 해가 존재한다.
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-org262ba6d" class="outline-3">
 <h3 id="org262ba6d">Several Perspectives about Matrix Multiplication</h3>
 <div class="outline-text-3" id="text-org262ba6d">
@@ -214,9 +217,10 @@ $\mathbf{b}^{T}$는 곧 $\mathbf{A}^{T}$의 행벡터(Row Vector)들의 선형�
 <p>
 또한 두 벡터의 곱 $\mathbf{a}\mathbf{b}^{T} = \begin{bmatrix}a_{1} \\ \vdots\\ a_{n} \end{bmatrix}\begin{bmatrix}b_{1} &amp; &ctdot; &amp; b_{n} \end{bmatrix}$의 경우 <b>rank1 outer product</b> 로 볼 수 있다. 즉, $[\mathbf{a}\ \ \mathbf{c}] \begin{bmatrix}\mathbf{b}\\ \mathbf{d}\end{bmatrix}$의 경우 $\mathbf{ab} + \mathbf{cd}$와 같이 벡터곱을 스칼라 곱과 같이 생각할 수 있다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org2a46892" class="outline-3">
 <h3 id="org2a46892">Linear Independence</h3>
 <div class="outline-text-3" id="text-org2a46892">
@@ -269,9 +273,9 @@ $\mathbf{Ax}= \mathbf{b}$와 같은 시스템에서 $\mathbf{A}$행렬이 $\math
     &amp; \mathbf{a}_{j} = -\frac{x_{1}}{x_{j}}\mathbf{a}_{1} - \cdots - \frac{x_{j-1}}{x_{j}}\mathbf{a}_{j-1} \in \text{Span}\{ \mathbf{a}_{1}, \mathbf{a}_{2}, \cdots, \mathbf{a}_{j-1} \}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-orgefe0bad" class="outline-3">
 <h3 id="orgefe0bad">Linear Dependence</h3>
 <div class="outline-text-3" id="text-orgefe0bad">
@@ -293,9 +297,9 @@ $\mathbf{Ax}= \mathbf{b}$와 같은 시스템에서 $\mathbf{A}$행렬이 $\math
     c_{1}\mathbf{a}_{1} + c_{2}\mathbf{a}_{2} + c_{3}\mathbf{a}_{3} = (c_{1}+d_{1})\mathbf{a}_{1} + (c_{1}+d_{1})\mathbf{a}_{2}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org3c662b8" class="outline-3">
 <h3 id="org3c662b8">Span and Subspace</h3>
 <div class="outline-text-3" id="text-org3c662b8">
@@ -316,9 +320,10 @@ Span $\{ \mathbf{a}_{1}, &ctdot;, \mathbf{a}_{n} \}$으로 형성된 공간은 �
 <p>
 과 같이 선형결합으로 나타낼 수 있고 이는 임의의 값 $c,d$에 대해서 닫혀 있음을 의미한다. 따라서 부분공간은 항상 Span $\{ \mathbf{a}_{1}, &ctdot;, \mathbf{a}_{n} \}$으로 표현된다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org5872677" class="outline-3">
 <h3 id="org5872677">Basis of a Subspace</h3>
 <div class="outline-text-3" id="text-org5872677">
@@ -333,18 +338,20 @@ Span $\{ \mathbf{a}_{1}, &ctdot;, \mathbf{a}_{n} \}$으로 형성된 공간은 �
 <p>
 3차원 공간 $\mathbb{R}^{3}$의 경우 기저벡터는 3개가 존재하고 $\mathbf{e}_{1} = [ 1 \ 0 \ 0 ]^{T}, \mathbf{e}_{2} = [ 0 \ 1 \  0 ]^{T}, \mathbf{e}_{3} = [ 0 \  0 \  1 ]^{T}$일 때, 이를 <b>표준기저벡터(Standard Basis Vector)라고 한다.</b>
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org6537418" class="outline-3">
 <h3 id="org6537418">Dimension of Subspace</h3>
 <div class="outline-text-3" id="text-org6537418">
 <p>
 하나의 부분공간 H를 표현할 수 있는 기저는 유일하지 않다. 하지만 여러개의 기저를 통해서 표현할 수 있는 부분공간의 차원(Dimension)은 유일하다. <b>부분공간의 차원은 기저벡터의 개수와 동일하다.</b>
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org6ddd309" class="outline-3">
 <h3 id="org6ddd309">Column Space of Matrix</h3>
 <div class="outline-text-3" id="text-org6ddd309">
@@ -357,9 +364,9 @@ Span $\{ \mathbf{a}_{1}, &ctdot;, \mathbf{a}_{n} \}$으로 형성된 공간은 �
     \text{Col} \mathbf{A} = \text{Span} \{ \begin{bmatrix} 1\\1\\0 \end{bmatrix}, \begin{bmatrix} 1 \\0\\1 \end{bmatrix} \}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-orge03b58b" class="outline-3">
 <h3 id="orge03b58b">Rank of Matrix</h3>
 <div class="outline-text-3" id="text-orge03b58b">
@@ -372,10 +379,9 @@ Span $\{ \mathbf{a}_{1}, &ctdot;, \mathbf{a}_{n} \}$으로 형성된 공간은 �
     \text{rank} \mathbf{A} = \text{dim Col} \mathbf{A}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-org85695bb" class="outline-3">
 <h3 id="org85695bb">Transformation</h3>
 <div class="outline-text-3" id="text-org85695bb">
@@ -390,10 +396,10 @@ Span $\{ \mathbf{a}_{1}, &ctdot;, \mathbf{a}_{n} \}$으로 형성된 공간은 �
 <p>
 이 때 입력 $x$에 의해 매핑되는 출력 $y$는 유일하게 결정된다. <b>Domain</b> 이란 입력 $x$의 모든 가능한 집합을 의미한다. <b>Co-Domain</b> 이란 출력 $y$의 모든 가능한 집합을 의미한다. <b>Image</b> 란 주어진 입력 $x$에 대해 매핑된 출력 $y$를 의미한다. <b>Range</b> 란 Domain내에 있는 입력 $x$들에 의해 매핑된 모든 출력 $y$의 집합을 의미한다.
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-org54a4274" class="outline-3">
 <h3 id="org54a4274">Linear Transformation</h3>
 <div class="outline-text-3" id="text-org54a4274">
@@ -407,9 +413,9 @@ Span $\{ \mathbf{a}_{1}, &ctdot;, \mathbf{a}_{n} \}$으로 형성된 공간은 �
     &amp; \text{for all } \mathbf{u,v} \ \ \text{in the domain of T and for all scalars c and d.}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org4ceaaf3" class="outline-3">
 <h3 id="org4ceaaf3">Transformations between Vectors</h3>
 <div class="outline-text-3" id="text-org4ceaaf3">
@@ -423,10 +429,9 @@ $T: \mathbf{x}&isin; \mathbb{R}^{n} \mapsto\mathbf{y}&isin; \mathbb{R}^{m}$은 n
     &amp; \mathbf{x} = \begin{bmatrix} 1\\2\\3 \end{bmatrix} \in \mathbb{R}^{3} \mapsto \mathbf{y} = T(\mathbf{x}) = \begin{bmatrix} 4\\5 \end{bmatrix} \in \mathbb{R}^{2}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-org1e65e30" class="outline-3">
 <h3 id="org1e65e30">Matrix of Linear Transformation</h3>
 <div class="outline-text-3" id="text-org1e65e30">
@@ -451,9 +456,10 @@ $T: \mathbf{x}&isin; \mathbb{R}^{n} \mapsto\mathbf{y}&isin; \mathbb{R}^{m}$은 n
 <p>
 이러한 행렬 \mathbf{A}를 선형변환 T의 표준행렬(Standard Matrix)이라고 부른다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org8eebbea" class="outline-3">
 <h3 id="org8eebbea">Onto and One-To-One</h3>
 <div class="outline-text-3" id="text-org8eebbea">
@@ -469,20 +475,20 @@ Onto는 <b>전사함수(Surjective)라고도 불리며 공역이 치역과 같�
 <p>
 One-To-One은 <b>일대일함수(Injective)라고도 불리며 정의역의 원소와 공역의 원소가 하나씩 대응되는 함수를 의미한다.</b>
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-org1d91d50" class="outline-3">
 <h3 id="org1d91d50">Least Square</h3>
 <div class="outline-text-3" id="text-org1d91d50">
 <p>
 최소제곱법(Least Square)는 <b>방정식의 개수가 미지수의 개수보다 많은 Over-determined 선형시스템에서 사용하는 방법 중 하나이다.</b> Over-determined 선형시스템 $\mathbf{Ax}= \mathbf{b}$의 경우 일반적으로 해가 존재하지 않는다. 이런 경우 일반적으로 $\left\| \mathbf{Ax}- \mathbf{b}\right\|^{2}$가 최소가 되는 근사해를 구할 수 있다.
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-orgba00de3" class="outline-3">
 <h3 id="orgba00de3">Inner Product</h3>
 <div class="outline-text-3" id="text-orgba00de3">
@@ -493,9 +499,10 @@ One-To-One은 <b>일대일함수(Injective)라고도 불리며 정의역의 원�
 <p>
 이 때, $\mathbf{u}^{T}\mathbf{v}$에 의해 계산된 값을 $\mathbf{u}, \mathbf{v}$의 내적(Inner Product, Dot Product)라고 한다. 이는 $\mathbf{u}&sdot; \mathbf{v}$로 표기할 수 있다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-orga0bc1c6" class="outline-3">
 <h3 id="orga0bc1c6">Properties of Inner Product</h3>
 <div class="outline-text-3" id="text-orga0bc1c6">
@@ -522,9 +529,10 @@ One-To-One은 <b>일대일함수(Injective)라고도 불리며 정의역의 원�
 <p>
 위를 통해 <b>내적이라는 연산은 선형변환이라는 것을 알 수 있다.</b>
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org7ed0b11" class="outline-3">
 <h3 id="org7ed0b11">Vector Norm</h3>
 <div class="outline-text-3" id="text-org7ed0b11">
@@ -555,18 +563,19 @@ One-To-One은 <b>일대일함수(Injective)라고도 불리며 정의역의 원�
     \left\| c \mathbf{v} \right\| = |c| \left\| \mathbf{v} \right\|
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org21a4fae" class="outline-3">
 <h3 id="org21a4fae">Unit Vector</h3>
 <div class="outline-text-3" id="text-org21a4fae">
 <p>
 길이가 1인 벡터를 단위벡터(Unit Vector)라고 한다. 벡터의 길이를 1로 맞추는 작업을 정규화(Normalization)라고 하는데 주어진 벡터 $\mathbf{v}$가 있을 때 단위벡터 $\mathbf{u}= \frac{1}{\| \mathbf{v}\|}\mathbf{v}$가 된다. $\mathbf{u}$벡터는 $\mathbf{v}$벡터와 방향은 같지만 크기가 1인 벡터이다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org90d81be" class="outline-3">
 <h3 id="org90d81be">Distance between Vectors in $\mathbb{R}^{n}$</h3>
 <div class="outline-text-3" id="text-org90d81be">
@@ -579,9 +588,9 @@ One-To-One은 <b>일대일함수(Injective)라고도 불리며 정의역의 원�
     dist( \mathbf{u,v}) = \| \mathbf{u} - \mathbf{v} \|
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-orgb52a69c" class="outline-3">
 <h3 id="orgb52a69c">Inner Product and Angle betwwen Vectors</h3>
 <div class="outline-text-3" id="text-orgb52a69c">
@@ -594,10 +603,9 @@ One-To-One은 <b>일대일함수(Injective)라고도 불리며 정의역의 원�
     \mathbf{u} \cdot \mathbf{v} = \| \mathbf{u} \| \| \mathbf{v} \| \cos \theta
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-org135d4b4" class="outline-3">
 <h3 id="org135d4b4">Orthogonal Vectors</h3>
 <div class="outline-text-3" id="text-org135d4b4">
@@ -613,10 +621,10 @@ One-To-One은 <b>일대일함수(Injective)라고도 불리며 정의역의 원�
 <p>
 0이 아닌 두 벡터 $\mathbf{u,v}$의 내적이 0이려면 $\cos\theta$값이 0이어야 하고 $\theta=90\degree$일 때 $\cos\theta$값은 0이 된다.
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-orgfe1ba64" class="outline-3">
 <h3 id="orgfe1ba64">Least Square Problem</h3>
 <div class="outline-text-3" id="text-orgfe1ba64">
@@ -654,9 +662,9 @@ $\hat{\mathbf{b}} = \mathbf{A}\hat{\mathbf{x}}$를 만족하는 근사해 $\hat{
     &amp; \therefore \mathbf{A}^{T}(\mathbf{b} - \mathbf{A}\hat{\mathbf{x}}) = 0
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org0584794" class="outline-3">
 <h3 id="org0584794">Normal Equation</h3>
 <div class="outline-text-3" id="text-org0584794">
@@ -678,9 +686,9 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
     \hat{\mathbf{x}} = (\mathbf{A}^{T}\mathbf{A})^{-1}\mathbf{A}^{T}\mathbf{b}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org9d2af8b" class="outline-3">
 <h3 id="org9d2af8b">Another Derivation of Normal Equation</h3>
 <div class="outline-text-3" id="text-org9d2af8b">
@@ -711,21 +719,22 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
     \mathbf{x} = (\mathbf{A}^{T}\mathbf{A})^{-1}\mathbf{A}^{T}\mathbf{b}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org117f1c8" class="outline-3">
 <h3 id="org117f1c8">What If $\mathbf{C} =\mathbf{A}^{T}\mathbf{A}$is NOT Invertible?</h3>
 <div class="outline-text-3" id="text-org117f1c8">
 <p>
 행렬 $\mathbf{C}=\mathbf{A}^{T}\mathbf{A}$의 역행렬이 존재하지 않는 경우 시스템은 해가 없거나 무수히 많은 해를 가지고 있다. 하지만 정규방정식은 항상 해를 가지고 있으므로 해가 없는 상황은 존재하지 않고 실제로는 무수히 많은 해를 가지고 있다. $\mathbf{C}$가 역행렬을 구할 수 없는 경우는 오직 Col $\mathbf{A}$가 선형의존일 경우에 발생한다. 하지만, <b>일반적으로 $\mathbf{C}$는 대부분의 경우 역행렬이 존재한다.</b>
 </p>
-</div>
-</div>
 
-<div id="outline-container-orgad8c994" class="outline-3">
-<h3 id="orgad8c994">Orthogonal Projection Perspective</h3>
-<div class="outline-text-3" id="text-orgad8c994">
+<hr />
+</div>
+</div>
+<div id="outline-container-orge213109" class="outline-3">
+<h3 id="orge213109">Orthogonal Projection Perspective</h3>
+<div class="outline-text-3" id="text-orge213109">
 <p>
 행렬 $\mathbf{C}=\mathbf{A}^{T}\mathbf{A}$가 있을 때 $\mathbf{b}$점에서 Col $\mathbf{A}$공간으로 프로젝션하면 다음과 같다.
 </p>
@@ -735,9 +744,9 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
     \hat{\mathbf{b}} = f(\mathbf{b}) = \mathbf{A}\hat{\mathbf{x}} = \mathbf{A}(\mathbf{A}^{T}\mathbf{A})^{-1}\mathbf{A}^{T}\mathbf{b}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org6f46ee6" class="outline-3">
 <h3 id="org6f46ee6">Orthogonal and Orthonormal Sets</h3>
 <div class="outline-text-3" id="text-org6f46ee6">
@@ -752,20 +761,20 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
 <p>
 직교벡터와 직교정규벡터의 집합은 <b>항상 선형독립이다.</b>
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-org63d1403" class="outline-3">
 <h3 id="org63d1403">Orthogonal and Orthonormal Basis</h3>
 <div class="outline-text-3" id="text-org63d1403">
 <p>
 기저벡터 $\mathbf{u}_{1},&ctdot;,\mathbf{u}_{n}$이 p차원의 부분공간 $W &isin; \mathbb{R}^{n}$에 있다고 할때 Gram-Schmidt 프로세스와 QR decomposition을 사용하면 직교기저벡터를 만들 수 있다. 부분공간 $W$에 대해 직교기저 벡터 $\mathbf{u}_{1},&ctdot;\,\mathbf{u}_{n}$이 주어져 있다고 했을 때 $\mathbf{y}&isin; \mathbb{R}^{n}$을 부분공간 $W$위로 프로젝션시킨다.
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-orgdcb9745" class="outline-3">
 <h3 id="orgdcb9745">Orthogonal Projection $\hat{\mathbf{y}}$of $\mathbf{y}$onto Line</h3>
 <div class="outline-text-3" id="text-orgdcb9745">
@@ -787,9 +796,9 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
     \hat{\mathbf{y}} = \text{proj}_{L} \mathbf{y} = (\mathbf{y}\cdot \mathbf{u}) \mathbf{u}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-orgc5a61e9" class="outline-3">
 <h3 id="orgc5a61e9">Orthogonal Projection $\hat{\mathbf{y}}$of $\mathbf{y}$onto Plane</h3>
 <div class="outline-text-3" id="text-orgc5a61e9">
@@ -814,9 +823,10 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
 <p>
 프로젝션은 각각 직교기저벡터에 독립적으로 적용된다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org434faec" class="outline-3">
 <h3 id="org434faec">Orthogonal Projection when $\mathbf{y} \in W$</h3>
 <div class="outline-text-3" id="text-org434faec">
@@ -841,10 +851,10 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
 <p>
 해는 $\mathbf{y}$가 부분공간 $W$에 포함되어 있지 않은 경우와 동일하다.
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-org5a42fea" class="outline-3">
 <h3 id="org5a42fea">Transformation: Orthogonal Projection</h3>
 <div class="outline-text-3" id="text-org5a42fea">
@@ -862,12 +872,12 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
     &amp; = [ \mathbf{u}_{1} \ \mathbf{u}_{2} ] \begin{bmatrix} \mathbf{u}_{1}^{T} \\ \mathbf{u}_{2}^{T} \end{bmatrix}\mathbf{b} = \mathbf{UU}^{T} \mathbf{b} \Rightarrow \ \text{Linear Transformation!}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
-<div id="outline-container-orge213109" class="outline-3">
-<h3 id="orge213109">Orthogonal Projection Perspective</h3>
-<div class="outline-text-3" id="text-orge213109">
+<div id="outline-container-org921af21" class="outline-3">
+<h3 id="org921af21">Orthogonal Projection Perspective</h3>
+<div class="outline-text-3" id="text-org921af21">
 <p>
 직교정규인 열벡터를 가지는 행렬 $\mathbf{A}= \mathbf{U}=  [\mathbf{u}_{1} \ \mathbf{u}_{2}]$가 있을 때 $\mathbf{b}$벡터를 Col $\mathbf{A}$공간으로 정사영시키는 경우
 </p>
@@ -886,9 +896,9 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
     \hat{\mathbf{b}} = \mathbf{A}\hat{\mathbf{x}} = \mathbf{A}(\mathbf{A}^{T}\mathbf{A})^{-1}\mathbf{A}^{T}\mathbf{b} = \mathbf{A}(\mathbf{I})^{-1}\mathbf{A}^{T}\mathbf{b} = \mathbf{AA}^{T}\mathbf{b} = \mathbf{UU}^{T}\mathbf{b}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org8d04877" class="outline-3">
 <h3 id="org8d04877">Gram-Schmidt Orthogonalization</h3>
 <div class="outline-text-3" id="text-org8d04877">
@@ -908,10 +918,10 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
 <p>
 가 된다. 이 때 벡터 $\mathbf{v}_{1}, \mathbf{v}_{2}$는 부분공간 $W$의 직교기저벡터가 된다.
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-orgf499216" class="outline-3">
 <h3 id="orgf499216">Eigenvectors and Eigenvalues</h3>
 <div class="outline-text-3" id="text-orgf499216">
@@ -931,10 +941,10 @@ $\mathbf{Ax}= &lambda; \mathbf{x}$는 다음과 같이 다시 나타낼 수 있�
 <p>
 이 때, 위 시스템이 $\mathbf{x}$가 0이 아닌 비자명해를 가지고 있는 경우에만 $\lambda$값이 행렬 $\mathbf{A}$에 대한 고유값이 된다. 위와 같은 동차 선형시스템이 비자명해를 가지기 위해서는 $\mathbf{A}-&lambda; \mathbf{I}$가 선형의존(Linearly Dependent)해야 무수히 많은 해를 가진다.
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-orgefcb36d" class="outline-3">
 <h3 id="orgefcb36d">Null Space</h3>
 <div class="outline-text-3" id="text-orgefcb36d">
@@ -954,9 +964,10 @@ $\mathbf{A}= \begin{bmatrix}\mathbf{a}_{1}^{T} \\ \mathbf{a}_{2}^{T} \\ \vdots\\
 <p>
 즉, $\mathbf{x}$는 모든 $\mathbf{A}$의 행벡터(Row Vector)과 직교해야 한다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org82161f1" class="outline-3">
 <h3 id="org82161f1">Orthogonal Complement</h3>
 <div class="outline-text-3" id="text-org82161f1">
@@ -975,10 +986,9 @@ $\mathbf{A}= \begin{bmatrix}\mathbf{a}_{1}^{T} \\ \mathbf{a}_{2}^{T} \\ \vdots\\
     &amp; \text{Nul} \mathbf{A}^{T} = (\text{Col} \mathbf{A})^{\perp} \\
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-org3d74862" class="outline-3">
 <h3 id="org3d74862">Characteristic Equation</h3>
 <div class="outline-text-3" id="text-org3d74862">
@@ -1004,9 +1014,10 @@ $\mathbf{A}= \begin{bmatrix}\mathbf{a}_{1}^{T} \\ \mathbf{a}_{2}^{T} \\ \vdots\\
 <p>
 위 방정식을 행렬 $\mathbf{A}$의 특성방정식(Characteristic Equation)이라고 부른다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-orge17df62" class="outline-3">
 <h3 id="orge17df62">Eigenspace</h3>
 <div class="outline-text-3" id="text-orge17df62">
@@ -1019,9 +1030,9 @@ $(\mathbf{A}-&lambda; \mathbf{x})\mathbf{x}=0$에서 $(\mathbf{A}-&lambda; \math
     T(\mathbf{x}) = \mathbf{Ax} = \lambda \mathbf{x}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org0237cdc" class="outline-3">
 <h3 id="org0237cdc">Diagonalization</h3>
 <div class="outline-text-3" id="text-org0237cdc">
@@ -1037,10 +1048,10 @@ $(\mathbf{A}-&lambda; \mathbf{x})\mathbf{x}=0$에서 $(\mathbf{A}-&lambda; \math
 <p>
 위와 같은 공식이 성립한다면 이를 <b>정방행렬 $\mathbf{A}$의 대각화(Diagonalization)라고 한다.</b> 대각화는 모든 경우에 대해서 항상 가능한 것은 아니다. 행렬 $\mathbf{A}$가 대각화되기 위해서는 역행렬이 존재하는 행렬 $\mathbf{V}$가 존재해야 한다. 행렬 $\mathbf{V}$가 역행렬이 존재하기 위해서는 $\mathbf{V}$는 <b>행렬 $\mathbf{A}$와 같은 $\mathbb{R}^{n \times n}$크기의 정방행렬이어야 하고 n개의 선형독립인 열벡터를 가지고 있어야 한다.</b> 이 때, $\mathbf{V}$의 각 열은 행렬 $\mathbf{A}$의 고유벡터가 된다. 만약 행렬 $\mathbf{V}$가 존재하는 경우 행렬 $\mathbf{A}$는 <b>대각화 가능(Diangonalizable)하다</b> 고 한다.
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-org2965500" class="outline-3">
 <h3 id="org2965500">Finding $\mathbf{V}$and $\mathbf{D}$</h3>
 <div class="outline-text-3" id="text-org2965500">
@@ -1077,10 +1088,10 @@ $(\mathbf{A}-&lambda; \mathbf{x})\mathbf{x}=0$에서 $(\mathbf{A}-&lambda; \math
 <p>
 각각의 열이 모두 동일해야 한다. 즉, <b>벡터 $\mathbf{v}_{i}$는 행렬 $\mathbf{A}$에 대한 고유벡터가 되어야 하고 스칼라 $&lambda;_{i}$는 행렬 $\mathbf{A}$에 대한 고유값이 되어야 한다.</b> 이에 따라 대각행렬 $\mathbf{D}$는 고유값들을 대각성분으로 포함하고 있는 행렬이 된다. 결론적으로 <b>정방행렬 $\mathbf{A}&isin; \mathbb{R}^{n&times; n}$가 대각화 가능한가 안한가에 대한 질문은 n개의 고유벡터가 존재하는가 안하는가에 대한 질문과 동치이다.</b>
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-org8f1174e" class="outline-3">
 <h3 id="org8f1174e">Eigendecomposition</h3>
 <div class="outline-text-3" id="text-org8f1174e">
@@ -1096,10 +1107,10 @@ $(\mathbf{A}-&lambda; \mathbf{x})\mathbf{x}=0$에서 $(\mathbf{A}-&lambda; \math
 <p>
 이를 행렬 $\mathbf{A}$에 대한 <b>고유값 분해(Eigendecomposition)</b> 라고 한다. 행렬 $\mathbf{A}$가 대각화 가능하다는 의미는 행렬 $\mathbf{A}$가 고유값 분해 가능하다는 말과 동치이다.
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-org34c3cd6" class="outline-3">
 <h3 id="org34c3cd6">Linear Transformation via Eigendecomposition</h3>
 <div class="outline-text-3" id="text-org34c3cd6">
@@ -1149,10 +1160,10 @@ $(\mathbf{A}-&lambda; \mathbf{x})\mathbf{x}=0$에서 $(\mathbf{A}-&lambda; \math
 <p>
 지금까지의 과정을 <b>고유값 분해를 통한 선형 변환</b> 이라고 한다.
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-org18cafa3" class="outline-3">
 <h3 id="org18cafa3">Linear Transformation via $\mathbf{A}^{k}$</h3>
 <div class="outline-text-3" id="text-org18cafa3">
@@ -1174,9 +1185,9 @@ $(\mathbf{A}-&lambda; \mathbf{x})\mathbf{x}=0$에서 $(\mathbf{A}-&lambda; \math
     \mathbf{D}^{k} = \begin{bmatrix} \lambda_{1}^{k} &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; \lambda_{2}^{k} &amp; \ddots &amp; \vdots \\ \vdots &amp; \ddots &amp; \ddots &amp; 0 \\ 0 &amp; \cdots &amp; 0 &amp; \lambda_{n}^{k} \end{bmatrix}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org75ccd94" class="outline-3">
 <h3 id="org75ccd94">Geometric Multiplicity and Algebraic Multiplicity</h3>
 <div class="outline-text-3" id="text-org75ccd94">
@@ -1200,9 +1211,10 @@ $(\mathbf{A}-&lambda; \mathbf{x})\mathbf{x}=0$에서 $(\mathbf{A}-&lambda; \math
 <p>
 이와 같이 대수적으로 판별식을 인수분해했을 때, 중근이 생기는 경우 중근의 <b>대수 중복도(Algebraic Multiplicity)</b> 와 이로 인해 Span되는 고유공간의 <b>기하 중복도(Geometric Multiplicity)</b> 가 일치해야 $n$개의 독립적인 고유벡터가 생성될 수 있고 행렬 $\mathbf{A}$의 대각화가 가능하다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org8f11c7e" class="outline-3">
 <h3 id="org8f11c7e">Singular Value Decomposition</h3>
 <div class="outline-text-3" id="text-org8f11c7e">
@@ -1218,9 +1230,10 @@ $(\mathbf{A}-&lambda; \mathbf{x})\mathbf{x}=0$에서 $(\mathbf{A}-&lambda; \math
 <p>
 이 때, $\mathbf{U}&isin; \mathbb{R}^{m &times; m}, \mathbf{V}&isin; \mathbb{R}^{n&times; n}$인 행렬이며 이들은 각 열이 Col $\mathbf{A}$와 Row $\mathbf{A}$에 의 직교정규기저벡터(Orthonormal Basis)로 구성되어 있다. $&Sigma; &isin; \mathbb{R}^{m&times; n}$은 대각행렬이며 대각 성분들이 $\sigma_{1} \ge \sigma_{2} \ge \cdots \ge \sigma_{\min(m,n)}$특이값이며 큰 값부터 내림차순으로 정렬된 행렬이다. 
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org139aebd" class="outline-3">
 <h3 id="org139aebd">SVD as Sum of Outer Products</h3>
 <div class="outline-text-3" id="text-org139aebd">
@@ -1242,9 +1255,9 @@ $(\mathbf{A}-&lambda; \mathbf{x})\mathbf{x}=0$에서 $(\mathbf{A}-&lambda; \math
     \mathbf{A} = \mathbf{U}^{'}\mathbf{D}^{'}\mathbf{V}^{T}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org8d34ee7" class="outline-3">
 <h3 id="org8d34ee7">Another Perspective of SVD</h3>
 <div class="outline-text-3" id="text-org8d34ee7">
@@ -1273,9 +1286,9 @@ Reduced Form of SVD를 사용하면 행렬 $\mathbf{U}= \begin{bmatrix}\mathbf{u
     \mathbf{AV} = \mathbf{U}\Sigma \Leftrightarrow \mathbf{A} = \mathbf{U}\Sigma \mathbf{V}^{T}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org1030ef5" class="outline-3">
 <h3 id="org1030ef5">Computing SVD</h3>
 <div class="outline-text-3" id="text-org1030ef5">
@@ -1292,29 +1305,30 @@ Reduced Form of SVD를 사용하면 행렬 $\mathbf{U}= \begin{bmatrix}\mathbf{u
 <p>
 이 때 계산되는 행렬 $\mathbf{U}, \mathbf{V}$은 직교하는 고유벡터를 각 열의 성분으로 하는 행렬이며 대각행렬 $&Sigma;^{2}$의 각 성분은 항상 0보다 큰 양수의 값을 가진다. 그리고 $\mathbf{AA}^{T}$와 $\mathbf{A}^{T}\mathbf{A}$를 통해 계산되는 $&Sigma;^{2}$의 값은 동일하다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-orgcc5efd7" class="outline-3">
 <h3 id="orgcc5efd7">Diagonalization of Symmetric Matrices</h3>
 <div class="outline-text-3" id="text-orgcc5efd7">
 <p>
 일반적으로 정방행렬 $\mathbf{A}&isin; \mathbb{R}^{n&times; n}$이 $n$개의 선형독립인 고유벡터를 가지고 있을 경우 대각화 가능하다. 그리고 대칭행렬 <b>$\mathbf{S}&isin;\mathbb{R}^{n&times; n}, \mathbf{S}^{T} = \mathbf{S}$는 항상 대각화 가능하다.</b> 추가적으로 <b>대칭행렬 $\mathbf{S}$의 고유벡터는 항상 서로에게 직교하므로 직교대각화(Orthogonally Diagonalizable)가 가능하다.</b>
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-orgc2fa864" class="outline-3">
 <h3 id="orgc2fa864">Spectral Theorem of Symmetric Matrices</h3>
 <div class="outline-text-3" id="text-orgc2fa864">
 <p>
 $\mathbf{S}^{T} = \mathbf{S}$를 만족하는 대칭행렬 $\mathbf{S}$가 주어졌을 때 $\mathbf{S}$는 $n$개의 중근을 포함한 실수의 고유값이 존재한다. 또한, 고유공간의 차원은 기하 중복도(Algebraic Multiplicity)와 기하 중복도(Geometric Multiplicity)와 같아야 한다. 서로 다른 $&lambda;$값 들에 대한 고유공간들은 서로 직교한다. 결론적으로 대칭행렬 $\mathbf{S}$은 직교대각화가 가능하다.
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-orgee73dfb" class="outline-3">
 <h3 id="orgee73dfb">Spectral Decomposition</h3>
 <div class="outline-text-3" id="text-orgee73dfb">
@@ -1332,10 +1346,10 @@ $\mathbf{S}^{T} = \mathbf{S}$를 만족하는 대칭행렬 $\mathbf{S}$가 주�
 <p>
 위 식에서 각 항 $&lambda;_{i}\mathbf{u}_{j}\mathbf{u}_{j}^{T}$은 $\mathbf{u}_{j}$에 의해 Span된 부분공간에 프로젝션된 다음 고유값 $&lambda;_{i}$만큼 스케일된 벡터로 볼 수 있다.
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-org49a68a9" class="outline-3">
 <h3 id="org49a68a9">Positive (Semi-)Definite Matrices</h3>
 <div class="outline-text-3" id="text-org49a68a9">
@@ -1346,10 +1360,10 @@ $\mathbf{S}^{T} = \mathbf{S}$를 만족하는 대칭행렬 $\mathbf{S}$가 주�
 <p>
 정방행렬 $\mathbf{A}$가 Postivie Definite인 경우 <b>$\mathbf{A}$의 고유값은 항상 모두 양수이다.</b>
 </p>
+
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-orgc6ee40c" class="outline-3">
 <h3 id="orgc6ee40c">Symmetric Positive Definite Matrices</h3>
 <div class="outline-text-3" id="text-orgc6ee40c">
@@ -1364,9 +1378,9 @@ $\mathbf{S}^{T} = \mathbf{S}$를 만족하는 대칭행렬 $\mathbf{S}$가 주�
     &amp; \text{where, } \lambda_{j} &gt; 0, \forall j = 1,\cdots,n
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-orgab500f3" class="outline-3">
 <h3 id="orgab500f3">Back to Computing SVD</h3>
 <div class="outline-text-3" id="text-orgab500f3">
@@ -1387,18 +1401,20 @@ $\mathbf{S}^{T} = \mathbf{S}$를 만족하는 대칭행렬 $\mathbf{S}$가 주�
 <p>
 임의의 직각 행렬 $\mathbf{A}&isin; \mathbb{R}^{m&times; n}$에 대하여 특이값 분해는 언제나 존재한다. $\mathbf{A} \in \mathbb{R}^{n\times n}$행렬의 경우 고유값 분해가 존재하지 않을 수 있지만 특이값 분해는 항상 존재한다. 대칭이면서 동시에 Positive Definite인 정방 행렬 $\mathbf{S}&isin; \mathbb{R}^{n&times; n}$은 항상 고유값 분해값이 존재하며 이는 특이값 분해와 동일하다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org98db3a4" class="outline-3">
 <h3 id="org98db3a4">Eigendecomposition in Machine Learning</h3>
 <div class="outline-text-3" id="text-org98db3a4">
 <p>
 일반적으로 머신러닝에서는 대칭이고 Positive Definite인 행렬을 다룬다. 예를 들면, $\mathbf{A}&isin; \mathbb{R}^{10 &times; 3}$인 행렬이 있고 각 열은 사람을 의미하고 각 행은 Feature를 의미한다고 가정했을 때, <b>$\mathbf{A}^{T}\mathbf{A}&isin; \mathbb{R}^{3&times; 3}$는 각 사람들 간 유사도</b> 를 의미하고 <b>$\mathbf{AA}^{T} &isin; \mathbb{R}^{10&times; 10}$는 각 Feature들의 상관관계를 의미한다.</b> 이 때, $\mathbf{AA}^{T}$는 주성분분석(Principal Component Analysis)에서 Covariance Matrix를 구할 때 사용된다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-orgdc96805" class="outline-3">
 <h3 id="orgdc96805">Low Rank Approximation of a Matrix</h3>
 <div class="outline-text-3" id="text-orgdc96805">
@@ -1412,10 +1428,9 @@ $\mathbf{S}^{T} = \mathbf{S}$를 만족하는 대칭행렬 $\mathbf{S}$가 주�
     &amp; \hat{\mathbf{A}}_{r} = \sum^{r}_{i=1}\sigma_{i}\mathbf{u}_{i}\mathbf{v}_{i}^{T} \quad \text{where, } \sigma_{1} \ge \sigma_{2} \ge \cdots \ge \sigma_{r}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
-
 <div id="outline-container-orgc04c417" class="outline-3">
 <h3 id="orgc04c417">Dimension Reducing Transformation</h3>
 <div class="outline-text-3" id="text-orgc04c417">
@@ -1456,11 +1471,10 @@ Feature-by-data item 행렬 $\mathbf{A}&isin; \mathbb{R}^{m&times; n}$이 주어
     \hat{\mathbf{G}} = \mathbf{U}_{r} = \begin{bmatrix} \mathbf{u}_{1} &amp; \mathbf{u}_{2} &amp; \cdots &amp; \mathbf{u}_{r} \end{bmatrix}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
 </div>
-
-
 <div id="outline-container-org02cfeec" class="outline-2">
 <h2 id="org02cfeec">References</h2>
 <div class="outline-text-2" id="text-org02cfeec">
