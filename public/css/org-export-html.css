@@ -3085,9 +3085,9 @@
 
       a {
         //color: inherit;
+        //text-decoration: inherit;
         background-color: inherit;
         font: inherit;
-        text-decoration: inherit;
       }
       a:hover {
         text-decoration: underline;
