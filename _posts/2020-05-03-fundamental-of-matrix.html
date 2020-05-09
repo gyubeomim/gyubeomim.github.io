@@ -98,18 +98,18 @@ $A \cdot ? = \mathbf{I}$와 같은 식이 있을 때 ?를 A의 역행렬이라�
 <h3 id="org064cdbc">Positive Definite</h3>
 <div class="outline-text-3" id="text-org064cdbc">
 </div>
-<div id="outline-container-orgc7e5b8a" class="outline-4">
-<h4 id="orgc7e5b8a">Definition</h4>
-<div class="outline-text-4" id="text-orgc7e5b8a">
+<div id="outline-container-org6fd666b" class="outline-4">
+<h4 id="org6fd666b">Definition</h4>
+<div class="outline-text-4" id="text-org6fd666b">
 <p>
 행렬 $A \in \mathbb{C}^{m \times m}$가 $A=A^{*}$즉, 에르미트 행렬일 때 임의의 벡터 $\mathbf{x} \ne 0$에 대해 $\mathbf{x}^{*}A\mathbf{x} &gt; 0$이면 $A$는 <span class="underline">양의 정부호</span> 라고 부르고 $A&gt;0$로 쓴다.
 행렬 $A \in \mathbb{R}^{m \times m}$에 대해서는 $A = A^{T}$즉, 대칭행렬이고 $\mathbf{x} \ne 0$에 대해 $\mathbf{x}^{T} A \mathbf{x}&gt;0$일 때 $A&gt;0$로 정의한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org86b7a5a" class="outline-4">
-<h4 id="org86b7a5a">Introduction</h4>
-<div class="outline-text-4" id="text-org86b7a5a">
+<div id="outline-container-orge00adde" class="outline-4">
+<h4 id="orge00adde">Introduction</h4>
+<div class="outline-text-4" id="text-orge00adde">
 <p>
 이러한 정의는 깔끔하지만 많은 것이 생략되어 있어 머리로 따라가기가 어렵다.
 차근차근 수식과 설명을 봐가면서 개념 자체를 받아 들여보자
@@ -155,12 +155,18 @@ $A \mathbf{x} = \lambda \mathbf{x}$을 생각해보면 $\lambda$는 $A$의 고�
 <h3 id="orgf40fceb">Orthogonal Matrix</h3>
 <div class="outline-text-3" id="text-orgf40fceb">
 <p>
-A matrix $\mathbf{U}$is known as <i>orthogonal</i> <span class="underline">if its transpose is its inverse</span> -symbolically $\mathbf{U}^{T}\mathbf{U}=\mathbf{I}$, where $\mathbf{I}$is the identity matrix. this means that the column vectors of $\mathbf{U}$are all of unit norm and are orthogonal. this may be written $\mathbf{u}_{i}^{T}\mathbf{u}_{j}=\delta_{ij}$. from the condition $\mathbf{U}^{T} \mathbf{U} = \mathbf{I}$one easily deduces that $\mathbf{U}\mathbf{U}^{T}=\mathbf{I}$. hence the row vectors of $\mathbf{U}$are also of unit norm and are orthogonal.
+행렬 $\mathbf{U}$가 $\mathbf{U}^{T}\mathbf{U}= \mathbf{UU}^{T} = \mathbf{I}$를 만족하는 경우 $\mathbf{U}$를 직교행렬(Orthogonal Matrix)라고 한다. 직교행렬 $\mathbf{U}$는 각 열벡터들이 단위 벡터이면서 동시에 서로 다른 열벡터들과 직교하는 특징을 가지고 있다.
 </p>
 
+\begin{equation}
+\begin{aligned}
+\mathbf{u}_{i}^{T} \mathbf{u}_{j} = \delta_{ij}
+\end{aligned}
+\end{equation}
 <p>
-consider once more the equation $\mathbf{U}^{T}\mathbf{U}=\mathbf{I}$, taking determiants leads to the equation $(\det{\mathbf{U}})^{2}=1$, since $\det{\mathbf{U}} = \det{\mathbf{U}}^{T}$. Thus if $\mathbf{U}$is orthogonal, then $\det \mathbf{U} = \pm 1$
+또한, $\mathbf{U}$의 판별식 $det{\mathbf{U}} = det{\mathbf{U}^{T}} = &plusmn; 1$이다.
 </p>
+
 <hr />
 </div>
 </div>
@@ -191,17 +197,17 @@ A^{-1} = \frac{\text{adj}A}{\left | A \right |}
 <h3 id="org2c7688a">Hessian Matrix</h3>
 <div class="outline-text-3" id="text-org2c7688a">
 </div>
-<div id="outline-container-org538bb02" class="outline-4">
-<h4 id="org538bb02">Definition</h4>
-<div class="outline-text-4" id="text-org538bb02">
+<div id="outline-container-orge820303" class="outline-4">
+<h4 id="orge820303">Definition</h4>
+<div class="outline-text-4" id="text-orge820303">
 <p>
 $D \subset \mathbb{R}^{n}$에서 정의된 다변수 스칼라 함수 $f : D \to \mathbb{R}$에 대해 $H := \begin{bmatrix} {\partial^2 f  \over \partial x_{1}^2 } &amp; \cdots &amp;  {\partial^2 f  \over  \partial x_{1} \partial x_{n} } \\ \vdots &amp; \ddots &amp; \vdots \\  {\partial^2 f  \over \partial x_{n} \partial x_{1} } &amp; \cdots &amp;  {\partial^2 f_{m}  \over \partial x_{n}^2 }  \end{bmatrix}$를 $f$의 Hessian Matrix(헤시안 행렬)이라고 한다.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd942139" class="outline-4">
-<h4 id="orgd942139">Introduction</h4>
-<div class="outline-text-4" id="text-orgd942139">
+<div id="outline-container-orgcde1c26" class="outline-4">
+<h4 id="orgcde1c26">Introduction</h4>
+<div class="outline-text-4" id="text-orgcde1c26">
 <p>
 자코비안 행렬이 벡터함수의 도함수에 해당한다면 헤시안 행렬은 스칼라함수의 이계도함수라고 볼 수 있다. 이 때 헤시안 행렬은 <b>스칼라함수</b> $f(x,y,z,&#x2026;)$에 대해서만 정의된다는 점에 주의해야한다. 따라서 <b>벡터함수</b> $f_{i}(x,y,z,&#x2026;)$의 미분 행렬인 자코비안의 2차 미분 버전이 아니다. 벡터함수의 이계도함수 행렬은 별도로 정의하지 않는다.
 </p>
@@ -213,17 +219,17 @@ $D \subset \mathbb{R}^{n}$에서 정의된 다변수 스칼라 함수 $f : D \to
 <h3 id="org7d89265">Jacobian Matrix</h3>
 <div class="outline-text-3" id="text-org7d89265">
 </div>
-<div id="outline-container-org6fd666b" class="outline-4">
-<h4 id="org6fd666b">Definition</h4>
-<div class="outline-text-4" id="text-org6fd666b">
+<div id="outline-container-org1c0b627" class="outline-4">
+<h4 id="org1c0b627">Definition</h4>
+<div class="outline-text-4" id="text-org1c0b627">
 <p>
 $D \subset \mathbb{R}^{n}$에서 정의된 다변수 벡터 함수 $\mathbf{f} : D \to \mathbb{R}^{m}$가 각각의 스칼라 함수 $f_{1} , \cdots , f_{m} : D \to \mathbb{R}$에 대해 $\mathbf{f} ( x_{1} , \cdots , x_{n} )  : = \begin{bmatrix} f_{1} ( x_{1} , \cdots , x_{n} )  \\ \vdots \\ f_{m} ( x_{1} , \cdots , x_{n} ) \end{bmatrix}$과 같이 정의된다. 이 때 $J := \begin{bmatrix} {\partial f_{1}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{1}  \over \partial x_{n} } \\ \vdots &amp; \ddots &amp; \vdots \\  {\partial f_{m}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{m}  \over \partial x_{n} }  \end{bmatrix}$행렬을 $f$의 Jacobian Matrix(자코비안 행렬)이라고 한다.
 </p>
 </div>
 </div>
-<div id="outline-container-orge00adde" class="outline-4">
-<h4 id="orge00adde">Introduction</h4>
-<div class="outline-text-4" id="text-orge00adde">
+<div id="outline-container-orgdec6a9f" class="outline-4">
+<h4 id="orgdec6a9f">Introduction</h4>
+<div class="outline-text-4" id="text-orgdec6a9f">
 <p>
 자코비안 행렬이라는 명칭은 19세기 독일의 수학자였던 Carl Gustav Jacob Jacobi에게서 따온 것이다. 다변수 함수에 대해 자코비안 행렬이 존재하면 미분 가능하다고 하며, 오히려 미분 가능한 함수 $f : \mathbb{R} \to \mathbb{R}$가 $1\times1$사이즈의 자코비안 행렬을 가진다고 생각할 수도 있다. 실제로 응용수학에서는 자코비안 행렬이 벡터함수의 미분계수 역할을 하는 경우가 많다.
 </p>
