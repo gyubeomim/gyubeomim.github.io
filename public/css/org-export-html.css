@@ -3085,7 +3085,7 @@
 
       a {
         //color: inherit;
-        //text-decoration: inherit;
+        text-decoration: inherit;
         background-color: inherit;
         font: inherit;
       }
