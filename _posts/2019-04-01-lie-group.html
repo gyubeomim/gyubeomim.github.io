@@ -22,10 +22,6 @@ SE3-base Optimization을 SLAM에서 사용하는 이유를 정리해보면
 <li>SE3 매니폴드 공간에서는 변화량을 업데이트 할 수 없다. 따라서 SE3 공간의 접평면인 se3 공간에서 변화량을 업데이트한 후 다시 SE3 공간으로 돌아오는 과정을 반복하여 포즈를 업데이트한다.</li>
 <li>회전을 나타내는 회전행렬, 쿼터니언, Angle-Axis 표현 방법들은 업데이트 과정에서 제약조건을 위배하는 경우가 발생하지만 SE3-based Optimization은 제약조건 없이 자유롭게 업데이트할 수 있다.</li>
 </ul>
-<hr />
-<p>
-Reference: <a href="https://www.youtube.com/watch?v=_i8PaekcguA&amp;list=PLubUquiqNQdOTNocmWCSWk9ZaWhV7ubCD">SLAMKR Study Season1</a>, <a href="https://www.facebook.com/groups/slamkr/learning_content/?filter=242316043076666">입문 Visual SLAM</a> 
-</p>
 </div>
 </div>
 <div id="outline-container-org6942b4a" class="outline-2">
@@ -181,5 +177,13 @@ a_{3} &amp; 0 &amp; -a_{1} \\
 \end{aligned}
 \end{equation}
 <hr />
+</div>
+</div>
+<div id="outline-container-org5acccd3" class="outline-2">
+<h2 id="org5acccd3">Reference</h2>
+<div class="outline-text-2" id="text-org5acccd3">
+<p>
+<a href="https://www.youtube.com/watch?v=_i8PaekcguA&amp;list=PLubUquiqNQdOTNocmWCSWk9ZaWhV7ubCD">SLAMKR Study Season1</a>, <a href="https://www.facebook.com/groups/slamkr/learning_content/?filter=242316043076666">입문 Visual SLAM</a> 
+</p>
 </div>
 </div>
