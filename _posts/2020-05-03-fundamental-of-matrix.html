@@ -75,13 +75,13 @@ cp+dr &amp; cq+ds
 행렬 $\mathbf{A}$에 대하여 역행렬이 존재하는 조건은 다음과 같다.
 </p>
 <ul class="org-ul">
-<li>$\mathbf{A}$가 정방행렬이어야 한다. $\mathbf{A} \in \mathbb{R}^{n\times n}$</li>
-<li>$\mathbf{A}$가 Full Rank를 가져야 한다. 즉 모든 열공간(Column Space)가 서로 선형독립이어야 한다.</li>
-<li>$\det{\mathbf{A}} \neq 0$이어야 한다.</li>
+<li><b>$\mathbf{A}$가 정방행렬이어야 한다.</b> $\mathbf{A} \in \mathbb{R}^{n\times n}$</li>
+<li><b>$\mathbf{A}$가 Full Rank를 가져야 한다.</b> 즉 모든 열공간(Column Space)가 서로 선형독립이어야 한다.</li>
+<li><b>$\det{\mathbf{A}} \neq 0$이어야 한다.</b></li>
 </ul>
 
 <p>
-$\mathbf{A}$가 Full Rank가 아닐 경우 판별식 det{\ \mathbf{A}} = 0이 되고 이 또한, 역행렬이 존재하지 않는 조건이 된다.
+$\mathbf{A}$가 Full Rank가 아닐 경우 판별식 $det{\ \mathbf{A}} = 0$이 되고 이 또한, 역행렬이 존재하지 않는 조건이 된다.
 </p>
 
 <hr />
@@ -100,18 +100,18 @@ $\mathbf{A}$가 Full Rank가 아닐 경우 판별식 det{\ \mathbf{A}} = 0이 �
 <h3 id="org064cdbc">Positive Definite</h3>
 <div class="outline-text-3" id="text-org064cdbc">
 </div>
-<div id="outline-container-org27a5e16" class="outline-4">
-<h4 id="org27a5e16">Definition</h4>
-<div class="outline-text-4" id="text-org27a5e16">
+<div id="outline-container-org777154d" class="outline-4">
+<h4 id="org777154d">Definition</h4>
+<div class="outline-text-4" id="text-org777154d">
 <p>
 행렬 $A \in \mathbb{C}^{m \times m}$가 $A=A^{*}$즉, 에르미트 행렬일 때 임의의 벡터 $\mathbf{x} \ne 0$에 대해 $\mathbf{x}^{*}A\mathbf{x} &gt; 0$이면 $A$는 <span class="underline">양의 정부호</span> 라고 부르고 $A&gt;0$로 쓴다.
 행렬 $A \in \mathbb{R}^{m \times m}$에 대해서는 $A = A^{T}$즉, 대칭행렬이고 $\mathbf{x} \ne 0$에 대해 $\mathbf{x}^{T} A \mathbf{x}&gt;0$일 때 $A&gt;0$로 정의한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org6afd23e" class="outline-4">
-<h4 id="org6afd23e">Introduction</h4>
-<div class="outline-text-4" id="text-org6afd23e">
+<div id="outline-container-org268eb25" class="outline-4">
+<h4 id="org268eb25">Introduction</h4>
+<div class="outline-text-4" id="text-org268eb25">
 <p>
 이러한 정의는 깔끔하지만 많은 것이 생략되어 있어 머리로 따라가기가 어렵다.
 차근차근 수식과 설명을 봐가면서 개념 자체를 받아 들여보자
@@ -199,17 +199,17 @@ A^{-1} = \frac{\text{adj}A}{\left | A \right |}
 <h3 id="org2c7688a">Hessian Matrix</h3>
 <div class="outline-text-3" id="text-org2c7688a">
 </div>
-<div id="outline-container-org01236a7" class="outline-4">
-<h4 id="org01236a7">Definition</h4>
-<div class="outline-text-4" id="text-org01236a7">
+<div id="outline-container-org13d45b1" class="outline-4">
+<h4 id="org13d45b1">Definition</h4>
+<div class="outline-text-4" id="text-org13d45b1">
 <p>
 $D \subset \mathbb{R}^{n}$에서 정의된 다변수 스칼라 함수 $f : D \to \mathbb{R}$에 대해 $H := \begin{bmatrix} {\partial^2 f  \over \partial x_{1}^2 } &amp; \cdots &amp;  {\partial^2 f  \over  \partial x_{1} \partial x_{n} } \\ \vdots &amp; \ddots &amp; \vdots \\  {\partial^2 f  \over \partial x_{n} \partial x_{1} } &amp; \cdots &amp;  {\partial^2 f_{m}  \over \partial x_{n}^2 }  \end{bmatrix}$를 $f$의 Hessian Matrix(헤시안 행렬)이라고 한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org5ef5562" class="outline-4">
-<h4 id="org5ef5562">Introduction</h4>
-<div class="outline-text-4" id="text-org5ef5562">
+<div id="outline-container-org4033055" class="outline-4">
+<h4 id="org4033055">Introduction</h4>
+<div class="outline-text-4" id="text-org4033055">
 <p>
 자코비안 행렬이 벡터함수의 도함수에 해당한다면 헤시안 행렬은 스칼라함수의 이계도함수라고 볼 수 있다. 이 때 헤시안 행렬은 <b>스칼라함수</b> $f(x,y,z,&#x2026;)$에 대해서만 정의된다는 점에 주의해야한다. 따라서 <b>벡터함수</b> $f_{i}(x,y,z,&#x2026;)$의 미분 행렬인 자코비안의 2차 미분 버전이 아니다. 벡터함수의 이계도함수 행렬은 별도로 정의하지 않는다.
 </p>
@@ -221,17 +221,17 @@ $D \subset \mathbb{R}^{n}$에서 정의된 다변수 스칼라 함수 $f : D \to
 <h3 id="org7d89265">Jacobian Matrix</h3>
 <div class="outline-text-3" id="text-org7d89265">
 </div>
-<div id="outline-container-org136b5da" class="outline-4">
-<h4 id="org136b5da">Definition</h4>
-<div class="outline-text-4" id="text-org136b5da">
+<div id="outline-container-org87cae97" class="outline-4">
+<h4 id="org87cae97">Definition</h4>
+<div class="outline-text-4" id="text-org87cae97">
 <p>
 $D \subset \mathbb{R}^{n}$에서 정의된 다변수 벡터 함수 $\mathbf{f} : D \to \mathbb{R}^{m}$가 각각의 스칼라 함수 $f_{1} , \cdots , f_{m} : D \to \mathbb{R}$에 대해 $\mathbf{f} ( x_{1} , \cdots , x_{n} )  : = \begin{bmatrix} f_{1} ( x_{1} , \cdots , x_{n} )  \\ \vdots \\ f_{m} ( x_{1} , \cdots , x_{n} ) \end{bmatrix}$과 같이 정의된다. 이 때 $J := \begin{bmatrix} {\partial f_{1}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{1}  \over \partial x_{n} } \\ \vdots &amp; \ddots &amp; \vdots \\  {\partial f_{m}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{m}  \over \partial x_{n} }  \end{bmatrix}$행렬을 $f$의 Jacobian Matrix(자코비안 행렬)이라고 한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org34b1162" class="outline-4">
-<h4 id="org34b1162">Introduction</h4>
-<div class="outline-text-4" id="text-org34b1162">
+<div id="outline-container-orga94b4e9" class="outline-4">
+<h4 id="orga94b4e9">Introduction</h4>
+<div class="outline-text-4" id="text-orga94b4e9">
 <p>
 자코비안 행렬이라는 명칭은 19세기 독일의 수학자였던 Carl Gustav Jacob Jacobi에게서 따온 것이다. 다변수 함수에 대해 자코비안 행렬이 존재하면 미분 가능하다고 하며, 오히려 미분 가능한 함수 $f : \mathbb{R} \to \mathbb{R}$가 $1\times1$사이즈의 자코비안 행렬을 가진다고 생각할 수도 있다. 실제로 응용수학에서는 자코비안 행렬이 벡터함수의 미분계수 역할을 하는 경우가 많다.
 </p>
