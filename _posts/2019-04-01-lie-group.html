@@ -106,9 +106,9 @@ SE(3) = \left \{ \mathbf{T} =
 <hr />
 </div>
 </div>
-<div id="outline-container-org3bcb1f5" class="outline-2">
-<h2 id="org3bcb1f5">Lie Group Derivation</h2>
-<div class="outline-text-2" id="text-org3bcb1f5">
+<div id="outline-container-orge31e4a3" class="outline-2">
+<h2 id="orge31e4a3">Lie Algebra Derivation</h2>
+<div class="outline-text-2" id="text-orge31e4a3">
 <p>
 임의의 회전 행렬은 다음과 같은 성질을 만족한다.
 </p>
@@ -176,6 +176,38 @@ a_{3} &amp; 0 &amp; -a_{1} \\
 \end{bmatrix} \mathbf{R}(t)
 \end{aligned}
 \end{equation}
+<p>
+시간 $t_{0}=0$일 때 회전행렬 $\mathbf{R}(0)=\mathbf{I}$라고 하면, $\mathbf{R}(t)$는 $t=0$주변의 1차 테일러 전개를 통해 표현할 수 있다.
+</p>
+
+\begin{equation}
+\begin{aligned}
+    \mathbf{R}(t) &amp; \simeq \mathbf{R}(t_{0}) + \dot{\mathbf{R}}(t_{0})(t-t_{0}) \\
+    &amp; = \mathbf{I} + \phi(t_{0})^{\wedge}t
+\end{aligned}
+\end{equation}
+<p>
+이 때 $\phi$는 SO(3) 원점에 대한 접평면을 의미한다. $t_{0}=0$근처에서 $\phi$가 일정하다고 가정하면 $\phi(t_{0}) = \phi_{0}$가 된다.
+</p>
+
+\begin{equation}
+\begin{aligned}
+\dot{\mathbf{R}}(t) = \phi(t_{0})^{wedge}\mathbf{R}(t) = \phi_{0}\mathbf{R}(t)
+\end{aligned}
+\end{equation}
+<p>
+위 방정식은 미분방정식이므로 미분방정식의 해는 다음과 같다.
+</p>
+
+\begin{equation}
+\begin{aligned}
+\mathbf{R}(t) = \exp(\phi_{0}^{\wedge}t).
+\end{aligned}
+\end{equation}
+<p>
+위 식은 $t=0$주위에서 회전행렬이 $\exp(\phi_{0}^{\wedge}t)$를 통해 계산될 수 있음을 의미한다.
+</p>
+
 <hr />
 </div>
 </div>
@@ -183,7 +215,7 @@ a_{3} &amp; 0 &amp; -a_{1} \\
 <h2 id="org5acccd3">Reference</h2>
 <div class="outline-text-2" id="text-org5acccd3">
 <p>
-<a href="https://www.youtube.com/watch?v=_i8PaekcguA&amp;list=PLubUquiqNQdOTNocmWCSWk9ZaWhV7ubCD">SLAMKR Study Season1</a>, <a href="https://www.facebook.com/groups/slamkr/learning_content/?filter=242316043076666">입문 Visual SLAM</a> 
+<a href="https://www.youtube.com/watch?v=_i9PaekcguA&amp;list=PLubUquiqNQdOTNocmWCSWk9ZaWhV7ubCD">SLAMKR Study Season1</a>, <a href="https://www.facebook.com/groups/slamkr/learning_content/?filter=242316043076666">입문 Visual SLAM</a> 
 </p>
 </div>
 </div>
