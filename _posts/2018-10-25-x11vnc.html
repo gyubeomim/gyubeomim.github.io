@@ -12,7 +12,7 @@ comments: true
 <h2 id="org9ebe097">Introduction</h2>
 <div class="outline-text-2" id="text-org9ebe097">
 <p>
-<b>x11vnc</b> 는 원격에서 리눅스 환경으로 접속할 수 있게 해주는 VNC 서버 프로그램이다. Ubuntu 16.04 LTS 환경에서 쉽게 설치 및 사용할 수 있어서 vnc 서버 프로그램으로 주로 사용된다. 본 포스트에서는 설치 방법 및 다양한 옵션들에 대해 설명한다.
+x11vnc 는 원격에서 리눅스 환경으로 접속할 수 있게 해주는 VNC 서버 프로그램이다. Ubuntu 16.04 LTS 환경에서 쉽게 설치 및 사용할 수 있어서 vnc 서버 프로그램으로 주로 사용된다. 본 포스트에서는 설치 방법 및 다양한 옵션들에 대해 설명한다.
 </p>
 <hr />
 </div>
@@ -21,7 +21,7 @@ comments: true
 <h2 id="orga60db74">Installation</h2>
 <div class="outline-text-2" id="text-orga60db74">
 <p>
-<b>x11vnc</b> 는 터미널을 연 상태에서 아래의 명령어를 통해 쉽게 설치할 수 있다.
+x11vnc 는 터미널을 연 상태에서 아래의 명령어를 통해 쉽게 설치할 수 있다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">sudo apt-get install x11vnc
@@ -34,7 +34,7 @@ comments: true
 <h2 id="org924c5f9">Service (daemon) registration</h2>
 <div class="outline-text-2" id="text-org924c5f9">
 <p>
-<b>x11vnc</b> 를 daemon 서비스로 등록하면 PC가 재부팅될 때도 프로그램이 자동으로 백그라운드에서 실행된다. 따라서 매번 부팅 때마다 서버 프로그램을 시작하지 않아도 된다.
+x11vnc 를 daemon 서비스로 등록하면 PC가 재부팅될 때도 프로그램이 자동으로 백그라운드에서 실행된다. 따라서 매번 부팅 때마다 서버 프로그램을 시작하지 않아도 된다.
 <code>/lib/systemd/system</code> 폴더에 <code>x11vnc.service</code> 파일을 아래와 같이 작성한다.
 </p>
 <div class="org-src-container">
@@ -81,7 +81,7 @@ $ sudo systemctl enable x11vnc.service
 <h2 id="orgaa37823">Set custom password</h2>
 <div class="outline-text-2" id="text-orgaa37823">
 <p>
-<b>x11vnc</b> 는 기본적으로 비밀번호없이 접속할 수 있다. 보안을 위해 접속할 때 비밀번호를 설정하고 싶으면 아래 명령어를 통해 설정한다.
+x11vnc 는 기본적으로 비밀번호없이 접속할 수 있다. 보안을 위해 접속할 때 비밀번호를 설정하고 싶으면 아래 명령어를 통해 설정한다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">sudo x11vnc -storepasswd
@@ -103,7 +103,7 @@ Password written to : /home/ubuntu/.vnc/passwd
 </div>
 
 <p>
-비밀번호를 적용하기 위해 <b>x11vnc</b> 서버를 재시작한다.
+비밀번호를 적용하기 위해 x11vnc 서버를 재시작한다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">$ sudo service x11vnc restart
