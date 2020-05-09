@@ -587,9 +587,9 @@ One-To-One은 <b>일대일함수(Injective)라고도 불리며 정의역의 원�
 <hr />
 </div>
 </div>
-<div id="outline-container-orgb52a69c" class="outline-2">
-<h2 id="orgb52a69c">Inner Product and Angle betwwen Vectors</h2>
-<div class="outline-text-2" id="text-orgb52a69c">
+<div id="outline-container-org02a935a" class="outline-2">
+<h2 id="org02a935a">Inner Product and Angle between Vectors</h2>
+<div class="outline-text-2" id="text-org02a935a">
 <p>
 두 벡터 $\mathbf{u,v}$의 내적은 다음과 같이 놈과 각도를 통해 표현할 수 있다.
 </p>
@@ -728,9 +728,9 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
 <hr />
 </div>
 </div>
-<div id="outline-container-org15222b7" class="outline-2">
-<h2 id="org15222b7">Orthogonal Projection Perspective</h2>
-<div class="outline-text-2" id="text-org15222b7">
+<div id="outline-container-org4e1da21" class="outline-2">
+<h2 id="org4e1da21">Orthogonal Projection Perspective</h2>
+<div class="outline-text-2" id="text-org4e1da21">
 <p>
 행렬 $\mathbf{C}=\mathbf{A}^{T}\mathbf{A}$가 있을 때 $\mathbf{b}$점에서 Col $\mathbf{A}$공간으로 프로젝션하면 다음과 같다.
 </p>
@@ -751,11 +751,11 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
 </p>
 
 <p>
-벡터들의 집합 $\mathbf{u}_{1},&ctdot;,\mathbf{u}_{n} &isin; \mathbb{R}^{n}$가 있을 때 모든 직교 집합들이 단위벡터인 경우 <b>직교정규(Orthonormal)</b> 하다고 말한다.
+벡터들의 집합 $\mathbf{u}_{1},&ctdot;,\mathbf{u}_{n} &isin; \mathbb{R}^{n}$가 있을 때 모든 직교 집합들이 단위벡터인 경우 <b>정규직교(Orthonormal)</b> 하다고 말한다.
 </p>
 
 <p>
-직교벡터와 직교정규벡터의 집합은 <b>항상 선형독립이다.</b>
+직교벡터와 정규직교벡터의 집합은 <b>항상 선형독립이다.</b>
 </p>
 
 <hr />
@@ -855,7 +855,7 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
 <h2 id="org5a42fea">Transformation: Orthogonal Projection</h2>
 <div class="outline-text-2" id="text-org5a42fea">
 <p>
-부분공간 $W$의 직교정규기저벡터 $\mathbf{u}_{1}, \mathbf{u}_{2}$가 있고 $\mathbf{b}$를 부분공간 $W$에 프로젝션시킨 점 $\hat{\mathbf{b}}$의 변환을 생각해보면
+부분공간 $W$의 정규직교기저벡터 $\mathbf{u}_{1}, \mathbf{u}_{2}$가 있고 $\mathbf{b}$를 부분공간 $W$에 프로젝션시킨 점 $\hat{\mathbf{b}}$의 변환을 생각해보면
 </p>
 
 \begin{equation}
@@ -871,11 +871,11 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
 <hr />
 </div>
 </div>
-<div id="outline-container-org4e1da21" class="outline-2">
-<h2 id="org4e1da21">Orthogonal Projection Perspective</h2>
-<div class="outline-text-2" id="text-org4e1da21">
+<div id="outline-container-orge29a4ef" class="outline-2">
+<h2 id="orge29a4ef">Orthogonal Projection Perspective</h2>
+<div class="outline-text-2" id="text-orge29a4ef">
 <p>
-직교정규인 열벡터를 가지는 행렬 $\mathbf{A}= \mathbf{U}=  [\mathbf{u}_{1} \ \mathbf{u}_{2}]$가 있을 때 $\mathbf{b}$벡터를 Col $\mathbf{A}$공간으로 정사영시키는 경우
+정규직교인 열벡터를 가지는 행렬 $\mathbf{A}= \mathbf{U}=  [\mathbf{u}_{1} \ \mathbf{u}_{2}]$가 있을 때 $\mathbf{b}$벡터를 Col $\mathbf{A}$공간으로 정사영시키는 경우
 </p>
 
 \begin{equation}
@@ -1224,7 +1224,7 @@ $(\mathbf{A}-&lambda; \mathbf{x})\mathbf{x}=0$에서 $(\mathbf{A}-&lambda; \math
   \end{aligned}
 \end{equation}
 <p>
-이 때, $\mathbf{U}&isin; \mathbb{R}^{m &times; m}, \mathbf{V}&isin; \mathbb{R}^{n&times; n}$인 행렬이며 이들은 각 열이 Col $\mathbf{A}$와 Row $\mathbf{A}$에 의 직교정규기저벡터(Orthonormal Basis)로 구성되어 있다. $&Sigma; &isin; \mathbb{R}^{m&times; n}$은 대각행렬이며 대각 성분들이 $\sigma_{1} \ge \sigma_{2} \ge \cdots \ge \sigma_{\min(m,n)}$특이값이며 큰 값부터 내림차순으로 정렬된 행렬이다. 
+이 때, $\mathbf{U}&isin; \mathbb{R}^{m &times; m}, \mathbf{V}&isin; \mathbb{R}^{n&times; n}$인 행렬이며 이들은 각 열이 Col $\mathbf{A}$와 Row $\mathbf{A}$에 의 정규직교기저벡터(Orthonormal Basis)로 구성되어 있다. $&Sigma; &isin; \mathbb{R}^{m&times; n}$은 대각행렬이며 대각 성분들이 $\sigma_{1} \ge \sigma_{2} \ge \cdots \ge \sigma_{\min(m,n)}$특이값이며 큰 값부터 내림차순으로 정렬된 행렬이다. 
 </p>
 
 <hr />
@@ -1258,7 +1258,7 @@ $(\mathbf{A}-&lambda; \mathbf{x})\mathbf{x}=0$에서 $(\mathbf{A}-&lambda; \math
 <h2 id="org8d34ee7">Another Perspective of SVD</h2>
 <div class="outline-text-2" id="text-org8d34ee7">
 <p>
-행렬 $\mathbf{A}&isin; \mathbb{R}^{m&times; n}$에 대해 Gram-Schmidt Orthogonalization을 사용하면 Col $\mathbf{A}$에 대한 직교정규기저벡터 $\mathbf{u}_{1},&ctdot;,\mathbf{u}_{n}$와 Row $\mathbf{A}$에 대한 직교정규기저벡터 $\mathbf{v}_{1},&ctdot;,\mathbf{v}_{n}$을 구할 수 있다. 하지만 이렇게 계산한 직교정규기저벡터 $\mathbf{u}_{i}, \mathbf{v}_{i}$는 유일하지 않다.
+행렬 $\mathbf{A}&isin; \mathbb{R}^{m&times; n}$에 대해 Gram-Schmidt Orthogonalization을 사용하면 Col $\mathbf{A}$에 대한 정규직교기저벡터 $\mathbf{u}_{1},&ctdot;,\mathbf{u}_{n}$와 Row $\mathbf{A}$에 대한 정규직교기저벡터 $\mathbf{v}_{1},&ctdot;,\mathbf{v}_{n}$을 구할 수 있다. 하지만 이렇게 계산한 정규직교기저벡터 $\mathbf{u}_{i}, \mathbf{v}_{i}$는 유일하지 않다.
 </p>
 
 <p>
@@ -1440,7 +1440,7 @@ Feature-by-data item 행렬 $\mathbf{A}&isin; \mathbb{R}^{m&times; n}$이 주어
   \end{aligned}
 \end{equation}
 <p>
-가 성립하고 $\mathbf{G}$의 각 열들은 직교정규벡터이며 데이터의 유사도 행렬 $\mathbf{S}= \mathbf{A}^{T}\mathbf{A}$의 유사도를 보존하는 <b>변환 $\mathbf{G}$를 차원 축소 변환(Dimension-Reducing Transformation)</b> 이라고 한다. 
+가 성립하고 $\mathbf{G}$의 각 열들은 정규직교벡터이며 데이터의 유사도 행렬 $\mathbf{S}= \mathbf{A}^{T}\mathbf{A}$의 유사도를 보존하는 <b>변환 $\mathbf{G}$를 차원 축소 변환(Dimension-Reducing Transformation)</b> 이라고 한다. 
 </p>
 
 \begin{equation}
