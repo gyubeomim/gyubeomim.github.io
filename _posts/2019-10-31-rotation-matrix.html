@@ -1,19 +1,31 @@
 ---
 layout: post
-title: (Robotics) Rotation Matrix 
-description: 
+title: (Robotics) Rotation Matrix
+description:
 date: 2019-10-31
 categories: [Engineering]
 tag: [Robotics, SLAM, Transformation, Geometry, Spatial Description]
 use_math: true
 comments: true
 ---
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org98d08f7">1. Introduction</a></li>
+<li><a href="#org1d11780">2. Properties of Rotation Matrix</a></li>
+<li><a href="#org7483e6f">3. Special Orthogonal Group (SO3)</a></li>
+<li><a href="#org7e2e02b">4. Reference</a></li>
+</ul>
+</div>
+</div>
+
 <p>
 이전 포스트: <a href="../../../../2019/10/30/coordinate-system">Coordinate System (좌표계)</a> 
 </p>
 <div id="outline-container-org98d08f7" class="outline-2">
-<h2 id="org98d08f7">Introduction</h2>
-<div class="outline-text-2" id="text-org98d08f7">
+<h2 id="org98d08f7"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
 
 <div class="figure">
 <p><img src="/pictures/191030/03.PNG" alt="03.PNG" align="center" width="300px" />
@@ -58,8 +70,8 @@ comments: true
 </div>
 </div>
 <div id="outline-container-org1d11780" class="outline-2">
-<h2 id="org1d11780">Properties of Rotation Matrix</h2>
-<div class="outline-text-2" id="text-org1d11780">
+<h2 id="org1d11780"><span class="section-number-2">2</span> Properties of Rotation Matrix</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 다음과 같이 총 12개의 변수를 사용하여 $\{B\}$frame을 $\{S\}$frame 기준으로 표현할 수 있다.
 </p>
@@ -219,8 +231,8 @@ frame이 회전할 때 frame 위에 있는 사람이 보면 vector가 회전하�
 </div>
 </div>
 <div id="outline-container-org7483e6f" class="outline-2">
-<h2 id="org7483e6f">Special Orthogonal Group (SO3)</h2>
-<div class="outline-text-2" id="text-org7483e6f">
+<h2 id="org7483e6f"><span class="section-number-2">3</span> Special Orthogonal Group (SO3)</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 회전행렬과 같이 순수한 회전에만 관여하는 행렬을 따로 Group으로 묶을 수 있다. 회전행렬의 성질을 만족하는 모든 집합은 Special Orthogonal Group (SO)에 속하며 본 자료에서 다루는 3차원 공간 상의 회전행렬은 SO(3)에 속한다. SO(3) 그룹은 Lie Group에 속한다. 
 </p>
@@ -257,8 +269,8 @@ R_{1} + R_{2} \notin SO(3) \quad \text{and} \quad R_{1}R_{2} \in SO(3)
 </div>
 
 <div id="outline-container-org7e2e02b" class="outline-2">
-<h2 id="org7e2e02b">Reference</h2>
-<div class="outline-text-2" id="text-org7e2e02b">
+<h2 id="org7e2e02b"><span class="section-number-2">4</span> Reference</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 <a href="https://keunjun.blog">Keunjun's blog</a>
 </p>

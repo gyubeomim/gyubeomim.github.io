@@ -1,19 +1,32 @@
 ---
 layout: post
-title: (Robotics) Rigid Body Transformation 
-description: 
+title: (Robotics) Rigid Body Transformation
+description:
 date: 2019-11-02
 categories: [Engineering]
 tag: [Robotics, SLAM, Transformation, Geometry, Spatial Description]
 use_math: true
 comments: true
 ---
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org8940ae5">1. Introduction</a></li>
+<li><a href="#org9d04aec">2. Rigid Body Transformation</a></li>
+<li><a href="#orgb55f814">3. Properties of Transformation Matrix</a></li>
+<li><a href="#org38d968c">4. Special Euclidean Group (SE3)</a></li>
+<li><a href="#org62d9481">5. Reference</a></li>
+</ul>
+</div>
+</div>
+
 <p>
 이전 포스트: <a href="../../../../2019/10/31/rotation-matrix">Rotation Matrix (회전 행렬)</a> 
 </p>
 <div id="outline-container-org8940ae5" class="outline-2">
-<h2 id="org8940ae5">Introduction</h2>
-<div class="outline-text-2" id="text-org8940ae5">
+<h2 id="org8940ae5"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
 <p>
 본 포스트는 강체 변환 (Rigid Body Transformation)에 대해 다룬다. 강체(Rigid Body)란 이론적으로 무한대의 강성을 가지는 물체를 말한다. 따라서 강체에 힘을 가해도 변형이 되지 않으며 무게중심으로 지정되는 하나의 점에 의해 운동이 결정되는 특징이 있다. 필자가 공부하고 있는 Simultaneous Localization and Mapping (SLAM)에서 움직이는 로봇은 형태가 일정하다고 가정하므로 결국 강체 변환 (Rigid Body Transformation)을 사용하여 수학적으로 표현한다.
 </p>
@@ -25,8 +38,8 @@ comments: true
 </div>
 </div>
 <div id="outline-container-org9d04aec" class="outline-2">
-<h2 id="org9d04aec">Rigid Body Transformation</h2>
-<div class="outline-text-2" id="text-org9d04aec">
+<h2 id="org9d04aec"><span class="section-number-2">2</span> Rigid Body Transformation</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 이전 포스트에서는 회전행렬을 통한 강체의 순수한 회전에 대해 다뤘다. 하지만 3차원 상의 물체는 회전과 이동을 모두 표현할 수 있어야하므로 회전행렬만으로는 부족하다. 따라서 물체의 회전과 이동을 한 번에 표현하는 변환행렬 (homogeneous transformation matrix)를 아래와 같이 정의한다.
 </p>
@@ -104,8 +117,8 @@ T
 </div>
 </div>
 <div id="outline-container-orgb55f814" class="outline-2">
-<h2 id="orgb55f814">Properties of Transformation Matrix</h2>
-<div class="outline-text-2" id="text-orgb55f814">
+<h2 id="orgb55f814"><span class="section-number-2">3</span> Properties of Transformation Matrix</h2>
+<div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li><p>
 다음과 같은 연속적인 변환을 나타낼 때는 변환행렬의 곱셈을 통해 표현할 수 있다.
@@ -194,8 +207,8 @@ frame 뿐만 아니라 특정 벡터를 회전 및 이동하는 연산자로써 
 </div>
 </div>
 <div id="outline-container-org38d968c" class="outline-2">
-<h2 id="org38d968c">Special Euclidean Group (SE3)</h2>
-<div class="outline-text-2" id="text-org38d968c">
+<h2 id="org38d968c"><span class="section-number-2">4</span> Special Euclidean Group (SE3)</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 이와 같이 강체의 이동과 회전에 관여하는 행렬을 따로 Group으로 묶을 수 있다. 변환행렬의 성질을 만족하는 모든 집합은 Special Euclidean Group (SE)에 속한다. 3차원 공간의 경우 SE(3)이다. SE(3) Group은 Lie Group에 속한다.
 </p>
@@ -231,8 +244,8 @@ SE(3) = \left \{ T = \begin{bmatrix} R &amp; p \\  \mathbf{0}_{3\times3} &amp; 1
 </div>
 </div>
 <div id="outline-container-org62d9481" class="outline-2">
-<h2 id="org62d9481">Reference</h2>
-<div class="outline-text-2" id="text-org62d9481">
+<h2 id="org62d9481"><span class="section-number-2">5</span> Reference</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 <a href="https://keunjun.blog">Keunjun's blog</a>
 </p>
