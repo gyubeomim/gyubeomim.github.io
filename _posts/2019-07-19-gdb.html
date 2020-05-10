@@ -159,3 +159,717 @@ i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가
 </ul>
 </div>
 </div>
+
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5d4d8e1">1. Linear Equation</a></li>
+<li><a href="#org652b42a">2. Linear System</a></li>
+<li><a href="#org9d66cf6">3. Identity Matrix</a></li>
+<li><a href="#orgc51fa4e">4. Inverse Matrix</a></li>
+<li><a href="#org4b7c82d">5. Solving Linear System</a></li>
+<li><a href="#orgce9ea3f">6. Linear Combination</a></li>
+<li><a href="#orge7710f3">7. Span</a></li>
+<li><a href="#org443ac57">8. From Matrix Equation to Vector Equation</a></li>
+<li><a href="#org262ba6d">9. Several Perspectives about Matrix Multiplication</a></li>
+<li><a href="#org2a46892">10. Linear Independence</a></li>
+<li><a href="#orgefe0bad">11. Linear Dependence</a></li>
+
+
+---
+layout: post
+title: (Linear Algebra) Notes on Linear Algebra
+description:
+date: 2020-05-09
+categories: [Mathematics]
+tag: [Linear Algebra, Matrix]
+use_math: true
+comments: true
+---
+
+(buffer-file-name)
+
+(directory-files "~/gitrepo/edward0im.github.io/_posts/")
+
+
+
+(defun keep-html-blog-post-convention ()
+  (interactive)
+
+  (dolist (fname (file-expand-wildcards "~/gitrepo/edward0im.github.io/_posts/*.html"))
+    (with-temp-buffer
+      (insert-file-contents fname)
+        (save-excursion
+          (beginning-of-buffer)
+          (setq p1 (line-beginning-position))
+          (setq p2 (line-end-position))
+          (setq first-line (buffer-substring-no-properties p1 p2))
+          (if (string-match "---" first-line)
+              nil
+            (save-excursion
+              (beginning-of-buffer)
+              (search-forward "---")
+              (setq start-line (line-beginning-position))
+              (next-line)
+              (search-forward "---")
+              (setq end-line (line-end-position))
+              (kill-region start-line end-line)
+              (beginning-of-buffer)
+              (yank)
+              )
+            )
+          )
+        )
+    (write-region (point-min) (point-max) fname t)
+      )
+    )
+  )
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5d4d8e1">1. Linear Equation</a></li>
+<li><a href="#org652b42a">2. Linear System</a></li>
+<li><a href="#org9d66cf6">3. Identity Matrix</a></li>
+<li><a href="#orgc51fa4e">4. Inverse Matrix</a></li>
+<li><a href="#org4b7c82d">5. Solving Linear System</a></li>
+<li><a href="#orgce9ea3f">6. Linear Combination</a></li>
+<li><a href="#orge7710f3">7. Span</a></li>
+<li><a href="#org443ac57">8. From Matrix Equation to Vector Equation</a></li>
+<li><a href="#org262ba6d">9. Several Perspectives about Matrix Multiplication</a></li>
+<li><a href="#org2a46892">10. Linear Independence</a></li>
+<li><a href="#orgefe0bad">11. Linear Dependence</a></li>
+
+
+---
+layout: post
+title: (Linear Algebra) Notes on Linear Algebra
+description:
+date: 2020-05-09
+categories: [Mathematics]
+tag: [Linear Algebra, Matrix]
+use_math: true
+comments: true
+---
+
+(buffer-file-name)
+
+(directory-files "~/gitrepo/edward0im.github.io/_posts/")
+
+
+
+(defun keep-html-blog-post-convention ()
+  (interactive)
+
+  (dolist (fname (file-expand-wildcards "~/gitrepo/edward0im.github.io/_posts/*.html"))
+    (with-temp-buffer
+      (insert-file-contents fname)
+        (save-excursion
+          (beginning-of-buffer)
+          (setq p1 (line-beginning-position))
+          (setq p2 (line-end-position))
+          (setq first-line (buffer-substring-no-properties p1 p2))
+          (if (string-match "---" first-line)
+              nil
+            (save-excursion
+              (beginning-of-buffer)
+              (search-forward "---")
+              (setq start-line (line-beginning-position))
+              (next-line)
+              (search-forward "---")
+              (setq end-line (line-end-position))
+              (kill-region start-line end-line)
+              (beginning-of-buffer)
+              (yank)
+              )
+            )
+          )
+        )
+    (write-region (point-min) (point-max) fname t)
+      )
+    )
+  )
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5d4d8e1">1. Linear Equation</a></li>
+<li><a href="#org652b42a">2. Linear System</a></li>
+<li><a href="#org9d66cf6">3. Identity Matrix</a></li>
+<li><a href="#orgc51fa4e">4. Inverse Matrix</a></li>
+<li><a href="#org4b7c82d">5. Solving Linear System</a></li>
+<li><a href="#orgce9ea3f">6. Linear Combination</a></li>
+<li><a href="#orge7710f3">7. Span</a></li>
+<li><a href="#org443ac57">8. From Matrix Equation to Vector Equation</a></li>
+<li><a href="#org262ba6d">9. Several Perspectives about Matrix Multiplication</a></li>
+<li><a href="#org2a46892">10. Linear Independence</a></li>
+<li><a href="#orgefe0bad">11. Linear Dependence</a></li>
+
+
+---
+layout: post
+title: (Linear Algebra) Notes on Linear Algebra
+description:
+date: 2020-05-09
+categories: [Mathematics]
+tag: [Linear Algebra, Matrix]
+use_math: true
+comments: true
+---
+
+(buffer-file-name)
+
+(directory-files "~/gitrepo/edward0im.github.io/_posts/")
+
+
+
+(defun keep-html-blog-post-convention ()
+  (interactive)
+
+  (dolist (fname (file-expand-wildcards "~/gitrepo/edward0im.github.io/_posts/*.html"))
+    (message fname)
+    (sleep-for 1)
+    (with-temp-buffer
+      (insert-file-contents fname)
+      (message "1")
+      (sleep-for 1)
+        (save-excursion
+          (beginning-of-buffer)
+          (setq p1 (line-beginning-position))
+          (setq p2 (line-end-position))
+          (setq first-line (buffer-substring-no-properties p1 p2))
+          (if (string-match "---" first-line)
+              (message "h")
+            (save-excursion
+              (message "2")
+              (sleep-for 1)
+              (beginning-of-buffer)
+              (search-forward "---")
+              (setq start-line (line-beginning-position))
+              (next-line)
+              (search-forward "---")
+              (setq end-line (line-end-position))
+              (kill-region start-line end-line)
+              (beginning-of-buffer)
+              (yank)
+              )
+            )
+          )
+        )
+    (write-region (point-min) (point-max) fname t)
+      )
+    )
+  )
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5d4d8e1">1. Linear Equation</a></li>
+<li><a href="#org652b42a">2. Linear System</a></li>
+<li><a href="#org9d66cf6">3. Identity Matrix</a></li>
+<li><a href="#orgc51fa4e">4. Inverse Matrix</a></li>
+<li><a href="#org4b7c82d">5. Solving Linear System</a></li>
+<li><a href="#orgce9ea3f">6. Linear Combination</a></li>
+<li><a href="#orge7710f3">7. Span</a></li>
+<li><a href="#org443ac57">8. From Matrix Equation to Vector Equation</a></li>
+<li><a href="#org262ba6d">9. Several Perspectives about Matrix Multiplication</a></li>
+<li><a href="#org2a46892">10. Linear Independence</a></li>
+<li><a href="#orgefe0bad">11. Linear Dependence</a></li>
+
+
+---
+layout: post
+title: (Linear Algebra) Notes on Linear Algebra
+description:
+date: 2020-05-09
+categories: [Mathematics]
+tag: [Linear Algebra, Matrix]
+use_math: true
+comments: true
+---
+
+(buffer-file-name)
+
+(directory-files "~/gitrepo/edward0im.github.io/_posts/")
+
+
+
+(defun keep-html-blog-post-convention ()
+  (interactive)
+
+  (dolist (fname (file-expand-wildcards "~/gitrepo/edward0im.github.io/_posts/*.html"))
+    (with-temp-buffer
+      (insert-file-contents fname)
+        (save-excursion
+          (beginning-of-buffer)
+          (setq p1 (line-beginning-position))
+          (setq p2 (line-end-position))
+          (setq first-line (buffer-substring-no-properties p1 p2))
+          (if (string-match "---" first-line)
+              (message "h")
+            (save-excursion
+              (message "2")
+              (sleep-for 1)
+              (beginning-of-buffer)
+              (search-forward "---")
+              (setq start-line (line-beginning-position))
+              (next-line)
+              (search-forward "---")
+              (setq end-line (line-end-position))
+              (kill-region start-line end-line)
+              (beginning-of-buffer)
+              (yank)
+              )
+            )
+          )
+        )
+    (write-region (point-min) (point-max) fname t)
+      )
+    )
+  )---
+layout: post
+title: (Linux) Introduction to gdb
+description: 
+date: 2019-07-19
+categories: [Technology]
+tag: [Linux, debugger]
+use_math: true
+comments: true
+---
+<div id="outline-container-orgef2dede" class="outline-2">
+<h2 id="orgef2dede">Introduction</h2>
+<div class="outline-text-2" id="text-orgef2dede">
+<p>
+gdb는 리눅스에서 바이너리(실행) 파일을 디버깅하기 위한 프로그램이다. 다양한 옵션들이 존재하므로 따로 정리했다. 
+</p>
+<hr />
+</div>
+</div>
+<div id="outline-container-orgd784034" class="outline-2">
+<h2 id="orgd784034">Commands</h2>
+<div class="outline-text-2" id="text-orgd784034">
+<ul class="org-ul">
+<li><code>t</code> (thread)
+<ul class="org-ul">
+<li>현재 실행 중인 스레드의 정보를 표시한다.</li>
+</ul></li>
+<li><code>bt</code> (back trace)
+<ul class="org-ul">
+<li>함수의 호출 스택 정보를 표시한다.</li>
+</ul></li>
+<li><code>i</code> (info)
+<ul class="org-ul">
+<li><code>i b 1</code>
+<ul class="org-ul">
+<li>1번 breakpoint의 정보를 확인한다.</li>
+</ul></li>
+<li><code>i t 1</code>
+<ul class="org-ul">
+<li>1번 thread의 정보를 확인한다.</li>
+</ul></li>
+</ul></li>
+<li><code>f</code> (file)</li>
+<li><code>p</code> (print)
+<ul class="org-ul">
+<li><code>p vec.size()</code>
+<ul class="org-ul">
+<li>vec 변수의 크기를 확인한다.</li>
+</ul></li>
+</ul></li>
+<li><code>b</code> (breakpoint)
+<ul class="org-ul">
+<li><code>b test.cpp:30</code>
+<ul class="org-ul">
+<li>test.cpp 30번줄에 breakpoint를 설정한다</li>
+</ul></li>
+</ul></li>
+<li><code>d</code> (disable)
+<ul class="org-ul">
+<li><code>d br 1 (or, d 1)</code>
+<ul class="org-ul">
+<li>1번 breakpoint를 제거한다.</li>
+</ul></li>
+</ul></li>
+<li><code>n</code> (next)
+<ul class="org-ul">
+<li>현재 커서가 가르키는 라인을 실행하고 다음 라인으로 넘어간다. (함수를 실행하면 함수 안으로 들어가지 않는다.)</li>
+</ul></li>
+<li><code>s</code> (step)
+<ul class="org-ul">
+<li>현재 커서가 가르키는 라인을 실행하고 다음 라인으로 넘어간다. (함수를 실행하면 함수 안으로 들어간다.)</li>
+</ul></li>
+<li><code>c</code> (continue)</li>
+<li><code>l</code> (list)
+<ul class="org-ul">
+<li><code>l 10</code></li>
+<li><code>l thisIsFunction()</code></li>
+</ul></li>
+<li><code>finish</code></li>
+<li><p>
+<code>cond</code> (condition)
+</p>
+<ul class="org-ul">
+<li><code>cond 8 i = 456</code>
+<ul class="org-ul">
+<li><p>
+i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가능하다.
+</p>
+<div class="org-src-container">
+<pre class="src src-c++"><span class="org-type">int</span> <span class="org-variable-name">i</span>=0;
+<span class="org-comment-delimiter">// </span><span class="org-comment">do something</span>
+<span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;1000; i++) {
+  <span class="org-comment-delimiter">// </span><span class="org-comment">do something</span>
+}
+</pre>
+</div></li>
+</ul></li>
+<li><code>cond 8 foo(i) &gt; bar(rand())</code> : 8번 breakpoint를 foo(i) &gt; bar(rand())를 만족할 때만 실행하도록 설정한다.</li>
+</ul>
+<hr /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0509c02" class="outline-2">
+<h2 id="org0509c02">Shortcuts</h2>
+<div class="outline-text-2" id="text-org0509c02">
+<ul class="org-ul">
+<li><code>C-x C-a</code>
+<ul class="org-ul">
+<li>현재 디버깅 중인 코드 화면을 보여준다.</li>
+</ul></li>
+<li><code>C-l</code></li>
+<li><p>
+<code>C-p C-n</code>
+</p>
+<hr /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1759b4a" class="outline-2">
+<h2 id="org1759b4a">.gdbinit settings</h2>
+<div class="outline-text-2" id="text-org1759b4a">
+<ul class="org-ul">
+<li><p>
+<code>set listsize &lt;number&gt;</code> 
+</p>
+<hr /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0488dd1" class="outline-2">
+<h2 id="org0488dd1">Options</h2>
+<div class="outline-text-2" id="text-org0488dd1">
+<ul class="org-ul">
+<li><code>-i=mi</code> (&#x2013;interface=mi)
+<ul class="org-ul">
+<li>emacs에서만 동작하는 옵션.</li>
+<li>it makes gdb present a machine-oriented text interface rather than the human-oriented command prompt you get without it. see <a href="https://stackoverflow.com/a/28901568/7402755">reference</a></li>
+</ul></li>
+<li><code>-tui</code>
+<ul class="org-ul">
+<li>현재 디버깅 중인 코드 화면을 보여주는 옵션.</li>
+</ul></li>
+<li><code>-q</code>
+<ul class="org-ul">
+<li>gdb를 시작할 때 나오는 intro message들을 출력하지 않는 옵션.</li>
+</ul></li>
+<li><code>--ex</code>
+<ul class="org-ul">
+<li>&#x2013;ex "b test.cc::121" 과 같이 gdb를 시작하자마자 같이 실행할 명령어를 입력하는 옵션.</li>
+</ul></li>
+<li><p>
+<code>--args</code>
+</p>
+<ul class="org-ul">
+<li>디버깅하는 프로그램의 파라미터를 같이 입력하는 옵션.</li>
+</ul>
+<hr /></li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5d4d8e1">1. Linear Equation</a></li>
+<li><a href="#org652b42a">2. Linear System</a></li>
+<li><a href="#org9d66cf6">3. Identity Matrix</a></li>
+<li><a href="#orgc51fa4e">4. Inverse Matrix</a></li>
+<li><a href="#org4b7c82d">5. Solving Linear System</a></li>
+<li><a href="#orgce9ea3f">6. Linear Combination</a></li>
+<li><a href="#orge7710f3">7. Span</a></li>
+<li><a href="#org443ac57">8. From Matrix Equation to Vector Equation</a></li>
+<li><a href="#org262ba6d">9. Several Perspectives about Matrix Multiplication</a></li>
+<li><a href="#org2a46892">10. Linear Independence</a></li>
+<li><a href="#orgefe0bad">11. Linear Dependence</a></li>
+
+
+---
+layout: post
+title: (Linear Algebra) Notes on Linear Algebra
+description:
+date: 2020-05-09
+categories: [Mathematics]
+tag: [Linear Algebra, Matrix]
+use_math: true
+comments: true
+---
+
+(buffer-file-name)
+
+(directory-files "~/gitrepo/edward0im.github.io/_posts/")
+
+
+
+(defun keep-html-blog-post-convention ()
+  (interactive)
+
+  (dolist (fname (file-expand-wildcards "~/gitrepo/edward0im.github.io/_posts/*.html"))
+    (with-temp-buffer
+      (insert-file-contents fname)
+        (save-excursion
+          (beginning-of-buffer)
+          (setq p1 (line-beginning-position))
+          (setq p2 (line-end-position))
+          (setq first-line (buffer-substring-no-properties p1 p2))
+          (if (string-match "---" first-line)
+              nil
+            (save-excursion
+              (beginning-of-buffer)
+              (search-forward "---")
+              (setq start-line (line-beginning-position))
+              (next-line)
+              (search-forward "---")
+              (setq end-line (line-end-position))
+              (kill-region start-line end-line)
+              (beginning-of-buffer)
+              (yank)
+              )
+            )
+          )
+        )
+    (write-region (point-min) (point-max) fname t)
+      )
+    )
+  )
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5d4d8e1">1. Linear Equation</a></li>
+<li><a href="#org652b42a">2. Linear System</a></li>
+<li><a href="#org9d66cf6">3. Identity Matrix</a></li>
+<li><a href="#orgc51fa4e">4. Inverse Matrix</a></li>
+<li><a href="#org4b7c82d">5. Solving Linear System</a></li>
+<li><a href="#orgce9ea3f">6. Linear Combination</a></li>
+<li><a href="#orge7710f3">7. Span</a></li>
+<li><a href="#org443ac57">8. From Matrix Equation to Vector Equation</a></li>
+<li><a href="#org262ba6d">9. Several Perspectives about Matrix Multiplication</a></li>
+<li><a href="#org2a46892">10. Linear Independence</a></li>
+<li><a href="#orgefe0bad">11. Linear Dependence</a></li>
+
+
+---
+layout: post
+title: (Linear Algebra) Notes on Linear Algebra
+description:
+date: 2020-05-09
+categories: [Mathematics]
+tag: [Linear Algebra, Matrix]
+use_math: true
+comments: true
+---
+
+(buffer-file-name)
+
+(directory-files "~/gitrepo/edward0im.github.io/_posts/")
+
+
+
+(defun keep-html-blog-post-convention ()
+  (interactive)
+
+  (dolist (fname (file-expand-wildcards "~/gitrepo/edward0im.github.io/_posts/*.html"))
+    (with-temp-buffer
+      (insert-file-contents fname)
+        (save-excursion
+          (beginning-of-buffer)
+          (setq p1 (line-beginning-position))
+          (setq p2 (line-end-position))
+          (setq first-line (buffer-substring-no-properties p1 p2))
+          (if (string-match "---" first-line)
+              nil
+            (save-excursion
+              (beginning-of-buffer)
+              (search-forward "---")
+              (setq start-line (line-beginning-position))
+              (next-line)
+              (search-forward "---")
+              (setq end-line (line-end-position))
+              (kill-region start-line end-line)
+              (beginning-of-buffer)
+              (yank)
+              )
+            )
+          )
+        )
+    (write-region (point-min) (point-max) fname t)
+      )
+    )
+  )
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5d4d8e1">1. Linear Equation</a></li>
+<li><a href="#org652b42a">2. Linear System</a></li>
+<li><a href="#org9d66cf6">3. Identity Matrix</a></li>
+<li><a href="#orgc51fa4e">4. Inverse Matrix</a></li>
+<li><a href="#org4b7c82d">5. Solving Linear System</a></li>
+<li><a href="#orgce9ea3f">6. Linear Combination</a></li>
+<li><a href="#orge7710f3">7. Span</a></li>
+<li><a href="#org443ac57">8. From Matrix Equation to Vector Equation</a></li>
+<li><a href="#org262ba6d">9. Several Perspectives about Matrix Multiplication</a></li>
+<li><a href="#org2a46892">10. Linear Independence</a></li>
+<li><a href="#orgefe0bad">11. Linear Dependence</a></li>
+
+
+---
+layout: post
+title: (Linear Algebra) Notes on Linear Algebra
+description:
+date: 2020-05-09
+categories: [Mathematics]
+tag: [Linear Algebra, Matrix]
+use_math: true
+comments: true
+---
+
+(buffer-file-name)
+
+(directory-files "~/gitrepo/edward0im.github.io/_posts/")
+
+
+
+(defun keep-html-blog-post-convention ()
+  (interactive)
+
+  (dolist (fname (file-expand-wildcards "~/gitrepo/edward0im.github.io/_posts/*.html"))
+    (message fname)
+    (sleep-for 1)
+    (with-temp-buffer
+      (insert-file-contents fname)
+      (message "1")
+      (sleep-for 1)
+        (save-excursion
+          (beginning-of-buffer)
+          (setq p1 (line-beginning-position))
+          (setq p2 (line-end-position))
+          (setq first-line (buffer-substring-no-properties p1 p2))
+          (if (string-match "---" first-line)
+              (message "h")
+            (save-excursion
+              (message "2")
+              (sleep-for 1)
+              (beginning-of-buffer)
+              (search-forward "---")
+              (setq start-line (line-beginning-position))
+              (next-line)
+              (search-forward "---")
+              (setq end-line (line-end-position))
+              (kill-region start-line end-line)
+              (beginning-of-buffer)
+              (yank)
+              )
+            )
+          )
+        )
+    (write-region (point-min) (point-max) fname t)
+      )
+    )
+  )
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5d4d8e1">1. Linear Equation</a></li>
+<li><a href="#org652b42a">2. Linear System</a></li>
+<li><a href="#org9d66cf6">3. Identity Matrix</a></li>
+<li><a href="#orgc51fa4e">4. Inverse Matrix</a></li>
+<li><a href="#org4b7c82d">5. Solving Linear System</a></li>
+<li><a href="#orgce9ea3f">6. Linear Combination</a></li>
+<li><a href="#orge7710f3">7. Span</a></li>
+<li><a href="#org443ac57">8. From Matrix Equation to Vector Equation</a></li>
+<li><a href="#org262ba6d">9. Several Perspectives about Matrix Multiplication</a></li>
+<li><a href="#org2a46892">10. Linear Independence</a></li>
+<li><a href="#orgefe0bad">11. Linear Dependence</a></li>
+
+
+---
+layout: post
+title: (Linear Algebra) Notes on Linear Algebra
+description:
+date: 2020-05-09
+categories: [Mathematics]
+tag: [Linear Algebra, Matrix]
+use_math: true
+comments: true
+---
+
+(buffer-file-name)
+
+(directory-files "~/gitrepo/edward0im.github.io/_posts/")
+
+
+
+(defun keep-html-blog-post-convention ()
+  (interactive)
+
+  (dolist (fname (file-expand-wildcards "~/gitrepo/edward0im.github.io/_posts/*.html"))
+    (with-temp-buffer
+      (insert-file-contents fname)
+        (save-excursion
+          (beginning-of-buffer)
+          (setq p1 (line-beginning-position))
+          (setq p2 (line-end-position))
+          (setq first-line (buffer-substring-no-properties p1 p2))
+          (if (string-match "---" first-line)
+              (message "h")
+            (save-excursion
+              (message "2")
+              (sleep-for 1)
+              (beginning-of-buffer)
+              (search-forward "---")
+              (setq start-line (line-beginning-position))
+              (next-line)
+              (search-forward "---")
+              (setq end-line (line-end-position))
+              (kill-region start-line end-line)
+              (beginning-of-buffer)
+              (yank)
+              )
+            )
+          )
+        )
+    (write-region (point-min) (point-max) fname t)
+      )
+    )
+  )
