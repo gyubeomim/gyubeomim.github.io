@@ -1,16 +1,29 @@
 ---
 layout: post
-title: (Linux) Introudction to x11vnc 
-description: 
+title: (Linux) Introudction to x11vnc
+description:
 date: 2018-10-25
 categories: [Technology]
 tag: [Linux, Remote Viewer, VNC]
 use_math: true
 comments: true
 ---
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org9ebe097">1. Introduction</a></li>
+<li><a href="#orga60db74">2. Installation</a></li>
+<li><a href="#org924c5f9">3. Service (daemon) registration</a></li>
+<li><a href="#orgaa37823">4. Set custom password</a></li>
+<li><a href="#org16c1409">5. Options</a></li>
+</ul>
+</div>
+</div>
+
 <div id="outline-container-org9ebe097" class="outline-2">
-<h2 id="org9ebe097">Introduction</h2>
-<div class="outline-text-2" id="text-org9ebe097">
+<h2 id="org9ebe097"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
 <p>
 x11vnc 는 원격에서 리눅스 환경으로 접속할 수 있게 해주는 VNC 서버 프로그램이다. Ubuntu 16.04 LTS 환경에서 쉽게 설치 및 사용할 수 있어서 vnc 서버 프로그램으로 주로 사용된다. 본 포스트에서는 설치 방법 및 다양한 옵션들에 대해 설명한다.
 </p>
@@ -18,8 +31,8 @@ x11vnc 는 원격에서 리눅스 환경으로 접속할 수 있게 해주는 VN
 </div>
 </div>
 <div id="outline-container-orga60db74" class="outline-2">
-<h2 id="orga60db74">Installation</h2>
-<div class="outline-text-2" id="text-orga60db74">
+<h2 id="orga60db74"><span class="section-number-2">2</span> Installation</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 x11vnc 는 터미널을 연 상태에서 아래의 명령어를 통해 쉽게 설치할 수 있다.
 </p>
@@ -31,8 +44,8 @@ x11vnc 는 터미널을 연 상태에서 아래의 명령어를 통해 쉽게 �
 </div>
 </div>
 <div id="outline-container-org924c5f9" class="outline-2">
-<h2 id="org924c5f9">Service (daemon) registration</h2>
-<div class="outline-text-2" id="text-org924c5f9">
+<h2 id="org924c5f9"><span class="section-number-2">3</span> Service (daemon) registration</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 x11vnc 를 daemon 서비스로 등록하면 PC가 재부팅될 때도 프로그램이 자동으로 백그라운드에서 실행된다. 따라서 매번 부팅 때마다 서버 프로그램을 시작하지 않아도 된다.
 <code>/lib/systemd/system</code> 폴더에 <code>x11vnc.service</code> 파일을 아래와 같이 작성한다.
@@ -78,8 +91,8 @@ $ sudo systemctl enable x11vnc.service
 </div>
 </div>
 <div id="outline-container-orgaa37823" class="outline-2">
-<h2 id="orgaa37823">Set custom password</h2>
-<div class="outline-text-2" id="text-orgaa37823">
+<h2 id="orgaa37823"><span class="section-number-2">4</span> Set custom password</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 x11vnc 는 기본적으로 비밀번호없이 접속할 수 있다. 보안을 위해 접속할 때 비밀번호를 설정하고 싶으면 아래 명령어를 통해 설정한다.
 </p>
@@ -114,8 +127,8 @@ Password written to : /home/ubuntu/.vnc/passwd
 </div>
 </div>
 <div id="outline-container-org16c1409" class="outline-2">
-<h2 id="org16c1409">Options</h2>
-<div class="outline-text-2" id="text-org16c1409">
+<h2 id="org16c1409"><span class="section-number-2">5</span> Options</h2>
+<div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-sh">[Service]
 <span class="org-variable-name">ExecStart</span>=/usr/bin/x11vnc -xkb -norc -forever -shared -display :0 -auth guess -rfbauth /etc/x11vnc.pass  -o /var/log/x11vnc.log -rfbport 5902 -allow 123.23 <span class="org-comment-delimiter"># </span><span class="org-comment">123.23.x.x &#51032; IP &#45824;&#50669;&#47564; &#51217;&#49549;&#54624; &#49688; &#51080;&#45796;.</span>

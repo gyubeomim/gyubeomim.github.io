@@ -18,8 +18,8 @@ comments: true
 <li><a href="#org2c81a56">4. Euler Angle to Rotation Matrix</a></li>
 <li><a href="#orgc50cfc7">5. Limitation</a>
 <ul>
-<li><a href="#orga1265d2">짐벌락 (Gimbal Lock) 문제</a></li>
-<li><a href="#org3cc79fb">보간 (Interpolation) 문제</a></li>
+<li><a href="#orga1265d2">5.1. 짐벌락 (Gimbal Lock) 문제</a></li>
+<li><a href="#org3cc79fb">5.2. 보간 (Interpolation) 문제</a></li>
 </ul>
 </li>
 </ul>
@@ -127,16 +127,16 @@ comments: true
 </p>
 </div>
 <div id="outline-container-orga1265d2" class="outline-3">
-<h3 id="orga1265d2">짐벌락 (Gimbal Lock) 문제</h3>
-<div class="outline-text-3" id="text-orga1265d2">
+<h3 id="orga1265d2"><span class="section-number-3">5.1</span> 짐벌락 (Gimbal Lock) 문제</h3>
+<div class="outline-text-3" id="text-5-1">
 <p>
 오일러 각도 표현 법은 짐벌락이라는 치명적인 문제점을 가지고 있다. 오일러 각도로 물체를 표현할 때 <b>같은 방향으로 두 회전 축이 겹치는 경우 해당 2개의 축이 더이상 분리되지 않는 고정 상태</b> 가 되는데 이를 짐벌락이라고 한다. 따라서 3개의 자유도 중 1개의 자유도를 잃어버리게 되므로 다양한 방향 표현이 불가능해진다. <a href="https://www.youtube.com/watch?v=zc8b2Jo7mno">짐벌락 유튜브</a>
 </p>
 </div>
 </div>
 <div id="outline-container-org3cc79fb" class="outline-3">
-<h3 id="org3cc79fb">보간 (Interpolation) 문제</h3>
-<div class="outline-text-3" id="text-org3cc79fb">
+<h3 id="org3cc79fb"><span class="section-number-3">5.2</span> 보간 (Interpolation) 문제</h3>
+<div class="outline-text-3" id="text-5-2">
 <p>
 오릴러 각도 표현법은 고정 각도 표현법과 다르게 <b>3축에 대해 회전이 종속적이므로 2개의 오일러 각도 사이를 보간할 때에도 문제</b> 가 발생한다. 이는 컴퓨터로 구현할 때 문제가 된다. 따라서 물체의 방향(orientation)을 표현할 때는 오일러 각도를 종종 사용하지만 물체의 회전(rotation)을 표현할 때는 오일러 각도를 거의 사용하지 않는다.
 </p>

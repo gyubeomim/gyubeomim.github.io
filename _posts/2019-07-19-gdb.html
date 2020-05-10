@@ -1,16 +1,29 @@
 ---
 layout: post
 title: (Linux) Introduction to gdb
-description: 
+description:
 date: 2019-07-19
 categories: [Technology]
 tag: [Linux, debugger]
 use_math: true
 comments: true
 ---
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgef2dede">1. Introduction</a></li>
+<li><a href="#orgd784034">2. Commands</a></li>
+<li><a href="#org0509c02">3. Shortcuts</a></li>
+<li><a href="#org1759b4a">4. .gdbinit settings</a></li>
+<li><a href="#org0488dd1">5. Options</a></li>
+</ul>
+</div>
+</div>
+
 <div id="outline-container-orgef2dede" class="outline-2">
-<h2 id="orgef2dede">Introduction</h2>
-<div class="outline-text-2" id="text-orgef2dede">
+<h2 id="orgef2dede"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
 <p>
 gdb는 리눅스에서 바이너리(실행) 파일을 디버깅하기 위한 프로그램이다. 다양한 옵션들이 존재하므로 따로 정리했다. 
 </p>
@@ -18,8 +31,8 @@ gdb는 리눅스에서 바이너리(실행) 파일을 디버깅하기 위한 프
 </div>
 </div>
 <div id="outline-container-orgd784034" class="outline-2">
-<h2 id="orgd784034">Commands</h2>
-<div class="outline-text-2" id="text-orgd784034">
+<h2 id="orgd784034"><span class="section-number-2">2</span> Commands</h2>
+<div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><code>t</code> (thread)
 <ul class="org-ul">
@@ -102,8 +115,8 @@ i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가
 </div>
 </div>
 <div id="outline-container-org0509c02" class="outline-2">
-<h2 id="org0509c02">Shortcuts</h2>
-<div class="outline-text-2" id="text-org0509c02">
+<h2 id="org0509c02"><span class="section-number-2">3</span> Shortcuts</h2>
+<div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><code>C-x C-a</code>
 <ul class="org-ul">
@@ -118,8 +131,8 @@ i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가
 </div>
 </div>
 <div id="outline-container-org1759b4a" class="outline-2">
-<h2 id="org1759b4a">.gdbinit settings</h2>
-<div class="outline-text-2" id="text-org1759b4a">
+<h2 id="org1759b4a"><span class="section-number-2">4</span> .gdbinit settings</h2>
+<div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li><p>
 <code>set listsize &lt;number&gt;</code> 
@@ -129,8 +142,8 @@ i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가
 </div>
 </div>
 <div id="outline-container-org0488dd1" class="outline-2">
-<h2 id="org0488dd1">Options</h2>
-<div class="outline-text-2" id="text-org0488dd1">
+<h2 id="org0488dd1"><span class="section-number-2">5</span> Options</h2>
+<div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li><code>-i=mi</code> (&#x2013;interface=mi)
 <ul class="org-ul">
