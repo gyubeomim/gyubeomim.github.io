@@ -1,6 +1,6 @@
 ---
 layout: post
-title: (Linear Algebra) Fundamental of Matrix
+title: (Linear Algebra) Notes on Matrix
 description:
 date: 2020-05-03
 categories: [Mathematics]
@@ -12,47 +12,47 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1bcb8fe">1. Origin of Matrix</a></li>
-<li><a href="#org65b17af">2. Properties of Matrix</a>
+<li><a href="#org64b699d">1. Origin of Matrix</a></li>
+<li><a href="#orgb44b44a">2. Properties of Matrix</a>
 <ul>
-<li><a href="#orgda13714">Multiplicaition of matrix</a></li>
-<li><a href="#org2d3dd70">Inverse of matrix</a></li>
-<li><a href="#org55175f9">Determinant</a></li>
-<li><a href="#org064cdbc">Positive Definite</a>
+<li><a href="#org1e9c9ff">Multiplicaition of matrix</a></li>
+<li><a href="#org3825bd8">Inverse of matrix</a></li>
+<li><a href="#orgbdd32d7">Determinant</a></li>
+<li><a href="#orga91710f">Positive Definite</a>
 <ul>
-<li><a href="#orgc72d090">Definition</a></li>
-<li><a href="#org2cb65c8">Introduction</a></li>
+<li><a href="#orgef16de5">Definition</a></li>
+<li><a href="#orgcc9097e">Introduction</a></li>
 </ul>
 </li>
-<li><a href="#org62f13b3">Trace</a></li>
+<li><a href="#org1a91444">Trace</a></li>
 </ul>
 </li>
-<li><a href="#org502ba2b">3. Type of Matrix</a>
+<li><a href="#orgfb4c985">3. Type of Matrix</a>
 <ul>
-<li><a href="#orgf40fceb">Orthogonal Matrix</a></li>
-<li><a href="#org6529e2c">Adjoint Matrix</a></li>
-<li><a href="#orgb667dc5">Diagonal Matrix</a></li>
-<li><a href="#org2c7688a">Hessian Matrix</a>
+<li><a href="#orgfadf658">Orthogonal Matrix</a></li>
+<li><a href="#orgcc73f09">Adjoint Matrix</a></li>
+<li><a href="#org1c86807">Diagonal Matrix</a></li>
+<li><a href="#orgf6c73da">Hessian Matrix</a>
 <ul>
-<li><a href="#org2fc7ed2">Definition</a></li>
-<li><a href="#org9446d84">Introduction</a></li>
+<li><a href="#orgac7b838">Definition</a></li>
+<li><a href="#orgcc5a7e7">Introduction</a></li>
 </ul>
 </li>
-<li><a href="#org7d89265">Jacobian Matrix</a>
+<li><a href="#org4d120cc">Jacobian Matrix</a>
 <ul>
-<li><a href="#org9e1b6d0">Definition</a></li>
-<li><a href="#org8c20b70">Introduction</a></li>
+<li><a href="#org9cd654d">Definition</a></li>
+<li><a href="#orgf79662a">Introduction</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgcd1657e">4. Reference</a></li>
+<li><a href="#org148032b">4. Reference</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1bcb8fe" class="outline-2">
-<h2 id="org1bcb8fe"><span class="section-number-2">1</span> Origin of Matrix</h2>
+<div id="outline-container-org64b699d" class="outline-2">
+<h2 id="org64b699d"><span class="section-number-2">1</span> Origin of Matrix</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 행렬의 기원은 연립일차방정식을 보다 쉽게 풀기 위해 고안되었다.
@@ -60,13 +60,13 @@ comments: true
 <hr />
 </div>
 </div>
-<div id="outline-container-org65b17af" class="outline-2">
-<h2 id="org65b17af"><span class="section-number-2">2</span> Properties of Matrix</h2>
+<div id="outline-container-orgb44b44a" class="outline-2">
+<h2 id="orgb44b44a"><span class="section-number-2">2</span> Properties of Matrix</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgda13714" class="outline-3">
-<h3 id="orgda13714">Multiplicaition of matrix</h3>
-<div class="outline-text-3" id="text-orgda13714">
+<div id="outline-container-org1e9c9ff" class="outline-3">
+<h3 id="org1e9c9ff">Multiplicaition of matrix</h3>
+<div class="outline-text-3" id="text-org1e9c9ff">
 <p>
 행렬의 곱은 행렬의 합성으로 볼 수 있으며 함수의 합성과 비슷하다. 다음과 같이 두 함수의 합성을 살펴보면
 </p>
@@ -111,9 +111,9 @@ cp+dr &amp; cq+ds
 <hr />
 </div>
 </div>
-<div id="outline-container-org2d3dd70" class="outline-3">
-<h3 id="org2d3dd70">Inverse of matrix</h3>
-<div class="outline-text-3" id="text-org2d3dd70">
+<div id="outline-container-org3825bd8" class="outline-3">
+<h3 id="org3825bd8">Inverse of matrix</h3>
+<div class="outline-text-3" id="text-org3825bd8">
 <p>
 행렬 $\mathbf{A}$에 대하여 역행렬이 존재하는 조건은 다음과 같다.
 </p>
@@ -130,31 +130,31 @@ $\mathbf{A}$가 Full Rank가 아닐 경우 판별식 $det{\ \mathbf{A}} = 0$이 
 <hr />
 </div>
 </div>
-<div id="outline-container-org55175f9" class="outline-3">
-<h3 id="org55175f9">Determinant</h3>
-<div class="outline-text-3" id="text-org55175f9">
+<div id="outline-container-orgbdd32d7" class="outline-3">
+<h3 id="orgbdd32d7">Determinant</h3>
+<div class="outline-text-3" id="text-orgbdd32d7">
 <p>
 정사각행렬 A를 하나의 수로써 대응시키는 특별한 함수이다. $\det(A) = |A|$. 행렬식은 행렬보다도 더 전에 있었던 방법이다.
 </p>
 <hr />
 </div>
 </div>
-<div id="outline-container-org064cdbc" class="outline-3">
-<h3 id="org064cdbc">Positive Definite</h3>
-<div class="outline-text-3" id="text-org064cdbc">
+<div id="outline-container-orga91710f" class="outline-3">
+<h3 id="orga91710f">Positive Definite</h3>
+<div class="outline-text-3" id="text-orga91710f">
 </div>
-<div id="outline-container-orgc72d090" class="outline-4">
-<h4 id="orgc72d090">Definition</h4>
-<div class="outline-text-4" id="text-orgc72d090">
+<div id="outline-container-orgef16de5" class="outline-4">
+<h4 id="orgef16de5">Definition</h4>
+<div class="outline-text-4" id="text-orgef16de5">
 <p>
 행렬 $A \in \mathbb{C}^{m \times m}$가 $A=A^{*}$즉, 에르미트 행렬일 때 임의의 벡터 $\mathbf{x} \ne 0$에 대해 $\mathbf{x}^{*}A\mathbf{x} &gt; 0$이면 $A$는 <span class="underline">양의 정부호</span> 라고 부르고 $A&gt;0$로 쓴다.
 행렬 $A \in \mathbb{R}^{m \times m}$에 대해서는 $A = A^{T}$즉, 대칭행렬이고 $\mathbf{x} \ne 0$에 대해 $\mathbf{x}^{T} A \mathbf{x}&gt;0$일 때 $A&gt;0$로 정의한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org2cb65c8" class="outline-4">
-<h4 id="org2cb65c8">Introduction</h4>
-<div class="outline-text-4" id="text-org2cb65c8">
+<div id="outline-container-orgcc9097e" class="outline-4">
+<h4 id="orgcc9097e">Introduction</h4>
+<div class="outline-text-4" id="text-orgcc9097e">
 <p>
 이러한 정의는 깔끔하지만 많은 것이 생략되어 있어 머리로 따라가기가 어렵다.
 차근차근 수식과 설명을 봐가면서 개념 자체를 받아 들여보자
@@ -176,9 +176,9 @@ $A \mathbf{x} = \lambda \mathbf{x}$을 생각해보면 $\lambda$는 $A$의 고�
 </div>
 </div>
 </div>
-<div id="outline-container-org62f13b3" class="outline-3">
-<h3 id="org62f13b3">Trace</h3>
-<div class="outline-text-3" id="text-org62f13b3">
+<div id="outline-container-org1a91444" class="outline-3">
+<h3 id="org1a91444">Trace</h3>
+<div class="outline-text-3" id="text-org1a91444">
 <p>
 행렬의 대각 성분의 합을 의미하며 $\textbf{tr}(A)$와 같이 표시한다. 다음과 같은 특징을 지니고 있다.
 </p>
@@ -192,13 +192,13 @@ $A \mathbf{x} = \lambda \mathbf{x}$을 생각해보면 $\lambda$는 $A$의 고�
 </div>
 </div>
 </div>
-<div id="outline-container-org502ba2b" class="outline-2">
-<h2 id="org502ba2b"><span class="section-number-2">3</span> Type of Matrix</h2>
+<div id="outline-container-orgfb4c985" class="outline-2">
+<h2 id="orgfb4c985"><span class="section-number-2">3</span> Type of Matrix</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgf40fceb" class="outline-3">
-<h3 id="orgf40fceb">Orthogonal Matrix</h3>
-<div class="outline-text-3" id="text-orgf40fceb">
+<div id="outline-container-orgfadf658" class="outline-3">
+<h3 id="orgfadf658">Orthogonal Matrix</h3>
+<div class="outline-text-3" id="text-orgfadf658">
 <p>
 행렬 $\mathbf{U}$가 $\mathbf{U}^{T}\mathbf{U}= \mathbf{UU}^{T} = \mathbf{I}$를 만족하는 경우 $\mathbf{U}$를 직교행렬(Orthogonal Matrix)라고 한다. 직교행렬 $\mathbf{U}$는 각 열벡터들이 단위 벡터이면서 동시에 서로 다른 열벡터들과 직교하는 특징을 가지고 있다.
 </p>
@@ -215,9 +215,9 @@ $A \mathbf{x} = \lambda \mathbf{x}$을 생각해보면 $\lambda$는 $A$의 고�
 <hr />
 </div>
 </div>
-<div id="outline-container-org6529e2c" class="outline-3">
-<h3 id="org6529e2c">Adjoint Matrix</h3>
-<div class="outline-text-3" id="text-org6529e2c">
+<div id="outline-container-orgcc73f09" class="outline-3">
+<h3 id="orgcc73f09">Adjoint Matrix</h3>
+<div class="outline-text-3" id="text-orgcc73f09">
 <p>
 n차 정방행렬 $A = (a_{ij})$에 대해 A의 여인수 행렬의 전치행렬을 A의 수반행렬이라고 하고 $\text{adj}A$라고 표기한다. 수반행렬은 다음과 같은 특징을 가진다.
 </p>
@@ -229,30 +229,30 @@ A^{-1} = \frac{\text{adj}A}{\left | A \right |}
 <hr />
 </div>
 </div>
-<div id="outline-container-orgb667dc5" class="outline-3">
-<h3 id="orgb667dc5">Diagonal Matrix</h3>
-<div class="outline-text-3" id="text-orgb667dc5">
+<div id="outline-container-org1c86807" class="outline-3">
+<h3 id="org1c86807">Diagonal Matrix</h3>
+<div class="outline-text-3" id="text-org1c86807">
 <p>
 대각성분만 값이 있고 나머지 부분이 0인 행렬을 말한다. 기호는 보통 $\Lambda$로 나타낸다.
 </p>
 <hr />
 </div>
 </div>
-<div id="outline-container-org2c7688a" class="outline-3">
-<h3 id="org2c7688a">Hessian Matrix</h3>
-<div class="outline-text-3" id="text-org2c7688a">
+<div id="outline-container-orgf6c73da" class="outline-3">
+<h3 id="orgf6c73da">Hessian Matrix</h3>
+<div class="outline-text-3" id="text-orgf6c73da">
 </div>
-<div id="outline-container-org2fc7ed2" class="outline-4">
-<h4 id="org2fc7ed2">Definition</h4>
-<div class="outline-text-4" id="text-org2fc7ed2">
+<div id="outline-container-orgac7b838" class="outline-4">
+<h4 id="orgac7b838">Definition</h4>
+<div class="outline-text-4" id="text-orgac7b838">
 <p>
 $D \subset \mathbb{R}^{n}$에서 정의된 다변수 스칼라 함수 $f : D \to \mathbb{R}$에 대해 $H := \begin{bmatrix} {\partial^2 f  \over \partial x_{1}^2 } &amp; \cdots &amp;  {\partial^2 f  \over  \partial x_{1} \partial x_{n} } \\ \vdots &amp; \ddots &amp; \vdots \\  {\partial^2 f  \over \partial x_{n} \partial x_{1} } &amp; \cdots &amp;  {\partial^2 f_{m}  \over \partial x_{n}^2 }  \end{bmatrix}$를 $f$의 Hessian Matrix(헤시안 행렬)이라고 한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org9446d84" class="outline-4">
-<h4 id="org9446d84">Introduction</h4>
-<div class="outline-text-4" id="text-org9446d84">
+<div id="outline-container-orgcc5a7e7" class="outline-4">
+<h4 id="orgcc5a7e7">Introduction</h4>
+<div class="outline-text-4" id="text-orgcc5a7e7">
 <p>
 자코비안 행렬이 벡터함수의 도함수에 해당한다면 헤시안 행렬은 스칼라함수의 이계도함수라고 볼 수 있다. 이 때 헤시안 행렬은 <b>스칼라함수</b> $f(x,y,z,&#x2026;)$에 대해서만 정의된다는 점에 주의해야한다. 따라서 <b>벡터함수</b> $f_{i}(x,y,z,&#x2026;)$의 미분 행렬인 자코비안의 2차 미분 버전이 아니다. 벡터함수의 이계도함수 행렬은 별도로 정의하지 않는다.
 </p>
@@ -260,21 +260,21 @@ $D \subset \mathbb{R}^{n}$에서 정의된 다변수 스칼라 함수 $f : D \to
 </div>
 </div>
 </div>
-<div id="outline-container-org7d89265" class="outline-3">
-<h3 id="org7d89265">Jacobian Matrix</h3>
-<div class="outline-text-3" id="text-org7d89265">
+<div id="outline-container-org4d120cc" class="outline-3">
+<h3 id="org4d120cc">Jacobian Matrix</h3>
+<div class="outline-text-3" id="text-org4d120cc">
 </div>
-<div id="outline-container-org9e1b6d0" class="outline-4">
-<h4 id="org9e1b6d0">Definition</h4>
-<div class="outline-text-4" id="text-org9e1b6d0">
+<div id="outline-container-org9cd654d" class="outline-4">
+<h4 id="org9cd654d">Definition</h4>
+<div class="outline-text-4" id="text-org9cd654d">
 <p>
 $D \subset \mathbb{R}^{n}$에서 정의된 다변수 벡터 함수 $\mathbf{f} : D \to \mathbb{R}^{m}$가 각각의 스칼라 함수 $f_{1} , \cdots , f_{m} : D \to \mathbb{R}$에 대해 $\mathbf{f} ( x_{1} , \cdots , x_{n} )  : = \begin{bmatrix} f_{1} ( x_{1} , \cdots , x_{n} )  \\ \vdots \\ f_{m} ( x_{1} , \cdots , x_{n} ) \end{bmatrix}$과 같이 정의된다. 이 때 $J := \begin{bmatrix} {\partial f_{1}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{1}  \over \partial x_{n} } \\ \vdots &amp; \ddots &amp; \vdots \\  {\partial f_{m}  \over \partial x_{1} } &amp; \cdots &amp;  {\partial f_{m}  \over \partial x_{n} }  \end{bmatrix}$행렬을 $f$의 Jacobian Matrix(자코비안 행렬)이라고 한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org8c20b70" class="outline-4">
-<h4 id="org8c20b70">Introduction</h4>
-<div class="outline-text-4" id="text-org8c20b70">
+<div id="outline-container-orgf79662a" class="outline-4">
+<h4 id="orgf79662a">Introduction</h4>
+<div class="outline-text-4" id="text-orgf79662a">
 <p>
 자코비안 행렬이라는 명칭은 19세기 독일의 수학자였던 Carl Gustav Jacob Jacobi에게서 따온 것이다. 다변수 함수에 대해 자코비안 행렬이 존재하면 미분 가능하다고 하며, 오히려 미분 가능한 함수 $f : \mathbb{R} \to \mathbb{R}$가 $1\times1$사이즈의 자코비안 행렬을 가진다고 생각할 수도 있다. 실제로 응용수학에서는 자코비안 행렬이 벡터함수의 미분계수 역할을 하는 경우가 많다.
 </p>
@@ -283,8 +283,8 @@ $D \subset \mathbb{R}^{n}$에서 정의된 다변수 벡터 함수 $\mathbf{f} :
 </div>
 </div>
 </div>
-<div id="outline-container-orgcd1657e" class="outline-2">
-<h2 id="orgcd1657e"><span class="section-number-2">4</span> Reference</h2>
+<div id="outline-container-org148032b" class="outline-2">
+<h2 id="org148032b"><span class="section-number-2">4</span> Reference</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="https://youtu.be/83UnOz6HiOY?t=4065">수학의신이상엽 유튜브</a>
