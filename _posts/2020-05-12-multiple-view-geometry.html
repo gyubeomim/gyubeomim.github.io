@@ -1,13 +1,3 @@
----
-layout: post
-title: (Mathematics) Notes on Multiple View Geometry
-description:
-date: 2020-05-12
-categories: [Mathematics]
-tag: [Mathematrics, Geometry, Camera, SLAM]
-use_math: true
-comments: true
----
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -45,7 +35,7 @@ comments: true
 <li><a href="#org6b8cecb">2.3.1. Computation of essential matrix</a></li>
 <li><a href="#org61254e1">2.3.2. The 8-point algoirithm</a></li>
 <li><a href="#org20e0bf2">2.3.3. Degenerate case</a></li>
-<li><a href="#orgdaa9848">2.3.4. Extract \(\mathbf{R}\)and \(\mathbf{t}\)from \(\mathbf{E}\)</a></li>
+<li><a href="#org16eef12">2.3.4. Extract $\mathbf{R}$and $\mathbf{t}$from $\mathbf{E}$</a></li>
 </ul>
 </li>
 <li><a href="#orgdbf52b5">2.4. Fundamental matrix (uncalibrated camera)</a></li>
@@ -63,7 +53,16 @@ comments: true
 </ul>
 </div>
 </div>
-
+--- 
+layout: post
+title: (Mathematics) Notes on Multiple View Geometry
+description: 
+date: 2020-05-12
+categories: [Mathematics]
+tag: [Mathematrics, Geometry, Camera, SLAM]
+use_math: true
+comments: true
+---
 <div id="outline-container-orgf7e3dfb" class="outline-2">
 <h2 id="orgf7e3dfb"><span class="section-number-2">1</span> More Single View Geometry</h2>
 <div class="outline-text-2" id="text-1">
@@ -525,7 +524,7 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 <h2 id="orgb089f0d"><span class="section-number-2">2</span> Structure From Motion</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-<b>Structure From Motion(SFM) 이란 두 개의 이미지에서 \(n\)개의 포인트가 주어졌을 때 3차원 공간 상의 점 \(\mathbf{P}^{i}\)와 카메라의 상대 포즈 \(\mathbf{R}, \mathbf{t}\)그리고 카메라의 파라미터 \(\mathbf{K}_{1}, \mathbf{K}_{2}\)를 추정하는 방법을 말한다.</b> 이 때 카메라의 파라미터를 알고 있는 경우 모르고 있는 경우에 따라 크게 2가지 방법이 존재한다. Structure From Motion은 종종 3D Reconstruction과 비교되곤 하는데 둘의 차이점을 살펴보면 다음과 같다.
+<b>Structure From Motion(SFM) 이란 두 개의 이미지에서 $n$개의 포인트가 주어졌을 때 3차원 공간 상의 점 $\mathbf{P}^{i}$와 카메라의 상대 포즈 $\mathbf{R}, \mathbf{t}$그리고 카메라의 파라미터 $\mathbf{K}_{1}, \mathbf{K}_{2}$를 추정하는 방법을 말한다.</b> 이 때 카메라의 파라미터를 알고 있는 경우 모르고 있는 경우에 따라 크게 2가지 방법이 존재한다. Structure From Motion은 종종 3D Reconstruction과 비교되곤 하는데 둘의 차이점을 살펴보면 다음과 같다.
 </p>
 </div>
 
@@ -533,7 +532,7 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 <h3 id="orgf4074ff"><span class="section-number-3">2.1</span> 3D reconstruction vs structure from motion</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-<b>3D Reconstruction from multiple views는 \(K, T\)와 \(R\)를 알고 있다는 가정</b> 을 가지고 있으며 이미지로부터 3차원 공간을 재구성하는 것이 목표로 한다. 반면, <b>Structure From Motion는 \(K, T\)와 \(R\)모두 알고 있지 않다는 가정</b> 이 있으며 다수의 이미지로부터 3차원 공간을 재구성함과 동시에 카메라의 포즈(up to scale) 또한 동시에 복원하는 것을 목표로 한다.
+<b>3D Reconstruction from multiple views는 $K, T$와 $R$를 알고 있다는 가정</b> 을 가지고 있으며 이미지로부터 3차원 공간을 재구성하는 것이 목표로 한다. 반면, <b>Structure From Motion는 $K, T$와 $R$모두 알고 있지 않다는 가정</b> 이 있으며 다수의 이미지로부터 3차원 공간을 재구성함과 동시에 카메라의 포즈(up to scale) 또한 동시에 복원하는 것을 목표로 한다.
 </p>
 </div>
 </div>
@@ -542,7 +541,7 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 <h3 id="orgc8fd3ed"><span class="section-number-3">2.2</span> The epipolar geometry</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
-<b>Epipolar Line</b> 은 좌측 이미지에서 계산한 Projection Ray \(\pi^{-1}(\mathbf{p})\)와 평행한 \(\mathbf{p}_{ri}\)상의 직선을 의미한다. <b>Epipole</b> 은 Epipolar Line과 두 스테레오 카메라의 중심점을 잇는 직선 사이의 교차점을 의미한다. 스테레오 카메라의 경우 2개의 Epipole이 존재한다. <b>Epipolar Plane</b> 은 두 카메라의 중심점 \(C_{l}, C_{r}\)과 3차원 공간 상의 점 \(\mathbf{P}\)가 생성하는 유일한 평면을 의미한다. 위와 같은 Epipolar Geometry를 통해 좌측 이미지 상의 점 \(\mathbf{p}_{li}\)에 대한 우측 이미지의 상응점의 후보 위치들이 항상 Epipolar Line 위에서만 존재하게 되는데 이를 <b>Epipolar Constraint</b> 라고 하며 이러한 제약조건이 상응점을 탐색하는데 매우 효율적으로 탐색할 수 있도록 도와준다.
+<b>Epipolar Line</b> 은 좌측 이미지에서 계산한 Projection Ray $\pi^{-1}(\mathbf{p})$와 평행한 $\mathbf{p}_{ri}$상의 직선을 의미한다. <b>Epipole</b> 은 Epipolar Line과 두 스테레오 카메라의 중심점을 잇는 직선 사이의 교차점을 의미한다. 스테레오 카메라의 경우 2개의 Epipole이 존재한다. <b>Epipolar Plane</b> 은 두 카메라의 중심점 $C_{l}, C_{r}$과 3차원 공간 상의 점 $\mathbf{P}$가 생성하는 유일한 평면을 의미한다. 위와 같은 Epipolar Geometry를 통해 좌측 이미지 상의 점 $\mathbf{p}_{li}$에 대한 우측 이미지의 상응점의 후보 위치들이 항상 Epipolar Line 위에서만 존재하게 되는데 이를 <b>Epipolar Constraint</b> 라고 하며 이러한 제약조건이 상응점을 탐색하는데 매우 효율적으로 탐색할 수 있도록 도와준다.
 </p>
 </div>
 </div>
@@ -572,11 +571,11 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 \end{aligned}
 \end{equation}
 <p>
-위 식을 사용하여 \(\mathbf{R}, \mathbf{T}, \mathbf{P}^{i}\)를 추정해야 한다. 하지만 이 때 만약 카메라와 3차원 환경을 Similiarity 변환을 통해 상수배만큼 키우거나 작게 변환해도 추정값은 변하지 않는 <b>Scale Ambiguity</b> 문제가 존재한다. 모노 카메라의 경우 이러한 Scale Ambiguity 문제를 정확히 해결할 수 없는 한계가 있다. Scale Ambiguity 문제로 인해 <b>최대 5자유도</b> 까지 계산할 수 있는데 이 때 3자유도는 회전에 대한 자유도이며 2자유도는 Scale을 제외한 위치 자유도이다.
+위 식을 사용하여 $\mathbf{R}, \mathbf{T}, \mathbf{P}^{i}$를 추정해야 한다. 하지만 이 때 만약 카메라와 3차원 환경을 Similiarity 변환을 통해 상수배만큼 키우거나 작게 변환해도 추정값은 변하지 않는 <b>Scale Ambiguity</b> 문제가 존재한다. 모노 카메라의 경우 이러한 Scale Ambiguity 문제를 정확히 해결할 수 없는 한계가 있다. Scale Ambiguity 문제로 인해 <b>최대 5자유도</b> 까지 계산할 수 있는데 이 때 3자유도는 회전에 대한 자유도이며 2자유도는 Scale을 제외한 위치 자유도이다.
 </p>
 
 <p>
-좌표를 알고 있는 대응쌍들은 \(2*2n=4n\)개 있으며 미지수는 \(5+3n\)개이다. 5는 앞서 설명한 5자유도이며 \(3n\)은 3차원 공간 상의 점 \(\mathbf{P^{i}}\)에 대한 자유도이다. 이 때 자유도의 개수보다 방정식의 개수가 많아야 해가 존재하므로 다음의 공식을 만족해야 한다.
+좌표를 알고 있는 대응쌍들은 $2*2n=4n$개 있으며 미지수는 $5+3n$개이다. 5는 앞서 설명한 5자유도이며 $3n$은 3차원 공간 상의 점 $\mathbf{P^{i}}$에 대한 자유도이다. 이 때 자유도의 개수보다 방정식의 개수가 많아야 해가 존재하므로 다음의 공식을 만족해야 한다.
 </p>
 \begin{equation}
 \begin{aligned}
@@ -589,7 +588,7 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 <h4 id="org6b8cecb"><span class="section-number-4">2.3.1</span> Computation of essential matrix</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
-만약 \(\mathbf{p}_{1}, \mathbf{p}_{2}, \mathbf{t}\)가 Epipolar Plane 위에 존재하는 경우<br />
+만약 $\mathbf{p}_{1}, \mathbf{p}_{2}, \mathbf{t}$가 Epipolar Plane 위에 존재하는 경우<br />
 </p>
 \begin{equation}
 \begin{aligned}
@@ -600,7 +599,7 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 \end{aligned}
 \end{equation}
 <p>
-와 같은 공식이 유도되고 이 때, \(\mathbf{t}\)는 Epipolar Constraint이며 \((\cdot)^{\wedge}\)는 Skew Symmetric Matrix를 의미한다. 위 식에서 \(\mathbf{E} = \mathbf{t}^{\wedge}\mathbf{R}\)을 <b>Essential Matrix</b> 라고 한다. \(\bar{\mathbf{p}}_{1} = (\bar{u}_{1}, \bar{v}_{1}, 1)^{T}\)와 \(\bar{\mathbf{p}}_{2} = (\bar{u}_{2}, \bar{v}_{2}, 1)^{T}\)를 정규화된 이미지 좌표계 상의 점이라고 하면 결국 다음과 같은 공식이 성립한다.
+와 같은 공식이 유도되고 이 때, $\mathbf{t}$는 Epipolar Constraint이며 $(\cdot)^{\wedge}$는 Skew Symmetric Matrix를 의미한다. 위 식에서 $\mathbf{E} = \mathbf{t}^{\wedge}\mathbf{R}$을 <b>Essential Matrix</b> 라고 한다. $\bar{\mathbf{p}}_{1} = (\bar{u}_{1}, \bar{v}_{1}, 1)^{T}$와 $\bar{\mathbf{p}}_{2} = (\bar{u}_{2}, \bar{v}_{2}, 1)^{T}$를 정규화된 이미지 좌표계 상의 점이라고 하면 결국 다음과 같은 공식이 성립한다.
 </p>
 
 \begin{equation}
@@ -609,7 +608,7 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 \end{aligned}
 \end{equation}
 <p>
-위 식을 <b>Longeut-Higgins Equation (1981)</b> 이라고 한다. Essential Matrix는 SVD를 통해 \(\mathbf{R}\)과 \(\mathbf{t}\)로 분해가 가능하며 총 4개의 후보 해들이 나온다.
+위 식을 <b>Longeut-Higgins Equation (1981)</b> 이라고 한다. Essential Matrix는 SVD를 통해 $\mathbf{R}$과 $\mathbf{t}$로 분해가 가능하며 총 4개의 후보 해들이 나온다.
 </p>
 </div>
 </div>
@@ -618,7 +617,7 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 <h4 id="org61254e1"><span class="section-number-4">2.3.2</span> The 8-point algoirithm</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <p>
-\(\bar{\mathbf{p}}_{2}^{T}\mathbf{E}\bar{\mathbf{p}_{1}} = 0\)식에서 \(\mathbf{E}\)는 9자유도 행렬이다. $\mathbf{E}$를 펼쳐보면 다음과 같다. \(\mathbf{E} = \begin{bmatrix} e_{11}&amp;e_{12}&amp;e_{13}\\e_{21}&amp;e_{22}&amp;e_{23}\\e_{31}&amp;e_{23}&amp;e_{33}\end{bmatrix}\).<br />
+$\bar{\mathbf{p}}_{2}^{T}\mathbf{E}\bar{\mathbf{p}_{1}} = 0$식에서 $\mathbf{E}$는 9자유도 행렬이다. $\mathbf{E}$를 펼쳐보면 다음과 같다. $\mathbf{E} = \begin{bmatrix} e_{11}&amp;e_{12}&amp;e_{13}\\e_{21}&amp;e_{22}&amp;e_{23}\\e_{31}&amp;e_{23}&amp;e_{33}\end{bmatrix}$.<br />
 </p>
 
 \begin{equation}
@@ -635,7 +634,7 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 \end{aligned}
 \end{equation}
 <p>
-위 식은 하나의 대응쌍에 대한 공식이므로 \(n\)개의 대응쌍에 대한 공식은 다음과 같다. \(\mathbf{AX} = 0\)의 꼴로 표현된 선형방정식이다.
+위 식은 하나의 대응쌍에 대한 공식이므로 $n$개의 대응쌍에 대한 공식은 다음과 같다. $\mathbf{AX} = 0$의 꼴로 표현된 선형방정식이다.
 </p>
 
 \begin{equation}
@@ -644,11 +643,11 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 \end{aligned}
 \end{equation}
 <p>
-위 식을 간결하게 표현하면 \(\mathbf{Q}\cdot \bar{\mathbf{E}} = 0\)과 같이 나타낼 수 있다. 이 때 \(\bar{\mathbf{E}}\)의 유일해를 가지기 위해서 \(\mathbf{Q}_{n\times 9}\)rank는 8이 되어야 한다. 각각의 대응쌍들은 1개의 독립적인 공식을 의미하므로 총 8개의 대응쌍이 필요하다.
+위 식을 간결하게 표현하면 $\mathbf{Q}\cdot \bar{\mathbf{E}} = 0$과 같이 나타낼 수 있다. 이 때 $\bar{\mathbf{E}}$의 유일해를 가지기 위해서 $\mathbf{Q}_{n\times 9}$rank는 8이 되어야 한다. 각각의 대응쌍들은 1개의 독립적인 공식을 의미하므로 총 8개의 대응쌍이 필요하다.
 </p>
 
 <p>
-\(n &gt; 8\)이상의 대응쌍들이 주어진 경우 해가 존재하지 않는 <b>over-determined system</b> 상태가 된다. Over-determined System에서는 해를 찾는 대신 \(\left \| \mathbf{E} \right \|^{2} = 1\)일 때 \(\left \| \mathbf{Q}\mathbf{E} \right \|^{2}\)값이 최소가 되는 근사해를 찾는 것이 목적이다. 방정식의 근사해는 \(\mathbf{Q}^{T}\mathbf{Q}\)의 eigenvalue가 최소가 되는 eigenvector가 된다. 이는 \(\left \| \mathbf{Q}x \right\|^{2} = x^{T}\mathbf{Q}^{T}\mathbf{Q}x\)에서 x를 최소화하는 것과 동일하기 때문이다. SVD를 사용하여 \(\mathbf{Q}^{T}\mathbf{Q}\)의 해를 구할 수 있다.
+$n &gt; 8$이상의 대응쌍들이 주어진 경우 해가 존재하지 않는 <b>over-determined system</b> 상태가 된다. Over-determined System에서는 해를 찾는 대신 $\left \| \mathbf{E} \right \|^{2} = 1$일 때 $\left \| \mathbf{Q}\mathbf{E} \right \|^{2}$값이 최소가 되는 근사해를 찾는 것이 목적이다. 방정식의 근사해는 $\mathbf{Q}^{T}\mathbf{Q}$의 eigenvalue가 최소가 되는 eigenvector가 된다. 이는 $\left \| \mathbf{Q}x \right\|^{2} = x^{T}\mathbf{Q}^{T}\mathbf{Q}x$에서 x를 최소화하는 것과 동일하기 때문이다. SVD를 사용하여 $\mathbf{Q}^{T}\mathbf{Q}$의 해를 구할 수 있다.
 </p>
 </div>
 </div>
@@ -674,16 +673,16 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 \end{aligned}
 \end{equation}
 <p>
-위 식을 보면 알 수 있듯이 8-Point Algorithm은 \(\bar{p}_{2}\)와 \(\mathbf{E}\bar{p}_{1}\)가 이루는 각도 \(\theta\)에 의존적이다. 따라서 \(\bar{p}_{1}, \bar{p}_{2}, \mathbf{t}\)가 같은 평면 상에 존재하지 않을 때만 0이 아닌 값을 가진다.
+위 식을 보면 알 수 있듯이 8-Point Algorithm은 $\bar{p}_{2}$와 $\mathbf{E}\bar{p}_{1}$가 이루는 각도 $\theta$에 의존적이다. 따라서 $\bar{p}_{1}, \bar{p}_{2}, \mathbf{t}$가 같은 평면 상에 존재하지 않을 때만 0이 아닌 값을 가진다.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgdaa9848" class="outline-4">
-<h4 id="orgdaa9848"><span class="section-number-4">2.3.4</span> Extract \(\mathbf{R}\)and \(\mathbf{t}\)from \(\mathbf{E}\)</h4>
+<div id="outline-container-org16eef12" class="outline-4">
+<h4 id="org16eef12"><span class="section-number-4">2.3.4</span> Extract $\mathbf{R}$and $\mathbf{t}$from $\mathbf{E}$</h4>
 <div class="outline-text-4" id="text-2-3-4">
 <p>
-Essential Matrix를 계산했으면 SVD를 사용하여  \(\mathbf{R}, \mathbf{t}\)를 분해할 수 있다.
+Essential Matrix를 계산했으면 SVD를 사용하여  $\mathbf{R}, \mathbf{t}$를 분해할 수 있다.
 </p>
 \begin{equation}
 \begin{aligned}
@@ -699,7 +698,7 @@ Essential Matrix를 계산했으면 SVD를 사용하여  \(\mathbf{R}, \mathbf{t
 \end{aligned}
 \end{equation}
 <p>
-이 때, \(\mathbf{t}^{\wedge} = ([t_{x}, t_{y}, t_{z}]^{T})^{\wedge} = \begin{bmatrix} 0 &amp; -t_{z} &amp; t_{y} \\ t_{z} &amp; 0 &amp; t_{x} \\ -t_{y} &amp; t_{x} &amp; 0 \end{bmatrix}\)이며
+이 때, $\mathbf{t}^{\wedge} = ([t_{x}, t_{y}, t_{z}]^{T})^{\wedge} = \begin{bmatrix} 0 &amp; -t_{z} &amp; t_{y} \\ t_{z} &amp; 0 &amp; t_{x} \\ -t_{y} &amp; t_{x} &amp; 0 \end{bmatrix}$이며
 </p>
 \begin{equation}
 \begin{aligned}
@@ -712,7 +711,7 @@ Essential Matrix를 계산했으면 SVD를 사용하여  \(\mathbf{R}, \mathbf{t
 \end{aligned}
 \end{equation}
 <p>
-이다. 이를 통해 \(\mathbf{R}, \mathbf{t}\)를 계산할 수 있다.
+이다. 이를 통해 $\mathbf{R}, \mathbf{t}$를 계산할 수 있다.
 </p>
 
 \begin{equation}
@@ -732,7 +731,7 @@ Essential Matrix를 계산했으면 SVD를 사용하여  \(\mathbf{R}, \mathbf{t
 <h3 id="orgdbf52b5"><span class="section-number-3">2.4</span> Fundamental matrix (uncalibrated camera)</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
-해당 섹션에서는 카메라의 파라미터 \(\mathbf{K}_{1}, \mathbf{K}_{2}\)를 알지 못하는 경우 SFM 방법에 대해 설명한다. 이전 섹션에서 Essential Matrix를 설명할 때 공식을 다시 사용하면 다음과 같다.
+해당 섹션에서는 카메라의 파라미터 $\mathbf{K}_{1}, \mathbf{K}_{2}$를 알지 못하는 경우 SFM 방법에 대해 설명한다. 이전 섹션에서 Essential Matrix를 설명할 때 공식을 다시 사용하면 다음과 같다.
 </p>
 \begin{equation}
 \begin{aligned}
@@ -755,7 +754,7 @@ Essential Matrix를 계산했으면 SVD를 사용하여  \(\mathbf{R}, \mathbf{t
 \end{aligned}
 \end{equation}
 <p>
-이 때, <b>\(\mathbf{F} = \mathbf{K}_{2}^{-T}\mathbf{E}\mathbf{K}_{1}^{-1}\)를 Fundamental Matrix</b> 라고 한다. Fundamental Matrix 또한 Essential Matrix와 마찬가지로 <b>8-Point Algorithm</b> 을 사용하여 해를 구할 수 있다.
+이 때, <b>$\mathbf{F} = \mathbf{K}_{2}^{-T}\mathbf{E}\mathbf{K}_{1}^{-1}$를 Fundamental Matrix</b> 라고 한다. Fundamental Matrix 또한 Essential Matrix와 마찬가지로 <b>8-Point Algorithm</b> 을 사용하여 해를 구할 수 있다.
 </p>
 
 \begin{equation}
@@ -773,7 +772,7 @@ Fundamental Matrix의 장점은 픽셀 좌표계에서 바로 계산할 수 있�
 \end{aligned}
 \end{equation}
 <p>
-위 식은 수치적으로 매우 불안정하여 노이즈에 약한 단점이 있다. 이를 해결하기 위해 데이터를 정규화하는 방법이 제안되었다. Normalized 8-point algorithm [Hartely'97]. 일반적으로 \(\mathbf{F}\)는 무한히 많은 해를 가지므로 \(\mathbf{K}_{i}, \mathbf{R}, \mathbf{t}\)를 추출할 수 없다. 하지만 <b>두 카메라의 Intrinsic Matrix $\mathbf{\mathbf{K}_{1}, \mathbf{K}_{2}}$를 알고 있는 경우 Essential Matrix와 동일하게 \(\mathbf{R}, \mathbf{t}\)를 유일하게 계산할 수 있다.</b>
+위 식은 수치적으로 매우 불안정하여 노이즈에 약한 단점이 있다. 이를 해결하기 위해 데이터를 정규화하는 방법이 제안되었다. Normalized 8-point algorithm [Hartely'97]. 일반적으로 $\mathbf{F}$는 무한히 많은 해를 가지므로 $\mathbf{K}_{i}, \mathbf{R}, \mathbf{t}$를 추출할 수 없다. 하지만 <b>두 카메라의 Intrinsic Matrix $\mathbf{\mathbf{K}_{1}, \mathbf{K}_{2}}$를 알고 있는 경우 Essential Matrix와 동일하게 $\mathbf{R}, \mathbf{t}$를 유일하게 계산할 수 있다.</b>
 </p>
 </div>
 </div>
@@ -825,7 +824,7 @@ Triangulation에는 크게 두 종류가 있는데 첫 번째로 같은 파라�
 </p>
 
 <p>
-스테레오 카메라의 Triangulation을 통해 3차원 점 \(P_{w}\)의 위치를 추정하기 위해서 우리는 스테레오 카메라의 방정식을 만든 다음 이를 풀어야 한다. 이 때 좌측 카메라를 월드 좌표계로 설정한다.
+스테레오 카메라의 Triangulation을 통해 3차원 점 $P_{w}$의 위치를 추정하기 위해서 우리는 스테레오 카메라의 방정식을 만든 다음 이를 풀어야 한다. 이 때 좌측 카메라를 월드 좌표계로 설정한다.
 </p>
 \begin{equation}
 \begin{aligned}
@@ -857,7 +856,7 @@ Triangulation에는 크게 두 종류가 있는데 첫 번째로 같은 파라�
 \end{aligned}
 \end{equation}
 <p>
-위 두 독립적인 방정식은 \(\mathbf{P}\)에 대한 3개의 항을 포함하고 있으며 이는 SVD를 통해 계산할 수 있다.
+위 두 독립적인 방정식은 $\mathbf{P}$에 대한 3개의 항을 포함하고 있으며 이는 SVD를 통해 계산할 수 있다.
 </p>
 </div>
 </div>
@@ -866,11 +865,11 @@ Triangulation에는 크게 두 종류가 있는데 첫 번째로 같은 파라�
 <h3 id="org7c708b0"><span class="section-number-3">3.2</span> Reprojection error minimization</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
-두 카메라의 포즈와 3차원 공간 상의 점 \(\mathbf{P}\)에 대한 이미지의 프로젝션된 점 \(\mathbf{p}_{1}, \mathbf{p}_{2}\)가 주어졌을 때 \(\mathbf{P}\)의 3차원 위치를 계산하는 방법을 <b>Triangulation</b> 이라고 한다. 이 때 이상적인 \(\mathbf{p}_{1}, \mathbf{p}_{2}\)의 경우 두 Projection Ray가 교차하여 교차점을 계산할 수 있으나 실제 상황에서는 수치 오차로 인해 두 선이 만나지 않는다. 따라서 두 Projection Ray의 최단거리를 표현하는 선의 중앙점을 3차원 점 \(\mathbf{P}\)의 위치로 추정한다.
+두 카메라의 포즈와 3차원 공간 상의 점 $\mathbf{P}$에 대한 이미지의 프로젝션된 점 $\mathbf{p}_{1}, \mathbf{p}_{2}$가 주어졌을 때 $\mathbf{P}$의 3차원 위치를 계산하는 방법을 <b>Triangulation</b> 이라고 한다. 이 때 이상적인 $\mathbf{p}_{1}, \mathbf{p}_{2}$의 경우 두 Projection Ray가 교차하여 교차점을 계산할 수 있으나 실제 상황에서는 수치 오차로 인해 두 선이 만나지 않는다. 따라서 두 Projection Ray의 최단거리를 표현하는 선의 중앙점을 3차원 점 $\mathbf{P}$의 위치로 추정한다.
 </p>
 
 <p>
-위와 같이 1차적으로 추정한 다음 이를 \(\mathbf{P}\)의 초기값으로 설정하여 <b>Sum of Squared Reprojection Error (SSRE)</b> 를 통해 에러를 최적화한다. SSRE는 다음과 같이 정의한다.
+위와 같이 1차적으로 추정한 다음 이를 $\mathbf{P}$의 초기값으로 설정하여 <b>Sum of Squared Reprojection Error (SSRE)</b> 를 통해 에러를 최적화한다. SSRE는 다음과 같이 정의한다.
 </p>
 
 \begin{equation}
@@ -879,7 +878,7 @@ SSRE = d^{2}(\mathbf{p}_{1}, \pi_{1}(\mathbf{P})) + d^{2}(\mathbf{p}_{2}, \pi_{2
 \end{aligned}
 \end{equation}
 <p>
-이 때, \(d(\mathbf{p}_{1}, \pi_{1}(\mathbf{P})) = \left \| \mathbf{p}_{1} - \pi_{1}(\mathbf{P}) \right \|\)를 <b>Reprojection Error</b> 라고 한다. SSRE는 Gauss-Newton, Levenberg-Marquardt 방법을 사용하여 계산할 수 있다.
+이 때, $d(\mathbf{p}_{1}, \pi_{1}(\mathbf{P})) = \left \| \mathbf{p}_{1} - \pi_{1}(\mathbf{P}) \right \|$를 <b>Reprojection Error</b> 라고 한다. SSRE는 Gauss-Newton, Levenberg-Marquardt 방법을 사용하여 계산할 수 있다.
 </p>
 </div>
 </div>
@@ -888,7 +887,7 @@ SSRE = d^{2}(\mathbf{p}_{1}, \pi_{1}(\mathbf{P})) + d^{2}(\mathbf{p}_{2}, \pi_{2
 <h3 id="orgb34c076"><span class="section-number-3">3.3</span> Correspondence problem</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
-좌측 이미지에서 \(\mathbf{p}_{li}\)점들이 주어졌을 때 우측 이미지에서 어떤 점들이 정확히 상응하는 점 \(\mathbf{p}_{ri}\)인지 알 수 있을까? 두 점 근처에 있는 이미지 패치의 유사도를 비교하여 상응하는지 안 하는지 판단할 수 있다. 유사도 비교 방법에는 ZBCC, SSD, SAD, Census Transform 같은 방법들이 존재한다. 하지만 유사도 비교를 할 때 모든 이미지의 패치를 비교하면 매우 많은 컴퓨터 연산량이 요구된다. 유사도 비교를 할 때 2차원 이미지 전체를 비교하는 것이 아닌 1차원 선만 비교함으로써 해결하는 방법이 있을까? <b>Epipolar Geometry</b> 를 사용하면 \(\mathbf{p}_{li}\)의 상응점을 탐색할 때 우측 이미지의 특정 점에 대한 Epipolar Line \(\mathbf{l}^{'}\)만 탐색함으로써 매우 효율적으로 탐색할 수 있다.
+좌측 이미지에서 $\mathbf{p}_{li}$점들이 주어졌을 때 우측 이미지에서 어떤 점들이 정확히 상응하는 점 $\mathbf{p}_{ri}$인지 알 수 있을까? 두 점 근처에 있는 이미지 패치의 유사도를 비교하여 상응하는지 안 하는지 판단할 수 있다. 유사도 비교 방법에는 ZBCC, SSD, SAD, Census Transform 같은 방법들이 존재한다. 하지만 유사도 비교를 할 때 모든 이미지의 패치를 비교하면 매우 많은 컴퓨터 연산량이 요구된다. 유사도 비교를 할 때 2차원 이미지 전체를 비교하는 것이 아닌 1차원 선만 비교함으로써 해결하는 방법이 있을까? <b>Epipolar Geometry</b> 를 사용하면 $\mathbf{p}_{li}$의 상응점을 탐색할 때 우측 이미지의 특정 점에 대한 Epipolar Line $\mathbf{l}^{'}$만 탐색함으로써 매우 효율적으로 탐색할 수 있다.
 </p>
 </div>
 </div>
