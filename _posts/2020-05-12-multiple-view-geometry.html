@@ -1,13 +1,3 @@
----
-layout: post
-title: (Computer Vision) Notes on Multiple View Geometry
-description:
-date: 2020-05-12
-categories: [Engineering]
-tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
-use_math: true
-comments: true
----
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -63,7 +53,16 @@ comments: true
 </ul>
 </div>
 </div>
-
+--- 
+layout: post
+title: (Computer Vision) Notes on Multiple View Geometry
+description: 
+date: 2020-05-12
+categories: [Engineering]
+tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
+use_math: true
+comments: true
+---
 <div id="outline-container-orgf7e3dfb" class="outline-2">
 <h2 id="orgf7e3dfb"><span class="section-number-2">1</span> More Single View Geometry</h2>
 <div class="outline-text-2" id="text-1">
@@ -71,10 +70,12 @@ comments: true
 <div id="outline-container-orgd03db8e" class="outline-3">
 <h3 id="orgd03db8e"><span class="section-number-3">1.1</span> Camera calibration and the image of the absolute conic</h3>
 <div class="outline-text-3" id="text-1-1">
+<hr />
 </div>
 <div id="outline-container-org2321c0d" class="outline-4">
 <h4 id="org2321c0d"><span class="section-number-4">1.1.1</span> Result 8.15</h4>
 <div class="outline-text-4" id="text-1-1-1">
+<hr />
 <p>
 원점에 위치한 카메라가 있을 때 한 점 $\mathbf{x}$를 Back-projection하면 카메라 중심을 지나는 직선 $\mathbf{d}$가 생성되는데 이 때, $\mathbf{d}= \mathbf{K}^{-1}\mathbf{x}$의 관계를 가진다.
 </p>
@@ -108,9 +109,10 @@ comments: true
 <p>
 이 때, <b>$\mathbf{K}^{-T}\mathbf{K}^{-1}$은 Image of Absolute Conic</b> 을 의미한다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org1f0200b" class="outline-4">
 <h4 id="org1f0200b"><span class="section-number-4">1.1.2</span> Result 8.16</h4>
 <div class="outline-text-4" id="text-1-1-2">
@@ -133,10 +135,10 @@ comments: true
     &amp; \pi = \mathbf{K}^{T}\mathbf{l}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
 </div>
-
 <div id="outline-container-org1fd60af" class="outline-3">
 <h3 id="org1fd60af"><span class="section-number-3">1.2</span> The image of the absolute conic</h3>
 <div class="outline-text-3" id="text-1-2">
@@ -201,9 +203,9 @@ comments: true
     \mathbf{x}_{1}^{T}\mathbf{w}\mathbf{x}_{2} = 0
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org8333916" class="outline-3">
 <h3 id="org8333916"><span class="section-number-3">1.3</span> Orthogonality and $\mathbf{w}$</h3>
 <div class="outline-text-3" id="text-1-3">
@@ -218,9 +220,9 @@ comments: true
     &amp; \therefore \mathbf{l} = \mathbf{wx}_{2}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org58a08d7" class="outline-3">
 <h3 id="org58a08d7"><span class="section-number-3">1.4</span> Vanishing points and vanishing lines</h3>
 <div class="outline-text-3" id="text-1-4">
@@ -252,8 +254,8 @@ comments: true
     &amp; \mathbf{v} = \mathbf{Kd}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
-
 <div id="outline-container-org944b5c4" class="outline-4">
 <h4 id="org944b5c4"><span class="section-number-4">1.4.1</span> Camera rotation from vanishing points</h4>
 <div class="outline-text-4" id="text-1-4-1">
@@ -273,10 +275,11 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 <p>
 이 때, <b>회전행렬 $\mathbf{R}$의 자유도는 3이므로 2개 이상의 소실점 쌍을 사용하면 회전행렬을 복원</b> 할 수 있다.
 </p>
-</div>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
+</div>
 <div id="outline-container-orgd018b92" class="outline-3">
 <h3 id="orgd018b92"><span class="section-number-3">1.5</span> Vanishing Lines</h3>
 <div class="outline-text-3" id="text-1-5">
@@ -301,9 +304,10 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 <p>
 과 같이 계산할 수 있다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-orge72b6aa" class="outline-3">
 <h3 id="orge72b6aa"><span class="section-number-3">1.6</span> Orthogonality relationships amongst vanishing points and lines</h3>
 <div class="outline-text-3" id="text-1-6">
@@ -341,9 +345,10 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 <p>
 이 때, $\mathbf{w}^{*}$는 Image of Dual Absolute Conic이다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org0f58b29" class="outline-3">
 <h3 id="org0f58b29"><span class="section-number-3">1.7</span> Affine 3D measurements and reconstruction</h3>
 <div class="outline-text-3" id="text-1-7">
@@ -386,9 +391,9 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
     \frac{d_{1}}{d_{2}} = \frac{\tilde{\mathbf{t}}_{1}-\mathbf{b}_{2}}{\mathbf{t}_{2}-\mathbf{b}_{2}}
   \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
-
 <div id="outline-container-org0be45e6" class="outline-3">
 <h3 id="org0be45e6"><span class="section-number-3">1.8</span> Determining camera calibration $\mathbf{K}$from a single view</h3>
 <div class="outline-text-3" id="text-1-8">
@@ -419,9 +424,10 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 <p>
 위와 같이 $\mathbf{w} = \begin{bmatrix} w_{1} &amp; w_{2} &amp; w_{4} \\ w_{2} &amp; w_{3} &amp;w_{5} \\ w_{4} &amp; w_{5} &amp; w_{6} \end{bmatrix}$파라미터를 찾기 위해 충분한 제약조건을 확보한 후 $\mathbf{w}$를 6차원 벡터로 정렬하여 $\mathbf{Ax}=0$형태의 선형 시스템을 만든다. 다음으로 <b>특이값 분해(SVD)를 사용하여 $\mathbf{w}=\mathbf{K}^{-T}\mathbf{K}^{-1}$값을 계산한 후 Cholesky Decomposition을 사용하여 $\mathbf{K}^{-T}\mathbf{K}^{-1}$를 분해</b> 한다. 이를 통해 내부 파라미터 $\mathbf{K}$를 계산할 수 있다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org08edbf3" class="outline-3">
 <h3 id="org08edbf3"><span class="section-number-3">1.9</span> Calibration from three orthogonal vanishing points</h3>
 <div class="outline-text-3" id="text-1-9">
@@ -437,9 +443,10 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 <p>
 이와 같이 총 4개의 자유도를 가지므로 세 개의 수직소실점들을 사용하여 $\mathbf{K}$를 결정할 수 있다. 우선, 각각의 수직소실점들의 직교 특성을 사용하여 $\mathbf{v}_{i}^{T}\mathbf{w}\mathbf{v}_{j}, \ &forall; i&ne; j$를 계산한다. 이 때 $\mathbf{w}$를 벡터화하여 $\mathbf{Ax}=0$형태의 선형 시스템으로 변환한 후 Nul $(\mathbf{A})$를 계산함으로써 $\mathbf{w}$를 구한다. 다음으로 Cholesky Decomposition을 사용하여 $\mathbf{w}=\mathbf{K}^{-T}\mathbf{K}^{-1}$를 분해한다. 이와 같이 내부 파라미터 $\mathbf{K}$를 계산할 수 있다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org010aaf8" class="outline-3">
 <h3 id="org010aaf8"><span class="section-number-3">1.10</span> Computation of focal length and principal point using vanishing point and vanishing line</h3>
 <div class="outline-text-3" id="text-1-10">
@@ -454,9 +461,10 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 <p>
 주점(Principal Point) P를 구하는 방법은 다음과 같다. 수직소실점을 $\mathbf{v}_{1}$라고 하고 이미지 평면과 $\pi$평면의 교선을 $\mathbf{l}_{1}$라고 하면 $\mathbf{v}_{1}$에서 $\mathbf{l}_{1}$에 수선을 내리면 해당 수선에 주점(Principal Point) P가 위치한다. 이러한 특징으로 인해 <b>서로 다른 세 개의 수직소실점이 존재하는 경우 이들의 수심(Orthocenter of the triangle)이 곧 주점 P가 된다.</b>
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-orgc7a1329" class="outline-3">
 <h3 id="orgc7a1329"><span class="section-number-3">1.11</span> The calibrating conic</h3>
 <div class="outline-text-3" id="text-1-11">
@@ -517,36 +525,40 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 <p>
 이 때, $\dot{\mathbf{x}} = \mathbf{Sx}$는 점 $\mathbf{x}$가 Calibration Conic에 의해 반사된 점을 의미한다. 결론적으로, <b>직선 $\mathbf{C}\dot{\mathbf{x}}$는 반사된 점 $\dot{\mathbf{x}}$와 Calibration Conic의 접선들을 이어주는 직선이 되고 점 $\mathbf{x}^{'}$는 직선 $\mathbf{C}\dot{\mathbf{x}}$위에 존재</b> 한다.
 </p>
-</div>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
+</div>
 <div id="outline-container-orgb089f0d" class="outline-2">
 <h2 id="orgb089f0d"><span class="section-number-2">2</span> Structure From Motion</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <b>Structure From Motion(SFM) 이란 두 개의 이미지에서 $n$개의 포인트가 주어졌을 때 3차원 공간 상의 점 $\mathbf{P}^{i}$와 카메라의 상대 포즈 $\mathbf{R}, \mathbf{t}$그리고 카메라의 파라미터 $\mathbf{K}_{1}, \mathbf{K}_{2}$를 추정하는 방법을 말한다.</b> 이 때 카메라의 파라미터를 알고 있는 경우 모르고 있는 경우에 따라 크게 2가지 방법이 존재한다. Structure From Motion은 종종 3D Reconstruction과 비교되곤 하는데 둘의 차이점을 살펴보면 다음과 같다.
 </p>
-</div>
 
+<hr />
+</div>
 <div id="outline-container-orgf4074ff" class="outline-3">
 <h3 id="orgf4074ff"><span class="section-number-3">2.1</span> 3D reconstruction vs structure from motion</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 <b>3D Reconstruction from multiple views는 $K, T$와 $R$를 알고 있다는 가정</b> 을 가지고 있으며 이미지로부터 3차원 공간을 재구성하는 것이 목표로 한다. 반면, <b>Structure From Motion는 $K, T$와 $R$모두 알고 있지 않다는 가정</b> 이 있으며 다수의 이미지로부터 3차원 공간을 재구성함과 동시에 카메라의 포즈(up to scale) 또한 동시에 복원하는 것을 목표로 한다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-orgc8fd3ed" class="outline-3">
 <h3 id="orgc8fd3ed"><span class="section-number-3">2.2</span> The epipolar geometry</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 <b>Epipolar Line</b> 은 좌측 이미지에서 계산한 Projection Ray $\pi^{-1}(\mathbf{p})$와 평행한 $\mathbf{p}_{ri}$상의 직선을 의미한다. <b>Epipole</b> 은 Epipolar Line과 두 스테레오 카메라의 중심점을 잇는 직선 사이의 교차점을 의미한다. 스테레오 카메라의 경우 2개의 Epipole이 존재한다. <b>Epipolar Plane</b> 은 두 카메라의 중심점 $C_{l}, C_{r}$과 3차원 공간 상의 점 $\mathbf{P}$가 생성하는 유일한 평면을 의미한다. 위와 같은 Epipolar Geometry를 통해 좌측 이미지 상의 점 $\mathbf{p}_{li}$에 대한 우측 이미지의 상응점의 후보 위치들이 항상 Epipolar Line 위에서만 존재하게 되는데 이를 <b>Epipolar Constraint</b> 라고 하며 이러한 제약조건이 상응점을 탐색하는데 매우 효율적으로 탐색할 수 있도록 도와준다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org9f0b94f" class="outline-3">
 <h3 id="org9f0b94f"><span class="section-number-3">2.3</span> Essential matrix (calibrated camera)</h3>
 <div class="outline-text-3" id="text-2-3">
@@ -583,8 +595,8 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 4n \ge 5 + 3n \Rightarrow n \ge 5
 \end{aligned}
 \end{equation}
+<hr />
 </div>
-
 <div id="outline-container-org6b8cecb" class="outline-4">
 <h4 id="org6b8cecb"><span class="section-number-4">2.3.1</span> Computation of essential matrix</h4>
 <div class="outline-text-4" id="text-2-3-1">
@@ -611,9 +623,10 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 <p>
 위 식을 <b>Longeut-Higgins Equation (1981)</b> 이라고 한다. Essential Matrix는 SVD를 통해 $\mathbf{R}$과 $\mathbf{t}$로 분해가 가능하며 총 4개의 후보 해들이 나온다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org61254e1" class="outline-4">
 <h4 id="org61254e1"><span class="section-number-4">2.3.2</span> The 8-point algoirithm</h4>
 <div class="outline-text-4" id="text-2-3-2">
@@ -650,9 +663,10 @@ $\bar{\mathbf{p}}_{2}^{T}\mathbf{E}\bar{\mathbf{p}_{1}} = 0$식에서 $\mathbf{E
 <p>
 $n &gt; 8$이상의 대응쌍들이 주어진 경우 해가 존재하지 않는 <b>over-determined system</b> 상태가 된다. Over-determined System에서는 해를 찾는 대신 $\left \| \mathbf{E} \right \|^{2} = 1$일 때 $\left \| \mathbf{Q}\mathbf{E} \right \|^{2}$값이 최소가 되는 근사해를 찾는 것이 목적이다. 방정식의 근사해는 $\mathbf{Q}^{T}\mathbf{Q}$의 eigenvalue가 최소가 되는 eigenvector가 된다. 이는 $\left \| \mathbf{Q}x \right\|^{2} = x^{T}\mathbf{Q}^{T}\mathbf{Q}x$에서 x를 최소화하는 것과 동일하기 때문이다. SVD를 사용하여 $\mathbf{Q}^{T}\mathbf{Q}$의 해를 구할 수 있다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org20e0bf2" class="outline-4">
 <h4 id="org20e0bf2"><span class="section-number-4">2.3.3</span> Degenerate case</h4>
 <div class="outline-text-4" id="text-2-3-3">
@@ -676,9 +690,10 @@ $n &gt; 8$이상의 대응쌍들이 주어진 경우 해가 존재하지 않는 
 <p>
 위 식을 보면 알 수 있듯이 8-Point Algorithm은 $\bar{p}_{2}$와 $\mathbf{E}\bar{p}_{1}$가 이루는 각도 $\theta$에 의존적이다. 따라서 $\bar{p}_{1}, \bar{p}_{2}, \mathbf{t}$가 같은 평면 상에 존재하지 않을 때만 0이 아닌 값을 가진다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org16eef12" class="outline-4">
 <h4 id="org16eef12"><span class="section-number-4">2.3.4</span> Extract $\mathbf{R}$and $\mathbf{t}$from $\mathbf{E}$</h4>
 <div class="outline-text-4" id="text-2-3-4">
@@ -724,10 +739,11 @@ Essential Matrix를 계산했으면 SVD를 사용하여  $\mathbf{R}, \mathbf{t}
 <p>
 이를 통해 총 4개의 해가 계산되는데 <b>3차원 공간 상의 점이 두 카메라 전방에 위치한 경우만 유일한 해</b> 가 된다.
 </p>
-</div>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
+</div>
 <div id="outline-container-orgdbf52b5" class="outline-3">
 <h3 id="orgdbf52b5"><span class="section-number-3">2.4</span> Fundamental matrix (uncalibrated camera)</h3>
 <div class="outline-text-3" id="text-2-4">
@@ -775,9 +791,10 @@ Fundamental Matrix의 장점은 픽셀 좌표계에서 바로 계산할 수 있�
 <p>
 위 식은 수치적으로 매우 불안정하여 노이즈에 약한 단점이 있다. 이를 해결하기 위해 데이터를 정규화하는 방법이 제안되었다. Normalized 8-point algorithm [Hartely'97]. 일반적으로 $\mathbf{F}$는 무한히 많은 해를 가지므로 $\mathbf{K}_{i}, \mathbf{R}, \mathbf{t}$를 추출할 수 없다. 하지만 <b>두 카메라의 Intrinsic Matrix $\mathbf{\mathbf{K}_{1}, \mathbf{K}_{2}}$를 알고 있는 경우 Essential Matrix와 동일하게 $\mathbf{R}, \mathbf{t}$를 유일하게 계산할 수 있다.</b>
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-orge69c4f2" class="outline-3">
 <h3 id="orge69c4f2"><span class="section-number-3">2.5</span> Error measurement</h3>
 <div class="outline-text-3" id="text-2-5">
@@ -802,16 +819,17 @@ Essential Matrix의 값을 추정할 때 어떤 에러 지표를 사용하는가
       err = \sum^{N}_{i=1} \bigg( \left \| \mathbf{p}_{1}^{i} - \pi_{1}(\mathbf{P}^{i}) \right \|^{2} + \left \| \mathbf{p}_{2}^{i} - \pi_{2}(\mathbf{P}^{i}, \mathbf{R}, \mathbf{t}) \right \|^{2} \bigg)
 \end{aligned}
 \end{equation}
+<hr />
 </div>
 </div>
 </div>
-
 <div id="outline-container-orgfc8e234" class="outline-2">
 <h2 id="orgfc8e234"><span class="section-number-2">3</span> Stereo vision</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 스테레오 비전을 사용하는 이유는 <b>스테레오 이미지를 사용하면 3차원 공간 상의 점을 복원</b> 할 수 있기 때문이다. 단안 카메라를 사용하면 오직 이미지 상의 한 점에 대한 Projection Ray 밖에 계산할 수 없지만 스테레오 카메라를 사용하면 Projection Ray로부터 3차원 점의 위치를 복원할 수 있다.
 </p>
+<hr />
 </div>
 <div id="outline-container-orga530687" class="outline-3">
 <h3 id="orga530687"><span class="section-number-3">3.1</span> Triangulation</h3>
@@ -859,9 +877,10 @@ Triangulation에는 크게 두 종류가 있는데 첫 번째로 같은 파라�
 <p>
 위 두 독립적인 방정식은 $\mathbf{P}$에 대한 3개의 항을 포함하고 있으며 이는 SVD를 통해 계산할 수 있다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-org7c708b0" class="outline-3">
 <h3 id="org7c708b0"><span class="section-number-3">3.2</span> Reprojection error minimization</h3>
 <div class="outline-text-3" id="text-3-2">
@@ -881,19 +900,21 @@ SSRE = d^{2}(\mathbf{p}_{1}, \pi_{1}(\mathbf{P})) + d^{2}(\mathbf{p}_{2}, \pi_{2
 <p>
 이 때, $d(\mathbf{p}_{1}, \pi_{1}(\mathbf{P})) = \left \| \mathbf{p}_{1} - \pi_{1}(\mathbf{P}) \right \|$를 <b>Reprojection Error</b> 라고 한다. SSRE는 Gauss-Newton, Levenberg-Marquardt 방법을 사용하여 계산할 수 있다.
 </p>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
 <div id="outline-container-orgb34c076" class="outline-3">
 <h3 id="orgb34c076"><span class="section-number-3">3.3</span> Correspondence problem</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 좌측 이미지에서 $\mathbf{p}_{li}$점들이 주어졌을 때 우측 이미지에서 어떤 점들이 정확히 상응하는 점 $\mathbf{p}_{ri}$인지 알 수 있을까? 두 점 근처에 있는 이미지 패치의 유사도를 비교하여 상응하는지 안 하는지 판단할 수 있다. 유사도 비교 방법에는 ZBCC, SSD, SAD, Census Transform 같은 방법들이 존재한다. 하지만 유사도 비교를 할 때 모든 이미지의 패치를 비교하면 매우 많은 컴퓨터 연산량이 요구된다. 유사도 비교를 할 때 2차원 이미지 전체를 비교하는 것이 아닌 1차원 선만 비교함으로써 해결하는 방법이 있을까? <b>Epipolar Geometry</b> 를 사용하면 $\mathbf{p}_{li}$의 상응점을 탐색할 때 우측 이미지의 특정 점에 대한 Epipolar Line $\mathbf{l}^{'}$만 탐색함으로써 매우 효율적으로 탐색할 수 있다.
 </p>
-</div>
-</div>
-</div>
 
+<hr />
+</div>
+</div>
+</div>
 <div id="outline-container-org5816cc3" class="outline-2">
 <h2 id="org5816cc3"><span class="section-number-2">4</span> References</h2>
 <div class="outline-text-2" id="text-4">
