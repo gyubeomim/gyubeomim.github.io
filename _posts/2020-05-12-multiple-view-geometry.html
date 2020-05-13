@@ -36,30 +36,38 @@ comments: true
 <li><a href="#orgc7a1329">1.11. The calibrating conic</a></li>
 </ul>
 </li>
-<li><a href="#orgb089f0d">2. Structure From Motion</a>
+<li><a href="#orge43955e">2. Epipolar Geometry and the Fundamental Matrix</a>
 <ul>
-<li><a href="#orgf4074ff">2.1. 3D reconstruction vs structure from motion</a></li>
-<li><a href="#orgc8fd3ed">2.2. The epipolar geometry</a></li>
-<li><a href="#org9f0b94f">2.3. Essential matrix (calibrated camera)</a>
-<ul>
-<li><a href="#org6b8cecb">2.3.1. Computation of essential matrix</a></li>
-<li><a href="#org61254e1">2.3.2. The 8-point algoirithm</a></li>
-<li><a href="#org20e0bf2">2.3.3. Degenerate case</a></li>
-<li><a href="#org16eef12">2.3.4. Extract $\mathbf{R}$and $\mathbf{t}$from $\mathbf{E}$</a></li>
+<li><a href="#orgcd72ba2">2.1. Proof</a></li>
+<li><a href="#org0da129e">2.2. Derivation of Fundemantal Matrix(Geometry)</a></li>
+<li><a href="#org8bc1244">2.3. Derivation of Fundemantal Matrix(Algebraic)</a></li>
 </ul>
 </li>
-<li><a href="#orgdbf52b5">2.4. Fundamental matrix (uncalibrated camera)</a></li>
-<li><a href="#orge69c4f2">2.5. Error measurement</a></li>
-</ul>
-</li>
-<li><a href="#orgfc8e234">3. Stereo vision</a>
+<li><a href="#org3c8ce41">3. BELOW SECTIONS ARE FROM ETH LECTURE NOTE</a></li>
+<li><a href="#orgb089f0d">4. Structure From Motion</a>
 <ul>
-<li><a href="#orga530687">3.1. Triangulation</a></li>
-<li><a href="#org7c708b0">3.2. Reprojection error minimization</a></li>
-<li><a href="#orgb34c076">3.3. Correspondence problem</a></li>
+<li><a href="#orgf4074ff">4.1. 3D reconstruction vs structure from motion</a></li>
+<li><a href="#orgc8fd3ed">4.2. The epipolar geometry</a></li>
+<li><a href="#org9f0b94f">4.3. Essential matrix (calibrated camera)</a>
+<ul>
+<li><a href="#org6b8cecb">4.3.1. Computation of essential matrix</a></li>
+<li><a href="#org61254e1">4.3.2. The 8-point algoirithm</a></li>
+<li><a href="#org20e0bf2">4.3.3. Degenerate case</a></li>
+<li><a href="#org16eef12">4.3.4. Extract $\mathbf{R}$and $\mathbf{t}$from $\mathbf{E}$</a></li>
 </ul>
 </li>
-<li><a href="#org5816cc3">4. References</a></li>
+<li><a href="#orgdbf52b5">4.4. Fundamental matrix (uncalibrated camera)</a></li>
+<li><a href="#orge69c4f2">4.5. Error measurement</a></li>
+</ul>
+</li>
+<li><a href="#orgfc8e234">5. Stereo vision</a>
+<ul>
+<li><a href="#orga530687">5.1. Triangulation</a></li>
+<li><a href="#org7c708b0">5.2. Reprojection error minimization</a></li>
+<li><a href="#orgb34c076">5.3. Correspondence problem</a></li>
+</ul>
+</li>
+<li><a href="#org5816cc3">6. References</a></li>
 </ul>
 </div>
 </div>
@@ -531,9 +539,173 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 </div>
 </div>
 </div>
-<div id="outline-container-orgb089f0d" class="outline-2">
-<h2 id="orgb089f0d"><span class="section-number-2">2</span> Structure From Motion</h2>
+<div id="outline-container-orge43955e" class="outline-2">
+<h2 id="orge43955e"><span class="section-number-2">2</span> Epipolar Geometry and the Fundamental Matrix</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+Epipolar geometry는 <b>2개의 카메라 이미지 사이에 정의되는 기하학 관계</b> 를 의미한다. 이는 3차원 물체의 구조와는 독립적이며 <b>오로지 카메라의 내부 파라미터와 두 카메라 사이의 상대 포즈에만 의존한다.</b>
+</p>
+
+<p>
+Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \mathbf{C}^{'}$이 주어질 때 $\mathbf{F}&isin; \mathbb{R}^{3&times; 3}$이며 rank 2를 가지는 행렬</b> 을 의미한다. $\mathbf{F}$는 두 카메라의 이미지 평면에 있는 점들의 대응쌍 $\mathbf{x}, \mathbf{x}^{'}$에 대하여
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{'T}\mathbf{Fx} = 0
+  \end{aligned}
+\end{equation}
+<p>
+을 만족한다. 이 때 곱해지는 순서에 따라 의미가 달라지며 $\mathbf{x}^{'T}\mathbf{Fx}=0$인 경우 두 카메라 $\mathbf{C},\mathbf{C}^{'}$사이의 Fundamental Matrix라고 하고 $\mathbf{x}^{T}\mathbf{F}^{'}\mathbf{x}^{'}=0$인 경우 두 카메라 $\mathbf{C}^{'},\mathbf{C}$사이의 Fundamental Matrix라고 한다. 이 때, $\mathbf{F}^{T} = \mathbf{F}^{'}$관계가 성립한다.
+</p>
+
+<p>
+기하학적 측면에서 보면, $\mathbf{x}^{'T}\mathbf{Fx}=0$에서 <b>$\mathbf{Fx}$는 카메라 $\mathbf{C}$의 이미지 평면 $\pi_{\mathbf{C}}$위의 점 $\mathbf{x}$가 존재할 때 이와 상응하는 Epipolar Line $\mathbf{l}^{'} &isin; &pi;_{\mathbf{C}^{'}}$을 의미</b> 한다. 따라서 <b>$\mathbf{F}$를 이미지 평면 위의 점을 Epipolar Line으로 매핑하는 함수로 생각</b> 할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F}: \ \mathbf{x} \in \pi_{\mathbf{C}} \in \mathbb{P}^{2} \mapsto \mathbf{l}^{'} \in (\mathbb{P}^{2})^{\vee}
+  \end{aligned}
+\end{equation}
+<hr />
+</div>
+<div id="outline-container-orgcd72ba2" class="outline-3">
+<h3 id="orgcd72ba2"><span class="section-number-3">2.1</span> Proof</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+($\Rightarrow$)$\mathbf{l}^{'} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{'}$에 위치한 점 $\mathbf{x}^{'}$에 대하여 다음이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{'T}\mathbf{l}^{'} = \mathbf{x}^{'T}\mathbf{Fx}=0 \quad \forall \mathbf{x} \leftrightarrow \mathbf{x}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+($\Leftarrow$) 이미지 평면 $\pi_{\mathbf{C}}$위의 점 $\mathbf{x}$를 Back-projection하여 $\mathbf{X}_{1}, \mathbf{X}_{2}$점이 생성되었다고 했을 때, 이를 $&pi;_{\mathbf{C}^{'}}$에 프로젝션시키면 각각 $\mathbf{x}^{'}_{1} = \mathbf{P}^{'}\mathbf{X}_{1}$, $\mathbf{x}^{'}_{2} = \mathbf{P}^{'}\mathbf{X}_{2}$점들이 생성된다. 이 때 Fundamental Matrix $\mathbf{F}$에 의해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}^{'T}_{1}\mathbf{Fx} = 0 \\
+    &amp; \mathbf{x}^{'T}_{2}\mathbf{Fx} = 0
+  \end{aligned}
+\end{equation}
+<p>
+의 관계가 성립하므로 $\mathbf{Fx}$는 $\mathbf{x}^{'T}_{i}, \ i=1,2$와 수직인 Epipolar Line $\mathbf{l}^{'}$을 의미한다.
+</p>
+
+<hr />
+</div>
+</div>
+<div id="outline-container-org0da129e" class="outline-3">
+<h3 id="org0da129e"><span class="section-number-3">2.2</span> Derivation of Fundemantal Matrix(Geometry)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+두 카메라 $\mathbf{C}, \mathbf{C}^{'}$가 있을 때 이미지 평면 $\pi_{\mathbf{C}}$위의 점 $\mathbf{x}$를 Back-projection한 직선 $\mathbf{l}_{x}$가 3차원 공간 상에서 임의의 평면 $&pi;_{0}$와 한 점에서 만난다고 가정한다. 이 때 $\mathbf{C}, \mathbf{C}^{'}$의 이미지 점들을 연결해주는 Homography $\mathbf{H}_{&pi;_{0}}$를 생각해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{\pi_{0}} : &amp; \pi_{\mathbf{C}} \mapsto \pi_{\mathbf{C}^{'}} \\
+    &amp; \mathbf{x} \mapsto \mathbf{x}^{'} \\ 
+    &amp; \mathbf{x} \mapsto \mathbf{P}^{'}(\mathbf{l_{x}} \cap \pi_{0})
+  \end{aligned}
+\end{equation}
+<p>
+$\pi_{\mathbf{C}^{'}}$위에 프로젝션된 점을 $\mathbf{x}^{'} = \mathbf{P}^{'}(\mathbf{l}_{x} &cap; &pi;_{0})$라고 하고 Epipolar Line $\mathbf{l}^{'}$을 $\mathbf{x}^{'}$와 Epipole $\mathbf{e}^{'}$를 이어주는 직선이라고 정의하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{e}^{'} \times \mathbf{x}^{'} &amp; = \mathbf{e}^{' \wedge}\mathbf{x}^{'} \\
+    &amp; = \mathbf{e}^{'\wedge} \mathbf{H}_{\pi_{0}}(\mathbf{x}) \quad \text{is Epipolar Line.}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 나타낼 수 있다. 이 때 $\mathbf{l}^{'} = \mathbf{Fx}$의 공식을 사용하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}^{'} &amp; = \mathbf{Fx} \\
+    &amp; = \mathbf{e}^{'\wedge} \mathbf{H}_{\pi_{0}} \mathbf{x} \\
+  \end{aligned}
+\end{equation}
+<p>
+과 같다. 따라서 <b>$\mathbf{F} = \mathbf{e}^{'\wedge}\mathbf{H}_{\pi_{0}}$</b> 가 성립한다.
+</p>
+
+<hr />
+</div>
+</div>
+<div id="outline-container-org8bc1244" class="outline-3">
+<h3 id="org8bc1244"><span class="section-number-3">2.3</span> Derivation of Fundemantal Matrix(Algebraic)</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Epipolar Line $\mathbf{l}^{'} = \mathbf{P}^{'}(\mathbf{X(\lambda)})$와 같다. 이 때 $\mathbf{X}(&lambda;)$는 카메라 $\mathbf{C}$의 중심점을 지나는 $\mathbf{x}$의 Back-projection 직선을 의미한다. $\mathbf{X}(&lambda;)$는 다음과 같이 다시 작성할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X}(\lambda) = \mathbf{P}^{\dagger}\mathbf{x} + \lambda \mathbf{C} \quad \lambda \in \mathbb{R}\\
+  \end{aligned}
+\end{equation}
+<p>
+여기서 $\mathbf{P}^{&dagger;}$는 $\mathbf{P}$의 Pseudo Inverse를 의미하고
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}^{\dagger} = \mathbf{P}^{T}(\mathbf{PP}^{T})^{-1}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $\mathbf{l}^{'} = \mathbf{P}^{'}(\mathbf{X}(&lambda;))$는 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}^{'}(\mathbf{X}(\lambda)) &amp; = \mathbf{P}^{'}\mathbf{P}^{\dagger}\mathbf{x} + \lambda \mathbf{P}^{'}\mathbf{C} \\
+    &amp; \mathbf{P}^{'}\mathbf{P}^{\dagger}\mathbf{x} + \lambda \mathbf{e}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+$\mathbf{P}^{'}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;_{\mathbf{C}^{'}}$에 프로젝션시킨 점을 의미하므로 Epipole $\mathbf{e}^{'}$가 된다. 위 식을 Dual Projection $(\mathbb{P}^{2})^{&or;}$에서 표현하면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \therefore \mathbf{l}^{'} = \mathbf{e}^{'\wedge} \mathbf{P}^{'}\mathbf{P}^{\dagger}
+  \end{aligned}
+\end{equation}
+<p>
+추가적으로 Epipole $\mathbf{e}^{'}$는 Epipolar Line $\mathbf{l}^{'}$에 포함되어 있고 모든 $\mathbf{x}_{i}$에 대해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{e}^{'} \mathbf{Fx}_{i} = 0 \quad \forall \mathbf{x}_{i}
+  \end{aligned}
+\end{equation}
+<p>
+이 성립하므로 $\mathbf{e}^{'}\mathbf{F}=0$이 성립한다. <b>결론적으로 $\mathbf{e}^{'}$는 $\mathbf{F}$의 Left null vector</b> 이다.
+</p>
+
+<hr />
+</div>
+</div>
+</div>
+<div id="outline-container-org3c8ce41" class="outline-2">
+<h2 id="org3c8ce41"><span class="section-number-2">3</span> BELOW SECTIONS ARE FROM ETH LECTURE NOTE</h2>
+<div class="outline-text-2" id="text-3">
+<hr />
+</div>
+</div>
+<div id="outline-container-orgb089f0d" class="outline-2">
+<h2 id="orgb089f0d"><span class="section-number-2">4</span> Structure From Motion</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 <b>Structure From Motion(SFM) 이란 두 개의 이미지에서 $n$개의 포인트가 주어졌을 때 3차원 공간 상의 점 $\mathbf{P}^{i}$와 카메라의 상대 포즈 $\mathbf{R}, \mathbf{t}$그리고 카메라의 파라미터 $\mathbf{K}_{1}, \mathbf{K}_{2}$를 추정하는 방법을 말한다.</b> 이 때 카메라의 파라미터를 알고 있는 경우 모르고 있는 경우에 따라 크게 2가지 방법이 존재한다. Structure From Motion은 종종 3D Reconstruction과 비교되곤 하는데 둘의 차이점을 살펴보면 다음과 같다.
 </p>
@@ -541,8 +713,8 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 <hr />
 </div>
 <div id="outline-container-orgf4074ff" class="outline-3">
-<h3 id="orgf4074ff"><span class="section-number-3">2.1</span> 3D reconstruction vs structure from motion</h3>
-<div class="outline-text-3" id="text-2-1">
+<h3 id="orgf4074ff"><span class="section-number-3">4.1</span> 3D reconstruction vs structure from motion</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
 <b>3D Reconstruction from multiple views는 $K, T$와 $R$를 알고 있다는 가정</b> 을 가지고 있으며 이미지로부터 3차원 공간을 재구성하는 것이 목표로 한다. 반면, <b>Structure From Motion는 $K, T$와 $R$모두 알고 있지 않다는 가정</b> 이 있으며 다수의 이미지로부터 3차원 공간을 재구성함과 동시에 카메라의 포즈(up to scale) 또한 동시에 복원하는 것을 목표로 한다.
 </p>
@@ -551,8 +723,8 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 </div>
 </div>
 <div id="outline-container-orgc8fd3ed" class="outline-3">
-<h3 id="orgc8fd3ed"><span class="section-number-3">2.2</span> The epipolar geometry</h3>
-<div class="outline-text-3" id="text-2-2">
+<h3 id="orgc8fd3ed"><span class="section-number-3">4.2</span> The epipolar geometry</h3>
+<div class="outline-text-3" id="text-4-2">
 <p>
 <b>Epipolar Line</b> 은 좌측 이미지에서 계산한 Projection Ray $\pi^{-1}(\mathbf{p})$와 평행한 $\mathbf{p}_{ri}$상의 직선을 의미한다. <b>Epipole</b> 은 Epipolar Line과 두 스테레오 카메라의 중심점을 잇는 직선 사이의 교차점을 의미한다. 스테레오 카메라의 경우 2개의 Epipole이 존재한다. <b>Epipolar Plane</b> 은 두 카메라의 중심점 $C_{l}, C_{r}$과 3차원 공간 상의 점 $\mathbf{P}$가 생성하는 유일한 평면을 의미한다. 위와 같은 Epipolar Geometry를 통해 좌측 이미지 상의 점 $\mathbf{p}_{li}$에 대한 우측 이미지의 상응점의 후보 위치들이 항상 Epipolar Line 위에서만 존재하게 되는데 이를 <b>Epipolar Constraint</b> 라고 하며 이러한 제약조건이 상응점을 탐색하는데 매우 효율적으로 탐색할 수 있도록 도와준다.
 </p>
@@ -561,8 +733,8 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 </div>
 </div>
 <div id="outline-container-org9f0b94f" class="outline-3">
-<h3 id="org9f0b94f"><span class="section-number-3">2.3</span> Essential matrix (calibrated camera)</h3>
-<div class="outline-text-3" id="text-2-3">
+<h3 id="org9f0b94f"><span class="section-number-3">4.3</span> Essential matrix (calibrated camera)</h3>
+<div class="outline-text-3" id="text-4-3">
 <p>
 해당 섹션에서는 이미 알고 있는 카메라 파라미터를 사용하여 캘리브레이션된 카메라를 통한 SFM 방법을 설명한다. 이미지 좌표계를 [0,1]로 정규화시키면 최적화 수행 시 수치 에러를 최소화할 수 있다. 정규화된 이미지 좌표계는 다음과 같이 나타낼 수 있다.
 </p>
@@ -599,8 +771,8 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 <hr />
 </div>
 <div id="outline-container-org6b8cecb" class="outline-4">
-<h4 id="org6b8cecb"><span class="section-number-4">2.3.1</span> Computation of essential matrix</h4>
-<div class="outline-text-4" id="text-2-3-1">
+<h4 id="org6b8cecb"><span class="section-number-4">4.3.1</span> Computation of essential matrix</h4>
+<div class="outline-text-4" id="text-4-3-1">
 <p>
 만약 $\mathbf{p}_{1}, \mathbf{p}_{2}, \mathbf{t}$가 Epipolar Plane 위에 존재하는 경우<br />
 </p>
@@ -629,8 +801,8 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 </div>
 </div>
 <div id="outline-container-org61254e1" class="outline-4">
-<h4 id="org61254e1"><span class="section-number-4">2.3.2</span> The 8-point algoirithm</h4>
-<div class="outline-text-4" id="text-2-3-2">
+<h4 id="org61254e1"><span class="section-number-4">4.3.2</span> The 8-point algoirithm</h4>
+<div class="outline-text-4" id="text-4-3-2">
 <p>
 $\bar{\mathbf{p}}_{2}^{T}\mathbf{E}\bar{\mathbf{p}_{1}} = 0$식에서 $\mathbf{E}$는 9자유도 행렬이다. $\mathbf{E}$를 펼쳐보면 다음과 같다. $\mathbf{E} = \begin{bmatrix} e_{11}&amp;e_{12}&amp;e_{13}\\e_{21}&amp;e_{22}&amp;e_{23}\\e_{31}&amp;e_{23}&amp;e_{33}\end{bmatrix}$.<br />
 </p>
@@ -669,8 +841,8 @@ $n &gt; 8$이상의 대응쌍들이 주어진 경우 해가 존재하지 않는 
 </div>
 </div>
 <div id="outline-container-org20e0bf2" class="outline-4">
-<h4 id="org20e0bf2"><span class="section-number-4">2.3.3</span> Degenerate case</h4>
-<div class="outline-text-4" id="text-2-3-3">
+<h4 id="org20e0bf2"><span class="section-number-4">4.3.3</span> Degenerate case</h4>
+<div class="outline-text-4" id="text-4-3-3">
 <p>
 8-Point Algorithm은 여러 3차원 공간 상의 점들이 같은 평면 위에 존재하는 경우 해를 찾는데 실패하게 된다. 이와 반대로 5-point Algorithm은 같은 평면 상에 존재하는 점들에 대해서도 해를 구할 수 있다. 8-Point Algorithm은 다음과 같은 대수적 에러를 최적화하는 알고리즘을 볼 수 있다.
 </p>
@@ -696,8 +868,8 @@ $n &gt; 8$이상의 대응쌍들이 주어진 경우 해가 존재하지 않는 
 </div>
 </div>
 <div id="outline-container-org16eef12" class="outline-4">
-<h4 id="org16eef12"><span class="section-number-4">2.3.4</span> Extract $\mathbf{R}$and $\mathbf{t}$from $\mathbf{E}$</h4>
-<div class="outline-text-4" id="text-2-3-4">
+<h4 id="org16eef12"><span class="section-number-4">4.3.4</span> Extract $\mathbf{R}$and $\mathbf{t}$from $\mathbf{E}$</h4>
+<div class="outline-text-4" id="text-4-3-4">
 <p>
 Essential Matrix를 계산했으면 SVD를 사용하여  $\mathbf{R}, \mathbf{t}$를 분해할 수 있다.
 </p>
@@ -746,8 +918,8 @@ Essential Matrix를 계산했으면 SVD를 사용하여  $\mathbf{R}, \mathbf{t}
 </div>
 </div>
 <div id="outline-container-orgdbf52b5" class="outline-3">
-<h3 id="orgdbf52b5"><span class="section-number-3">2.4</span> Fundamental matrix (uncalibrated camera)</h3>
-<div class="outline-text-3" id="text-2-4">
+<h3 id="orgdbf52b5"><span class="section-number-3">4.4</span> Fundamental matrix (uncalibrated camera)</h3>
+<div class="outline-text-3" id="text-4-4">
 <p>
 해당 섹션에서는 카메라의 파라미터 $\mathbf{K}_{1}, \mathbf{K}_{2}$를 알지 못하는 경우 SFM 방법에 대해 설명한다. 이전 섹션에서 Essential Matrix를 설명할 때 공식을 다시 사용하면 다음과 같다.
 </p>
@@ -797,8 +969,8 @@ Fundamental Matrix의 장점은 픽셀 좌표계에서 바로 계산할 수 있�
 </div>
 </div>
 <div id="outline-container-orge69c4f2" class="outline-3">
-<h3 id="orge69c4f2"><span class="section-number-3">2.5</span> Error measurement</h3>
-<div class="outline-text-3" id="text-2-5">
+<h3 id="orge69c4f2"><span class="section-number-3">4.5</span> Error measurement</h3>
+<div class="outline-text-3" id="text-4-5">
 <p>
 Essential Matrix의 값을 추정할 때 어떤 에러 지표를 사용하는가에 따라 성능의 차이가 존재한다. 우선 Epipolar Constraint를 사용한 대수적 에러를 최소화하는 방법이 존재한다.
 </p>
@@ -825,16 +997,16 @@ Essential Matrix의 값을 추정할 때 어떤 에러 지표를 사용하는가
 </div>
 </div>
 <div id="outline-container-orgfc8e234" class="outline-2">
-<h2 id="orgfc8e234"><span class="section-number-2">3</span> Stereo vision</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="orgfc8e234"><span class="section-number-2">5</span> Stereo vision</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 스테레오 비전을 사용하는 이유는 <b>스테레오 이미지를 사용하면 3차원 공간 상의 점을 복원</b> 할 수 있기 때문이다. 단안 카메라를 사용하면 오직 이미지 상의 한 점에 대한 Projection Ray 밖에 계산할 수 없지만 스테레오 카메라를 사용하면 Projection Ray로부터 3차원 점의 위치를 복원할 수 있다.
 </p>
 <hr />
 </div>
 <div id="outline-container-orga530687" class="outline-3">
-<h3 id="orga530687"><span class="section-number-3">3.1</span> Triangulation</h3>
-<div class="outline-text-3" id="text-3-1">
+<h3 id="orga530687"><span class="section-number-3">5.1</span> Triangulation</h3>
+<div class="outline-text-3" id="text-5-1">
 <p>
 <b>Triangulation은 2개의 Projection Ray의 교차점을 사용하여 3차원 점의 위치를 복원하는 방법</b> 을 말한다. 이를 위해서는 캘리브레이션된 카메라 포즈와 점들의 상관관계를 알고 있어야 한다.
 </p>
@@ -883,8 +1055,8 @@ Triangulation에는 크게 두 종류가 있는데 첫 번째로 같은 파라�
 </div>
 </div>
 <div id="outline-container-org7c708b0" class="outline-3">
-<h3 id="org7c708b0"><span class="section-number-3">3.2</span> Reprojection error minimization</h3>
-<div class="outline-text-3" id="text-3-2">
+<h3 id="org7c708b0"><span class="section-number-3">5.2</span> Reprojection error minimization</h3>
+<div class="outline-text-3" id="text-5-2">
 <p>
 두 카메라의 포즈와 3차원 공간 상의 점 $\mathbf{P}$에 대한 이미지의 프로젝션된 점 $\mathbf{p}_{1}, \mathbf{p}_{2}$가 주어졌을 때 $\mathbf{P}$의 3차원 위치를 계산하는 방법을 <b>Triangulation</b> 이라고 한다. 이 때 이상적인 $\mathbf{p}_{1}, \mathbf{p}_{2}$의 경우 두 Projection Ray가 교차하여 교차점을 계산할 수 있으나 실제 상황에서는 수치 오차로 인해 두 선이 만나지 않는다. 따라서 두 Projection Ray의 최단거리를 표현하는 선의 중앙점을 3차원 점 $\mathbf{P}$의 위치로 추정한다.
 </p>
@@ -906,8 +1078,8 @@ SSRE = d^{2}(\mathbf{p}_{1}, \pi_{1}(\mathbf{P})) + d^{2}(\mathbf{p}_{2}, \pi_{2
 </div>
 </div>
 <div id="outline-container-orgb34c076" class="outline-3">
-<h3 id="orgb34c076"><span class="section-number-3">3.3</span> Correspondence problem</h3>
-<div class="outline-text-3" id="text-3-3">
+<h3 id="orgb34c076"><span class="section-number-3">5.3</span> Correspondence problem</h3>
+<div class="outline-text-3" id="text-5-3">
 <p>
 좌측 이미지에서 $\mathbf{p}_{li}$점들이 주어졌을 때 우측 이미지에서 어떤 점들이 정확히 상응하는 점 $\mathbf{p}_{ri}$인지 알 수 있을까? 두 점 근처에 있는 이미지 패치의 유사도를 비교하여 상응하는지 안 하는지 판단할 수 있다. 유사도 비교 방법에는 ZBCC, SSD, SAD, Census Transform 같은 방법들이 존재한다. 하지만 유사도 비교를 할 때 모든 이미지의 패치를 비교하면 매우 많은 컴퓨터 연산량이 요구된다. 유사도 비교를 할 때 2차원 이미지 전체를 비교하는 것이 아닌 1차원 선만 비교함으로써 해결하는 방법이 있을까? <b>Epipolar Geometry</b> 를 사용하면 $\mathbf{p}_{li}$의 상응점을 탐색할 때 우측 이미지의 특정 점에 대한 Epipolar Line $\mathbf{l}^{'}$만 탐색함으로써 매우 효율적으로 탐색할 수 있다.
 </p>
@@ -917,8 +1089,8 @@ SSRE = d^{2}(\mathbf{p}_{1}, \pi_{1}(\mathbf{P})) + d^{2}(\mathbf{p}_{2}, \pi_{2
 </div>
 </div>
 <div id="outline-container-org5816cc3" class="outline-2">
-<h2 id="org5816cc3"><span class="section-number-2">4</span> References</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="org5816cc3"><span class="section-number-2">6</span> References</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 <a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
 </p>
