@@ -527,6 +527,18 @@ a.pagination-item:hover {
   color: #6a9fb5;
 }
 
+/* custom blue */
+.theme-base-0q .sidebar,
+.theme-base-0q .sidebar-toggle:active,
+.theme-base-0q #sidebar-checkbox:checked ~ .sidebar-toggle {
+  background-color: #007fff;
+}
+.theme-base-0q .container a,
+.theme-base-0q .sidebar-toggle,
+.theme-base-0q .related-posts li a:hover {
+  color: #007fff;
+}
+
 /* Magenta */
 .theme-base-0e .sidebar,
 .theme-base-0e .sidebar-toggle:active,
