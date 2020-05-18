@@ -1,0 +1,259 @@
+---
+layout: post
+title: (Geometry) Notes on Plücker Coordinate
+description:
+date: 2020-05-12
+categories: [Mathematics]
+tag: [Photogrammetry, Geometry, SLAM]
+use_math: true
+comments: true
+---
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7bb9eb0">1. Introduction</a></li>
+<li><a href="#orgd4d8759">2. Plücker coordinate representation</a>
+<ul>
+<li><a href="#org83ff9b0">2.1. {Up to scale uniqueness}</a></li>
+</ul>
+</li>
+<li><a href="#orge3d9fdd">3. Dual represention of plücker coordinate</a></li>
+<li><a href="#orgf314d0f">4. References</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7bb9eb0" class="outline-2">
+<h2 id="org7bb9eb0"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Plücker Coordinate는 $\mathbb{P}^{5} \subset \mathbb{R}^{6}$공간에서 3차원 직선을 표현하는 방법을 말한다. Plücker Coordinate는 스케일 특성까지만(up to scale) 직선을 유일하게 표현할 수 있다. Plücker Coordinate 이외에도 3차원 공간 상에서 직선을 표현하는 방법은 여러가지가 있다. 예를 들면 두 점 $\mathbf{p}_{1}, \mathbf{p}_{2}$을 사용함으로써 직선 $\mathbf{L}$을 표현할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{L} = (\mathbf{p}_{1}, \mathbf{p}_{2}) 
+  \end{aligned}
+\end{equation}
+<p>
+또는 직선 위의 한 점 $\mathbf{p}_{1}$과 방향벡터 $\mathbf{d}$를 가지고 직선을 표현할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{L} = (\mathbf{p}_{1}, \mathbf{d}) \\
+    &amp; \text{where, } \mathbf{d} = \mathbf{p}_{2} - \mathbf{p}_{1}
+  \end{aligned}
+\end{equation}
+<p>
+또는 두 평면 $&pi;_{1}, &pi;_{2}$의 교차점이 직선이므로 평면 2개를 통해 직선 $\mathbf{L}$을 표현할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{L} = (\pi_{1}, \pi_{2})
+  \end{aligned}
+\end{equation}
+<p>
+또는 직선의 방향벡터 $\mathbf{d}$와 원점을 포함하며 직선을 포함하는 평면의 방향벡터 $\mathbf{m}$을 사용하여 직선을 표현할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{L} = (\mathbf{d}, \mathbf{m}) \in \mathbb{P}^{5} \\
+    &amp; \text{where, } \mathbf{d} = \mathbf{p}_{2} - \mathbf{p}_{1} \\
+    &amp; \mathbf{m} = \mathbf{p}_{1} \times \mathbf{p}_{2}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, 직선이 원점에서 떨어진 거리는 $|\mathbf{m}|/|\mathbf{d}|$를 사용하여 알 수 있기 때문에 직선을 정확하게 표현할 수 있다. 이러한 <b>여러 직선 표현 방법들 중 $(\mathbf{d},\mathbf{m})$을 사용하여 직선을 표현하는 방법을 Plücker Coordinate</b> 라고 한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd4d8759" class="outline-2">
+<h2 id="orgd4d8759"><span class="section-number-2">2</span> Plücker coordinate representation</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Plücker Coordinate에서 직선을 표현하는 방법은 다음과 같다. $\mathbb{P}^{3}$공간에 두 점 $\mathbf{p}_{1}, \mathbf{p}_{2}$가 존재할 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{p}_{1} = (w_{1}, x_{1}, y_{1}, z_{1}) \\
+    &amp; \mathbf{p}_{2} = (w_{2}, x_{2}, y_{2}, z_{2})
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 나타낼 수 있다. 직선에 대한 방향벡터 $\mathbf{d}= \mathbf{p}_{2} - \mathbf{p}_{1}$과 원점과 직선을 포함하는 평면의 방향벡터 $\mathbf{m}=\mathbf{p}_{2}&times; \mathbf{p}_{1}$이 있을 때 직선 $\mathbf{L}$은 다음과 같이 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{L} = (\mathbf{d}:\mathbf{m}) = (\mathbf{d}_{x}:\mathbf{d}_{y}:\mathbf{d}_{z}:\mathbf{m}_{x}:\mathbf{m}_{y}:\mathbf{m}_{z})
+  \end{aligned}
+\end{equation}
+<p>
+이 때 <b>$\mathbf{m}$은 원점과 직선 사이의 모멘트(Moment) 벡터</b> 라고 한다. 만약 모멘트 벡터가 0이면 직선이 원점을 포함하고 있다는 의미이다. 위 식의 값을 유도하기 위해 아래와 같이 두 점을 행으로 하는 행렬 $\mathbf{P}&isin; \mathbb{R}^{2&times; 4}$가 존재하고 2x2 submatrix에 대한 행렬식 연산을 정의하면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = \begin{bmatrix} w_{1} &amp; x_{1} &amp; y_{1} &amp; z_{1} \\ w_{2}&amp;x_{2}&amp;y_{2}&amp;z_{2} \end{bmatrix} \\
+    &amp; \mathbf{P}_{ij}  = \begin{vmatrix} x_{i} &amp; y_{i} \\ x_{j} &amp; y_{j} \end{vmatrix} = x_{i}y_{j} - x_{j}y_{i}
+  \end{aligned}
+\end{equation}
+<p>
+결론적으로 직선 $\mathbf{L}$은 다음과 같이 정의할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{L} = (\mathbf{d}:\mathbf{m}) = (\mathbf{d}_{x}:\mathbf{d}_{y}:\mathbf{d}_{z}:\mathbf{m}_{x}:\mathbf{m}_{y}:\mathbf{m}_{z}) = (\mathbf{P}_{01}:\mathbf{P}_{02}:\mathbf{P}_{03}:\mathbf{P}_{23}:\mathbf{P}_{31}:\mathbf{P}_{12})
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $\mathbf{P}_{ij}$의 각 성분들을 자세히 표기하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P}_{01} = w_{1}x_{2}-w_{2}x_{1} &amp; \mathbf{P}_{23} = y_{1}z_{2}-z_{1}y_{2} \\
+    &amp; \mathbf{P}_{02} = w_{1}y_{2}-w_{2}y_{1} &amp; \mathbf{P}_{31} = z_{1}x_{2}-x_{1}z_{2} \\
+    &amp; \mathbf{P}_{03} = w_{1}z_{2}-w_{2}z_{1} &amp; \mathbf{P}_{12} = x_{1}y_{2}-y_{1}x_{2}
+  \end{aligned}
+\end{equation}
+<p>
+과 같다. 만약 $w_{1}=w_{2}=1$이면 다음과 같이 간결하게 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}_{01} = x_{2}-x_{1} \quad \mathbf{P}_{02} = y_{2}-y_{1} \quad \mathbf{P}_{03} = z_{2}-z_{1} 
+  \end{aligned}
+\end{equation}
+</div>
+
+<div id="outline-container-org83ff9b0" class="outline-3">
+<h3 id="org83ff9b0"><span class="section-number-3">2.1</span> {Up to scale uniqueness}</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+만약 직선 위의 점 $\mathbf{p}_{1}, \mathbf{p}_{2}$가 아닌 다른 직선 위의 점 $\mathbf{p}^{'}_{1}, \mathbf{p}^{'}_{2}$가 존재할 때 이는 기존 점들을 통해 표현이 가능하다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{p}_{1}^{'} = \lambda \mathbf{p}_{1} + (1-\lambda) \mathbf{p}_{2} \\
+    &amp; \mathbf{p}_{2}^{'} = \mu \mathbf{p}_{1} + (1-\mu) \mathbf{p}_{2} 
+  \end{aligned}
+\end{equation}
+<p>
+직선의 방향벡터 $\mathbf{d}^{'}$와 모멘트 벡터 $\mathbf{m}$또한 기존의 점들을 스케일하여 표현할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{d}^{'} = \mathbf{p}_{2}^{'} - \mathbf{p}_{1}^{'} = (\lambda-\mu)\mathbf{d} \\
+    &amp; \mathbf{m}^{'} = \mathbf{p}_{1}^{'} \times \mathbf{p}_{2}^{'} = (\lambda-\mu)\mathbf{m} \\
+  \end{aligned}
+\end{equation}
+<p>
+따라서 <b>Plücker Coordinate는 스케일 특성까지만(up to scale) 직선을 유일하게 표현</b> 할 수 있다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge3d9fdd" class="outline-2">
+<h2 id="orge3d9fdd"><span class="section-number-2">3</span> Dual represention of plücker coordinate</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Plücker Coordinate는 두 평면이 교차하는 직선을 사용하여 표현할 수 있다. 이렇게 <b>두 평면의 교선으로 표현하는 방법을 Dual Representation</b> 이라고 한다. 서로 평행하지 않은 두 평면 $&pi;_{1}, &pi;_{2}$가 존재한다고 하면 평면 $\pi_{i}$위의 점 $\mathbf{p}_{i}$에 대해 다음의 공식이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \pi_{i}^{T}\mathbf{p}_{i} = 0 \\
+    &amp; \begin{bmatrix} \pi_{iw}&amp;\pi_{ix}&amp;\pi_{iy}&amp;\pi_{iz} \end{bmatrix}\begin{bmatrix} w_{i}\\x_{i}\\y_{i}\\z_{i} \end{bmatrix} = 0 
+  \end{aligned}
+\end{equation}
+<p>
+이 때 두 평면의 좌표 $\begin{bmatrix}&pi;_{iw}&amp;&pi;_{ix}&amp;&pi;_{iy}&amp;&pi;_{iz} \end{bmatrix}^{T}$를 점으로 간주하면 점과 동일하게 2x2 submatrix 연산을 정의할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \pi = \begin{bmatrix} \pi_{1w}&amp;\pi_{1x}&amp;\pi_{1y}&amp;\pi_{1z} \\ \pi_{2w}&amp;\pi_{2x}&amp;\pi_{2y}&amp;\pi_{2z} \end{bmatrix} \\
+    &amp; \pi_{ij} = \begin{vmatrix} \pi_{1x}&amp;\pi_{1y} \\ \pi_{2x}&amp;\pi_{2y} \end{vmatrix} = \pi_{1x}\pi_{2y} - \pi_{1y}\pi_{2x}
+  \end{aligned}
+\end{equation}
+<p>
+Dual Representation으로 표현한 직선 $\mathbf{L}^{*}$은 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{L}^{*} = (\pi_{23}:\pi_{31}:\pi_{12}:\pi_{01}:\pi_{02}:\pi_{03})
+  \end{aligned}
+\end{equation}
+<p>
+이는 <b>두 점을 통해 표현한 Plücker Coordinate에서 처음 3개 값과 나중 3개 값의 위치를 변경한 것과 동일</b> 하다.
+</p>
+
+<p>
+다음으로 직선 $\mathbf{L}^{*}$위의 점 $\mathbf{p}$에 대해 다음 공식이 성립한다.
+</p>
+
+\begin{equation} \label{eq1}
+  \begin{aligned}
+    \mathbf{0} &amp; = \mathbf{d}\times \mathbf{p} - \mathbf{m} \\
+    &amp; = \mathbf{d}^{\wedge}\mathbf{p} - \mathbf{m} \\
+    &amp; = \begin{bmatrix} \mathbf{m} &amp; \mathbf{d}^{\wedge} \end{bmatrix} \begin{bmatrix} 1 \\ \mathbf{p} \end{bmatrix} 
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $\mathbf{d}^{&and;}$는 $\mathbf{d}$의 Skew Symmetric Matrix이다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{d}^{\wedge} = \begin{bmatrix} 0&amp;-\mathbf{d}_{z}&amp;\mathbf{d}_{y} \\ \mathbf{d}_{z}&amp;0&amp;-\mathbf{d}_{x} \\ -\mathbf{d}_{y}&amp;\mathbf{d}_{x}&amp;0 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+공식 \ref{eq1}은 동차 선형 시스템(Homogeneous Linear System)의 형태$(\mathbf{Ax}=0)$이다. 이 때 행렬 $\begin{bmatrix}\mathbf{m}&amp; \mathbf{d}^{&and;} \end{bmatrix}$는 rank 2를 가진다. 또한, 직선 위의 점 $\mathbf{p}$와 모멘트 벡터 $\mathbf{m}$사이에는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{m}^{T}\mathbf{p} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이 성립하므로 이를 모두 종합하면 다음과 같이 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \begin{bmatrix} 0&amp;-\pi_{23}&amp;-\pi_{31}&amp;-\pi_{12} \\ \pi_{23}&amp;0&amp;-\pi_{03}&amp;\pi_{02} \\ \pi_{31}&amp;\pi_{03}&amp;0&amp;-\pi_{01} \\ \pi_{12}&amp;-\pi_{02}&amp;\pi_{01}&amp;0\end{bmatrix} \begin{bmatrix} 1 \\ \mathbf{p} \end{bmatrix} = \mathbf{0}
+  \end{aligned}
+\end{equation}
+<p>
+위 행렬에서 하단의 $\mathbb{R}^{3\times 4}$행렬이 $\begin{bmatrix}\mathbf{m}&amp; \mathbf{d}^{&and;} \end{bmatrix}\begin{bmatrix}1 \\ \mathbf{p}\end{bmatrix}=0$을 의미하고 상단의 $\mathbb{R}^{1 \times 4}$행렬이 $-\mathbf{m}^{T}\mathbf{p}=0$을 의미한다. 위 행렬 또한 rank 2를 가지며 각 행은 직선을 교차하는 평면을 의미한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf314d0f" class="outline-2">
+<h2 id="orgf314d0f"><span class="section-number-2">4</span> References</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<a href="https://m.blog.naver.com/PostView.nhn?blogId=ybill&amp;logNo=120103312432&amp;proxyReferer=https:%5C/%5C/www.google.com%5C/">line 표현법과 plucker coordinate을 이용한 line과 폴리곤의 충돌 판단</a>
+</p>
+
+<p>
+<a href="http://orb.olin.edu/plucker.pdf">Notes on Plücker Coordinates</a>
+</p>
+</div>
+</div>
