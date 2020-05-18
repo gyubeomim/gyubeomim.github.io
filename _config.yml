@@ -6,7 +6,7 @@ permalink:           pretty
 
 # Setup
 title:               edward0im blog
-tagline:             "Robotics Researcher & Engineer & Tech Evangelist"
+tagline:             "Tech Evangelist & Engineer & Researcher"
 description:         "edward0im blog"
 url:                 https://edward0im.github.io
 baseurl:            ''
@@ -14,7 +14,7 @@ paginate:            10
 
 # About/contact
 author:
-  name:              Gyubeom Edward Im
+  name:              Edward Gyubeom Im
   url:               https://edward0im.github.io
   email:             gyurse@gmail.com
 
