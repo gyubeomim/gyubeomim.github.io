@@ -1,8 +1,18 @@
+---
+layout: post
+title: (Group Theory) Notes on Lie Theory
+description:
+date: 2019-04-01
+categories: [Mathematics]
+tag: [Group Theory, Lie Group, SE3, SO3, SLAM, Optimization]
+use_math: true
+comments: true
+---
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgae6b0ef">1. Concepts of Lie Groups</a>
+<li><a href="#org1ad1643">1. Introduction</a>
 <ul>
 <li><a href="#orga2b5db8">1.1. Group theory</a></li>
 <li><a href="#org0e68642">1.2. Manifold</a></li>
@@ -11,7 +21,7 @@
 <li><a href="#org9eeec49">2. SO(3): Rotations in 3D space</a>
 <ul>
 <li><a href="#org2880d00">2.1. Exponential map in SO(3)</a></li>
-<li><a href="#org6259e9a">2.2. se(3) lie algebra derivation</a></li>
+<li><a href="#org345fa36">2.2. so(3) lie algebra derivation</a></li>
 </ul>
 </li>
 <li><a href="#orga2b92a5">3. SE(3): Rigid body transformation in 3D space</a></li>
@@ -20,18 +30,9 @@
 </ul>
 </div>
 </div>
----
-layout: post
-title: (Group Theory) Notes on Lie Theory 
-description: 
-date: 2019-04-01
-categories: [Mathematics]
-tag: [Group Theory, Lie Group, SE3, SO3, SLAM, Optimization]
-use_math: true
-comments: true
----
-<div id="outline-container-orgae6b0ef" class="outline-2">
-<h2 id="orgae6b0ef"><span class="section-number-2">1</span> Concepts of Lie Groups</h2>
+
+<div id="outline-container-org1ad1643" class="outline-2">
+<h2 id="org1ad1643"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 <div id="outline-container-orga2b5db8" class="outline-3">
@@ -180,8 +181,8 @@ Exponetial Mapping의 정의에 따라 $exp(&omega;<sup>&and;</sup>)$를 전개�
 </div>
 
 
-<div id="outline-container-org6259e9a" class="outline-3">
-<h3 id="org6259e9a"><span class="section-number-3">2.2</span> se(3) lie algebra derivation</h3>
+<div id="outline-container-org345fa36" class="outline-3">
+<h3 id="org345fa36"><span class="section-number-3">2.2</span> so(3) lie algebra derivation</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 임의의 회전 행렬은 다음과 같은 성질을 만족한다.
