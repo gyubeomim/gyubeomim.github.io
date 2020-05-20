@@ -20,20 +20,20 @@ comments: true
 </li>
 <li><a href="#org9eeec49">2. SO(3): Rotations in 3D space</a>
 <ul>
-<li><a href="#org6e93323">2.1. Lie algebra</a>
+<li><a href="#org8c556ca">2.1. Lie algebra</a>
 <ul>
 <li><a href="#org0df5f0a">2.1.1. so(3) derivation</a></li>
 </ul>
 </li>
-<li><a href="#orgccc11b0">2.2. Exponential map</a></li>
-<li><a href="#org4d78cd6">2.3. Adjoint representation</a></li>
+<li><a href="#org163128d">2.2. Exponential map</a></li>
+<li><a href="#orgba8e157">2.3. Adjoint representation</a></li>
 </ul>
 </li>
 <li><a href="#orga2b92a5">3. SE(3): Rigid body transformation in 3D space</a>
 <ul>
-<li><a href="#org8c556ca">3.1. Lie algebra</a></li>
-<li><a href="#org163128d">3.2. Exponential map</a></li>
-<li><a href="#orgba8e157">3.3. Adjoint representation</a></li>
+<li><a href="#org99401b9">3.1. Lie algebra</a></li>
+<li><a href="#org3f29987">3.2. Exponential map</a></li>
+<li><a href="#org86c84e3">3.3. Adjoint representation</a></li>
 </ul>
 </li>
 <li><a href="#org473dd1a">4. SE(3)-based optimization in SLAM</a></li>
@@ -93,8 +93,8 @@ SO(3) = \{ \mathbf{R} \in \mathbb{R}^{3 \times 3} \ | \ \mathbf{R}\mathbf{R}^{T}
 \end{equation}
 </div>
 
-<div id="outline-container-org6e93323" class="outline-3">
-<h3 id="org6e93323"><span class="section-number-3">2.1</span> Lie algebra</h3>
+<div id="outline-container-org8c556ca" class="outline-3">
+<h3 id="org8c556ca"><span class="section-number-3">2.1</span> Lie algebra</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 SO(3)군의 Lie algebra so(3)는 다음과 같은 $\mathbb{R}^{3\times 3}$크기의 반대칭 행렬을 말한다.
@@ -234,14 +234,14 @@ a_{3} &amp; 0 &amp; -a_{1} \\
 \end{aligned}
 \end{equation}
 <p>
-위 식은 $t=0$주위에서 회전행렬이 $exp(&phi;<sub>0</sub><sup>&and;</sup>t)$를 통해 계산될 수 있음을 의미한다.
+위 식은 $t=0$주위에서 회전행렬이 $\exp(\phi_{0}^{\wedge}t)$를 통해 계산될 수 있음을 의미한다.
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgccc11b0" class="outline-3">
-<h3 id="orgccc11b0"><span class="section-number-3">2.2</span> Exponential map</h3>
+<div id="outline-container-org163128d" class="outline-3">
+<h3 id="org163128d"><span class="section-number-3">2.2</span> Exponential map</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Lie Group SO(3)와 Lie Algebra so(3)는 Exponential Mapping과 Logarithm Mapping으로 서로 일대일 매칭되는 특징이 있다.
@@ -254,7 +254,7 @@ Lie Group SO(3)와 Lie Algebra so(3)는 Exponential Mapping과 Logarithm Mapping
   \end{aligned}
 \end{equation}
 <p>
-Exponetial Mapping의 정의에 따라 $exp(&omega;<sup>&and;</sup>)$를 전개하면 다음과 같다.
+Exponetial Mapping의 정의에 따라 $\exp(\omega^{\wedge})$를 전개하면 다음과 같다.
 </p>
 
 \begin{equation}
@@ -273,7 +273,7 @@ Exponetial Mapping의 정의에 따라 $exp(&omega;<sup>&and;</sup>)$를 전개�
   \end{aligned}
 \end{equation}
 <p>
-가 되고 위 식에서 반대칭 행렬의 특징인 $(&omega;<sup>3</sup>)<sup>&and;</sup> = -(&omega;<sup>T</sup>&omega;)&sdot; &omega;<sup>&and;</sup>$를 적용하면
+가 되고 위 식에서 반대칭 행렬의 특징인 $(\omega^{3})^{\wedge} = -(\omega^{T}\omega)\cdot \omega^{\wedge}$를 적용하면
 </p>
 
 \begin{equation} \label{eq:0}
@@ -295,16 +295,16 @@ Exponetial Mapping의 정의에 따라 $exp(&omega;<sup>&and;</sup>)$를 전개�
   \end{aligned}
 \end{equation}
 <p>
-공식 \eqref{eq:1}은 <b>Rodrigues Formula</b> 라고 불린다. 이는 <b>$&omega;$를 회전축으로하고 $|&omega;| = &theta;$만큼 회전하였을 때 회전행렬 $\mathbf{R}$을 구하는 공식</b> 이다. Rodrigues Formula를 사용하면 $&omega;<sup>&and;</sup> &isin; so(3)$에서 $\mathbf{R}&isin; SO(3)$로 Exponential Mapping이 가능하다.
+공식 \eqref{eq:1}은 <b>Rodrigues Formula</b> 라고 불린다. 이는 <b>$\omega$를 회전축으로하고 $|\omega| = \theta$만큼 회전하였을 때 회전행렬 $\mathbf{R}$을 구하는 공식</b> 이다. Rodrigues Formula를 사용하면 $\omega^{\wedge} \in so(3)$에서 $\mathbf{R} \in SO(3)$로 Exponential Mapping이 가능하다.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org4d78cd6" class="outline-3">
-<h3 id="org4d78cd6"><span class="section-number-3">2.3</span> Adjoint representation</h3>
+<div id="outline-container-orgba8e157" class="outline-3">
+<h3 id="orgba8e157"><span class="section-number-3">2.3</span> Adjoint representation</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
-<b>SO(3)군의 Adjoint 행렬은 임의의 $&omega;<sup>&and;</sup> &isin; so(3)$와 대응하는 각속도 $&omega; &isin; \mathbb{R}<sup>3</sup>$를 다른 $&omega;<sup>'</sup>$로 변경해주는 행렬</b> 이다. 예를 들면, 두 개의 좌표계 $\{A\}, \{B\}$가 있다고 했을 때 $\{B\}$좌표계에서 본 각속도 $&omega;<sub>B</sub>$를 $\{A\}$좌표계에서 본 각속도 $&omega;<sub>A</sub>$로 변환하고자 할 때 사용한다. $\mathbf{R}<sub>AB</sub> &isin; SO(3)$에 대하여 Adjoint 행렬을 $\text{Ad}<sub>\mathbf{R}<sub>AB</sub></sub>$라고 하면 다음이 성립한다.
+<b>SO(3)군의 Adjoint 행렬은 임의의 $\omega^{\wedge} \in so(3)$와 대응하는 각속도 $\omega \in \mathbb{R}^{3}$를 다른 $\omega^{'}$로 변경해주는 행렬</b> 이다. 예를 들면, 두 개의 좌표계 $\{A\}, \{B\}$가 있다고 했을 때 $\{B\}$좌표계에서 본 각속도 $\omega_{B}$를 $\{A\}$좌표계에서 본 각속도 $\omega_{A}$로 변환하고자 할 때 사용한다. $\mathbf{R}_{AB} \in SO(3)$에 대하여 Adjoint 행렬을 $\text{Ad}_{\mathbf{R}_{AB}}$라고 하면 다음이 성립한다.
 </p>
 
 \begin{equation}
@@ -313,7 +313,7 @@ Exponetial Mapping의 정의에 따라 $exp(&omega;<sup>&and;</sup>)$를 전개�
   \end{aligned}
 \end{equation}
 <p>
-각속도를 다른 각속도로 변환하는 행렬이므로 $\text{Ad}<sub>\mathbf{R}</sub> &isin; \mathbb{R}<sup>3&times; 3</sup>$의 크기를 가진다. 또한 Adjoint 행렬은 다음과 같은 수식을 만족한다.
+각속도를 다른 각속도로 변환하는 행렬이므로 $\text{Ad}_{\mathbf{R}} \in \mathbb{R}^{3\times 3}$의 크기를 가진다. 또한 Adjoint 행렬은 다음과 같은 수식을 만족한다.
 </p>
 
 \begin{equation}
@@ -346,7 +346,7 @@ so(3) 대수에 대한 Adjoint 행렬의 유도 과정은 다음과 같다.
 <h2 id="orga2b92a5"><span class="section-number-2">3</span> SE(3): Rigid body transformation in 3D space</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-Special Euclidean 3 (SE(3))군은 3차원 공간 상에서 강체의 변환과 관련된 행렬과 이에 닫혀있는 연산들로 구성된 군을 의미한다. 
+<b>Special Euclidean 3 (SE(3))군은 3차원 공간 상에서 강체의 변환과 관련된 행렬과 이에 닫혀있는 연산들로 구성된 군</b> 을 의미한다. 
 </p>
 
 \begin{equation}
@@ -359,7 +359,7 @@ SE(3) = \left \{ \mathbf{T} =
 \end{aligned}
 \end{equation}
 <p>
-임의의 두 변환행렬 $\mathbf{T}<sub>1</sub>, \mathbf{T}<sub>2</sub> &isin; SE(3)$에 대해 다음 공식이 성립한다.
+임의의 두 변환행렬 $\mathbf{T}_{1}, \mathbf{T}_{2} \in SE(3)$에 대해 다음 공식이 성립한다.
 </p>
 
 \begin{equation}
@@ -374,7 +374,7 @@ SE(3) = \left \{ \mathbf{T} =
   \end{aligned}
 \end{equation}
 <p>
-또한, $\mathbb{P}^{3}$사영 공간(Projective Space) 상의 한 점 또는 벡터 $\mathbf{x}= \begin{pmatrix}x&amp;y&amp;z&amp;w \end{pmatrix}<sup>T</sup> &isin; \mathbb{P}<sup>3</sup>$에 대해 다음 연산이 성립한다.
+또한, $\mathbb{P}^{3}$사영 공간(Projective Space) 상의 한 점 또는 벡터 $\mathbf{x} = \begin{pmatrix} x&amp;y&amp;z&amp;w \end{pmatrix}^{T} \in \mathbb{P}^{3}$에 대해 다음 연산이 성립한다.
 </p>
 
 \begin{equation}
@@ -385,8 +385,8 @@ SE(3) = \left \{ \mathbf{T} =
 \end{equation}
 </div>
 
-<div id="outline-container-org8c556ca" class="outline-3">
-<h3 id="org8c556ca"><span class="section-number-3">3.1</span> Lie algebra</h3>
+<div id="outline-container-org99401b9" class="outline-3">
+<h3 id="org99401b9"><span class="section-number-3">3.1</span> Lie algebra</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 SE(3)군의 Lie algebra se(3)는 다음과 같은 $\mathbb{R}^{4\times 4}$크기의 행렬로 정의된다.
@@ -401,7 +401,7 @@ SE(3)군의 Lie algebra se(3)는 다음과 같은 $\mathbb{R}^{4\times 4}$크기
 \end{aligned}
 \end{equation}
 <p>
-이 때, <b>$&xi;$는 3차원 공간 상에서 물체의 속도를 의미하는 twist</b> 이며 $&omega; = \begin{pmatrix}w<sub>x</sub>&amp;w<sub>y</sub>&amp;w<sub>z</sub> \end{pmatrix}<sup>T</sup> &isin; \mathbb{R}<sup>3</sup>$는 각속도를 의미하고 $\mathbf{v}= \begin{pmatrix}v<sub>x</sub>&amp;v<sub>y</sub>&amp;v<sub>z</sub> \end{pmatrix}<sup>T</sup> &isin; \mathbb{R}<sup>3</sup>$는 속도를 의미한다.
+이 때, <b>$\xi$는 3차원 공간 상에서 물체의 속도를 의미하는 twist</b> 이며 $\omega = \begin{pmatrix} w_{x}&amp;w_{y}&amp;w_{z} \end{pmatrix}^{T} \in \mathbb{R}^{3}$는 각속도를 의미하고 $\mathbf{v} = \begin{pmatrix} v_{x}&amp;v_{y}&amp;v_{z} \end{pmatrix}^{T} \in \mathbb{R}^{3}$는 속도를 의미한다.
 </p>
 
 <p>
@@ -427,11 +427,11 @@ se(3)의 각 원소들은 생성자들의 선형결합(Linear Combination)으로
 </div>
 </div>
 
-<div id="outline-container-org163128d" class="outline-3">
-<h3 id="org163128d"><span class="section-number-3">3.2</span> Exponential map</h3>
+<div id="outline-container-org3f29987" class="outline-3">
+<h3 id="org3f29987"><span class="section-number-3">3.2</span> Exponential map</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
-Lie Group SE(3)와 Lie Algebra se(3)는 Exponential Mapping과 Logarithm Mapping으로 서로 일대일 매칭되는 특징이 있다. 우선, twist $&xi; &isin; \mathbb{R}<sup>6</sup>$를 se(3) lie algebra로 변환하는 연산 $&xi;<sup>&and;</sup>$은 다음과 같이 정의된다.
+Lie Group SE(3)와 Lie Algebra se(3)는 Exponential Mapping과 Logarithm Mapping으로 서로 일대일 매칭되는 특징이 있다. 우선, twist $\xi \in \mathbb{R}^{6}$를 se(3) lie algebra로 변환하는 연산 $\xi^{\wedge}$은 다음과 같이 정의된다.
 </p>
 
 \begin{equation}
@@ -493,7 +493,7 @@ se(3)의 Exponential Mapping은 다음과 같이 정의된다.
   \end{aligned}
 \end{equation}
 <p>
-SE(3)군의 Logarithm Mapping은 회전 부분은 SO(3)군의 Logarithm Mapping을 사용하고 이동 부분은 $\mathbf{Q}<sup>-1</sup>$을 사용한다.
+SE(3)군의 Logarithm Mapping은 회전 부분은 SO(3)군의 Logarithm Mapping을 사용하고 이동 부분은 $\mathbf{Q}^{-1}$을 사용한다.
 </p>
 
 \begin{equation}
@@ -510,11 +510,11 @@ SE(3)군의 Logarithm Mapping은 회전 부분은 SO(3)군의 Logarithm Mapping�
 </div>
 </div>
 
-<div id="outline-container-orgba8e157" class="outline-3">
-<h3 id="orgba8e157"><span class="section-number-3">3.3</span> Adjoint representation</h3>
+<div id="outline-container-org86c84e3" class="outline-3">
+<h3 id="org86c84e3"><span class="section-number-3">3.3</span> Adjoint representation</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
-SE(3)군의 Adjoint 행렬은 임의의 $&xi;<sup>&and;</sup> &isin; se(3)$와 대응하는 twist $&xi; &isin; \mathbb{R}<sup>6</sup>$를 다른 좌표계의 $&xi;<sup>'</sup>$로 변경해주는 행렬이다. 예를 들면, 두 개의 좌표계 $\{A\}, \{B\}$가 있다고 했을 때 $\{B\}$좌표계에서 본 $&xi;<sub>B</sub>$를 $\{A\}$좌표계에서 본 $&xi;<sub>A</sub>$로 변환하고자 할 때 사용한다. $\mathbf{T}<sub>AB</sub> &isin; SE(3)$에 대하여 Adjoint 행렬을 $\text{Ad}<sub>\mathbf{T}<sub>AB</sub></sub>$라고 하면 다음이 성립한다.
+SE(3)군의 Adjoint 행렬은 임의의 $\xi^{\wedge} \in se(3)$와 대응하는 twist $\xi \in \mathbb{R}^{6}$를 다른 좌표계의 $\xi^{'}$로 변경해주는 행렬이다. 예를 들면, 두 개의 좌표계 $\{A\}, \{B\}$가 있다고 했을 때 $\{B\}$좌표계에서 본 $\xi_{B}$를 $\{A\}$좌표계에서 본 $\xi_{A}$로 변환하고자 할 때 사용한다. $\mathbf{T}_{AB} \in SE(3)$에 대하여 Adjoint 행렬을 $\text{Ad}_{\mathbf{T}_{AB}}$라고 하면 다음이 성립한다.
 </p>
 
 \begin{equation}
@@ -523,7 +523,7 @@ SE(3)군의 Adjoint 행렬은 임의의 $&xi;<sup>&and;</sup> &isin; se(3)$와 �
   \end{aligned}
 \end{equation}
 <p>
-Twist를 다른 twist로 변환하는 행렬이므로 $\text{Ad}<sub>\mathbf{T}</sub> &isin; \mathbb{R}<sup>6&times; 6</sup>$의 크기를 가진다. 또한 Adjoint 행렬은 다음과 같은 수식을 만족한다.
+Twist를 다른 twist로 변환하는 행렬이므로 $\text{Ad}_{\mathbf{T}} \in \mathbb{R}^{6\times 6}$의 크기를 가진다. 또한 Adjoint 행렬은 다음과 같은 수식을 만족한다.
 </p>
 
 \begin{equation}
@@ -557,7 +557,7 @@ se(3) 대수에 대한 Adjoint 행렬의 유도 과정은 다음과 같다.
 <h2 id="org473dd1a"><span class="section-number-2">4</span> SE(3)-based optimization in SLAM</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-SLAM에서 3차원 카메라의 포즈를 의미하는 <b>$\mathbf{T}&isin; \text{SE(3)}$는 덧셈에 대하여 닫혀있지 않으므로 카메라 포즈의 변화량 $&delta;\mathbf{T}$를 바로 업데이트가 불가능한 반면에 3차원 물체의 속도를 의미하는 twist $&delta; &xi;<sup>&and;</sup> &isin; \text{se(3)}$를 사용하여 업데이트하면 별도의 제약조건 없이 업데이트가 가능한 장점</b> 이 있다. 다시 말하면, SE(3) 매니폴드 상에서는 변화량을 바로 업데이트할 수 없으므로 국부적인 접평면(Tangential Plane)인 se(3) 공간으로 Logarithm Mapping(SE3 $\rightarrow$se3)을 통해 이동한 후 변화량을 업데이트하고 다시 Exponential Mapping(se3 $\rightarrow$SE3)을 통해 SE3 공간으로 돌아오는 과정을 반복하는 것을 \textbfazure{SE3-based Optimization}이라고 한다.
+SLAM에서 3차원 카메라의 포즈를 의미하는 <b>$\mathbf{T} \in \text{SE(3)}$는 덧셈에 대하여 닫혀있지 않으므로 카메라 포즈의 변화량 $&delta;\mathbf{T}$를 바로 업데이트가 불가능한 반면에 3차원 물체의 속도를 의미하는 twist $\delta \xi^{\wedge} \in \text{se(3)}$를 사용하여 업데이트하면 별도의 제약조건 없이 업데이트가 가능한 장점</b> 이 있다. 다시 말하면, SE(3) 매니폴드 상에서는 변화량을 바로 업데이트할 수 없으므로 국부적인 접평면(Tangential Plane)인 se(3) 공간으로 Logarithm Mapping(SE3 $\rightarrow$se3)을 통해 이동한 후 변화량을 업데이트하고 다시 Exponential Mapping(se3 $\rightarrow$SE3)을 통해 SE3 공간으로 돌아오는 과정을 반복하는 것을 \textbfazure{SE3-based Optimization}이라고 한다.
 </p>
 </div>
 </div>
