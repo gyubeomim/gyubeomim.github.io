@@ -20,16 +20,20 @@ comments: true
 </li>
 <li><a href="#org9eeec49">2. SO(3): Rotations in 3D space</a>
 <ul>
-<li><a href="#org1e75154">2.1. Lie algebra</a></li>
-<li><a href="#orga4be1c1">2.2. Exponential map</a></li>
-<li><a href="#org1f3d21c">2.3. Adjoint representation</a></li>
+<li><a href="#org6e93323">2.1. Lie algebra</a>
+<ul>
+<li><a href="#org0df5f0a">2.1.1. so(3) derivation</a></li>
+</ul>
+</li>
+<li><a href="#orgccc11b0">2.2. Exponential map</a></li>
+<li><a href="#org4d78cd6">2.3. Adjoint representation</a></li>
 </ul>
 </li>
 <li><a href="#orga2b92a5">3. SE(3): Rigid body transformation in 3D space</a>
 <ul>
-<li><a href="#org6e93323">3.1. Lie algebra</a></li>
-<li><a href="#orgccc11b0">3.2. Exponential map</a></li>
-<li><a href="#org4d78cd6">3.3. Adjoint representation</a></li>
+<li><a href="#org8c556ca">3.1. Lie algebra</a></li>
+<li><a href="#org163128d">3.2. Exponential map</a></li>
+<li><a href="#orgba8e157">3.3. Adjoint representation</a></li>
 </ul>
 </li>
 <li><a href="#org473dd1a">4. SE(3)-based optimization in SLAM</a></li>
@@ -56,7 +60,7 @@ comments: true
 <ul class="org-ul">
 <li>Associativity: 임의의 세 원소 $a,b,c &isin; G$에 대해 $(a* b) * c = a * (b * c)$인 <b>결합법칙</b> 이 성립한다.</li>
 <li>Identity element: 임의의 원소 $a &isin; G$에 대해 $a * e = a = e * a$를 만족하는 $e &isin; G$가 존재하면 $e$를 <b>항등원</b> 이라고 말한다.</li>
-<li>Inverse: 임의의 원소 $a &isin; G$에 대해 $a* x = e = x * a$를 만족하는 원소 $x &isin; G$가 존재하면 $x$를 <b>역원</b> 이라고 말한다. 역원은 $a<sup>-1</sup>$로 표기하기도 한다.</li>
+<li>Inverse: 임의의 원소 $a &isin; G$에 대해 $a* x = e = x * a$를 만족하는 원소 $x &isin; G$가 존재하면 $x$를 <b>역원</b> 이라고 말한다. 역원은 $a^{-1}$로 표기하기도 한다.</li>
 </ul>
 </div>
 </div>
@@ -65,11 +69,11 @@ comments: true
 <h3 id="org0e68642"><span class="section-number-3">1.2</span> Manifold</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-N차원의 매니폴드(Manifold) $\mathbf{M}$은 $\mathbf{M}$내부에 있는 임의의 점 $\mathbf{p}&isin;\mathbf{M}$에 대해 지역적으로 Euclidean 구조를 갖는 기하학적 공간을 의미한다. 다시 말하면, $\mathbf{p}$근처에 존재하는 모든 점들은 $\mathbb{R}^{N}$공간에서 위상동형(Homeomorphic)인 특징을 지닌다.
+N차원의 매니폴드(Manifold) $\mathbf{M}$은 $\mathbf{M}$내부에 있는 임의의 점 $\mathbf{p}\in\mathbf{M}$에 대해 지역적으로 Euclidean 구조를 갖는 기하학적 공간을 의미한다. 다시 말하면, $\mathbf{p}$근처에 존재하는 모든 점들은 $\mathbb{R}^{N}$공간에서 위상동형(Homeomorphic)인 특징을 지닌다.
 </p>
 
 <p>
-직관적으로 이해하기 위해 3차원 매니폴드 $\mathbf{M}&isin; \mathbb{R}<sup>3</sup>$을 지구에 비유하면 지구는 둥글지만 이에 비해 매우 작은 물체인 $\mathbf{p}$주변에서 보면 지구는 평평하게 보인다. 즉, 실제로는 매니폴드는 구형의 $\mathbb{R}^{3}$공간에 존재하지만 매우 작은 점 $\mathbf{p}$주변에서는 평평한 $\mathbb{R}^{2}$평면과 같이 보인다. 
+직관적으로 이해하기 위해 3차원 매니폴드 $\mathbf{M} \in \mathbb{R}^{3}$을 지구에 비유하면 지구는 둥글지만 이에 비해 매우 작은 물체인 $\mathbf{p}$주변에서 보면 지구는 평평하게 보인다. 즉, 실제로는 매니폴드는 구형의 $\mathbb{R}^{3}$공간에 존재하지만 매우 작은 점 $\mathbf{p}$주변에서는 평평한 $\mathbb{R}^{2}$평면과 같이 보인다. 
 </p>
 </div>
 </div>
@@ -89,8 +93,8 @@ SO(3) = \{ \mathbf{R} \in \mathbb{R}^{3 \times 3} \ | \ \mathbf{R}\mathbf{R}^{T}
 \end{equation}
 </div>
 
-<div id="outline-container-org1e75154" class="outline-3">
-<h3 id="org1e75154"><span class="section-number-3">2.1</span> Lie algebra</h3>
+<div id="outline-container-org6e93323" class="outline-3">
+<h3 id="org6e93323"><span class="section-number-3">2.1</span> Lie algebra</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 SO(3)군의 Lie algebra so(3)는 다음과 같은 $\mathbb{R}^{3\times 3}$크기의 반대칭 행렬을 말한다.
@@ -121,7 +125,7 @@ so(3)의 각 원소들은 생성자들의 선형결합(Linear Combination)으로
   \end{aligned}
 \end{equation}
 <p>
-이 때, $&omega;$는 3차원 벡터로써 임의의 축에 대한 각속도를 의미한다. $&omega;$를 통해 반대칭 행렬을 생성하면 so(3)가 된다.
+이 때, $\omega$는 3차원 벡터로써 임의의 축에 대한 각속도를 의미한다. $\omega$를 통해 반대칭 행렬을 생성하면 so(3)가 된다.
 </p>
 
 \begin{equation}
@@ -129,8 +133,12 @@ so(3)의 각 원소들은 생성자들의 선형결합(Linear Combination)으로
     \omega^{\wedge} \in so(3)
   \end{aligned}
 \end{equation}
+</div>
+
+<div id="outline-container-org0df5f0a" class="outline-4">
+<h4 id="org0df5f0a"><span class="section-number-4">2.1.1</span> so(3) derivation</h4>
+<div class="outline-text-4" id="text-2-1-1">
 <p>
-\subsubsection{so(3) derivation}
 임의의 회전 행렬은 다음과 같은 성질을 만족한다.
 </p>
 
@@ -230,9 +238,10 @@ a_{3} &amp; 0 &amp; -a_{1} \\
 </p>
 </div>
 </div>
+</div>
 
-<div id="outline-container-orga4be1c1" class="outline-3">
-<h3 id="orga4be1c1"><span class="section-number-3">2.2</span> Exponential map</h3>
+<div id="outline-container-orgccc11b0" class="outline-3">
+<h3 id="orgccc11b0"><span class="section-number-3">2.2</span> Exponential map</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Lie Group SO(3)와 Lie Algebra so(3)는 Exponential Mapping과 Logarithm Mapping으로 서로 일대일 매칭되는 특징이 있다.
@@ -291,8 +300,8 @@ Exponetial Mapping의 정의에 따라 $exp(&omega;<sup>&and;</sup>)$를 전개�
 </div>
 </div>
 
-<div id="outline-container-org1f3d21c" class="outline-3">
-<h3 id="org1f3d21c"><span class="section-number-3">2.3</span> Adjoint representation</h3>
+<div id="outline-container-org4d78cd6" class="outline-3">
+<h3 id="org4d78cd6"><span class="section-number-3">2.3</span> Adjoint representation</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 <b>SO(3)군의 Adjoint 행렬은 임의의 $&omega;<sup>&and;</sup> &isin; so(3)$와 대응하는 각속도 $&omega; &isin; \mathbb{R}<sup>3</sup>$를 다른 $&omega;<sup>'</sup>$로 변경해주는 행렬</b> 이다. 예를 들면, 두 개의 좌표계 $\{A\}, \{B\}$가 있다고 했을 때 $\{B\}$좌표계에서 본 각속도 $&omega;<sub>B</sub>$를 $\{A\}$좌표계에서 본 각속도 $&omega;<sub>A</sub>$로 변환하고자 할 때 사용한다. $\mathbf{R}<sub>AB</sub> &isin; SO(3)$에 대하여 Adjoint 행렬을 $\text{Ad}<sub>\mathbf{R}<sub>AB</sub></sub>$라고 하면 다음이 성립한다.
@@ -376,8 +385,8 @@ SE(3) = \left \{ \mathbf{T} =
 \end{equation}
 </div>
 
-<div id="outline-container-org6e93323" class="outline-3">
-<h3 id="org6e93323"><span class="section-number-3">3.1</span> Lie algebra</h3>
+<div id="outline-container-org8c556ca" class="outline-3">
+<h3 id="org8c556ca"><span class="section-number-3">3.1</span> Lie algebra</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 SE(3)군의 Lie algebra se(3)는 다음과 같은 $\mathbb{R}^{4\times 4}$크기의 행렬로 정의된다.
@@ -418,8 +427,8 @@ se(3)의 각 원소들은 생성자들의 선형결합(Linear Combination)으로
 </div>
 </div>
 
-<div id="outline-container-orgccc11b0" class="outline-3">
-<h3 id="orgccc11b0"><span class="section-number-3">3.2</span> Exponential map</h3>
+<div id="outline-container-org163128d" class="outline-3">
+<h3 id="org163128d"><span class="section-number-3">3.2</span> Exponential map</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Lie Group SE(3)와 Lie Algebra se(3)는 Exponential Mapping과 Logarithm Mapping으로 서로 일대일 매칭되는 특징이 있다. 우선, twist $&xi; &isin; \mathbb{R}<sup>6</sup>$를 se(3) lie algebra로 변환하는 연산 $&xi;<sup>&and;</sup>$은 다음과 같이 정의된다.
@@ -501,8 +510,8 @@ SE(3)군의 Logarithm Mapping은 회전 부분은 SO(3)군의 Logarithm Mapping�
 </div>
 </div>
 
-<div id="outline-container-org4d78cd6" class="outline-3">
-<h3 id="org4d78cd6"><span class="section-number-3">3.3</span> Adjoint representation</h3>
+<div id="outline-container-orgba8e157" class="outline-3">
+<h3 id="orgba8e157"><span class="section-number-3">3.3</span> Adjoint representation</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 SE(3)군의 Adjoint 행렬은 임의의 $&xi;<sup>&and;</sup> &isin; se(3)$와 대응하는 twist $&xi; &isin; \mathbb{R}<sup>6</sup>$를 다른 좌표계의 $&xi;<sup>'</sup>$로 변경해주는 행렬이다. 예를 들면, 두 개의 좌표계 $\{A\}, \{B\}$가 있다고 했을 때 $\{B\}$좌표계에서 본 $&xi;<sub>B</sub>$를 $\{A\}$좌표계에서 본 $&xi;<sub>A</sub>$로 변환하고자 할 때 사용한다. $\mathbf{T}<sub>AB</sub> &isin; SE(3)$에 대하여 Adjoint 행렬을 $\text{Ad}<sub>\mathbf{T}<sub>AB</sub></sub>$라고 하면 다음이 성립한다.
