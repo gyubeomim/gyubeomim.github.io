@@ -20,12 +20,19 @@ comments: true
 </li>
 <li><a href="#org9eeec49">2. SO(3): Rotations in 3D space</a>
 <ul>
-<li><a href="#org2880d00">2.1. Exponential map in SO(3)</a></li>
-<li><a href="#org345fa36">2.2. so(3) lie algebra derivation</a></li>
+<li><a href="#org1e75154">2.1. Lie algebra</a></li>
+<li><a href="#orga4be1c1">2.2. Exponential map</a></li>
+<li><a href="#org1f3d21c">2.3. Adjoint representation</a></li>
 </ul>
 </li>
-<li><a href="#orga2b92a5">3. SE(3): Rigid body transformation in 3D space</a></li>
-<li><a href="#org1167371">4. SE3-based optimization in SLAM</a></li>
+<li><a href="#orga2b92a5">3. SE(3): Rigid body transformation in 3D space</a>
+<ul>
+<li><a href="#org6e93323">3.1. Lie algebra</a></li>
+<li><a href="#orgccc11b0">3.2. Exponential map</a></li>
+<li><a href="#org4d78cd6">3.3. Adjoint representation</a></li>
+</ul>
+</li>
+<li><a href="#org473dd1a">4. SE(3)-based optimization in SLAM</a></li>
 <li><a href="#orgd694b40">5. Reference</a></li>
 </ul>
 </div>
@@ -47,7 +54,6 @@ comments: true
 </p>
 
 <ul class="org-ul">
-<li>Clousre:</li>
 <li>Associativity: 임의의 세 원소 $a,b,c &isin; G$에 대해 $(a* b) * c = a * (b * c)$인 <b>결합법칙</b> 이 성립한다.</li>
 <li>Identity element: 임의의 원소 $a &isin; G$에 대해 $a * e = a = e * a$를 만족하는 $e &isin; G$가 존재하면 $e$를 <b>항등원</b> 이라고 말한다.</li>
 <li>Inverse: 임의의 원소 $a &isin; G$에 대해 $a* x = e = x * a$를 만족하는 원소 $x &isin; G$가 존재하면 $x$를 <b>역원</b> 이라고 말한다. 역원은 $a<sup>-1</sup>$로 표기하기도 한다.</li>
@@ -63,7 +69,7 @@ N차원의 매니폴드(Manifold) $\mathbf{M}$은 $\mathbf{M}$내부에 있는 �
 </p>
 
 <p>
-직관적으로 이해하기 위해 3차원 매니폴드 $\mathbf{M} \in \mathbb{R}^{3}$을 지구에 비유하면 지구는 둥글지만 이에 비해 매우 작은 물체인 $\mathbf{p}$주변에서 보면 지구는 평평하게 보인다. 즉, 실제로는 매니폴드는 구형의 $\mathbb{R}^{3}$공간에 존재하지만 매우 작은 점 $\mathbf{p}$주변에서는 평평한 $\mathbb{R}^{2}$평면과 같이 보인다. 
+직관적으로 이해하기 위해 3차원 매니폴드 $\mathbf{M}&isin; \mathbb{R}<sup>3</sup>$을 지구에 비유하면 지구는 둥글지만 이에 비해 매우 작은 물체인 $\mathbf{p}$주변에서 보면 지구는 평평하게 보인다. 즉, 실제로는 매니폴드는 구형의 $\mathbb{R}^{3}$공간에 존재하지만 매우 작은 점 $\mathbf{p}$주변에서는 평평한 $\mathbb{R}^{2}$평면과 같이 보인다. 
 </p>
 </div>
 </div>
@@ -73,7 +79,7 @@ N차원의 매니폴드(Manifold) $\mathbf{M}$은 $\mathbf{M}$내부에 있는 �
 <h2 id="org9eeec49"><span class="section-number-2">2</span> SO(3): Rotations in 3D space</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-<b>SO(3)군은 회전행렬(Rotation Matrix)과 이에 닫혀있는 연산들이 속한 군으로써 3차원 물체의 회전을 표현할 때 사용</b> 한다. SO(3)군의 합성 연산과 역연산은 행렬의 곱셈과 역행렬을 통해 표현된다. 
+<b>Special Orthogonal 3(SO(3))군은 3차원 회전행렬(Rotation Matrix)과 이에 닫혀있는 연산들로 구성된 군을 의미하며 3차원 물체의 회전을 표현할 때 사용</b> 한다. SO(3)군의 합성 연산과 역연산은 행렬의 곱셈과 역행렬을 통해 표현된다. 
 </p>
 
 \begin{equation}
@@ -81,13 +87,18 @@ N차원의 매니폴드(Manifold) $\mathbf{M}$은 $\mathbf{M}$내부에 있는 �
 SO(3) = \{ \mathbf{R} \in \mathbb{R}^{3 \times 3} \ | \ \mathbf{R}\mathbf{R}^{T} = \mathbf{I}, \text{det}(\mathbf{R})=1 \}
 \end{aligned}
 \end{equation}
+</div>
+
+<div id="outline-container-org1e75154" class="outline-3">
+<h3 id="org1e75154"><span class="section-number-3">2.1</span> Lie algebra</h3>
+<div class="outline-text-3" id="text-2-1">
 <p>
-Lie algebra so(3)는 다음과 같은 $\mathbb{R}^{3\times 3}$크기의 반대칭 행렬을 말한다.
+SO(3)군의 Lie algebra so(3)는 다음과 같은 $\mathbb{R}^{3\times 3}$크기의 반대칭 행렬을 말한다.
 </p>
 
 \begin{equation}
 \begin{aligned}
-\text{so}(3) = \{ \omega \in \mathbb{R}^{3} \ | \ \omega^{\wedge} \in \mathbb{R}^{3\times 3} \}
+  \text{so}(3) = \{ \ \omega^{\wedge} = \begin{bmatrix} 0&amp;-\omega_{3}&amp;\omega_{2} \\ \omega_{3}&amp;0&amp;-\omega_{1} \\ -\omega_{2}&amp;\omega_{1}&amp;0 \end{bmatrix} \in \mathbb{R}^{3\times 3}  \  | \  \omega = \begin{bmatrix} w_{x}\\w_{y}\\w_{z} \end{bmatrix}\in \mathbb{R}^{3} \ \}
 \end{aligned}
 \end{equation}
 <p>
@@ -118,73 +129,8 @@ so(3)의 각 원소들은 생성자들의 선형결합(Linear Combination)으로
     \omega^{\wedge} \in so(3)
   \end{aligned}
 \end{equation}
-</div>
-
-<div id="outline-container-org2880d00" class="outline-3">
-<h3 id="org2880d00"><span class="section-number-3">2.1</span> Exponential map in SO(3)</h3>
-<div class="outline-text-3" id="text-2-1">
 <p>
-Lie Group SO(3)와 Lie Algebra so(3)는 Exponential Mapping과 Logarithm Mapping으로 서로 일대일 매칭되는 특징이 있다.
-</p>
-
-\begin{equation}
-  \begin{aligned}
-    &amp; \exp(\omega^{\wedge}) = \mathbf{R} \in SO(3) \\
-    &amp; \ln(R) = \omega^{\wedge} \in so(3)
-  \end{aligned}
-\end{equation}
-<p>
-Exponetial Mapping의 정의에 따라 $\exp(\omega^{\wedge})$를 전개하면 다음과 같다.
-</p>
-
-\begin{equation}
-  \begin{aligned}
-    \exp(\omega^{\wedge}) &amp; = \exp\begin{pmatrix} 0&amp;-\omega_{3}&amp;\omega_{2} \\ \omega_{3}&amp;0&amp;-\omega_{1} \\ -\omega_{2}&amp;\omega_{1}&amp;0 \end{pmatrix} \\
-    &amp; = \mathbf{I} + \omega^{\wedge} + \frac{1}{2!}(\omega^{2})^{\wedge} + \frac{1}{3!}(\omega^{3})^{\wedge} + \cdots
-  \end{aligned}
-\end{equation}
-<p>
-이를 간결하게 표현하면
-</p>
-
-\begin{equation}
-  \begin{aligned}
-    \exp(\omega^{\wedge}) = \mathbf{I} + \sum_{i=0}^{\infty} \begin{bmatrix} \frac{(\omega^{2i+1})^{\wedge}}{(2i+1)!} + \frac{(\omega^{2i+2})^{\wedge}}{(2i+2)!} \end{bmatrix}
-  \end{aligned}
-\end{equation}
-<p>
-가 되고 위 식에서 반대칭 행렬의 특징인 $(\omega^{3})^{\wedge} = -(\omega^{T}\omega)\cdot \omega^{\wedge}$를 적용하면
-</p>
-
-\begin{equation}
-  \begin{aligned}
-    &amp; \theta^{2} = \omega^{T}\omega \\
-    &amp; (\omega^{2i+1})^{\wedge} = (-1)^{i}\theta^{2i}\omega^{\wedge} \\
-    &amp; (\omega^{2i+2})^{\wedge} = (-1)^{i}\theta^{2i}(\omega^{2})^{\wedge} \\
-  \end{aligned}
-\end{equation}
-<p>
-가 성립한다. 위 식과 테일러 전개를 통해 식을 다시 정리하면
-</p>
-
-\begin{equation} \label{eq:1}
-  \begin{aligned}
-    \exp(\omega^{\wedge}) &amp; = \mathbf{I} + \bigg(\sum_{i=0}^{\infty} \frac{(-1)^{i}\theta^{2i}}{(2i+1)!} \bigg) \omega^{\wedge} + \bigg( \sum_{i=0}^{\infty}\frac{(-1)^{i}\theta^{2i}}{(2i+2)!} \bigg) (\omega^{2})^{\wedge} \\
-    &amp; = \mathbf{I} + \bigg( 1 - \frac{\theta^{2}}{3!} + \frac{\theta^{4}}{5!} + \cdots \bigg) \omega^{\wedge} + \bigg( \frac{1}{2!} - \frac{\theta^{2}}{4!} + \frac{\theta^{4}}{6!} + \cdots \bigg) (\omega^{2})^{\wedge} \\
-    &amp; = \mathbf{I} + \bigg( \frac{\sin\theta}{\theta} \bigg) \omega^{\wedge} + \bigg(\frac{1-\cos\theta}{\theta^{2}} \bigg) (\omega^{2})^{\wedge}
-  \end{aligned}
-\end{equation}
-<p>
-공식 \eqref{eq:1}은 <b>Rodrigues Formula</b> 라고 불린다. 이는 <b>$&omega;$를 회전축으로하고 $|&omega;| = &theta;$만큼 회전하였을 때 회전행렬 $\mathbf{R}$을 구하는 공식</b> 이다. Rodrigues Formula를 사용하면 $\omega^{\wedge} \in so(3)$에서 $\mathbf{R} \in SO(3)$로 Exponential Mapping이 가능하다.
-</p>
-</div>
-</div>
-
-
-<div id="outline-container-org345fa36" class="outline-3">
-<h3 id="org345fa36"><span class="section-number-3">2.2</span> so(3) lie algebra derivation</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
+\subsubsection{so(3) derivation}
 임의의 회전 행렬은 다음과 같은 성질을 만족한다.
 </p>
 
@@ -284,43 +230,325 @@ a_{3} &amp; 0 &amp; -a_{1} \\
 </p>
 </div>
 </div>
+
+<div id="outline-container-orga4be1c1" class="outline-3">
+<h3 id="orga4be1c1"><span class="section-number-3">2.2</span> Exponential map</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Lie Group SO(3)와 Lie Algebra so(3)는 Exponential Mapping과 Logarithm Mapping으로 서로 일대일 매칭되는 특징이 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \exp(\omega^{\wedge}) = \mathbf{R} \in SO(3) \\
+    &amp; \ln(R) = \omega^{\wedge} \in so(3)
+  \end{aligned}
+\end{equation}
+<p>
+Exponetial Mapping의 정의에 따라 $exp(&omega;<sup>&and;</sup>)$를 전개하면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \exp(\omega^{\wedge}) &amp; = \exp\begin{pmatrix} 0&amp;-\omega_{3}&amp;\omega_{2} \\ \omega_{3}&amp;0&amp;-\omega_{1} \\ -\omega_{2}&amp;\omega_{1}&amp;0 \end{pmatrix} \\
+    &amp; = \mathbf{I} + \omega^{\wedge} + \frac{1}{2!}(\omega^{2})^{\wedge} + \frac{1}{3!}(\omega^{3})^{\wedge} + \cdots
+  \end{aligned}
+\end{equation}
+<p>
+이를 간결하게 표현하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \exp(\omega^{\wedge}) = \mathbf{I} + \sum_{i=0}^{\infty} \begin{bmatrix} \frac{(\omega^{2i+1})^{\wedge}}{(2i+1)!} + \frac{(\omega^{2i+2})^{\wedge}}{(2i+2)!} \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+가 되고 위 식에서 반대칭 행렬의 특징인 $(&omega;<sup>3</sup>)<sup>&and;</sup> = -(&omega;<sup>T</sup>&omega;)&sdot; &omega;<sup>&and;</sup>$를 적용하면
+</p>
+
+\begin{equation} \label{eq:0}
+  \begin{aligned}
+    &amp; \theta^{2} = \omega^{T}\omega \\
+    &amp; (\omega^{2i+1})^{\wedge} = (-1)^{i}\theta^{2i}\omega^{\wedge} \\
+    &amp; (\omega^{2i+2})^{\wedge} = (-1)^{i}\theta^{2i}(\omega^{2})^{\wedge} \\
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. 위 식과 테일러 전개를 통해 식을 다시 정리하면
+</p>
+
+\begin{equation} \label{eq:1}
+  \begin{aligned}
+    \exp(\omega^{\wedge}) &amp; = \mathbf{I} + \bigg(\sum_{i=0}^{\infty} \frac{(-1)^{i}\theta^{2i}}{(2i+1)!} \bigg) \omega^{\wedge} + \bigg( \sum_{i=0}^{\infty}\frac{(-1)^{i}\theta^{2i}}{(2i+2)!} \bigg) (\omega^{2})^{\wedge} \\
+    &amp; = \mathbf{I} + \bigg( 1 - \frac{\theta^{2}}{3!} + \frac{\theta^{4}}{5!} + \cdots \bigg) \omega^{\wedge} + \bigg( \frac{1}{2!} - \frac{\theta^{2}}{4!} + \frac{\theta^{4}}{6!} + \cdots \bigg) (\omega^{2})^{\wedge} \\
+    &amp; = \mathbf{I} + \bigg( \frac{\sin\theta}{\theta} \bigg) \omega^{\wedge} + \bigg(\frac{1-\cos\theta}{\theta^{2}} \bigg) (\omega^{2})^{\wedge}
+  \end{aligned}
+\end{equation}
+<p>
+공식 \eqref{eq:1}은 <b>Rodrigues Formula</b> 라고 불린다. 이는 <b>$&omega;$를 회전축으로하고 $|&omega;| = &theta;$만큼 회전하였을 때 회전행렬 $\mathbf{R}$을 구하는 공식</b> 이다. Rodrigues Formula를 사용하면 $&omega;<sup>&and;</sup> &isin; so(3)$에서 $\mathbf{R}&isin; SO(3)$로 Exponential Mapping이 가능하다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1f3d21c" class="outline-3">
+<h3 id="org1f3d21c"><span class="section-number-3">2.3</span> Adjoint representation</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+<b>SO(3)군의 Adjoint 행렬은 임의의 $&omega;<sup>&and;</sup> &isin; so(3)$와 대응하는 각속도 $&omega; &isin; \mathbb{R}<sup>3</sup>$를 다른 $&omega;<sup>'</sup>$로 변경해주는 행렬</b> 이다. 예를 들면, 두 개의 좌표계 $\{A\}, \{B\}$가 있다고 했을 때 $\{B\}$좌표계에서 본 각속도 $&omega;<sub>B</sub>$를 $\{A\}$좌표계에서 본 각속도 $&omega;<sub>A</sub>$로 변환하고자 할 때 사용한다. $\mathbf{R}<sub>AB</sub> &isin; SO(3)$에 대하여 Adjoint 행렬을 $\text{Ad}<sub>\mathbf{R}<sub>AB</sub></sub>$라고 하면 다음이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \omega_{A} = \text{Ad}_{\mathbf{R}_{AB}}\omega_{B}
+  \end{aligned}
+\end{equation}
+<p>
+각속도를 다른 각속도로 변환하는 행렬이므로 $\text{Ad}<sub>\mathbf{R}</sub> &isin; \mathbb{R}<sup>3&times; 3</sup>$의 크기를 가진다. 또한 Adjoint 행렬은 다음과 같은 수식을 만족한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{R}\cdot \exp(\omega^{\wedge}) = \exp((\text{Ad}_{\mathbf{R}}\cdot \omega)^{\wedge}) \cdot \mathbf{R} \\
+    &amp; \exp((\text{Ad}_{\mathbf{R}}\cdot \omega)^{\wedge}) = \mathbf{R}\cdot \exp(\omega^{\wedge})\cdot \mathbf{R}^{-1}
+  \end{aligned}
+\end{equation}
+<p>
+so(3) 대수에 대한 Adjoint 행렬의 유도 과정은 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    (\text{Ad}_{\mathbf{R}}\cdot \omega)^{\wedge} &amp; = \mathbf{R} \cdot \bigg( \sum_{i=1}^{3}\omega_{i}G_{i} \bigg) \cdot \mathbf{R}^{-1} \\
+    &amp; = \mathbf{R} \cdot \omega^{\wedge} \cdot \mathbf{R}^{-1} \\
+    &amp; = (\mathbf{R}\omega)^{\wedge} \\
+  \end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+    \text{Ad}_{\mathbf{R}} = \mathbf{R} \in \mathbb{R}^{3\times 3}
+\end{aligned}
+\end{equation}
+</div>
+</div>
 </div>
 
 <div id="outline-container-orga2b92a5" class="outline-2">
 <h2 id="orga2b92a5"><span class="section-number-2">3</span> SE(3): Rigid body transformation in 3D space</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+Special Euclidean 3 (SE(3))군은 3차원 공간 상에서 강체의 변환과 관련된 행렬과 이에 닫혀있는 연산들로 구성된 군을 의미한다. 
+</p>
+
 \begin{equation}
 \begin{aligned}
 SE(3) = \left \{ \mathbf{T} =  
 \begin{bmatrix}
 \mathbf{R} &amp; \mathbf{t} \\ 
-\mathbf{0}^{T} &amp; 1
+\mathbf{0} &amp; 1
 \end{bmatrix} \in \mathbb{R}^{4\times4} \ | \ \mathbf{R} \in SO(3), \mathbf{t} \in \mathbb{R}^{3}  \right \} 
 \end{aligned}
 \end{equation}
+<p>
+임의의 두 변환행렬 $\mathbf{T}<sub>1</sub>, \mathbf{T}<sub>2</sub> &isin; SE(3)$에 대해 다음 공식이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{T}_{1}\mathbf{T}_{2} &amp; = \begin{bmatrix} \mathbf{R}_{1} &amp; \mathbf{t}_{1} \\ \mathbf{0} &amp; 1 \end{bmatrix} \cdot \begin{bmatrix} \mathbf{R}_{2} &amp; \mathbf{t}_{2} \\ \mathbf{0} &amp; 1 \end{bmatrix} \\
+    &amp; = \begin{bmatrix} \mathbf{R}_{1}\mathbf{R}_{2} &amp; \mathbf{R}_{1}\mathbf{t}_{2} + \mathbf{t}_{1} \\ \mathbf{0} &amp; 1 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  \begin{aligned}
+    \mathbf{T}^{-1} = \begin{bmatrix} \mathbf{R}^{T} &amp; -\mathbf{R}^{T}\mathbf{t} \\ \mathbf{0} &amp; 1\end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+또한, $\mathbb{P}^{3}$사영 공간(Projective Space) 상의 한 점 또는 벡터 $\mathbf{x}= \begin{pmatrix}x&amp;y&amp;z&amp;w \end{pmatrix}<sup>T</sup> &isin; \mathbb{P}<sup>3</sup>$에 대해 다음 연산이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{T}\cdot \mathbf{x} &amp; = \begin{bmatrix} \mathbf{R}&amp;\mathbf{t}\\\mathbf{0}&amp;1 \end{bmatrix} \cdot \mathbf{x} \\
+    &amp; = \begin{bmatrix} \mathbf{R}(x,\ y,\ z)^{T} + w \mathbf{t} \\ w \end{bmatrix}
+  \end{aligned}
+\end{equation}
+</div>
+
+<div id="outline-container-org6e93323" class="outline-3">
+<h3 id="org6e93323"><span class="section-number-3">3.1</span> Lie algebra</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+SE(3)군의 Lie algebra se(3)는 다음과 같은 $\mathbb{R}^{4\times 4}$크기의 행렬로 정의된다.
+</p>
+
 \begin{equation}
 \begin{aligned}
-\text{se}(3) = \{ \xi = \begin{bmatrix}
-\rho \\ 
-\phi
-\end{bmatrix} \in \mathbb{R}^{6}, \rho \in \mathbb{R}^{3}, \phi \in \text{so}(3)\ | \ \xi^{\wedge} = \begin{bmatrix}
-\phi^{\wedge} &amp; \rho \\ 
-\mathbf{0} &amp; 1 
-\end{bmatrix} \in \mathbb{R}^{4 \times 4} \}
+    \text{se}(3) = \{ \ \xi^{\wedge} = \begin{bmatrix}
+      \omega^{\wedge} &amp; \mathbf{v} \\ 
+    \mathbf{0} &amp; 0 
+    \end{bmatrix} \in \mathbb{R}^{4 \times 4}   \ | \ \xi = \begin{bmatrix} \omega \\ \mathbf{v} \end{bmatrix} \in \mathbb{R}^{6}, \rho \in \mathbb{R}^{3}, \phi \in \text{so}(3)\ \}
 \end{aligned}
+\end{equation}
+<p>
+이 때, <b>$&xi;$는 3차원 공간 상에서 물체의 속도를 의미하는 twist</b> 이며 $&omega; = \begin{pmatrix}w<sub>x</sub>&amp;w<sub>y</sub>&amp;w<sub>z</sub> \end{pmatrix}<sup>T</sup> &isin; \mathbb{R}<sup>3</sup>$는 각속도를 의미하고 $\mathbf{v}= \begin{pmatrix}v<sub>x</sub>&amp;v<sub>y</sub>&amp;v<sub>z</sub> \end{pmatrix}<sup>T</sup> &isin; \mathbb{R}<sup>3</sup>$는 속도를 의미한다.
+</p>
+
+<p>
+se(3)는 다음과 같이 회전과 이동에 관련된 6개의 생성자(Generator)들이 존재한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; G_{1} = \begin{pmatrix} 0&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;-1&amp;0 \\ 0&amp;1&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;0 \end{pmatrix}, \ \ G_{2} = \begin{pmatrix} 0&amp;0&amp;1&amp;0 \\ 0&amp;0&amp;0&amp;0 \\ -1&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;0 \end{pmatrix},\ \ G_{3} = \begin{pmatrix} 0&amp;-1&amp;0&amp;0 \\ 1&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;0  \end{pmatrix} \\
+    &amp; G_{4} = \begin{pmatrix} 0&amp;0&amp;0&amp;1 \\ 0&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;0 \end{pmatrix}, \ \ G_{5} = \begin{pmatrix} 0&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;1 \\ 0&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;0 \end{pmatrix},\ \ G_{6} = \begin{pmatrix} 0&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;1 \\ 0&amp;0&amp;0&amp;0  \end{pmatrix} \\
+  \end{aligned}
+\end{equation}
+<p>
+se(3)의 각 원소들은 생성자들의 선형결합(Linear Combination)으로 표현할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \xi = (\omega,\ \mathbf{v})^{T} \in \mathbb{R}^{6} \\
+    &amp; \omega_{1}G_{1} + \omega_{2}G_{2} + \omega_{3}G_{3} + v_{1}G_{4} + v_{2}G_{5} + v_{3}G_{6} \in se(3)
+  \end{aligned}
 \end{equation}
 </div>
 </div>
 
-<div id="outline-container-org1167371" class="outline-2">
-<h2 id="org1167371"><span class="section-number-2">4</span> SE3-based optimization in SLAM</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgccc11b0" class="outline-3">
+<h3 id="orgccc11b0"><span class="section-number-3">3.2</span> Exponential map</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
-SLAM에서 3차원 카메라의 포즈를 의미하는 <b>$\mathbf{T}&isin; \text{SE(3)}$는 덧셈에 대하여 닫혀있지 않으므로 카메라 포즈의 변화량 $&delta;\mathbf{T}$를 바로 업데이트할 수 없는 반면 3차원 물체의 속도를 의미하는 twist $\delta \xi^{\wedge} \in \text{se(3)}$를 사용하면 업데이트가 가능한 특징</b> 이 있다.
+Lie Group SE(3)와 Lie Algebra se(3)는 Exponential Mapping과 Logarithm Mapping으로 서로 일대일 매칭되는 특징이 있다. 우선, twist $&xi; &isin; \mathbb{R}<sup>6</sup>$를 se(3) lie algebra로 변환하는 연산 $&xi;<sup>&and;</sup>$은 다음과 같이 정의된다.
 </p>
 
+\begin{equation}
+  \begin{aligned}
+    \xi^{\wedge} = \begin{bmatrix} \omega^{\wedge} &amp; \mathbf{v} \\ \mathbf{0} &amp; 0 \end{bmatrix} \in \mathbb{R}^{4\times 4}
+  \end{aligned}
+\end{equation}
 <p>
-다시 말하면, SE(3) 매니폴드 상에서는 변화량을 바로 업데이트할 수 없으므로 국부적인 접평면(Tangential Plane)인 se(3) 공간으로 Logarithm Mapping(SE3 $\rightarrow$se3)을 통해 이동한 후 변화량을 업데이트하고 다시 Exponential Mapping(se3 $\rightarrow$SE3)을 통해 SE3 공간으로 돌아오는 과정을 반복하는 것을 <b>SE3-based Optimization</b> 이라고 한다.
+se(3)의 Exponential Mapping은 다음과 같이 정의된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \exp(\xi^{\wedge}) &amp; = \exp \begin{pmatrix} \omega^{\wedge} &amp; \mathbf{v} \\ \mathbf{0} &amp; 0 \end{pmatrix} \\
+      &amp; = \mathbf{I} + \begin{pmatrix} \omega^{\wedge} &amp; \mathbf{v} \\ \mathbf{0} &amp; 0 \end{pmatrix} + \frac{1}{2!} \begin{pmatrix} (\omega^{2})^{\wedge} &amp; \omega^{\wedge}\mathbf{v} \\ \mathbf{0} &amp; 0 \end{pmatrix} + \frac{1}{3!} \begin{pmatrix} (\omega^{3})^{\wedge} &amp; (\omega^{2})^{\wedge}\mathbf{v} \\ \mathbf{0} &amp; 0 \end{pmatrix} + \cdots
+  \end{aligned}
+\end{equation}
+<p>
+이 때, 회전과 관련된 부분은 SO(3)군과 동일하지만 이동과 관련된 부분은 별도의 급수 형태를 가진다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \exp \begin{pmatrix} \omega^{\wedge} &amp; \mathbf{v} \\ \mathbf{0} &amp; 0 \end{pmatrix} = \begin{pmatrix} \exp(\omega^{\wedge}) &amp; \mathbf{Qv} \\ \mathbf{0} &amp; 1 \end{pmatrix}
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  \begin{aligned}
+    \mathbf{Q} = \mathbf{I} + \frac{1}{2!}\omega^{\wedge} + \frac{1}{3!}(\omega^{2})^{\wedge} + \cdots
+  \end{aligned}
+\end{equation}
+<p>
+공식 \eqref{eq:0}을 참고하여 반대칭 행렬의 원리를 적용하여 다시 정리하면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{Q} &amp; = \mathbf{I} + \sum_{i=0}^{\infty} \begin{bmatrix} \frac{(\omega^{2i+1})^{\wedge}}{(2i+2)!} + \frac{(\omega^{2i+2})^{\wedge}}{(2i+3)!} \end{bmatrix} \\ 
+    &amp; = \mathbf{I} + \bigg(\sum_{i=0}^{\infty} \frac{(-1)^{i}\theta^{2i}}{(2i+2)!} \bigg) \omega^{\wedge} + \bigg( \sum_{i=0}^{\infty}\frac{(-1)^{i}\theta^{2i}}{(2i+3)!} \bigg) (\omega^{2})^{\wedge}  \\
+    &amp; = \mathbf{I} + \bigg( \frac{1}{2!} - \frac{\theta^{2}}{4!} + \frac{\theta^{4}}{6!} + \cdots \bigg) \omega^{\wedge} + \bigg( \frac{1}{3!} - \frac{\theta^{2}}{5!} + \frac{\theta^{4}}{7!} + \cdots \bigg) (\omega^{2})^{\wedge} \\
+    &amp; = \mathbf{I} + \bigg( \frac{1-\cos\theta}{\theta^{2}} \bigg) \omega^{\wedge} + \bigg(\frac{\theta-\sin\theta}{\theta^{3}} \bigg) (\omega^{2})^{\wedge}
+  \end{aligned}
+\end{equation}
+<p>
+지금까지 유도과정을 정리하여 se(3)의 Exponential Mapping을 표현하면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \xi = (\omega, \mathbf{v}) \in \mathbb{R}^{6} \\ 
+    &amp; \theta = \sqrt{\omega^{T}\omega} &amp; A = \frac{\sin\theta}{\theta} \\
+    &amp; B = \frac{1-\cos\theta}{\theta} &amp; C = \frac{1-A}{\theta^{2}} \\
+    &amp; \mathbf{R} = \mathbf{I} + A\omega^{\wedge} + B (\omega^{2})^{\wedge} &amp; \mathbf{Q} = \mathbf{I} + B\omega^{\wedge} + C (\omega^{2})^{\wedge} \\ 
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  \begin{aligned}
+    \exp(\xi^{\wedge}) = \begin{pmatrix} \mathbf{R} &amp; \mathbf{Qv} \\ \mathbf{0} &amp; 1 \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+SE(3)군의 Logarithm Mapping은 회전 부분은 SO(3)군의 Logarithm Mapping을 사용하고 이동 부분은 $\mathbf{Q}<sup>-1</sup>$을 사용한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{Q}^{-1} = \mathbf{I} - \frac{1}{2!}\omega^{\wedge} + \frac{1}{\theta^{2}} \bigg( 1 - \frac{A}{2B} \bigg) (\omega^{2})^{\wedge} \\
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  \begin{aligned}
+    &amp; \omega^{\wedge} = \ln(\mathbf{R}) \\
+    &amp; \mathbf{v} = \mathbf{Q}^{-1}\mathbf{t}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org4d78cd6" class="outline-3">
+<h3 id="org4d78cd6"><span class="section-number-3">3.3</span> Adjoint representation</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+SE(3)군의 Adjoint 행렬은 임의의 $&xi;<sup>&and;</sup> &isin; se(3)$와 대응하는 twist $&xi; &isin; \mathbb{R}<sup>6</sup>$를 다른 좌표계의 $&xi;<sup>'</sup>$로 변경해주는 행렬이다. 예를 들면, 두 개의 좌표계 $\{A\}, \{B\}$가 있다고 했을 때 $\{B\}$좌표계에서 본 $&xi;<sub>B</sub>$를 $\{A\}$좌표계에서 본 $&xi;<sub>A</sub>$로 변환하고자 할 때 사용한다. $\mathbf{T}<sub>AB</sub> &isin; SE(3)$에 대하여 Adjoint 행렬을 $\text{Ad}<sub>\mathbf{T}<sub>AB</sub></sub>$라고 하면 다음이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \xi_{A} = \text{Ad}_{\mathbf{T}_{AB}}\xi_{B}
+  \end{aligned}
+\end{equation}
+<p>
+Twist를 다른 twist로 변환하는 행렬이므로 $\text{Ad}<sub>\mathbf{T}</sub> &isin; \mathbb{R}<sup>6&times; 6</sup>$의 크기를 가진다. 또한 Adjoint 행렬은 다음과 같은 수식을 만족한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp;\mathbf{T} \cdot \exp(\xi^{\wedge}) = \exp((\text{Ad}_{\mathbf{T}}\cdot \xi)^{\wedge})\cdot \mathbf{T} \\
+    &amp;\exp((\text{Ad}_{\mathbf{T}}\cdot \xi)^{\wedge}) = \mathbf{T}\cdot \exp(\xi^{\wedge})\cdot \mathbf{T}^{-1}
+  \end{aligned}
+\end{equation}
+<p>
+se(3) 대수에 대한 Adjoint 행렬의 유도 과정은 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    (\text{Ad}_{\mathbf{T}}\cdot \xi)^{\wedge} &amp; = \mathbf{T} \cdot \bigg( \sum_{i=1}^{6}\xi_{i}G_{i} \bigg) \cdot \mathbf{T}^{-1} \\
+    &amp; = \begin{pmatrix} \mathbf{Rv}+\mathbf{t}^{\wedge}\mathbf{R}\omega \\ \mathbf{R}\omega \end{pmatrix}^{\wedge} \\
+    &amp; = \bigg(\begin{pmatrix} \mathbf{R} &amp; \mathbf{t}^{\wedge}\mathbf{R} \\ \mathbf{0} &amp; \mathbf{R} \end{pmatrix} \begin{pmatrix} \mathbf{v} \\ \omega \end{pmatrix} \bigg)^{\wedge}
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  \begin{aligned}
+    \text{Ad}_{\mathbf{T}} = \begin{pmatrix} \mathbf{R} &amp; \mathbf{t}^{\wedge}\mathbf{R} \\ \mathbf{0} &amp; \mathbf{R} \end{pmatrix} \in \mathbb{R}^{6\times 6}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org473dd1a" class="outline-2">
+<h2 id="org473dd1a"><span class="section-number-2">4</span> SE(3)-based optimization in SLAM</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+SLAM에서 3차원 카메라의 포즈를 의미하는 <b>$\mathbf{T}&isin; \text{SE(3)}$는 덧셈에 대하여 닫혀있지 않으므로 카메라 포즈의 변화량 $&delta;\mathbf{T}$를 바로 업데이트가 불가능한 반면에 3차원 물체의 속도를 의미하는 twist $&delta; &xi;<sup>&and;</sup> &isin; \text{se(3)}$를 사용하여 업데이트하면 별도의 제약조건 없이 업데이트가 가능한 장점</b> 이 있다. 다시 말하면, SE(3) 매니폴드 상에서는 변화량을 바로 업데이트할 수 없으므로 국부적인 접평면(Tangential Plane)인 se(3) 공간으로 Logarithm Mapping(SE3 $\rightarrow$se3)을 통해 이동한 후 변화량을 업데이트하고 다시 Exponential Mapping(se3 $\rightarrow$SE3)을 통해 SE3 공간으로 돌아오는 과정을 반복하는 것을 \textbfazure{SE3-based Optimization}이라고 한다.
 </p>
 </div>
 </div>
@@ -338,6 +566,10 @@ SLAM에서 3차원 카메라의 포즈를 의미하는 <b>$\mathbf{T}&isin; \tex
 
 <p>
 <a href="https://www.facebook.com/groups/slamkr/learning_content/?filter=242316043076666">입문 Visual SLAM</a>
+</p>
+
+<p>
+<a href="https://www.youtube.com/watch?v=VTv0qmLNvjg">Modern Robotics Lecture</a>
 </p>
 </div>
 </div>
