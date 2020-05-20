@@ -20,20 +20,20 @@ comments: true
 </li>
 <li><a href="#org9eeec49">2. SO(3): Rotations in 3D space</a>
 <ul>
-<li><a href="#org99401b9">2.1. Lie algebra</a>
+<li><a href="#orgf43a03d">2.1. Lie algebra</a>
 <ul>
 <li><a href="#org0df5f0a">2.1.1. so(3) derivation</a></li>
 </ul>
 </li>
-<li><a href="#org3f29987">2.2. Exponential map</a></li>
-<li><a href="#org86c84e3">2.3. Adjoint representation</a></li>
+<li><a href="#org5eab967">2.2. Exponential map</a></li>
+<li><a href="#org7f45527">2.3. Adjoint representation</a></li>
 </ul>
 </li>
 <li><a href="#orga2b92a5">3. SE(3): Rigid body transformation in 3D space</a>
 <ul>
-<li><a href="#orgf43a03d">3.1. Lie algebra</a></li>
-<li><a href="#org5eab967">3.2. Exponential map</a></li>
-<li><a href="#org7f45527">3.3. Adjoint representation</a></li>
+<li><a href="#org129f1ed">3.1. Lie algebra</a></li>
+<li><a href="#orgb7eca8c">3.2. Exponential map</a></li>
+<li><a href="#org85b4311">3.3. Adjoint representation</a></li>
 </ul>
 </li>
 <li><a href="#org473dd1a">4. SE(3)-based optimization in SLAM</a></li>
@@ -93,8 +93,8 @@ SO(3) = \{ \mathbf{R} \in \mathbb{R}^{3 \times 3} \ | \ \mathbf{R}\mathbf{R}^{T}
 \end{equation}
 </div>
 
-<div id="outline-container-org99401b9" class="outline-3">
-<h3 id="org99401b9"><span class="section-number-3">2.1</span> Lie algebra</h3>
+<div id="outline-container-orgf43a03d" class="outline-3">
+<h3 id="orgf43a03d"><span class="section-number-3">2.1</span> Lie algebra</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 SO(3)군의 Lie algebra so(3)는 다음과 같은 $\mathbb{R}^{3\times 3}$크기의 반대칭 행렬을 말한다.
@@ -153,7 +153,7 @@ $\mathbf{R}$을 시간에 따라 지속적으로 변화하는 카메라 회전�
 
 \begin{equation}
 \begin{aligned}
-\mathbf{R}(t)\mathbf{R}(t)^{T} = \mathbf{I}
+\mathbf{R}(t)\mathbf{R}^{T}(t) = \mathbf{I}
 \end{aligned}
 \end{equation}
 <p>
@@ -162,12 +162,12 @@ $\mathbf{R}$을 시간에 따라 지속적으로 변화하는 카메라 회전�
 
 \begin{equation}
 \begin{aligned}
-&amp; \dot{\mathbf{R}}(t)\mathbf{R}^{T}(t) + \mathbf{R}(t)\dot{\mathbf{R}}(t)^{T} = 0 \\
-&amp; \dot{\mathbf{R}}(t)\mathbf{R}^{T}(t) = -\biggl( \mathbf{R}(t)\dot{\mathbf{R}}(t)^{T} \biggl)^{T}
+&amp; \dot{\mathbf{R}}(t)\mathbf{R}^{T}(t) + \mathbf{R}(t)\dot{\mathbf{R}}^{T}(t) = 0 \\
+&amp; \dot{\mathbf{R}}(t)\mathbf{R}^{T}(t) = -\biggl( \mathbf{R}(t)\dot{\mathbf{R}}^{T}(t) \biggl)^{T}
 \end{aligned}
 \end{equation}
 <p>
-이를 통해 $\dot{\mathbf{R}}(t)\mathbf{R}(t)^{T}$이 반대칭 행렬인 것을 알 수 있다. 임의의 반대칭 행렬 $\mathbf{a}^{\wedge}$은 아래와 같다. 
+이를 통해 $\dot{\mathbf{R}}(t)\mathbf{R}^{T}(t)$이 반대칭 행렬인 것을 알 수 있다. 임의의 반대칭 행렬 $\mathbf{a}^{\wedge}$은 아래와 같다. 
 </p>
 
 \begin{equation}
@@ -184,7 +184,7 @@ a_{3} &amp; 0 &amp; -a_{1} \\
 </p>
 
 <p>
-따라서 $\dot{\mathbf{R}}(t)\mathbf{R}(t)^{T}$도 그에 상응하는 3차원 벡터 $\phi(t) \in \mathbb{R}^{3}$를 찾을 수 있다.
+따라서 $\dot{\mathbf{R}}(t)\mathbf{R}^{T}(t)$도 그에 상응하는 3차원 벡터 $\phi(t) \in \mathbb{R}^{3}$를 찾을 수 있다.
 </p>
 
 \begin{equation}
@@ -240,8 +240,8 @@ a_{3} &amp; 0 &amp; -a_{1} \\
 </div>
 </div>
 
-<div id="outline-container-org3f29987" class="outline-3">
-<h3 id="org3f29987"><span class="section-number-3">2.2</span> Exponential map</h3>
+<div id="outline-container-org5eab967" class="outline-3">
+<h3 id="org5eab967"><span class="section-number-3">2.2</span> Exponential map</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Lie Group SO(3)와 Lie Algebra so(3)는 Exponential Mapping과 Logarithm Mapping으로 서로 일대일 매칭되는 특징이 있다.
@@ -300,8 +300,8 @@ Exponetial Mapping의 정의에 따라 $\exp(\omega^{\wedge})$를 전개하면 �
 </div>
 </div>
 
-<div id="outline-container-org86c84e3" class="outline-3">
-<h3 id="org86c84e3"><span class="section-number-3">2.3</span> Adjoint representation</h3>
+<div id="outline-container-org7f45527" class="outline-3">
+<h3 id="org7f45527"><span class="section-number-3">2.3</span> Adjoint representation</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 <b>SO(3)군의 Adjoint 행렬은 임의의 $\omega^{\wedge} \in so(3)$와 대응하는 각속도 $\omega \in \mathbb{R}^{3}$를 다른 $\omega^{'}$로 변경해주는 행렬</b> 이다. 예를 들면, 두 개의 좌표계 $\{A\}, \{B\}$가 있다고 했을 때 $\{B\}$좌표계에서 본 각속도 $\omega_{B}$를 $\{A\}$좌표계에서 본 각속도 $\omega_{A}$로 변환하고자 할 때 사용한다. $\mathbf{R}_{AB} \in SO(3)$에 대하여 Adjoint 행렬을 $\text{Ad}_{\mathbf{R}_{AB}}$라고 하면 다음이 성립한다.
@@ -385,8 +385,8 @@ SE(3) = \left \{ \mathbf{T} =
 \end{equation}
 </div>
 
-<div id="outline-container-orgf43a03d" class="outline-3">
-<h3 id="orgf43a03d"><span class="section-number-3">3.1</span> Lie algebra</h3>
+<div id="outline-container-org129f1ed" class="outline-3">
+<h3 id="org129f1ed"><span class="section-number-3">3.1</span> Lie algebra</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 SE(3)군의 Lie algebra se(3)는 다음과 같은 $\mathbb{R}^{4\times 4}$크기의 행렬로 정의된다.
@@ -427,8 +427,8 @@ se(3)의 각 원소들은 생성자들의 선형결합(Linear Combination)으로
 </div>
 </div>
 
-<div id="outline-container-org5eab967" class="outline-3">
-<h3 id="org5eab967"><span class="section-number-3">3.2</span> Exponential map</h3>
+<div id="outline-container-orgb7eca8c" class="outline-3">
+<h3 id="orgb7eca8c"><span class="section-number-3">3.2</span> Exponential map</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Lie Group SE(3)와 Lie Algebra se(3)는 Exponential Mapping과 Logarithm Mapping으로 서로 일대일 매칭되는 특징이 있다. 우선, twist $\xi \in \mathbb{R}^{6}$를 se(3) lie algebra로 변환하는 연산 $\xi^{\wedge}$은 다음과 같이 정의된다.
@@ -510,8 +510,8 @@ SE(3)군의 Logarithm Mapping은 회전 부분은 SO(3)군의 Logarithm Mapping�
 </div>
 </div>
 
-<div id="outline-container-org7f45527" class="outline-3">
-<h3 id="org7f45527"><span class="section-number-3">3.3</span> Adjoint representation</h3>
+<div id="outline-container-org85b4311" class="outline-3">
+<h3 id="org85b4311"><span class="section-number-3">3.3</span> Adjoint representation</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 SE(3)군의 Adjoint 행렬은 임의의 $\xi^{\wedge} \in se(3)$와 대응하는 twist $\xi \in \mathbb{R}^{6}$를 다른 좌표계의 $\xi^{'}$로 변경해주는 행렬이다. 예를 들면, 두 개의 좌표계 $\{A\}, \{B\}$가 있다고 했을 때 $\{B\}$좌표계에서 본 $\xi_{B}$를 $\{A\}$좌표계에서 본 $\xi_{A}$로 변환하고자 할 때 사용한다. $\mathbf{T}_{AB} \in SE(3)$에 대하여 Adjoint 행렬을 $\text{Ad}_{\mathbf{T}_{AB}}$라고 하면 다음이 성립한다.
