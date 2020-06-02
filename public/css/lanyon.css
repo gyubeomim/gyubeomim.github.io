@@ -53,7 +53,7 @@ body {
  change the color of bold font.
 */
 b {
-    color: #007fff;
+    color: #537895;
     font-weight: bold;
 }
 
@@ -562,11 +562,11 @@ a.pagination-item:hover {
 .theme-base-0g .sidebar,
 .theme-base-0g .sidebar-toggle:active,
 .theme-base-0g #sidebar-checkbox:checked ~ .sidebar-toggle {
-  background-color: #007fff;
+  background-color: #537895;
 }
 .theme-base-0g .sidebar-toggle,
 .theme-base-0g .related-posts li a:hover {
-  color: #007fff;
+  color: #537895;
 }
 
 
