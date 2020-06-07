@@ -12,42 +12,42 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org379b4ce">1. Introduction</a>
+<li><a href="#org1ad1643">1. Introduction</a>
 <ul>
-<li><a href="#org35dbe57">1.1. Group theory</a></li>
-<li><a href="#org5586323">1.2. Manifold</a></li>
+<li><a href="#orga2b5db8">1.1. Group theory</a></li>
+<li><a href="#org0e68642">1.2. Manifold</a></li>
 </ul>
 </li>
-<li><a href="#org099ab72">2. SO(3): Rotations in 3D space</a>
+<li><a href="#org9eeec49">2. SO(3): Rotations in 3D space</a>
 <ul>
-<li><a href="#orgff2c5e4">2.1. Lie algebra</a>
+<li><a href="#org27e2a13">2.1. Lie algebra</a>
 <ul>
-<li><a href="#orgb57249b">2.1.1. so(3) derivation</a></li>
+<li><a href="#org0df5f0a">2.1.1. so(3) derivation</a></li>
 </ul>
 </li>
-<li><a href="#org2bdfe2f">2.2. Exponential and logarithm mapping</a></li>
-<li><a href="#org5c0e9ea">2.3. Adjoint representation</a></li>
+<li><a href="#orgfbf706b">2.2. Exponential and logarithm mapping</a></li>
+<li><a href="#orgdbc5dde">2.3. Adjoint representation</a></li>
 </ul>
 </li>
-<li><a href="#orgb4d99e5">3. SE(3): Rigid body transformation in 3D space</a>
+<li><a href="#orga2b92a5">3. SE(3): Rigid body transformation in 3D space</a>
 <ul>
-<li><a href="#org4cc3e25">3.1. Lie algebra</a></li>
-<li><a href="#orgcf645eb">3.2. Exponential and logarithm mapping</a></li>
-<li><a href="#org4221eeb">3.3. Adjoint representation</a></li>
+<li><a href="#orge76ab95">3.1. Lie algebra</a></li>
+<li><a href="#orgf2e9e19">3.2. Exponential and logarithm mapping</a></li>
+<li><a href="#org14db026">3.3. Adjoint representation</a></li>
 </ul>
 </li>
-<li><a href="#org7ae56e6">4. SE(3)-based optimization in SLAM</a></li>
-<li><a href="#org90f6ac4">5. Reference</a></li>
+<li><a href="#org473dd1a">4. SE(3)-based optimization in SLAM</a></li>
+<li><a href="#orgd694b40">5. Reference</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org379b4ce" class="outline-2">
-<h2 id="org379b4ce"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org1ad1643" class="outline-2">
+<h2 id="org1ad1643"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org35dbe57" class="outline-3">
-<h3 id="org35dbe57"><span class="section-number-3">1.1</span> Group theory</h3>
+<div id="outline-container-orga2b5db8" class="outline-3">
+<h3 id="orga2b5db8"><span class="section-number-3">1.1</span> Group theory</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 군(Group)은 집합과 두 원소의 연산인 이항 연산(binary operation)으로 이루어진 대수적 구조를 말한다. 예를 들어, 어떤 집합을 $A$라고 하고 어떤 이항 연산을 $*$으로 표시했을 때, 군은 $G = (A, *)$으로 나타낼 수 있다. 일반적으로 알고 있는 정수, 유리수, 실수, 복소수와 같은 수의 집합과 덧셈, 곱셈과 같은 연산이 군에 속한다.
@@ -65,8 +65,8 @@ comments: true
 </div>
 </div>
 
-<div id="outline-container-org5586323" class="outline-3">
-<h3 id="org5586323"><span class="section-number-3">1.2</span> Manifold</h3>
+<div id="outline-container-org0e68642" class="outline-3">
+<h3 id="org0e68642"><span class="section-number-3">1.2</span> Manifold</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 N차원의 매니폴드(Manifold) $\mathbf{M}$은 $\mathbf{M}$내부에 있는 임의의 점 $\mathbf{p}\in\mathbf{M}$에 대해 지역적으로 Euclidean 구조를 갖는 기하학적 공간을 의미한다. 다시 말하면, $\mathbf{p}$근처에 존재하는 모든 점들은 $\mathbb{R}^{N}$공간에서 위상동형(Homeomorphic)인 특징을 지닌다.
@@ -79,11 +79,11 @@ N차원의 매니폴드(Manifold) $\mathbf{M}$은 $\mathbf{M}$내부에 있는 �
 </div>
 </div>
 
-<div id="outline-container-org099ab72" class="outline-2">
-<h2 id="org099ab72"><span class="section-number-2">2</span> SO(3): Rotations in 3D space</h2>
+<div id="outline-container-org9eeec49" class="outline-2">
+<h2 id="org9eeec49"><span class="section-number-2">2</span> SO(3): Rotations in 3D space</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-<b>Special Orthogonal 3(SO(3))군은 3차원 회전행렬(Rotation Matrix)과 이에 닫혀있는 연산들로 구성된 군을 의미하며 3차원 물체의 회전을 표현할 때 사용</b> 한다. SO(3)군의 합성 연산과 역연산은 행렬의 곱셈과 역행렬을 통해 표현된다. 
+Lie 군 중 하나인 <b>Special Orthogonal 3(SO(3))군은 3차원 회전행렬(Rotation Matrix)과 이에 닫혀있는 연산들로 구성된 군을 의미하며 3차원 물체의 회전을 표현할 때 사용</b> 한다. SO(3)군의 합성 연산과 역연산은 행렬의 곱셈과 역행렬을 통해 표현된다. 
 </p>
 
 \begin{equation}
@@ -93,8 +93,8 @@ SO(3) = \{ \mathbf{R} \in \mathbb{R}^{3 \times 3} \ | \ \mathbf{R}\mathbf{R}^{T}
 \end{equation}
 </div>
 
-<div id="outline-container-orgff2c5e4" class="outline-3">
-<h3 id="orgff2c5e4"><span class="section-number-3">2.1</span> Lie algebra</h3>
+<div id="outline-container-org27e2a13" class="outline-3">
+<h3 id="org27e2a13"><span class="section-number-3">2.1</span> Lie algebra</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 SO(3)군의 Lie algebra so(3)는 다음과 같은 $\mathbb{R}^{3\times 3}$크기의 반대칭 행렬을 말한다.
@@ -135,8 +135,8 @@ so(3)의 각 원소들은 생성자들의 선형결합(Linear Combination)으로
 \end{equation}
 </div>
 
-<div id="outline-container-orgb57249b" class="outline-4">
-<h4 id="orgb57249b"><span class="section-number-4">2.1.1</span> so(3) derivation</h4>
+<div id="outline-container-org0df5f0a" class="outline-4">
+<h4 id="org0df5f0a"><span class="section-number-4">2.1.1</span> so(3) derivation</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 임의의 회전 행렬은 다음과 같은 성질을 만족한다.
@@ -240,8 +240,8 @@ a_{3} &amp; 0 &amp; -a_{1} \\
 </div>
 </div>
 
-<div id="outline-container-org2bdfe2f" class="outline-3">
-<h3 id="org2bdfe2f"><span class="section-number-3">2.2</span> Exponential and logarithm mapping</h3>
+<div id="outline-container-orgfbf706b" class="outline-3">
+<h3 id="orgfbf706b"><span class="section-number-3">2.2</span> Exponential and logarithm mapping</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Lie Group SO(3)와 Lie Algebra so(3)는 지수 매핑(exponential mapping)과 로그 매핑(logarithm mapping)으로 서로 일대일 매칭되는 특징이 있다.
@@ -300,8 +300,8 @@ Exponetial Mapping의 정의에 따라 $\exp(\omega^{\wedge})$를 전개하면 �
 </div>
 </div>
 
-<div id="outline-container-org5c0e9ea" class="outline-3">
-<h3 id="org5c0e9ea"><span class="section-number-3">2.3</span> Adjoint representation</h3>
+<div id="outline-container-orgdbc5dde" class="outline-3">
+<h3 id="orgdbc5dde"><span class="section-number-3">2.3</span> Adjoint representation</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 <b>SO(3)군의 Adjoint 행렬은 임의의 $\omega^{\wedge} \in so(3)$와 대응하는 각속도 $\omega \in \mathbb{R}^{3}$를 다른 $\omega^{'}$로 변경해주는 행렬</b> 이다. 예를 들면, 두 개의 좌표계 $\{A\}, \{B\}$가 있다고 했을 때 $\{B\}$좌표계에서 본 각속도 $\omega_{B}$를 $\{A\}$좌표계에서 본 각속도 $\omega_{A}$로 변환하고자 할 때 사용한다. $\mathbf{R}_{AB} \in SO(3)$에 대하여 Adjoint 행렬을 $\text{Ad}_{\mathbf{R}_{AB}}$라고 하면 다음이 성립한다.
@@ -342,11 +342,11 @@ so(3) 대수에 대한 Adjoint 행렬의 유도 과정은 다음과 같다.
 </div>
 </div>
 
-<div id="outline-container-orgb4d99e5" class="outline-2">
-<h2 id="orgb4d99e5"><span class="section-number-2">3</span> SE(3): Rigid body transformation in 3D space</h2>
+<div id="outline-container-orga2b92a5" class="outline-2">
+<h2 id="orga2b92a5"><span class="section-number-2">3</span> SE(3): Rigid body transformation in 3D space</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-<b>Special Euclidean 3 (SE(3))군은 3차원 공간 상에서 강체의 변환과 관련된 행렬과 이에 닫혀있는 연산들로 구성된 군</b> 을 의미한다. 
+Lie 군 중 하나인 <b>Special Euclidean 3 (SE(3))군은 3차원 공간 상에서 강체의 변환과 관련된 행렬과 이에 닫혀있는 연산들로 구성된 군</b> 을 의미한다. 
 </p>
 
 \begin{equation}
@@ -385,8 +385,8 @@ SE(3) = \left \{ \mathbf{T} =
 \end{equation}
 </div>
 
-<div id="outline-container-org4cc3e25" class="outline-3">
-<h3 id="org4cc3e25"><span class="section-number-3">3.1</span> Lie algebra</h3>
+<div id="outline-container-orge76ab95" class="outline-3">
+<h3 id="orge76ab95"><span class="section-number-3">3.1</span> Lie algebra</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 SE(3)군의 Lie algebra se(3)는 다음과 같은 $\mathbb{R}^{4\times 4}$크기의 행렬로 정의된다.
@@ -427,8 +427,8 @@ se(3)의 각 원소들은 생성자들의 선형결합(Linear Combination)으로
 </div>
 </div>
 
-<div id="outline-container-orgcf645eb" class="outline-3">
-<h3 id="orgcf645eb"><span class="section-number-3">3.2</span> Exponential and logarithm mapping</h3>
+<div id="outline-container-orgf2e9e19" class="outline-3">
+<h3 id="orgf2e9e19"><span class="section-number-3">3.2</span> Exponential and logarithm mapping</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Lie Group SE(3)와 Lie Algebra se(3)는 지수 매핑(exponential mapping)과 로그 매핑(logarithm mapping)으로 서로 일대일 매칭되는 특징이 있다. 우선, twist $\xi \in \mathbb{R}^{6}$를 se(3) lie algebra로 변환하는 연산 $\xi^{\wedge}$은 다음과 같이 정의된다.
@@ -510,8 +510,8 @@ SE(3)군의 로그 매핑은 회전 부분은 SO(3)군의 로그 매핑을 사�
 </div>
 </div>
 
-<div id="outline-container-org4221eeb" class="outline-3">
-<h3 id="org4221eeb"><span class="section-number-3">3.3</span> Adjoint representation</h3>
+<div id="outline-container-org14db026" class="outline-3">
+<h3 id="org14db026"><span class="section-number-3">3.3</span> Adjoint representation</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 SE(3)군의 Adjoint 행렬은 임의의 $\xi^{\wedge} \in se(3)$와 대응하는 twist $\xi \in \mathbb{R}^{6}$를 다른 좌표계의 $\xi^{'}$로 변경해주는 행렬이다. 예를 들면, 두 개의 좌표계 $\{A\}, \{B\}$가 있다고 했을 때 $\{B\}$좌표계에서 본 $\xi_{B}$를 $\{A\}$좌표계에서 본 $\xi_{A}$로 변환하고자 할 때 사용한다. $\mathbf{T}_{AB} \in SE(3)$에 대하여 Adjoint 행렬을 $\text{Ad}_{\mathbf{T}_{AB}}$라고 하면 다음이 성립한다.
@@ -553,8 +553,8 @@ se(3) 대수에 대한 Adjoint 행렬의 유도 과정은 다음과 같다.
 </div>
 
 
-<div id="outline-container-org7ae56e6" class="outline-2">
-<h2 id="org7ae56e6"><span class="section-number-2">4</span> SE(3)-based optimization in SLAM</h2>
+<div id="outline-container-org473dd1a" class="outline-2">
+<h2 id="org473dd1a"><span class="section-number-2">4</span> SE(3)-based optimization in SLAM</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 SE(3) 기반 최적화 방법이란 SE(3) 상태에서는 변화량을 바로 업데이트할 수 없으므로 국부적인 접평면(Tangential Plane)인 se(3) 공간으로 로그 매핑을 통해 이동한 후 변화량을 업데이트하고 다시 지수 매핑을 통해 SE3 공간으로 돌아오는 과정을 반복하는 것을 의미한다.
@@ -572,8 +572,8 @@ SLAM에서 3차원 카메라의 포즈를 의미하는 $\mathbf{T} = \begin{bmat
 </div>
 </div>
 
-<div id="outline-container-org90f6ac4" class="outline-2">
-<h2 id="org90f6ac4"><span class="section-number-2">5</span> Reference</h2>
+<div id="outline-container-orgd694b40" class="outline-2">
+<h2 id="orgd694b40"><span class="section-number-2">5</span> Reference</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <a href="http://ethaneade.com/lie.pdf">Lie Groups for 2D and 3D Transformations</a>

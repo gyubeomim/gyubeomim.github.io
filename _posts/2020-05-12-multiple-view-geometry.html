@@ -12,55 +12,782 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf7e3dfb">1. More Single View Geometry</a>
+<li><a href="#org60ce3ce">1. Projective geometry and transformations in 2d</a>
 <ul>
-<li><a href="#orgd03db8e">1.1. Camera calibration and the image of the absolute conic</a>
+<li><a href="#orgfe0307b">1.1. The 2d projective plane</a>
 <ul>
-<li><a href="#org2321c0d">1.1.1. Result 8.15</a></li>
-<li><a href="#org1f0200b">1.1.2. Result 8.16</a></li>
+<li><a href="#org84d7695">1.1.1. Points and lines</a></li>
+<li><a href="#org93a0928">1.1.2. Homogeneous representation of line</a></li>
+<li><a href="#org9d00697">1.1.3. Homogeneous representation of points</a></li>
+<li><a href="#org2d36076">1.1.4. Degree of freedom (dof)</a></li>
+<li><a href="#org86d8118">1.1.5. Intersection of lines</a></li>
+<li><a href="#orgb45aaad">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#org1fd60af">1.2. The image of the absolute conic</a></li>
-<li><a href="#org8333916">1.3. Orthogonality and $\mathbf{w}$</a></li>
-<li><a href="#org58a08d7">1.4. Vanishing points and vanishing lines</a>
+<li><a href="#org60fefc7">1.2. Ideal points and the line at infinity</a>
 <ul>
-<li><a href="#org944b5c4">1.4.1. Camera rotation from vanishing points</a></li>
+<li><a href="#org244a4b3">1.2.1. Intersection of parallel lines</a></li>
+<li><a href="#org05d6428">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#org95f7e2a">1.2.3. A model for the projective plane</a></li>
+<li><a href="#orgee9e9f7">1.2.4. Duality</a></li>
 </ul>
 </li>
-<li><a href="#orgd018b92">1.5. Vanishing Lines</a></li>
-<li><a href="#orge72b6aa">1.6. Orthogonality relationships amongst vanishing points and lines</a></li>
-<li><a href="#org0f58b29">1.7. Affine 3D measurements and reconstruction</a></li>
-<li><a href="#org0be45e6">1.8. Determining camera calibration $\mathbf{K}$from a single view</a></li>
-<li><a href="#org08edbf3">1.9. Calibration from three orthogonal vanishing points</a></li>
-<li><a href="#org010aaf8">1.10. Computation of focal length and principal point using vanishing point and vanishing line</a></li>
-<li><a href="#orgc7a1329">1.11. The calibrating conic</a></li>
-</ul>
-</li>
-<li><a href="#orge43955e">2. Epipolar Geometry and the Fundamental Matrix</a>
+<li><a href="#org6f68b03">1.3. Conics and dual conics</a>
 <ul>
-<li><a href="#orgcd72ba2">2.1. Proof</a></li>
-<li><a href="#org0da129e">2.2. Derivation of Fundemantal Matrix(Geometry)</a></li>
-<li><a href="#org8bc1244">2.3. Derivation of Fundemantal Matrix(Algebraic)</a></li>
+<li><a href="#orgdf86b47">1.3.1. Five points define a conic</a></li>
+<li><a href="#orgad61825">1.3.2. Tangent lines to conics</a></li>
+<li><a href="#orga4242e7">1.3.3. Dual conics</a></li>
+<li><a href="#orgcd72ba2">1.3.4. Proof</a></li>
 </ul>
 </li>
-<li><a href="#org5816cc3">3. References</a></li>
-<li><a href="#org6d8d6e0">4. Closure</a></li>
+<li><a href="#orgb027165">1.4. Projective transformations</a></li>
+<li><a href="#org7070f5a">1.5. A hierarchy of transformations</a>
+<ul>
+<li><a href="#org0399d4e">1.5.1. Class 1: isometries</a></li>
+<li><a href="#org98eba0c">1.5.2. Class 2: similarity transformations</a></li>
+<li><a href="#orgcac110b">1.5.3. Class 3: affine transformations</a></li>
+<li><a href="#org3be7278">1.5.4. Class 4: projective transformations</a></li>
+</ul>
+</li>
+<li><a href="#orge6b395b">1.6. Decomposition of a projective transformation</a></li>
+<li><a href="#org12b8784">1.7. Recovery of affine and metric properties from images</a>
+<ul>
+<li><a href="#orgaec40f0">1.7.1. The line at infinity</a></li>
+<li><a href="#org57dff60">1.7.2. Recovery of affine properties from images</a></li>
+<li><a href="#orgab3a971">1.7.3. Recovery of metric properties from images</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgf7e3dfb">2. More Single View Geometry</a>
+<ul>
+<li><a href="#orgd03db8e">2.1. Camera calibration and the image of the absolute conic</a>
+<ul>
+<li><a href="#org2321c0d">2.1.1. Result 8.15</a></li>
+<li><a href="#org1f0200b">2.1.2. Result 8.16</a></li>
+</ul>
+</li>
+<li><a href="#org1fd60af">2.2. The image of the absolute conic</a></li>
+<li><a href="#org8333916">2.3. Orthogonality and $\mathbf{w}$</a></li>
+<li><a href="#org58a08d7">2.4. Vanishing points and vanishing lines</a>
+<ul>
+<li><a href="#org944b5c4">2.4.1. Camera rotation from vanishing points</a></li>
+</ul>
+</li>
+<li><a href="#orgd018b92">2.5. Vanishing Lines</a></li>
+<li><a href="#orge72b6aa">2.6. Orthogonality relationships amongst vanishing points and lines</a></li>
+<li><a href="#org0f58b29">2.7. Affine 3D measurements and reconstruction</a></li>
+<li><a href="#org0be45e6">2.8. Determining camera calibration $\mathbf{K}$from a single view</a></li>
+<li><a href="#org08edbf3">2.9. Calibration from three orthogonal vanishing points</a></li>
+<li><a href="#org010aaf8">2.10. Computation of focal length and principal point using vanishing point and vanishing line</a></li>
+<li><a href="#orgc7a1329">2.11. The calibrating conic</a></li>
+</ul>
+</li>
+<li><a href="#orge43955e">3. Epipolar Geometry and the Fundamental Matrix</a>
+<ul>
+<li><a href="#org0e540e8">3.1. Proof</a></li>
+<li><a href="#org0da129e">3.2. Derivation of Fundemantal Matrix(Geometry)</a></li>
+<li><a href="#org8bc1244">3.3. Derivation of Fundemantal Matrix(Algebraic)</a></li>
+</ul>
+</li>
+<li><a href="#org5816cc3">4. References</a></li>
+<li><a href="#org6d8d6e0">5. Closure</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf7e3dfb" class="outline-2">
-<h2 id="orgf7e3dfb"><span class="section-number-2">1</span> More Single View Geometry</h2>
+<div id="outline-container-org60ce3ce" class="outline-2">
+<h2 id="org60ce3ce"><span class="section-number-2">1</span> Projective geometry and transformations in 2d</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgd03db8e" class="outline-3">
-<h3 id="orgd03db8e"><span class="section-number-3">1.1</span> Camera calibration and the image of the absolute conic</h3>
+<div id="outline-container-orgfe0307b" class="outline-3">
+<h3 id="orgfe0307b"><span class="section-number-3">1.1</span> The 2d projective plane</h3>
 <div class="outline-text-3" id="text-1-1">
+<p>
+일반적으로 평면 위의 점 $\mathbf{x}$는 $(x,y) &isin; \mathbb{r}^{2}$와 같이 표현한다. $\mathbb{r}^{2}$가 벡터공간(vector space)이라고 하면 $\mathbf{x}$는 하나의 벡터로 나타낼 수 있다. 또한, 두 점 $\mathbf{x}_{1}, \mathbf{x}_{2}$을 포함하는 직선 $\mathbf{l}$은 두 벡터를 뺌으로써 표현할 수 있다. 해당 섹션에서는 평면 위의 점과 직선에 대해 하나의 동일한 벡터로 표현할 수 있게 해주는 homogeneous notation에 대해 설명한다.
+</p>
+</div>
+
+<div id="outline-container-org84d7695" class="outline-4">
+<h4 id="org84d7695"><span class="section-number-4">1.1.1</span> Points and lines</h4>
+</div>
+
+<div id="outline-container-org93a0928" class="outline-4">
+<h4 id="org93a0928"><span class="section-number-4">1.1.2</span> Homogeneous representation of line</h4>
+<div class="outline-text-4" id="text-1-1-2">
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=8cm]{01.png}
+\end{figure}
+<p>
+임의의 직선 $\mathbf{l}$은 다음과 같이 표현할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}: ax + by + c = 0 \quad (a,b) \neq 0
+  \end{aligned}
+\end{equation}
+<p>
+직선 $\mathbf{l}$위에 임의의 한 점 $\mathbf{x}= (x,y,1)$이 존재하면 직선 $ax+by+c=0$공식에 따라 직선 $\mathbf{l}$은 다음과 같이 표현할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{l} : (a,b,c) \\
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $(a,b,c)$는 직선 $\mathbf{l}$을 유일하게 표현하지 않는다. $(ka,kb,kc)$와 같이 0이 아닌 임의의 상수 $k$를 곱해도 동일한 직선 $\mathbf{l}$을 표현할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}: (ka,kb,kc)
+  \end{aligned}
+\end{equation}
+<p>
+따라서 <b>평면 위의 직선 $\mathbf{l}$은 스케일 값에 상관없이 모두 같은 직선을 의미</b> 한다. 이러한 동치관계(equivalent)에 있는 모든 벡터를 homogeneous 벡터라고 한다. <b>$\mathbb{r}^{3}$공간에서 동치관계에 있는 모든 벡터들의 집합을 사영공간(projective space) $\mathbb{p}^{2}$이라고 한다.</b> 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9d00697" class="outline-4">
+<h4 id="org9d00697"><span class="section-number-4">1.1.3</span> Homogeneous representation of points</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+직선 $\mathbf{l}=(a,b,c)^{t}$과 직선 위의 한 점 $\mathbf{x}=(x,y)^{t}$사이에는 다음 공식이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    ax+by+c=0
+  \end{aligned}
+\end{equation}
+<p>
+이는 두 벡터 $\mathbf{l}$과 $\mathbf{x}$의 내적으로 표현할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \begin{pmatrix} x&amp;y&amp;1 \end{pmatrix} \begin{pmatrix} a\\b\\c \end{pmatrix} = \begin{pmatrix} x&amp;y&amp;1 \end{pmatrix}\mathbf{l} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이는 직선 위의 한 점 $\mathbf{x}=(x,y)$좌표 맨 끝에 1을 추가하여 직선과 내적한 것으로 볼 수 있다. 직선 $\mathbf{l}$는 스케일 값에 상관없이 하나의 직선을 표현할 수 있으므로 $(x,y,1)\mathbf{l}=0$이 성립한다는 전제하에 모든 $k$값에 대해 $(kx,ky,k)\mathbf{l}=0$또한 성립한다. 따라서 <b>임의의 상수 $k$에 대해서 $(kx,ky,k)$는 $\mathbb{r}^{2}$공간에서 한 점 $\mathbf{x}=(x,y)$를 의미하므로 직선과 동일하게 점 또한 homogeneous 벡터로 표현할 수 있다.</b> 이를 일반화하여 표현하면 임의의 점 $\mathbf{x}=(x_{1}, x_{2},x_{3})^{t}$는 $\mathbb{r}^{2}$공간 상의 한 점 $(x_{1}/x_{3}, x_{2}/x_{3})$을 표현한다.
+</p>
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=8cm]{02.png}
+\end{figure}
+<p>
+따라서 $\mathbb{p}^{2}$공간 상에서 임의의 한 점 $\mathbf{x}$가 직선 $\mathbf{l}$위에 존재할 경우
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{t}\mathbf{l} &amp; = \begin{bmatrix} x&amp;y&amp;1 \end{bmatrix} \begin{bmatrix} a\\b\\c \end{bmatrix} \\
+    &amp; = ax + by + c \\
+    &amp; = 0 \\
+    &amp; \therefore \mathbf{x}^{t}\mathbf{l} = 0
+  \end{aligned}
+\end{equation}
+<p>
+공식이 성립한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2d36076" class="outline-4">
+<h4 id="org2d36076"><span class="section-number-4">1.1.4</span> Degree of freedom (dof)</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+$\mathbb{p}^{2}$공간에서 하나의 점이 유일하게 결정되기 위해서는 반드시 2개의 값 $(x,y)$가 주어져야 한다. 직선을 유일하게 결정하기 위해서는 두 개의 독립적인 $\{a:b:c\}$비율이 주어져야 한다. 이와 같이 $\mathbb{p}^{2}$공간에서 점과 직선은 2자유도를 가진다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org86d8118" class="outline-4">
+<h4 id="org86d8118"><span class="section-number-4">1.1.5</span> Intersection of lines</h4>
+<div class="outline-text-4" id="text-1-1-5">
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=8cm]{03.png}
+\end{figure}
+<p>
+$\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 주어졌을 때 두 직선의 방정식은 다음과 같이 쓸 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}^{t}\mathbf{l} = 0 \\
+    &amp; \mathbf{x}^{t}\mathbf{l}^{'} = 0 \\
+  \end{aligned}
+\end{equation}
+<p>
+이 때, 교차점 $\mathbf{x}$는 스케일 값에 관계없이 하나의 점을 의미하므로 두 직선 $\mathbf{l}, \mathbf{l}^{'}$의 cross product의 배수로 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x} = \mathbf{l} \times \mathbf{l}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+예를 들어, $\mathbb{p}^{2}$공간에 $x=1$인 직선과 $y=1$인 직선이 존재하면 두 직선은 $(1,1)$에서 교점을 가진다. 이를 위 공식을 이용해서 구해보면 직선 $x=1$은 $-x+1=0 &rarr; (-1,0,1)^{t}$로 표현할 수 있고 직선 $y=1$은 $-y+1=0 &rarr; (0,-1,1)^{t}$로 표현할 수 있으므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x} = \mathbf{l}\times \mathbf{l}^{'} = \begin{vmatrix} \mathbf{i}&amp;\mathbf{j}&amp;\mathbf{k} \\ -1&amp;0&amp;1 \\ 0&amp;-1&amp;1 \end{vmatrix} = \begin{pmatrix} 1\\1\\1 \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. $(1,1,1)^{t}$는 $\mathbb{r}^{2}$공간에서 $(1,1)$을 의미한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb45aaad" class="outline-4">
+<h4 id="orgb45aaad"><span class="section-number-4">1.1.6</span> Line joining points</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<p>
+두 직선의 교점을 구하는 공식과 유사하게 $\mathbb{p}^{2}$공간에서 두 점 $\mathbf{x}, \mathbf{x}^{'}$가 주어졌을 때 두 점을 지나는 직선 $\mathbf{l}$은 다음과 같이 구할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l} = \mathbf{x} \times \mathbf{x}^{'}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org60fefc7" class="outline-3">
+<h3 id="org60fefc7"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div class="outline-text-3" id="text-1-2">
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=14cm]{05.png}
+\end{figure}
+</div>
+
+<div id="outline-container-org244a4b3" class="outline-4">
+<h4 id="org244a4b3"><span class="section-number-4">1.2.1</span> Intersection of parallel lines</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+만약 <b>두 직선 $\mathbf{l}, \mathbf{l}^{'}$이 평행한 경우 두 직선의 교차점은 $\mathbb{r}^{2}$공간에서는 만나지 않지만 $\mathbb{p}^{2}$공간에서는 만난다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbb{p}^{2} = \mathbb{r}^{2} \cup \mathbf{l}_{\infty}
+  \end{aligned}
+\end{equation}
+<p>
+평행한 두 직선 $\mathbf{l}, \mathbf{l}^{'}$은 다음과 같이 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{l}: (a,b,c)^{t} \\
+    &amp; \mathbf{l}^{'}: (a,b,c^{'})^{t} \\
+  \end{aligned}
+\end{equation}
+<p>
+평행한 두 직선은 무한대에 위치한 점 $\mathbf{x}_{&infin;}$에서 교차하므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}_{\infty} &amp; = \mathbf{l} \times \mathbf{l}^{'} \\
+    &amp; = (c^{'}-c)\begin{pmatrix} b \\ -a \\ 0 \end{pmatrix} \sim \begin{pmatrix} b \\ -a \\ 0 \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+공식이 성립한다. 이러한 <b>무한대 점 $\mathbf{x}_{&infin;}$를 $\mathbb{r}^{2}$공간으로 변환하면 $(b/0,-a/0)$이 되어 유효하지 않는 점으로 변환된다. 따라서 $\mathbb{p}^{2}$공간에서 무한대 점 $\mathbf{x}_{&infin;}=(x,y,0)^{t}$는 $\mathbb{r}^{2}$공간으로 변환되지 않는다.</b> 이를 통해 euclidean 공간에서 평행한 두 직선은 만나지 않지만 projective 공간에서는 무한대에서 만난다는 것을 알 수 있다.
+</p>
+
+<p>
+예를 들어 $\mathbb{p}^{2}$공간에 평행한 두 직선 $x=1$과 $x=2$가 주어지면 두 직선은 무한대에서 교차한다. 이를 homogeneous notation으로 표현하면 $-x+1=0 \rightarrow (-1,0,1)^{t}$그리고 $-x+2=0 &rarr;(-1,0,2)^{t}$이므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}_{\infty} = \mathbf{l} \times \mathbf{l}^{'} = \begin{vmatrix} \mathbf{i}&amp;\mathbf{j}&amp;\mathbf{k} \\ -1&amp;0&amp;1 \\ -1&amp;0&amp;2 \end{vmatrix} = \begin{pmatrix} 0\\1\\0 \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이 때, $\mathbf{x}_{&infin;}$는 y축 방향의 무한대 점을 의미한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org05d6428" class="outline-4">
+<h4 id="org05d6428"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{t}$는 $x_{3} &ne; 0$일 때 $\mathbb{r}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{r}^{2}$공간과 대응되지 않고 $\mathbb{p}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}_{\infty} = \begin{pmatrix} x_{1}&amp;x_{2}&amp;0 \end{pmatrix}^{t}
+  \end{aligned}
+\end{equation}
+<p>
+와 같은 형태를 갖는다. 이러한 무한대 점들은 특정한 직선 위에 존재하게 되는데 이러한 직선을 무한대 직선(line at infinity)라고 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}_{\infty} = \begin{pmatrix} 0&amp;0&amp;1 \end{pmatrix}^{t}
+  \end{aligned}
+\end{equation}
+<p>
+따라서 $\mathbf{x}_{&infin;}^{t}\mathbf{l}_{&infin;} = \begin{pmatrix}x_{1}&amp;x_{2}&amp;0 \end{pmatrix}\begin{pmatrix}0&amp;0&amp;1 \end{pmatrix}^{t} = 0$이 성립한다.
+</p>
+
+<p>
+이전 섹션에서 설명한 것과 같이 두 평행한 직선 $\mathbf{l}=(a,b,c)^{t}$과 $\mathbf{l}_{&infin;}^{'}=(a,b,c^{'})^{t}$는 무한대 점 $\mathbf{x}_{&infin;}=(b,-a,0)^{t}$에서 교차한다는 것을 알 수 있다. 이를 통해 <b>$\mathbb{r}^{2}$공간에서는 평행한 직선들은 서로 교차하지 않지만 $\mathbb{p}^{2}$공간에서는 서로 다른 두 직선은 반드시 한 점에서 교차한다는 것을 알 수 있다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org95f7e2a" class="outline-4">
+<h4 id="org95f7e2a"><span class="section-number-4">1.2.3</span> A model for the projective plane</h4>
+<div class="outline-text-4" id="text-1-2-3">
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=9cm]{06.png}
+\end{figure}
+<p>
+<b>기하학적으로 봤을 때, $\mathbb{p}^{2}$는 3차원 공간 $\mathbb{r}^{3}$에서 원점을 지나는 모든 직선들의 집합</b> 을 의미한다. $\mathbb{p}^{2}$상의 모든 벡터를 $k(x_{1},x_{2},x_{3})^{t}$라고 했을 때 $k$값에 따라 한 점 $(x_{1},x_{2},x_{3})^{t}$의 위치가 결정된다. $k$는 실수이므로 $k=0$인 경우 원점을 의미하고 $k&ne;0$인 경우 무수한 점들의 집합인 직선이 된다. 반대로, 이러한 $\mathbb{r}^{3}$공간 상의 원점을 통과하는 한 직선은 $\mathbb{p}^{2}$공간 상의 한 점으로 볼 수 있다. 이를 확장하면 <b>$\mathbb{p}^{2}$공간 상의 직선 $\mathbf{l}$은 $\mathbb{r}^{3}$공간 상의 원점을 포함하는 평면 $&pi;$에 대응</b> 한다.
+</p>
+
+<p>
+<b>$\mathbb{p}^{2}$공간에서는 스케일 값에 관계없이 한 점을 유일하게 정의할 수 있으므로 마지막 항 $x_{3}$로 좌표값을 나눈 $(x_{1}/x_{3}, x_{2}/x_{3}, 1)$를 일반적으로 한 점을 표현하는 대표값으로 간주한다.</b> 따라서 $\mathbb{r}^{3}$공간 상의 원점을 지나는 직선과 $x_{3}=1$인 평면이 교차하는 점이 곧 $\mathbb{p}^{2}$공간 상의 한 점이 된다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgee9e9f7" class="outline-4">
+<h4 id="orgee9e9f7"><span class="section-number-4">1.2.4</span> Duality</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+<b>$\mathbb{p}^{2}$공간에서는 점과 직선이 대칭성(duality)을 가진다.</b> 예를 들어 직선 $\mathbf{l}$위의 한 점 $\mathbf{x}$은 $\mathbf{x}^{t}\mathbf{l}=0$또는 $\mathbf{l}^{t}\mathbf{x}=0$과 같이 두 가지 방법으로 표현할 수 있다. 또한, 두 직선 $\mathbf{l},\mathbf{l}^{'}$이 교차하는 한 점은 $\mathbf{x}=\mathbf{l}&times; \mathbf{l}^{'}$이고 두 점 $\mathbf{x}, \mathbf{x}^{'}$을 통과하는 직선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{x}&times; \mathbf{x}^{'}$으로 표현할 수 있는데 이는 기본적으로 점과 직선의 위치가 바뀌었을 뿐 동일한 공식을 사용한다.
+</p>
+
+<p>
+이와 같이 <b>$\mathbb{p}^{2}$공간에서는 점과 직선이 동일한 공식에 대해 위치를 바꾸어도 성립하는 대칭성을 가진다. 즉, 두 점을 통과하는 직선의 공식은 두 직선이 교차하는 한 점의 공식과 대칭이다.</b>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6f68b03" class="outline-3">
+<h3 id="org6f68b03"><span class="section-number-3">1.3</span> Conics and dual conics</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+conic이란 평면에서 이차식으로 정의된 곡선을 의미한다. 일반적인 공식으로는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    ax^{2} + bxy +cy^{2} +dx+ ey + f = 0
+  \end{aligned}
+\end{equation}
+<p>
+과 같으며 계수 값에 따라 원, 타원, 쌍곡선, 포물선 등 다양한 곡선 형태로 표현될 수 있다. conic을 homogeneous form으로 나타내면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    ax^{2} + bxy +cy^{2} +dxz+ eyz + fz^{2} = 0
+  \end{aligned}
+\end{equation}
+<p>
+과 같고 이를 행렬 형태로 정리하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \begin{pmatrix} x&amp;y&amp;z \end{pmatrix} \begin{pmatrix} a&amp;b/2&amp;d/2 \\ b/2&amp;c&amp;e/2 \\ d/2&amp;e/2&amp;f \end{pmatrix} \begin{pmatrix} x\\y\\z \end{pmatrix} =0 
+  \end{aligned}
+\end{equation}
+<p>
+꼴로 쓸 수 있으며 이 때 대칭행렬 $\begin{pmatrix}a&amp;b/2&amp;d/2 \\ b/2&amp;c&amp;e/2 \\ d/2&amp;e/2&amp;f \end{pmatrix}$를 conic $\mathbf{c}$라고 한다.
+</p>
+</div>
+
+<div id="outline-container-orgdf86b47" class="outline-4">
+<h4 id="orgdf86b47"><span class="section-number-4">1.3.1</span> Five points define a conic</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+conic $\mathbf{c}$가 유일하게 결정되기 위해서는 다섯개의 점이 필요하다. 하나의 점에 대한 conic 방정식은 다음과 같이 다시 쓸 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; ax^{2} + bxy +cy^{2} +dxz+ eyz + fz^{2} = 0 \\
+    &amp; \rightarrow \begin{pmatrix} x_{i}^{2}&amp;x_{i}y_{i}&amp;y_{i}^{2}&amp;x_{i}&amp;y_{i}&amp;1 \end{pmatrix} \mathbf{c} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $\mathbf{c}= \begin{pmatrix}a&amp;b&amp;c&amp;d&amp;e&amp;f \end{pmatrix}&isin; \mathbb{r}^{6}$인 벡터를 의미한다. $\mathbf{c}$는 5 자유도를 가지므로 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \underbrace{\begin{bmatrix}
+      x_{1}^{2}&amp;x_{1}y_{1}&amp;y_{1}^{2}&amp;x_{1}&amp;y_{1}&amp;1 \\
+      x_{2}^{2}&amp;x_{2}y_{2}&amp;y_{2}^{2}&amp;x_{2}&amp;y_{2}&amp;1 \\
+      x_{3}^{2}&amp;x_{3}y_{3}&amp;y_{3}^{2}&amp;x_{3}&amp;y_{3}&amp;1 \\
+      x_{4}^{2}&amp;x_{4}y_{4}&amp;y_{4}^{2}&amp;x_{4}&amp;y_{4}&amp;1 \\
+      x_{5}^{2}&amp;x_{5}y_{5}&amp;y_{5}^{2}&amp;x_{5}&amp;y_{5}&amp;1 \\
+    \end{bmatrix}}_{\mathbf{a}} \mathbf{c} = 0
+  \end{aligned}
+\end{equation}
+<p>
+위 식과 같이 <b>총 5개의 점을 사용하면 $\mathbf{a} \in \mathbb{r}^{5\times 6}$행렬의 null space 벡터가 유일한 $\mathbf{c}$의 해가 되고 conic을 유일하게 결정한다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgad61825" class="outline-4">
+<h4 id="orgad61825"><span class="section-number-4">1.3.2</span> Tangent lines to conics</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+conic $\mathbf{c}$위의 한 점 $\mathbf{x}$에서 접선 $\mathbf{l}$은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l} = \mathbf{cx}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 쓸 수 있다.
+</p>
+
+<p>
+임의의 두 직선 $\mathbf{l},\mathbf{m}$을 포함하는 conic $\mathbf{c}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{c} = \mathbf{l}\mathbf{m}^{t} + \mathbf{m}\mathbf{l}^{t}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 쓸 수 있다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga4242e7" class="outline-4">
+<h4 id="orga4242e7"><span class="section-number-4">1.3.3</span> Dual conics</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<p>
+<b>projective space $\mathbb{p}^{n}$은 $\mathbb{r}^{n+1}$공간 상의 원점을 지나는 직선들의 집합(1차원 부분 선형공간)을 의미</b> 한다. 이와 대칭을 이루는 <b>dual projective space $(\mathbb{p}^{n})^{&or;}$는 $\mathbb{r}^{n}$공간 상 n차원 부분 선형공간들의 집합을 의미</b> 한다.
+</p>
+
+<p>
+n차원 부분 선형공간 $\mathbf{h}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{h} = \{\sum_{i=0}^{n}a_{i}x_{i}=0 \ | \ a_{i}\neq 0 \ \text{ for some i}\}.
+  \end{aligned}
+\end{equation}
+<p>
+이 때 $a_{0},&ctdot;,a_{n} &isin; \mathbb{p}^{n}$을 하나의 projective space로 생각할 수 있고 하나의 dual projective space는 하나의 proejctive space와 대칭 관계를 가진다.
+</p>
+
+<p>
+$\mathbb{p}^{2}$상의 conic $\mathbf{c}$가 주어졌을 때, <b>$\mathbf{c}$의 dual conic $\mathbf{c}^{</b>}$은 $(\mathbb{p}^{2})^{\vee}$공간 상의 conic을 의미하며 $\mathbf{c}^{*}$은 conic $\mathbf{c}$의 접선에 대한 정보를 가지고 있다.* $(\mathbb{p}^{2})^{&or;}$는 $\mathbb{p}^{2}$상의 직선을 파라미터화하여 나타낼 수 있다. $\hat{\mathbf{c}}^{*}$는 다음과 같이 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{c}^{*}_{ij} = (-1)^{i+j} \det(\hat{\mathbf{c}}_{ij})
+  \end{aligned}
+\end{equation}
+<p>
+여기서 $\hat{\mathbf{c}}_{ij}$는 $\mathbf{c}_{ij}$에서 i번째 행, j번째 열을 제거한 행렬을 의미한다.
+</p>
+
+<p>
+\vspace{5mm}
+임의의 직선 $\mathbf{l}$이 주어졌을 때 $\mathbf{l}$이 conic $\mathbf{c}$에 접하는 필요충분조건은 다음과 같다. 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}^{t}\mathbf{c}^{*}\mathbf{l} = 0
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orgcd72ba2" class="outline-4">
+<h4 id="orgcd72ba2"><span class="section-number-4">1.3.4</span> Proof</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<p>
+($\rightarrow$) conic $\mathbf{c}&isin; \mathbb{r}^{3&times; 3}$의 rank가 3이고 non-singular하다고 가정하면 $\mathbf{c}^{*} = det(\mathbf{c}^{-1})$와 같이 나타낼 수 있다. $\mathbf{c}$위의 한 점 $\mathbf{x}&isin; \mathbf{c}$가 주어졌을 때 $\mathbf{x}$에서 접선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{cx}$로 나타낼 수 있다. 이를 위 식에 대입하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}^{t}\mathbf{c}^{*}\mathbf{l} &amp; = (\mathbf{cx})^{t}\mathbf{c}^{*}\mathbf{cx} \\
+    &amp; = \mathbf{x}^{t}\mathbf{c}^{t}\mathbf{c}^{*}\mathbf{cx} \\
+    &amp; = \det(\mathbf{x}^{t}\mathbf{c}^{t}\mathbf{x}) &amp; \because \mathbf{c}^{*}=\det(\mathbf{c}^{-1}) \\ 
+    &amp; = 0  &amp; \because \mathbf{x} \in \mathbf{c}, (\mathbf{x}^{t}\mathbf{c}\mathbf{x})^{t} = 0
+  \end{aligned}
+\end{equation}
+<p>
+($\leftarrow$) 직선 $\mathbf{l}$과 dual conic $\mathbf{c}^{*}$가 $\mathbf{l}^{t}\mathbf{c}^{*}\mathbf{l}=0$을 만족할 때 $\mathbf{l}$과 $\mathbf{c}^{*}$가 한 점 $\mathbf{x}$에서 만난다는 것을 증명하면 된다. 이 때 $\mathbf{l} = \mathbf{cx}$공식이 성립한다.
+</p>
+
+<p>
+$\mathbf{c}$는 non-singualr하기 때문에 역행렬이 존재하므로 $\mathbf{x}= \mathbf{c}^{-1}\mathbf{l}$과 같이 나타낼 수 있다. 따라서 $\mathbf{x}^{t}\mathbf{l}$은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{t}\mathbf{l} &amp; = (\mathbf{c}^{-1}\mathbf{l})^{t}\mathbf{l} \\
+    &amp; = \mathbf{l}^{t}\mathbf{c}^{-t}\mathbf{l} = 0 \\
+    &amp; (\mathbf{c}^{*} \sim \mathbf{c}^{-1} \ \text{ by assumption.}) \\ 
+  \end{aligned}
+\end{equation}
+<p>
+과 같고 $\mathbf{x}^{t}\mathbf{cx}$는
+</p>
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{t}\mathbf{c}\mathbf{x} &amp; = (\mathbf{c}^{-1}\mathbf{l})^{t}\mathbf{c}\mathbf{c}^{-1}\mathbf{l} \\
+    &amp; = \mathbf{l}^{t}\mathbf{c}^{-t}\mathbf{cc}^{-1}\mathbf{l} \\
+    &amp; = \mathbf{l}^{t}\mathbf{c}^{-1}\mathbf{l} = 0 \\
+    &amp; (\mathbf{c}^{-t} = \mathbf{c}^{-1} \ \ \mathbf{c} \text{ is symmetric.})
+  \end{aligned}
+\end{equation}
+<p>
+공식이 성립함에 따라 $\mathbf{x}$는 $\mathbf{l}$과 $\mathbf{c}$의 교점임이 증명된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \{\mathbf{x}\} =  \mathbf{l} \cap \mathbf{c}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb027165" class="outline-3">
+<h3 id="orgb027165"><span class="section-number-3">1.4</span> Projective transformations</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+$\mathbb{p}^{2}$의 projective transformation은 non-singular인 $3\times3$행렬로 정의되는 $\mathbb{p}^{2} \rightarrow \mathbb{p}^{2}$사상을 의미하며 직선을 직선으로 보내는 성질을 가진다. <b>projective transformation은 collineation, projectivity 또는 homography</b> 라고도 불린다. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7070f5a" class="outline-3">
+<h3 id="org7070f5a"><span class="section-number-3">1.5</span> A hierarchy of transformations</h3>
+<div class="outline-text-3" id="text-1-5">
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=16cm]{07.png}
+\end{figure}
+<p>
+projective 변환은 변환 전과 후 사이에 어떤 성질을 보존하느냐에 따라 여러 종류의 변환 행렬이 존재한다.
+</p>
+</div>
+
+<div id="outline-container-org0399d4e" class="outline-4">
+<h4 id="org0399d4e"><span class="section-number-4">1.5.1</span> Class 1: isometries</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<p>
+물체가 변환 전과 후 사이에 물체의 크기가 동일한 경우 해당 변환을 isometry 변환이라고 부른다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{h}_{iso} = \begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\ \mathbf{0} &amp; 1 \end{bmatrix}
+  \end{aligned} 
+\end{equation}
+<p>
+이 때 $\mathbf{a}&isin; \mathbb{r}^{2&times;2}$는 2차원 물체의 회전과 반사(reflection)을 포함한 행렬이며 $\mathbf{t}&isin; \mathbb{r}^{2}$는 2차원 물체의 이동 벡터이다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org98eba0c" class="outline-4">
+<h4 id="org98eba0c"><span class="section-number-4">1.5.2</span> Class 2: similarity transformations</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<p>
+isometry 변환에 스케일을 의미하는 $s$가 추가된 변환을 similarity 변환이라고 하며 <b>물체의 이동 및 회전에 추가적으로 스케일까지 같이 변환</b> 하는 성질을 가진다. 이 때 기존의 $\mathbf{a}$행렬에서 reflection의 성질을 제거한 $\mathbf{r}$행렬을 사용한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{h}_{s} = \begin{bmatrix} s\mathbf{r}&amp;\mathbf{t} \\ \mathbf{0} &amp; 1 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+similarity 변환은 물체의 각도와 길이의 비율을 보존되지만 스케일은 보존되지 않는다. 두 물체가 similarity 변환까지 동일하다는 의미는(=up to scale) 두 물체의 형태는 동일하지만 스케일에 차이가 있다는 의미이다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcac110b" class="outline-4">
+<h4 id="orgcac110b"><span class="section-number-4">1.5.3</span> Class 3: affine transformations</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<p>
+affine 변환은 isometry 변환에서 행렬 $\mathbf{a}$의 아무 제약조건이 없는 변환행렬을 의미한다. 변환 후 물체는 일반적으로 변환 전과 다른 형태를 가진다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{h}_{a} = \begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\ \mathbf{0} &amp; 1 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+$\mathbf{h}_{a}$는 6자유도를 가지므로  세 개의 대응점 쌍으로부터 $\mathbf{h}_{a}$를 유일하게 결정할 수 있다.
+</p>
+
+<p>
+affine 변환은 물체의 길이 비율을 보존하며 또한 평행한 직선을 보존하는 성질을 가진다. 따라서 무한대 직선(line at infinity) $\mathbf{l}_{&infin;}$를 affine 변환해도 여전히 $\mathbf{l}_{&infin;}$가 된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{h}_{a}(\mathbf{l}_{\infty}) = \mathbf{l}_{\infty}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org3be7278" class="outline-4">
+<h4 id="org3be7278"><span class="section-number-4">1.5.4</span> Class 4: projective transformations</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<p>
+마지막으로 projective 변환은 변환행렬의 마지막 행이 $(0,0,1)$이 아닌 임의의 형태를 가지는 변환행렬을 의미한다. projective 변환은 직선을 직선으로 사상한다는 성질 외에는 이전에 설명한 모든 성질들을 보존하지 않는다는 특징이 있다. 평행한 직선 또한 projective 변환을 수행하면 평행하지 않게되며 물체의 길이비 또한 달라지게 된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{h}_{p} = \begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\ \mathbf{v}^{t}&amp;v\end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 $\mathbf{v}=\begin{bmatrix}v_{1}&amp;v_{2} \end{bmatrix}$는 임의의 2차원 벡터를 의미하며 $v$또한 임의의 스칼라 값을 의미한다. projective 변환행렬 $\mathbf{h}_{p}$는 8자유도를 가지므로 일반적으로 4개의 대응점 쌍을 통해 $\mathbf{h}_{p}$을 유일하게 결정할 수 있다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge6b395b" class="outline-3">
+<h3 id="orge6b395b"><span class="section-number-3">1.6</span> Decomposition of a projective transformation</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+앞서 설명한 변환행렬의 계층구조에 따라 projective 변환행렬은 다른 변환행렬들의 곱으로 표현할 수 있다. 반대로 말하면, <b>projective 변환은 다른 변환행렬들로 분해가 가능하다.</b> 임의의 projective 변환 $\mathbf{h}_{p}$가 주어졌을 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{h}_{p} &amp; = \mathbf{h}_{s}\mathbf{h}_{a}\mathbf{h}_{p} \\
+    &amp; = \begin{bmatrix} s \mathbf{r}&amp;\mathbf{t} \\\mathbf{0}&amp;1 \end{bmatrix} \begin{bmatrix} \mathbf{k} &amp; \mathbf{0} \\ \mathbf{0} &amp; 1 \end{bmatrix} \begin{bmatrix} i &amp; \mathbf{0}\\ \mathbf{v}^{t}&amp; v\end{bmatrix} \\
+      &amp; = \begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\ \mathbf{v}^{t}&amp;v \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 <b>projective 변환 $\mathbf{h}_{p}$는 similarity 변환 $\mathbf{h}_{s}$과 affine 변환 $\mathbf{h}_{a}$그리고 나머지 변환 $\mathbf{h}_{p}$의 곱으로 분해가 가능</b> 하다. 이 때, $\mathbf{a}=s\mathbf{r}\mathbf{k}+\mathbf{tv}^{t}$이고 $\mathbf{k}$는 $det(\mathbf{k})=1$로 정규화된 상삼각행렬(upper-triangle) 행렬을 의미한다. 단, 위와 같은 분해는 $v &ne; 0$일 때만 가능하며 $s &gt;0$인 경우 분해가 유일하게 결정된다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org12b8784" class="outline-3">
+<h3 id="org12b8784"><span class="section-number-3">1.7</span> Recovery of affine and metric properties from images</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+임의의 이미지가 주어졌을 때 이미지 상에서 평행한 선들과 직교한 선들을 사용하여 affine 성질과 metric 성질을 복원할 수 있다.
+</p>
+</div>
+
+<div id="outline-container-orgaec40f0" class="outline-4">
+<h4 id="orgaec40f0"><span class="section-number-4">1.7.1</span> The line at infinity</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<p>
+affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의미하며 무한대 직선(line at infinity) $\mathbf{l}_{&infin;} = \begin{bmatrix}x&amp;y&amp;0 \end{bmatrix}$을 사용하여 복원할 수 있다. 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{h}_{a}\mathbf{l}_{\infty} =\begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\0&amp;1 \end{bmatrix} \begin{bmatrix} x\\y\\0 \end{bmatrix} = \begin{bmatrix} a \begin{bmatrix} x\\y \end{bmatrix} \\ 0 \end{bmatrix} = \mathbf{l}_{\infty}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+위와 같이 $\mathbf{l}_{&infin;}$를 affine 변환해도 여전히 무한대에 위치한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org57dff60" class="outline-4">
+<h4 id="org57dff60"><span class="section-number-4">1.7.2</span> Recovery of affine properties from images</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<p>
+<b>임의의 homography $\mathbf{h}$가 affine 성질을 보존한다는 의미는 곧 무한대 직선 $\mathbf{l}_{&infin;}$를 $\mathbf{h}$변환해도 무한대에 위치한 직선이 된다는 의미</b> 이다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{h}(\mathbf{l}_{\infty}) = \mathbf{hl}_{\infty} = \mathbf{l}_{\infty}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+무한대 직선 $\mathbf{l}_{&infin;}$는 $\mathbf{l}_{&infin;}=(x,y,0)^{t}$와 같이 마지막 항이 0인 특징이 있으므로 임의의 homography $\mathbf{h}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{h}\mathbf{l}_{\infty} = \begin{bmatrix} \mathbf{a}&amp; \mathbf{t} \\ \mathbf {v} &amp; v \end{bmatrix} \begin{bmatrix} x\\y\\0 \end{bmatrix} = \begin{bmatrix} *\\ * \\0 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+이 성립하므로 $\mathbf{v}=(0,0)$이 되고 $v$는 스케일 상수가 되어 1로 변환이 가능하다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{h} = \begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\ \mathbf{0} &amp; v \end{bmatrix} = \begin{bmatrix} \mathbf{a}/v &amp; \mathbf{t}/v \\ \mathbf{0} &amp; 1 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orgab3a971" class="outline-4">
+<h4 id="orgab3a971"><span class="section-number-4">1.7.3</span> Recovery of metric properties from images</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf7e3dfb" class="outline-2">
+<h2 id="orgf7e3dfb"><span class="section-number-2">2</span> More Single View Geometry</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgd03db8e" class="outline-3">
+<h3 id="orgd03db8e"><span class="section-number-3">2.1</span> Camera calibration and the image of the absolute conic</h3>
+<div class="outline-text-3" id="text-2-1">
 <hr />
 </div>
 <div id="outline-container-org2321c0d" class="outline-4">
-<h4 id="org2321c0d"><span class="section-number-4">1.1.1</span> Result 8.15</h4>
-<div class="outline-text-4" id="text-1-1-1">
+<h4 id="org2321c0d"><span class="section-number-4">2.1.1</span> Result 8.15</h4>
+<div class="outline-text-4" id="text-2-1-1">
 <hr />
 <p>
 원점에 위치한 카메라가 있을 때 한 점 $\mathbf{x}$를 Back-projection하면 카메라 중심을 지나는 직선 $\mathbf{d}$가 생성되는데 이 때, $\mathbf{d}= \mathbf{K}^{-1}\mathbf{x}$의 관계를 가진다.
@@ -100,8 +827,8 @@ comments: true
 </div>
 </div>
 <div id="outline-container-org1f0200b" class="outline-4">
-<h4 id="org1f0200b"><span class="section-number-4">1.1.2</span> Result 8.16</h4>
-<div class="outline-text-4" id="text-1-1-2">
+<h4 id="org1f0200b"><span class="section-number-4">2.1.2</span> Result 8.16</h4>
+<div class="outline-text-4" id="text-2-1-2">
 <p>
 이미지 평면에 있는 직선 $\mathbf{l}$위에 한 점 $\mathbf{x}$가 위치할 때, 점과 직선 사이에는 다음 공식이 성립한다.
 </p>
@@ -126,8 +853,8 @@ comments: true
 </div>
 </div>
 <div id="outline-container-org1fd60af" class="outline-3">
-<h3 id="org1fd60af"><span class="section-number-3">1.2</span> The image of the absolute conic</h3>
-<div class="outline-text-3" id="text-1-2">
+<h3 id="org1fd60af"><span class="section-number-3">2.2</span> The image of the absolute conic</h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
 무한대 평면 $&pi;_{&infin;}$가 있을 때 $\pi_{\infty}$위에 위치한 무한대 점 $\mathbf{X}_{&infin;} = (\mathbf{d}^{T}, 0)^{T}$이 있다고 하면 이를 카메라 $\mathbf{P}=\mathbf{KR}[\mathbf{I}|-~{\mathbf{C}}]$에 프로젝션시키면 다음과 같다.
 </p>
@@ -193,8 +920,8 @@ comments: true
 </div>
 </div>
 <div id="outline-container-org8333916" class="outline-3">
-<h3 id="org8333916"><span class="section-number-3">1.3</span> Orthogonality and $\mathbf{w}$</h3>
-<div class="outline-text-3" id="text-1-3">
+<h3 id="org8333916"><span class="section-number-3">2.3</span> Orthogonality and $\mathbf{w}$</h3>
+<div class="outline-text-3" id="text-2-3">
 <p>
 이미지 평면 상의 두 점 $\mathbf{x}_{1}, \mathbf{x}_{2}$를 Back-projection하면 두 직선 $\mathbf{K}^{-1}\mathbf{x}_{1}, \mathbf{K}^{-1}\mathbf{x}_2$가 생성된다. 만약 두 직선이 직교하는 경우 $\mathbf{x}_{1}^{T}\mathbf{w}\mathbf{x}_{2}=0$의 공식이 성립한다. 그리고 $\mathbf{x}_{1}$가 직선 $\mathbf{l}$에 포함되어 있으면 $\mathbf{x}_{1}^{T}\mathbf{l}=0$이 성립한다. 위 두 공식을 결합하면
 </p>
@@ -210,8 +937,8 @@ comments: true
 </div>
 </div>
 <div id="outline-container-org58a08d7" class="outline-3">
-<h3 id="org58a08d7"><span class="section-number-3">1.4</span> Vanishing points and vanishing lines</h3>
-<div class="outline-text-3" id="text-1-4">
+<h3 id="org58a08d7"><span class="section-number-3">2.4</span> Vanishing points and vanishing lines</h3>
+<div class="outline-text-3" id="text-2-4">
 <p>
 3차원 공간 상의 점 $\mathbf{A}$와 직선의 방향 $\mathbf{D}=(\mathbf{d}^{T},0)^{T}$가 존재할 때 직선 위에 존재하는 점 $\mathbf{X}(&lambda;)$는 다음과 같이 정의된다.
 </p>
@@ -243,8 +970,8 @@ comments: true
 <hr />
 </div>
 <div id="outline-container-org944b5c4" class="outline-4">
-<h4 id="org944b5c4"><span class="section-number-4">1.4.1</span> Camera rotation from vanishing points</h4>
-<div class="outline-text-4" id="text-1-4-1">
+<h4 id="org944b5c4"><span class="section-number-4">2.4.1</span> Camera rotation from vanishing points</h4>
+<div class="outline-text-4" id="text-2-4-1">
 <p>
 소실점을 사용하여 카메라의 회전을 계산할 수 있다. 이미지 1에서 추출한 소실점 $\mathbf{v}_{1}$과 이미지 2에서 추출한 소실점 $\mathbf{v}_{2}$이 있을 때, $\mathbf{v}_{1}$의 방향은 $\mathbf{d}_{1} = \mathbf{K}^{-1}\mathbf{v}_{1}$이 되고 $\mathbf{v}_{2}$의 방향은 $\mathbf{d}_{2} = \mathbf{K}^{-1}\mathbf{v}_{2}$가 된다.
 </p>
@@ -267,8 +994,8 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 </div>
 </div>
 <div id="outline-container-orgd018b92" class="outline-3">
-<h3 id="orgd018b92"><span class="section-number-3">1.5</span> Vanishing Lines</h3>
-<div class="outline-text-3" id="text-1-5">
+<h3 id="orgd018b92"><span class="section-number-3">2.5</span> Vanishing Lines</h3>
+<div class="outline-text-3" id="text-2-5">
 <p>
 두 개 이상의 소실점(Vanishing Point) $\mathbf{v}_{i}, i=1,2,\cdots$들을 이어준 직선을 소실선(Vanishing Line) $\mathbf{l}$이라고 한다. 예를 들어 이미지 상의 체크보드가 있고 이로 인해 2개의 소실점 $\mathbf{v}_{1}, \mathbf{v}_{2}$를 구한 경우를 생각해보자. 이 경우, <b>두 소실점 $\mathbf{v}_{1},\mathbf{v}_{2}$를 이어주는 직선 $\mathbf{l}$을 체크보드 평면 $&pi;$의 소실선</b> 이라고 한다.
 </p>
@@ -295,8 +1022,8 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 </div>
 </div>
 <div id="outline-container-orge72b6aa" class="outline-3">
-<h3 id="orge72b6aa"><span class="section-number-3">1.6</span> Orthogonality relationships amongst vanishing points and lines</h3>
-<div class="outline-text-3" id="text-1-6">
+<h3 id="orge72b6aa"><span class="section-number-3">2.6</span> Orthogonality relationships amongst vanishing points and lines</h3>
+<div class="outline-text-3" id="text-2-6">
 <p>
 이미지 평면에서 두 개의 소실점 $\mathbf{v}_{1}, \mathbf{v}_{2}$을 Back-projection한 직선들이 서로 직교하는 조건은 다음과 같다.
 </p>
@@ -336,8 +1063,8 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 </div>
 </div>
 <div id="outline-container-org0f58b29" class="outline-3">
-<h3 id="org0f58b29"><span class="section-number-3">1.7</span> Affine 3D measurements and reconstruction</h3>
-<div class="outline-text-3" id="text-1-7">
+<h3 id="org0f58b29"><span class="section-number-3">2.7</span> Affine 3D measurements and reconstruction</h3>
+<div class="outline-text-3" id="text-2-7">
 <p>
 3차원 공간 상의 평면 $&pi;$에 수직인 물체들의 소실점을 수직소실점(Vertical Vanishing Point) $\mathbf{v_{&perp;}}$라고 한다. 평면 $&pi;$의 소실선 $\mathbf{l}$과 수직소실점을 이용하면 물체의 크기를 Up to Scale까지 계산할 수 있다. 정확하게 말하면 <b>소실선 $\mathbf{l}$과 수직소실점 $\mathbf{v}_{&perp;}$를 알면 평면 $&pi;$에 수직한 선분들의 상대적 길이를 알 수 있다.</b>
 </p>
@@ -381,8 +1108,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 </div>
 </div>
 <div id="outline-container-org0be45e6" class="outline-3">
-<h3 id="org0be45e6"><span class="section-number-3">1.8</span> Determining camera calibration $\mathbf{K}$from a single view</h3>
-<div class="outline-text-3" id="text-1-8">
+<h3 id="org0be45e6"><span class="section-number-3">2.8</span> Determining camera calibration $\mathbf{K}$from a single view</h3>
+<div class="outline-text-3" id="text-2-8">
 <p>
 단안 이미지에서 내부 파라미터 $\mathbf{K}$를 결정하기 위해서는 2가지 제약조건이 필요하다. <b>이미지 제약조건(Scene Constraint)과 내부 파라미터의 제약조건(Internal Constraint)</b> 이 있다.
 </p>
@@ -415,8 +1142,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 </div>
 </div>
 <div id="outline-container-org08edbf3" class="outline-3">
-<h3 id="org08edbf3"><span class="section-number-3">1.9</span> Calibration from three orthogonal vanishing points</h3>
-<div class="outline-text-3" id="text-1-9">
+<h3 id="org08edbf3"><span class="section-number-3">2.9</span> Calibration from three orthogonal vanishing points</h3>
+<div class="outline-text-3" id="text-2-9">
 <p>
 내부 파라미터 $\mathbf{K}$가 Zero-Skew이고 Square Pixel일 때 세 개의 서로 직교하는 수직소실점들 $\mathbf{v}_{i}, \ i=1,2,3$을 사용하여 $\mathbf{K}$를 계산할 수 있다. 우선 $\mathbf{K}$가 Zero-Skew이고 Square Pixel이므로 다음이 성립한다.
 </p>
@@ -434,8 +1161,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 </div>
 </div>
 <div id="outline-container-org010aaf8" class="outline-3">
-<h3 id="org010aaf8"><span class="section-number-3">1.10</span> Computation of focal length and principal point using vanishing point and vanishing line</h3>
-<div class="outline-text-3" id="text-1-10">
+<h3 id="org010aaf8"><span class="section-number-3">2.10</span> Computation of focal length and principal point using vanishing point and vanishing line</h3>
+<div class="outline-text-3" id="text-2-10">
 <p>
 3차원 공간 상의 평면 $&pi;$로부터 구할 수 있는 소실선 $\mathbf{l}$이 있고 $&pi;$와 수직인 수직소실점 $\mathbf{v}_{&perp;}$가 있다고 하면 이를 활용하여 초점거리 f와 주점(Poincipal Point)를 구할 수 있다.
 </p>
@@ -452,8 +1179,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 </div>
 </div>
 <div id="outline-container-orgc7a1329" class="outline-3">
-<h3 id="orgc7a1329"><span class="section-number-3">1.11</span> The calibrating conic</h3>
-<div class="outline-text-3" id="text-1-11">
+<h3 id="orgc7a1329"><span class="section-number-3">2.11</span> The calibrating conic</h3>
+<div class="outline-text-3" id="text-2-11">
 <p>
 IAC(Image of Absolute Conic)은 이미지 평면의 점을 Back-projection한 직선들 간의 각도를 구할 수 있고 Metric Rectification도 수행할 수 있는 유용한 도구이지만 Circular Point의 특성 상 실수의 근을 갖지 않아서 시각화가 불가능하다는 단점이 있다. 이를 보완하기 위해 고안된 것이 Calibration Conic이다. Calibration Conic은 $X^{2}+Y^{2}=Z^{2}$의 Cone을 프로젝션시킨 Image Conic을 의미하고 시각화가 가능한 장점이 존재한다.
 </p>
@@ -517,8 +1244,8 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 </div>
 </div>
 <div id="outline-container-orge43955e" class="outline-2">
-<h2 id="orge43955e"><span class="section-number-2">2</span> Epipolar Geometry and the Fundamental Matrix</h2>
-<div class="outline-text-2" id="text-2">
+<h2 id="orge43955e"><span class="section-number-2">3</span> Epipolar Geometry and the Fundamental Matrix</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 Epipolar geometry는 <b>2개의 카메라 이미지 사이에 정의되는 기하학 관계</b> 를 의미한다. 이는 3차원 물체의 구조와는 독립적이며 <b>오로지 카메라의 내부 파라미터와 두 카메라 사이의 상대 포즈에만 의존한다.</b>
 </p>
@@ -547,9 +1274,9 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 \end{equation}
 <hr />
 </div>
-<div id="outline-container-orgcd72ba2" class="outline-3">
-<h3 id="orgcd72ba2"><span class="section-number-3">2.1</span> Proof</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org0e540e8" class="outline-3">
+<h3 id="org0e540e8"><span class="section-number-3">3.1</span> Proof</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 ($\Rightarrow$)$\mathbf{l}^{'} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{'}$에 위치한 점 $\mathbf{x}^{'}$에 대하여 다음이 성립한다.
 </p>
@@ -577,8 +1304,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 </div>
 </div>
 <div id="outline-container-org0da129e" class="outline-3">
-<h3 id="org0da129e"><span class="section-number-3">2.2</span> Derivation of Fundemantal Matrix(Geometry)</h3>
-<div class="outline-text-3" id="text-2-2">
+<h3 id="org0da129e"><span class="section-number-3">3.2</span> Derivation of Fundemantal Matrix(Geometry)</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 두 카메라 $\mathbf{C}, \mathbf{C}^{'}$가 있을 때 이미지 평면 $\pi_{\mathbf{C}}$위의 점 $\mathbf{x}$를 Back-projection한 직선 $\mathbf{l}_{x}$가 3차원 공간 상에서 임의의 평면 $&pi;_{0}$와 한 점에서 만난다고 가정한다. 이 때 $\mathbf{C}, \mathbf{C}^{'}$의 이미지 점들을 연결해주는 Homography $\mathbf{H}_{&pi;_{0}}$를 생각해보면
 </p>
@@ -618,8 +1345,8 @@ $\pi_{\mathbf{C}^{'}}$위에 프로젝션된 점을 $\mathbf{x}^{'} = \mathbf{P}
 </div>
 </div>
 <div id="outline-container-org8bc1244" class="outline-3">
-<h3 id="org8bc1244"><span class="section-number-3">2.3</span> Derivation of Fundemantal Matrix(Algebraic)</h3>
-<div class="outline-text-3" id="text-2-3">
+<h3 id="org8bc1244"><span class="section-number-3">3.3</span> Derivation of Fundemantal Matrix(Algebraic)</h3>
+<div class="outline-text-3" id="text-3-3">
 <p>
 Epipolar Line $\mathbf{l}^{'} = \mathbf{P}^{'}(\mathbf{X(\lambda)})$와 같다. 이 때 $\mathbf{X}(&lambda;)$는 카메라 $\mathbf{C}$의 중심점을 지나는 $\mathbf{x}$의 Back-projection 직선을 의미한다. $\mathbf{X}(&lambda;)$는 다음과 같이 다시 작성할 수 있다.
 </p>
@@ -675,16 +1402,16 @@ $\mathbf{P}^{'}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;_{\mat
 </div>
 </div>
 <div id="outline-container-org5816cc3" class="outline-2">
-<h2 id="org5816cc3"><span class="section-number-2">3</span> References</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="org5816cc3"><span class="section-number-2">4</span> References</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 <a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
 </p>
 </div>
 </div>
 <div id="outline-container-org6d8d6e0" class="outline-2">
-<h2 id="org6d8d6e0"><span class="section-number-2">4</span> Closure</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="org6d8d6e0"><span class="section-number-2">5</span> Closure</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.
 </p>
