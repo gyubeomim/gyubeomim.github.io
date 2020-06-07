@@ -24,10 +24,10 @@ comments: true
 <li><a href="#orgb45aaad">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#orgcee5036">1.2. Ideal points and the line at infinity</a>
+<li><a href="#org91ea3d1">1.2. Ideal points and the line at infinity</a>
 <ul>
 <li><a href="#org244a4b3">1.2.1. Intersection of parallel lines</a></li>
-<li><a href="#orgc101e89">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#orgcee5036">1.2.2. Ideal points and the line at infinity</a></li>
 <li><a href="#org95f7e2a">1.2.3. A model for the projective plane</a></li>
 <li><a href="#orgee9e9f7">1.2.4. Duality</a></li>
 </ul>
@@ -37,7 +37,7 @@ comments: true
 <li><a href="#orgdf86b47">1.3.1. Five points define a conic</a></li>
 <li><a href="#orgad61825">1.3.2. Tangent lines to conics</a></li>
 <li><a href="#orga4242e7">1.3.3. Dual conics</a></li>
-<li><a href="#org9675b98">1.3.4. Proof</a></li>
+<li><a href="#org1e9612f">1.3.4. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgb027165">1.4. Projective transformations</a></li>
@@ -85,13 +85,67 @@ comments: true
 </li>
 <li><a href="#orge43955e">3. Epipolar Geometry and the Fundamental Matrix</a>
 <ul>
-<li><a href="#org1e9612f">3.1. Proof</a></li>
-<li><a href="#org0da129e">3.2. Derivation of Fundemantal Matrix(Geometry)</a></li>
-<li><a href="#org8bc1244">3.3. Derivation of Fundemantal Matrix(Algebraic)</a></li>
+<li><a href="#org10ae8da">3.1. Proof</a></li>
+<li><a href="#org871edd7">3.2. Derivation of fundemantal matrix(geometry)</a></li>
+<li><a href="#orgd49938a">3.3. Derivation of fundemantal matrix(algebraic)</a></li>
+<li><a href="#org7acb8e0">3.4. The epipolar line homography</a></li>
+<li><a href="#orgd0aca01">3.5. Fundamental matrices arising from special motions</a>
+<ul>
+<li><a href="#org73b593c">3.5.1. Pure translation</a></li>
 </ul>
 </li>
-<li><a href="#org5816cc3">4. References</a></li>
-<li><a href="#org6d8d6e0">5. Closure</a></li>
+<li><a href="#orgeaa222a">3.6. Retrieving the camera matrices</a>
+<ul>
+<li><a href="#orgc526ac0">3.6.1. Projective invariance and canonical cameras</a></li>
+<li><a href="#orga88204f">3.6.2. Canonical form of camera matrices</a></li>
+<li><a href="#org68b5e7f">3.6.3. Projective ambiguity of cameras given F</a></li>
+<li><a href="#org3c20287">3.6.4. Proof</a></li>
+</ul>
+</li>
+<li><a href="#orgd9e0993">3.7. Canonical cameras given F</a></li>
+<li><a href="#orgab28edb">3.8. The essential matrix</a>
+<ul>
+<li><a href="#org772c3b4">3.8.1. Properties of the essential matrix</a></li>
+<li><a href="#orgd00220b">3.8.2. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org034e1e8">3.9. Extraction of cameras from the essential matrix</a></li>
+<li><a href="#org1c8a518">3.10. Geometrical interpretation of the four solutions</a></li>
+</ul>
+</li>
+<li><a href="#orgebc7505">4. 3D Reconstruction of Cameras and Structure</a>
+<ul>
+<li><a href="#org01cb9a0">4.1. The projective reconstruction theorem</a>
+<ul>
+<li><a href="#org119684e">4.1.1. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org6ca8de0">4.2. Stratified reconstruction</a>
+<ul>
+<li><a href="#orgfe9b943">4.2.1. The step to affine reconstruction</a></li>
+</ul>
+</li>
+<li><a href="#org2fe4e6d">4.3. The step to metric reconstruction</a></li>
+</ul>
+</li>
+<li><a href="#orgef22d46">5. Computation of the Fundamental Matrix $\mathbf{F}$</a>
+<ul>
+<li><a href="#org8f0f4b4">5.1. Basic equations</a>
+<ul>
+<li><a href="#orgd2cad84">5.1.1. The minimum case - seven point correspondences</a></li>
+</ul>
+</li>
+<li><a href="#org4763c23">5.2. The normalized 8-point algorithm</a>
+<ul>
+<li><a href="#org151e67d">5.2.1. Degenrate configurations</a></li>
+<li><a href="#org44cb81c">5.2.2. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org77d1947">5.3. The Gold Standard method</a></li>
+</ul>
+</li>
+<li><a href="#org5816cc3">6. References</a></li>
+<li><a href="#org6d8d6e0">7. Closure</a></li>
 </ul>
 </div>
 </div>
@@ -271,8 +325,8 @@ $\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 </div>
 </div>
 
-<div id="outline-container-orgcee5036" class="outline-3">
-<h3 id="orgcee5036"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div id="outline-container-org91ea3d1" class="outline-3">
+<h3 id="org91ea3d1"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
@@ -332,8 +386,8 @@ $\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 </div>
 </div>
 
-<div id="outline-container-orgc101e89" class="outline-4">
-<h4 id="orgc101e89"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div id="outline-container-orgcee5036" class="outline-4">
+<h4 id="orgcee5036"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{t}$는 $x_{3} &ne; 0$일 때 $\mathbb{r}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{r}^{2}$공간과 대응되지 않고 $\mathbb{p}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
@@ -542,8 +596,8 @@ $\mathbb{p}^{2}$상의 conic $\mathbf{c}$가 주어졌을 때, <b>$\mathbf{c}$�
 </div>
 </div>
 
-<div id="outline-container-org9675b98" class="outline-4">
-<h4 id="org9675b98"><span class="section-number-4">1.3.4</span> Proof</h4>
+<div id="outline-container-org1e9612f" class="outline-4">
+<h4 id="org1e9612f"><span class="section-number-4">1.3.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 ($\rightarrow$) conic $\mathbf{c}&isin; \mathbb{r}^{3&times; 3}$의 rank가 3이고 non-singular하다고 가정하면 $\mathbf{c}^{*} = det(\mathbf{c}^{-1})$와 같이 나타낼 수 있다. $\mathbf{c}$위의 한 점 $\mathbf{x}&isin; \mathbf{c}$가 주어졌을 때 $\mathbf{x}$에서 접선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{cx}$로 나타낼 수 있다. 이를 위 식에 대입하면
@@ -794,14 +848,18 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
 <div id="outline-container-orgd03db8e" class="outline-3">
 <h3 id="orgd03db8e"><span class="section-number-3">2.1</span> Camera calibration and the image of the absolute conic</h3>
 <div class="outline-text-3" id="text-2-1">
-<hr />
 </div>
 <div id="outline-container-org2321c0d" class="outline-4">
 <h4 id="org2321c0d"><span class="section-number-4">2.1.1</span> Result 8.15</h4>
 <div class="outline-text-4" id="text-2-1-1">
-<hr />
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/09.png" alt="09.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
-원점에 위치한 카메라가 있을 때 한 점 $\mathbf{x}$를 Back-projection하면 카메라 중심을 지나는 직선 $\mathbf{d}$가 생성되는데 이 때, $\mathbf{d}= \mathbf{K}^{-1}\mathbf{x}$의 관계를 가진다.
+원점에 위치한 카메라 $\mathbf{C}$가 있을 때 한 점 $\mathbf{x}$를 Back-projection하면 카메라 중심을 지나는 직선 $\mathbf{d}$가 생성되는데 이 때, $\mathbf{d}= \mathbf{K}^{-1}\mathbf{x}$의 관계를 가진다.
 </p>
 
 \begin{equation}
@@ -820,6 +878,13 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
     &amp; \mathbf{d} = \mathbf{K}^{-1}\mathbf{x}
   \end{aligned}
 \end{equation}
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/08.png" alt="08.png" align="center" width="400px" />
+</p>
+</div>
+
+
 <p>
 이미지 평면 상의 두 점 $\mathbf{x}_{1}, \mathbf{x}_{2}$를 Back-projection하면 각각 $\mathbf{d}_{1}, \mathbf{d}_{2}$의 직선이 생성되는데 이 때 두 직선이 이루는 각도는 다음과 같이 계산할 수 있다.
 </p>
@@ -833,10 +898,9 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
 <p>
 이 때, <b>$\mathbf{K}^{-T}\mathbf{K}^{-1}$은 Image of Absolute Conic</b> 을 의미한다.
 </p>
+</div>
+</div>
 
-<hr />
-</div>
-</div>
 <div id="outline-container-org1f0200b" class="outline-4">
 <h4 id="org1f0200b"><span class="section-number-4">2.1.2</span> Result 8.16</h4>
 <div class="outline-text-4" id="text-2-1-2">
@@ -849,6 +913,12 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
     \mathbf{x}^{T}\mathbf{l} =0
   \end{aligned}
 \end{equation}
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/10.png" alt="10.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 이 때, $\mathbf{l}$를 Back-projection하면 평면 $&pi;$가 생성되고 $\mathbf{x}$를 Back-projection하면 $\mathbf{d}=\mathbf{K}^{-1}\mathbf{x}$가 생성되는데 평면 $&pi;$와 직선 $\mathbf{d}$사이에는 $(\mathbf{K}^{-1}\mathbf{x})^{T}&pi; = 0$이 성립하고 이를 정리하면 $\mathbf{x}^{T}(\mathbf{K}^{-T}&pi;)=0$가 성립한다. $\mathbf{x}^{T}\mathbf{l}=0$의 공식에 따라 결론적으로 다음 공식이 성립한다.
 </p>
@@ -859,10 +929,10 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
     &amp; \pi = \mathbf{K}^{T}\mathbf{l}
   \end{aligned}
 \end{equation}
-<hr />
 </div>
 </div>
 </div>
+
 <div id="outline-container-org1fd60af" class="outline-3">
 <h3 id="org1fd60af"><span class="section-number-3">2.2</span> The image of the absolute conic</h3>
 <div class="outline-text-3" id="text-2-2">
@@ -876,16 +946,7 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
   \end{aligned}
 \end{equation}
 <p>
-이는 곧 무한대 평면 $\pi_{\infty}$위의 점 $\mathbf{d}$에 대해 $\mathbf{x}= \mathbf{Hd}$인 Homography가 존재한다고 했을 때 Homography를 다음과 같이 구할 수 있다.
-</p>
-
-\begin{equation}
-  \begin{aligned}
-    \mathbf{H} = \mathbf{KR}
-  \end{aligned}
-\end{equation}
-<p>
-무한대에 위치한 Absolute Conic $&Omega;_{&infin;}$는 $\mathbf{I}_{3}&isin; &pi;_{&infin;}$이다. $&Omega;_{&infin;}$를 Homography 변환하면
+즉, 무한대 평면 $\pi_{\infty}$위의 점 $\mathbf{d}$에 대해 $\mathbf{x}= \mathbf{Hd}$인 Homography가 존재한다고 했을 때 Homography $\mathbf{H}$는 $\mathbf{H}=\mathbf{KR}$과 같다. 무한대에 위치한 Absolute Conic $&Omega;_{&infin;}$는 $\mathbf{I}_{3}&isin; &pi;_{&infin;}$이다. $&Omega;_{&infin;}$를 Homography 변환하면
 </p>
 
 \begin{equation}
@@ -897,7 +958,7 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
   \end{aligned}
 \end{equation}
 <p>
-즉, <b>Image of Absolute Conic $\mathbf{w} = \mathbf{K}^{-T}\mathbf{K}^{-1}$</b> 이 된다.
+이에 따라 <b>Image of Absolute Conic $\mathbf{w} = \mathbf{K}^{-T}\mathbf{K}^{-1}$</b> 이 된다.
 </p>
 
 <p>
@@ -927,12 +988,18 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
     \mathbf{x}_{1}^{T}\mathbf{w}\mathbf{x}_{2} = 0
   \end{aligned}
 \end{equation}
-<hr />
 </div>
 </div>
+
 <div id="outline-container-org8333916" class="outline-3">
 <h3 id="org8333916"><span class="section-number-3">2.3</span> Orthogonality and $\mathbf{w}$</h3>
 <div class="outline-text-3" id="text-2-3">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/17.png" alt="17.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 이미지 평면 상의 두 점 $\mathbf{x}_{1}, \mathbf{x}_{2}$를 Back-projection하면 두 직선 $\mathbf{K}^{-1}\mathbf{x}_{1}, \mathbf{K}^{-1}\mathbf{x}_2$가 생성된다. 만약 두 직선이 직교하는 경우 $\mathbf{x}_{1}^{T}\mathbf{w}\mathbf{x}_{2}=0$의 공식이 성립한다. 그리고 $\mathbf{x}_{1}$가 직선 $\mathbf{l}$에 포함되어 있으면 $\mathbf{x}_{1}^{T}\mathbf{l}=0$이 성립한다. 위 두 공식을 결합하면
 </p>
@@ -944,12 +1011,18 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
     &amp; \therefore \mathbf{l} = \mathbf{wx}_{2}
   \end{aligned}
 \end{equation}
-<hr />
 </div>
 </div>
+
 <div id="outline-container-org58a08d7" class="outline-3">
 <h3 id="org58a08d7"><span class="section-number-3">2.4</span> Vanishing points and vanishing lines</h3>
 <div class="outline-text-3" id="text-2-4">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/13.png" alt="13.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 3차원 공간 상의 점 $\mathbf{A}$와 직선의 방향 $\mathbf{D}=(\mathbf{d}^{T},0)^{T}$가 존재할 때 직선 위에 존재하는 점 $\mathbf{X}(&lambda;)$는 다음과 같이 정의된다.
 </p>
@@ -969,7 +1042,7 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
   \end{aligned}
 \end{equation}
 <p>
-이 때, $\mathbf{a}$는 Image of $\mathbf{A}$를 의미한다. 결론적으로 소실점(Vanishing Point) $\mathbf{v}$는 다음과 같이 정의된다.
+이 때, $\mathbf{a}$는 Image of $\mathbf{A}$를 의미한다. 결론적으로 소실점(vanishing point) $\mathbf{v}$는 다음과 같이 정의된다.
 </p>
 
 \begin{equation}
@@ -978,8 +1051,8 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
     &amp; \mathbf{v} = \mathbf{Kd}
   \end{aligned}
 \end{equation}
-<hr />
 </div>
+
 <div id="outline-container-org944b5c4" class="outline-4">
 <h4 id="org944b5c4"><span class="section-number-4">2.4.1</span> Camera rotation from vanishing points</h4>
 <div class="outline-text-4" id="text-2-4-1">
@@ -999,16 +1072,22 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 <p>
 이 때, <b>회전행렬 $\mathbf{R}$의 자유도는 3이므로 2개 이상의 소실점 쌍을 사용하면 회전행렬을 복원</b> 할 수 있다.
 </p>
+</div>
+</div>
+</div>
 
-<hr />
-</div>
-</div>
-</div>
+
 <div id="outline-container-orgd018b92" class="outline-3">
 <h3 id="orgd018b92"><span class="section-number-3">2.5</span> Vanishing Lines</h3>
 <div class="outline-text-3" id="text-2-5">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/18.png" alt="18.png" align="center" width="700px" />
+</p>
+</div>
+
 <p>
-두 개 이상의 소실점(Vanishing Point) $\mathbf{v}_{i}, i=1,2,\cdots$들을 이어준 직선을 소실선(Vanishing Line) $\mathbf{l}$이라고 한다. 예를 들어 이미지 상의 체크보드가 있고 이로 인해 2개의 소실점 $\mathbf{v}_{1}, \mathbf{v}_{2}$를 구한 경우를 생각해보자. 이 경우, <b>두 소실점 $\mathbf{v}_{1},\mathbf{v}_{2}$를 이어주는 직선 $\mathbf{l}$을 체크보드 평면 $&pi;$의 소실선</b> 이라고 한다.
+두 개 이상의 소실점(vanishing point) $\mathbf{v}_{i}, i=1,2,\cdots$들을 이어준 직선을 소실선(vanishing line) $\mathbf{l}$이라고 한다. 예를 들어 이미지 상의 체크보드가 있고 이로 인해 2개의 소실점 $\mathbf{v}_{1}, \mathbf{v}_{2}$를 구한 경우를 생각해보자. 이 경우, <b>두 소실점 $\mathbf{v}_{1},\mathbf{v}_{2}$를 이어주는 직선 $\mathbf{l}$을 체크보드 평면 $&pi;$의 소실선</b> 이라고 한다.
 </p>
 
 \begin{equation}
@@ -1028,13 +1107,18 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 <p>
 과 같이 계산할 수 있다.
 </p>
+</div>
+</div>
 
-<hr />
-</div>
-</div>
 <div id="outline-container-orge72b6aa" class="outline-3">
 <h3 id="orge72b6aa"><span class="section-number-3">2.6</span> Orthogonality relationships amongst vanishing points and lines</h3>
 <div class="outline-text-3" id="text-2-6">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/20.png" alt="20.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 이미지 평면에서 두 개의 소실점 $\mathbf{v}_{1}, \mathbf{v}_{2}$을 Back-projection한 직선들이 서로 직교하는 조건은 다음과 같다.
 </p>
@@ -1069,15 +1153,14 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 <p>
 이 때, $\mathbf{w}^{*}$는 Image of Dual Absolute Conic이다.
 </p>
+</div>
+</div>
 
-<hr />
-</div>
-</div>
 <div id="outline-container-org0f58b29" class="outline-3">
 <h3 id="org0f58b29"><span class="section-number-3">2.7</span> Affine 3D measurements and reconstruction</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
-3차원 공간 상의 평면 $&pi;$에 수직인 물체들의 소실점을 수직소실점(Vertical Vanishing Point) $\mathbf{v_{&perp;}}$라고 한다. 평면 $&pi;$의 소실선 $\mathbf{l}$과 수직소실점을 이용하면 물체의 크기를 Up to Scale까지 계산할 수 있다. 정확하게 말하면 <b>소실선 $\mathbf{l}$과 수직소실점 $\mathbf{v}_{&perp;}$를 알면 평면 $&pi;$에 수직한 선분들의 상대적 길이를 알 수 있다.</b>
+3차원 공간 상의 평면 $&pi;$에 수직인 물체들의 소실점을 수직소실점(vertical vanishing point) $\mathbf{v_{&perp;}}$라고 한다. 평면 $&pi;$의 소실선 $\mathbf{l}$과 수직소실점을 이용하면 물체의 크기를 스케일을 제외한 파라미터(up to scale)까지 계산할 수 있다. 정확하게 말하면 <b>소실선 $\mathbf{l}$과 수직소실점 $\mathbf{v}_{&perp;}$를 알면 평면 $&pi;$에 수직한 선분들의 상대적 길이를 알 수 있다.</b>
 </p>
 
 <p>
@@ -1107,7 +1190,7 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
   \end{aligned}
 \end{equation}
 <p>
-만약, 수직소실점 $\mathbf{v}_{&perp;}$와 카메라의 주축(Principal Axis)이 수직인 경우 이미지 상에서 수직소실점은 만나지 않게 되고 아래와 같이 단순하게 비율을 계산할 수 있다.
+만약, 수직소실점 $\mathbf{v}_{&perp;}$와 카메라의 주축(principal axis)이 수직인 경우 이미지 상에서 수직소실점은 만나지 않게 되고 아래와 같이 단순하게 비율을 계산할 수 있다.
 </p>
 
 \begin{equation}
@@ -1115,14 +1198,15 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
     \frac{d_{1}}{d_{2}} = \frac{\tilde{\mathbf{t}}_{1}-\mathbf{b}_{2}}{\mathbf{t}_{2}-\mathbf{b}_{2}}
   \end{aligned}
 \end{equation}
-<hr />
 </div>
 </div>
+
+
 <div id="outline-container-org0be45e6" class="outline-3">
 <h3 id="org0be45e6"><span class="section-number-3">2.8</span> Determining camera calibration $\mathbf{K}$from a single view</h3>
 <div class="outline-text-3" id="text-2-8">
 <p>
-단안 이미지에서 내부 파라미터 $\mathbf{K}$를 결정하기 위해서는 2가지 제약조건이 필요하다. <b>이미지 제약조건(Scene Constraint)과 내부 파라미터의 제약조건(Internal Constraint)</b> 이 있다.
+단안 이미지에서 내부 파라미터 $\mathbf{K}$를 결정하기 위해서는 2가지 제약조건이 필요하다. <b>이미지 제약조건(scene constraint)과 내부 파라미터의 제약조건(internal constraint)</b> 이 있다.
 </p>
 
 <p>
@@ -1148,10 +1232,10 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 <p>
 위와 같이 $\mathbf{w} = \begin{bmatrix} w_{1} &amp; w_{2} &amp; w_{4} \\ w_{2} &amp; w_{3} &amp;w_{5} \\ w_{4} &amp; w_{5} &amp; w_{6} \end{bmatrix}$파라미터를 찾기 위해 충분한 제약조건을 확보한 후 $\mathbf{w}$를 6차원 벡터로 정렬하여 $\mathbf{Ax}=0$형태의 선형 시스템을 만든다. 다음으로 <b>특이값 분해(SVD)를 사용하여 $\mathbf{w}=\mathbf{K}^{-T}\mathbf{K}^{-1}$값을 계산한 후 Cholesky Decomposition을 사용하여 $\mathbf{K}^{-T}\mathbf{K}^{-1}$를 분해</b> 한다. 이를 통해 내부 파라미터 $\mathbf{K}$를 계산할 수 있다.
 </p>
+</div>
+</div>
 
-<hr />
-</div>
-</div>
+
 <div id="outline-container-org08edbf3" class="outline-3">
 <h3 id="org08edbf3"><span class="section-number-3">2.9</span> Calibration from three orthogonal vanishing points</h3>
 <div class="outline-text-3" id="text-2-9">
@@ -1167,15 +1251,14 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 <p>
 이와 같이 총 4개의 자유도를 가지므로 세 개의 수직소실점들을 사용하여 $\mathbf{K}$를 결정할 수 있다. 우선, 각각의 수직소실점들의 직교 특성을 사용하여 $\mathbf{v}_{i}^{T}\mathbf{w}\mathbf{v}_{j}, \ &forall; i&ne; j$를 계산한다. 이 때 $\mathbf{w}$를 벡터화하여 $\mathbf{Ax}=0$형태의 선형 시스템으로 변환한 후 Nul $(\mathbf{A})$를 계산함으로써 $\mathbf{w}$를 구한다. 다음으로 Cholesky Decomposition을 사용하여 $\mathbf{w}=\mathbf{K}^{-T}\mathbf{K}^{-1}$를 분해한다. 이와 같이 내부 파라미터 $\mathbf{K}$를 계산할 수 있다.
 </p>
+</div>
+</div>
 
-<hr />
-</div>
-</div>
 <div id="outline-container-org010aaf8" class="outline-3">
 <h3 id="org010aaf8"><span class="section-number-3">2.10</span> Computation of focal length and principal point using vanishing point and vanishing line</h3>
 <div class="outline-text-3" id="text-2-10">
 <p>
-3차원 공간 상의 평면 $&pi;$로부터 구할 수 있는 소실선 $\mathbf{l}$이 있고 $&pi;$와 수직인 수직소실점 $\mathbf{v}_{&perp;}$가 있다고 하면 이를 활용하여 초점거리 f와 주점(Poincipal Point)를 구할 수 있다.
+3차원 공간 상의 평면 $&pi;$로부터 구할 수 있는 소실선 $\mathbf{l}$이 있고 $&pi;$와 수직인 수직소실점 $\mathbf{v}_{&perp;}$가 있다고 하면 이를 활용하여 초점거리 f와 주점(principal point)를 구할 수 있다.
 </p>
 
 <p>
@@ -1183,17 +1266,16 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 </p>
 
 <p>
-주점(Principal Point) P를 구하는 방법은 다음과 같다. 수직소실점을 $\mathbf{v}_{1}$라고 하고 이미지 평면과 $\pi$평면의 교선을 $\mathbf{l}_{1}$라고 하면 $\mathbf{v}_{1}$에서 $\mathbf{l}_{1}$에 수선을 내리면 해당 수선에 주점(Principal Point) P가 위치한다. 이러한 특징으로 인해 <b>서로 다른 세 개의 수직소실점이 존재하는 경우 이들의 수심(Orthocenter of the triangle)이 곧 주점 P가 된다.</b>
+주점(principal point) P를 구하는 방법은 다음과 같다. 수직소실점을 $\mathbf{v}_{1}$라고 하고 이미지 평면과 $\pi$평면의 교선을 $\mathbf{l}_{1}$라고 하면 $\mathbf{v}_{1}$에서 $\mathbf{l}_{1}$에 수선을 내리면 해당 수선에 주점(principal point) P가 위치한다. 이러한 특징으로 인해 <b>서로 다른 세 개의 수직소실점이 존재하는 경우 이들의 수심(orthocenter of the triangle)이 곧 주점 P가 된다.</b>
 </p>
+</div>
+</div>
 
-<hr />
-</div>
-</div>
 <div id="outline-container-orgc7a1329" class="outline-3">
 <h3 id="orgc7a1329"><span class="section-number-3">2.11</span> The calibrating conic</h3>
 <div class="outline-text-3" id="text-2-11">
 <p>
-IAC(Image of Absolute Conic)은 이미지 평면의 점을 Back-projection한 직선들 간의 각도를 구할 수 있고 Metric Rectification도 수행할 수 있는 유용한 도구이지만 Circular Point의 특성 상 실수의 근을 갖지 않아서 시각화가 불가능하다는 단점이 있다. 이를 보완하기 위해 고안된 것이 Calibration Conic이다. Calibration Conic은 $X^{2}+Y^{2}=Z^{2}$의 Cone을 프로젝션시킨 Image Conic을 의미하고 시각화가 가능한 장점이 존재한다.
+IAC(image of absolute conic)은 이미지 평면의 점을 Back-projection한 직선들 간의 각도를 구할 수 있고 Metric Rectification도 수행할 수 있는 유용한 도구이지만 Circular Point의 특성 상 실수의 근을 갖지 않아서 시각화가 불가능하다는 단점이 있다. 이를 보완하기 위해 고안된 것이 Calibration Conic이다. Calibration Conic은 $X^{2}+Y^{2}=Z^{2}$의 Cone을 프로젝션시킨 Image Conic을 의미하고 시각화가 가능한 장점이 존재한다.
 </p>
 
 <p>
@@ -1214,7 +1296,7 @@ IAC(Image of Absolute Conic)은 이미지 평면의 점을 Back-projection한 �
   \end{aligned}
 \end{equation}
 <p>
-으로 나타낼 수 있고 이 때, <b>Calibration Conic은 원점이 주점(Principal Point)이면서 반지름이 초점거리 f인 이미지 상의 원</b> 을 의미한다.
+으로 나타낼 수 있고 이 때, <b>Calibration Conic은 원점이 주점(principal point)이면서 반지름이 초점거리 f인 이미지 상의 원</b> 을 의미한다.
 </p>
 
 <p>
@@ -1228,7 +1310,7 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
   \end{aligned}
 \end{equation}
 <p>
-이 때 이미지 상의 임의의 점 $\mathbf{x}=\mathbf{K}~{\mathbf{X}}$에 대하여 $\mathbf{Sx}$는 Calibration Conic에 의해 반사된 점(Reflected Point)을 의미한다.
+이 때 이미지 상의 임의의 점 $\mathbf{x}=\mathbf{K}~{\mathbf{X}}$에 대하여 $\mathbf{Sx}$는 Calibration Conic에 의해 반사된 점(reflected point)을 의미한다.
 </p>
 
 \begin{equation}
@@ -1249,11 +1331,10 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 <p>
 이 때, $\dot{\mathbf{x}} = \mathbf{Sx}$는 점 $\mathbf{x}$가 Calibration Conic에 의해 반사된 점을 의미한다. 결론적으로, <b>직선 $\mathbf{C}\dot{\mathbf{x}}$는 반사된 점 $\dot{\mathbf{x}}$와 Calibration Conic의 접선들을 이어주는 직선이 되고 점 $\mathbf{x}^{'}$는 직선 $\mathbf{C}\dot{\mathbf{x}}$위에 존재</b> 한다.
 </p>
+</div>
+</div>
+</div>
 
-<hr />
-</div>
-</div>
-</div>
 <div id="outline-container-orge43955e" class="outline-2">
 <h2 id="orge43955e"><span class="section-number-2">3</span> Epipolar Geometry and the Fundamental Matrix</h2>
 <div class="outline-text-2" id="text-3">
@@ -1275,18 +1356,20 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 </p>
 
 <p>
-기하학적 측면에서 보면, $\mathbf{x}^{'T}\mathbf{Fx}=0$에서 <b>$\mathbf{Fx}$는 카메라 $\mathbf{C}$의 이미지 평면 $\pi_{\mathbf{C}}$위의 점 $\mathbf{x}$가 존재할 때 이와 상응하는 Epipolar Line $\mathbf{l}^{'} &isin; &pi;_{\mathbf{C}^{'}}$을 의미</b> 한다. 따라서 <b>$\mathbf{F}$를 이미지 평면 위의 점을 Epipolar Line으로 매핑하는 함수로 생각</b> 할 수 있다.
+기하학적 측면에서 보면, $\mathbf{x}^{'T}\mathbf{Fx}=0$에서 <b>$\mathbf{Fx}$는 카메라 $\mathbf{C}$의 이미지 평면 $\pi_{\mathbf{C}}$위의 점 $\mathbf{x}$가 존재할 때 이와 상응하는 Epipolar Line $\mathbf{l}^{'} &isin; &pi;_{\mathbf{C}^{'}}$을 의미</b> 한다. 따라서 <b>$\mathbf{F}$는 이미지 평면 $\pi$위의 점 $\mathbf{x}$를 Epipolar Line $\mathbf{l}^{'}$으로 매핑하는 함수로 생각</b> 할 수 있다. 
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{F}: \ \mathbf{x} \in \pi_{\mathbf{C}} \in \mathbb{P}^{2} \mapsto \mathbf{l}^{'} \in (\mathbb{P}^{2})^{\vee}
+    &amp; \mathbf{F}: \ \mathbf{x} \mapsto \mathbf{l}^{'} \\
+    &amp; \text{where, } \ \ \mathbf{x} \in \pi_{\mathbf{C}} \in \mathbb{P}^{2} \\
+    &amp; \mathbf{l}^{'} \in (\mathbb{P}^{2})^{\vee}
   \end{aligned}
 \end{equation}
-<hr />
 </div>
-<div id="outline-container-org1e9612f" class="outline-3">
-<h3 id="org1e9612f"><span class="section-number-3">3.1</span> Proof</h3>
+
+<div id="outline-container-org10ae8da" class="outline-3">
+<h3 id="org10ae8da"><span class="section-number-3">3.1</span> Proof</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 ($\Rightarrow$)$\mathbf{l}^{'} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{'}$에 위치한 점 $\mathbf{x}^{'}$에 대하여 다음이 성립한다.
@@ -1310,12 +1393,11 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 <p>
 의 관계가 성립하므로 $\mathbf{Fx}$는 $\mathbf{x}^{'T}_{i}, \ i=1,2$와 수직인 Epipolar Line $\mathbf{l}^{'}$을 의미한다.
 </p>
+</div>
+</div>
 
-<hr />
-</div>
-</div>
-<div id="outline-container-org0da129e" class="outline-3">
-<h3 id="org0da129e"><span class="section-number-3">3.2</span> Derivation of Fundemantal Matrix(Geometry)</h3>
+<div id="outline-container-org871edd7" class="outline-3">
+<h3 id="org871edd7"><span class="section-number-3">3.2</span> Derivation of fundemantal matrix(geometry)</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 두 카메라 $\mathbf{C}, \mathbf{C}^{'}$가 있을 때 이미지 평면 $\pi_{\mathbf{C}}$위의 점 $\mathbf{x}$를 Back-projection한 직선 $\mathbf{l}_{x}$가 3차원 공간 상에서 임의의 평면 $&pi;_{0}$와 한 점에서 만난다고 가정한다. 이 때 $\mathbf{C}, \mathbf{C}^{'}$의 이미지 점들을 연결해주는 Homography $\mathbf{H}_{&pi;_{0}}$를 생각해보면
@@ -1349,14 +1431,13 @@ $\pi_{\mathbf{C}^{'}}$위에 프로젝션된 점을 $\mathbf{x}^{'} = \mathbf{P}
   \end{aligned}
 \end{equation}
 <p>
-과 같다. 따라서 <b>$\mathbf{F} = \mathbf{e}^{'\wedge}\mathbf{H}_{\pi_{0}}$</b> 가 성립한다.
+과 같다. 따라서 <b>$\mathbf{F} = \mathbf{e}^{'\wedge}\mathbf{H}_{\pi_{0}}$</b> 가 성립한다. 이 때, $\mathbf{H}_{&pi;_{0}}$는 rank 3인 행렬이며 $\mathbf{e}^{'&and;}$는 rank 2인 행렬이므로 $\mathbf{F}$는 rank 2인 행렬이 된다.
 </p>
+</div>
+</div>
 
-<hr />
-</div>
-</div>
-<div id="outline-container-org8bc1244" class="outline-3">
-<h3 id="org8bc1244"><span class="section-number-3">3.3</span> Derivation of Fundemantal Matrix(Algebraic)</h3>
+<div id="outline-container-orgd49938a" class="outline-3">
+<h3 id="orgd49938a"><span class="section-number-3">3.3</span> Derivation of fundemantal matrix(algebraic)</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Epipolar Line $\mathbf{l}^{'} = \mathbf{P}^{'}(\mathbf{X(\lambda)})$와 같다. 이 때 $\mathbf{X}(&lambda;)$는 카메라 $\mathbf{C}$의 중심점을 지나는 $\mathbf{x}$의 Back-projection 직선을 의미한다. $\mathbf{X}(&lambda;)$는 다음과 같이 다시 작성할 수 있다.
@@ -1387,16 +1468,16 @@ Epipolar Line $\mathbf{l}^{'} = \mathbf{P}^{'}(\mathbf{X(\lambda)})$와 같다. 
   \end{aligned}
 \end{equation}
 <p>
-$\mathbf{P}^{'}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;_{\mathbf{C}^{'}}$에 프로젝션시킨 점을 의미하므로 Epipole $\mathbf{e}^{'}$가 된다. 위 식을 Dual Projection $(\mathbb{P}^{2})^{&or;}$에서 표현하면 다음과 같다.
+$\mathbf{P}^{'}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;_{\mathbf{C}^{'}}$에 프로젝션시킨 점을 의미하므로 Epipole $\mathbf{e}^{'}$가 된다. $&lambda;=0$일 때 $\mathbf{P}^{'}(\mathbf{X}(0))= \mathbf{P}^{'}\mathbf{P}^{&dagger;}\mathbf{x}$이고 $&lambda;=&infin;$일 때 $\mathbf{P}^{'}(\mathbf{X}(&infin;))=\mathbf{P}^{'}\mathbf{C}=\mathbf{e}^{'}$가 된다. 따라서 Epipolar Line $\mathbf{l}^{'}$는 두 점을 잇는 직선이므로
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \therefore \mathbf{l}^{'} = \mathbf{e}^{'\wedge} \mathbf{P}^{'}\mathbf{P}^{\dagger}
+     \mathbf{l}^{'} = \mathbf{e}^{'\wedge} \mathbf{P}^{'}\mathbf{P}^{\dagger}
   \end{aligned}
 \end{equation}
 <p>
-추가적으로 Epipole $\mathbf{e}^{'}$는 Epipolar Line $\mathbf{l}^{'}$에 포함되어 있고 모든 $\mathbf{x}_{i}$에 대해
+이 된다. 추가적으로 Epipole $\mathbf{e}^{'}$는 Epipolar Line $\mathbf{l}^{'}$에 포함되어 있고 모든 $\mathbf{x}_{i}$에 대해
 </p>
 
 \begin{equation}
@@ -1405,24 +1486,1281 @@ $\mathbf{P}^{'}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;_{\mat
   \end{aligned}
 \end{equation}
 <p>
-이 성립하므로 $\mathbf{e}^{'}\mathbf{F}=0$이 성립한다. <b>결론적으로 $\mathbf{e}^{'}$는 $\mathbf{F}$의 Left null vector</b> 이다.
+이 성립하므로 $\mathbf{e}^{'}\mathbf{F}=0$이 성립한다. <b>결론적으로 $\mathbf{e}^{'}$는 $\mathbf{F}$의 Left null vector</b> 이다. 또한 $\mathbf{e}$는 $\mathbf{F}$의 (right) null vector가 된다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7acb8e0" class="outline-3">
+<h3 id="org7acb8e0"><span class="section-number-3">3.4</span> The epipolar line homography</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+두 카메라 $\mathbf{C}, \mathbf{C}^{'}$이 존재하고 이미지 평면 위의 한 점을 각각 $\mathbf{x}, \mathbf{x}^{'}$라고 하면 이에 상응하는 Epipolar Line $\mathbf{l}, \mathbf{l}^{'}$이 존재한다. 이 때, <b>$\mathbf{l}$과 $\mathbf{l}^{'}$사이에는 별도의 대응 관계가 성립</b> 하는데 이는
 </p>
 
+\begin{equation}
+  \begin{aligned}
+    \mathbb{P}(\pi)^{\vee} \mapsto \mathbb{P}(\pi^{'})^{\vee}
+  \end{aligned}
+\end{equation}
+<p>
+<b>매핑 관계인 Homography 행렬</b> 로 주어진다. 카메라 중심점 $\mathbf{C}$를 통과하면서 Epipole $\mathbf{e}$를 지나지 않는 직선 $\mathbf{k}$가 있을 때 $\mathbf{k}$는 Epipolar Line $\mathbf{l}$과 반드시 한 점 $\mathbf{p}$에서 만난다. $\mathbf{p}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{p} = \mathbf{k}^{\wedge}\mathbf{l}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 구할 수 있고 $\mathbf{p}$는 Fundamental Matrix에 의해 Epipolar Line $\mathbf{l}^{'}$으로 프로젝션되므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}^{'} &amp; = \mathbf{F}\mathbf{k}^{\wedge}\mathbf{l} \\
+    &amp; = \mathbf{H}\mathbf{l} \\
+  \end{aligned}
+\end{equation}
+<p>
+의 관계가 성립한다. 따라서 <b>$\mathbf{l}, \mathbf{l}^{'}$은 $\mathbf{H}=\mathbf{Fk}^{&and;}$인 Homography 행렬에 의해 대응 관계가 성립</b> 한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd0aca01" class="outline-3">
+<h3 id="orgd0aca01"><span class="section-number-3">3.5</span> Fundamental matrices arising from special motions</h3>
+<div class="outline-text-3" id="text-3-5">
+</div>
+<div id="outline-container-org73b593c" class="outline-4">
+<h4 id="org73b593c"><span class="section-number-4">3.5.1</span> Pure translation</h4>
+<div class="outline-text-4" id="text-3-5-1">
+<p>
+순수 이동(pure translation)이란 카메라 센터를 회전하지 않고 이동만 하는 것을 의미한다. 이 때, 월드의 모든 물체를 고정시킨 채로 카메라를 움직이는 것과 카메라를 고정시킨 채로 월드의 모든 물체를 이동시키는 것은 동일하다. 처음 위치의 카메라 행렬과 카메라 센터를 각각 $\mathbf{P}, \mathbf{C}$라고 하고 순수 이동 후 카메라 행렬과 카메라 센터를 각각 $\mathbf{P}^{'}, \mathbf{C}^{'}$라고 할 때 <b>두 카메라의 베이스라인의 길이는 카메라 중심점의 순수 이동량과 동일</b> 하다. 
+</p>
+
+<p>
+또한 <b>두 카메라의 Epipole을 각각 $\mathbf{e},\mathbf{e}^{'}$이라고 하면 두 Epipole의 위치는 동일하며 이는 곧 소실점(vanishing point)을 의미</b> 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{e} = \mathbf{e}^{'} = \mathbf{v}
+  \end{aligned}
+\end{equation}
+<p>
+이러한 순수 이동 상황에서 $\mathbf{e}=\mathbf{e}^{'}$를 Auto Epipolar라고 한다.
+</p>
+
+<p>
+대수적으로 Fundamental Matrix를 유도해보면 처음 카메라 행렬을 $\mathbf{P}=\mathbf{K}[\mathbf{I}|0]$이라고 하고 순수 이동 후 카메라 행렬을 $\mathbf{P}^{'}=\mathbf{K}[\mathbf{I}|\mathbf{t}]$라고 하면 이전 섹션에서 Fundamental Matrix $\mathbf{F}$는 $\mathbf{F} = \mathbf{e}^{'\wedge}\mathbf{P}^{'}\mathbf{P}^{\dagger}$이므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} &amp; = \mathbf{e}^{'\wedge}\mathbf{P}^{'}\mathbf{P}^{\dagger} \\
+    &amp; = \mathbf{e}^{'\wedge}\mathbf{KK}^{-1} \\
+    &amp; = \mathbf{e}^{'\wedge}
+  \end{aligned}
+\end{equation}
+<p>
+따라서 <b>순수 이동 상황에서 Fundamental Matrix는 $\mathbf{F}=\mathbf{e}^{'\wedge}$</b> 이다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeaa222a" class="outline-3">
+<h3 id="orgeaa222a"><span class="section-number-3">3.6</span> Retrieving the camera matrices</h3>
+<div class="outline-text-3" id="text-3-6">
+</div>
+<div id="outline-container-orgc526ac0" class="outline-4">
+<h4 id="orgc526ac0"><span class="section-number-4">3.6.1</span> Projective invariance and canonical cameras</h4>
+<div class="outline-text-4" id="text-3-6-1">
+<p>
+두 카메라 $\mathbf{C}, \mathbf{C}^{'}$에 대응하는 이미지 평면 상의 점들 $\mathbf{x}, \mathbf{x}^{'}$과 Fundamental Matrix $\mathbf{F}$가 존재할 때 $\mathbf{F}$는 $\mathbf{x}\leftrightarrow \mathbf{x}^{'}$대응쌍의 Homography 변환에 상관없이 동일하다. 다시 말하면, $\mathbb{P}^{3} \mapsto\mathbb{P}^{3}$을 만족하는 Homograhpy 변환 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재할 때 $\mathbf{H}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    (\mathbf{P},\mathbf{P}^{'}) \mapsto (\mathbf{PH}, \mathbf{P}^{'}\mathbf{H})
+  \end{aligned}
+\end{equation}
+<p>
+를 만족하는데 <b>이러한 $\mathbf{H}$에 관계없이 Fundamental Matrix $\mathbf{F}$는 동일</b> 하다.
+</p>
+
+<p>
+$(\mathbf{PH},\mathbf{P}^{'}\mathbf{H})$에 해당하는 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{'}$에 대해서
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{'T}\tilde{\mathbf{F}}\mathbf{x} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이 성립한다. 이 때 $\mathbf{x}=\mathbf{PHX}, \mathbf{x}^{'}=\mathbf{P}^{'}\mathbf{HX}$이므로 이를 위 식에 대입하면 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X}^{T}\mathbf{H}^{T}\mathbf{P}^{'T}\tilde{\mathbf{F}}\mathbf{PHX} = 0
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하고 위 식은 모든 $&forall; \mathbf{X}&isin; \mathbb{P}^{3}$에 대해서 성립한다. $\mathbf{X}=\mathbf{H}^{-1}(\mathbf{HX}), ~{\mathbf{X}} = \mathbf{HX}$로 치환하여 다시 위 식에 대입하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \tilde{\mathbf{X}}^{T}\mathbf{H}^{-T}\mathbf{H}^{T}\mathbf{P}^{'T}\tilde{\mathbf{F}}\mathbf{PHH}^{-1}\tilde{\mathbf{X}} = 0 \\
+    &amp; \tilde{\mathbf{X}}^{T}\mathbf{P}^{'T}\tilde{\mathbf{F}}\mathbf{P}\tilde{\mathbf{X}} = 0 \\
+    &amp; \tilde{\mathbf{x}}^{T}\tilde{\mathbf{F}}\tilde{\mathbf{x}} =0 
+  \end{aligned}
+\end{equation}
+<p>
+이 되어 <b>결론적으로 $\mathbf{F}= ~{\mathbf{F}}$가 성립</b> 한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga88204f" class="outline-4">
+<h4 id="orga88204f"><span class="section-number-4">3.6.2</span> Canonical form of camera matrices</h4>
+<div class="outline-text-4" id="text-3-6-2">
+<p>
+위와 같은 성질에 따라 동일한 Fundamental Matrix $\mathbf{F}$에 여러 $(\mathbf{P},\mathbf{P}^{'})$쌍이 대응되므로 $\mathbf{F}$와 $(\mathbf{P},\mathbf{P}^{'})$는 One-to-Many Correspondence 관계가 된다. 따라서 이러한 모호성에도 불구하고 <b>$\mathbf{F}$의 정확한 변환을 표현하기 위해 $\mathbf{P}=[\mathbf{I}|0]$, $\mathbf{P}^{'}=[\mathbf{M}|\mathbf{m}]$과 같이 처음 카메라 행렬 $\mathbf{P}$를 단순하게 나타내는 방법을 Canonical Form</b> 이라고 한다. 하지만 $\mathbf{P}=[\mathbf{I}|0]$이라고 해서 $\mathbf{P}^{'}$이 유일하게 결정되는 것은 아니다. 
+</p>
+
+<p>
+임의의 카메라 행렬 $\mathbf{P}&isin; \mathbb{R}^{3&times;4}$가 주어졌을 때 이를 역행렬이 존재하는 행렬 $\mathbf{P}^{*}=\begin{bmatrix}\mathbf{P}\\ \mathbf{r}_{4} \end{bmatrix}&isin; \mathbb{R}^{4&times;4}$로 변경한 다음
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}^{*}\mathbf{H} = \begin{bmatrix} \mathbf{I} &amp; \mathbf{0} \\ \mathbf{0} &amp; \mathbf{1} \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하는 $\mathbf{H}$가 존재한다고 하면 $\mathbf{PH}= [\mathbf{I}| \mathbf{0}]$을 만족한다. 따라서 <b>$\mathbf{H}$가 존재한다는 가정 하에 모든 임의의 카메라 행렬 $\mathbf{P}$는 Canonical Form으로 쓸 수 있다.</b>
+</p>
+
+<p>
+그렇다면 Fundamental Matrix $\mathbf{F}$는 $\mathbf{M}, \mathbf{m}$에 대하여 어떻게 쓸 수 있을까?
+</p>
+
+<p>
+우선 임의의 두 카메라 행렬 $\mathbf{P}= \mathbf{K}[\mathbf{I}|0], \mathbf{P}^{'}=\mathbf{K}^{'}[\mathbf{R}|\mathbf{t}]$가 존재할 때 다음의 공식들이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{PP}^{T} = \mathbf{K}^{2} \\
+    &amp; \mathbf{P}^{\dagger } = \mathbf{P}^{T}(\mathbf{PP}^{T})^{-1} = \begin{bmatrix} \mathbf{K}^{-1} \\ 0 \end{bmatrix} \\
+    &amp; \mathbf{C} = \begin{bmatrix} 0 &amp; 1 \end{bmatrix}^{T} \\
+    &amp; \mathbf{e}^{'} = \mathbf{P}^{'}\mathbf{C} = \mathbf{K}^{'}\mathbf{t}
+  \end{aligned}
+\end{equation}
+<p>
+따라서 이에 대응하는 Fundamental Matrix $\mathbf{F}$는 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} &amp; = \mathbf{e}^{'\wedge}\mathbf{P}^{'}\mathbf{P}^{\dagger} \\
+    &amp; = (\mathbf{K}^{'}\mathbf{t})^{\wedge}\mathbf{K}^{'}[\mathbf{R}|\mathbf{t}] \mathbf{K}^{-1}\begin{bmatrix} \mathbf{I} \\ 0 \end{bmatrix} \\
+    &amp; = (\mathbf{K}^{'}\mathbf{t})^{\wedge}\mathbf{K}^{'}\mathbf{R}\mathbf{K}^{-1}
+  \end{aligned}
+\end{equation}
+<p>
+Canonical Form에 상응하는 Fundamental Matrix $\mathbf{F}$를 구해보면 두 카메라 행렬 $\mathbf{P}= [\mathbf{I}|0], \mathbf{P}^{'}=[\mathbf{M}|\mathbf{m}]$에 대해 다음 공식이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} = \mathbf{m}^{\wedge}\mathbf{M}
+  \end{aligned}
+\end{equation}
+<p>
+따라서 <b>Canonical Form의 $\mathbf{F}$는 $\mathbf{F}=\mathbf{m}^{&and;}\mathbf{M}$이다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org68b5e7f" class="outline-4">
+<h4 id="org68b5e7f"><span class="section-number-4">3.6.3</span> Projective ambiguity of cameras given F</h4>
+<div class="outline-text-4" id="text-3-6-3">
+<p>
+Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하기 때문에 필연적으로 모호성이 발생하게 된다. 만약 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$의 $\mathbf{F}$와 $(~{\mathbf{P}}, ~{\mathbf{P}}^{'})$의 $\mathbf{F}$가 동일한 경우, $(\mathbf{P},\mathbf{P}^{'})$와 $(~{\mathbf{P}}, ~{\mathbf{P}}^{'})$를 연결하는 Homography $\mathbf{H}$가 존재한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; ^{\exists}\mathbf{H} \in \text{PGL}_{4} \\
+    &amp; (\tilde{\mathbf{P}}, \tilde{\mathbf{P}}^{'}) = (\mathbf{P},\mathbf{P}^{'})\mathbf{H}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org3c20287" class="outline-4">
+<h4 id="org3c20287"><span class="section-number-4">3.6.4</span> Proof</h4>
+<div class="outline-text-4" id="text-3-6-4">
+<p>
+두 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$, $(~{\mathbf{P}}, ~{\mathbf{P}}^{'})$이 주어졌을 때 이를 Canonical Form으로 쓰면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = \tilde{\mathbf{P}} = [\mathbf{I}|0] \\
+    &amp; \mathbf{P}^{'} = [\mathbf{A}|\mathbf{a}] \\
+    &amp; \tilde{\mathbf{P}}^{'} = [\tilde{\mathbf{A}}|\tilde{\mathbf{a}}] \\
+  \end{aligned}
+\end{equation}
+<p>
+이 때, Fundamental Matrix $\mathbf{F}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} = \mathbf{a}^{\wedge}\mathbf{A} = \tilde{\mathbf{a}}^{\wedge}\tilde{\mathbf{A}}
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. $\mathbf{F}$의 성질에 의해 $\mathbf{a}^{T}\mathbf{F}=0, ~{\mathbf{a}}^{T}\mathbf{F}=0$이 만족하게 되고
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{a}^{T}\mathbf{F} = \mathbf{a}^{T}\mathbf{a}^{\wedge}\mathbf{A} = 0 \\
+    &amp; \tilde{\mathbf{a}}^{T}\mathbf{F} = \tilde{\mathbf{a}}^{T}\tilde{\mathbf{a}}^{\wedge}\tilde{\mathbf{A}} = 0 \\
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $\mathbf{a}$와 $~{\mathbf{a}}$는 각각 rank 1인 $\mathbf{F}$의 Left Null Space가 된다. 따라서 $\mathbf{a}, ~{\mathbf{a}}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \tilde{\mathbf{a}} = k \mathbf{a}, \ \ k \neq 0 \in \mathbb{R}
+  \end{aligned}
+\end{equation}
+<p>
+인 관계가 성립한다. $~{\mathbf{a}}$를 치환하여 다시 표현하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} &amp; = \mathbf{a}^{\wedge}\mathbf{A} = \tilde{\mathbf{a}}^{\wedge}\tilde{\mathbf{A}} = k\mathbf{a}^{\wedge}\tilde{\mathbf{A}} = 0 \\
+    &amp; = \mathbf{a}^{\wedge}(\mathbf{A} - k \tilde{\mathbf{A}}) = 0
+  \end{aligned}
+\end{equation}
+<p>
+따라서 $(\mathbf{A}- k ~{\mathbf{A}})$은 $\mathbf{a}$와 평행하다. 즉, 각 행렬의 열들이 배수 관계에 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{A} - k \tilde{\mathbf{A}} = \mathbf{av}^{T} \ \ \ \text{for some } \mathbf{v}
+  \end{aligned}
+\end{equation}
+<p>
+따라서 $~{\mathbf{A}} = k^{-1}(\mathbf{A}+\mathbf{av}^{T})$가 된다. 카메라 행렬 대응쌍은 다음과 같이 쓸 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = \tilde{\mathbf{P}} = [\mathbf{I}|0] \\
+    &amp; \mathbf{P}^{'} = [\mathbf{A}|\mathbf{a}] \\
+    &amp; \tilde{\mathbf{P}}^{'} = [k^{-1}(\mathbf{A}+\mathbf{av}^{T}) \ | \ k\mathbf{a}] \\
+  \end{aligned}
+\end{equation}
+<p>
+<b>결론적으로 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$를 Canonical Form으로 변환하는 행렬을 $\mathbf{H}_{1}$, $(~{\mathbf{P}},~{\mathbf{P}}^{'})$를 Canonical Form으로 변환하는 행렬을 $\mathbf{H}_{2}$라고 하면</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    (\mathbf{P},\mathbf{P}^{'})\mathbf{H}_{1}\mathbf{H} = (\tilde{\mathbf{P}},\tilde{\mathbf{P}}^{'})\mathbf{H}_{2}
+  \end{aligned}
+\end{equation}
+<p>
+<b>를 만족하는 Homography $\mathbf{H}$가 존재하고 이에 따라 $(\mathbf{P},\mathbf{P}^{'})$과 $(~{\mathbf{P}},~{\mathbf{P}}^{'})$는 사영적으로 동등하다(projectively equivalent).</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    (\mathbf{P},\mathbf{P}^{'}) \sim (\tilde{\mathbf{P}},\tilde{\mathbf{P}}^{'})
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd9e0993" class="outline-3">
+<h3 id="orgd9e0993"><span class="section-number-3">3.7</span> Canonical cameras given F</h3>
+<div class="outline-text-3" id="text-3-7">
+<p>
+<b>임의의 정방행렬 $\mathbf{F}&isin; \mathbb{R}^{3&times; 3}$가 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$에 대응하는 Fundemental Matrix일 필요충분 조건은 $\mathbf{P}^{'T}\mathbf{F}\mathbf{P}$가 반대칭 행렬(skew symmetric matrix)일 때</b> 이다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}^{'}\mathbf{Fx} = 0 \\
+    &amp; \Leftrightarrow \mathbf{X}^{T}\mathbf{P}^{'T}\mathbf{FPX} =0 \ \ \forall \mathbf{X} \\
+    &amp; \Leftrightarrow \mathbf{P}^{'T}\mathbf{FP} \text{ is a skew symmetric matrix.}
+  \end{aligned}
+\end{equation}
+<p>
+임의의 정방행렬 $\mathbf{F}&isin; \mathbb{R}^{3&times; 3}$가 주어지고 임의의 반대칭행렬 $\mathbf{S}&isin; \mathbb{R}^{3&times; 3}$이 주어졌을 때 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$이 다음과 같다면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = [\mathbf{I} | 0 ] \\
+    &amp; \mathbf{P}^{'} = [\mathbf{SF} | \mathbf{e}^{'}]  \ \ \text{where, } \mathbf{e}^{'} \ \text{ is epipole.}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 \textbfazure{$(\mathbf{P},\mathbf{P}^{'})$는 $\mathbf{F}$를 Fundamental Matrix로 갖는다.} 이를 증명하기 위해 $\mathbf{P}^{'}\mathbf{FP}$를 전개해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}^{'}\mathbf{FP} &amp; = [\mathbf{SF}|\mathbf{e}^{'}]^{T} \mathbf{F} [\mathbf{I}|0] \\
+    &amp; = \begin{bmatrix} \mathbf{F}^{T}\mathbf{S}^{T}\mathbf{F} &amp; \mathbf{0} \\ \mathbf{e}^{'}\mathbf{F} &amp; 0 \end{bmatrix} \\
+    &amp; = \begin{bmatrix} \mathbf{F}^{T}\mathbf{S}^{T}\mathbf{F} &amp; \mathbf{0} \\ \mathbf{0} &amp; 0 \end{bmatrix} \\
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 반대칭행렬이므로 위 정리에 의해 $\mathbf{F}$가 Fundamental Matrix임을 알 수 있다.
+</p>
+
+<p>
+반대칭행렬 $\mathbf{S}$는 3차원 벡터 $\mathbf{s}^{\wedge}$형태로 나타낼 수 있고 이 때, $\mathbf{s}^{T}\mathbf{e}^{'} &ne; 0$이면 $\mathbf{P}^{'} = [\mathbf{s}^{&and;}\mathbf{F}| \mathbf{e}^{'}]$의 rank는 3이 된다. $\mathbf{P}^{'}$의 rank가 3이 되기 위해서는 $\mathbf{s}^{&and;}\mathbf{F}, \mathbf{e}^{'}$의 rank는 각각 2,1이 되어야 한다. 우선, $\mathbf{s}^{&and;}\mathbf{F}$가 rank 2라는 것을 증명해보면 Fundamental Matrix 성질에 의해 $\mathbf{e}^{'}\mathbf{F}=0$을 만족하므로 $\mathbf{F}$의 열공간 Col $\mathbf{F}$와 $\mathbf{e}^{'}$는 수직한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \text{Col } \mathbf{F} \perp \mathbf{e}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+또한, $\mathbf{s}^{&and;}\mathbf{e}^{'} &ne; 0$이므로 $\mathbf{s}$는 Col $\mathbf{F}$안에 존재하지 않는다. $\mathbf{s}^{&and;}\mathbf{F}$의 열공간은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \text{Col } \mathbf{s}^{\wedge}\mathbf{F} &amp; = \mathbf{s}^{\wedge} \text{Col } \mathbf{F} \\
+    &amp; = \mathbf{s} \times \text{Col } \mathbf{F}
+  \end{aligned}
+\end{equation}
+<p>
+이고 \textbfazure{이 때 Col $\mathbf{F}$가 rank 2이므로 $\mathbf{s} \times \text{Col } \mathbf{F}$또한 rank 2}가 된다. 다음으로 $\mathbf{e}^{'}$가 다른 열벡터들과 선형독립임을 증명해보면 $\mathbf{s}^{T} \text{Col }\mathbf{s}^{&and;}\mathbf{F}= 0$이고 $\mathbf{s}^{&and;}\mathbf{e}^{'} &ne; 0$이므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{e}^{'}  \notin \text{Col } \mathbf{s}^{\wedge}\mathbf{F}
+  \end{aligned}
+\end{equation}
+<p>
+\textbfazure{결론적으로 $\mathbf{P}^{'} = [\mathbf{s}^{&and;}\mathbf{F}| \mathbf{e}^{'}]$의 rank는 3이 된다.}
+</p>
+
+<p>
+$\mathbf{P}^{'}$의 rank가 3이 되는 $\mathbf{s}$를 선택할 때 $\mathbf{e}^{'}$의 수직이 아닌 $\mathbf{s}$를 사용해야 하므로 $\mathbf{s}=\mathbf{e}^{'}$로 설정하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = [\mathbf{I}|0] \\
+    &amp; \mathbf{P}^{'} =  [\mathbf{e}^{'\wedge}\mathbf{F} \ | \ \mathbf{e}^{'}]
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. \textbfazure{따라서, Fundamental Matrix $\mathbf{F}$가 주어졌을 때 $\mathbf{F}$의 Left Null Space $\mathbf{e}^{'}$를 계산함으로써 카메라 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$를 계산할 수 있다.}
+</p>
+
+<p>
+앞서 정의한 카메라 행렬 대응쌍의 비례식
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}, \mathbf{P}^{'})= ([\mathbf{I}|0], [\mathbf{A}|\mathbf{a}]) \\
+    &amp; (\tilde{\mathbf{P}},\tilde{\mathbf{P}}^{'}) = ([\mathbf{I}|0],[k^{-1}(\mathbf{A}+\mathbf{av}^{T}) \ | \ k\mathbf{a}]) \\
+  \end{aligned}
+\end{equation}
+<p>
+을 사용하여 일반적인 형태로 나타내면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}, \mathbf{P}^{'})= ([\mathbf{I}|0], [\mathbf{e}^{'}\mathbf{F} \ | \ \mathbf{e}^{'}]) \\
+    &amp; (\tilde{\mathbf{P}},\tilde{\mathbf{P}}^{'}) = ([\mathbf{I}|0],[\mathbf{e}^{'}\mathbf{F}+\mathbf{e}^{'}\mathbf{v}^{T} \ | \ \lambda\mathbf{e}^{'}]) \\
+  \end{aligned}
+\end{equation}
+<p>
+Null Space 값인 $\mathbf{e}^{'}$는 스케일에 불변하므로 $\frac{1}{k}\mathbf{e}^{'}$를 이용해도 결과는 동일하다. 따라서 위와 같은 형태로 나타낼 수 있다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgab28edb" class="outline-3">
+<h3 id="orgab28edb"><span class="section-number-3">3.8</span> The essential matrix</h3>
+<div class="outline-text-3" id="text-3-8">
+<p>
+임의의 카메라 행렬 $\mathbf{P}= \mathbf{K}[\mathbf{R}|\mathbf{t}]$가 주어졌을 때 이미지 평면 상의 점 $\mathbf{x}$에 대해 $\mathbf{x}= \mathbf{PX}= \mathbf{K}[\mathbf{R}|\mathbf{t}]\mathbf{X}$가 성립한다. 이 때, \textbfazure{정규화된 이미지 평면 위의 점을 $\bar{\mathbf{x}}$}라고 하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \bar{\mathbf{x}} = \mathbf{K}^{-1}\mathbf{x}
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. 이 때,
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{K}^{-1}\mathbf{P} = [\mathbf{R} | \mathbf{t}]
+  \end{aligned}
+\end{equation}
+<p>
+를 \textbfazure{정규카메라(normalized camera)}라고 한다. 정규카메라에서 카메라 행렬은 $\mathbf{K}= \mathbf{I}$인 경우로 생각할 수 있다. 정규카메라 행렬의 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    (\mathbf{P},\mathbf{P}^{'}) = ([\mathbf{I}|0], \ [\mathbf{R}|\mathbf{t}])
+  \end{aligned}
+\end{equation}
+<p>
+가 되므로 이 때 \textbfazure{Fundamental Matrix $\mathbf{F}= \mathbf{t}^{&and;}\mathbf{R}$이고 해당 행렬을 특별히 Essential Matrix $\mathbf{E}$}라고 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} = \mathbf{t}^{\wedge}\mathbf{R}
+  \end{aligned}
+\end{equation}
+<p>
+Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mathbb{R}^{3\times 3}$정규화된 이미지 좌표계에서 점들 간의 상간관계 $\bar{\mathbf{x}} &harr; \bar{\mathbf{x}}^{'}$를 표현할 때 사용한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \bar{\mathbf{x}}^{'T}\mathbf{E}\bar{\mathbf{x}} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $\bar{\mathbf{x}} = \mathbf{K}^{-1}\mathbf{x}, \bar{\mathbf{x}}^{'} = \mathbf{K}^{-1}\mathbf{x}^{'}$이므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{'T}\mathbf{K}^{'-T}\mathbf{E}\mathbf{K}^{-1}\mathbf{x} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이 성립하여 Fundamental Matrix $\mathbf{F}$와 Essential Matrix $\mathbf{E}$의 관계는 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} = \mathbf{K}^{'-T}\mathbf{E}\mathbf{K}^{-1}
+  \end{aligned}
+\end{equation}
+</div>
+
+<div id="outline-container-org772c3b4" class="outline-4">
+<h4 id="org772c3b4"><span class="section-number-4">3.8.1</span> Properties of the essential matrix</h4>
+<div class="outline-text-4" id="text-3-8-1">
+<p>
+\textbfazure{임의의 정방행렬 $\mathbf{E}&isin; \mathbb{R}^{3&times; 3}$이 Essential Matrix이기 위한 필요충분조건은 $\mathbf{E}$의 가장 큰 두 특이값 $\sigma_{1}, \sigma_{2}$값이 동일하고 세번째 특이값 $&sigma;_{3}=0$인 조건}이다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd00220b" class="outline-4">
+<h4 id="orgd00220b"><span class="section-number-4">3.8.2</span> Proof</h4>
+<div class="outline-text-4" id="text-3-8-2">
+<p>
+카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'}) = ([\mathbf{I}|0], \ [\mathbf{R}|\mathbf{t}])$에 대한 Fundamental Matrix $\mathbf{F}$가 있다고 하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} = \mathbf{t}^{\wedge}\mathbf{R} = \mathbf{SR}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 직교행렬 $\mathbf{W}$와 반대칭행렬 $\mathbf{Z}$를 다음과 같이 정의하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{W} = \begin{bmatrix} 0&amp;-1&amp; \\ 1&amp;0&amp; \\ &amp;&amp;1 \end{bmatrix} \\
+    &amp; \mathbf{Z} = \begin{bmatrix} 0&amp;1&amp; \\ -1&amp;0&amp; \\ &amp;&amp;0 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+두 행렬은 $\mathbf{Z} = \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{W}$관계가 성립한다. 반대칭행렬 $\mathbf{S}$가 rank 2를 가지는 경우 $\mathbf{S}$는 항상 기저(basis)를 변경하여 $\mathbf{Z}$의 형태로 변경할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{S} \sim \mathbf{U}\mathbf{Z}\mathbf{U}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+이를 사용하여 Fundamental Matrix $\mathbf{F}$를 전개하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} &amp; = \mathbf{SR} \\
+    &amp; = \mathbf{UZU}^{T}\mathbf{R} \\
+    &amp; = \mathbf{UZWW}^{T}\mathbf{U}^{T}\mathbf{R} \ \ (\because \ \mathbf{WW}^{T} = \mathbf{I})\\
+    &amp; = \mathbf{UZW}(\mathbf{W}^{T}\mathbf{U}^{T}\mathbf{R})
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $\mathbf{W}^{T}\mathbf{U}^{T}\mathbf{R}$은 직교행렬(orthogonal matrix)이 되고 $\mathbf{ZW}= \begin{bmatrix}1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}$이 된다. 따라서 Fundamental Matrix $\mathbf{F}$를 특이값 분해(SVD)하면
+</p>
+
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} &amp; = \mathbf{U}\mathbf{D}\mathbf{V}^{T}  \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix} \mathbf{V}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+꼴이 되므로 \textbfazure{$\mathbf{F}$의 가장 큰 두 특이값은 같으며 마지막 특이값은 0이 된다. 이에 따라 Fundamental Matrix $\mathbf{F}$는 Essential Matrix $\mathbf{E}$의 성질을 만족하므로 Essential Matrix}가 된다.
+</p>
+
+<p>
+반대로 임의의 정방행렬 $\mathbf{E}&isin; \mathbb{R}^{3&times; 3}$의 특이값 분해(SVD)가
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하는 경우 이는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} &amp; \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{T} \\
+     &amp; = \mathbf{UZWW}^{T}\mathbf{V} \\
+     &amp; = \mathbf{UZU}^{T}(\mathbf{UWW}^{T}\mathbf{V}^{T}) \\
+     &amp; = \mathbf{SR} \\
+     &amp; = \mathbf{e}^{\wedge} \mathbf{R}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 따라서 \textbfazure{이 때 $\mathbf{E}$는 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'}) = ([\mathbf{I}|0], [\mathbf{e}|\mathbf{R}])$에 대응하는 Fundamental Matrix가 된다.}
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org034e1e8" class="outline-3">
+<h3 id="org034e1e8"><span class="section-number-3">3.9</span> Extraction of cameras from the essential matrix</h3>
+<div class="outline-text-3" id="text-3-9">
+<p>
+Essential Matrix $\mathbf{E}$가 다음과 같이 주어졌을 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} = \mathbf{U}\begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+행렬 $\mathbf{E}$는 SR Factorization을 통해 $\mathbf{R}, \mathbf{t}$를 분해할 수 있다. 이 때, \textbfazure{$\mathbf{E}$는 서로 부호가 다른 두 개의 SR Factorization 해를 가진다(up to sign).} 행렬 $\mathbf{E}$는 다음과 같이 분해할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} &amp; \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{T} \\
+     &amp; = \mathbf{UZWW}^{T}\mathbf{V} \\
+     &amp; = \mathbf{UZU}^{T}(\mathbf{UWW}^{T}\mathbf{V}^{T}) \\
+     &amp; = \mathbf{SR} 
+  \end{aligned}
+\end{equation}
+<p>
+이 때, 직교행렬 $\mathbf{W}= \begin{bmatrix}0&amp;-1&amp; \\ 1&amp;0&amp; \\ &amp;&amp;1 \end{bmatrix}$이고 $\mathbf{W}^{T} = \begin{bmatrix}0&amp;1&amp; \\ -1&amp;0&amp; \\ &amp;&amp;1 \end{bmatrix}$일 때 $\mathbf{W}^{T} = \begin{bmatrix} -1&amp;&amp; \\ &amp;-1&amp; \\ &amp;&amp;1 \end{bmatrix}\mathbf{W}$관계가 성립한다. 따라서 \textbfazure{대각행렬 $\begin{bmatrix}1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}$은 $\mathbf{ZW}= -\mathbf{ZW}^{T}$와 같이 부호가 다른 두 개의 행렬로 분해가 가능}하다.
+</p>
+
+<p>
+따라서 Essential Matrix $\mathbf{E}$는 다음과 같이 2개의 행렬로 분해가 가능하다.
+</p>
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} &amp; = (\mathbf{UZU}^{T})(\mathbf{UWV}^{T}) = \mathbf{S}_{0}\mathbf{R}_{0}\\
+    &amp; = (\mathbf{UZU}^{T})(\mathbf{UW}^{T}\mathbf{V}^{T}) =\mathbf{S}_{0}\mathbf{R}_{0}^{'}\\
+  \end{aligned}
+\end{equation}
+<p>
+Essential Matrix $\mathbf{E}$가 위 두 가지 케이스로만 분해된다는 것을 증명하려면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} = \mathbf{S}_{0}\mathbf{R}_{0} = \mathbf{SR}
+  \end{aligned}
+\end{equation}
+<p>
+에 대하여 $\mathbf{S}= \mathbf{S}_{0}, \mathbf{R}= \mathbf{R}_{0}, \mathbf{R}_{0}^{'}$임을 증명해야 한다.
+</p>
+
+<p>
+반대칭행렬 $\mathbf{S}, \mathbf{S}_{0}$는 rank가 2인 행렬이므로 $\mathbf{S}_{0}^{T} = \mathbf{s}^{&and;}, \mathbf{S}^{T} = \mathbf{s}^{&and;}$과 같이 벡터 형태로 나타낼 수 있고
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{s}, \mathbf{s}_{0} \in \text{Nul } \mathbf{E}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 $\mathbf{E}$의 Left Null Space에 포함된다. 따라서 $\mathbf{s}, \mathbf{s}_{0}$는 비례관계가 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{s} = \alpha \mathbf{s}_{0} \ \ \ \alpha \neq 0 \in \mathbb{R}
+  \end{aligned}
+\end{equation}
+<p>
+위 식에 따라 $\mathbf{SR}= &alpha; \mathbf{S}_{0}\mathbf{R}_{0}$이 성립하고 \textbfazure{이 때 $\| \mathbf{R}\| = \| \mathbf{R}_{0} \| = 1$이므로 Frobenius Norm을 비교해보면 $&alpha; = &plusmn; 1$인 것}을 알 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{S} = \pm \mathbf{S}_{0}
+  \end{aligned}
+\end{equation}
+<p>
+다음으로 $\mathbf{R}= \mathbf{R}_{0}, \mathbf{R}_{0}^{'}$라는 것을 증명한다. 지금까지 구한 결과에 따라 Essential Matrix $\mathbf{E}$는 다음과 같이 쓸 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} &amp; = \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix} \mathbf{V}^{T} = \mathbf{S}_{0}\mathbf{R} = \mathbf{S}_{0}(\mathbf{UXV}^{T}) \quad \text{where, } \mathbf{X} = \mathbf{U}^{T}\mathbf{RV} \\
+    &amp; = \mathbf{U}(\mathbf{ZX})\mathbf{V}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 $\mathbf{ZX}= \begin{bmatrix}1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}= \begin{bmatrix}0&amp;1&amp; \\ -1&amp;0&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{X}$이므로 이를 전개하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X} &amp; = \begin{bmatrix} 0&amp;-1&amp; \\ 1&amp;0&amp; \\ &amp;&amp;\pm1 \end{bmatrix} \\
+    &amp; = \mathbf{W} = -\mathbf{W}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+이므로 \textbfazure{따라서 부호의 변화를 포함한(up to sign) $\mathbf{R}= \mathbf{R}_{0}, \mathbf{R}_{0}^{'}$가 성립한다.}
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1c8a518" class="outline-3">
+<h3 id="org1c8a518"><span class="section-number-3">3.10</span> Geometrical interpretation of the four solutions</h3>
+<div class="outline-text-3" id="text-3-10">
+<p>
+Essential Matrix $\mathbf{E}$는 다음과 같이 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X} &amp; = \begin{bmatrix} 0&amp;-1&amp; \\ 1&amp;0&amp; \\ &amp;&amp;\pm1 \end{bmatrix} \\
+    &amp; = \mathbf{S}_{0}\mathbf{R}_{0}
+  \end{aligned}
+\end{equation}
+<p>
+여기서 반대칭행렬 $\mathbf{S}_{0}^{T} = \mathbf{s}_{0}^{&and;}$에서 $\mathbf{s}_{0}$는 $\mathbf{E}$의 Left Null Space에 포함된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{s}_{0} \in \text{Nul }\mathbf{E}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, \textbfazure{$\mathbf{s}_{0}$는 행렬 $\mathbf{U}$의 세 번째 열(third column)인 $\mathbf{u}_{3}$가 된다.}
+</p>
+
+<p>
+$\mathbf{E}= \mathbf{t}^{&and;}\mathbf{R}$을 어떻게 분해하느냐에 따라 총 네 가지 해가 존재한다. 우선 $\mathbf{t}$를 보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{t} = \pm \mathbf{u}_{3}
+  \end{aligned}
+\end{equation}
+<p>
+이는 두 카메라 $\mathbf{C}, \mathbf{C}^{'}$가 주어졌을 때 어느 카메라를 원점으로 잡는가에 따라 두 가지 해가 존재함을 의미한다. 다음으로 $\mathbf{R}$을 보면, $\mathbf{R}= \mathbf{UW}^{T}\mathbf{V}^{T}$인 경우
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} = [\mathbf{UW}^{T}\mathbf{V}^{T} \ | \ \mathbf{u}_{3}]
+  \end{aligned}
+\end{equation}
+<p>
+가 되고 이를 다시 쓰면 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} &amp; = [\mathbf{UW}^{T}\mathbf{V}^{T} \ | \ \mathbf{u}_{3}] \\
+    &amp; = [\mathbf{UWV}^{T}(\mathbf{V}\mathbf{W}^{T}\mathbf{W}^{T}\mathbf{V}^{T})\ | \ \mathbf{u}_{3}] \\
+    &amp; = [\mathbf{UW}^{T}\mathbf{V} \ | \ \mathbf{u}_{3}] \begin{bmatrix} \mathbf{VW}^{T}\mathbf{W}^{T}\mathbf{V}^{T} &amp; \\ &amp; 1 \end{bmatrix} \\
+    &amp; = [\mathbf{UW}^{T}\mathbf{V} \ | \ \mathbf{u}_{3}] \begin{bmatrix} \mathbf{V}\begin{pmatrix} -1&amp;&amp; \\&amp;-1&amp; \\&amp;&amp;1 \end{pmatrix}\mathbf{V}^{T} &amp; \\ &amp; 1 \end{bmatrix} \\
+  \end{aligned}
+\end{equation}
+<p>
+이 성립한다. 이 때 $\mathbf{VW}^{T}\mathbf{W}^{T}\mathbf{V}^{T}$는 Baseline의 수직한 방향 2개를 상하대칭하는 행렬이 된다. 즉, \textbfazure{Baseline을 축으로 180 degree 회전하는 형태}가 된다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgebc7505" class="outline-2">
+<h2 id="orgebc7505"><span class="section-number-2">4</span> 3D Reconstruction of Cameras and Structure</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+이전 섹션에서 언급했듯이 \textbfazure{Fundamental Matrix $\mathbf{F}$는 여러 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'})$에 대하여 사영모호성(projective ambiguity)이 존재하기 때문에 결과물인 $\mathbf{P}, \mathbf{P}^{'}$를 통해 계산한 3차원 공간 상의 점 또한 모호성을 가지게 된다.} 해당 섹션에서는 Scene Constraint와 Internal Constraint를 사용하여 모호성을 제거하는 방법에 대해서 설명한다.
+</p>
+</div>
+
+<div id="outline-container-org01cb9a0" class="outline-3">
+<h3 id="org01cb9a0"><span class="section-number-3">4.1</span> The projective reconstruction theorem</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+두 카메라의 이미지 평면 상 대응쌍 점들인 $\mathbf{x}, \mathbf{x}^{'}$이 충분히 주어져서 이를 통해 Fundamental Matrix $\mathbf{F}$를 구했다고 가정해보자. 이 때, 사영모호성으로 인해 다음과 같은 두 카메라 행렬 대응쌍
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}_{1}, \mathbf{P}_{1}^{'}, \{\mathbf{X}_{1,i}\}) \\
+    &amp; (\mathbf{P}_{2}, \mathbf{P}_{2}^{'}, \{\mathbf{X}_{2,i}\}) \\
+  \end{aligned}
+\end{equation}
+<p>
+이 동일한 Fundamental Matrix $\mathbf{F}$를 갖게 되는 경우 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}_{2}, \mathbf{P}_{2}^{'}, \{\mathbf{X}_{2,i}\}) = \mathbf{H}\cdot (\mathbf{P}_{1}, \mathbf{P}_{1}^{'}, \{\mathbf{X}_{1,i}\})  \\
+  \end{aligned}
+\end{equation}
+<p>
+를 만족하는 Homography 행렬 $\mathbf{H}&isin; \text{PGL}_{4}$가 반드시 존재한다. 이 때 $\cdot$연산은 다음과 같이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P}_{2} = \mathbf{H}\cdot\mathbf{P}_{1} = \mathbf{P}_{1}\mathbf{H}^{-1} \\
+    &amp; \mathbf{P}_{2}^{'} = \mathbf{H}\cdot\mathbf{P}_{1} = \mathbf{P}_{1}^{'}\mathbf{H}^{-1} \\
+    &amp;\mathbf{X}_{2i} = \mathbf{H}\cdot \mathbf{X}_{1i} = \mathbf{H}\mathbf{X}_{1i}
+  \end{aligned}
+\end{equation}
+</div>
+
+<div id="outline-container-org119684e" class="outline-4">
+<h4 id="org119684e"><span class="section-number-4">4.1.1</span> Proof</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<p>
+이전 섹션에서 동일한 Fundamental Matrix $\mathbf{F}$를 공유하는 카메라 행렬 대응쌍 사이에 $\mathbf{P}_{2} = \mathbf{P}_{1}\mathbf{H}^{-1}, \mathbf{P}_{2}^{'} =\mathbf{P}_{1}^{'}\mathbf{H}^{-1}$를 만족하는 Homography 행렬 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재한다는 것을 증명하였다. 이를 적용해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P}_{2}\mathbf{X}_{2i} = \mathbf{P}_{1}\mathbf{H}^{-1}\mathbf{X}_{2i} = \mathbf{x}_{i} = \mathbf{P}_{1}\mathbf{X}_{1i} \\
+    &amp; \mathbf{P}_{2}^{'}\mathbf{X}_{2i} = \mathbf{P}_{1}^{'}\mathbf{H}^{-1}\mathbf{X}_{2i} = \mathbf{x}_{i}^{'} = \mathbf{P}_{1}^{'}\mathbf{X}_{1i}
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. $\mathbf{P}_{1}, \mathbf{P}_{2}$에 의해 Back Projection된 직선을 $\mathcal{R}$이라고 하고 $\mathbf{P}_{1}^{'}, \mathbf{P}_{2}^{'}$에 의해 Back Projection된 직선을 $\mathcal{R}^{'}$이라고 하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \{\mathbf{H}^{-1}\mathbf{X}_{2i}, \mathbf{X}_{1i}\} \in \mathcal{R} \cap \mathcal{R}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 3차원 공간 상의 점 $\{\mathbf{H}^{-1}\mathbf{X}_{2i}, \mathbf{X}_{1i}\}$는 두 직선의 교차점이 된다. 따라서 \textbfazure{두 직선 $\mathcal{R}, \mathcal{R}^{'}$이 Baseline과 같이 동일한 직선인 경우를 제외하면 $\{\mathbf{H}^{-1}\mathbf{X}_{2i}, \mathbf{X}_{1i}\}$는 교차점인 한 점을 의미}하므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{H}^{-1}\mathbf{X}_{2i} = \mathbf{X}_{1i} \\
+    &amp; \mathbf{X}_{2i} = \mathbf{H}\mathbf{X}_{1i}
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. 따라서 추가적인 기하학적 원리를 사용하지 않으면 위와 같은 상황에서는 사영기하의 특성까지(up to projectivity) 복원할 수 있다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6ca8de0" class="outline-3">
+<h3 id="org6ca8de0"><span class="section-number-3">4.2</span> Stratified reconstruction</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Fundamental Matrix $\mathbf{F}$를 사용하여 계산한 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'})$의 사영모호성 문제를 해결하기 위해 Ground Truth 카메라 행렬 대응쌍인
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    (\mathbf{P}_{0}, \mathbf{P}_{0}^{'}, \{\hat{\mathbf{X}_{i}}\})
+  \end{aligned}
+\end{equation}
+<p>
+이 존재한다고 가정하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}_{1}, \mathbf{P}_{1}^{'}, \{\mathbf{X}_{i}\}) = \mathbf{H}\cdot(\mathbf{P}_{0}, \mathbf{P}_{0}^{'}, \{\hat{\mathbf{X}_{i}}\}) \\
+    &amp; \mathcal{T} = \mathbf{H}\cdot \mathcal{T}_{0}
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하는 Homography 행렬 $\mathbf{H}$가 존재한다. 이 때, 이미지 평면 상에서 평행한 직선의 특성을 활용하여 Affine Reconstruction을 수행한 다음, 이미지 평면 상에서 직교한 선들의 특성을 사용하여 Similarity Reconstruction을 순차적으로 수행한다.
+</p>
+</div>
+
+<div id="outline-container-orgfe9b943" class="outline-4">
+<h4 id="orgfe9b943"><span class="section-number-4">4.2.1</span> The step to affine reconstruction</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+Affine Reconstruction 단계에서는 평행한 직선들의 특성을 보존하는 Homography 행렬 $\mathbf{H}_{a}$를 찾아야 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{a}(\pi_{\infty}) = \pi_{\infty}
+  \end{aligned}
+\end{equation}
+<p>
+3차원 공간 상의 점들의 집합 $\{\mathbf{X}_{i}\}$를 사용하여 소실점을 3개 이상 구한 경우 이미지 평면에 투영된 무한대 평면 $&pi;_{&infin;}^{'}$를 계산할 수 있다. 이미지 평면 상에 투영된 무한대 평면 $&pi;_{&infin;}^{'}$를
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \pi_{\infty}^{'} = \begin{bmatrix} a &amp; b &amp; c &amp; 1  \end{bmatrix}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+라고 하면 실제 무한대 평면 $&pi;_{&infin;} = \begin{bmatrix}0&amp;0&amp;0&amp;1 \end{bmatrix}$을 $&pi;_{&infin;}^{'}$로 보내는 Homography 행렬 $\mathbf{H}_{a}$는 다음과 같이 구할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{a} = \begin{bmatrix} &amp;\mathbf{I}_{3}&amp; &amp; 0 \\ a&amp;b&amp;c&amp;1 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 $\mathbf{H}_{a}^{T}\pi_{\infty} = \pi_{\infty}^{'}$관계가 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \pi_{\infty}  = \mathbf{H}_{a}^{-1} \pi_{\infty}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+이를 $\mathcal{T}$에 적용하면 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathcal{T}_{a} = \mathbf{H} \cdot \mathcal{T} \\
+    &amp; (\mathbf{PH}_{a}^{-1}, \mathbf{P}^{'}\mathbf{H}_{a}^{-1}, \{\mathbf{H}_{a}\mathbf{X}_{i}\}) = \mathbf{H} \cdot (\mathbf{P}, \mathbf{P}^{'}, \{\mathbf{X}_{i}\})
+  \end{aligned}
+\end{equation}
+<p>
+연산을 통해 이미지를 Affine Reconstruction할 수 있다. 여기까지 진행했다면 Ground Truth $\mathcal{T}_{0}$와 $\mathcal{T}_{a}$는 Affine만큼만 차이가 나게 된다. 즉, 평행한 직선들은 모두 복원되었으나 아직 직교한 직선들은 복원되지 않은 상태이다.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org2fe4e6d" class="outline-3">
+<h3 id="org2fe4e6d"><span class="section-number-3">4.3</span> The step to metric reconstruction</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+Metric Reconstruction 단계에서는 직교하는 선들을 보존하는 Homography 행렬 $\mathbf{H}_{s}$를 찾아야 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{s}(\Omega_{\infty}) = \Omega_{\infty}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $&Omega;_{&infin;}$는 무한대 평면상에 존재하는 Absolute Conic을 의미한다. Affine Reconstruction 단계에서 얻은 $\mathcal{T}_{a}$는 무한대 평면 $&pi;_{&infin;}$가 실제 무한대에 위치하게 된다. 이 때, $\{\mathbf{X}_{i}\}$들 중 직교하는 점들을 사용하여 $&Omega;_{&infin;}$를 구할 수 있다. 직교하는 점들의 대응쌍을 $\mathbf{d}_{1}, \mathbf{d}_{2}$라고 하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{d}_{1}^{T}\omega \mathbf{d}_{2} = 0
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하는 $&omega;$를 찾을 수 있고 $&omega;$는 이미지 평면 상에 투영된 Absolute Conic $&Omega;_{&infin;}$가 된다.
+</p>
+
+<p>
+카메라 행렬 $\mathbf{P}= \mathbf{K}[\mathbf{R}| \mathbf{t}] = [\mathbf{M}\ | \ \mathbf{m}]$가 주어졌을 때 무한대 평면 $&pi;_{&infin;}$는 $\mathbf{M}$에 의해 이미지 평면 $&pi;$에 투영된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{M}: \pi_{\infty} \mapsto \pi
+  \end{aligned}
+\end{equation}
+<p>
+반대로 $\mathbf{M}^{-1}$는 $\pi$평면 상의 점들을 무한대 평면 $&pi;_{&infin;}$으로 보내는 매핑이라고 할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{M}^{-1}: \pi \mapsto \pi_{\infty}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, 이미지 평면에 투영된 Absolute Conic에 $\mathbf{M}^{-1}$을 적용하면 $\mathbf{M}^{-1}(&omega;) = ~{&Omega;}_{&infin;}$가 된다. $~{&Omega;}_{&infin;}$는 아직 Metric Reconstruction이 되기 전이므로 $&Omega; &ne; ~{&Omega;}_{&infin;}$이다. 둘 사이에는 다음 공식이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{s}(\tilde{\Omega}_{\infty}) = \Omega_{\infty} = \mathbf{I}_{3}
+  \end{aligned}
+\end{equation}
+<p>
+Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatrix}\mathbf{A}^{-1} &amp; \\ &amp; 1 \end{bmatrix}$이라고 하고 이 때 이미지 평면을 $\pi_{s}$, 카메라 행렬을 $\mathbf{P}_{s}$라고 하면 $\mathbf{H}_{s}(\pi) = \pi_{s}$관계가 성립하고 무한대 평면을 Homography 변환한 공식은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \pi_{\infty} \mathbf{A}^{-1} = \pi_{\infty,s} \\ 
+    &amp; \mathbf{H}_{s}|_{\pi_{\infty}} = \mathbf{A}^{-1} \\
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. 각각 무한대 평면 $&pi;_{&infin;}, &pi;_{&infin;,s}$을 이미지 평면 $&pi;, &pi;_{s}$에 투영하는 공식은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P}|_{\pi_{\infty}} = \mathbf{M} \\
+    &amp; \mathbf{P}_{s}|_{\pi_{\infty}} = \mathbf{MA}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 변형된다. 따라서 $\mathbf{H}_{s}(~{&Omega;}_{&infin;})$는 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{s}(\tilde{\Omega}_{\infty}) &amp; = (\mathbf{A}^{-1})^{-T} \tilde{\Omega}_{\infty} \mathbf{A} \\
+    &amp; = \mathbf{A}^{T} (\mathbf{M}^{T}\omega \mathbf{M})\mathbf{A}  
+  \end{aligned}
+\end{equation}
+<p>
+따라서 Absolute Conic 특성에 의해 $\mathbf{A}^{T} (\mathbf{M}^{T}&omega; \mathbf{M})\mathbf{A}$는 $\mathbf{I}$이 되어야 하므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{A}^{T} (\mathbf{M}^{T}\omega \mathbf{M})\mathbf{A} = \mathbf{I} \\
+    &amp; (\mathbf{M}^{T} \omega \mathbf{M})^{-1} = \mathbf{AA}^{T} 
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. 결론적으로 $\mathbf{H}_{s} = \begin{bmatrix}\mathbf{A}^{-1} &amp; \\ &amp; 1 \end{bmatrix}$를 구하기 위해서는 \textbfazure{이미지 평면 상에서 직교하는 직선들의 특성을 사용하여 $&omega;$를 구한 후, $(\mathbf{M}^{T} &omega; \mathbf{M})^{-1}$를 Cholesky Decomposition하여 $\mathbf{AA}^{T}$를 구한다. 이를 통해 $\mathbf{A}^{-1}$값을 구할 수 있고 최종적으로 Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s}$를 구할 수 있다.}
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgef22d46" class="outline-2">
+<h2 id="orgef22d46"><span class="section-number-2">5</span> Computation of the Fundamental Matrix $\mathbf{F}$</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org8f0f4b4" class="outline-3">
+<h3 id="org8f0f4b4"><span class="section-number-3">5.1</span> Basic equations</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+두 카메라의 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{'}$이 존재할 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{'T}\mathbf{Fx} = 0
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하는 3x3 크기의 행렬 $\mathbf{F}$를 Fundamental Matrix라고 한다. 만약 세 개의 대응점쌍 $\mathbf{x} = (\mathbf{x}_{1}, \mathbf{x}_{2}, \mathbf{x}_{3})$, $\mathbf{x}^{'} = (\mathbf{x}_{1}^{'}, \mathbf{x}_{2}^{'}, \mathbf{x}_{3}^{'})$이 주어졌을 때 $\mathbf{x}^{'T}\mathbf{Fx}=0$이를 다시 정리하면 $&sum; \mathbf{x}^{'}_{i}\mathbf{x}_{j}\mathbf{f}_{ij}=0$과 같이 정리할 수 있다. 해당 식은 선형시스템
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{A} \mathbf{f} = 0
+  \end{aligned}
+\end{equation}
+<p>
+꼴로 나타낼 수 있고 이 때 $\mathbf{A}$와 $\mathbf{f}$를 풀어쓰면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{A} = (\mathbf{a}_{ik}) \in \mathbb{R}^{N \times 9}, \ \ \text{i-th row is} \ (\mathbf{x}_{1}^{'i}\mathbf{x}_{1}^{i}, \mathbf{x}_{1}^{'i}\mathbf{x}_{2}^{i},\cdots, \mathbf{x}_{3}^{'i}\mathbf{x}_{3}^{i}) \\
+    &amp; \mathbf{f} = (\mathbf{f}_{11}, \mathbf{f}_{12}, \mathbf{f}_{13}, \cdots, \mathbf{f}_{33})^{T} \in \mathbb{R}^{9\times 1}
+  \end{aligned}
+\end{equation}
+<p>
+만약 주어진 대응점쌍의 개수 $N$이 8보다 크고 노이즈가 없는 완벽한 데이터로 생성이 되었으면 $\mathbf{A}$는 rank 8 행렬이 되고 유일한 해 $\mathbf{f}$가 존재한다. 이 때 $\mathbf{f}$는 $\mathbf{A}$의 Null Space의 원소가 된다.
+</p>
+
+<p>
+하지만 대부분의 경우 주어진 데이터에는 항상 노이즈가 존재하므로 $\mathbf{A}$행렬은 rank 9인 full rank 행렬이 된다. 이 때 해를 구하면 $\mathbf{f}$는 항상 영벡터가 계산되므로 $\| \mathbf{f}\| = 1$이라는 조건하에 $\|\mathbf{Af}\|$의 크기를 최소화하는 근사해 $\mathbf{f}$를 찾아야 한다. 해를 찾는 방법은 $\mathbf{A}$를 특이값 분해(SVD)한 다음
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{A} = \mathbf{UDV}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+대각행렬 $\mathbf{D}$의 eigenvalue 중 가장 절대값이 작은 것에 대응되는 $\mathbf{V}$의 열벡터를 $\mathbf{f}$의 일반해로 간주한다. 해당 열벡터 $\mathbf{f}$가 $\|\mathbf{Af}\|$의 크기를 최소화하는 벡터가 되며 이를 Linear Solution이라고 부른다.
+</p>
+
+<p>
+하지만 \textbfazure{이 때, Linear Solution $\mathbf{f}$로 복원한 $\mathbf{F}_{0}$가 rank 2 행렬임을 보장할 수 없다.} 수치적으로 해를 구하면 일반적으로 rank 3인 행렬이 나온다. 따라서 한 번 더 SVD를 사용하여 $\mathbf{F}_{0}$와 가장 가까운 rank 2 행렬을 찾아야 한다.
+</p>
+
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F}_{0} = \mathbf{U}_{0}\mathbf{D}_{0}\mathbf{V}^{T}_{0}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 대각행렬 $\mathbf{D}_{0} = \begin{bmatrix}&sigma;_{1}&amp;&amp; \\ &amp;&sigma;_{2}&amp; \\  &amp;&amp;&sigma;_{3} \end{bmatrix}$는 일반적으로 마지막 특이값 $&sigma;_{3}$가 0이 아니므로 rank 3인 행렬이 된다. 따라서 \textbfazure{임의로 $&sigma;_{3}=0$으로 변경한 행렬이 $\mathbf{F}_{0}$과 가장 가까운 rank 2 행렬이 된다.}
+</p>
+</div>
+
+<div id="outline-container-orgd2cad84" class="outline-4">
+<h4 id="orgd2cad84"><span class="section-number-4">5.1.1</span> The minimum case - seven point correspondences</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+7개의 대응점쌍이 주어진 경우 $\mathbf{A}&isin; \mathbb{R}^{7&times; 9}$인 rank 7 행렬이 된다. 이에 따라 Null Space의 차원이 2가 되므로 무수한 해가 존재한다. $\mathbf{Af}=0$의 풀어서 두 개의 선형독립인 Fundamental Matrix $\mathbf{F}_{1}, \mathbf{F}_{2}$를 구하고 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} = \alpha \mathbf{F}_{1} + (1-\alpha)\mathbf{F}_{2}
+  \end{aligned}
+\end{equation}
+<p>
+를 통해 $\mathbf{F}$를 구한다. $\mathbf{F}$행렬의 rank는 2이므로 $det(\mathbf{F})=0$을 만족하게 되고 이에 따라 $&alpha;$에 대한 3차 방정식을 얻는다. 3차 방정식이 세 개의 실수해를 가지는 경우는 Degenerate Configuration이 된다.
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org4763c23" class="outline-3">
+<h3 id="org4763c23"><span class="section-number-3">5.2</span> The normalized 8-point algorithm</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+행렬 $\mathbf{A}$는 주어진 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{'}$으로 구성된 행렬이므로 \textbfazure{대응점쌍들을 정규화(normalization)하지 않고 바로 해를 구하는 경우 $\mathbf{x}_{i} = (1000000,20000000,1)$과 같이 마지막 값에 비해서 처음 두 값의 크기가 매우 크게 되므로 수치적으로 불안정한 문제}를 가진다. 따라서 $\mathbf{x}^{i}, \mathbf{x}^{i'}$를 Centroid가 0이고 Centroid로부터 평균거리가 $\sqrt{2}$가 되도록하는 Homography 변환 $\mathbf{H}, \mathbf{H}^{'}$를 적용한다.
+</p>
+
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}^{i} \rightarrow \mathbf{Hx}^{i} \\
+    &amp; \mathbf{x}^{i'} \rightarrow \mathbf{H}^{'} \mathbf{x}^{i'} \\
+  \end{aligned}
+\end{equation}
+<p>
+이렇게 변환된 대응쌍점들을 사용하여 수치적으로 안정적인 Fundamental Matrix $\mathbf{F}^{'}$계산할 수 있다. 앞서 설명한 내용을 따라 $\mathbf{F}^{'}$를 계산한 다음 다시 원래의 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{'}$으로 복원하기 위해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    0 &amp; = (\mathbf{H}^{'}\mathbf{x}^{'})^{T}\mathbf{F}^{'}(\mathbf{Hx}) \\
+    &amp; =  \mathbf{x}^{T}(\mathbf{H}^{'T} \mathbf{F}^{'}\mathbf{H})\mathbf{x}
+  \end{aligned}
+\end{equation}
+<p>
+처럼 $\mathbf{F}= \mathbf{H}^{'T} \mathbf{F}^{'}\mathbf{H}$를 통해 원래 대응점쌍의 Fundamental Matrix $\mathbf{F}$를 계산할 수 있다.
+</p>
+</div>
+
+<div id="outline-container-org151e67d" class="outline-4">
+<h4 id="org151e67d"><span class="section-number-4">5.2.1</span> Degenrate configurations</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<p>
+두 개의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'}, \{\mathbf{X}^{i}\})$, $(\mathbf{Q}, \mathbf{Q}^{'}, \{\mathbf{Y}^{i}\})$가 다음의 조건을 만족하면 서로 \textbfazure{Conjugate Configuration}이라고 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{PX}^{i} = \mathbf{QY}^{i}, \mathbf{P}^{'}\mathbf{x}^{i} = \mathbf{Q}^{'}\mathbf{Y}^{'} \ \ \forall s \\
+    &amp; (\mathbf{P}, \mathbf{P}^{}), (\mathbf{Q}, \mathbf{Q}^{'}) \ \ \text{share the same} \ \  \mathbf{F}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, \textbfazure{Conjuate Configuration이 있는 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'}, \{\mathbf{X}^{i}\})$을 Critical Triple이라고 부른다.}
+</p>
+
+<p>
+임의의 카메라 대응쌍 $\mathbf{P}, \mathbf{P}^{'}, \{\mathbf{X}^{i}\}$가 Critical Triple일 필요충분조건은 각각의 카메라 중심점 $\mathbf{C},\mathbf{C}^{'}$과 3차원 공간 상의 점 ${\mathbf{X}^{i}}$가 어떤 Ruled Quadric Surface, 즉 직선을 포함하는 Quadric Surface 상에 포함되는 것이다. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org44cb81c" class="outline-4">
+<h4 id="org44cb81c"><span class="section-number-4">5.2.2</span> Proof</h4>
+<div class="outline-text-4" id="text-5-2-2">
+<p>
+임의의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'}, \{\mathbf{X}^{i}\})$이 Critical Triple이라는 것을 보이기 위해서는 이와 대응하는 카메라 행렬 대응쌍 $(\mathbf{Q}, \mathbf{Q}^{'}, \{\mathbf{Y}^{i}\})$이 같은 Fundamental Matrix $\mathbf{F}$를 가진다는 사실을 사용해야 한다. $\mathbb{P}^{3}$공간에서 이차곡면은 4x4 크기의 행렬로 정의된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{S}_{p} := \mathbf{P}^{'}\mathbf{F}_{QQ^{'}}\mathbf{P}
+  \end{aligned}
+\end{equation}
+<p>
+여기서 이차곡면 $\mathbf{S}_{p} &isin; \mathbb{R}^{4&times; 4}$는 카메라 중심점 $\mathbf{C}, \mathbf{C}^{'}$과 3차원 공간 상의 점 $\{\mathbf{X}^{i}\}$를 포함해야 한다.
+</p>
+
+<p>
+\textbfazure{$\mathbf{S}_{p}$는 Ruled Quadric Surface이므로 직선을 포함하고 있음을 보이면 되므로 카메라 중심선을 연결한 직선인 baseline을 $\mathbf{S}_{p}$가 포함하고 있음}을 보이면 된다. baseline 위에 있는 임의의 점 $\mathbf{X}$가 존재할 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{S}_{p} \mathbf{X} = \mathbf{P}^{'}\mathbf{F}_{QQ^{'}}\mathbf{P}\mathbf{X} = 0 \quad \because \mathbf{F}_{QQ^{'}}\mathbf{PX} = 0
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하므로 $\mathbf{S}_{p}$는 Ruled Quadric Surface임을 알 수 있다.
+</p>
+
+<p>
+반대로, 카메라 중심점 $\mathbf{C},\mathbf{C}^{'}$와 3차원 공간 상의 점 $\{\mathbf{X}^{i}\}$가 $\mathbf{S}_{p}$에 속하면 다음 공식이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}^{'}\mathbf{X}^{i})^{T}\mathbf{F}_{QQ^{'}}(\mathbf{PX}^{i}) = 0 \\
+  \end{aligned}
+\end{equation}
+<p>
+여기서 $\mathbf{x}^{'} = \mathbf{P}^{'}\mathbf{X}^{i}, \mathbf{x}= \mathbf{PX}^{i}$이고 $\mathbf{F}_{QQ^{'}}$이므로 $\mathbf{F}_{QQ^{'}}$에 대한 대응점 쌍이 $\mathbf{x}, \mathbf{x}^{'}$존재한다는 의미이다. 따라서
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}^{'} = \mathbf{P}^{'}\mathbf{X}^{i} = \mathbf{Q}^{'}\mathbf{Y}^{i} \\
+    &amp; \mathbf{x} = \mathbf{P}\mathbf{X}^{i} = \mathbf{Q}\mathbf{Y}^{i} \\
+  \end{aligned}
+\end{equation}
+<p>
+를 만족하므로 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'},\{\mathbf{X}^{i}\})$과 $(\mathbf{Q},\mathbf{Q}^{'},\{\mathbf{Y}^{i}\})$는 같은 Fundamental Matrix $\mathbf{F}= \mathbf{F}_{PP^{'}} = \mathbf{F}_{QQ^{'}}$를 공유하는 Conjugate Triple이라는 것을 알 수 있다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org77d1947" class="outline-3">
+<h3 id="org77d1947"><span class="section-number-3">5.3</span> The Gold Standard method</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+이미지 평면 상의 대응점 쌍 $\mathbf{x}&harr; \mathbf{x}^{'}$는 일반적으로 노이즈를 포함하고 있으므로 이를 통해 Fundamental Matrix $\mathbf{F}$를 정확하게 계산할 수 없고 $\|\mathbf{Af}\|$의 크기를 최소화하는 근사해 $\mathbf{F}^{'}$를 계산할 수 밖에 없다. 따라서 \textbfazure{$\mathbf{F}^{'}$를 더 정확하게 계산하기 위해 2D Homography 문제와 마찬가지로 주어진 데이터 $\mathbf{x}, \mathbf{x}^{'}$를 Ground Truth $\hat{\mathbf{x}}, \hat{\mathbf{x}}^{'}$과 가까워지게 보정하는 방법을 The Gold Standard method}라고 한다.
+</p>
+
+\begin{itemize}
+\item 8개 이상의 대응점 쌍 $\mathbf{x} \leftrightarrow \mathbf{x}^{'}$이 주어졌을 때 우선 앞서 설명한 것과 같이 총 두 번 SVD를 사용하여 rank가 2인 Fundamental Matrix $\mathbf{F}_{0}$를 계산한다. 이 때, $\mathbf{F}_{0}$를 Linear Solution이라고 부른다.
+\item 다음으로 Epipole $\mathbf{e}, \mathbf{e}^{'}$에 대하여 다음 공식이 성립한다.
+\end{itemize}
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{e}^{'}\mathbf{F}_{0} = 0, \quad  \mathbf{F}_{0}\mathbf{e} = 0 \\
+  \end{aligned}
+\end{equation}
+\begin{itemize}
+\item 위 공식으로부터 $\mathbf{e}, \mathbf{e}^{'}$를 각각 계산한다.
+\item Epipole을 계산하면 Caninocal Form의 카메라 행렬 $\mathbf{P}, \mathbf{P}^{'}$를 계산할 수 있다.
+\end{itemize}
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = [\mathbf{I}|0], \quad \mathbf{P}^{'} = [\mathbf{M}|\mathbf{m}] \\
+    &amp; \text{where, } \ \mathbf{M} = \mathbf{e}^{'\wedge}\mathbf{F}, \ \mathbf{m} = \mathbf{e}^{'}
+  \end{aligned}
+\end{equation}
+\begin{itemize}
+\item 이를 통해 $\mathbf{x}, \mathbf{x}^{'}$의 Back-projection된 직선들을 각각 구할 수 있다.
+\item 두 Back-projection 직선과 가장 근접한 3차원 공간 상의 점 $\mathbf{X}^{i}$를 계산할 수 있다.
+\item 이미지 평면에 3차원 공간 상의 점 $\mathbf{X}^{i}$를 재투영(reprojection) 한다.
+\end{itemize}
+\begin{equation}
+  \begin{aligned}
+    &amp; \hat{\mathbf{x}} = \mathbf{PX}^{i} \\
+    &amp; \hat{\mathbf{x}}^{'} = \mathbf{P}^{'}\mathbf{X}^{i} \\
+  \end{aligned}
+\end{equation}
+<p>
+다음과 같이 재투영 오차(reprojection error)를 Gauss-Newton, Levenerg-Marquardt 등과 같은 비선형 최적화 방법을 사용하여 최소화한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \sum_{i} d(\mathbf{x} - \hat{\mathbf{x}})^{2} + d(\mathbf{x}^{'}, \hat{\mathbf{x}}^{'})^{2}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 최적화되는 파라미터는 $\mathbf{X}^{i}$와 카메라 행렬 $\mathbf{P}^{'} = [\mathbf{M}|\mathbf{m}]$이다.
+</p>
 <hr />
 </div>
 </div>
 </div>
 <div id="outline-container-org5816cc3" class="outline-2">
-<h2 id="org5816cc3"><span class="section-number-2">4</span> References</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="org5816cc3"><span class="section-number-2">6</span> References</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 <a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
 </p>
 </div>
 </div>
 <div id="outline-container-org6d8d6e0" class="outline-2">
-<h2 id="org6d8d6e0"><span class="section-number-2">5</span> Closure</h2>
-<div class="outline-text-2" id="text-5">
+<h2 id="org6d8d6e0"><span class="section-number-2">7</span> Closure</h2>
+<div class="outline-text-2" id="text-7">
 <p>
 PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.
 </p>
