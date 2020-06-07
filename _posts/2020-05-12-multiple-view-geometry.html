@@ -1,64 +1,64 @@
----
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgf7e3dfb">1. More Single View Geometry</a>
+<ul>
+<li><a href="#orgd03db8e">1.1. Camera calibration and the image of the absolute conic</a>
+<ul>
+<li><a href="#org2321c0d">1.1.1. Result 8.15</a></li>
+<li><a href="#org1f0200b">1.1.2. Result 8.16</a></li>
+</ul>
+</li>
+<li><a href="#org1fd60af">1.2. The image of the absolute conic</a></li>
+<li><a href="#org8333916">1.3. Orthogonality and $\mathbf{w}$</a></li>
+<li><a href="#org58a08d7">1.4. Vanishing points and vanishing lines</a>
+<ul>
+<li><a href="#org944b5c4">1.4.1. Camera rotation from vanishing points</a></li>
+</ul>
+</li>
+<li><a href="#orgd018b92">1.5. Vanishing Lines</a></li>
+<li><a href="#orge72b6aa">1.6. Orthogonality relationships amongst vanishing points and lines</a></li>
+<li><a href="#org0f58b29">1.7. Affine 3D measurements and reconstruction</a></li>
+<li><a href="#org0be45e6">1.8. Determining camera calibration $\mathbf{K}$from a single view</a></li>
+<li><a href="#org08edbf3">1.9. Calibration from three orthogonal vanishing points</a></li>
+<li><a href="#org010aaf8">1.10. Computation of focal length and principal point using vanishing point and vanishing line</a></li>
+<li><a href="#orgc7a1329">1.11. The calibrating conic</a></li>
+</ul>
+</li>
+<li><a href="#orge43955e">2. Epipolar Geometry and the Fundamental Matrix</a>
+<ul>
+<li><a href="#orgcd72ba2">2.1. Proof</a></li>
+<li><a href="#org0da129e">2.2. Derivation of Fundemantal Matrix(Geometry)</a></li>
+<li><a href="#org8bc1244">2.3. Derivation of Fundemantal Matrix(Algebraic)</a></li>
+</ul>
+</li>
+<li><a href="#org5816cc3">3. References</a></li>
+<li><a href="#org6d8d6e0">4. Closure</a></li>
+</ul>
+</div>
+</div>
+--- 
 layout: post
 title: (Geometry) Notes on Multiple View Geometry
-description:
+description: 
 date: 2020-05-12
 categories: [Mathematics]
 tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
 use_math: true
 comments: true
 ---
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#orgd483b34">1. More Single View Geometry</a>
-<ul>
-<li><a href="#org52a85c0">1.1. Camera calibration and the image of the absolute conic</a>
-<ul>
-<li><a href="#orge39785b">1.1.1. Result 8.15</a></li>
-<li><a href="#orgd741e24">1.1.2. Result 8.16</a></li>
-</ul>
-</li>
-<li><a href="#org13516d8">1.2. The image of the absolute conic</a></li>
-<li><a href="#org2c0a824">1.3. Orthogonality and $\mathbf{w}$</a></li>
-<li><a href="#org856b06a">1.4. Vanishing points and vanishing lines</a>
-<ul>
-<li><a href="#org17ac378">1.4.1. Camera rotation from vanishing points</a></li>
-</ul>
-</li>
-<li><a href="#org1f3a43e">1.5. Vanishing Lines</a></li>
-<li><a href="#orga7c2524">1.6. Orthogonality relationships amongst vanishing points and lines</a></li>
-<li><a href="#org9c0209b">1.7. Affine 3D measurements and reconstruction</a></li>
-<li><a href="#org370cda7">1.8. Determining camera calibration $\mathbf{K}$from a single view</a></li>
-<li><a href="#org6d08d8f">1.9. Calibration from three orthogonal vanishing points</a></li>
-<li><a href="#org6637727">1.10. Computation of focal length and principal point using vanishing point and vanishing line</a></li>
-<li><a href="#org18fa2f1">1.11. The calibrating conic</a></li>
-</ul>
-</li>
-<li><a href="#org0ccbe2b">2. Epipolar Geometry and the Fundamental Matrix</a>
-<ul>
-<li><a href="#orgdb69ed3">2.1. Proof</a></li>
-<li><a href="#orgab0548b">2.2. Derivation of Fundemantal Matrix(Geometry)</a></li>
-<li><a href="#org41613f7">2.3. Derivation of Fundemantal Matrix(Algebraic)</a></li>
-</ul>
-</li>
-<li><a href="#orgd5d4c31">3. References</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgd483b34" class="outline-2">
-<h2 id="orgd483b34"><span class="section-number-2">1</span> More Single View Geometry</h2>
+<div id="outline-container-orgf7e3dfb" class="outline-2">
+<h2 id="orgf7e3dfb"><span class="section-number-2">1</span> More Single View Geometry</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org52a85c0" class="outline-3">
-<h3 id="org52a85c0"><span class="section-number-3">1.1</span> Camera calibration and the image of the absolute conic</h3>
+<div id="outline-container-orgd03db8e" class="outline-3">
+<h3 id="orgd03db8e"><span class="section-number-3">1.1</span> Camera calibration and the image of the absolute conic</h3>
 <div class="outline-text-3" id="text-1-1">
 <hr />
 </div>
-<div id="outline-container-orge39785b" class="outline-4">
-<h4 id="orge39785b"><span class="section-number-4">1.1.1</span> Result 8.15</h4>
+<div id="outline-container-org2321c0d" class="outline-4">
+<h4 id="org2321c0d"><span class="section-number-4">1.1.1</span> Result 8.15</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <hr />
 <p>
@@ -98,8 +98,8 @@ comments: true
 <hr />
 </div>
 </div>
-<div id="outline-container-orgd741e24" class="outline-4">
-<h4 id="orgd741e24"><span class="section-number-4">1.1.2</span> Result 8.16</h4>
+<div id="outline-container-org1f0200b" class="outline-4">
+<h4 id="org1f0200b"><span class="section-number-4">1.1.2</span> Result 8.16</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 이미지 평면에 있는 직선 $\mathbf{l}$위에 한 점 $\mathbf{x}$가 위치할 때, 점과 직선 사이에는 다음 공식이 성립한다.
@@ -124,8 +124,8 @@ comments: true
 </div>
 </div>
 </div>
-<div id="outline-container-org13516d8" class="outline-3">
-<h3 id="org13516d8"><span class="section-number-3">1.2</span> The image of the absolute conic</h3>
+<div id="outline-container-org1fd60af" class="outline-3">
+<h3 id="org1fd60af"><span class="section-number-3">1.2</span> The image of the absolute conic</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 무한대 평면 $&pi;_{&infin;}$가 있을 때 $\pi_{\infty}$위에 위치한 무한대 점 $\mathbf{X}_{&infin;} = (\mathbf{d}^{T}, 0)^{T}$이 있다고 하면 이를 카메라 $\mathbf{P}=\mathbf{KR}[\mathbf{I}|-~{\mathbf{C}}]$에 프로젝션시키면 다음과 같다.
@@ -191,8 +191,8 @@ comments: true
 <hr />
 </div>
 </div>
-<div id="outline-container-org2c0a824" class="outline-3">
-<h3 id="org2c0a824"><span class="section-number-3">1.3</span> Orthogonality and $\mathbf{w}$</h3>
+<div id="outline-container-org8333916" class="outline-3">
+<h3 id="org8333916"><span class="section-number-3">1.3</span> Orthogonality and $\mathbf{w}$</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 이미지 평면 상의 두 점 $\mathbf{x}_{1}, \mathbf{x}_{2}$를 Back-projection하면 두 직선 $\mathbf{K}^{-1}\mathbf{x}_{1}, \mathbf{K}^{-1}\mathbf{x}_2$가 생성된다. 만약 두 직선이 직교하는 경우 $\mathbf{x}_{1}^{T}\mathbf{w}\mathbf{x}_{2}=0$의 공식이 성립한다. 그리고 $\mathbf{x}_{1}$가 직선 $\mathbf{l}$에 포함되어 있으면 $\mathbf{x}_{1}^{T}\mathbf{l}=0$이 성립한다. 위 두 공식을 결합하면
@@ -208,8 +208,8 @@ comments: true
 <hr />
 </div>
 </div>
-<div id="outline-container-org856b06a" class="outline-3">
-<h3 id="org856b06a"><span class="section-number-3">1.4</span> Vanishing points and vanishing lines</h3>
+<div id="outline-container-org58a08d7" class="outline-3">
+<h3 id="org58a08d7"><span class="section-number-3">1.4</span> Vanishing points and vanishing lines</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 3차원 공간 상의 점 $\mathbf{A}$와 직선의 방향 $\mathbf{D}=(\mathbf{d}^{T},0)^{T}$가 존재할 때 직선 위에 존재하는 점 $\mathbf{X}(&lambda;)$는 다음과 같이 정의된다.
@@ -241,8 +241,8 @@ comments: true
 \end{equation}
 <hr />
 </div>
-<div id="outline-container-org17ac378" class="outline-4">
-<h4 id="org17ac378"><span class="section-number-4">1.4.1</span> Camera rotation from vanishing points</h4>
+<div id="outline-container-org944b5c4" class="outline-4">
+<h4 id="org944b5c4"><span class="section-number-4">1.4.1</span> Camera rotation from vanishing points</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <p>
 소실점을 사용하여 카메라의 회전을 계산할 수 있다. 이미지 1에서 추출한 소실점 $\mathbf{v}_{1}$과 이미지 2에서 추출한 소실점 $\mathbf{v}_{2}$이 있을 때, $\mathbf{v}_{1}$의 방향은 $\mathbf{d}_{1} = \mathbf{K}^{-1}\mathbf{v}_{1}$이 되고 $\mathbf{v}_{2}$의 방향은 $\mathbf{d}_{2} = \mathbf{K}^{-1}\mathbf{v}_{2}$가 된다.
@@ -265,8 +265,8 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 </div>
 </div>
 </div>
-<div id="outline-container-org1f3a43e" class="outline-3">
-<h3 id="org1f3a43e"><span class="section-number-3">1.5</span> Vanishing Lines</h3>
+<div id="outline-container-orgd018b92" class="outline-3">
+<h3 id="orgd018b92"><span class="section-number-3">1.5</span> Vanishing Lines</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 두 개 이상의 소실점(Vanishing Point) $\mathbf{v}_{i}, i=1,2,\cdots$들을 이어준 직선을 소실선(Vanishing Line) $\mathbf{l}$이라고 한다. 예를 들어 이미지 상의 체크보드가 있고 이로 인해 2개의 소실점 $\mathbf{v}_{1}, \mathbf{v}_{2}$를 구한 경우를 생각해보자. 이 경우, <b>두 소실점 $\mathbf{v}_{1},\mathbf{v}_{2}$를 이어주는 직선 $\mathbf{l}$을 체크보드 평면 $&pi;$의 소실선</b> 이라고 한다.
@@ -293,8 +293,8 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 <hr />
 </div>
 </div>
-<div id="outline-container-orga7c2524" class="outline-3">
-<h3 id="orga7c2524"><span class="section-number-3">1.6</span> Orthogonality relationships amongst vanishing points and lines</h3>
+<div id="outline-container-orge72b6aa" class="outline-3">
+<h3 id="orge72b6aa"><span class="section-number-3">1.6</span> Orthogonality relationships amongst vanishing points and lines</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 이미지 평면에서 두 개의 소실점 $\mathbf{v}_{1}, \mathbf{v}_{2}$을 Back-projection한 직선들이 서로 직교하는 조건은 다음과 같다.
@@ -334,8 +334,8 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 <hr />
 </div>
 </div>
-<div id="outline-container-org9c0209b" class="outline-3">
-<h3 id="org9c0209b"><span class="section-number-3">1.7</span> Affine 3D measurements and reconstruction</h3>
+<div id="outline-container-org0f58b29" class="outline-3">
+<h3 id="org0f58b29"><span class="section-number-3">1.7</span> Affine 3D measurements and reconstruction</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 3차원 공간 상의 평면 $&pi;$에 수직인 물체들의 소실점을 수직소실점(Vertical Vanishing Point) $\mathbf{v_{&perp;}}$라고 한다. 평면 $&pi;$의 소실선 $\mathbf{l}$과 수직소실점을 이용하면 물체의 크기를 Up to Scale까지 계산할 수 있다. 정확하게 말하면 <b>소실선 $\mathbf{l}$과 수직소실점 $\mathbf{v}_{&perp;}$를 알면 평면 $&pi;$에 수직한 선분들의 상대적 길이를 알 수 있다.</b>
@@ -379,8 +379,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 <hr />
 </div>
 </div>
-<div id="outline-container-org370cda7" class="outline-3">
-<h3 id="org370cda7"><span class="section-number-3">1.8</span> Determining camera calibration $\mathbf{K}$from a single view</h3>
+<div id="outline-container-org0be45e6" class="outline-3">
+<h3 id="org0be45e6"><span class="section-number-3">1.8</span> Determining camera calibration $\mathbf{K}$from a single view</h3>
 <div class="outline-text-3" id="text-1-8">
 <p>
 단안 이미지에서 내부 파라미터 $\mathbf{K}$를 결정하기 위해서는 2가지 제약조건이 필요하다. <b>이미지 제약조건(Scene Constraint)과 내부 파라미터의 제약조건(Internal Constraint)</b> 이 있다.
@@ -413,8 +413,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 <hr />
 </div>
 </div>
-<div id="outline-container-org6d08d8f" class="outline-3">
-<h3 id="org6d08d8f"><span class="section-number-3">1.9</span> Calibration from three orthogonal vanishing points</h3>
+<div id="outline-container-org08edbf3" class="outline-3">
+<h3 id="org08edbf3"><span class="section-number-3">1.9</span> Calibration from three orthogonal vanishing points</h3>
 <div class="outline-text-3" id="text-1-9">
 <p>
 내부 파라미터 $\mathbf{K}$가 Zero-Skew이고 Square Pixel일 때 세 개의 서로 직교하는 수직소실점들 $\mathbf{v}_{i}, \ i=1,2,3$을 사용하여 $\mathbf{K}$를 계산할 수 있다. 우선 $\mathbf{K}$가 Zero-Skew이고 Square Pixel이므로 다음이 성립한다.
@@ -432,8 +432,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 <hr />
 </div>
 </div>
-<div id="outline-container-org6637727" class="outline-3">
-<h3 id="org6637727"><span class="section-number-3">1.10</span> Computation of focal length and principal point using vanishing point and vanishing line</h3>
+<div id="outline-container-org010aaf8" class="outline-3">
+<h3 id="org010aaf8"><span class="section-number-3">1.10</span> Computation of focal length and principal point using vanishing point and vanishing line</h3>
 <div class="outline-text-3" id="text-1-10">
 <p>
 3차원 공간 상의 평면 $&pi;$로부터 구할 수 있는 소실선 $\mathbf{l}$이 있고 $&pi;$와 수직인 수직소실점 $\mathbf{v}_{&perp;}$가 있다고 하면 이를 활용하여 초점거리 f와 주점(Poincipal Point)를 구할 수 있다.
@@ -450,8 +450,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 <hr />
 </div>
 </div>
-<div id="outline-container-org18fa2f1" class="outline-3">
-<h3 id="org18fa2f1"><span class="section-number-3">1.11</span> The calibrating conic</h3>
+<div id="outline-container-orgc7a1329" class="outline-3">
+<h3 id="orgc7a1329"><span class="section-number-3">1.11</span> The calibrating conic</h3>
 <div class="outline-text-3" id="text-1-11">
 <p>
 IAC(Image of Absolute Conic)은 이미지 평면의 점을 Back-projection한 직선들 간의 각도를 구할 수 있고 Metric Rectification도 수행할 수 있는 유용한 도구이지만 Circular Point의 특성 상 실수의 근을 갖지 않아서 시각화가 불가능하다는 단점이 있다. 이를 보완하기 위해 고안된 것이 Calibration Conic이다. Calibration Conic은 $X^{2}+Y^{2}=Z^{2}$의 Cone을 프로젝션시킨 Image Conic을 의미하고 시각화가 가능한 장점이 존재한다.
@@ -515,8 +515,8 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 </div>
 </div>
 </div>
-<div id="outline-container-org0ccbe2b" class="outline-2">
-<h2 id="org0ccbe2b"><span class="section-number-2">2</span> Epipolar Geometry and the Fundamental Matrix</h2>
+<div id="outline-container-orge43955e" class="outline-2">
+<h2 id="orge43955e"><span class="section-number-2">2</span> Epipolar Geometry and the Fundamental Matrix</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Epipolar geometry는 <b>2개의 카메라 이미지 사이에 정의되는 기하학 관계</b> 를 의미한다. 이는 3차원 물체의 구조와는 독립적이며 <b>오로지 카메라의 내부 파라미터와 두 카메라 사이의 상대 포즈에만 의존한다.</b>
@@ -546,8 +546,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 \end{equation}
 <hr />
 </div>
-<div id="outline-container-orgdb69ed3" class="outline-3">
-<h3 id="orgdb69ed3"><span class="section-number-3">2.1</span> Proof</h3>
+<div id="outline-container-orgcd72ba2" class="outline-3">
+<h3 id="orgcd72ba2"><span class="section-number-3">2.1</span> Proof</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 ($\Rightarrow$)$\mathbf{l}^{'} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{'}$에 위치한 점 $\mathbf{x}^{'}$에 대하여 다음이 성립한다.
@@ -575,8 +575,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 <hr />
 </div>
 </div>
-<div id="outline-container-orgab0548b" class="outline-3">
-<h3 id="orgab0548b"><span class="section-number-3">2.2</span> Derivation of Fundemantal Matrix(Geometry)</h3>
+<div id="outline-container-org0da129e" class="outline-3">
+<h3 id="org0da129e"><span class="section-number-3">2.2</span> Derivation of Fundemantal Matrix(Geometry)</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 두 카메라 $\mathbf{C}, \mathbf{C}^{'}$가 있을 때 이미지 평면 $\pi_{\mathbf{C}}$위의 점 $\mathbf{x}$를 Back-projection한 직선 $\mathbf{l}_{x}$가 3차원 공간 상에서 임의의 평면 $&pi;_{0}$와 한 점에서 만난다고 가정한다. 이 때 $\mathbf{C}, \mathbf{C}^{'}$의 이미지 점들을 연결해주는 Homography $\mathbf{H}_{&pi;_{0}}$를 생각해보면
@@ -616,8 +616,8 @@ $\pi_{\mathbf{C}^{'}}$위에 프로젝션된 점을 $\mathbf{x}^{'} = \mathbf{P}
 <hr />
 </div>
 </div>
-<div id="outline-container-org41613f7" class="outline-3">
-<h3 id="org41613f7"><span class="section-number-3">2.3</span> Derivation of Fundemantal Matrix(Algebraic)</h3>
+<div id="outline-container-org8bc1244" class="outline-3">
+<h3 id="org8bc1244"><span class="section-number-3">2.3</span> Derivation of Fundemantal Matrix(Algebraic)</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Epipolar Line $\mathbf{l}^{'} = \mathbf{P}^{'}(\mathbf{X(\lambda)})$와 같다. 이 때 $\mathbf{X}(&lambda;)$는 카메라 $\mathbf{C}$의 중심점을 지나는 $\mathbf{x}$의 Back-projection 직선을 의미한다. $\mathbf{X}(&lambda;)$는 다음과 같이 다시 작성할 수 있다.
@@ -673,15 +673,19 @@ $\mathbf{P}^{'}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;_{\mat
 </div>
 </div>
 </div>
-<div id="outline-container-orgd5d4c31" class="outline-2">
-<h2 id="orgd5d4c31"><span class="section-number-2">3</span> References</h2>
+<div id="outline-container-org5816cc3" class="outline-2">
+<h2 id="org5816cc3"><span class="section-number-2">3</span> References</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
 </p>
-
+</div>
+</div>
+<div id="outline-container-org6d8d6e0" class="outline-2">
+<h2 id="org6d8d6e0"><span class="section-number-2">4</span> Closure</h2>
+<div class="outline-text-2" id="text-4">
 <p>
-<a href="http://rpg.ifi.uzh.ch/teaching.html">ETH, Vision Algorithms for Mobile Robotics, Davide Scaramuzza</a>
+pdf version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>. 
 </p>
 </div>
 </div>
