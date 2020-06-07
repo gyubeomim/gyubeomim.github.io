@@ -24,10 +24,10 @@ comments: true
 <li><a href="#orgb45aaad">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#org60fefc7">1.2. Ideal points and the line at infinity</a>
+<li><a href="#org862e8ec">1.2. Ideal points and the line at infinity</a>
 <ul>
 <li><a href="#org244a4b3">1.2.1. Intersection of parallel lines</a></li>
-<li><a href="#org05d6428">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#org60fefc7">1.2.2. Ideal points and the line at infinity</a></li>
 <li><a href="#org95f7e2a">1.2.3. A model for the projective plane</a></li>
 <li><a href="#orgee9e9f7">1.2.4. Duality</a></li>
 </ul>
@@ -37,7 +37,7 @@ comments: true
 <li><a href="#orgdf86b47">1.3.1. Five points define a conic</a></li>
 <li><a href="#orgad61825">1.3.2. Tangent lines to conics</a></li>
 <li><a href="#orga4242e7">1.3.3. Dual conics</a></li>
-<li><a href="#orgcd72ba2">1.3.4. Proof</a></li>
+<li><a href="#org0e540e8">1.3.4. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgb027165">1.4. Projective transformations</a></li>
@@ -85,7 +85,7 @@ comments: true
 </li>
 <li><a href="#orge43955e">3. Epipolar Geometry and the Fundamental Matrix</a>
 <ul>
-<li><a href="#org0e540e8">3.1. Proof</a></li>
+<li><a href="#orgcf8db40">3.1. Proof</a></li>
 <li><a href="#org0da129e">3.2. Derivation of Fundemantal Matrix(Geometry)</a></li>
 <li><a href="#org8bc1244">3.3. Derivation of Fundemantal Matrix(Algebraic)</a></li>
 </ul>
@@ -115,10 +115,12 @@ comments: true
 <div id="outline-container-org93a0928" class="outline-4">
 <h4 id="org93a0928"><span class="section-number-4">1.1.2</span> Homogeneous representation of line</h4>
 <div class="outline-text-4" id="text-1-1-2">
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=8cm]{../pictures/200607_mvg/01.png}
-\end{figure}
+
+<div class="figure">
+<p><img src="../pictures/200607_mvg/01.png" alt="01.png" align="center" width="300px" />
+</p>
+</div>
+
 <p>
 임의의 직선 $\mathbf{l}$은 다음과 같이 표현할 수 있다.
 </p>
@@ -177,10 +179,12 @@ comments: true
 이는 직선 위의 한 점 $\mathbf{x}=(x,y)$좌표 맨 끝에 1을 추가하여 직선과 내적한 것으로 볼 수 있다. 직선 $\mathbf{l}$는 스케일 값에 상관없이 하나의 직선을 표현할 수 있으므로 $(x,y,1)\mathbf{l}=0$이 성립한다는 전제하에 모든 $k$값에 대해 $(kx,ky,k)\mathbf{l}=0$또한 성립한다. 따라서 <b>임의의 상수 $k$에 대해서 $(kx,ky,k)$는 $\mathbb{r}^{2}$공간에서 한 점 $\mathbf{x}=(x,y)$를 의미하므로 직선과 동일하게 점 또한 homogeneous 벡터로 표현할 수 있다.</b> 이를 일반화하여 표현하면 임의의 점 $\mathbf{x}=(x_{1}, x_{2},x_{3})^{t}$는 $\mathbb{r}^{2}$공간 상의 한 점 $(x_{1}/x_{3}, x_{2}/x_{3})$을 표현한다.
 </p>
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=8cm]{02.png}
-\end{figure}
+
+<div class="figure">
+<p><img src="../pictures/200607_mvg/02.png" alt="02.png" align="center" width="300px" />
+</p>
+</div>
+
 <p>
 따라서 $\mathbb{p}^{2}$공간 상에서 임의의 한 점 $\mathbf{x}$가 직선 $\mathbf{l}$위에 존재할 경우
 </p>
@@ -211,10 +215,12 @@ $\mathbb{p}^{2}$공간에서 하나의 점이 유일하게 결정되기 위해�
 <div id="outline-container-org86d8118" class="outline-4">
 <h4 id="org86d8118"><span class="section-number-4">1.1.5</span> Intersection of lines</h4>
 <div class="outline-text-4" id="text-1-1-5">
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=8cm]{03.png}
-\end{figure}
+
+<div class="figure">
+<p><img src="../pictures/200607_mvg/03.png" alt="03.png" align="center" width="300px" />
+</p>
+</div>
+
 <p>
 $\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 주어졌을 때 두 직선의 방정식은 다음과 같이 쓸 수 있다.
 </p>
@@ -265,13 +271,14 @@ $\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 </div>
 </div>
 
-<div id="outline-container-org60fefc7" class="outline-3">
-<h3 id="org60fefc7"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div id="outline-container-org862e8ec" class="outline-3">
+<h3 id="org862e8ec"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
 <div class="outline-text-3" id="text-1-2">
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=14cm]{05.png}
-\end{figure}
+
+<div class="figure">
+<p><img src="../pictures/200607_mvg/05.png" alt="05.png" align="center" width="300px" />
+</p>
+</div>
 </div>
 
 <div id="outline-container-org244a4b3" class="outline-4">
@@ -325,8 +332,8 @@ $\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 </div>
 </div>
 
-<div id="outline-container-org05d6428" class="outline-4">
-<h4 id="org05d6428"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div id="outline-container-org60fefc7" class="outline-4">
+<h4 id="org60fefc7"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{t}$는 $x_{3} &ne; 0$일 때 $\mathbb{r}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{r}^{2}$공간과 대응되지 않고 $\mathbb{p}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
@@ -359,10 +366,12 @@ homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{t}$는 $x_{3} &ne; 0$일 때
 <div id="outline-container-org95f7e2a" class="outline-4">
 <h4 id="org95f7e2a"><span class="section-number-4">1.2.3</span> A model for the projective plane</h4>
 <div class="outline-text-4" id="text-1-2-3">
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=9cm]{06.png}
-\end{figure}
+
+<div class="figure">
+<p><img src="../pictures/200607_mvg/06.png" alt="06.png" align="center" width="300px" />
+</p>
+</div>
+
 <p>
 <b>기하학적으로 봤을 때, $\mathbb{p}^{2}$는 3차원 공간 $\mathbb{r}^{3}$에서 원점을 지나는 모든 직선들의 집합</b> 을 의미한다. $\mathbb{p}^{2}$상의 모든 벡터를 $k(x_{1},x_{2},x_{3})^{t}$라고 했을 때 $k$값에 따라 한 점 $(x_{1},x_{2},x_{3})^{t}$의 위치가 결정된다. $k$는 실수이므로 $k=0$인 경우 원점을 의미하고 $k&ne;0$인 경우 무수한 점들의 집합인 직선이 된다. 반대로, 이러한 $\mathbb{r}^{3}$공간 상의 원점을 통과하는 한 직선은 $\mathbb{p}^{2}$공간 상의 한 점으로 볼 수 있다. 이를 확장하면 <b>$\mathbb{p}^{2}$공간 상의 직선 $\mathbf{l}$은 $\mathbb{r}^{3}$공간 상의 원점을 포함하는 평면 $&pi;$에 대응</b> 한다.
 </p>
@@ -533,8 +542,8 @@ $\mathbb{p}^{2}$상의 conic $\mathbf{c}$가 주어졌을 때, <b>$\mathbf{c}$�
 </div>
 </div>
 
-<div id="outline-container-orgcd72ba2" class="outline-4">
-<h4 id="orgcd72ba2"><span class="section-number-4">1.3.4</span> Proof</h4>
+<div id="outline-container-org0e540e8" class="outline-4">
+<h4 id="org0e540e8"><span class="section-number-4">1.3.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 ($\rightarrow$) conic $\mathbf{c}&isin; \mathbb{r}^{3&times; 3}$의 rank가 3이고 non-singular하다고 가정하면 $\mathbf{c}^{*} = det(\mathbf{c}^{-1})$와 같이 나타낼 수 있다. $\mathbf{c}$위의 한 점 $\mathbf{x}&isin; \mathbf{c}$가 주어졌을 때 $\mathbf{x}$에서 접선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{cx}$로 나타낼 수 있다. 이를 위 식에 대입하면
@@ -599,10 +608,12 @@ $\mathbb{p}^{2}$의 projective transformation은 non-singular인 $3\times3$행�
 <div id="outline-container-org7070f5a" class="outline-3">
 <h3 id="org7070f5a"><span class="section-number-3">1.5</span> A hierarchy of transformations</h3>
 <div class="outline-text-3" id="text-1-5">
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=16cm]{07.png}
-\end{figure}
+
+<div class="figure">
+<p><img src="../pictures/200607_mvg/07.png" alt="07.png" align="center" width="300px" />
+</p>
+</div>
+
 <p>
 projective 변환은 변환 전과 후 사이에 어떤 성질을 보존하느냐에 따라 여러 종류의 변환 행렬이 존재한다.
 </p>
@@ -1274,8 +1285,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 \end{equation}
 <hr />
 </div>
-<div id="outline-container-org0e540e8" class="outline-3">
-<h3 id="org0e540e8"><span class="section-number-3">3.1</span> Proof</h3>
+<div id="outline-container-orgcf8db40" class="outline-3">
+<h3 id="orgcf8db40"><span class="section-number-3">3.1</span> Proof</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 ($\Rightarrow$)$\mathbf{l}^{'} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{'}$에 위치한 점 $\mathbf{x}^{'}$에 대하여 다음이 성립한다.
