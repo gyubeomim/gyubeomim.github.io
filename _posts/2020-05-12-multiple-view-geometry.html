@@ -1,13 +1,3 @@
----
-layout: post
-title: (Geometry) Notes on Multiple View Geometry
-description:
-date: 2020-05-12
-categories: [Mathematics]
-tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
-use_math: true
-comments: true
----
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -24,10 +14,10 @@ comments: true
 <li><a href="#orgb45aaad">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#org3fcbace">1.2. Ideal points and the line at infinity</a>
+<li><a href="#org7445be9">1.2. Ideal points and the line at infinity</a>
 <ul>
 <li><a href="#org244a4b3">1.2.1. Intersection of parallel lines</a></li>
-<li><a href="#org862e8ec">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#org992b141">1.2.2. Ideal points and the line at infinity</a></li>
 <li><a href="#org95f7e2a">1.2.3. A model for the projective plane</a></li>
 <li><a href="#orgee9e9f7">1.2.4. Duality</a></li>
 </ul>
@@ -37,7 +27,7 @@ comments: true
 <li><a href="#orgdf86b47">1.3.1. Five points define a conic</a></li>
 <li><a href="#orgad61825">1.3.2. Tangent lines to conics</a></li>
 <li><a href="#orga4242e7">1.3.3. Dual conics</a></li>
-<li><a href="#orgcf8db40">1.3.4. Proof</a></li>
+<li><a href="#org57455fd">1.3.4. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgb027165">1.4. Projective transformations</a></li>
@@ -85,7 +75,7 @@ comments: true
 </li>
 <li><a href="#orge43955e">3. Epipolar Geometry and the Fundamental Matrix</a>
 <ul>
-<li><a href="#org4aa1311">3.1. Proof</a></li>
+<li><a href="#orgb985681">3.1. Proof</a></li>
 <li><a href="#org0da129e">3.2. Derivation of Fundemantal Matrix(Geometry)</a></li>
 <li><a href="#org8bc1244">3.3. Derivation of Fundemantal Matrix(Algebraic)</a></li>
 </ul>
@@ -95,7 +85,16 @@ comments: true
 </ul>
 </div>
 </div>
-
+--- 
+layout: post
+title: (Geometry) Notes on Multiple View Geometry
+description: 
+date: 2020-05-12
+categories: [Mathematics]
+tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
+use_math: true
+comments: true
+---
 <div id="outline-container-org60ce3ce" class="outline-2">
 <h2 id="org60ce3ce"><span class="section-number-2">1</span> Projective geometry and transformations in 2d</h2>
 <div class="outline-text-2" id="text-1">
@@ -117,7 +116,7 @@ comments: true
 <div class="outline-text-4" id="text-1-1-2">
 
 <div class="figure">
-<p><img src="file:///pictures/200607_mvg/01.PNG" alt="01.PNG" align="center" width="300px" />
+<p><img src="/pictures/200607_mvg/01.PNG" alt="01.PNG" align="center" width="300px" />
 </p>
 </div>
 
@@ -181,7 +180,7 @@ comments: true
 
 
 <div class="figure">
-<p><img src="file:///pictures/200607_mvg/02.PNG" alt="02.PNG" align="center" width="300px" />
+<p><img src="/pictures/200607_mvg/02.PNG" alt="02.PNG" align="center" width="300px" />
 </p>
 </div>
 
@@ -217,7 +216,7 @@ $\mathbb{p}^{2}$공간에서 하나의 점이 유일하게 결정되기 위해�
 <div class="outline-text-4" id="text-1-1-5">
 
 <div class="figure">
-<p><img src="file:///pictures/200607_mvg/03.PNG" alt="03.PNG" align="center" width="300px" />
+<p><img src="/pictures/200607_mvg/03.PNG" alt="03.PNG" align="center" width="300px" />
 </p>
 </div>
 
@@ -271,12 +270,12 @@ $\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 </div>
 </div>
 
-<div id="outline-container-org3fcbace" class="outline-3">
-<h3 id="org3fcbace"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div id="outline-container-org7445be9" class="outline-3">
+<h3 id="org7445be9"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
-<p><img src="file:///pictures/200607_mvg/05.PNG" alt="05.PNG" align="center" width="300px" />
+<p><img src="/pictures/200607_mvg/05.PNG" alt="05.PNG" align="center" width="300px" />
 </p>
 </div>
 </div>
@@ -332,8 +331,8 @@ $\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 </div>
 </div>
 
-<div id="outline-container-org862e8ec" class="outline-4">
-<h4 id="org862e8ec"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div id="outline-container-org992b141" class="outline-4">
+<h4 id="org992b141"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{t}$는 $x_{3} &ne; 0$일 때 $\mathbb{r}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{r}^{2}$공간과 대응되지 않고 $\mathbb{p}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
@@ -368,7 +367,7 @@ homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{t}$는 $x_{3} &ne; 0$일 때
 <div class="outline-text-4" id="text-1-2-3">
 
 <div class="figure">
-<p><img src="file:///pictures/200607_mvg/06.png" alt="06.png" align="center" width="300px" />
+<p><img src="/pictures/200607_mvg/06.png" alt="06.png" align="center" width="300px" />
 </p>
 </div>
 
@@ -542,8 +541,8 @@ $\mathbb{p}^{2}$상의 conic $\mathbf{c}$가 주어졌을 때, <b>$\mathbf{c}$�
 </div>
 </div>
 
-<div id="outline-container-orgcf8db40" class="outline-4">
-<h4 id="orgcf8db40"><span class="section-number-4">1.3.4</span> Proof</h4>
+<div id="outline-container-org57455fd" class="outline-4">
+<h4 id="org57455fd"><span class="section-number-4">1.3.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 ($\rightarrow$) conic $\mathbf{c}&isin; \mathbb{r}^{3&times; 3}$의 rank가 3이고 non-singular하다고 가정하면 $\mathbf{c}^{*} = det(\mathbf{c}^{-1})$와 같이 나타낼 수 있다. $\mathbf{c}$위의 한 점 $\mathbf{x}&isin; \mathbf{c}$가 주어졌을 때 $\mathbf{x}$에서 접선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{cx}$로 나타낼 수 있다. 이를 위 식에 대입하면
@@ -610,7 +609,7 @@ $\mathbb{p}^{2}$의 projective transformation은 non-singular인 $3\times3$행�
 <div class="outline-text-3" id="text-1-5">
 
 <div class="figure">
-<p><img src="file:///pictures/200607_mvg/07.png" alt="07.png" align="center" width="300px" />
+<p><img src="/pictures/200607_mvg/07.png" alt="07.png" align="center" width="300px" />
 </p>
 </div>
 
@@ -1285,8 +1284,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 \end{equation}
 <hr />
 </div>
-<div id="outline-container-org4aa1311" class="outline-3">
-<h3 id="org4aa1311"><span class="section-number-3">3.1</span> Proof</h3>
+<div id="outline-container-orgb985681" class="outline-3">
+<h3 id="orgb985681"><span class="section-number-3">3.1</span> Proof</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 ($\Rightarrow$)$\mathbf{l}^{'} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{'}$에 위치한 점 $\mathbf{x}^{'}$에 대하여 다음이 성립한다.
