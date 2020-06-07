@@ -12,9 +12,9 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org60ce3ce">1. Projective geometry and transformations in 2d</a>
+<li><a href="#org2695735">1. Projective geometry and transformations in 2D</a>
 <ul>
-<li><a href="#orgfe0307b">1.1. The 2d projective plane</a>
+<li><a href="#org70c071f">1.1. The 2D projective plane</a>
 <ul>
 <li><a href="#org84d7695">1.1.1. Points and lines</a></li>
 <li><a href="#org93a0928">1.1.2. Homogeneous representation of line</a></li>
@@ -24,10 +24,10 @@ comments: true
 <li><a href="#orgb45aaad">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#org152e8d3">1.2. Ideal points and the line at infinity</a>
+<li><a href="#orgeb1886f">1.2. Ideal points and the line at infinity</a>
 <ul>
 <li><a href="#org244a4b3">1.2.1. Intersection of parallel lines</a></li>
-<li><a href="#org3305128">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#org152e8d3">1.2.2. Ideal points and the line at infinity</a></li>
 <li><a href="#org95f7e2a">1.2.3. A model for the projective plane</a></li>
 <li><a href="#orgee9e9f7">1.2.4. Duality</a></li>
 </ul>
@@ -37,7 +37,7 @@ comments: true
 <li><a href="#orgdf86b47">1.3.1. Five points define a conic</a></li>
 <li><a href="#orgad61825">1.3.2. Tangent lines to conics</a></li>
 <li><a href="#orga4242e7">1.3.3. Dual conics</a></li>
-<li><a href="#orgec7d18c">1.3.4. Proof</a></li>
+<li><a href="#orgd5ed0e3">1.3.4. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgb027165">1.4. Projective transformations</a></li>
@@ -85,7 +85,7 @@ comments: true
 </li>
 <li><a href="#orge43955e">3. Epipolar Geometry and the Fundamental Matrix</a>
 <ul>
-<li><a href="#org1c31fbb">3.1. Proof</a></li>
+<li><a href="#orga390585">3.1. Proof</a></li>
 <li><a href="#org871edd7">3.2. Derivation of fundemantal matrix(geometry)</a></li>
 <li><a href="#orgd49938a">3.3. Derivation of fundemantal matrix(algebraic)</a></li>
 <li><a href="#org7acb8e0">3.4. The epipolar line homography</a></li>
@@ -99,14 +99,14 @@ comments: true
 <li><a href="#orgc526ac0">3.6.1. Projective invariance and canonical cameras</a></li>
 <li><a href="#orga88204f">3.6.2. Canonical form of camera matrices</a></li>
 <li><a href="#org68b5e7f">3.6.3. Projective ambiguity of cameras given F</a></li>
-<li><a href="#org1b03738">3.6.4. Proof</a></li>
+<li><a href="#orgbe071ae">3.6.4. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgd9e0993">3.7. Canonical cameras given F</a></li>
 <li><a href="#orgab28edb">3.8. The essential matrix</a>
 <ul>
 <li><a href="#org772c3b4">3.8.1. Properties of the essential matrix</a></li>
-<li><a href="#orgb2d9931">3.8.2. Proof</a></li>
+<li><a href="#orgb5b20bb">3.8.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org034e1e8">3.9. Extraction of cameras from the essential matrix</a></li>
@@ -117,7 +117,7 @@ comments: true
 <ul>
 <li><a href="#org01cb9a0">4.1. The projective reconstruction theorem</a>
 <ul>
-<li><a href="#org4c5dac4">4.1.1. Proof</a></li>
+<li><a href="#orgcc1986f">4.1.1. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org6ca8de0">4.2. Stratified reconstruction</a>
@@ -138,7 +138,7 @@ comments: true
 <li><a href="#org4763c23">5.2. The normalized 8-point algorithm</a>
 <ul>
 <li><a href="#org151e67d">5.2.1. Degenrate configurations</a></li>
-<li><a href="#orgd5ed0e3">5.2.2. Proof</a></li>
+<li><a href="#org7de9d4c">5.2.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org77d1947">5.3. The Gold Standard method</a></li>
@@ -150,12 +150,12 @@ comments: true
 </div>
 </div>
 
-<div id="outline-container-org60ce3ce" class="outline-2">
-<h2 id="org60ce3ce"><span class="section-number-2">1</span> Projective geometry and transformations in 2d</h2>
+<div id="outline-container-org2695735" class="outline-2">
+<h2 id="org2695735"><span class="section-number-2">1</span> Projective geometry and transformations in 2D</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgfe0307b" class="outline-3">
-<h3 id="orgfe0307b"><span class="section-number-3">1.1</span> The 2d projective plane</h3>
+<div id="outline-container-org70c071f" class="outline-3">
+<h3 id="org70c071f"><span class="section-number-3">1.1</span> The 2D projective plane</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 일반적으로 평면 위의 점 $\mathbf{x}$는 $(x,y) &isin; \mathbb{R}^{2}$와 같이 표현한다. $\mathbb{R}^{2}$가 벡터공간(vector space)이라고 하면 $\mathbf{x}$는 하나의 벡터로 나타낼 수 있다. 또한, 두 점 $\mathbf{x}_{1}, \mathbf{x}_{2}$을 포함하는 직선 $\mathbf{l}$은 두 벡터를 뺌으로써 표현할 수 있다. 해당 섹션에서는 평면 위의 점과 직선에 대해 하나의 동일한 벡터로 표현할 수 있게 해주는 homogeneous notation에 대해 설명한다.
@@ -325,8 +325,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 </div>
 </div>
 
-<div id="outline-container-org152e8d3" class="outline-3">
-<h3 id="org152e8d3"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div id="outline-container-orgeb1886f" class="outline-3">
+<h3 id="orgeb1886f"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
@@ -386,8 +386,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 </div>
 </div>
 
-<div id="outline-container-org3305128" class="outline-4">
-<h4 id="org3305128"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div id="outline-container-org152e8d3" class="outline-4">
+<h4 id="org152e8d3"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{t}$는 $x_{3} &ne; 0$일 때 $\mathbb{R}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{R}^{2}$공간과 대응되지 않고 $\mathbb{P}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
@@ -596,8 +596,8 @@ $\mathbb{P}^{2}$상의 conic $\mathbf{C}$가 주어졌을 때, <b>$\mathbf{C}$�
 </div>
 </div>
 
-<div id="outline-container-orgec7d18c" class="outline-4">
-<h4 id="orgec7d18c"><span class="section-number-4">1.3.4</span> Proof</h4>
+<div id="outline-container-orgd5ed0e3" class="outline-4">
+<h4 id="orgd5ed0e3"><span class="section-number-4">1.3.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 ($\rightarrow$) conic $\mathbf{C}&isin; \mathbb{R}^{3&times; 3}$의 rank가 3이고 non-singular하다고 가정하면 $\mathbf{C}^{*} = det(\mathbf{C}^{-1})$와 같이 나타낼 수 있다. $\mathbf{C}$위의 한 점 $\mathbf{x}&isin; \mathbf{C}$가 주어졌을 때 $\mathbf{x}$에서 접선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{cx}$로 나타낼 수 있다. 이를 위 식에 대입하면
@@ -1368,8 +1368,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 \end{equation}
 </div>
 
-<div id="outline-container-org1c31fbb" class="outline-3">
-<h3 id="org1c31fbb"><span class="section-number-3">3.1</span> Proof</h3>
+<div id="outline-container-orga390585" class="outline-3">
+<h3 id="orga390585"><span class="section-number-3">3.1</span> Proof</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 ($\Rightarrow$)$\mathbf{l}^{'} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{'}$에 위치한 점 $\mathbf{x}^{'}$에 대하여 다음이 성립한다.
@@ -1703,8 +1703,8 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 </div>
 </div>
 
-<div id="outline-container-org1b03738" class="outline-4">
-<h4 id="org1b03738"><span class="section-number-4">3.6.4</span> Proof</h4>
+<div id="outline-container-orgbe071ae" class="outline-4">
+<h4 id="orgbe071ae"><span class="section-number-4">3.6.4</span> Proof</h4>
 <div class="outline-text-4" id="text-3-6-4">
 <p>
 두 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$, $(~{\mathbf{P}}, ~{\mathbf{P}}^{'})$이 주어졌을 때 이를 Canonical Form으로 쓰면 다음과 같다.
@@ -1985,8 +1985,8 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 </div>
 </div>
 
-<div id="outline-container-orgb2d9931" class="outline-4">
-<h4 id="orgb2d9931"><span class="section-number-4">3.8.2</span> Proof</h4>
+<div id="outline-container-orgb5b20bb" class="outline-4">
+<h4 id="orgb5b20bb"><span class="section-number-4">3.8.2</span> Proof</h4>
 <div class="outline-text-4" id="text-3-8-2">
 <p>
 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'}) = ([\mathbf{I}|0], \ [\mathbf{R}|\mathbf{t}])$에 대한 Fundamental Matrix $\mathbf{F}$가 있다고 하면
@@ -2280,8 +2280,8 @@ $\mathbf{E}= \mathbf{t}^{&and;}\mathbf{R}$을 어떻게 분해하느냐에 따�
 \end{equation}
 </div>
 
-<div id="outline-container-org4c5dac4" class="outline-4">
-<h4 id="org4c5dac4"><span class="section-number-4">4.1.1</span> Proof</h4>
+<div id="outline-container-orgcc1986f" class="outline-4">
+<h4 id="orgcc1986f"><span class="section-number-4">4.1.1</span> Proof</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <p>
 이전 섹션에서 동일한 Fundamental Matrix $\mathbf{F}$를 공유하는 카메라 행렬 대응쌍 사이에 $\mathbf{P}_{2} = \mathbf{P}_{1}\mathbf{H}^{-1}, \mathbf{P}_{2}^{'} =\mathbf{P}_{1}^{'}\mathbf{H}^{-1}$를 만족하는 Homography 행렬 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재한다는 것을 증명하였다. 이를 적용해보면
@@ -2642,8 +2642,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-orgd5ed0e3" class="outline-4">
-<h4 id="orgd5ed0e3"><span class="section-number-4">5.2.2</span> Proof</h4>
+<div id="outline-container-org7de9d4c" class="outline-4">
+<h4 id="org7de9d4c"><span class="section-number-4">5.2.2</span> Proof</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <p>
 임의의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'}, \{\mathbf{X}^{i}\})$이 Critical Triple이라는 것을 보이기 위해서는 이와 대응하는 카메라 행렬 대응쌍 $(\mathbf{Q}, \mathbf{Q}^{'}, \{\mathbf{Y}^{i}\})$이 같은 Fundamental Matrix $\mathbf{F}$를 가진다는 사실을 사용해야 한다. $\mathbb{P}^{3}$공간에서 이차곡면은 4x4 크기의 행렬로 정의된다.
