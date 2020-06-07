@@ -24,10 +24,10 @@ comments: true
 <li><a href="#orgb45aaad">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#orgd5f475d">1.2. Ideal points and the line at infinity</a>
+<li><a href="#org152e8d3">1.2. Ideal points and the line at infinity</a>
 <ul>
 <li><a href="#org244a4b3">1.2.1. Intersection of parallel lines</a></li>
-<li><a href="#org198f92d">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#org3305128">1.2.2. Ideal points and the line at infinity</a></li>
 <li><a href="#org95f7e2a">1.2.3. A model for the projective plane</a></li>
 <li><a href="#orgee9e9f7">1.2.4. Duality</a></li>
 </ul>
@@ -37,7 +37,7 @@ comments: true
 <li><a href="#orgdf86b47">1.3.1. Five points define a conic</a></li>
 <li><a href="#orgad61825">1.3.2. Tangent lines to conics</a></li>
 <li><a href="#orga4242e7">1.3.3. Dual conics</a></li>
-<li><a href="#org4e35ba8">1.3.4. Proof</a></li>
+<li><a href="#orgec7d18c">1.3.4. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgb027165">1.4. Projective transformations</a></li>
@@ -85,7 +85,7 @@ comments: true
 </li>
 <li><a href="#orge43955e">3. Epipolar Geometry and the Fundamental Matrix</a>
 <ul>
-<li><a href="#org91864bb">3.1. Proof</a></li>
+<li><a href="#org1c31fbb">3.1. Proof</a></li>
 <li><a href="#org871edd7">3.2. Derivation of fundemantal matrix(geometry)</a></li>
 <li><a href="#orgd49938a">3.3. Derivation of fundemantal matrix(algebraic)</a></li>
 <li><a href="#org7acb8e0">3.4. The epipolar line homography</a></li>
@@ -99,14 +99,14 @@ comments: true
 <li><a href="#orgc526ac0">3.6.1. Projective invariance and canonical cameras</a></li>
 <li><a href="#orga88204f">3.6.2. Canonical form of camera matrices</a></li>
 <li><a href="#org68b5e7f">3.6.3. Projective ambiguity of cameras given F</a></li>
-<li><a href="#orgffd33a2">3.6.4. Proof</a></li>
+<li><a href="#org1b03738">3.6.4. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgd9e0993">3.7. Canonical cameras given F</a></li>
 <li><a href="#orgab28edb">3.8. The essential matrix</a>
 <ul>
 <li><a href="#org772c3b4">3.8.1. Properties of the essential matrix</a></li>
-<li><a href="#org3dbf8cc">3.8.2. Proof</a></li>
+<li><a href="#orgb2d9931">3.8.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org034e1e8">3.9. Extraction of cameras from the essential matrix</a></li>
@@ -117,7 +117,7 @@ comments: true
 <ul>
 <li><a href="#org01cb9a0">4.1. The projective reconstruction theorem</a>
 <ul>
-<li><a href="#org99b70f1">4.1.1. Proof</a></li>
+<li><a href="#org4c5dac4">4.1.1. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org6ca8de0">4.2. Stratified reconstruction</a>
@@ -138,7 +138,7 @@ comments: true
 <li><a href="#org4763c23">5.2. The normalized 8-point algorithm</a>
 <ul>
 <li><a href="#org151e67d">5.2.1. Degenrate configurations</a></li>
-<li><a href="#org905edf1">5.2.2. Proof</a></li>
+<li><a href="#orgd5ed0e3">5.2.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org77d1947">5.3. The Gold Standard method</a></li>
@@ -158,7 +158,7 @@ comments: true
 <h3 id="orgfe0307b"><span class="section-number-3">1.1</span> The 2d projective plane</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-일반적으로 평면 위의 점 $\mathbf{x}$는 $(x,y) &isin; \mathbb{r}^{2}$와 같이 표현한다. $\mathbb{r}^{2}$가 벡터공간(vector space)이라고 하면 $\mathbf{x}$는 하나의 벡터로 나타낼 수 있다. 또한, 두 점 $\mathbf{x}_{1}, \mathbf{x}_{2}$을 포함하는 직선 $\mathbf{l}$은 두 벡터를 뺌으로써 표현할 수 있다. 해당 섹션에서는 평면 위의 점과 직선에 대해 하나의 동일한 벡터로 표현할 수 있게 해주는 homogeneous notation에 대해 설명한다.
+일반적으로 평면 위의 점 $\mathbf{x}$는 $(x,y) &isin; \mathbb{R}^{2}$와 같이 표현한다. $\mathbb{R}^{2}$가 벡터공간(vector space)이라고 하면 $\mathbf{x}$는 하나의 벡터로 나타낼 수 있다. 또한, 두 점 $\mathbf{x}_{1}, \mathbf{x}_{2}$을 포함하는 직선 $\mathbf{l}$은 두 벡터를 뺌으로써 표현할 수 있다. 해당 섹션에서는 평면 위의 점과 직선에 대해 하나의 동일한 벡터로 표현할 수 있게 해주는 homogeneous notation에 대해 설명한다.
 </p>
 </div>
 
@@ -203,7 +203,7 @@ comments: true
   \end{aligned}
 \end{equation}
 <p>
-따라서 <b>평면 위의 직선 $\mathbf{l}$은 스케일 값에 상관없이 모두 같은 직선을 의미</b> 한다. 이러한 동치관계(equivalent)에 있는 모든 벡터를 homogeneous 벡터라고 한다. <b>$\mathbb{r}^{3}$공간에서 동치관계에 있는 모든 벡터들의 집합을 사영공간(projective space) $\mathbb{p}^{2}$이라고 한다.</b> 
+따라서 <b>평면 위의 직선 $\mathbf{l}$은 스케일 값에 상관없이 모두 같은 직선을 의미</b> 한다. 이러한 동치관계(equivalent)에 있는 모든 벡터를 homogeneous 벡터라고 한다. <b>$\mathbb{R}^{3}$공간에서 동치관계에 있는 모든 벡터들의 집합을 사영공간(projective space) $\mathbb{P}^{2}$이라고 한다.</b> 
 </p>
 </div>
 </div>
@@ -230,7 +230,7 @@ comments: true
   \end{aligned}
 \end{equation}
 <p>
-이는 직선 위의 한 점 $\mathbf{x}=(x,y)$좌표 맨 끝에 1을 추가하여 직선과 내적한 것으로 볼 수 있다. 직선 $\mathbf{l}$는 스케일 값에 상관없이 하나의 직선을 표현할 수 있으므로 $(x,y,1)\mathbf{l}=0$이 성립한다는 전제하에 모든 $k$값에 대해 $(kx,ky,k)\mathbf{l}=0$또한 성립한다. 따라서 <b>임의의 상수 $k$에 대해서 $(kx,ky,k)$는 $\mathbb{r}^{2}$공간에서 한 점 $\mathbf{x}=(x,y)$를 의미하므로 직선과 동일하게 점 또한 homogeneous 벡터로 표현할 수 있다.</b> 이를 일반화하여 표현하면 임의의 점 $\mathbf{x}=(x_{1}, x_{2},x_{3})^{t}$는 $\mathbb{r}^{2}$공간 상의 한 점 $(x_{1}/x_{3}, x_{2}/x_{3})$을 표현한다.
+이는 직선 위의 한 점 $\mathbf{x}=(x,y)$좌표 맨 끝에 1을 추가하여 직선과 내적한 것으로 볼 수 있다. 직선 $\mathbf{l}$는 스케일 값에 상관없이 하나의 직선을 표현할 수 있으므로 $(x,y,1)\mathbf{l}=0$이 성립한다는 전제하에 모든 $k$값에 대해 $(kx,ky,k)\mathbf{l}=0$또한 성립한다. 따라서 <b>임의의 상수 $k$에 대해서 $(kx,ky,k)$는 $\mathbb{R}^{2}$공간에서 한 점 $\mathbf{x}=(x,y)$를 의미하므로 직선과 동일하게 점 또한 homogeneous 벡터로 표현할 수 있다.</b> 이를 일반화하여 표현하면 임의의 점 $\mathbf{x}=(x_{1}, x_{2},x_{3})^{t}$는 $\mathbb{R}^{2}$공간 상의 한 점 $(x_{1}/x_{3}, x_{2}/x_{3})$을 표현한다.
 </p>
 
 
@@ -240,7 +240,7 @@ comments: true
 </div>
 
 <p>
-따라서 $\mathbb{p}^{2}$공간 상에서 임의의 한 점 $\mathbf{x}$가 직선 $\mathbf{l}$위에 존재할 경우
+따라서 $\mathbb{P}^{2}$공간 상에서 임의의 한 점 $\mathbf{x}$가 직선 $\mathbf{l}$위에 존재할 경우
 </p>
 
 \begin{equation}
@@ -261,7 +261,7 @@ comments: true
 <h4 id="org2d36076"><span class="section-number-4">1.1.4</span> Degree of freedom (dof)</h4>
 <div class="outline-text-4" id="text-1-1-4">
 <p>
-$\mathbb{p}^{2}$공간에서 하나의 점이 유일하게 결정되기 위해서는 반드시 2개의 값 $(x,y)$가 주어져야 한다. 직선을 유일하게 결정하기 위해서는 두 개의 독립적인 $\{a:b:c\}$비율이 주어져야 한다. 이와 같이 $\mathbb{p}^{2}$공간에서 점과 직선은 2자유도를 가진다.
+$\mathbb{P}^{2}$공간에서 하나의 점이 유일하게 결정되기 위해서는 반드시 2개의 값 $(x,y)$가 주어져야 한다. 직선을 유일하게 결정하기 위해서는 두 개의 독립적인 $\{a:b:c\}$비율이 주어져야 한다. 이와 같이 $\mathbb{P}^{2}$공간에서 점과 직선은 2자유도를 가진다.
 </p>
 </div>
 </div>
@@ -276,7 +276,7 @@ $\mathbb{p}^{2}$공간에서 하나의 점이 유일하게 결정되기 위해�
 </div>
 
 <p>
-$\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 주어졌을 때 두 직선의 방정식은 다음과 같이 쓸 수 있다.
+$\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 주어졌을 때 두 직선의 방정식은 다음과 같이 쓸 수 있다.
 </p>
 
 \begin{equation}
@@ -295,7 +295,7 @@ $\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
   \end{aligned}
 \end{equation}
 <p>
-예를 들어, $\mathbb{p}^{2}$공간에 $x=1$인 직선과 $y=1$인 직선이 존재하면 두 직선은 $(1,1)$에서 교점을 가진다. 이를 위 공식을 이용해서 구해보면 직선 $x=1$은 $-x+1=0 &rarr; (-1,0,1)^{t}$로 표현할 수 있고 직선 $y=1$은 $-y+1=0 &rarr; (0,-1,1)^{t}$로 표현할 수 있으므로
+예를 들어, $\mathbb{P}^{2}$공간에 $x=1$인 직선과 $y=1$인 직선이 존재하면 두 직선은 $(1,1)$에서 교점을 가진다. 이를 위 공식을 이용해서 구해보면 직선 $x=1$은 $-x+1=0 &rarr; (-1,0,1)^{t}$로 표현할 수 있고 직선 $y=1$은 $-y+1=0 &rarr; (0,-1,1)^{t}$로 표현할 수 있으므로
 </p>
 
 \begin{equation}
@@ -304,7 +304,7 @@ $\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
   \end{aligned}
 \end{equation}
 <p>
-가 성립한다. $(1,1,1)^{t}$는 $\mathbb{r}^{2}$공간에서 $(1,1)$을 의미한다.
+가 성립한다. $(1,1,1)^{t}$는 $\mathbb{R}^{2}$공간에서 $(1,1)$을 의미한다.
 </p>
 </div>
 </div>
@@ -313,7 +313,7 @@ $\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 <h4 id="orgb45aaad"><span class="section-number-4">1.1.6</span> Line joining points</h4>
 <div class="outline-text-4" id="text-1-1-6">
 <p>
-두 직선의 교점을 구하는 공식과 유사하게 $\mathbb{p}^{2}$공간에서 두 점 $\mathbf{x}, \mathbf{x}^{'}$가 주어졌을 때 두 점을 지나는 직선 $\mathbf{l}$은 다음과 같이 구할 수 있다.
+두 직선의 교점을 구하는 공식과 유사하게 $\mathbb{P}^{2}$공간에서 두 점 $\mathbf{x}, \mathbf{x}^{'}$가 주어졌을 때 두 점을 지나는 직선 $\mathbf{l}$은 다음과 같이 구할 수 있다.
 </p>
 
 \begin{equation}
@@ -325,8 +325,8 @@ $\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 </div>
 </div>
 
-<div id="outline-container-orgd5f475d" class="outline-3">
-<h3 id="orgd5f475d"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div id="outline-container-org152e8d3" class="outline-3">
+<h3 id="org152e8d3"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
@@ -339,12 +339,12 @@ $\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 <h4 id="org244a4b3"><span class="section-number-4">1.2.1</span> Intersection of parallel lines</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
-만약 <b>두 직선 $\mathbf{l}, \mathbf{l}^{'}$이 평행한 경우 두 직선의 교차점은 $\mathbb{r}^{2}$공간에서는 만나지 않지만 $\mathbb{p}^{2}$공간에서는 만난다.</b>
+만약 <b>두 직선 $\mathbf{l}, \mathbf{l}^{'}$이 평행한 경우 두 직선의 교차점은 $\mathbb{R}^{2}$공간에서는 만나지 않지만 $\mathbb{P}^{2}$공간에서는 만난다.</b>
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbb{p}^{2} = \mathbb{r}^{2} \cup \mathbf{l}_{\infty}
+    \mathbb{P}^{2} = \mathbb{R}^{2} \cup \mathbf{l}_{\infty}
   \end{aligned}
 \end{equation}
 <p>
@@ -368,11 +368,11 @@ $\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
   \end{aligned}
 \end{equation}
 <p>
-공식이 성립한다. 이러한 <b>무한대 점 $\mathbf{x}_{&infin;}$를 $\mathbb{r}^{2}$공간으로 변환하면 $(b/0,-a/0)$이 되어 유효하지 않는 점으로 변환된다. 따라서 $\mathbb{p}^{2}$공간에서 무한대 점 $\mathbf{x}_{&infin;}=(x,y,0)^{t}$는 $\mathbb{r}^{2}$공간으로 변환되지 않는다.</b> 이를 통해 euclidean 공간에서 평행한 두 직선은 만나지 않지만 projective 공간에서는 무한대에서 만난다는 것을 알 수 있다.
+공식이 성립한다. 이러한 <b>무한대 점 $\mathbf{x}_{&infin;}$를 $\mathbb{R}^{2}$공간으로 변환하면 $(b/0,-a/0)$이 되어 유효하지 않는 점으로 변환된다. 따라서 $\mathbb{P}^{2}$공간에서 무한대 점 $\mathbf{x}_{&infin;}=(x,y,0)^{t}$는 $\mathbb{R}^{2}$공간으로 변환되지 않는다.</b> 이를 통해 euclidean 공간에서 평행한 두 직선은 만나지 않지만 projective 공간에서는 무한대에서 만난다는 것을 알 수 있다.
 </p>
 
 <p>
-예를 들어 $\mathbb{p}^{2}$공간에 평행한 두 직선 $x=1$과 $x=2$가 주어지면 두 직선은 무한대에서 교차한다. 이를 homogeneous notation으로 표현하면 $-x+1=0 \rightarrow (-1,0,1)^{t}$그리고 $-x+2=0 &rarr;(-1,0,2)^{t}$이므로
+예를 들어 $\mathbb{P}^{2}$공간에 평행한 두 직선 $x=1$과 $x=2$가 주어지면 두 직선은 무한대에서 교차한다. 이를 homogeneous notation으로 표현하면 $-x+1=0 \rightarrow (-1,0,1)^{t}$그리고 $-x+2=0 &rarr;(-1,0,2)^{t}$이므로
 </p>
 
 \begin{equation}
@@ -386,11 +386,11 @@ $\mathbb{p}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 </div>
 </div>
 
-<div id="outline-container-org198f92d" class="outline-4">
-<h4 id="org198f92d"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div id="outline-container-org3305128" class="outline-4">
+<h4 id="org3305128"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
-homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{t}$는 $x_{3} &ne; 0$일 때 $\mathbb{r}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{r}^{2}$공간과 대응되지 않고 $\mathbb{p}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
+homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{t}$는 $x_{3} &ne; 0$일 때 $\mathbb{R}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{R}^{2}$공간과 대응되지 않고 $\mathbb{P}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
 </p>
 
 \begin{equation}
@@ -412,7 +412,7 @@ homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{t}$는 $x_{3} &ne; 0$일 때
 </p>
 
 <p>
-이전 섹션에서 설명한 것과 같이 두 평행한 직선 $\mathbf{l}=(a,b,c)^{t}$과 $\mathbf{l}_{&infin;}^{'}=(a,b,c^{'})^{t}$는 무한대 점 $\mathbf{x}_{&infin;}=(b,-a,0)^{t}$에서 교차한다는 것을 알 수 있다. 이를 통해 <b>$\mathbb{r}^{2}$공간에서는 평행한 직선들은 서로 교차하지 않지만 $\mathbb{p}^{2}$공간에서는 서로 다른 두 직선은 반드시 한 점에서 교차한다는 것을 알 수 있다.</b>
+이전 섹션에서 설명한 것과 같이 두 평행한 직선 $\mathbf{l}=(a,b,c)^{t}$과 $\mathbf{l}_{&infin;}^{'}=(a,b,c^{'})^{t}$는 무한대 점 $\mathbf{x}_{&infin;}=(b,-a,0)^{t}$에서 교차한다는 것을 알 수 있다. 이를 통해 <b>$\mathbb{R}^{2}$공간에서는 평행한 직선들은 서로 교차하지 않지만 $\mathbb{P}^{2}$공간에서는 서로 다른 두 직선은 반드시 한 점에서 교차한다는 것을 알 수 있다.</b>
 </p>
 </div>
 </div>
@@ -427,11 +427,11 @@ homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{t}$는 $x_{3} &ne; 0$일 때
 </div>
 
 <p>
-<b>기하학적으로 봤을 때, $\mathbb{p}^{2}$는 3차원 공간 $\mathbb{r}^{3}$에서 원점을 지나는 모든 직선들의 집합</b> 을 의미한다. $\mathbb{p}^{2}$상의 모든 벡터를 $k(x_{1},x_{2},x_{3})^{t}$라고 했을 때 $k$값에 따라 한 점 $(x_{1},x_{2},x_{3})^{t}$의 위치가 결정된다. $k$는 실수이므로 $k=0$인 경우 원점을 의미하고 $k&ne;0$인 경우 무수한 점들의 집합인 직선이 된다. 반대로, 이러한 $\mathbb{r}^{3}$공간 상의 원점을 통과하는 한 직선은 $\mathbb{p}^{2}$공간 상의 한 점으로 볼 수 있다. 이를 확장하면 <b>$\mathbb{p}^{2}$공간 상의 직선 $\mathbf{l}$은 $\mathbb{r}^{3}$공간 상의 원점을 포함하는 평면 $&pi;$에 대응</b> 한다.
+<b>기하학적으로 봤을 때, $\mathbb{P}^{2}$는 3차원 공간 $\mathbb{R}^{3}$에서 원점을 지나는 모든 직선들의 집합</b> 을 의미한다. $\mathbb{P}^{2}$상의 모든 벡터를 $k(x_{1},x_{2},x_{3})^{t}$라고 했을 때 $k$값에 따라 한 점 $(x_{1},x_{2},x_{3})^{t}$의 위치가 결정된다. $k$는 실수이므로 $k=0$인 경우 원점을 의미하고 $k&ne;0$인 경우 무수한 점들의 집합인 직선이 된다. 반대로, 이러한 $\mathbb{R}^{3}$공간 상의 원점을 통과하는 한 직선은 $\mathbb{P}^{2}$공간 상의 한 점으로 볼 수 있다. 이를 확장하면 <b>$\mathbb{P}^{2}$공간 상의 직선 $\mathbf{l}$은 $\mathbb{R}^{3}$공간 상의 원점을 포함하는 평면 $&pi;$에 대응</b> 한다.
 </p>
 
 <p>
-<b>$\mathbb{p}^{2}$공간에서는 스케일 값에 관계없이 한 점을 유일하게 정의할 수 있으므로 마지막 항 $x_{3}$로 좌표값을 나눈 $(x_{1}/x_{3}, x_{2}/x_{3}, 1)$를 일반적으로 한 점을 표현하는 대표값으로 간주한다.</b> 따라서 $\mathbb{r}^{3}$공간 상의 원점을 지나는 직선과 $x_{3}=1$인 평면이 교차하는 점이 곧 $\mathbb{p}^{2}$공간 상의 한 점이 된다.
+<b>$\mathbb{P}^{2}$공간에서는 스케일 값에 관계없이 한 점을 유일하게 정의할 수 있으므로 마지막 항 $x_{3}$로 좌표값을 나눈 $(x_{1}/x_{3}, x_{2}/x_{3}, 1)$를 일반적으로 한 점을 표현하는 대표값으로 간주한다.</b> 따라서 $\mathbb{R}^{3}$공간 상의 원점을 지나는 직선과 $x_{3}=1$인 평면이 교차하는 점이 곧 $\mathbb{P}^{2}$공간 상의 한 점이 된다.
 </p>
 </div>
 </div>
@@ -440,11 +440,11 @@ homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{t}$는 $x_{3} &ne; 0$일 때
 <h4 id="orgee9e9f7"><span class="section-number-4">1.2.4</span> Duality</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <p>
-<b>$\mathbb{p}^{2}$공간에서는 점과 직선이 대칭성(duality)을 가진다.</b> 예를 들어 직선 $\mathbf{l}$위의 한 점 $\mathbf{x}$은 $\mathbf{x}^{t}\mathbf{l}=0$또는 $\mathbf{l}^{t}\mathbf{x}=0$과 같이 두 가지 방법으로 표현할 수 있다. 또한, 두 직선 $\mathbf{l},\mathbf{l}^{'}$이 교차하는 한 점은 $\mathbf{x}=\mathbf{l}&times; \mathbf{l}^{'}$이고 두 점 $\mathbf{x}, \mathbf{x}^{'}$을 통과하는 직선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{x}&times; \mathbf{x}^{'}$으로 표현할 수 있는데 이는 기본적으로 점과 직선의 위치가 바뀌었을 뿐 동일한 공식을 사용한다.
+<b>$\mathbb{P}^{2}$공간에서는 점과 직선이 대칭성(duality)을 가진다.</b> 예를 들어 직선 $\mathbf{l}$위의 한 점 $\mathbf{x}$은 $\mathbf{x}^{t}\mathbf{l}=0$또는 $\mathbf{l}^{t}\mathbf{x}=0$과 같이 두 가지 방법으로 표현할 수 있다. 또한, 두 직선 $\mathbf{l},\mathbf{l}^{'}$이 교차하는 한 점은 $\mathbf{x}=\mathbf{l}&times; \mathbf{l}^{'}$이고 두 점 $\mathbf{x}, \mathbf{x}^{'}$을 통과하는 직선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{x}&times; \mathbf{x}^{'}$으로 표현할 수 있는데 이는 기본적으로 점과 직선의 위치가 바뀌었을 뿐 동일한 공식을 사용한다.
 </p>
 
 <p>
-이와 같이 <b>$\mathbb{p}^{2}$공간에서는 점과 직선이 동일한 공식에 대해 위치를 바꾸어도 성립하는 대칭성을 가진다. 즉, 두 점을 통과하는 직선의 공식은 두 직선이 교차하는 한 점의 공식과 대칭이다.</b>
+이와 같이 <b>$\mathbb{P}^{2}$공간에서는 점과 직선이 동일한 공식에 대해 위치를 바꾸어도 성립하는 대칭성을 가진다. 즉, 두 점을 통과하는 직선의 공식은 두 직선이 교차하는 한 점의 공식과 대칭이다.</b>
 </p>
 </div>
 </div>
@@ -481,7 +481,7 @@ conic이란 평면에서 이차식으로 정의된 곡선을 의미한다. 일�
   \end{aligned}
 \end{equation}
 <p>
-꼴로 쓸 수 있으며 이 때 대칭행렬 $\begin{pmatrix}a&amp;b/2&amp;d/2 \\ b/2&amp;c&amp;e/2 \\ d/2&amp;e/2&amp;f \end{pmatrix}$를 conic $\mathbf{c}$라고 한다.
+꼴로 쓸 수 있으며 이 때 대칭행렬 $\begin{pmatrix}a&amp;b/2&amp;d/2 \\ b/2&amp;c&amp;e/2 \\ d/2&amp;e/2&amp;f \end{pmatrix}$를 conic $\mathbf{C}$라고 한다.
 </p>
 </div>
 
@@ -489,7 +489,7 @@ conic이란 평면에서 이차식으로 정의된 곡선을 의미한다. 일�
 <h4 id="orgdf86b47"><span class="section-number-4">1.3.1</span> Five points define a conic</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
-conic $\mathbf{c}$가 유일하게 결정되기 위해서는 다섯개의 점이 필요하다. 하나의 점에 대한 conic 방정식은 다음과 같이 다시 쓸 수 있다.
+conic $\mathbf{C}$가 유일하게 결정되기 위해서는 다섯개의 점이 필요하다. 하나의 점에 대한 conic 방정식은 다음과 같이 다시 쓸 수 있다.
 </p>
 
 \begin{equation}
@@ -499,7 +499,7 @@ conic $\mathbf{c}$가 유일하게 결정되기 위해서는 다섯개의 점이
   \end{aligned}
 \end{equation}
 <p>
-이 때, $\mathbf{c}= \begin{pmatrix}a&amp;b&amp;c&amp;d&amp;e&amp;f \end{pmatrix}&isin; \mathbb{r}^{6}$인 벡터를 의미한다. $\mathbf{c}$는 5 자유도를 가지므로 
+이 때, $\mathbf{c}= \begin{pmatrix}a&amp;b&amp;c&amp;d&amp;e&amp;f \end{pmatrix}&isin; \mathbb{R}^{6}$인 벡터를 의미한다. $\mathbf{c}$는 5 자유도를 가지므로 
 </p>
 
 \begin{equation}
@@ -514,7 +514,7 @@ conic $\mathbf{c}$가 유일하게 결정되기 위해서는 다섯개의 점이
   \end{aligned}
 \end{equation}
 <p>
-위 식과 같이 <b>총 5개의 점을 사용하면 $\mathbf{a} \in \mathbb{r}^{5\times 6}$행렬의 null space 벡터가 유일한 $\mathbf{c}$의 해가 되고 conic을 유일하게 결정한다.</b>
+위 식과 같이 <b>총 5개의 점을 사용하면 $\mathbf{a} \in \mathbb{R}^{5\times 6}$행렬의 null space 벡터가 유일한 $\mathbf{c}$의 해가 되고 conic을 유일하게 결정한다.</b>
 </p>
 </div>
 </div>
@@ -523,7 +523,7 @@ conic $\mathbf{c}$가 유일하게 결정되기 위해서는 다섯개의 점이
 <h4 id="orgad61825"><span class="section-number-4">1.3.2</span> Tangent lines to conics</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
-conic $\mathbf{c}$위의 한 점 $\mathbf{x}$에서 접선 $\mathbf{l}$은
+conic $\mathbf{C}$위의 한 점 $\mathbf{x}$에서 접선 $\mathbf{l}$은
 </p>
 
 \begin{equation}
@@ -536,12 +536,12 @@ conic $\mathbf{c}$위의 한 점 $\mathbf{x}$에서 접선 $\mathbf{l}$은
 </p>
 
 <p>
-임의의 두 직선 $\mathbf{l},\mathbf{m}$을 포함하는 conic $\mathbf{c}$는
+임의의 두 직선 $\mathbf{l},\mathbf{m}$을 포함하는 conic $\mathbf{C}$는
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{c} = \mathbf{l}\mathbf{m}^{t} + \mathbf{m}\mathbf{l}^{t}
+    \mathbf{C} = \mathbf{l}\mathbf{m}^{t} + \mathbf{m}\mathbf{l}^{t}
   \end{aligned}
 \end{equation}
 <p>
@@ -554,76 +554,76 @@ conic $\mathbf{c}$위의 한 점 $\mathbf{x}$에서 접선 $\mathbf{l}$은
 <h4 id="orga4242e7"><span class="section-number-4">1.3.3</span> Dual conics</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
-<b>projective space $\mathbb{p}^{n}$은 $\mathbb{r}^{n+1}$공간 상의 원점을 지나는 직선들의 집합(1차원 부분 선형공간)을 의미</b> 한다. 이와 대칭을 이루는 <b>dual projective space $(\mathbb{p}^{n})^{&or;}$는 $\mathbb{r}^{n}$공간 상 n차원 부분 선형공간들의 집합을 의미</b> 한다.
+<b>projective space $\mathbb{P}^{n}$은 $\mathbb{R}^{n+1}$공간 상의 원점을 지나는 직선들의 집합(1차원 부분 선형공간)을 의미</b> 한다. 이와 대칭을 이루는 <b>dual projective space $(\mathbb{P}^{n})^{&or;}$는 $\mathbb{R}^{n}$공간 상 n차원 부분 선형공간들의 집합을 의미</b> 한다.
 </p>
 
 <p>
-n차원 부분 선형공간 $\mathbf{h}$는
-</p>
-
-\begin{equation}
-  \begin{aligned}
-    \mathbf{h} = \{\sum_{i=0}^{n}a_{i}x_{i}=0 \ | \ a_{i}\neq 0 \ \text{ for some i}\}.
-  \end{aligned}
-\end{equation}
-<p>
-이 때 $a_{0},&ctdot;,a_{n} &isin; \mathbb{p}^{n}$을 하나의 projective space로 생각할 수 있고 하나의 dual projective space는 하나의 proejctive space와 대칭 관계를 가진다.
-</p>
-
-<p>
-$\mathbb{p}^{2}$상의 conic $\mathbf{c}$가 주어졌을 때, <b>$\mathbf{c}$의 dual conic $\mathbf{c}^{</b>}$은 $(\mathbb{p}^{2})^{\vee}$공간 상의 conic을 의미하며 $\mathbf{c}^{*}$은 conic $\mathbf{c}$의 접선에 대한 정보를 가지고 있다.* $(\mathbb{p}^{2})^{&or;}$는 $\mathbb{p}^{2}$상의 직선을 파라미터화하여 나타낼 수 있다. $\hat{\mathbf{c}}^{*}$는 다음과 같이 나타낼 수 있다.
+n차원 부분 선형공간 $\mathbf{H}$는
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{c}^{*}_{ij} = (-1)^{i+j} \det(\hat{\mathbf{c}}_{ij})
+    \mathbf{H} = \{\sum_{i=0}^{n}a_{i}x_{i}=0 \ | \ a_{i}\neq 0 \ \text{ for some i}\}.
   \end{aligned}
 \end{equation}
 <p>
-여기서 $\hat{\mathbf{c}}_{ij}$는 $\mathbf{c}_{ij}$에서 i번째 행, j번째 열을 제거한 행렬을 의미한다.
+이 때 $a_{0},&ctdot;,a_{n} &isin; \mathbb{P}^{n}$을 하나의 projective space로 생각할 수 있고 하나의 dual projective space는 하나의 proejctive space와 대칭 관계를 가진다.
+</p>
+
+<p>
+$\mathbb{P}^{2}$상의 conic $\mathbf{C}$가 주어졌을 때, <b>$\mathbf{C}$의 dual conic $\mathbf{C}^{</b>}$은 $(\mathbb{P}^{2})^{\vee}$공간 상의 conic을 의미하며 $\mathbf{C}^{*}$은 conic $\mathbf{C}$의 접선에 대한 정보를 가지고 있다.* $(\mathbb{P}^{2})^{&or;}$는 $\mathbb{P}^{2}$상의 직선을 파라미터화하여 나타낼 수 있다. $\hat{\mathbf{C}}^{*}$는 다음과 같이 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{C}^{*}_{ij} = (-1)^{i+j} \det(\hat{\mathbf{C}}_{ij})
+  \end{aligned}
+\end{equation}
+<p>
+여기서 $\hat{\mathbf{C}}_{ij}$는 $\mathbf{C}_{ij}$에서 i번째 행, j번째 열을 제거한 행렬을 의미한다.
 </p>
 
 <p>
 \vspace{5mm}
-임의의 직선 $\mathbf{l}$이 주어졌을 때 $\mathbf{l}$이 conic $\mathbf{c}$에 접하는 필요충분조건은 다음과 같다. 
+임의의 직선 $\mathbf{l}$이 주어졌을 때 $\mathbf{l}$이 conic $\mathbf{C}$에 접하는 필요충분조건은 다음과 같다. 
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{l}^{t}\mathbf{c}^{*}\mathbf{l} = 0
+    \mathbf{l}^{t}\mathbf{C}^{*}\mathbf{l} = 0
   \end{aligned}
 \end{equation}
 </div>
 </div>
 
-<div id="outline-container-org4e35ba8" class="outline-4">
-<h4 id="org4e35ba8"><span class="section-number-4">1.3.4</span> Proof</h4>
+<div id="outline-container-orgec7d18c" class="outline-4">
+<h4 id="orgec7d18c"><span class="section-number-4">1.3.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
-($\rightarrow$) conic $\mathbf{c}&isin; \mathbb{r}^{3&times; 3}$의 rank가 3이고 non-singular하다고 가정하면 $\mathbf{c}^{*} = det(\mathbf{c}^{-1})$와 같이 나타낼 수 있다. $\mathbf{c}$위의 한 점 $\mathbf{x}&isin; \mathbf{c}$가 주어졌을 때 $\mathbf{x}$에서 접선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{cx}$로 나타낼 수 있다. 이를 위 식에 대입하면
+($\rightarrow$) conic $\mathbf{C}&isin; \mathbb{R}^{3&times; 3}$의 rank가 3이고 non-singular하다고 가정하면 $\mathbf{C}^{*} = det(\mathbf{C}^{-1})$와 같이 나타낼 수 있다. $\mathbf{C}$위의 한 점 $\mathbf{x}&isin; \mathbf{C}$가 주어졌을 때 $\mathbf{x}$에서 접선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{cx}$로 나타낼 수 있다. 이를 위 식에 대입하면
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{l}^{t}\mathbf{c}^{*}\mathbf{l} &amp; = (\mathbf{cx})^{t}\mathbf{c}^{*}\mathbf{cx} \\
-    &amp; = \mathbf{x}^{t}\mathbf{c}^{t}\mathbf{c}^{*}\mathbf{cx} \\
-    &amp; = \det(\mathbf{x}^{t}\mathbf{c}^{t}\mathbf{x}) &amp; \because \mathbf{c}^{*}=\det(\mathbf{c}^{-1}) \\ 
-    &amp; = 0  &amp; \because \mathbf{x} \in \mathbf{c}, (\mathbf{x}^{t}\mathbf{c}\mathbf{x})^{t} = 0
+    \mathbf{l}^{t}\mathbf{C}^{*}\mathbf{l} &amp; = (\mathbf{cx})^{t}\mathbf{C}^{*}\mathbf{cx} \\
+    &amp; = \mathbf{x}^{t}\mathbf{C}^{t}\mathbf{C}^{*}\mathbf{cx} \\
+    &amp; = \det(\mathbf{x}^{t}\mathbf{C}^{t}\mathbf{x}) &amp; \because \mathbf{C}^{*}=\det(\mathbf{C}^{-1}) \\ 
+    &amp; = 0  &amp; \because \mathbf{x} \in \mathbf{C}, (\mathbf{x}^{t}\mathbf{C}\mathbf{x})^{t} = 0
   \end{aligned}
 \end{equation}
 <p>
-($\leftarrow$) 직선 $\mathbf{l}$과 dual conic $\mathbf{c}^{*}$가 $\mathbf{l}^{t}\mathbf{c}^{*}\mathbf{l}=0$을 만족할 때 $\mathbf{l}$과 $\mathbf{c}^{*}$가 한 점 $\mathbf{x}$에서 만난다는 것을 증명하면 된다. 이 때 $\mathbf{l} = \mathbf{cx}$공식이 성립한다.
+($\leftarrow$) 직선 $\mathbf{l}$과 dual conic $\mathbf{C}^{*}$가 $\mathbf{l}^{t}\mathbf{C}^{*}\mathbf{l}=0$을 만족할 때 $\mathbf{l}$과 $\mathbf{C}^{*}$가 한 점 $\mathbf{x}$에서 만난다는 것을 증명하면 된다. 이 때 $\mathbf{l} = \mathbf{cx}$공식이 성립한다.
 </p>
 
 <p>
-$\mathbf{c}$는 non-singualr하기 때문에 역행렬이 존재하므로 $\mathbf{x}= \mathbf{c}^{-1}\mathbf{l}$과 같이 나타낼 수 있다. 따라서 $\mathbf{x}^{t}\mathbf{l}$은
+$\mathbf{C}$는 non-singualr하기 때문에 역행렬이 존재하므로 $\mathbf{x}= \mathbf{C}^{-1}\mathbf{l}$과 같이 나타낼 수 있다. 따라서 $\mathbf{x}^{t}\mathbf{l}$은
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}^{t}\mathbf{l} &amp; = (\mathbf{c}^{-1}\mathbf{l})^{t}\mathbf{l} \\
-    &amp; = \mathbf{l}^{t}\mathbf{c}^{-t}\mathbf{l} = 0 \\
-    &amp; (\mathbf{c}^{*} \sim \mathbf{c}^{-1} \ \text{ by assumption.}) \\ 
+    \mathbf{x}^{t}\mathbf{l} &amp; = (\mathbf{C}^{-1}\mathbf{l})^{t}\mathbf{l} \\
+    &amp; = \mathbf{l}^{t}\mathbf{C}^{-t}\mathbf{l} = 0 \\
+    &amp; (\mathbf{C}^{*} \sim \mathbf{C}^{-1} \ \text{ by assumption.}) \\ 
   \end{aligned}
 \end{equation}
 <p>
@@ -631,19 +631,19 @@ $\mathbf{c}$는 non-singualr하기 때문에 역행렬이 존재하므로 $\math
 </p>
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}^{t}\mathbf{c}\mathbf{x} &amp; = (\mathbf{c}^{-1}\mathbf{l})^{t}\mathbf{c}\mathbf{c}^{-1}\mathbf{l} \\
-    &amp; = \mathbf{l}^{t}\mathbf{c}^{-t}\mathbf{cc}^{-1}\mathbf{l} \\
-    &amp; = \mathbf{l}^{t}\mathbf{c}^{-1}\mathbf{l} = 0 \\
-    &amp; (\mathbf{c}^{-t} = \mathbf{c}^{-1} \ \ \mathbf{c} \text{ is symmetric.})
+    \mathbf{x}^{t}\mathbf{C}\mathbf{x} &amp; = (\mathbf{C}^{-1}\mathbf{l})^{t}\mathbf{C}\mathbf{C}^{-1}\mathbf{l} \\
+    &amp; = \mathbf{l}^{t}\mathbf{C}^{-t}\mathbf{cc}^{-1}\mathbf{l} \\
+    &amp; = \mathbf{l}^{t}\mathbf{C}^{-1}\mathbf{l} = 0 \\
+    &amp; (\mathbf{C}^{-t} = \mathbf{C}^{-1} \ \ \mathbf{C} \text{ is symmetric.})
   \end{aligned}
 \end{equation}
 <p>
-공식이 성립함에 따라 $\mathbf{x}$는 $\mathbf{l}$과 $\mathbf{c}$의 교점임이 증명된다.
+공식이 성립함에 따라 $\mathbf{x}$는 $\mathbf{l}$과 $\mathbf{C}$의 교점임이 증명된다.
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \{\mathbf{x}\} =  \mathbf{l} \cap \mathbf{c}
+    \{\mathbf{x}\} =  \mathbf{l} \cap \mathbf{C}
   \end{aligned}
 \end{equation}
 </div>
@@ -654,7 +654,7 @@ $\mathbf{c}$는 non-singualr하기 때문에 역행렬이 존재하므로 $\math
 <h3 id="orgb027165"><span class="section-number-3">1.4</span> Projective transformations</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-$\mathbb{p}^{2}$의 projective transformation은 non-singular인 $3\times3$행렬로 정의되는 $\mathbb{p}^{2} \rightarrow \mathbb{p}^{2}$사상을 의미하며 직선을 직선으로 보내는 성질을 가진다. <b>projective transformation은 collineation, projectivity 또는 homography</b> 라고도 불린다. 
+$\mathbb{P}^{2}$의 projective transformation은 non-singular인 $3\times3$행렬로 정의되는 $\mathbb{P}^{2} \rightarrow \mathbb{P}^{2}$사상을 의미하며 직선을 직선으로 보내는 성질을 가진다. <b>projective transformation은 collineation, projectivity 또는 homography</b> 라고도 불린다. 
 </p>
 </div>
 </div>
@@ -682,11 +682,11 @@ projective 변환은 변환 전과 후 사이에 어떤 성질을 보존하느�
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{h}_{iso} = \begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\ \mathbf{0} &amp; 1 \end{bmatrix}
+    \mathbf{H}_{iso} = \begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\ \mathbf{0} &amp; 1 \end{bmatrix}
   \end{aligned} 
 \end{equation}
 <p>
-이 때 $\mathbf{a}&isin; \mathbb{r}^{2&times;2}$는 2차원 물체의 회전과 반사(reflection)을 포함한 행렬이며 $\mathbf{t}&isin; \mathbb{r}^{2}$는 2차원 물체의 이동 벡터이다.
+이 때 $\mathbf{a}&isin; \mathbb{R}^{2&times;2}$는 2차원 물체의 회전과 반사(reflection)을 포함한 행렬이며 $\mathbf{t}&isin; \mathbb{R}^{2}$는 2차원 물체의 이동 벡터이다.
 </p>
 </div>
 </div>
@@ -700,7 +700,7 @@ isometry 변환에 스케일을 의미하는 $s$가 추가된 변환을 similari
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{h}_{s} = \begin{bmatrix} s\mathbf{r}&amp;\mathbf{t} \\ \mathbf{0} &amp; 1 \end{bmatrix}
+    \mathbf{H}_{s} = \begin{bmatrix} s\mathbf{r}&amp;\mathbf{t} \\ \mathbf{0} &amp; 1 \end{bmatrix}
   \end{aligned}
 \end{equation}
 <p>
@@ -718,11 +718,11 @@ affine 변환은 isometry 변환에서 행렬 $\mathbf{a}$의 아무 제약조�
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{h}_{a} = \begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\ \mathbf{0} &amp; 1 \end{bmatrix}
+    \mathbf{H}_{a} = \begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\ \mathbf{0} &amp; 1 \end{bmatrix}
   \end{aligned}
 \end{equation}
 <p>
-$\mathbf{h}_{a}$는 6자유도를 가지므로  세 개의 대응점 쌍으로부터 $\mathbf{h}_{a}$를 유일하게 결정할 수 있다.
+$\mathbf{H}_{a}$는 6자유도를 가지므로  세 개의 대응점 쌍으로부터 $\mathbf{H}_{a}$를 유일하게 결정할 수 있다.
 </p>
 
 <p>
@@ -731,7 +731,7 @@ affine 변환은 물체의 길이 비율을 보존하며 또한 평행한 직선
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{h}_{a}(\mathbf{l}_{\infty}) = \mathbf{l}_{\infty}
+    \mathbf{H}_{a}(\mathbf{l}_{\infty}) = \mathbf{l}_{\infty}
   \end{aligned}
 \end{equation}
 </div>
@@ -746,11 +746,11 @@ affine 변환은 물체의 길이 비율을 보존하며 또한 평행한 직선
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{h}_{p} = \begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\ \mathbf{v}^{t}&amp;v\end{bmatrix}
+    \mathbf{H}_{p} = \begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\ \mathbf{v}^{t}&amp;v\end{bmatrix}
   \end{aligned}
 \end{equation}
 <p>
-이 때 $\mathbf{v}=\begin{bmatrix}v_{1}&amp;v_{2} \end{bmatrix}$는 임의의 2차원 벡터를 의미하며 $v$또한 임의의 스칼라 값을 의미한다. projective 변환행렬 $\mathbf{h}_{p}$는 8자유도를 가지므로 일반적으로 4개의 대응점 쌍을 통해 $\mathbf{h}_{p}$을 유일하게 결정할 수 있다.
+이 때 $\mathbf{v}=\begin{bmatrix}v_{1}&amp;v_{2} \end{bmatrix}$는 임의의 2차원 벡터를 의미하며 $v$또한 임의의 스칼라 값을 의미한다. projective 변환행렬 $\mathbf{H}_{p}$는 8자유도를 가지므로 일반적으로 4개의 대응점 쌍을 통해 $\mathbf{H}_{p}$을 유일하게 결정할 수 있다.
 </p>
 </div>
 </div>
@@ -760,18 +760,18 @@ affine 변환은 물체의 길이 비율을 보존하며 또한 평행한 직선
 <h3 id="orge6b395b"><span class="section-number-3">1.6</span> Decomposition of a projective transformation</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
-앞서 설명한 변환행렬의 계층구조에 따라 projective 변환행렬은 다른 변환행렬들의 곱으로 표현할 수 있다. 반대로 말하면, <b>projective 변환은 다른 변환행렬들로 분해가 가능하다.</b> 임의의 projective 변환 $\mathbf{h}_{p}$가 주어졌을 때
+앞서 설명한 변환행렬의 계층구조에 따라 projective 변환행렬은 다른 변환행렬들의 곱으로 표현할 수 있다. 반대로 말하면, <b>projective 변환은 다른 변환행렬들로 분해가 가능하다.</b> 임의의 projective 변환 $\mathbf{H}_{p}$가 주어졌을 때
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{h}_{p} &amp; = \mathbf{h}_{s}\mathbf{h}_{a}\mathbf{h}_{p} \\
+    \mathbf{H}_{p} &amp; = \mathbf{H}_{s}\mathbf{H}_{a}\mathbf{H}_{p} \\
     &amp; = \begin{bmatrix} s \mathbf{r}&amp;\mathbf{t} \\\mathbf{0}&amp;1 \end{bmatrix} \begin{bmatrix} \mathbf{k} &amp; \mathbf{0} \\ \mathbf{0} &amp; 1 \end{bmatrix} \begin{bmatrix} i &amp; \mathbf{0}\\ \mathbf{v}^{t}&amp; v\end{bmatrix} \\
       &amp; = \begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\ \mathbf{v}^{t}&amp;v \end{bmatrix}
   \end{aligned}
 \end{equation}
 <p>
-와 같이 <b>projective 변환 $\mathbf{h}_{p}$는 similarity 변환 $\mathbf{h}_{s}$과 affine 변환 $\mathbf{h}_{a}$그리고 나머지 변환 $\mathbf{h}_{p}$의 곱으로 분해가 가능</b> 하다. 이 때, $\mathbf{a}=s\mathbf{r}\mathbf{k}+\mathbf{tv}^{t}$이고 $\mathbf{k}$는 $det(\mathbf{k})=1$로 정규화된 상삼각행렬(upper-triangle) 행렬을 의미한다. 단, 위와 같은 분해는 $v &ne; 0$일 때만 가능하며 $s &gt;0$인 경우 분해가 유일하게 결정된다.
+와 같이 <b>projective 변환 $\mathbf{H}_{p}$는 similarity 변환 $\mathbf{H}_{s}$과 affine 변환 $\mathbf{H}_{a}$그리고 나머지 변환 $\mathbf{H}_{p}$의 곱으로 분해가 가능</b> 하다. 이 때, $\mathbf{a}=s\mathbf{r}\mathbf{k}+\mathbf{tv}^{t}$이고 $\mathbf{k}$는 $det(\mathbf{k})=1$로 정규화된 상삼각행렬(upper-triangle) 행렬을 의미한다. 단, 위와 같은 분해는 $v &ne; 0$일 때만 가능하며 $s &gt;0$인 경우 분해가 유일하게 결정된다.
 </p>
 </div>
 </div>
@@ -793,7 +793,7 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{h}_{a}\mathbf{l}_{\infty} =\begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\0&amp;1 \end{bmatrix} \begin{bmatrix} x\\y\\0 \end{bmatrix} = \begin{bmatrix} a \begin{bmatrix} x\\y \end{bmatrix} \\ 0 \end{bmatrix} = \mathbf{l}_{\infty}^{'}
+    \mathbf{H}_{a}\mathbf{l}_{\infty} =\begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\0&amp;1 \end{bmatrix} \begin{bmatrix} x\\y\\0 \end{bmatrix} = \begin{bmatrix} a \begin{bmatrix} x\\y \end{bmatrix} \\ 0 \end{bmatrix} = \mathbf{l}_{\infty}^{'}
   \end{aligned}
 \end{equation}
 <p>
@@ -806,21 +806,21 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
 <h4 id="org57dff60"><span class="section-number-4">1.7.2</span> Recovery of affine properties from images</h4>
 <div class="outline-text-4" id="text-1-7-2">
 <p>
-<b>임의의 homography $\mathbf{h}$가 affine 성질을 보존한다는 의미는 곧 무한대 직선 $\mathbf{l}_{&infin;}$를 $\mathbf{h}$변환해도 무한대에 위치한 직선이 된다는 의미</b> 이다.
+<b>임의의 homography $\mathbf{H}$가 affine 성질을 보존한다는 의미는 곧 무한대 직선 $\mathbf{l}_{&infin;}$를 $\mathbf{H}$변환해도 무한대에 위치한 직선이 된다는 의미</b> 이다.
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{h}(\mathbf{l}_{\infty}) = \mathbf{hl}_{\infty} = \mathbf{l}_{\infty}^{'}
+    \mathbf{H}(\mathbf{l}_{\infty}) = \mathbf{hl}_{\infty} = \mathbf{l}_{\infty}^{'}
   \end{aligned}
 \end{equation}
 <p>
-무한대 직선 $\mathbf{l}_{&infin;}$는 $\mathbf{l}_{&infin;}=(x,y,0)^{t}$와 같이 마지막 항이 0인 특징이 있으므로 임의의 homography $\mathbf{h}$는
+무한대 직선 $\mathbf{l}_{&infin;}$는 $\mathbf{l}_{&infin;}=(x,y,0)^{t}$와 같이 마지막 항이 0인 특징이 있으므로 임의의 homography $\mathbf{H}$는
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{h}\mathbf{l}_{\infty} = \begin{bmatrix} \mathbf{a}&amp; \mathbf{t} \\ \mathbf {v} &amp; v \end{bmatrix} \begin{bmatrix} x\\y\\0 \end{bmatrix} = \begin{bmatrix} *\\ * \\0 \end{bmatrix}
+    \mathbf{H}\mathbf{l}_{\infty} = \begin{bmatrix} \mathbf{a}&amp; \mathbf{t} \\ \mathbf {v} &amp; v \end{bmatrix} \begin{bmatrix} x\\y\\0 \end{bmatrix} = \begin{bmatrix} *\\ * \\0 \end{bmatrix}
   \end{aligned}
 \end{equation}
 <p>
@@ -829,7 +829,7 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{h} = \begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\ \mathbf{0} &amp; v \end{bmatrix} = \begin{bmatrix} \mathbf{a}/v &amp; \mathbf{t}/v \\ \mathbf{0} &amp; 1 \end{bmatrix}
+    \mathbf{H} = \begin{bmatrix} \mathbf{a}&amp;\mathbf{t} \\ \mathbf{0} &amp; v \end{bmatrix} = \begin{bmatrix} \mathbf{a}/v &amp; \mathbf{t}/v \\ \mathbf{0} &amp; 1 \end{bmatrix}
   \end{aligned}
 \end{equation}
 </div>
@@ -1368,8 +1368,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 \end{equation}
 </div>
 
-<div id="outline-container-org91864bb" class="outline-3">
-<h3 id="org91864bb"><span class="section-number-3">3.1</span> Proof</h3>
+<div id="outline-container-org1c31fbb" class="outline-3">
+<h3 id="org1c31fbb"><span class="section-number-3">3.1</span> Proof</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 ($\Rightarrow$)$\mathbf{l}^{'} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{'}$에 위치한 점 $\mathbf{x}^{'}$에 대하여 다음이 성립한다.
@@ -1703,8 +1703,8 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 </div>
 </div>
 
-<div id="outline-container-orgffd33a2" class="outline-4">
-<h4 id="orgffd33a2"><span class="section-number-4">3.6.4</span> Proof</h4>
+<div id="outline-container-org1b03738" class="outline-4">
+<h4 id="org1b03738"><span class="section-number-4">3.6.4</span> Proof</h4>
 <div class="outline-text-4" id="text-3-6-4">
 <p>
 두 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$, $(~{\mathbf{P}}, ~{\mathbf{P}}^{'})$이 주어졌을 때 이를 Canonical Form으로 쓰면 다음과 같다.
@@ -1985,8 +1985,8 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 </div>
 </div>
 
-<div id="outline-container-org3dbf8cc" class="outline-4">
-<h4 id="org3dbf8cc"><span class="section-number-4">3.8.2</span> Proof</h4>
+<div id="outline-container-orgb2d9931" class="outline-4">
+<h4 id="orgb2d9931"><span class="section-number-4">3.8.2</span> Proof</h4>
 <div class="outline-text-4" id="text-3-8-2">
 <p>
 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'}) = ([\mathbf{I}|0], \ [\mathbf{R}|\mathbf{t}])$에 대한 Fundamental Matrix $\mathbf{F}$가 있다고 하면
@@ -2280,8 +2280,8 @@ $\mathbf{E}= \mathbf{t}^{&and;}\mathbf{R}$을 어떻게 분해하느냐에 따�
 \end{equation}
 </div>
 
-<div id="outline-container-org99b70f1" class="outline-4">
-<h4 id="org99b70f1"><span class="section-number-4">4.1.1</span> Proof</h4>
+<div id="outline-container-org4c5dac4" class="outline-4">
+<h4 id="org4c5dac4"><span class="section-number-4">4.1.1</span> Proof</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <p>
 이전 섹션에서 동일한 Fundamental Matrix $\mathbf{F}$를 공유하는 카메라 행렬 대응쌍 사이에 $\mathbf{P}_{2} = \mathbf{P}_{1}\mathbf{H}^{-1}, \mathbf{P}_{2}^{'} =\mathbf{P}_{1}^{'}\mathbf{H}^{-1}$를 만족하는 Homography 행렬 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재한다는 것을 증명하였다. 이를 적용해보면
@@ -2642,8 +2642,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-org905edf1" class="outline-4">
-<h4 id="org905edf1"><span class="section-number-4">5.2.2</span> Proof</h4>
+<div id="outline-container-orgd5ed0e3" class="outline-4">
+<h4 id="orgd5ed0e3"><span class="section-number-4">5.2.2</span> Proof</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <p>
 임의의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'}, \{\mathbf{X}^{i}\})$이 Critical Triple이라는 것을 보이기 위해서는 이와 대응하는 카메라 행렬 대응쌍 $(\mathbf{Q}, \mathbf{Q}^{'}, \{\mathbf{Y}^{i}\})$이 같은 Fundamental Matrix $\mathbf{F}$를 가진다는 사실을 사용해야 한다. $\mathbb{P}^{3}$공간에서 이차곡면은 4x4 크기의 행렬로 정의된다.
