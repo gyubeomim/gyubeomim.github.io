@@ -1,10 +1,20 @@
+---
+layout: post
+title: (Geometry) Notes on Multiple View Geometry (3)
+description:
+date: 2020-05-12
+categories: [Mathematics]
+tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
+use_math: true
+comments: true
+---
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org16a5dd0">1. Epipolar Geometry and the Fundamental Matrix</a>
 <ul>
-<li><a href="#orgfb49785">1.1. Proof</a></li>
+<li><a href="#orgbca1ac0">1.1. Proof</a></li>
 <li><a href="#orgdb46417">1.2. Derivation of fundemantal matrix(geometry)</a></li>
 <li><a href="#orge0b82db">1.3. Derivation of fundemantal matrix(algebraic)</a></li>
 <li><a href="#org4374172">1.4. The epipolar line homography</a></li>
@@ -18,14 +28,14 @@
 <li><a href="#orgd0572a7">1.6.1. Projective invariance and canonical cameras</a></li>
 <li><a href="#org424f8c3">1.6.2. Canonical form of camera matrices</a></li>
 <li><a href="#org1963595">1.6.3. Projective ambiguity of cameras given F</a></li>
-<li><a href="#org96de649">1.6.4. Proof</a></li>
+<li><a href="#org2466137">1.6.4. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org11f93e1">1.7. Canonical cameras given F</a></li>
 <li><a href="#orgc493677">1.8. The essential matrix</a>
 <ul>
 <li><a href="#orga128341">1.8.1. Properties of the essential matrix</a></li>
-<li><a href="#orgbca1ac0">1.8.2. Proof</a></li>
+<li><a href="#org420f68a">1.8.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orge0ea1a8">1.9. Extraction of cameras from the essential matrix</a></li>
@@ -37,16 +47,7 @@
 </ul>
 </div>
 </div>
---- 
-layout: post
-title: (Geometry) Notes on Multiple View Geometry (3)
-description: 
-date: 2020-05-12
-categories: [Mathematics]
-tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
-use_math: true
-comments: true
----
+
 <div id="outline-container-org16a5dd0" class="outline-2">
 <h2 id="org16a5dd0"><span class="section-number-2">1</span> Epipolar Geometry and the Fundamental Matrix</h2>
 <div class="outline-text-2" id="text-1">
@@ -80,8 +81,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 \end{equation}
 </div>
 
-<div id="outline-container-orgfb49785" class="outline-3">
-<h3 id="orgfb49785"><span class="section-number-3">1.1</span> Proof</h3>
+<div id="outline-container-orgbca1ac0" class="outline-3">
+<h3 id="orgbca1ac0"><span class="section-number-3">1.1</span> Proof</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 ($\Rightarrow$)$\mathbf{l}^{'} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{'}$에 위치한 점 $\mathbf{x}^{'}$에 대하여 다음이 성립한다.
@@ -415,8 +416,8 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 </div>
 </div>
 
-<div id="outline-container-org96de649" class="outline-4">
-<h4 id="org96de649"><span class="section-number-4">1.6.4</span> Proof</h4>
+<div id="outline-container-org2466137" class="outline-4">
+<h4 id="org2466137"><span class="section-number-4">1.6.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-6-4">
 <p>
 두 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$, $(~{\mathbf{P}}, ~{\mathbf{P}}^{'})$이 주어졌을 때 이를 Canonical Form으로 쓰면 다음과 같다.
@@ -697,8 +698,8 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 </div>
 </div>
 
-<div id="outline-container-orgbca1ac0" class="outline-4">
-<h4 id="orgbca1ac0"><span class="section-number-4">1.8.2</span> Proof</h4>
+<div id="outline-container-org420f68a" class="outline-4">
+<h4 id="org420f68a"><span class="section-number-4">1.8.2</span> Proof</h4>
 <div class="outline-text-4" id="text-1-8-2">
 <p>
 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'}) = ([\mathbf{I}|0], \ [\mathbf{R}|\mathbf{t}])$에 대한 Fundamental Matrix $\mathbf{F}$가 있다고 하면

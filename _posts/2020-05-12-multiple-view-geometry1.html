@@ -1,3 +1,13 @@
+---
+layout: post
+title: (Geometry) Notes on Multiple View Geometry (1)
+description:
+date: 2020-05-12
+categories: [Mathematics]
+tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
+use_math: true
+comments: true
+---
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -14,10 +24,10 @@
 <li><a href="#org902b7d1">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#org27b8089">1.2. Ideal points and the line at infinity</a>
+<li><a href="#orgc4dc8f4">1.2. Ideal points and the line at infinity</a>
 <ul>
 <li><a href="#org225dc52">1.2.1. Intersection of parallel lines</a></li>
-<li><a href="#org8633f41">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#org27b8089">1.2.2. Ideal points and the line at infinity</a></li>
 <li><a href="#orgbfac41c">1.2.3. A model for the projective plane</a></li>
 <li><a href="#org2e8fa2a">1.2.4. Duality</a></li>
 </ul>
@@ -54,16 +64,7 @@
 </ul>
 </div>
 </div>
---- 
-layout: post
-title: (Geometry) Notes on Multiple View Geometry (1)
-description: 
-date: 2020-05-12
-categories: [Mathematics]
-tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
-use_math: true
-comments: true
----
+
 <div id="outline-container-org42a4514" class="outline-2">
 <h2 id="org42a4514"><span class="section-number-2">1</span> Projective geometry and transformations in 2D</h2>
 <div class="outline-text-2" id="text-1">
@@ -239,8 +240,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 </div>
 </div>
 
-<div id="outline-container-org27b8089" class="outline-3">
-<h3 id="org27b8089"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div id="outline-container-orgc4dc8f4" class="outline-3">
+<h3 id="orgc4dc8f4"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
@@ -300,8 +301,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 </div>
 </div>
 
-<div id="outline-container-org8633f41" class="outline-4">
-<h4 id="org8633f41"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div id="outline-container-org27b8089" class="outline-4">
+<h4 id="org27b8089"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0$일 때 $\mathbb{R}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{R}^{2}$공간과 대응되지 않고 $\mathbb{P}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
