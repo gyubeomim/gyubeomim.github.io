@@ -1,13 +1,3 @@
----
-layout: post
-title: (Geometry) Notes on Multiple View Geometry (4)
-description:
-date: 2020-05-12
-categories: [Mathematics]
-tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
-use_math: true
-comments: true
----
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -16,7 +6,7 @@ comments: true
 <ul>
 <li><a href="#org2523a51">1.1. The projective reconstruction theorem</a>
 <ul>
-<li><a href="#org6a45132">1.1.1. Proof</a></li>
+<li><a href="#orgb2a16ae">1.1.1. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org0c2c7d4">1.2. Stratified reconstruction</a>
@@ -37,7 +27,7 @@ comments: true
 <li><a href="#orgc703f6c">2.2. The normalized 8-point algorithm</a>
 <ul>
 <li><a href="#org07f0aec">2.2.1. Degenrate configurations</a></li>
-<li><a href="#orgb2a16ae">2.2.2. Proof</a></li>
+<li><a href="#org7a856b9">2.2.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgde0a041">2.3. The Gold Standard method</a></li>
@@ -48,7 +38,16 @@ comments: true
 </ul>
 </div>
 </div>
-
+--- 
+layout: post
+title: (Geometry) Notes on Multiple View Geometry (4)
+description: 
+date: 2020-05-12
+categories: [Mathematics]
+tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
+use_math: true
+comments: true
+---
 <div id="outline-container-org5f540b1" class="outline-2">
 <h2 id="org5f540b1"><span class="section-number-2">1</span> 3D Reconstruction of Cameras and Structure</h2>
 <div class="outline-text-2" id="text-1">
@@ -92,8 +91,8 @@ comments: true
 \end{equation}
 </div>
 
-<div id="outline-container-org6a45132" class="outline-4">
-<h4 id="org6a45132"><span class="section-number-4">1.1.1</span> Proof</h4>
+<div id="outline-container-orgb2a16ae" class="outline-4">
+<h4 id="orgb2a16ae"><span class="section-number-4">1.1.1</span> Proof</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 이전 섹션에서 동일한 Fundamental Matrix $\mathbf{F}$를 공유하는 카메라 행렬 대응쌍 사이에 $\mathbf{P}_{2} = \mathbf{P}_{1}\mathbf{H}^{-1}, \mathbf{P}_{2}^{'} =\mathbf{P}_{1}^{'}\mathbf{H}^{-1}$를 만족하는 Homography 행렬 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재한다는 것을 증명하였다. 이를 적용해보면
@@ -176,7 +175,7 @@ Affine Reconstruction 단계에서는 평행한 직선들의 특성을 보존하
 
 \begin{equation}
   \begin{aligned}
-    \pi_{\infty}^{'} = \begin{bmatrix} a &amp; b &amp; c &amp; 1  \end{bmatrix}^{T}
+    \pi_{\infty}^{'} = \begin{bmatrix} a &amp; b &amp; c &amp; 1  \end{bmatrix}^{\intercal}
   \end{aligned}
 \end{equation}
 <p>
@@ -189,7 +188,7 @@ Affine Reconstruction 단계에서는 평행한 직선들의 특성을 보존하
   \end{aligned}
 \end{equation}
 <p>
-이 때 $\mathbf{H}_{a}^{T}\pi_{\infty} = \pi_{\infty}^{'}$관계가 성립한다.
+이 때 $\mathbf{H}_{a}^{\intercal}\pi_{\infty} = \pi_{\infty}^{'}$관계가 성립한다.
 </p>
 
 \begin{equation}
@@ -233,7 +232,7 @@ Metric Reconstruction 단계에서는 직교하는 선들을 보존하는 Homogr
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{d}_{1}^{T}\omega \mathbf{d}_{2} = 0
+    \mathbf{d}_{1}^{\intercal}\omega \mathbf{d}_{2} = 0
   \end{aligned}
 \end{equation}
 <p>
@@ -293,22 +292,22 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{H}_{s}(\tilde{\Omega}_{\infty}) &amp; = (\mathbf{A}^{-1})^{-T} \tilde{\Omega}_{\infty} \mathbf{A} \\
-    &amp; = \mathbf{A}^{T} (\mathbf{M}^{T}\omega \mathbf{M})\mathbf{A}  
+    \mathbf{H}_{s}(\tilde{\Omega}_{\infty}) &amp; = (\mathbf{A}^{-1})^{-\intercal} \tilde{\Omega}_{\infty} \mathbf{A} \\
+    &amp; = \mathbf{A}^{\intercal} (\mathbf{M}^{\intercal}\omega \mathbf{M})\mathbf{A}  
   \end{aligned}
 \end{equation}
 <p>
-따라서 Absolute Conic 특성에 의해 $\mathbf{A}^{T} (\mathbf{M}^{T}&omega; \mathbf{M})\mathbf{A}$는 $\mathbf{I}$이 되어야 하므로
+따라서 Absolute Conic 특성에 의해 $\mathbf{A}^{\intercal} (\mathbf{M}^{\intercal}&omega; \mathbf{M})\mathbf{A}$는 $\mathbf{I}$이 되어야 하므로
 </p>
 
 \begin{equation}
   \begin{aligned}
-    &amp; \mathbf{A}^{T} (\mathbf{M}^{T}\omega \mathbf{M})\mathbf{A} = \mathbf{I} \\
-    &amp; (\mathbf{M}^{T} \omega \mathbf{M})^{-1} = \mathbf{AA}^{T} 
+    &amp; \mathbf{A}^{\intercal} (\mathbf{M}^{\intercal}\omega \mathbf{M})\mathbf{A} = \mathbf{I} \\
+    &amp; (\mathbf{M}^{\intercal} \omega \mathbf{M})^{-1} = \mathbf{AA}^{\intercal} 
   \end{aligned}
 \end{equation}
 <p>
-가 성립한다. 결론적으로 $\mathbf{H}_{s} = \begin{bmatrix}\mathbf{A}^{-1} &amp; \\ &amp; 1 \end{bmatrix}$를 구하기 위해서는 <b>이미지 평면 상에서 직교하는 직선들의 특성을 사용하여 $&omega;$를 구한 후, $(\mathbf{M}^{T} &omega; \mathbf{M})^{-1}$를 Cholesky Decomposition하여 $\mathbf{AA}^{T}$를 구한다. 이를 통해 $\mathbf{A}^{-1}$값을 구할 수 있고 최종적으로 Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s}$를 구할 수 있다.</b>
+가 성립한다. 결론적으로 $\mathbf{H}_{s} = \begin{bmatrix}\mathbf{A}^{-1} &amp; \\ &amp; 1 \end{bmatrix}$를 구하기 위해서는 <b>이미지 평면 상에서 직교하는 직선들의 특성을 사용하여 $&omega;$를 구한 후, $(\mathbf{M}^{\intercal} &omega; \mathbf{M})^{-1}$를 Cholesky Decomposition하여 $\mathbf{AA}^{\intercal}$를 구한다. 이를 통해 $\mathbf{A}^{-1}$값을 구할 수 있고 최종적으로 Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s}$를 구할 수 있다.</b>
 </p>
 </div>
 </div>
@@ -327,11 +326,11 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}^{'T}\mathbf{Fx} = 0
+    \mathbf{x}^{'\intercal}\mathbf{Fx} = 0
   \end{aligned}
 \end{equation}
 <p>
-을 만족하는 3x3 크기의 행렬 $\mathbf{F}$를 Fundamental Matrix라고 한다. 만약 세 개의 대응점쌍 $\mathbf{x} = (\mathbf{x}_{1}, \mathbf{x}_{2}, \mathbf{x}_{3})$, $\mathbf{x}^{'} = (\mathbf{x}_{1}^{'}, \mathbf{x}_{2}^{'}, \mathbf{x}_{3}^{'})$이 주어졌을 때 $\mathbf{x}^{'T}\mathbf{Fx}=0$이를 다시 정리하면 $&sum; \mathbf{x}^{'}_{i}\mathbf{x}_{j}\mathbf{f}_{ij}=0$과 같이 정리할 수 있다. 해당 식은 선형시스템
+을 만족하는 3x3 크기의 행렬 $\mathbf{F}$를 Fundamental Matrix라고 한다. 만약 세 개의 대응점쌍 $\mathbf{x} = (\mathbf{x}_{1}, \mathbf{x}_{2}, \mathbf{x}_{3})$, $\mathbf{x}^{'} = (\mathbf{x}_{1}^{'}, \mathbf{x}_{2}^{'}, \mathbf{x}_{3}^{'})$이 주어졌을 때 $\mathbf{x}^{'\intercal}\mathbf{Fx}=0$이를 다시 정리하면 $&sum; \mathbf{x}^{'}_{i}\mathbf{x}_{j}\mathbf{f}_{ij}=0$과 같이 정리할 수 있다. 해당 식은 선형시스템
 </p>
 
 \begin{equation}
@@ -346,7 +345,7 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 \begin{equation}
   \begin{aligned}
     &amp; \mathbf{A} = (\mathbf{a}_{ik}) \in \mathbb{R}^{N \times 9}, \ \ \text{i-th row is} \ (\mathbf{x}_{1}^{'i}\mathbf{x}_{1}^{i}, \mathbf{x}_{1}^{'i}\mathbf{x}_{2}^{i},\cdots, \mathbf{x}_{3}^{'i}\mathbf{x}_{3}^{i}) \\
-    &amp; \mathbf{f} = (\mathbf{f}_{11}, \mathbf{f}_{12}, \mathbf{f}_{13}, \cdots, \mathbf{f}_{33})^{T} \in \mathbb{R}^{9\times 1}
+    &amp; \mathbf{f} = (\mathbf{f}_{11}, \mathbf{f}_{12}, \mathbf{f}_{13}, \cdots, \mathbf{f}_{33})^{\intercal} \in \mathbb{R}^{9\times 1}
   \end{aligned}
 \end{equation}
 <p>
@@ -359,7 +358,7 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{A} = \mathbf{UDV}^{T}
+    \mathbf{A} = \mathbf{UDV}^{\intercal}
   \end{aligned}
 \end{equation}
 <p>
@@ -373,7 +372,7 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{F}_{0} = \mathbf{U}_{0}\mathbf{D}_{0}\mathbf{V}^{T}_{0}
+    \mathbf{F}_{0} = \mathbf{U}_{0}\mathbf{D}_{0}\mathbf{V}^{\intercal}_{0}
   \end{aligned}
 \end{equation}
 <p>
@@ -422,12 +421,12 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 
 \begin{equation}
   \begin{aligned}
-    0 &amp; = (\mathbf{H}^{'}\mathbf{x}^{'})^{T}\mathbf{F}^{'}(\mathbf{Hx}) \\
-    &amp; =  \mathbf{x}^{T}(\mathbf{H}^{'T} \mathbf{F}^{'}\mathbf{H})\mathbf{x}
+    0 &amp; = (\mathbf{H}^{'}\mathbf{x}^{'})^{\intercal}\mathbf{F}^{'}(\mathbf{Hx}) \\
+    &amp; =  \mathbf{x}^{\intercal}(\mathbf{H}^{'\intercal} \mathbf{F}^{'}\mathbf{H})\mathbf{x}
   \end{aligned}
 \end{equation}
 <p>
-처럼 $\mathbf{F}= \mathbf{H}^{'T} \mathbf{F}^{'}\mathbf{H}$를 통해 원래 대응점쌍의 Fundamental Matrix $\mathbf{F}$를 계산할 수 있다.
+처럼 $\mathbf{F}= \mathbf{H}^{'\intercal} \mathbf{F}^{'}\mathbf{H}$를 통해 원래 대응점쌍의 Fundamental Matrix $\mathbf{F}$를 계산할 수 있다.
 </p>
 </div>
 
@@ -454,8 +453,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-orgb2a16ae" class="outline-4">
-<h4 id="orgb2a16ae"><span class="section-number-4">2.2.2</span> Proof</h4>
+<div id="outline-container-org7a856b9" class="outline-4">
+<h4 id="org7a856b9"><span class="section-number-4">2.2.2</span> Proof</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 임의의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'}, \{\mathbf{X}^{i}\})$이 Critical Triple이라는 것을 보이기 위해서는 이와 대응하는 카메라 행렬 대응쌍 $(\mathbf{Q}, \mathbf{Q}^{'}, \{\mathbf{Y}^{i}\})$이 같은 Fundamental Matrix $\mathbf{F}$를 가진다는 사실을 사용해야 한다. $\mathbb{P}^{3}$공간에서 이차곡면은 4x4 크기의 행렬로 정의된다.
@@ -489,7 +488,7 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 
 \begin{equation}
   \begin{aligned}
-    &amp; (\mathbf{P}^{'}\mathbf{X}^{i})^{T}\mathbf{F}_{QQ^{'}}(\mathbf{PX}^{i}) = 0 \\
+    &amp; (\mathbf{P}^{'}\mathbf{X}^{i})^{\intercal}\mathbf{F}_{QQ^{'}}(\mathbf{PX}^{i}) = 0 \\
   \end{aligned}
 \end{equation}
 <p>

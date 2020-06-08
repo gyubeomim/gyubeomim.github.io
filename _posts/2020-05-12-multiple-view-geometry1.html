@@ -1,13 +1,3 @@
----
-layout: post
-title: (Geometry) Notes on Multiple View Geometry (1)
-description:
-date: 2020-05-12
-categories: [Mathematics]
-tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
-use_math: true
-comments: true
----
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -24,10 +14,10 @@ comments: true
 <li><a href="#org902b7d1">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#org8633f41">1.2. Ideal points and the line at infinity</a>
+<li><a href="#org27b8089">1.2. Ideal points and the line at infinity</a>
 <ul>
 <li><a href="#org225dc52">1.2.1. Intersection of parallel lines</a></li>
-<li><a href="#orgd54474a">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#org8633f41">1.2.2. Ideal points and the line at infinity</a></li>
 <li><a href="#orgbfac41c">1.2.3. A model for the projective plane</a></li>
 <li><a href="#org2e8fa2a">1.2.4. Duality</a></li>
 </ul>
@@ -64,7 +54,16 @@ comments: true
 </ul>
 </div>
 </div>
-
+--- 
+layout: post
+title: (Geometry) Notes on Multiple View Geometry (1)
+description: 
+date: 2020-05-12
+categories: [Mathematics]
+tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
+use_math: true
+comments: true
+---
 <div id="outline-container-org42a4514" class="outline-2">
 <h2 id="org42a4514"><span class="section-number-2">1</span> Projective geometry and transformations in 2D</h2>
 <div class="outline-text-2" id="text-1">
@@ -127,7 +126,7 @@ comments: true
 <h4 id="orgfd7518b"><span class="section-number-4">1.1.3</span> Homogeneous representation of points</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <p>
-직선 $\mathbf{l}=(a,b,c)^{T}$과 직선 위의 한 점 $\mathbf{x}=(x,y)^{T}$사이에는 다음 공식이 성립한다.
+직선 $\mathbf{l}=(a,b,c)^{\intercal}$과 직선 위의 한 점 $\mathbf{x}=(x,y)^{\intercal}$사이에는 다음 공식이 성립한다.
 </p>
 
 \begin{equation}
@@ -145,7 +144,7 @@ comments: true
   \end{aligned}
 \end{equation}
 <p>
-이는 직선 위의 한 점 $\mathbf{x}=(x,y)$좌표 맨 끝에 1을 추가하여 직선과 내적한 것으로 볼 수 있다. 직선 $\mathbf{l}$는 스케일 값에 상관없이 하나의 직선을 표현할 수 있으므로 $(x,y,1)\mathbf{l}=0$이 성립한다는 전제하에 모든 $k$값에 대해 $(kx,ky,k)\mathbf{l}=0$또한 성립한다. 따라서 <b>임의의 상수 $k$에 대해서 $(kx,ky,k)$는 $\mathbb{R}^{2}$공간에서 한 점 $\mathbf{x}=(x,y)$를 의미하므로 직선과 동일하게 점 또한 homogeneous 벡터로 표현할 수 있다.</b> 이를 일반화하여 표현하면 임의의 점 $\mathbf{x}=(x_{1}, x_{2},x_{3})^{T}$는 $\mathbb{R}^{2}$공간 상의 한 점 $(x_{1}/x_{3}, x_{2}/x_{3})$을 표현한다.
+이는 직선 위의 한 점 $\mathbf{x}=(x,y)$좌표 맨 끝에 1을 추가하여 직선과 내적한 것으로 볼 수 있다. 직선 $\mathbf{l}$는 스케일 값에 상관없이 하나의 직선을 표현할 수 있으므로 $(x,y,1)\mathbf{l}=0$이 성립한다는 전제하에 모든 $k$값에 대해 $(kx,ky,k)\mathbf{l}=0$또한 성립한다. 따라서 <b>임의의 상수 $k$에 대해서 $(kx,ky,k)$는 $\mathbb{R}^{2}$공간에서 한 점 $\mathbf{x}=(x,y)$를 의미하므로 직선과 동일하게 점 또한 homogeneous 벡터로 표현할 수 있다.</b> 이를 일반화하여 표현하면 임의의 점 $\mathbf{x}=(x_{1}, x_{2},x_{3})^{\intercal}$는 $\mathbb{R}^{2}$공간 상의 한 점 $(x_{1}/x_{3}, x_{2}/x_{3})$을 표현한다.
 </p>
 
 
@@ -160,10 +159,10 @@ comments: true
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}^{T}\mathbf{l} &amp; = \begin{bmatrix} x&amp;y&amp;1 \end{bmatrix} \begin{bmatrix} a\\b\\c \end{bmatrix} \\
+    \mathbf{x}^{\intercal}\mathbf{l} &amp; = \begin{bmatrix} x&amp;y&amp;1 \end{bmatrix} \begin{bmatrix} a\\b\\c \end{bmatrix} \\
     &amp; = ax + by + c \\
     &amp; = 0 \\
-    &amp; \therefore \mathbf{x}^{T}\mathbf{l} = 0
+    &amp; \therefore \mathbf{x}^{\intercal}\mathbf{l} = 0
   \end{aligned}
 \end{equation}
 <p>
@@ -196,8 +195,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 
 \begin{equation}
   \begin{aligned}
-    &amp; \mathbf{x}^{T}\mathbf{l} = 0 \\
-    &amp; \mathbf{x}^{T}\mathbf{l}^{'} = 0 \\
+    &amp; \mathbf{x}^{\intercal}\mathbf{l} = 0 \\
+    &amp; \mathbf{x}^{\intercal}\mathbf{l}^{'} = 0 \\
   \end{aligned}
 \end{equation}
 <p>
@@ -210,7 +209,7 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
   \end{aligned}
 \end{equation}
 <p>
-예를 들어, $\mathbb{P}^{2}$공간에 $x=1$인 직선과 $y=1$인 직선이 존재하면 두 직선은 $(1,1)$에서 교점을 가진다. 이를 위 공식을 이용해서 구해보면 직선 $x=1$은 $-x+1=0 &rArr; (-1,0,1)^{T}$로 표현할 수 있고 직선 $y=1$은 $-y+1=0 &rArr; (0,-1,1)^{T}$로 표현할 수 있으므로
+예를 들어, $\mathbb{P}^{2}$공간에 $x=1$인 직선과 $y=1$인 직선이 존재하면 두 직선은 $(1,1)$에서 교점을 가진다. 이를 위 공식을 이용해서 구해보면 직선 $x=1$은 $-x+1=0 &rArr; (-1,0,1)^{\intercal}$로 표현할 수 있고 직선 $y=1$은 $-y+1=0 &rArr; (0,-1,1)^{\intercal}$로 표현할 수 있으므로
 </p>
 
 \begin{equation}
@@ -219,7 +218,7 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
   \end{aligned}
 \end{equation}
 <p>
-가 성립한다. $(1,1,1)^{T}$는 $\mathbb{R}^{2}$공간에서 $(1,1)$을 의미한다.
+가 성립한다. $(1,1,1)^{\intercal}$는 $\mathbb{R}^{2}$공간에서 $(1,1)$을 의미한다.
 </p>
 </div>
 </div>
@@ -240,8 +239,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 </div>
 </div>
 
-<div id="outline-container-org8633f41" class="outline-3">
-<h3 id="org8633f41"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div id="outline-container-org27b8089" class="outline-3">
+<h3 id="org27b8089"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
@@ -268,8 +267,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 
 \begin{equation}
   \begin{aligned}
-    &amp; \mathbf{l}: (a,b,c)^{T} \\
-    &amp; \mathbf{l}^{'}: (a,b,c^{'})^{T} \\
+    &amp; \mathbf{l}: (a,b,c)^{\intercal} \\
+    &amp; \mathbf{l}^{'}: (a,b,c^{'})^{\intercal} \\
   \end{aligned}
 \end{equation}
 <p>
@@ -283,11 +282,11 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
   \end{aligned}
 \end{equation}
 <p>
-공식이 성립한다. 이러한 <b>무한대 점 $\mathbf{x}_{&infin;}$를 $\mathbb{R}^{2}$공간으로 변환하면 $(b/0,-a/0)$이 되어 유효하지 않는 점으로 변환된다. 따라서 $\mathbb{P}^{2}$공간에서 무한대 점 $\mathbf{x}_{&infin;}=(x,y,0)^{T}$는 $\mathbb{R}^{2}$공간으로 변환되지 않는다.</b> 이를 통해 euclidean 공간에서 평행한 두 직선은 만나지 않지만 projective 공간에서는 무한대에서 만난다는 것을 알 수 있다.
+공식이 성립한다. 이러한 <b>무한대 점 $\mathbf{x}_{&infin;}$를 $\mathbb{R}^{2}$공간으로 변환하면 $(b/0,-a/0)$이 되어 유효하지 않는 점으로 변환된다. 따라서 $\mathbb{P}^{2}$공간에서 무한대 점 $\mathbf{x}_{&infin;}=(x,y,0)^{\intercal}$는 $\mathbb{R}^{2}$공간으로 변환되지 않는다.</b> 이를 통해 euclidean 공간에서 평행한 두 직선은 만나지 않지만 projective 공간에서는 무한대에서 만난다는 것을 알 수 있다.
 </p>
 
 <p>
-예를 들어 $\mathbb{P}^{2}$공간에 평행한 두 직선 $x=1$과 $x=2$가 주어지면 두 직선은 무한대에서 교차한다. 이를 homogeneous notation으로 표현하면 $-x+1=0 \Rightarrow (-1,0,1)^{T}$그리고 $-x+2=0 &rArr;(-1,0,2)^{T}$이므로
+예를 들어 $\mathbb{P}^{2}$공간에 평행한 두 직선 $x=1$과 $x=2$가 주어지면 두 직선은 무한대에서 교차한다. 이를 homogeneous notation으로 표현하면 $-x+1=0 \Rightarrow (-1,0,1)^{\intercal}$그리고 $-x+2=0 &rArr;(-1,0,2)^{\intercal}$이므로
 </p>
 
 \begin{equation}
@@ -301,16 +300,16 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 
 </div>
 </div>
 
-<div id="outline-container-orgd54474a" class="outline-4">
-<h4 id="orgd54474a"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div id="outline-container-org8633f41" class="outline-4">
+<h4 id="org8633f41"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
-homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{T}$는 $x_{3} &ne; 0$일 때 $\mathbb{R}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{R}^{2}$공간과 대응되지 않고 $\mathbb{P}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
+homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0$일 때 $\mathbb{R}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{R}^{2}$공간과 대응되지 않고 $\mathbb{P}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}_{\infty} = \begin{pmatrix} x_{1}&amp;x_{2}&amp;0 \end{pmatrix}^{T}
+    \mathbf{x}_{\infty} = \begin{pmatrix} x_{1}&amp;x_{2}&amp;0 \end{pmatrix}^{\intercal}
   \end{aligned}
 \end{equation}
 <p>
@@ -319,15 +318,15 @@ homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{T}$는 $x_{3} &ne; 0$일 때
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{l}_{\infty} = \begin{pmatrix} 0&amp;0&amp;1 \end{pmatrix}^{T}
+    \mathbf{l}_{\infty} = \begin{pmatrix} 0&amp;0&amp;1 \end{pmatrix}^{\intercal}
   \end{aligned}
 \end{equation}
 <p>
-따라서 $\mathbf{x}_{&infin;}^{T}\mathbf{l}_{&infin;} = \begin{pmatrix}x_{1}&amp;x_{2}&amp;0 \end{pmatrix}\begin{pmatrix}0&amp;0&amp;1 \end{pmatrix}^{T} = 0$이 성립한다.
+따라서 $\mathbf{x}_{&infin;}^{\intercal}\mathbf{l}_{&infin;} = \begin{pmatrix}x_{1}&amp;x_{2}&amp;0 \end{pmatrix}\begin{pmatrix}0&amp;0&amp;1 \end{pmatrix}^{\intercal} = 0$이 성립한다.
 </p>
 
 <p>
-이전 섹션에서 설명한 것과 같이 두 평행한 직선 $\mathbf{l}=(a,b,c)^{T}$과 $\mathbf{l}_{&infin;}^{'}=(a,b,c^{'})^{T}$는 무한대 점 $\mathbf{x}_{&infin;}=(b,-a,0)^{T}$에서 교차한다는 것을 알 수 있다. 이를 통해 <b>$\mathbb{R}^{2}$공간에서는 평행한 직선들은 서로 교차하지 않지만 $\mathbb{P}^{2}$공간에서는 서로 다른 두 직선은 반드시 한 점에서 교차한다는 것을 알 수 있다.</b>
+이전 섹션에서 설명한 것과 같이 두 평행한 직선 $\mathbf{l}=(a,b,c)^{\intercal}$과 $\mathbf{l}_{&infin;}^{'}=(a,b,c^{'})^{\intercal}$는 무한대 점 $\mathbf{x}_{&infin;}=(b,-a,0)^{\intercal}$에서 교차한다는 것을 알 수 있다. 이를 통해 <b>$\mathbb{R}^{2}$공간에서는 평행한 직선들은 서로 교차하지 않지만 $\mathbb{P}^{2}$공간에서는 서로 다른 두 직선은 반드시 한 점에서 교차한다는 것을 알 수 있다.</b>
 </p>
 </div>
 </div>
@@ -342,7 +341,7 @@ homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{T}$는 $x_{3} &ne; 0$일 때
 </div>
 
 <p>
-<b>기하학적으로 봤을 때, $\mathbb{P}^{2}$는 3차원 공간 $\mathbb{R}^{3}$에서 원점을 지나는 모든 직선들의 집합</b> 을 의미한다. $\mathbb{P}^{2}$상의 모든 벡터를 $k(x_{1},x_{2},x_{3})^{T}$라고 했을 때 $k$값에 따라 한 점 $(x_{1},x_{2},x_{3})^{T}$의 위치가 결정된다. $k$는 실수이므로 $k=0$인 경우 원점을 의미하고 $k&ne;0$인 경우 무수한 점들의 집합인 직선이 된다. 반대로, 이러한 $\mathbb{R}^{3}$공간 상의 원점을 통과하는 한 직선은 $\mathbb{P}^{2}$공간 상의 한 점으로 볼 수 있다. 이를 확장하면 <b>$\mathbb{P}^{2}$공간 상의 직선 $\mathbf{l}$은 $\mathbb{R}^{3}$공간 상의 원점을 포함하는 평면 $&pi;$에 대응</b> 한다.
+<b>기하학적으로 봤을 때, $\mathbb{P}^{2}$는 3차원 공간 $\mathbb{R}^{3}$에서 원점을 지나는 모든 직선들의 집합</b> 을 의미한다. $\mathbb{P}^{2}$상의 모든 벡터를 $k(x_{1},x_{2},x_{3})^{\intercal}$라고 했을 때 $k$값에 따라 한 점 $(x_{1},x_{2},x_{3})^{\intercal}$의 위치가 결정된다. $k$는 실수이므로 $k=0$인 경우 원점을 의미하고 $k&ne;0$인 경우 무수한 점들의 집합인 직선이 된다. 반대로, 이러한 $\mathbb{R}^{3}$공간 상의 원점을 통과하는 한 직선은 $\mathbb{P}^{2}$공간 상의 한 점으로 볼 수 있다. 이를 확장하면 <b>$\mathbb{P}^{2}$공간 상의 직선 $\mathbf{l}$은 $\mathbb{R}^{3}$공간 상의 원점을 포함하는 평면 $&pi;$에 대응</b> 한다.
 </p>
 
 <p>
@@ -355,7 +354,7 @@ homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{T}$는 $x_{3} &ne; 0$일 때
 <h4 id="org2e8fa2a"><span class="section-number-4">1.2.4</span> Duality</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <p>
-<b>$\mathbb{P}^{2}$공간에서는 점과 직선이 대칭성(duality)을 가진다.</b> 예를 들어 직선 $\mathbf{l}$위의 한 점 $\mathbf{x}$은 $\mathbf{x}^{T}\mathbf{l}=0$또는 $\mathbf{l}^{T}\mathbf{x}=0$과 같이 두 가지 방법으로 표현할 수 있다. 또한, 두 직선 $\mathbf{l},\mathbf{l}^{'}$이 교차하는 한 점은 $\mathbf{x}=\mathbf{l}&times; \mathbf{l}^{'}$이고 두 점 $\mathbf{x}, \mathbf{x}^{'}$을 통과하는 직선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{x}&times; \mathbf{x}^{'}$으로 표현할 수 있는데 이는 기본적으로 점과 직선의 위치가 바뀌었을 뿐 동일한 공식을 사용한다.
+<b>$\mathbb{P}^{2}$공간에서는 점과 직선이 대칭성(duality)을 가진다.</b> 예를 들어 직선 $\mathbf{l}$위의 한 점 $\mathbf{x}$은 $\mathbf{x}^{\intercal}\mathbf{l}=0$또는 $\mathbf{l}^{\intercal}\mathbf{x}=0$과 같이 두 가지 방법으로 표현할 수 있다. 또한, 두 직선 $\mathbf{l},\mathbf{l}^{'}$이 교차하는 한 점은 $\mathbf{x}=\mathbf{l}&times; \mathbf{l}^{'}$이고 두 점 $\mathbf{x}, \mathbf{x}^{'}$을 통과하는 직선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{x}&times; \mathbf{x}^{'}$으로 표현할 수 있는데 이는 기본적으로 점과 직선의 위치가 바뀌었을 뿐 동일한 공식을 사용한다.
 </p>
 
 <p>
@@ -456,7 +455,7 @@ conic $\mathbf{C}$위의 한 점 $\mathbf{x}$에서 접선 $\mathbf{l}$은
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{C} = \mathbf{l}\mathbf{m}^{T} + \mathbf{m}\mathbf{l}^{T}
+    \mathbf{C} = \mathbf{l}\mathbf{m}^{\intercal} + \mathbf{m}\mathbf{l}^{\intercal}
   \end{aligned}
 \end{equation}
 <p>
@@ -505,7 +504,7 @@ $\mathbb{P}^{2}$상의 conic $\mathbf{C}$가 주어졌을 때, <b>$\mathbf{C}$�
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{l}^{T}\mathbf{C}^{\ast}\mathbf{l} = 0
+    \mathbf{l}^{\intercal}\mathbf{C}^{\ast}\mathbf{l} = 0
   \end{aligned}
 \end{equation}
 </div>
@@ -520,35 +519,35 @@ $\mathbb{P}^{2}$상의 conic $\mathbf{C}$가 주어졌을 때, <b>$\mathbf{C}$�
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{l}^{T}\mathbf{C}^{\ast}\mathbf{l} &amp; = (\mathbf{Cx})^{T}\mathbf{C}^{\ast}\mathbf{Cx} \\
-    &amp; = \mathbf{x}^{T}\mathbf{C}^{T}\mathbf{C}^{\ast}\mathbf{Cx} \\
-    &amp; = \det(\mathbf{x}^{T}\mathbf{C}^{T}\mathbf{x}) &amp; \because \mathbf{C}^{\ast}=\det(\mathbf{C}^{-1}) \\ 
-    &amp; = 0  &amp; \because \mathbf{x} \in \mathbf{C}, (\mathbf{x}^{T}\mathbf{C}\mathbf{x})^{T} = 0
+    \mathbf{l}^{\intercal}\mathbf{C}^{\ast}\mathbf{l} &amp; = (\mathbf{Cx})^{\intercal}\mathbf{C}^{\ast}\mathbf{Cx} \\
+    &amp; = \mathbf{x}^{\intercal}\mathbf{C}^{\intercal}\mathbf{C}^{\ast}\mathbf{Cx} \\
+    &amp; = \det(\mathbf{x}^{\intercal}\mathbf{C}^{\intercal}\mathbf{x}) &amp; \because \mathbf{C}^{\ast}=\det(\mathbf{C}^{-1}) \\ 
+    &amp; = 0  &amp; \because \mathbf{x} \in \mathbf{C}, (\mathbf{x}^{\intercal}\mathbf{C}\mathbf{x})^{\intercal} = 0
   \end{aligned}
 \end{equation}
 <p>
-($\leftarrow$) 직선 $\mathbf{l}$과 dual conic $\mathbf{C}^{&lowast;}$가 $\mathbf{l}^{T}\mathbf{C}^{&lowast;}\mathbf{l}=0$을 만족할 때 $\mathbf{l}$과 $\mathbf{C}^{&lowast;}$가 한 점 $\mathbf{x}$에서 만난다는 것을 증명하면 된다. 이 때 $\mathbf{l} = \mathbf{Cx}$공식이 성립한다.
+($\leftarrow$) 직선 $\mathbf{l}$과 dual conic $\mathbf{C}^{&lowast;}$가 $\mathbf{l}^{\intercal}\mathbf{C}^{&lowast;}\mathbf{l}=0$을 만족할 때 $\mathbf{l}$과 $\mathbf{C}^{&lowast;}$가 한 점 $\mathbf{x}$에서 만난다는 것을 증명하면 된다. 이 때 $\mathbf{l} = \mathbf{Cx}$공식이 성립한다.
 </p>
 
 <p>
-$\mathbf{C}$는 non-singualr하기 때문에 역행렬이 존재하므로 $\mathbf{x}= \mathbf{C}^{-1}\mathbf{l}$과 같이 나타낼 수 있다. 따라서 $\mathbf{x}^{T}\mathbf{l}$은
+$\mathbf{C}$는 non-singualr하기 때문에 역행렬이 존재하므로 $\mathbf{x}= \mathbf{C}^{-1}\mathbf{l}$과 같이 나타낼 수 있다. 따라서 $\mathbf{x}^{\intercal}\mathbf{l}$은
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}^{T}\mathbf{l} &amp; = (\mathbf{C}^{-1}\mathbf{l})^{T}\mathbf{l} \\
-    &amp; = \mathbf{l}^{T}\mathbf{C}^{-t}\mathbf{l} = 0 \\
+    \mathbf{x}^{\intercal}\mathbf{l} &amp; = (\mathbf{C}^{-1}\mathbf{l})^{\intercal}\mathbf{l} \\
+    &amp; = \mathbf{l}^{\intercal}\mathbf{C}^{-t}\mathbf{l} = 0 \\
     &amp; (\mathbf{C}^{\ast} \sim \mathbf{C}^{-1} \ \text{ by assumption.}) \\ 
   \end{aligned}
 \end{equation}
 <p>
-과 같고 $\mathbf{x}^{T}\mathbf{Cx}$는
+과 같고 $\mathbf{x}^{\intercal}\mathbf{Cx}$는
 </p>
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}^{T}\mathbf{C}\mathbf{x} &amp; = (\mathbf{C}^{-1}\mathbf{l})^{T}\mathbf{C}\mathbf{C}^{-1}\mathbf{l} \\
-    &amp; = \mathbf{l}^{T}\mathbf{C}^{-t}\mathbf{cc}^{-1}\mathbf{l} \\
-    &amp; = \mathbf{l}^{T}\mathbf{C}^{-1}\mathbf{l} = 0 \\
+    \mathbf{x}^{\intercal}\mathbf{C}\mathbf{x} &amp; = (\mathbf{C}^{-1}\mathbf{l})^{\intercal}\mathbf{C}\mathbf{C}^{-1}\mathbf{l} \\
+    &amp; = \mathbf{l}^{\intercal}\mathbf{C}^{-t}\mathbf{cc}^{-1}\mathbf{l} \\
+    &amp; = \mathbf{l}^{\intercal}\mathbf{C}^{-1}\mathbf{l} = 0 \\
     &amp; (\mathbf{C}^{-t} = \mathbf{C}^{-1} \ \ \mathbf{C} \text{ is symmetric.})
   \end{aligned}
 \end{equation}
@@ -661,7 +660,7 @@ affine 변환은 물체의 길이 비율을 보존하며 또한 평행한 직선
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{H}_{P} = \begin{bmatrix} \mathbf{A}&amp;\mathbf{t} \\ \mathbf{v}^{T}&amp;v\end{bmatrix}
+    \mathbf{H}_{P} = \begin{bmatrix} \mathbf{A}&amp;\mathbf{t} \\ \mathbf{v}^{\intercal}&amp;v\end{bmatrix}
   \end{aligned}
 \end{equation}
 <p>
@@ -681,12 +680,12 @@ affine 변환은 물체의 길이 비율을 보존하며 또한 평행한 직선
 \begin{equation}
   \begin{aligned}
     \mathbf{H}_{p} &amp; = \mathbf{H}_{S}\mathbf{H}_{A}\mathbf{H}_{P} \\
-    &amp; = \begin{bmatrix} s \mathbf{R}&amp;\mathbf{t} \\\mathbf{0}&amp;1 \end{bmatrix} \begin{bmatrix} \mathbf{K} &amp; \mathbf{0} \\ \mathbf{0} &amp; 1 \end{bmatrix} \begin{bmatrix} i &amp; \mathbf{0}\\ \mathbf{v}^{T}&amp; v\end{bmatrix} \\
-      &amp; = \begin{bmatrix} \mathbf{A}&amp;\mathbf{t} \\ \mathbf{v}^{T}&amp;v \end{bmatrix}
+    &amp; = \begin{bmatrix} s \mathbf{R}&amp;\mathbf{t} \\\mathbf{0}&amp;1 \end{bmatrix} \begin{bmatrix} \mathbf{K} &amp; \mathbf{0} \\ \mathbf{0} &amp; 1 \end{bmatrix} \begin{bmatrix} i &amp; \mathbf{0}\\ \mathbf{v}^{\intercal}&amp; v\end{bmatrix} \\
+      &amp; = \begin{bmatrix} \mathbf{A}&amp;\mathbf{t} \\ \mathbf{v}^{\intercal}&amp;v \end{bmatrix}
   \end{aligned}
 \end{equation}
 <p>
-와 같이 <b>projective 변환 $\mathbf{H}_{p}$는 similarity 변환 $\mathbf{H}_{S}$과 affine 변환 $\mathbf{H}_{A}$그리고 나머지 변환 $\mathbf{H}_{P}$의 곱으로 분해가 가능</b> 하다. 이 때, $\mathbf{A}=s\mathbf{R}\mathbf{K}+\mathbf{tv}^{T}$이고 $\mathbf{K}$는 $det(\mathbf{K})=1$로 정규화된 상삼각행렬(upper-triangle) 행렬을 의미한다. 단, 위와 같은 분해는 $v &ne; 0$일 때만 가능하며 $s &gt;0$인 경우 분해가 유일하게 결정된다.
+와 같이 <b>projective 변환 $\mathbf{H}_{p}$는 similarity 변환 $\mathbf{H}_{S}$과 affine 변환 $\mathbf{H}_{A}$그리고 나머지 변환 $\mathbf{H}_{P}$의 곱으로 분해가 가능</b> 하다. 이 때, $\mathbf{A}=s\mathbf{R}\mathbf{K}+\mathbf{tv}^{\intercal}$이고 $\mathbf{K}$는 $det(\mathbf{K})=1$로 정규화된 상삼각행렬(upper-triangle) 행렬을 의미한다. 단, 위와 같은 분해는 $v &ne; 0$일 때만 가능하며 $s &gt;0$인 경우 분해가 유일하게 결정된다.
 </p>
 </div>
 </div>
@@ -730,7 +729,7 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
   \end{aligned}
 \end{equation}
 <p>
-무한대 직선 $\mathbf{l}_{&infin;}$는 $\mathbf{l}_{&infin;}=(x,y,0)^{T}$와 같이 마지막 항이 0인 특징이 있으므로 임의의 homography $\mathbf{H}$는
+무한대 직선 $\mathbf{l}_{&infin;}$는 $\mathbf{l}_{&infin;}=(x,y,0)^{\intercal}$와 같이 마지막 항이 0인 특징이 있으므로 임의의 homography $\mathbf{H}$는
 </p>
 
 \begin{equation}

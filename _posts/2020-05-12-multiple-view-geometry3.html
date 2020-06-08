@@ -1,20 +1,10 @@
----
-layout: post
-title: (Geometry) Notes on Multiple View Geometry (3)
-description:
-date: 2020-05-12
-categories: [Mathematics]
-tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
-use_math: true
-comments: true
----
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org16a5dd0">1. Epipolar Geometry and the Fundamental Matrix</a>
 <ul>
-<li><a href="#orge4e0b87">1.1. Proof</a></li>
+<li><a href="#orgfb49785">1.1. Proof</a></li>
 <li><a href="#orgdb46417">1.2. Derivation of fundemantal matrix(geometry)</a></li>
 <li><a href="#orge0b82db">1.3. Derivation of fundemantal matrix(algebraic)</a></li>
 <li><a href="#org4374172">1.4. The epipolar line homography</a></li>
@@ -28,14 +18,14 @@ comments: true
 <li><a href="#orgd0572a7">1.6.1. Projective invariance and canonical cameras</a></li>
 <li><a href="#org424f8c3">1.6.2. Canonical form of camera matrices</a></li>
 <li><a href="#org1963595">1.6.3. Projective ambiguity of cameras given F</a></li>
-<li><a href="#org6df748d">1.6.4. Proof</a></li>
+<li><a href="#org96de649">1.6.4. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org11f93e1">1.7. Canonical cameras given F</a></li>
 <li><a href="#orgc493677">1.8. The essential matrix</a>
 <ul>
 <li><a href="#orga128341">1.8.1. Properties of the essential matrix</a></li>
-<li><a href="#orgfb49785">1.8.2. Proof</a></li>
+<li><a href="#orgbca1ac0">1.8.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orge0ea1a8">1.9. Extraction of cameras from the essential matrix</a></li>
@@ -47,7 +37,16 @@ comments: true
 </ul>
 </div>
 </div>
-
+--- 
+layout: post
+title: (Geometry) Notes on Multiple View Geometry (3)
+description: 
+date: 2020-05-12
+categories: [Mathematics]
+tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
+use_math: true
+comments: true
+---
 <div id="outline-container-org16a5dd0" class="outline-2">
 <h2 id="org16a5dd0"><span class="section-number-2">1</span> Epipolar Geometry and the Fundamental Matrix</h2>
 <div class="outline-text-2" id="text-1">
@@ -61,15 +60,15 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}^{'T}\mathbf{Fx} = 0
+    \mathbf{x}^{'\intercal}\mathbf{Fx} = 0
   \end{aligned}
 \end{equation}
 <p>
-을 만족한다. 이 때 곱해지는 순서에 따라 의미가 달라지며 $\mathbf{x}^{'T}\mathbf{Fx}=0$인 경우 두 카메라 $\mathbf{C},\mathbf{C}^{'}$사이의 Fundamental Matrix라고 하고 $\mathbf{x}^{T}\mathbf{F}^{'}\mathbf{x}^{'}=0$인 경우 두 카메라 $\mathbf{C}^{'},\mathbf{C}$사이의 Fundamental Matrix라고 한다. 이 때, $\mathbf{F}^{T} = \mathbf{F}^{'}$관계가 성립한다.
+을 만족한다. 이 때 곱해지는 순서에 따라 의미가 달라지며 $\mathbf{x}^{'\intercal}\mathbf{Fx}=0$인 경우 두 카메라 $\mathbf{C},\mathbf{C}^{'}$사이의 Fundamental Matrix라고 하고 $\mathbf{x}^{\intercal}\mathbf{F}^{'}\mathbf{x}^{'}=0$인 경우 두 카메라 $\mathbf{C}^{'},\mathbf{C}$사이의 Fundamental Matrix라고 한다. 이 때, $\mathbf{F}^{\intercal} = \mathbf{F}^{'}$관계가 성립한다.
 </p>
 
 <p>
-기하학적 측면에서 보면, $\mathbf{x}^{'T}\mathbf{Fx}=0$에서 <b>$\mathbf{Fx}$는 카메라 $\mathbf{C}$의 이미지 평면 $\pi_{\mathbf{C}}$위의 점 $\mathbf{x}$가 존재할 때 이와 상응하는 Epipolar Line $\mathbf{l}^{'} &isin; &pi;_{\mathbf{C}^{'}}$을 의미</b> 한다. 따라서 <b>$\mathbf{F}$는 이미지 평면 $\pi$위의 점 $\mathbf{x}$를 Epipolar Line $\mathbf{l}^{'}$으로 매핑하는 함수로 생각</b> 할 수 있다. 
+기하학적 측면에서 보면, $\mathbf{x}^{'\intercal}\mathbf{Fx}=0$에서 <b>$\mathbf{Fx}$는 카메라 $\mathbf{C}$의 이미지 평면 $\pi_{\mathbf{C}}$위의 점 $\mathbf{x}$가 존재할 때 이와 상응하는 Epipolar Line $\mathbf{l}^{'} &isin; &pi;_{\mathbf{C}^{'}}$을 의미</b> 한다. 따라서 <b>$\mathbf{F}$는 이미지 평면 $\pi$위의 점 $\mathbf{x}$를 Epipolar Line $\mathbf{l}^{'}$으로 매핑하는 함수로 생각</b> 할 수 있다. 
 </p>
 
 \begin{equation}
@@ -81,8 +80,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 \end{equation}
 </div>
 
-<div id="outline-container-orge4e0b87" class="outline-3">
-<h3 id="orge4e0b87"><span class="section-number-3">1.1</span> Proof</h3>
+<div id="outline-container-orgfb49785" class="outline-3">
+<h3 id="orgfb49785"><span class="section-number-3">1.1</span> Proof</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 ($\Rightarrow$)$\mathbf{l}^{'} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{'}$에 위치한 점 $\mathbf{x}^{'}$에 대하여 다음이 성립한다.
@@ -90,7 +89,7 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}^{'T}\mathbf{l}^{'} = \mathbf{x}^{'T}\mathbf{Fx}=0 \quad \forall \mathbf{x} \leftrightarrow \mathbf{x}^{'}
+    \mathbf{x}^{'\intercal}\mathbf{l}^{'} = \mathbf{x}^{'\intercal}\mathbf{Fx}=0 \quad \forall \mathbf{x} \leftrightarrow \mathbf{x}^{'}
   \end{aligned}
 \end{equation}
 <p>
@@ -99,12 +98,12 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 
 \begin{equation}
   \begin{aligned}
-    &amp; \mathbf{x}^{'T}_{1}\mathbf{Fx} = 0 \\
-    &amp; \mathbf{x}^{'T}_{2}\mathbf{Fx} = 0
+    &amp; \mathbf{x}^{'\intercal}_{1}\mathbf{Fx} = 0 \\
+    &amp; \mathbf{x}^{'\intercal}_{2}\mathbf{Fx} = 0
   \end{aligned}
 \end{equation}
 <p>
-의 관계가 성립하므로 $\mathbf{Fx}$는 $\mathbf{x}^{'T}_{i}, \ i=1,2$와 수직인 Epipolar Line $\mathbf{l}^{'}$을 의미한다.
+의 관계가 성립하므로 $\mathbf{Fx}$는 $\mathbf{x}^{'\intercal}_{i}, \ i=1,2$와 수직인 Epipolar Line $\mathbf{l}^{'}$을 의미한다.
 </p>
 </div>
 </div>
@@ -167,7 +166,7 @@ Epipolar Line $\mathbf{l}^{'} = \mathbf{P}^{'}(\mathbf{X(\lambda)})$와 같다. 
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{P}^{\dagger} = \mathbf{P}^{T}(\mathbf{PP}^{T})^{-1}
+    \mathbf{P}^{\dagger} = \mathbf{P}^{\intercal}(\mathbf{PP}^{\intercal})^{-1}
   \end{aligned}
 \end{equation}
 <p>
@@ -309,7 +308,7 @@ $(\mathbf{PH},\mathbf{P}^{'}\mathbf{H})$에 해당하는 대응점쌍 $\mathbf{x
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}^{'T}\tilde{\mathbf{F}}\mathbf{x} = 0
+    \mathbf{x}^{'\intercal}\tilde{\mathbf{F}}\mathbf{x} = 0
   \end{aligned}
 \end{equation}
 <p>
@@ -318,7 +317,7 @@ $(\mathbf{PH},\mathbf{P}^{'}\mathbf{H})$에 해당하는 대응점쌍 $\mathbf{x
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{X}^{T}\mathbf{H}^{T}\mathbf{P}^{'T}\tilde{\mathbf{F}}\mathbf{PHX} = 0
+    \mathbf{X}^{\intercal}\mathbf{H}^{\intercal}\mathbf{P}^{'\intercal}\tilde{\mathbf{F}}\mathbf{PHX} = 0
   \end{aligned}
 \end{equation}
 <p>
@@ -327,9 +326,9 @@ $(\mathbf{PH},\mathbf{P}^{'}\mathbf{H})$에 해당하는 대응점쌍 $\mathbf{x
 
 \begin{equation}
   \begin{aligned}
-    &amp; \tilde{\mathbf{X}}^{T}\mathbf{H}^{-T}\mathbf{H}^{T}\mathbf{P}^{'T}\tilde{\mathbf{F}}\mathbf{PHH}^{-1}\tilde{\mathbf{X}} = 0 \\
-    &amp; \tilde{\mathbf{X}}^{T}\mathbf{P}^{'T}\tilde{\mathbf{F}}\mathbf{P}\tilde{\mathbf{X}} = 0 \\
-    &amp; \tilde{\mathbf{x}}^{T}\tilde{\mathbf{F}}\tilde{\mathbf{x}} =0 
+    &amp; \tilde{\mathbf{X}}^{\intercal}\mathbf{H}^{-\intercal}\mathbf{H}^{\intercal}\mathbf{P}^{'\intercal}\tilde{\mathbf{F}}\mathbf{PHH}^{-1}\tilde{\mathbf{X}} = 0 \\
+    &amp; \tilde{\mathbf{X}}^{\intercal}\mathbf{P}^{'\intercal}\tilde{\mathbf{F}}\mathbf{P}\tilde{\mathbf{X}} = 0 \\
+    &amp; \tilde{\mathbf{x}}^{\intercal}\tilde{\mathbf{F}}\tilde{\mathbf{x}} =0 
   \end{aligned}
 \end{equation}
 <p>
@@ -368,9 +367,9 @@ $(\mathbf{PH},\mathbf{P}^{'}\mathbf{H})$에 해당하는 대응점쌍 $\mathbf{x
 
 \begin{equation}
   \begin{aligned}
-    &amp; \mathbf{PP}^{T} = \mathbf{K}^{2} \\
-    &amp; \mathbf{P}^{\dagger } = \mathbf{P}^{T}(\mathbf{PP}^{T})^{-1} = \begin{bmatrix} \mathbf{K}^{-1} \\ 0 \end{bmatrix} \\
-    &amp; \mathbf{C} = \begin{bmatrix} 0 &amp; 1 \end{bmatrix}^{T} \\
+    &amp; \mathbf{PP}^{\intercal} = \mathbf{K}^{2} \\
+    &amp; \mathbf{P}^{\dagger } = \mathbf{P}^{\intercal}(\mathbf{PP}^{\intercal})^{-1} = \begin{bmatrix} \mathbf{K}^{-1} \\ 0 \end{bmatrix} \\
+    &amp; \mathbf{C} = \begin{bmatrix} 0 &amp; 1 \end{bmatrix}^{\intercal} \\
     &amp; \mathbf{e}^{'} = \mathbf{P}^{'}\mathbf{C} = \mathbf{K}^{'}\mathbf{t}
   \end{aligned}
 \end{equation}
@@ -416,8 +415,8 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 </div>
 </div>
 
-<div id="outline-container-org6df748d" class="outline-4">
-<h4 id="org6df748d"><span class="section-number-4">1.6.4</span> Proof</h4>
+<div id="outline-container-org96de649" class="outline-4">
+<h4 id="org96de649"><span class="section-number-4">1.6.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-6-4">
 <p>
 두 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$, $(~{\mathbf{P}}, ~{\mathbf{P}}^{'})$이 주어졌을 때 이를 Canonical Form으로 쓰면 다음과 같다.
@@ -440,13 +439,13 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
   \end{aligned}
 \end{equation}
 <p>
-가 성립한다. $\mathbf{F}$의 성질에 의해 $\mathbf{a}^{T}\mathbf{F}=0, ~{\mathbf{a}}^{T}\mathbf{F}=0$이 만족하게 되고
+가 성립한다. $\mathbf{F}$의 성질에 의해 $\mathbf{a}^{\intercal}\mathbf{F}=0, ~{\mathbf{a}}^{\intercal}\mathbf{F}=0$이 만족하게 되고
 </p>
 
 \begin{equation}
   \begin{aligned}
-    &amp; \mathbf{a}^{T}\mathbf{F} = \mathbf{a}^{T}\mathbf{a}^{\wedge}\mathbf{A} = 0 \\
-    &amp; \tilde{\mathbf{a}}^{T}\mathbf{F} = \tilde{\mathbf{a}}^{T}\tilde{\mathbf{a}}^{\wedge}\tilde{\mathbf{A}} = 0 \\
+    &amp; \mathbf{a}^{\intercal}\mathbf{F} = \mathbf{a}^{\intercal}\mathbf{a}^{\wedge}\mathbf{A} = 0 \\
+    &amp; \tilde{\mathbf{a}}^{\intercal}\mathbf{F} = \tilde{\mathbf{a}}^{\intercal}\tilde{\mathbf{a}}^{\wedge}\tilde{\mathbf{A}} = 0 \\
   \end{aligned}
 \end{equation}
 <p>
@@ -474,18 +473,18 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{A} - k \tilde{\mathbf{A}} = \mathbf{av}^{T} \ \ \ \text{for some } \mathbf{v}
+    \mathbf{A} - k \tilde{\mathbf{A}} = \mathbf{av}^{\intercal} \ \ \ \text{for some } \mathbf{v}
   \end{aligned}
 \end{equation}
 <p>
-따라서 $~{\mathbf{A}} = k^{-1}(\mathbf{A}+\mathbf{av}^{T})$가 된다. 카메라 행렬 대응쌍은 다음과 같이 쓸 수 있다.
+따라서 $~{\mathbf{A}} = k^{-1}(\mathbf{A}+\mathbf{av}^{\intercal})$가 된다. 카메라 행렬 대응쌍은 다음과 같이 쓸 수 있다.
 </p>
 
 \begin{equation}
   \begin{aligned}
     &amp; \mathbf{P} = \tilde{\mathbf{P}} = [\mathbf{I}|0] \\
     &amp; \mathbf{P}^{'} = [\mathbf{A}|\mathbf{a}] \\
-    &amp; \tilde{\mathbf{P}}^{'} = [k^{-1}(\mathbf{A}+\mathbf{av}^{T}) \ | \ k\mathbf{a}] \\
+    &amp; \tilde{\mathbf{P}}^{'} = [k^{-1}(\mathbf{A}+\mathbf{av}^{\intercal}) \ | \ k\mathbf{a}] \\
   \end{aligned}
 \end{equation}
 <p>
@@ -514,14 +513,14 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 <h3 id="org11f93e1"><span class="section-number-3">1.7</span> Canonical cameras given F</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
-<b>임의의 정방행렬 $\mathbf{F}&isin; \mathbb{R}^{3&times; 3}$가 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$에 대응하는 Fundemental Matrix일 필요충분 조건은 $\mathbf{P}^{'T}\mathbf{F}\mathbf{P}$가 반대칭 행렬(skew symmetric matrix)일 때</b> 이다.
+<b>임의의 정방행렬 $\mathbf{F}&isin; \mathbb{R}^{3&times; 3}$가 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$에 대응하는 Fundemental Matrix일 필요충분 조건은 $\mathbf{P}^{'\intercal}\mathbf{F}\mathbf{P}$가 반대칭 행렬(skew symmetric matrix)일 때</b> 이다.
 </p>
 
 \begin{equation}
   \begin{aligned}
     &amp; \mathbf{x}^{'}\mathbf{Fx} = 0 \\
-    &amp; \Leftrightarrow \mathbf{X}^{T}\mathbf{P}^{'T}\mathbf{FPX} =0 \ \ \forall \mathbf{X} \\
-    &amp; \Leftrightarrow \mathbf{P}^{'T}\mathbf{FP} \text{ is a skew symmetric matrix.}
+    &amp; \Leftrightarrow \mathbf{X}^{\intercal}\mathbf{P}^{'\intercal}\mathbf{FPX} =0 \ \ \forall \mathbf{X} \\
+    &amp; \Leftrightarrow \mathbf{P}^{'\intercal}\mathbf{FP} \text{ is a skew symmetric matrix.}
   \end{aligned}
 \end{equation}
 <p>
@@ -540,9 +539,9 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{P}^{'}\mathbf{FP} &amp; = [\mathbf{SF}|\mathbf{e}^{'}]^{T} \mathbf{F} [\mathbf{I}|0] \\
-    &amp; = \begin{bmatrix} \mathbf{F}^{T}\mathbf{S}^{T}\mathbf{F} &amp; \mathbf{0} \\ \mathbf{e}^{'}\mathbf{F} &amp; 0 \end{bmatrix} \\
-    &amp; = \begin{bmatrix} \mathbf{F}^{T}\mathbf{S}^{T}\mathbf{F} &amp; \mathbf{0} \\ \mathbf{0} &amp; 0 \end{bmatrix} \\
+    \mathbf{P}^{'}\mathbf{FP} &amp; = [\mathbf{SF}|\mathbf{e}^{'}]^{\intercal} \mathbf{F} [\mathbf{I}|0] \\
+    &amp; = \begin{bmatrix} \mathbf{F}^{\intercal}\mathbf{S}^{\intercal}\mathbf{F} &amp; \mathbf{0} \\ \mathbf{e}^{'}\mathbf{F} &amp; 0 \end{bmatrix} \\
+    &amp; = \begin{bmatrix} \mathbf{F}^{\intercal}\mathbf{S}^{\intercal}\mathbf{F} &amp; \mathbf{0} \\ \mathbf{0} &amp; 0 \end{bmatrix} \\
   \end{aligned}
 \end{equation}
 <p>
@@ -550,7 +549,7 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 </p>
 
 <p>
-반대칭행렬 $\mathbf{S}$는 3차원 벡터 $\mathbf{s}^{\wedge}$형태로 나타낼 수 있고 이 때, $\mathbf{s}^{T}\mathbf{e}^{'} &ne; 0$이면 $\mathbf{P}^{'} = [\mathbf{s}^{&and;}\mathbf{F}| \mathbf{e}^{'}]$의 rank는 3이 된다. $\mathbf{P}^{'}$의 rank가 3이 되기 위해서는 $\mathbf{s}^{&and;}\mathbf{F}, \mathbf{e}^{'}$의 rank는 각각 2,1이 되어야 한다. 우선, $\mathbf{s}^{&and;}\mathbf{F}$가 rank 2라는 것을 증명해보면 Fundamental Matrix 성질에 의해 $\mathbf{e}^{'}\mathbf{F}=0$을 만족하므로 $\mathbf{F}$의 열공간 Col $\mathbf{F}$와 $\mathbf{e}^{'}$는 수직한다.
+반대칭행렬 $\mathbf{S}$는 3차원 벡터 $\mathbf{s}^{\wedge}$형태로 나타낼 수 있고 이 때, $\mathbf{s}^{\intercal}\mathbf{e}^{'} &ne; 0$이면 $\mathbf{P}^{'} = [\mathbf{s}^{&and;}\mathbf{F}| \mathbf{e}^{'}]$의 rank는 3이 된다. $\mathbf{P}^{'}$의 rank가 3이 되기 위해서는 $\mathbf{s}^{&and;}\mathbf{F}, \mathbf{e}^{'}$의 rank는 각각 2,1이 되어야 한다. 우선, $\mathbf{s}^{&and;}\mathbf{F}$가 rank 2라는 것을 증명해보면 Fundamental Matrix 성질에 의해 $\mathbf{e}^{'}\mathbf{F}=0$을 만족하므로 $\mathbf{F}$의 열공간 Col $\mathbf{F}$와 $\mathbf{e}^{'}$는 수직한다.
 </p>
 
 \begin{equation}
@@ -569,7 +568,7 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
   \end{aligned}
 \end{equation}
 <p>
-이고 <b>이 때 Col $\mathbf{F}$가 rank 2이므로 $\mathbf{s} \times \text{Col } \mathbf{F}$또한 rank 2</b> 가 된다. 다음으로 $\mathbf{e}^{'}$가 다른 열벡터들과 선형독립임을 증명해보면 $\mathbf{s}^{T} \text{Col }\mathbf{s}^{&and;}\mathbf{F}= 0$이고 $\mathbf{s}^{&and;}\mathbf{e}^{'} &ne; 0$이므로
+이고 <b>이 때 Col $\mathbf{F}$가 rank 2이므로 $\mathbf{s} \times \text{Col } \mathbf{F}$또한 rank 2</b> 가 된다. 다음으로 $\mathbf{e}^{'}$가 다른 열벡터들과 선형독립임을 증명해보면 $\mathbf{s}^{\intercal} \text{Col }\mathbf{s}^{&and;}\mathbf{F}= 0$이고 $\mathbf{s}^{&and;}\mathbf{e}^{'} &ne; 0$이므로
 </p>
 
 \begin{equation}
@@ -602,7 +601,7 @@ $\mathbf{P}^{'}$의 rank가 3이 되는 $\mathbf{s}$를 선택할 때 $\mathbf{e
 \begin{equation}
   \begin{aligned}
     &amp; (\mathbf{P}, \mathbf{P}^{'})= ([\mathbf{I}|0], [\mathbf{A}|\mathbf{a}]) \\
-    &amp; (\tilde{\mathbf{P}},\tilde{\mathbf{P}}^{'}) = ([\mathbf{I}|0],[k^{-1}(\mathbf{A}+\mathbf{av}^{T}) \ | \ k\mathbf{a}]) \\
+    &amp; (\tilde{\mathbf{P}},\tilde{\mathbf{P}}^{'}) = ([\mathbf{I}|0],[k^{-1}(\mathbf{A}+\mathbf{av}^{\intercal}) \ | \ k\mathbf{a}]) \\
   \end{aligned}
 \end{equation}
 <p>
@@ -612,7 +611,7 @@ $\mathbf{P}^{'}$의 rank가 3이 되는 $\mathbf{s}$를 선택할 때 $\mathbf{e
 \begin{equation}
   \begin{aligned}
     &amp; (\mathbf{P}, \mathbf{P}^{'})= ([\mathbf{I}|0], [\mathbf{e}^{'}\mathbf{F} \ | \ \mathbf{e}^{'}]) \\
-    &amp; (\tilde{\mathbf{P}},\tilde{\mathbf{P}}^{'}) = ([\mathbf{I}|0],[\mathbf{e}^{'}\mathbf{F}+\mathbf{e}^{'}\mathbf{v}^{T} \ | \ \lambda\mathbf{e}^{'}]) \\
+    &amp; (\tilde{\mathbf{P}},\tilde{\mathbf{P}}^{'}) = ([\mathbf{I}|0],[\mathbf{e}^{'}\mathbf{F}+\mathbf{e}^{'}\mathbf{v}^{\intercal} \ | \ \lambda\mathbf{e}^{'}]) \\
   \end{aligned}
 \end{equation}
 <p>
@@ -666,7 +665,7 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 
 \begin{equation}
   \begin{aligned}
-    \bar{\mathbf{x}}^{'T}\mathbf{E}\bar{\mathbf{x}} = 0
+    \bar{\mathbf{x}}^{'\intercal}\mathbf{E}\bar{\mathbf{x}} = 0
   \end{aligned}
 \end{equation}
 <p>
@@ -675,7 +674,7 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}^{'T}\mathbf{K}^{'-T}\mathbf{E}\mathbf{K}^{-1}\mathbf{x} = 0
+    \mathbf{x}^{'\intercal}\mathbf{K}^{'-\intercal}\mathbf{E}\mathbf{K}^{-1}\mathbf{x} = 0
   \end{aligned}
 \end{equation}
 <p>
@@ -684,7 +683,7 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{F} = \mathbf{K}^{'-T}\mathbf{E}\mathbf{K}^{-1}
+    \mathbf{F} = \mathbf{K}^{'-\intercal}\mathbf{E}\mathbf{K}^{-1}
   \end{aligned}
 \end{equation}
 </div>
@@ -698,8 +697,8 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 </div>
 </div>
 
-<div id="outline-container-orgfb49785" class="outline-4">
-<h4 id="orgfb49785"><span class="section-number-4">1.8.2</span> Proof</h4>
+<div id="outline-container-orgbca1ac0" class="outline-4">
+<h4 id="orgbca1ac0"><span class="section-number-4">1.8.2</span> Proof</h4>
 <div class="outline-text-4" id="text-1-8-2">
 <p>
 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'}) = ([\mathbf{I}|0], \ [\mathbf{R}|\mathbf{t}])$에 대한 Fundamental Matrix $\mathbf{F}$가 있다고 하면
@@ -726,7 +725,7 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{S} \sim \mathbf{U}\mathbf{Z}\mathbf{U}^{T}
+    \mathbf{S} \sim \mathbf{U}\mathbf{Z}\mathbf{U}^{\intercal}
   \end{aligned}
 \end{equation}
 <p>
@@ -736,19 +735,19 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 \begin{equation}
   \begin{aligned}
     \mathbf{F} &amp; = \mathbf{SR} \\
-    &amp; = \mathbf{UZU}^{T}\mathbf{R} \\
-    &amp; = \mathbf{UZWW}^{T}\mathbf{U}^{T}\mathbf{R} \ \ (\because \ \mathbf{WW}^{T} = \mathbf{I})\\
-    &amp; = \mathbf{UZW}(\mathbf{W}^{T}\mathbf{U}^{T}\mathbf{R})
+    &amp; = \mathbf{UZU}^{\intercal}\mathbf{R} \\
+    &amp; = \mathbf{UZWW}^{\intercal}\mathbf{U}^{\intercal}\mathbf{R} \ \ (\because \ \mathbf{WW}^{\intercal} = \mathbf{I})\\
+    &amp; = \mathbf{UZW}(\mathbf{W}^{\intercal}\mathbf{U}^{\intercal}\mathbf{R})
   \end{aligned}
 \end{equation}
 <p>
-이 때, $\mathbf{W}^{T}\mathbf{U}^{T}\mathbf{R}$은 직교행렬(orthogonal matrix)이 되고 $\mathbf{ZW}= \begin{bmatrix}1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}$이 된다. 따라서 Fundamental Matrix $\mathbf{F}$를 특이값 분해(SVD)하면
+이 때, $\mathbf{W}^{\intercal}\mathbf{U}^{\intercal}\mathbf{R}$은 직교행렬(orthogonal matrix)이 되고 $\mathbf{ZW}= \begin{bmatrix}1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}$이 된다. 따라서 Fundamental Matrix $\mathbf{F}$를 특이값 분해(SVD)하면
 </p>
 
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{F} &amp; = \mathbf{U}\mathbf{D}\mathbf{V}^{T}  \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix} \mathbf{V}^{T}
+    \mathbf{F} &amp; = \mathbf{U}\mathbf{D}\mathbf{V}^{\intercal}  \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix} \mathbf{V}^{\intercal}
   \end{aligned}
 \end{equation}
 <p>
@@ -761,7 +760,7 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{E} \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{T}
+    \mathbf{E} \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{\intercal}
   \end{aligned}
 \end{equation}
 <p>
@@ -770,9 +769,9 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{E} &amp; \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{T} \\
-     &amp; = \mathbf{UZWW}^{T}\mathbf{V} \\
-     &amp; = \mathbf{UZU}^{T}(\mathbf{UWW}^{T}\mathbf{V}^{T}) \\
+    \mathbf{E} &amp; \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{\intercal} \\
+     &amp; = \mathbf{UZWW}^{\intercal}\mathbf{V} \\
+     &amp; = \mathbf{UZU}^{\intercal}(\mathbf{UWW}^{\intercal}\mathbf{V}^{\intercal}) \\
      &amp; = \mathbf{SR} \\
      &amp; = \mathbf{e}^{\wedge} \mathbf{R}
   \end{aligned}
@@ -793,7 +792,7 @@ Essential Matrix $\mathbf{E}$가 다음과 같이 주어졌을 때
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{E} = \mathbf{U}\begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{T}
+    \mathbf{E} = \mathbf{U}\begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{\intercal}
   \end{aligned}
 \end{equation}
 <p>
@@ -802,14 +801,14 @@ Essential Matrix $\mathbf{E}$가 다음과 같이 주어졌을 때
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{E} &amp; \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{T} \\
-     &amp; = \mathbf{UZWW}^{T}\mathbf{V} \\
-     &amp; = \mathbf{UZU}^{T}(\mathbf{UWW}^{T}\mathbf{V}^{T}) \\
+    \mathbf{E} &amp; \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{\intercal} \\
+     &amp; = \mathbf{UZWW}^{\intercal}\mathbf{V} \\
+     &amp; = \mathbf{UZU}^{\intercal}(\mathbf{UWW}^{\intercal}\mathbf{V}^{\intercal}) \\
      &amp; = \mathbf{SR} 
   \end{aligned}
 \end{equation}
 <p>
-이 때, 직교행렬 $\mathbf{W}= \begin{bmatrix}0&amp;-1&amp; \\ 1&amp;0&amp; \\ &amp;&amp;1 \end{bmatrix}$이고 $\mathbf{W}^{T} = \begin{bmatrix}0&amp;1&amp; \\ -1&amp;0&amp; \\ &amp;&amp;1 \end{bmatrix}$일 때 $\mathbf{W}^{T} = \begin{bmatrix} -1&amp;&amp; \\ &amp;-1&amp; \\ &amp;&amp;1 \end{bmatrix}\mathbf{W}$관계가 성립한다. 따라서 <b>대각행렬 $\begin{bmatrix}1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}$은 $\mathbf{ZW}= -\mathbf{ZW}^{T}$와 같이 부호가 다른 두 개의 행렬로 분해가 가능</b> 하다.
+이 때, 직교행렬 $\mathbf{W}= \begin{bmatrix}0&amp;-1&amp; \\ 1&amp;0&amp; \\ &amp;&amp;1 \end{bmatrix}$이고 $\mathbf{W}^{\intercal} = \begin{bmatrix}0&amp;1&amp; \\ -1&amp;0&amp; \\ &amp;&amp;1 \end{bmatrix}$일 때 $\mathbf{W}^{\intercal} = \begin{bmatrix} -1&amp;&amp; \\ &amp;-1&amp; \\ &amp;&amp;1 \end{bmatrix}\mathbf{W}$관계가 성립한다. 따라서 <b>대각행렬 $\begin{bmatrix}1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}$은 $\mathbf{ZW}= -\mathbf{ZW}^{\intercal}$와 같이 부호가 다른 두 개의 행렬로 분해가 가능</b> 하다.
 </p>
 
 <p>
@@ -817,8 +816,8 @@ Essential Matrix $\mathbf{E}$가 다음과 같이 주어졌을 때
 </p>
 \begin{equation}
   \begin{aligned}
-    \mathbf{E} &amp; = (\mathbf{UZU}^{T})(\mathbf{UWV}^{T}) = \mathbf{S}_{0}\mathbf{R}_{0}\\
-    &amp; = (\mathbf{UZU}^{T})(\mathbf{UW}^{T}\mathbf{V}^{T}) =\mathbf{S}_{0}\mathbf{R}_{0}^{'}\\
+    \mathbf{E} &amp; = (\mathbf{UZU}^{\intercal})(\mathbf{UWV}^{\intercal}) = \mathbf{S}_{0}\mathbf{R}_{0}\\
+    &amp; = (\mathbf{UZU}^{\intercal})(\mathbf{UW}^{\intercal}\mathbf{V}^{\intercal}) =\mathbf{S}_{0}\mathbf{R}_{0}^{'}\\
   \end{aligned}
 \end{equation}
 <p>
@@ -835,12 +834,12 @@ Essential Matrix $\mathbf{E}$가 위 두 가지 케이스로만 분해된다는 
 </p>
 
 <p>
-반대칭행렬 $\mathbf{S}, \mathbf{S}_{0}$는 rank가 2인 행렬이므로 $\mathbf{S}_{0}^{T} = \mathbf{s}^{&and;}, \mathbf{S}^{T} = \mathbf{s}^{&and;}$과 같이 벡터 형태로 나타낼 수 있고
+반대칭행렬 $\mathbf{S}, \mathbf{S}_{0}$는 rank가 2인 행렬이므로 $\mathbf{S}_{0}^{\intercal} = \mathbf{s}^{&and;}, \mathbf{S}^{\intercal} = \mathbf{s}^{&and;}$과 같이 벡터 형태로 나타낼 수 있고
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{s}, \mathbf{s}_{0} \in \text{Nul } \mathbf{E}^{T}
+    \mathbf{s}, \mathbf{s}_{0} \in \text{Nul } \mathbf{E}^{\intercal}
   \end{aligned}
 \end{equation}
 <p>
@@ -867,8 +866,8 @@ Essential Matrix $\mathbf{E}$가 위 두 가지 케이스로만 분해된다는 
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{E} &amp; = \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix} \mathbf{V}^{T} = \mathbf{S}_{0}\mathbf{R} = \mathbf{S}_{0}(\mathbf{UXV}^{T}) \quad \text{where, } \mathbf{X} = \mathbf{U}^{T}\mathbf{RV} \\
-    &amp; = \mathbf{U}(\mathbf{ZX})\mathbf{V}^{T}
+    \mathbf{E} &amp; = \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix} \mathbf{V}^{\intercal} = \mathbf{S}_{0}\mathbf{R} = \mathbf{S}_{0}(\mathbf{UXV}^{\intercal}) \quad \text{where, } \mathbf{X} = \mathbf{U}^{\intercal}\mathbf{RV} \\
+    &amp; = \mathbf{U}(\mathbf{ZX})\mathbf{V}^{\intercal}
   \end{aligned}
 \end{equation}
 <p>
@@ -878,7 +877,7 @@ Essential Matrix $\mathbf{E}$가 위 두 가지 케이스로만 분해된다는 
 \begin{equation}
   \begin{aligned}
     \mathbf{X} &amp; = \begin{bmatrix} 0&amp;-1&amp; \\ 1&amp;0&amp; \\ &amp;&amp;\pm1 \end{bmatrix} \\
-    &amp; = \mathbf{W} = -\mathbf{W}^{T}
+    &amp; = \mathbf{W} = -\mathbf{W}^{\intercal}
   \end{aligned}
 \end{equation}
 <p>
@@ -901,12 +900,12 @@ Essential Matrix $\mathbf{E}$는 다음과 같이 나타낼 수 있다.
   \end{aligned}
 \end{equation}
 <p>
-여기서 반대칭행렬 $\mathbf{S}_{0}^{T} = \mathbf{s}_{0}^{&and;}$에서 $\mathbf{s}_{0}$는 $\mathbf{E}$의 Left Null Space에 포함된다.
+여기서 반대칭행렬 $\mathbf{S}_{0}^{\intercal} = \mathbf{s}_{0}^{&and;}$에서 $\mathbf{s}_{0}$는 $\mathbf{E}$의 Left Null Space에 포함된다.
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{s}_{0} \in \text{Nul }\mathbf{E}^{T}
+    \mathbf{s}_{0} \in \text{Nul }\mathbf{E}^{\intercal}
   \end{aligned}
 \end{equation}
 <p>
@@ -923,12 +922,12 @@ $\mathbf{E}= \mathbf{t}^{&and;}\mathbf{R}$을 어떻게 분해하느냐에 따�
   \end{aligned}
 \end{equation}
 <p>
-이는 두 카메라 $\mathbf{C}, \mathbf{C}^{'}$가 주어졌을 때 어느 카메라를 원점으로 잡는가에 따라 두 가지 해가 존재함을 의미한다. 다음으로 $\mathbf{R}$을 보면, $\mathbf{R}= \mathbf{UW}^{T}\mathbf{V}^{T}$인 경우
+이는 두 카메라 $\mathbf{C}, \mathbf{C}^{'}$가 주어졌을 때 어느 카메라를 원점으로 잡는가에 따라 두 가지 해가 존재함을 의미한다. 다음으로 $\mathbf{R}$을 보면, $\mathbf{R}= \mathbf{UW}^{\intercal}\mathbf{V}^{\intercal}$인 경우
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{E} = [\mathbf{UW}^{T}\mathbf{V}^{T} \ | \ \mathbf{u}_{3}]
+    \mathbf{E} = [\mathbf{UW}^{\intercal}\mathbf{V}^{\intercal} \ | \ \mathbf{u}_{3}]
   \end{aligned}
 \end{equation}
 <p>
@@ -937,14 +936,14 @@ $\mathbf{E}= \mathbf{t}^{&and;}\mathbf{R}$을 어떻게 분해하느냐에 따�
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{E} &amp; = [\mathbf{UW}^{T}\mathbf{V}^{T} \ | \ \mathbf{u}_{3}] \\
-    &amp; = [\mathbf{UWV}^{T}(\mathbf{V}\mathbf{W}^{T}\mathbf{W}^{T}\mathbf{V}^{T})\ | \ \mathbf{u}_{3}] \\
-    &amp; = [\mathbf{UW}^{T}\mathbf{V} \ | \ \mathbf{u}_{3}] \begin{bmatrix} \mathbf{VW}^{T}\mathbf{W}^{T}\mathbf{V}^{T} &amp; \\ &amp; 1 \end{bmatrix} \\
-    &amp; = [\mathbf{UW}^{T}\mathbf{V} \ | \ \mathbf{u}_{3}] \begin{bmatrix} \mathbf{V}\begin{pmatrix} -1&amp;&amp; \\&amp;-1&amp; \\&amp;&amp;1 \end{pmatrix}\mathbf{V}^{T} &amp; \\ &amp; 1 \end{bmatrix} \\
+    \mathbf{E} &amp; = [\mathbf{UW}^{\intercal}\mathbf{V}^{\intercal} \ | \ \mathbf{u}_{3}] \\
+    &amp; = [\mathbf{UWV}^{\intercal}(\mathbf{V}\mathbf{W}^{\intercal}\mathbf{W}^{\intercal}\mathbf{V}^{\intercal})\ | \ \mathbf{u}_{3}] \\
+    &amp; = [\mathbf{UW}^{\intercal}\mathbf{V} \ | \ \mathbf{u}_{3}] \begin{bmatrix} \mathbf{VW}^{\intercal}\mathbf{W}^{\intercal}\mathbf{V}^{\intercal} &amp; \\ &amp; 1 \end{bmatrix} \\
+    &amp; = [\mathbf{UW}^{\intercal}\mathbf{V} \ | \ \mathbf{u}_{3}] \begin{bmatrix} \mathbf{V}\begin{pmatrix} -1&amp;&amp; \\&amp;-1&amp; \\&amp;&amp;1 \end{pmatrix}\mathbf{V}^{\intercal} &amp; \\ &amp; 1 \end{bmatrix} \\
   \end{aligned}
 \end{equation}
 <p>
-이 성립한다. 이 때 $\mathbf{VW}^{T}\mathbf{W}^{T}\mathbf{V}^{T}$는 Baseline의 수직한 방향 2개를 상하대칭하는 행렬이 된다. 즉, <b>Baseline을 축으로 180 degree 회전하는 형태</b> 가 된다.
+이 성립한다. 이 때 $\mathbf{VW}^{\intercal}\mathbf{W}^{\intercal}\mathbf{V}^{\intercal}$는 Baseline의 수직한 방향 2개를 상하대칭하는 행렬이 된다. 즉, <b>Baseline을 축으로 180 degree 회전하는 형태</b> 가 된다.
 </p>
 </div>
 </div>
