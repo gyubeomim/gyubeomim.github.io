@@ -16,7 +16,7 @@ comments: true
 <ul>
 <li><a href="#org2523a51">1.1. The projective reconstruction theorem</a>
 <ul>
-<li><a href="#org7a856b9">1.1.1. Proof</a></li>
+<li><a href="#org9e32713">1.1.1. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org0c2c7d4">1.2. Stratified reconstruction</a>
@@ -37,14 +37,30 @@ comments: true
 <li><a href="#orgc703f6c">2.2. The normalized 8-point algorithm</a>
 <ul>
 <li><a href="#org07f0aec">2.2.1. Degenrate configurations</a></li>
-<li><a href="#org9e32713">2.2.2. Proof</a></li>
+<li><a href="#orgae1f272">2.2.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgde0a041">2.3. The Gold Standard method</a></li>
 </ul>
 </li>
-<li><a href="#orgfca3872">3. References</a></li>
-<li><a href="#org8aa4775">4. Closure</a></li>
+<li><a href="#orga1915e9">3. Structure Computation</a>
+<ul>
+<li><a href="#orgbd656d6">3.1. Problem statement</a></li>
+<li><a href="#orge1dcb37">3.2. Linear triangulation methods</a>
+<ul>
+<li><a href="#org74ae36a">3.2.1. Inhomogeneous method</a></li>
+</ul>
+</li>
+<li><a href="#org979b8b6">3.3. An optimial solution</a>
+<ul>
+<li><a href="#orgc18bdae">3.3.1. Reformulation of the minimization problem</a></li>
+<li><a href="#org381473e">3.3.2. Details of the minimization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgfca3872">4. References</a></li>
+<li><a href="#org8aa4775">5. Closure</a></li>
 </ul>
 </div>
 </div>
@@ -92,8 +108,8 @@ comments: true
 \end{equation}
 </div>
 
-<div id="outline-container-org7a856b9" class="outline-4">
-<h4 id="org7a856b9"><span class="section-number-4">1.1.1</span> Proof</h4>
+<div id="outline-container-org9e32713" class="outline-4">
+<h4 id="org9e32713"><span class="section-number-4">1.1.1</span> Proof</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 이전 섹션에서 동일한 Fundamental Matrix $\mathbf{F}$를 공유하는 카메라 행렬 대응쌍 사이에 $\mathbf{P}_{2} = \mathbf{P}_{1}\mathbf{H}^{-1}, \mathbf{P}_{2}^{'} =\mathbf{P}_{1}^{'}\mathbf{H}^{-1}$를 만족하는 Homography 행렬 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재한다는 것을 증명하였다. 이를 적용해보면
@@ -454,8 +470,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-org9e32713" class="outline-4">
-<h4 id="org9e32713"><span class="section-number-4">2.2.2</span> Proof</h4>
+<div id="outline-container-orgae1f272" class="outline-4">
+<h4 id="orgae1f272"><span class="section-number-4">2.2.2</span> Proof</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 임의의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'}, \{\mathbf{X}^{i}\})$이 Critical Triple이라는 것을 보이기 위해서는 이와 대응하는 카메라 행렬 대응쌍 $(\mathbf{Q}, \mathbf{Q}^{'}, \{\mathbf{Y}^{i}\})$이 같은 Fundamental Matrix $\mathbf{F}$를 가진다는 사실을 사용해야 한다. $\mathbb{P}^{3}$공간에서 이차곡면은 4x4 크기의 행렬로 정의된다.
@@ -561,21 +577,358 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 <p>
 이 때 최적화되는 파라미터는 $\mathbf{X}^{i}$와 카메라 행렬 $\mathbf{P}^{'} = [\mathbf{M}|\mathbf{m}]$이다.
 </p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga1915e9" class="outline-2">
+<h2 id="orga1915e9"><span class="section-number-2">3</span> Structure Computation</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgbd656d6" class="outline-3">
+<h3 id="orgbd656d6"><span class="section-number-3">3.1</span> Problem statement</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+해당 섹션에서는 두 카메라 행렬 대응쌍 $\mathbf{P},\mathbf{P}^{'}$와 이미지 평면의 대응점 쌍 $\mathbf{x}, \mathbf{x}^{'}$가 주어진 경우 $\mathbb{P}^{3}$공간 상의 점 $\mathbf{X}$를 구하는 방법에 대해 설명한다. <b>이론적으로는 대응점 쌍 $\mathbf{x}, \mathbf{x}^{'}$를 Back-projection하여 얻은 두 직선의 교차점을 통해 $\mathbf{X}$를 계산할 수 있으나 실제 데이터는 노이즈가 존재하기 때문에 두 Back-projection 직선이 교차하지 않는다.</b> 또한 노이즈로 인해 두 이미지 평면 상에서 Epipolar Line $\mathbf{l}, \mathbf{l}^{'}$또한 $\mathbf{x}, \mathbf{x}^{'}$와 만나지 않는다.
+</p>
+
+<p>
+이를 해결하기 위해서 두 Back-projection 직선들에 동시에 수직인 최단거리 직선을 구한 다음 최단거리 직선의 중점(mid-point)를 계산하여 $\mathbf{X}$를 계산하는 방법이 존재한다. 해당 방법은 체크보드를 이용한 캘리브레이션 방법과 같이 $\mathbf{P}, \mathbf{P}^{'}$가 고정된 경우에는 사용하면 좋은 방법이지만, 대부분의 경우 $\mathbf{P}, \mathbf{P}^{'}$는 사영모호성(projective ambiguity)으로 인해 유일하게 결정되지 않는다.
+</p>
+
+<p>
+<b>현실 세계에서는 카메라 행렬을 Affinity 또는 Projectivity까지 알고 있는 경우(up to affinity, projectivity)가 대부분이다. 정확한 $\mathbf{X}$를 구하기 위해서는 triangulation이 사영모호성에 대해서도 불변이어야 한다.</b> Triangulation $&tau;$은 주어진 대응점 쌍과 카메라 행렬 대응쌍으로부터 $\mathbf{X}&isin; \mathbb{P}^{3}$를 계산하는 방법을 말한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X} = \tau(\mathbf{x},\mathbf{x}^{'},\mathbf{P},\mathbf{P}^{'})
+  \end{aligned}
+\end{equation}
+<p>
+$&tau;$가 사영모호성에 불변이기 위해서는 임의의 Homography $\mathbf{H}&isin;\text{PGL}_{4}$에 대하여
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X}_{H} &amp; = \tau(\mathbf{x},\mathbf{x}^{'},\mathbf{PH}^{-1},\mathbf{P}^{'}\mathbf{H}^{-1}) \\
+    &amp; = \mathbf{H}\cdot\tau(\mathbf{x},\mathbf{x}^{'},\mathbf{P},\mathbf{P}^{'}) \\
+    &amp; = \mathbf{HX}
+  \end{aligned}
+\end{equation}
+<p>
+공식이 성립해야 한다. 위와 같이 불변성이 성립하는 경우 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{PH}^{-1} \mathbf{X}_{H} &amp; = \mathbf{PH}^{-1}\mathbf{HX} \\
+    &amp; = \mathbf{PX} \\
+    &amp; = \mathbf{x}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 마찬가지로 $\mathbf{P}^{'}\mathbf{H}^{-1}\mathbf{X}_{H} = \mathbf{x}^{'}$이 된다. 예를 들어, Fundemantal Matrix $\mathbf{F}$와 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$, 대응점 쌍 $(\mathbf{x}, \mathbf{x}^{'})$이 주어졌을 때 $(\mathbf{P},\mathbf{P}^{'})$를 Homography 변환한 카메라 행렬 대응쌍 $(\mathbf{PH}^{-1},\mathbf{P}^{'}\mathbf{H}^{-1})$또한 동일한 $\mathbf{F}$를 공유한다. 이를 통해
+</p>
+
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \{\mathbf{X}\}: \ \text{ 3D Points from} \ (\mathbf{x},\mathbf{x}^{'}) \ \text{and } (\mathbf{P},\mathbf{P}^{'}). \\
+    &amp; \{\mathbf{X}_{H}\}: \ \text{ 3D Points from} \ (\mathbf{x},\mathbf{x}^{'}) \ \text{and } (\mathbf{P}\mathbf{H}^{-1},\mathbf{P}^{'}\mathbf{H}^{-1}). \\
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 두 PointCloud $\{\mathbf{X}\},\{\mathbf{X}_{H}\}$를 구할 수 있고 <b>PointCloud가 Homography에 불변이기 위해서는 두 PointCloud 사이에</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}\{\mathbf{X}\} = \{\mathbf{X}_{H}\}
+  \end{aligned}
+\end{equation}
+<p>
+<b>인 변환 성질을 만족해야 한다.</b> 앞서 설명한 중점(mid-point)을 사용한 방법은 두 Back-projection 직선들에 서로 수직인 최단거리 직선이 Homography 변환을 수행하면 더 이상 직교하지 않게 되고 중점 또한 더 이상 중심이 위치하지 않게 된다. 따라서 <b>중점을 사용한 방법은 Homography에 불변하지 않다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge1dcb37" class="outline-3">
+<h3 id="orge1dcb37"><span class="section-number-3">3.2</span> Linear triangulation methods</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+해당 섹션에서는 $\mathbf{X}&isin; \mathbb{P}^{3}$를 구하기 위해 선형방정식을 사용하는 방법을 설명한다. $\mathbf{x}=\mathbf{PX}, \mathbf{x}^{'}=\mathbf{P}^{'}\mathbf{X}$로부터
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}^{\wedge}(\mathbf{PX}) = 0\\
+    &amp; \mathbf{x}^{'\wedge}(\mathbf{P}^{'}\mathbf{X})=0
+  \end{aligned}
+\end{equation}
+<p>
+공식이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x} = \begin{bmatrix} x&amp;y&amp;1 \end{bmatrix}^{\intercal} \\
+    &amp; \mathbf{P} = \begin{bmatrix} \mathbf{p}_{1}^{\intercal} &amp; \mathbf{p}_{2}^{\intercal} &amp; \mathbf{p}_{3}^{\intercal} \end{bmatrix}^{\intercal} \\
+    &amp; \mathbf{X} = \begin{bmatrix} X&amp;Y&amp;Z&amp;W \end{bmatrix}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+$\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $\mathbf{x}^{&and;}(\mathbf{PX})$를 전개한 후 정리하면 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; x(\mathbf{p}^{3\intercal}\mathbf{X}) - (\mathbf{p}^{1\intercal}\mathbf{X}) = 0 \\
+    &amp; y(\mathbf{p}^{3\intercal}\mathbf{X}) - (\mathbf{p}^{2\intercal}\mathbf{X}) = 0 \\
+    &amp; x(\mathbf{p}^{2\intercal}\mathbf{X}) - y(\mathbf{p}^{1\intercal}\mathbf{X}) = 0 \\
+  \end{aligned}
+\end{equation}
+<p>
+과 같고 이를 $\mathbf{x}^{'&and;}\mathbf{P}^{'}\mathbf{X}$도 같이 구한 후 $\mathbf{X}$에 대한 선형시스템으로 다시 작성하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \underbrace{\begin{bmatrix}
+        x \mathbf{p}^{3\intercal}-\mathbf{p}^{1\intercal} \\
+        y \mathbf{p}^{3\intercal}-\mathbf{p}^{2\intercal} \\
+        x^{'} \mathbf{p}^{'3\intercal}-\mathbf{p}^{'1\intercal} \\
+        y^{'} \mathbf{p}^{'3\intercal}-\mathbf{p}^{'2\intercal} \\
+    \end{bmatrix}}_{\mathbf{A}}\mathbf{X} = 0 \\
+  \end{aligned}
+\end{equation}
+<p>
+같이 $\mathbf{AX} = 0$형태로 정리할 수 있다. 데이터에 노이즈가 없는 경우 $\mathbf{A}&isin; \mathbb{R}^{4&times; 4}$의 rank가 3이 되어 Null Space 벡터를 통해 유일한 $\mathbf{X}$를 계산할 수 있지만 노이즈가 존재하는 경우 $\mathbf{A}$의 rank는 4가 되어 무수히 많은 해가 존재한다. 따라서 $\mathbf{A}$를 특이값 분해(SVD)하여 $\|\mathbf{X}\|=1$일 때 $\|\mathbf{AX}\|$의 크기를 최소화하는 근사해 $\hat{\mathbf{X}}$를 계산해야 한다.
+</p>
+
+<p>
+선형 방법에 Homography를 적용해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    y(\mathbf{p}^{3}) - \mathbf{p}^{2} &amp; = y(\mathbf{p}\mathbf{H}^{-1})^{3} - (\mathbf{p}\mathbf{H}^{-1})^{2} \\
+    &amp; = y(\mathbf{p}^{3})\mathbf{H}^{-1} - \mathbf{p}^{2}\mathbf{H}^{-1} \\
+    &amp; = (y(\mathbf{p}^{3})-\mathbf{p}^{2})\mathbf{H}^{-1}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 $\mathbf{A}&rArr; \mathbf{AH}^{-1}$로 변환되어 $\mathbf{X}&rArr; \mathbf{X}_{H}$로 변환이 된다. 이를 통해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+ \|\mathbf{AX}\| = \| \mathbf{AH}^{-1}\mathbf{X}_{H}\|
+  \end{aligned}
+\end{equation}
+<p>
+이 성립하지만 <b>Homography 변환을 할 때 $\|\mathbf{X}_{H} \| &ne; 1$이 되어 $\|\mathbf{X}\|=1$의 성질을 보존하지 않는다. 따라서 선형방정식을 통한 방법은 Homography에 대해 불변이 아니므로 최적의 솔루션이 아니다.</b>
+</p>
+</div>
+
+<div id="outline-container-org74ae36a" class="outline-4">
+<h4 id="org74ae36a"><span class="section-number-4">3.2.1</span> Inhomogeneous method</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+카메라 행렬 대응쌍 $\mathbf{P},\mathbf{P}^{'}$이 Affine 변환까지(up to affinity) 결정되는 경우 $\mathbf{X}=(X,\ Y,\ Z,\ 1)^{\intercal}$로 놓고 $\|\mathbf{AX}\|$를 최소화하는 근사해 $\hat{\mathbf{X}}$를 구하는 방법을 Inhomogeneous method라고 한다. $\mathbf{X}$는 Affine Point이므로 $\|\mathbf{X}\|=1$제약조건이 사라지게 된다. 따라서, <b>Inhomogeneous method는 임의의 Affine 변환 $\mathbf{H}_{A}$에 대해 불변인 특성을 지닌다.</b>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org979b8b6" class="outline-3">
+<h3 id="org979b8b6"><span class="section-number-3">3.3</span> An optimial solution</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+해당 섹션에서는 최적의 $\mathbf{X}&isin;\mathbb{P}^{3}$을 구하기 위한 Optimal Triangulation 방법에 대해 설명한다. 우선 비선형 최소제곱법(non-linear least square)을 통해 $\mathbf{X}$를 구하는 방법이 있다.
+</p>
+
+<ul class="org-ul">
+<li>주어진 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$와 대응점 쌍 $(\mathbf{x},\mathbf{x}^{'})$에 대해여 이전 섹션에서 설명한 선형방정식 $\mathbf{AX}=0$을 통해 구한 근사해 $\hat{\mathbf{X}}$를 초기값 $\mathbf{X}_{0}$로 설정한다.</li>
+<li>$\mathbf{X}_{0}$를 각각 카메라에 프로젝션하면 $\hat{\mathbf{x}}, \hat{\mathbf{x}}^{'}$가 생성되는데 이 때 $d(\mathbf{x},\hat{\mathbf{x}})^{2}+d(\mathbf{x}^{'},\hat{\mathbf{x}}^{'})^{2}$를 최소화한다. $d(\mathbf{x}_{1},\mathbf{x}_{2})$은 $\mathbf{x}_{1}$과 $\mathbf{x}_{2}$사이의 거리를 의미한다.</li>
+<li>Gauss-Newton 또는 Levenberg-Marquardt와 같은 비선형 최소제곱법을 통해 반복적으로(iterative) 최적해 $\mathbf{X}^{&lowast;}$를 구한다.</li>
+</ul>
+</div>
+
+<div id="outline-container-orgc18bdae" class="outline-4">
+<h4 id="orgc18bdae"><span class="section-number-4">3.3.1</span> Reformulation of the minimization problem</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+반복법을 사용하지 않고도(non-iterative) Optimal Triangulation을 수행할 수 있다. 해당 방법은 <b>$d(\mathbf{x},\hat{\mathbf{x}})$를 최적화하는 대신 $\mathbf{x}$와 파라미터화된 Epipolar Line $\mathbf{l}(t)$사이의 거리 $d(\mathbf{x},\mathbf{l}(t))$를 최적화한다. 즉, $\mathbf{x}$와 $\mathbf{l}(t)$사이의 거리를 최소화하는 파라미터 $t$를 구함으로써 최적해를 구한다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \min_{t} d(\mathbf{x},\mathbf{l}(t))^{2} + d(\mathbf{x}^{'}, \mathbf{l}^{'}(t))^{2}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org381473e" class="outline-4">
+<h4 id="org381473e"><span class="section-number-4">3.3.2</span> Details of the minimization</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<p>
+우선 $\mathbf{x}=(x,y,1)^{\intercal}$와 $\mathbf{x}^{'}=(x^{'},y^{'},1)^{\intercal}$를 각각 원점 $(0,0,1)^{\intercal}$로 변환시킨다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x} = (x,y,1)^{\intercal} \rightarrow (0,0,1)^{\intercal} \\
+    &amp; \mathbf{x}^{'} = (x^{'},y^{'},1)^{\intercal} \rightarrow (0,0,1)^{\intercal} \\
+  \end{aligned}
+\end{equation}
+<p>
+이를 변환해주는 행렬을
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{T}=\begin{bmatrix} 1&amp;&amp;-x \\&amp;1&amp;-y \\ &amp;&amp;1\end{bmatrix} &amp; \mathbf{T}^{'}=\begin{bmatrix} 1&amp;&amp;-x^{'} \\&amp;1&amp;-y^{'} \\ &amp;&amp;1\end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+로 설정한다. 다음으로 Epipole $\mathbf{e}=(e_{1},e_{2},e_{3})^{\intercal}, \ \mathbf{e}^{'}=(e_{1}^{'},e_{2}^{'},e_{3}^{'})^{\intercal}$을 각각 x축 상의 점인 $(1,0,f)^{\intercal}, (1,0,f^{'})^{\intercal}$로 변환한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{e}=(e_{1},e_{2},e_{3})^{\intercal} \rightarrow (1,0,f)^{\intercal} \\
+    &amp; \mathbf{e}^{'}=(e_{1}^{'},e_{2}^{'},e_{3}^{'})^{\intercal} \rightarrow (1,0,f^{'})^{\intercal} \\
+  \end{aligned}
+\end{equation}
+<p>
+이는 이미지 평면에서 각각 $(1/f,0)^{\intercal}, (1/f^{'},0)^{\intercal}$을 의미한다. 우선 $e_{1}^{2}+e_{2}^{2}=e_{1}^{'2}+e_{2}^{'2}=1$이 되도록 Epipole을 정규화한 다음, 이를 x축 상의 점으로 회전하는 행렬을 $\mathbf{R}, \mathbf{R}^{'}$다음과 같이 정의한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{R} = \begin{bmatrix} e_{1}&amp;e_{2}&amp; \\ -e_{2}&amp;e_{1}&amp; \\ &amp;&amp;1 \end{bmatrix} &amp; \mathbf{R}^{'} = \begin{bmatrix} e_{1}^{'}&amp;e_{2}^{'}&amp; \\ -e_{2}^{'}&amp;e_{1}^{'}&amp; \\ &amp;&amp;1 \end{bmatrix} &amp;
+  \end{aligned}
+\end{equation}
+<p>
+이를 통해 $\mathbf{Re}=(1,0,e_{3})^{\intercal}, \mathbf{R}^{'}\mathbf{e}^{'}=(1,0,e_{3}^{'})^{\intercal}$로 변환한다. 이 때, $e_{3}=f, e_{3}^{'}=f^{'}$이다. 다음으로 Epipolar Line $\mathbf{l}$을 $\mathbf{l}(t)$로 파라미터화한다. Epipole $\mathbf{e}=(1,0,f)^{\intercal}$는 x축 선상에 위치한 점이므로 이를 지나는 Epipolar Line은 y축을 기준으로 $(0,t,1)^{\intercal}$곽 같이 파라미터화할 수 있다. 따라서 $\mathbf{l}(t)$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}(t) &amp; = \begin{pmatrix} 0\\t\\1 \end{pmatrix}\times \begin{pmatrix} 1\\0\\f \end{pmatrix} \\
+    &amp; = \begin{pmatrix} tf\\1\&#x00ad;t \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. 이전 단계에서 $\mathbf{x}$를 원점 $(0,0,1)^{\intercal}$로 옮겼으므로 $d(\mathbf{x},\mathbf{l}(t))$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    d(\mathbf{x},\mathbf{l}(t))= \frac{t^{2}}{1^{2}+(tf)^{2}}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 다음으로 $\mathbf{l}^{'}(t)$를 계산해야 한다. Fundmamental Matrix $\mathbf{F}$를 사용하여 $\mathbf{l}^{'}(t)$를 계산하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{l}^{'}(t) = \mathbf{F}\begin{pmatrix} 0\\t\\1 \end{pmatrix}\\
+    &amp; \because \mathbf{l}(t) \text{ is the epipolar line of } \begin{pmatrix} 0&amp;t&amp;1 \end{pmatrix}^{\intercal}.
+  \end{aligned}
+\end{equation}
+<p>
+과 같다. $\mathbf{F}$는 주어진 카메라 행렬 대응쌍에서 $\mathbf{F}_{0}$를 계산한 후 $\mathbf{F}_{0}$로부터 $\mathbf{T},\mathbf{R},\mathbf{T}^{'},\mathbf{R}^{'}$을 이용하여 계산할 수 있다. Epipole과 $\mathbf{F}$사이에는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{F}\begin{pmatrix} 1\\0\\f \end{pmatrix} = 0 \\
+    &amp; \begin{pmatrix} 1&amp;0&amp;f^{'} \end{pmatrix}\mathbf{F}=0
+  \end{aligned}
+\end{equation}
+<p>
+이 성립하므로 $\mathbf{F}_{1,col} = -f \mathbf{F}_{3,col}$그리고 $\mathbf{F}_{1,row} = -f^{'}\mathbf{F}_{3,row}$가 되고 이를 정리하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} = \begin{bmatrix} f^{'}fd &amp; -f^{'}c &amp; -f^{'}d \\ -fb &amp; a &amp; b \\ -fd &amp; c &amp; d \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. 이를 통해 $\mathbf{l}^{'}(t)$를 다시 표현하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}^{'}(t) &amp; = \mathbf{F}\begin{pmatrix} 0\\t\\1 \end{pmatrix} = t \mathbf{F}_{2,col} + \mathbf{F}_{3,col} \\
+    &amp; = \begin{pmatrix} -f^{'}(ct+d) \\ at+b \\ ct+d \end{pmatrix}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 다음으로 원점 $\mathbf{x}^{'}$와 $\mathbf{l}^{'}(t)$사이의 거리 $d(\mathbf{x}^{'}, \mathbf{l}^{'}(t))$를 구하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    d(\mathbf{x}^{'}, \mathbf{l}^{'}(t))^{2} = \frac{(ct+d)^{2}}{(at+b)^{2} + f^{'2}(ct+d)^{2}}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이를 통해 최적화하고자 하는 목적함수 $d(\mathbf{x},\mathbf{l}(t))^{2} + d(\mathbf{x}^{'}, \mathbf{l}^{'}(t))^{2}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    s(t) = \frac{t^{2}}{1+f^{2}t^{2}} + \frac{(ct+d)^{2}}{(at+b)^{2} + f^{'2}(ct+d)^{2}}
+  \end{aligned}
+\end{equation}
+<p>
+가 되고 이를 미분하여 0$(s^{'}(t)=0)$이 되는 $t$를 찾으면 총 6개의 $t_{i}, \ i=1,&ctdot;,6$이 나오고 이 때 $s(t_{i})$값을   비교하여 최소가 되는 $t_{i}$를 찾는다. 이렇게 찾은 $t_{\min}$값을 사용한 $\mathbf{l}(t_{min}), \mathbf{l}^{'}(t_{min})$가 최적의 Epipolar Line이 된다. 다음으로 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \hat{\mathbf{x}} = \mathbf{l}(t_{\min}) \\
+    &amp; \hat{\mathbf{x}}^{'} = \mathbf{l}^{'}(t_{\min}) \\
+    &amp; \hat{\mathbf{x}} \leftarrow \mathbf{T}^{-1}\mathbf{R}^{-1}\hat{\mathbf{x}} \\
+    &amp; \hat{\mathbf{x}}^{'} \leftarrow \mathbf{T}^{'-1}\mathbf{R}^{'-1}\hat{\mathbf{x}}^{'} \\
+  \end{aligned}
+\end{equation}
+<p>
+순서대로 변환하기 전 원래의 $\hat{\mathbf{x}}, \hat{\mathbf{x}}^{'}$을 복원한 다음
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \hat{\mathbf{x}} \times \mathbf{P}\hat{\mathbf{X}} = 0 \\
+    &amp; \hat{\mathbf{x}}^{'} \times \mathbf{P}\hat{\mathbf{X}}^{'} = 0 \\
+  \end{aligned}
+\end{equation}
+<p>
+식을 <b>$\mathbf{A}\hat{\mathbf{X}}=0$꼴로 정리하여 최종적으로 특이값 분해(SVD)를 통해 최적해 $\hat{\mathbf{X}}$를 구한다. 이와 같이 $\mathbf{X}$의 근사해를 구하는 방법을 Optimal Triangulation 방법이라고 한다.</b>
+</p>
+
 <hr />
 </div>
 </div>
 </div>
+</div>
 <div id="outline-container-orgfca3872" class="outline-2">
-<h2 id="orgfca3872"><span class="section-number-2">3</span> References</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="orgfca3872"><span class="section-number-2">4</span> References</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 <a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
 </p>
 </div>
 </div>
 <div id="outline-container-org8aa4775" class="outline-2">
-<h2 id="org8aa4775"><span class="section-number-2">4</span> Closure</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="org8aa4775"><span class="section-number-2">5</span> Closure</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.
 </p>
