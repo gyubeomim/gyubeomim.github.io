@@ -1,0 +1,968 @@
+---
+layout: post
+title: (Geometry) Notes on Multiple View Geometry (3)
+description:
+date: 2020-05-12
+categories: [Mathematics]
+tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
+use_math: true
+comments: true
+---
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org16a5dd0">1. Epipolar Geometry and the Fundamental Matrix</a>
+<ul>
+<li><a href="#orge4e0b87">1.1. Proof</a></li>
+<li><a href="#orgdb46417">1.2. Derivation of fundemantal matrix(geometry)</a></li>
+<li><a href="#orge0b82db">1.3. Derivation of fundemantal matrix(algebraic)</a></li>
+<li><a href="#org4374172">1.4. The epipolar line homography</a></li>
+<li><a href="#org47a8195">1.5. Fundamental matrices arising from special motions</a>
+<ul>
+<li><a href="#orgcb30c43">1.5.1. Pure translation</a></li>
+</ul>
+</li>
+<li><a href="#org7f5e05f">1.6. Retrieving the camera matrices</a>
+<ul>
+<li><a href="#orgd0572a7">1.6.1. Projective invariance and canonical cameras</a></li>
+<li><a href="#org424f8c3">1.6.2. Canonical form of camera matrices</a></li>
+<li><a href="#org1963595">1.6.3. Projective ambiguity of cameras given F</a></li>
+<li><a href="#org6df748d">1.6.4. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org11f93e1">1.7. Canonical cameras given F</a></li>
+<li><a href="#orgc493677">1.8. The essential matrix</a>
+<ul>
+<li><a href="#orga128341">1.8.1. Properties of the essential matrix</a></li>
+<li><a href="#orgfb49785">1.8.2. Proof</a></li>
+</ul>
+</li>
+<li><a href="#orge0ea1a8">1.9. Extraction of cameras from the essential matrix</a></li>
+<li><a href="#org840610c">1.10. Geometrical interpretation of the four solutions</a></li>
+</ul>
+</li>
+<li><a href="#org7fe78bb">2. References</a></li>
+<li><a href="#orge359721">3. Closure</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org16a5dd0" class="outline-2">
+<h2 id="org16a5dd0"><span class="section-number-2">1</span> Epipolar Geometry and the Fundamental Matrix</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Epipolar geometry는 <b>2개의 카메라 이미지 사이에 정의되는 기하학 관계</b> 를 의미한다. 이는 3차원 물체의 구조와는 독립적이며 <b>오로지 카메라의 내부 파라미터와 두 카메라 사이의 상대 포즈에만 의존한다.</b>
+</p>
+
+<p>
+Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \mathbf{C}^{'}$이 주어질 때 $\mathbf{F}&isin; \mathbb{R}^{3&times; 3}$이며 rank 2를 가지는 행렬</b> 을 의미한다. $\mathbf{F}$는 두 카메라의 이미지 평면에 있는 점들의 대응쌍 $\mathbf{x}, \mathbf{x}^{'}$에 대하여
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{'T}\mathbf{Fx} = 0
+  \end{aligned}
+\end{equation}
+<p>
+을 만족한다. 이 때 곱해지는 순서에 따라 의미가 달라지며 $\mathbf{x}^{'T}\mathbf{Fx}=0$인 경우 두 카메라 $\mathbf{C},\mathbf{C}^{'}$사이의 Fundamental Matrix라고 하고 $\mathbf{x}^{T}\mathbf{F}^{'}\mathbf{x}^{'}=0$인 경우 두 카메라 $\mathbf{C}^{'},\mathbf{C}$사이의 Fundamental Matrix라고 한다. 이 때, $\mathbf{F}^{T} = \mathbf{F}^{'}$관계가 성립한다.
+</p>
+
+<p>
+기하학적 측면에서 보면, $\mathbf{x}^{'T}\mathbf{Fx}=0$에서 <b>$\mathbf{Fx}$는 카메라 $\mathbf{C}$의 이미지 평면 $\pi_{\mathbf{C}}$위의 점 $\mathbf{x}$가 존재할 때 이와 상응하는 Epipolar Line $\mathbf{l}^{'} &isin; &pi;_{\mathbf{C}^{'}}$을 의미</b> 한다. 따라서 <b>$\mathbf{F}$는 이미지 평면 $\pi$위의 점 $\mathbf{x}$를 Epipolar Line $\mathbf{l}^{'}$으로 매핑하는 함수로 생각</b> 할 수 있다. 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{F}: \ \mathbf{x} \mapsto \mathbf{l}^{'} \\
+    &amp; \text{where, } \ \ \mathbf{x} \in \pi_{\mathbf{C}} \in \mathbb{P}^{2} \\
+    &amp; \mathbf{l}^{'} \in (\mathbb{P}^{2})^{\vee}
+  \end{aligned}
+\end{equation}
+</div>
+
+<div id="outline-container-orge4e0b87" class="outline-3">
+<h3 id="orge4e0b87"><span class="section-number-3">1.1</span> Proof</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+($\Rightarrow$)$\mathbf{l}^{'} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{'}$에 위치한 점 $\mathbf{x}^{'}$에 대하여 다음이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{'T}\mathbf{l}^{'} = \mathbf{x}^{'T}\mathbf{Fx}=0 \quad \forall \mathbf{x} \leftrightarrow \mathbf{x}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+($\Leftarrow$) 이미지 평면 $\pi_{\mathbf{C}}$위의 점 $\mathbf{x}$를 Back-projection하여 $\mathbf{X}_{1}, \mathbf{X}_{2}$점이 생성되었다고 했을 때, 이를 $&pi;_{\mathbf{C}^{'}}$에 프로젝션시키면 각각 $\mathbf{x}^{'}_{1} = \mathbf{P}^{'}\mathbf{X}_{1}$, $\mathbf{x}^{'}_{2} = \mathbf{P}^{'}\mathbf{X}_{2}$점들이 생성된다. 이 때 Fundamental Matrix $\mathbf{F}$에 의해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}^{'T}_{1}\mathbf{Fx} = 0 \\
+    &amp; \mathbf{x}^{'T}_{2}\mathbf{Fx} = 0
+  \end{aligned}
+\end{equation}
+<p>
+의 관계가 성립하므로 $\mathbf{Fx}$는 $\mathbf{x}^{'T}_{i}, \ i=1,2$와 수직인 Epipolar Line $\mathbf{l}^{'}$을 의미한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdb46417" class="outline-3">
+<h3 id="orgdb46417"><span class="section-number-3">1.2</span> Derivation of fundemantal matrix(geometry)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+두 카메라 $\mathbf{C}, \mathbf{C}^{'}$가 있을 때 이미지 평면 $\pi_{\mathbf{C}}$위의 점 $\mathbf{x}$를 Back-projection한 직선 $\mathbf{l}_{x}$가 3차원 공간 상에서 임의의 평면 $&pi;_{0}$와 한 점에서 만난다고 가정한다. 이 때 $\mathbf{C}, \mathbf{C}^{'}$의 이미지 점들을 연결해주는 Homography $\mathbf{H}_{&pi;_{0}}$를 생각해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{\pi_{0}} : &amp; \pi_{\mathbf{C}} \mapsto \pi_{\mathbf{C}^{'}} \\
+    &amp; \mathbf{x} \mapsto \mathbf{x}^{'} \\ 
+    &amp; \mathbf{x} \mapsto \mathbf{P}^{'}(\mathbf{l_{x}} \cap \pi_{0})
+  \end{aligned}
+\end{equation}
+<p>
+$\pi_{\mathbf{C}^{'}}$위에 프로젝션된 점을 $\mathbf{x}^{'} = \mathbf{P}^{'}(\mathbf{l}_{x} &cap; &pi;_{0})$라고 하고 Epipolar Line $\mathbf{l}^{'}$을 $\mathbf{x}^{'}$와 Epipole $\mathbf{e}^{'}$를 이어주는 직선이라고 정의하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{e}^{'} \times \mathbf{x}^{'} &amp; = \mathbf{e}^{' \wedge}\mathbf{x}^{'} \\
+    &amp; = \mathbf{e}^{'\wedge} \mathbf{H}_{\pi_{0}}(\mathbf{x}) \quad \text{is Epipolar Line.}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 나타낼 수 있다. 이 때 $\mathbf{l}^{'} = \mathbf{Fx}$의 공식을 사용하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}^{'} &amp; = \mathbf{Fx} \\
+    &amp; = \mathbf{e}^{'\wedge} \mathbf{H}_{\pi_{0}} \mathbf{x} \\
+  \end{aligned}
+\end{equation}
+<p>
+과 같다. 따라서 <b>$\mathbf{F} = \mathbf{e}^{'\wedge}\mathbf{H}_{\pi_{0}}$</b> 가 성립한다. 이 때, $\mathbf{H}_{&pi;_{0}}$는 rank 3인 행렬이며 $\mathbf{e}^{'&and;}$는 rank 2인 행렬이므로 $\mathbf{F}$는 rank 2인 행렬이 된다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge0b82db" class="outline-3">
+<h3 id="orge0b82db"><span class="section-number-3">1.3</span> Derivation of fundemantal matrix(algebraic)</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Epipolar Line $\mathbf{l}^{'} = \mathbf{P}^{'}(\mathbf{X(\lambda)})$와 같다. 이 때 $\mathbf{X}(&lambda;)$는 카메라 $\mathbf{C}$의 중심점을 지나는 $\mathbf{x}$의 Back-projection 직선을 의미한다. $\mathbf{X}(&lambda;)$는 다음과 같이 다시 작성할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X}(\lambda) = \mathbf{P}^{\dagger}\mathbf{x} + \lambda \mathbf{C} \quad \lambda \in \mathbb{R}\\
+  \end{aligned}
+\end{equation}
+<p>
+여기서 $\mathbf{P}^{&dagger;}$는 $\mathbf{P}$의 Pseudo Inverse를 의미하고
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}^{\dagger} = \mathbf{P}^{T}(\mathbf{PP}^{T})^{-1}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $\mathbf{l}^{'} = \mathbf{P}^{'}(\mathbf{X}(&lambda;))$는 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}^{'}(\mathbf{X}(\lambda)) &amp; = \mathbf{P}^{'}\mathbf{P}^{\dagger}\mathbf{x} + \lambda \mathbf{P}^{'}\mathbf{C} \\
+    &amp; \mathbf{P}^{'}\mathbf{P}^{\dagger}\mathbf{x} + \lambda \mathbf{e}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+$\mathbf{P}^{'}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;_{\mathbf{C}^{'}}$에 프로젝션시킨 점을 의미하므로 Epipole $\mathbf{e}^{'}$가 된다. $&lambda;=0$일 때 $\mathbf{P}^{'}(\mathbf{X}(0))= \mathbf{P}^{'}\mathbf{P}^{&dagger;}\mathbf{x}$이고 $&lambda;=&infin;$일 때 $\mathbf{P}^{'}(\mathbf{X}(&infin;))=\mathbf{P}^{'}\mathbf{C}=\mathbf{e}^{'}$가 된다. 따라서 Epipolar Line $\mathbf{l}^{'}$는 두 점을 잇는 직선이므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+     \mathbf{l}^{'} = \mathbf{e}^{'\wedge} \mathbf{P}^{'}\mathbf{P}^{\dagger}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 추가적으로 Epipole $\mathbf{e}^{'}$는 Epipolar Line $\mathbf{l}^{'}$에 포함되어 있고 모든 $\mathbf{x}_{i}$에 대해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{e}^{'} \mathbf{Fx}_{i} = 0 \quad \forall \mathbf{x}_{i}
+  \end{aligned}
+\end{equation}
+<p>
+이 성립하므로 $\mathbf{e}^{'}\mathbf{F}=0$이 성립한다. <b>결론적으로 $\mathbf{e}^{'}$는 $\mathbf{F}$의 Left null vector</b> 이다. 또한 $\mathbf{e}$는 $\mathbf{F}$의 (right) null vector가 된다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4374172" class="outline-3">
+<h3 id="org4374172"><span class="section-number-3">1.4</span> The epipolar line homography</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+두 카메라 $\mathbf{C}, \mathbf{C}^{'}$이 존재하고 이미지 평면 위의 한 점을 각각 $\mathbf{x}, \mathbf{x}^{'}$라고 하면 이에 상응하는 Epipolar Line $\mathbf{l}, \mathbf{l}^{'}$이 존재한다. 이 때, <b>$\mathbf{l}$과 $\mathbf{l}^{'}$사이에는 별도의 대응 관계가 성립</b> 하는데 이는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbb{P}(\pi)^{\vee} \mapsto \mathbb{P}(\pi^{'})^{\vee}
+  \end{aligned}
+\end{equation}
+<p>
+<b>매핑 관계인 Homography 행렬</b> 로 주어진다. 카메라 중심점 $\mathbf{C}$를 통과하면서 Epipole $\mathbf{e}$를 지나지 않는 직선 $\mathbf{k}$가 있을 때 $\mathbf{k}$는 Epipolar Line $\mathbf{l}$과 반드시 한 점 $\mathbf{p}$에서 만난다. $\mathbf{p}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{p} = \mathbf{k}^{\wedge}\mathbf{l}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 구할 수 있고 $\mathbf{p}$는 Fundamental Matrix에 의해 Epipolar Line $\mathbf{l}^{'}$으로 프로젝션되므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}^{'} &amp; = \mathbf{F}\mathbf{k}^{\wedge}\mathbf{l} \\
+    &amp; = \mathbf{H}\mathbf{l} \\
+  \end{aligned}
+\end{equation}
+<p>
+의 관계가 성립한다. 따라서 <b>$\mathbf{l}, \mathbf{l}^{'}$은 $\mathbf{H}=\mathbf{Fk}^{&and;}$인 Homography 행렬에 의해 대응 관계가 성립</b> 한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org47a8195" class="outline-3">
+<h3 id="org47a8195"><span class="section-number-3">1.5</span> Fundamental matrices arising from special motions</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-orgcb30c43" class="outline-4">
+<h4 id="orgcb30c43"><span class="section-number-4">1.5.1</span> Pure translation</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<p>
+순수 이동(pure translation)이란 카메라 센터를 회전하지 않고 이동만 하는 것을 의미한다. 이 때, 월드의 모든 물체를 고정시킨 채로 카메라를 움직이는 것과 카메라를 고정시킨 채로 월드의 모든 물체를 이동시키는 것은 동일하다. 처음 위치의 카메라 행렬과 카메라 센터를 각각 $\mathbf{P}, \mathbf{C}$라고 하고 순수 이동 후 카메라 행렬과 카메라 센터를 각각 $\mathbf{P}^{'}, \mathbf{C}^{'}$라고 할 때 <b>두 카메라의 베이스라인의 길이는 카메라 중심점의 순수 이동량과 동일</b> 하다. 
+</p>
+
+<p>
+또한 <b>두 카메라의 Epipole을 각각 $\mathbf{e},\mathbf{e}^{'}$이라고 하면 두 Epipole의 위치는 동일하며 이는 곧 소실점(vanishing point)을 의미</b> 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{e} = \mathbf{e}^{'} = \mathbf{v}
+  \end{aligned}
+\end{equation}
+<p>
+이러한 순수 이동 상황에서 $\mathbf{e}=\mathbf{e}^{'}$를 Auto Epipolar라고 한다.
+</p>
+
+<p>
+대수적으로 Fundamental Matrix를 유도해보면 처음 카메라 행렬을 $\mathbf{P}=\mathbf{K}[\mathbf{I}|0]$이라고 하고 순수 이동 후 카메라 행렬을 $\mathbf{P}^{'}=\mathbf{K}[\mathbf{I}|\mathbf{t}]$라고 하면 이전 섹션에서 Fundamental Matrix $\mathbf{F}$는 $\mathbf{F} = \mathbf{e}^{'\wedge}\mathbf{P}^{'}\mathbf{P}^{\dagger}$이므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} &amp; = \mathbf{e}^{'\wedge}\mathbf{P}^{'}\mathbf{P}^{\dagger} \\
+    &amp; = \mathbf{e}^{'\wedge}\mathbf{KK}^{-1} \\
+    &amp; = \mathbf{e}^{'\wedge}
+  \end{aligned}
+\end{equation}
+<p>
+따라서 <b>순수 이동 상황에서 Fundamental Matrix는 $\mathbf{F}=\mathbf{e}^{'\wedge}$</b> 이다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7f5e05f" class="outline-3">
+<h3 id="org7f5e05f"><span class="section-number-3">1.6</span> Retrieving the camera matrices</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-orgd0572a7" class="outline-4">
+<h4 id="orgd0572a7"><span class="section-number-4">1.6.1</span> Projective invariance and canonical cameras</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<p>
+두 카메라 $\mathbf{C}, \mathbf{C}^{'}$에 대응하는 이미지 평면 상의 점들 $\mathbf{x}, \mathbf{x}^{'}$과 Fundamental Matrix $\mathbf{F}$가 존재할 때 $\mathbf{F}$는 $\mathbf{x}\leftrightarrow \mathbf{x}^{'}$대응쌍의 Homography 변환에 상관없이 동일하다. 다시 말하면, $\mathbb{P}^{3} \mapsto\mathbb{P}^{3}$을 만족하는 Homograhpy 변환 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재할 때 $\mathbf{H}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    (\mathbf{P},\mathbf{P}^{'}) \mapsto (\mathbf{PH}, \mathbf{P}^{'}\mathbf{H})
+  \end{aligned}
+\end{equation}
+<p>
+를 만족하는데 <b>이러한 $\mathbf{H}$에 관계없이 Fundamental Matrix $\mathbf{F}$는 동일</b> 하다.
+</p>
+
+<p>
+$(\mathbf{PH},\mathbf{P}^{'}\mathbf{H})$에 해당하는 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{'}$에 대해서
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{'T}\tilde{\mathbf{F}}\mathbf{x} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이 성립한다. 이 때 $\mathbf{x}=\mathbf{PHX}, \mathbf{x}^{'}=\mathbf{P}^{'}\mathbf{HX}$이므로 이를 위 식에 대입하면 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X}^{T}\mathbf{H}^{T}\mathbf{P}^{'T}\tilde{\mathbf{F}}\mathbf{PHX} = 0
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하고 위 식은 모든 $&forall; \mathbf{X}&isin; \mathbb{P}^{3}$에 대해서 성립한다. $\mathbf{X}=\mathbf{H}^{-1}(\mathbf{HX}), ~{\mathbf{X}} = \mathbf{HX}$로 치환하여 다시 위 식에 대입하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \tilde{\mathbf{X}}^{T}\mathbf{H}^{-T}\mathbf{H}^{T}\mathbf{P}^{'T}\tilde{\mathbf{F}}\mathbf{PHH}^{-1}\tilde{\mathbf{X}} = 0 \\
+    &amp; \tilde{\mathbf{X}}^{T}\mathbf{P}^{'T}\tilde{\mathbf{F}}\mathbf{P}\tilde{\mathbf{X}} = 0 \\
+    &amp; \tilde{\mathbf{x}}^{T}\tilde{\mathbf{F}}\tilde{\mathbf{x}} =0 
+  \end{aligned}
+\end{equation}
+<p>
+이 되어 <b>결론적으로 $\mathbf{F}= ~{\mathbf{F}}$가 성립</b> 한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org424f8c3" class="outline-4">
+<h4 id="org424f8c3"><span class="section-number-4">1.6.2</span> Canonical form of camera matrices</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<p>
+위와 같은 성질에 따라 동일한 Fundamental Matrix $\mathbf{F}$에 여러 $(\mathbf{P},\mathbf{P}^{'})$쌍이 대응되므로 $\mathbf{F}$와 $(\mathbf{P},\mathbf{P}^{'})$는 One-to-Many Correspondence 관계가 된다. 따라서 이러한 모호성에도 불구하고 <b>$\mathbf{F}$의 정확한 변환을 표현하기 위해 $\mathbf{P}=[\mathbf{I}|0]$, $\mathbf{P}^{'}=[\mathbf{M}|\mathbf{m}]$과 같이 처음 카메라 행렬 $\mathbf{P}$를 단순하게 나타내는 방법을 Canonical Form</b> 이라고 한다. 하지만 $\mathbf{P}=[\mathbf{I}|0]$이라고 해서 $\mathbf{P}^{'}$이 유일하게 결정되는 것은 아니다. 
+</p>
+
+<p>
+임의의 카메라 행렬 $\mathbf{P}&isin; \mathbb{R}^{3&times;4}$가 주어졌을 때 이를 역행렬이 존재하는 행렬 $\mathbf{P}^{&lowast;}=\begin{bmatrix}\mathbf{P}\\ \mathbf{r}_{4} \end{bmatrix}&isin; \mathbb{R}^{4&times;4}$로 변경한 다음
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}^{\ast}\mathbf{H} = \begin{bmatrix} \mathbf{I} &amp; \mathbf{0} \\ \mathbf{0} &amp; \mathbf{1} \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하는 $\mathbf{H}$가 존재한다고 하면 $\mathbf{PH}= [\mathbf{I}| \mathbf{0}]$을 만족한다. 따라서 <b>$\mathbf{H}$가 존재한다는 가정 하에 모든 임의의 카메라 행렬 $\mathbf{P}$는 Canonical Form으로 쓸 수 있다.</b>
+</p>
+
+<p>
+그렇다면 Fundamental Matrix $\mathbf{F}$는 $\mathbf{M}, \mathbf{m}$에 대하여 어떻게 쓸 수 있을까?
+</p>
+
+<p>
+우선 임의의 두 카메라 행렬 $\mathbf{P}= \mathbf{K}[\mathbf{I}|0], \mathbf{P}^{'}=\mathbf{K}^{'}[\mathbf{R}|\mathbf{t}]$가 존재할 때 다음의 공식들이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{PP}^{T} = \mathbf{K}^{2} \\
+    &amp; \mathbf{P}^{\dagger } = \mathbf{P}^{T}(\mathbf{PP}^{T})^{-1} = \begin{bmatrix} \mathbf{K}^{-1} \\ 0 \end{bmatrix} \\
+    &amp; \mathbf{C} = \begin{bmatrix} 0 &amp; 1 \end{bmatrix}^{T} \\
+    &amp; \mathbf{e}^{'} = \mathbf{P}^{'}\mathbf{C} = \mathbf{K}^{'}\mathbf{t}
+  \end{aligned}
+\end{equation}
+<p>
+따라서 이에 대응하는 Fundamental Matrix $\mathbf{F}$는 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} &amp; = \mathbf{e}^{'\wedge}\mathbf{P}^{'}\mathbf{P}^{\dagger} \\
+    &amp; = (\mathbf{K}^{'}\mathbf{t})^{\wedge}\mathbf{K}^{'}[\mathbf{R}|\mathbf{t}] \mathbf{K}^{-1}\begin{bmatrix} \mathbf{I} \\ 0 \end{bmatrix} \\
+    &amp; = (\mathbf{K}^{'}\mathbf{t})^{\wedge}\mathbf{K}^{'}\mathbf{R}\mathbf{K}^{-1}
+  \end{aligned}
+\end{equation}
+<p>
+Canonical Form에 상응하는 Fundamental Matrix $\mathbf{F}$를 구해보면 두 카메라 행렬 $\mathbf{P}= [\mathbf{I}|0], \mathbf{P}^{'}=[\mathbf{M}|\mathbf{m}]$에 대해 다음 공식이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} = \mathbf{m}^{\wedge}\mathbf{M}
+  \end{aligned}
+\end{equation}
+<p>
+따라서 <b>Canonical Form의 $\mathbf{F}$는 $\mathbf{F}=\mathbf{m}^{&and;}\mathbf{M}$이다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1963595" class="outline-4">
+<h4 id="org1963595"><span class="section-number-4">1.6.3</span> Projective ambiguity of cameras given F</h4>
+<div class="outline-text-4" id="text-1-6-3">
+<p>
+Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하기 때문에 필연적으로 모호성이 발생하게 된다. 만약 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$의 $\mathbf{F}$와 $(~{\mathbf{P}}, ~{\mathbf{P}}^{'})$의 $\mathbf{F}$가 동일한 경우, $(\mathbf{P},\mathbf{P}^{'})$와 $(~{\mathbf{P}}, ~{\mathbf{P}}^{'})$를 연결하는 Homography $\mathbf{H}$가 존재한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; ^{\exists}\mathbf{H} \in \text{PGL}_{4} \\
+    &amp; (\tilde{\mathbf{P}}, \tilde{\mathbf{P}}^{'}) = (\mathbf{P},\mathbf{P}^{'})\mathbf{H}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org6df748d" class="outline-4">
+<h4 id="org6df748d"><span class="section-number-4">1.6.4</span> Proof</h4>
+<div class="outline-text-4" id="text-1-6-4">
+<p>
+두 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$, $(~{\mathbf{P}}, ~{\mathbf{P}}^{'})$이 주어졌을 때 이를 Canonical Form으로 쓰면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = \tilde{\mathbf{P}} = [\mathbf{I}|0] \\
+    &amp; \mathbf{P}^{'} = [\mathbf{A}|\mathbf{a}] \\
+    &amp; \tilde{\mathbf{P}}^{'} = [\tilde{\mathbf{A}}|\tilde{\mathbf{a}}] \\
+  \end{aligned}
+\end{equation}
+<p>
+이 때, Fundamental Matrix $\mathbf{F}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} = \mathbf{a}^{\wedge}\mathbf{A} = \tilde{\mathbf{a}}^{\wedge}\tilde{\mathbf{A}}
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. $\mathbf{F}$의 성질에 의해 $\mathbf{a}^{T}\mathbf{F}=0, ~{\mathbf{a}}^{T}\mathbf{F}=0$이 만족하게 되고
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{a}^{T}\mathbf{F} = \mathbf{a}^{T}\mathbf{a}^{\wedge}\mathbf{A} = 0 \\
+    &amp; \tilde{\mathbf{a}}^{T}\mathbf{F} = \tilde{\mathbf{a}}^{T}\tilde{\mathbf{a}}^{\wedge}\tilde{\mathbf{A}} = 0 \\
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $\mathbf{a}$와 $~{\mathbf{a}}$는 각각 rank 1인 $\mathbf{F}$의 Left Null Space가 된다. 따라서 $\mathbf{a}, ~{\mathbf{a}}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \tilde{\mathbf{a}} = k \mathbf{a}, \ \ k \neq 0 \in \mathbb{R}
+  \end{aligned}
+\end{equation}
+<p>
+인 관계가 성립한다. $~{\mathbf{a}}$를 치환하여 다시 표현하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} &amp; = \mathbf{a}^{\wedge}\mathbf{A} = \tilde{\mathbf{a}}^{\wedge}\tilde{\mathbf{A}} = k\mathbf{a}^{\wedge}\tilde{\mathbf{A}} = 0 \\
+    &amp; = \mathbf{a}^{\wedge}(\mathbf{A} - k \tilde{\mathbf{A}}) = 0
+  \end{aligned}
+\end{equation}
+<p>
+따라서 $(\mathbf{A}- k ~{\mathbf{A}})$은 $\mathbf{a}$와 평행하다. 즉, 각 행렬의 열들이 배수 관계에 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{A} - k \tilde{\mathbf{A}} = \mathbf{av}^{T} \ \ \ \text{for some } \mathbf{v}
+  \end{aligned}
+\end{equation}
+<p>
+따라서 $~{\mathbf{A}} = k^{-1}(\mathbf{A}+\mathbf{av}^{T})$가 된다. 카메라 행렬 대응쌍은 다음과 같이 쓸 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = \tilde{\mathbf{P}} = [\mathbf{I}|0] \\
+    &amp; \mathbf{P}^{'} = [\mathbf{A}|\mathbf{a}] \\
+    &amp; \tilde{\mathbf{P}}^{'} = [k^{-1}(\mathbf{A}+\mathbf{av}^{T}) \ | \ k\mathbf{a}] \\
+  \end{aligned}
+\end{equation}
+<p>
+<b>결론적으로 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$를 Canonical Form으로 변환하는 행렬을 $\mathbf{H}_{1}$, $(~{\mathbf{P}},~{\mathbf{P}}^{'})$를 Canonical Form으로 변환하는 행렬을 $\mathbf{H}_{2}$라고 하면</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    (\mathbf{P},\mathbf{P}^{'})\mathbf{H}_{1}\mathbf{H} = (\tilde{\mathbf{P}},\tilde{\mathbf{P}}^{'})\mathbf{H}_{2}
+  \end{aligned}
+\end{equation}
+<p>
+<b>를 만족하는 Homography $\mathbf{H}$가 존재하고 이에 따라 $(\mathbf{P},\mathbf{P}^{'})$과 $(~{\mathbf{P}},~{\mathbf{P}}^{'})$는 사영적으로 동등하다(projectively equivalent).</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    (\mathbf{P},\mathbf{P}^{'}) \sim (\tilde{\mathbf{P}},\tilde{\mathbf{P}}^{'})
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org11f93e1" class="outline-3">
+<h3 id="org11f93e1"><span class="section-number-3">1.7</span> Canonical cameras given F</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+<b>임의의 정방행렬 $\mathbf{F}&isin; \mathbb{R}^{3&times; 3}$가 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$에 대응하는 Fundemental Matrix일 필요충분 조건은 $\mathbf{P}^{'T}\mathbf{F}\mathbf{P}$가 반대칭 행렬(skew symmetric matrix)일 때</b> 이다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}^{'}\mathbf{Fx} = 0 \\
+    &amp; \Leftrightarrow \mathbf{X}^{T}\mathbf{P}^{'T}\mathbf{FPX} =0 \ \ \forall \mathbf{X} \\
+    &amp; \Leftrightarrow \mathbf{P}^{'T}\mathbf{FP} \text{ is a skew symmetric matrix.}
+  \end{aligned}
+\end{equation}
+<p>
+임의의 정방행렬 $\mathbf{F}&isin; \mathbb{R}^{3&times; 3}$가 주어지고 임의의 반대칭행렬 $\mathbf{S}&isin; \mathbb{R}^{3&times; 3}$이 주어졌을 때 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$이 다음과 같다면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = [\mathbf{I} | 0 ] \\
+    &amp; \mathbf{P}^{'} = [\mathbf{SF} | \mathbf{e}^{'}]  \ \ \text{where, } \mathbf{e}^{'} \ \text{ is epipole.}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 <b>$(\mathbf{P},\mathbf{P}^{'})$는 $\mathbf{F}$를 Fundamental Matrix로 갖는다.</b> 이를 증명하기 위해 $\mathbf{P}^{'}\mathbf{FP}$를 전개해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}^{'}\mathbf{FP} &amp; = [\mathbf{SF}|\mathbf{e}^{'}]^{T} \mathbf{F} [\mathbf{I}|0] \\
+    &amp; = \begin{bmatrix} \mathbf{F}^{T}\mathbf{S}^{T}\mathbf{F} &amp; \mathbf{0} \\ \mathbf{e}^{'}\mathbf{F} &amp; 0 \end{bmatrix} \\
+    &amp; = \begin{bmatrix} \mathbf{F}^{T}\mathbf{S}^{T}\mathbf{F} &amp; \mathbf{0} \\ \mathbf{0} &amp; 0 \end{bmatrix} \\
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 반대칭행렬이므로 위 정리에 의해 $\mathbf{F}$가 Fundamental Matrix임을 알 수 있다.
+</p>
+
+<p>
+반대칭행렬 $\mathbf{S}$는 3차원 벡터 $\mathbf{s}^{\wedge}$형태로 나타낼 수 있고 이 때, $\mathbf{s}^{T}\mathbf{e}^{'} &ne; 0$이면 $\mathbf{P}^{'} = [\mathbf{s}^{&and;}\mathbf{F}| \mathbf{e}^{'}]$의 rank는 3이 된다. $\mathbf{P}^{'}$의 rank가 3이 되기 위해서는 $\mathbf{s}^{&and;}\mathbf{F}, \mathbf{e}^{'}$의 rank는 각각 2,1이 되어야 한다. 우선, $\mathbf{s}^{&and;}\mathbf{F}$가 rank 2라는 것을 증명해보면 Fundamental Matrix 성질에 의해 $\mathbf{e}^{'}\mathbf{F}=0$을 만족하므로 $\mathbf{F}$의 열공간 Col $\mathbf{F}$와 $\mathbf{e}^{'}$는 수직한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \text{Col } \mathbf{F} \perp \mathbf{e}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+또한, $\mathbf{s}^{&and;}\mathbf{e}^{'} &ne; 0$이므로 $\mathbf{s}$는 Col $\mathbf{F}$안에 존재하지 않는다. $\mathbf{s}^{&and;}\mathbf{F}$의 열공간은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \text{Col } \mathbf{s}^{\wedge}\mathbf{F} &amp; = \mathbf{s}^{\wedge} \text{Col } \mathbf{F} \\
+    &amp; = \mathbf{s} \times \text{Col } \mathbf{F}
+  \end{aligned}
+\end{equation}
+<p>
+이고 <b>이 때 Col $\mathbf{F}$가 rank 2이므로 $\mathbf{s} \times \text{Col } \mathbf{F}$또한 rank 2</b> 가 된다. 다음으로 $\mathbf{e}^{'}$가 다른 열벡터들과 선형독립임을 증명해보면 $\mathbf{s}^{T} \text{Col }\mathbf{s}^{&and;}\mathbf{F}= 0$이고 $\mathbf{s}^{&and;}\mathbf{e}^{'} &ne; 0$이므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{e}^{'}  \notin \text{Col } \mathbf{s}^{\wedge}\mathbf{F}
+  \end{aligned}
+\end{equation}
+<p>
+<b>결론적으로 $\mathbf{P}^{'} = [\mathbf{s}^{&and;}\mathbf{F}| \mathbf{e}^{'}]$의 rank는 3이 된다.</b>
+</p>
+
+<p>
+$\mathbf{P}^{'}$의 rank가 3이 되는 $\mathbf{s}$를 선택할 때 $\mathbf{e}^{'}$의 수직이 아닌 $\mathbf{s}$를 사용해야 하므로 $\mathbf{s}=\mathbf{e}^{'}$로 설정하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = [\mathbf{I}|0] \\
+    &amp; \mathbf{P}^{'} =  [\mathbf{e}^{'\wedge}\mathbf{F} \ | \ \mathbf{e}^{'}]
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. <b>따라서, Fundamental Matrix $\mathbf{F}$가 주어졌을 때 $\mathbf{F}$의 Left Null Space $\mathbf{e}^{'}$를 계산함으로써 카메라 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$를 계산할 수 있다.</b>
+</p>
+
+<p>
+앞서 정의한 카메라 행렬 대응쌍의 비례식
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}, \mathbf{P}^{'})= ([\mathbf{I}|0], [\mathbf{A}|\mathbf{a}]) \\
+    &amp; (\tilde{\mathbf{P}},\tilde{\mathbf{P}}^{'}) = ([\mathbf{I}|0],[k^{-1}(\mathbf{A}+\mathbf{av}^{T}) \ | \ k\mathbf{a}]) \\
+  \end{aligned}
+\end{equation}
+<p>
+을 사용하여 일반적인 형태로 나타내면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}, \mathbf{P}^{'})= ([\mathbf{I}|0], [\mathbf{e}^{'}\mathbf{F} \ | \ \mathbf{e}^{'}]) \\
+    &amp; (\tilde{\mathbf{P}},\tilde{\mathbf{P}}^{'}) = ([\mathbf{I}|0],[\mathbf{e}^{'}\mathbf{F}+\mathbf{e}^{'}\mathbf{v}^{T} \ | \ \lambda\mathbf{e}^{'}]) \\
+  \end{aligned}
+\end{equation}
+<p>
+Null Space 값인 $\mathbf{e}^{'}$는 스케일에 불변하므로 $\frac{1}{k}\mathbf{e}^{'}$를 이용해도 결과는 동일하다. 따라서 위와 같은 형태로 나타낼 수 있다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc493677" class="outline-3">
+<h3 id="orgc493677"><span class="section-number-3">1.8</span> The essential matrix</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+임의의 카메라 행렬 $\mathbf{P}= \mathbf{K}[\mathbf{R}|\mathbf{t}]$가 주어졌을 때 이미지 평면 상의 점 $\mathbf{x}$에 대해 $\mathbf{x}= \mathbf{PX}= \mathbf{K}[\mathbf{R}|\mathbf{t}]\mathbf{X}$가 성립한다. 이 때, <b>정규화된 이미지 평면 위의 점을 $\bar{\mathbf{x}}$</b> 라고 하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \bar{\mathbf{x}} = \mathbf{K}^{-1}\mathbf{x}
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. 이 때,
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{K}^{-1}\mathbf{P} = [\mathbf{R} | \mathbf{t}]
+  \end{aligned}
+\end{equation}
+<p>
+를 <b>정규카메라(normalized camera)</b> 라고 한다. 정규카메라에서 카메라 행렬은 $\mathbf{K}= \mathbf{I}$인 경우로 생각할 수 있다. 정규카메라 행렬의 대응쌍 $(\mathbf{P},\mathbf{P}^{'})$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    (\mathbf{P},\mathbf{P}^{'}) = ([\mathbf{I}|0], \ [\mathbf{R}|\mathbf{t}])
+  \end{aligned}
+\end{equation}
+<p>
+가 되므로 이 때 <b>Fundamental Matrix $\mathbf{F}= \mathbf{t}^{&and;}\mathbf{R}$이고 해당 행렬을 특별히 Essential Matrix $\mathbf{E}$</b> 라고 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} = \mathbf{t}^{\wedge}\mathbf{R}
+  \end{aligned}
+\end{equation}
+<p>
+Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mathbb{R}^{3\times 3}$정규화된 이미지 좌표계에서 점들 간의 상간관계 $\bar{\mathbf{x}} &harr; \bar{\mathbf{x}}^{'}$를 표현할 때 사용한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \bar{\mathbf{x}}^{'T}\mathbf{E}\bar{\mathbf{x}} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $\bar{\mathbf{x}} = \mathbf{K}^{-1}\mathbf{x}, \bar{\mathbf{x}}^{'} = \mathbf{K}^{-1}\mathbf{x}^{'}$이므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{'T}\mathbf{K}^{'-T}\mathbf{E}\mathbf{K}^{-1}\mathbf{x} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이 성립하여 Fundamental Matrix $\mathbf{F}$와 Essential Matrix $\mathbf{E}$의 관계는 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} = \mathbf{K}^{'-T}\mathbf{E}\mathbf{K}^{-1}
+  \end{aligned}
+\end{equation}
+</div>
+
+<div id="outline-container-orga128341" class="outline-4">
+<h4 id="orga128341"><span class="section-number-4">1.8.1</span> Properties of the essential matrix</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<p>
+<b>임의의 정방행렬 $\mathbf{E}&isin; \mathbb{R}^{3&times; 3}$이 Essential Matrix이기 위한 필요충분조건은 $\mathbf{E}$의 가장 큰 두 특이값 $\sigma_{1}, \sigma_{2}$값이 동일하고 세번째 특이값 $&sigma;_{3}=0$인 조건</b> 이다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfb49785" class="outline-4">
+<h4 id="orgfb49785"><span class="section-number-4">1.8.2</span> Proof</h4>
+<div class="outline-text-4" id="text-1-8-2">
+<p>
+카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'}) = ([\mathbf{I}|0], \ [\mathbf{R}|\mathbf{t}])$에 대한 Fundamental Matrix $\mathbf{F}$가 있다고 하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} = \mathbf{t}^{\wedge}\mathbf{R} = \mathbf{SR}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 직교행렬 $\mathbf{W}$와 반대칭행렬 $\mathbf{Z}$를 다음과 같이 정의하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{W} = \begin{bmatrix} 0&amp;-1&amp; \\ 1&amp;0&amp; \\ &amp;&amp;1 \end{bmatrix} \\
+    &amp; \mathbf{Z} = \begin{bmatrix} 0&amp;1&amp; \\ -1&amp;0&amp; \\ &amp;&amp;0 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+두 행렬은 $\mathbf{Z} = \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{W}$관계가 성립한다. 반대칭행렬 $\mathbf{S}$가 rank 2를 가지는 경우 $\mathbf{S}$는 항상 기저(basis)를 변경하여 $\mathbf{Z}$의 형태로 변경할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{S} \sim \mathbf{U}\mathbf{Z}\mathbf{U}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+이를 사용하여 Fundamental Matrix $\mathbf{F}$를 전개하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} &amp; = \mathbf{SR} \\
+    &amp; = \mathbf{UZU}^{T}\mathbf{R} \\
+    &amp; = \mathbf{UZWW}^{T}\mathbf{U}^{T}\mathbf{R} \ \ (\because \ \mathbf{WW}^{T} = \mathbf{I})\\
+    &amp; = \mathbf{UZW}(\mathbf{W}^{T}\mathbf{U}^{T}\mathbf{R})
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $\mathbf{W}^{T}\mathbf{U}^{T}\mathbf{R}$은 직교행렬(orthogonal matrix)이 되고 $\mathbf{ZW}= \begin{bmatrix}1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}$이 된다. 따라서 Fundamental Matrix $\mathbf{F}$를 특이값 분해(SVD)하면
+</p>
+
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} &amp; = \mathbf{U}\mathbf{D}\mathbf{V}^{T}  \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix} \mathbf{V}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+꼴이 되므로 <b>$\mathbf{F}$의 가장 큰 두 특이값은 같으며 마지막 특이값은 0이 된다. 이에 따라 Fundamental Matrix $\mathbf{F}$는 Essential Matrix $\mathbf{E}$의 성질을 만족하므로 Essential Matrix</b> 가 된다.
+</p>
+
+<p>
+반대로 임의의 정방행렬 $\mathbf{E}&isin; \mathbb{R}^{3&times; 3}$의 특이값 분해(SVD)가
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하는 경우 이는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} &amp; \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{T} \\
+     &amp; = \mathbf{UZWW}^{T}\mathbf{V} \\
+     &amp; = \mathbf{UZU}^{T}(\mathbf{UWW}^{T}\mathbf{V}^{T}) \\
+     &amp; = \mathbf{SR} \\
+     &amp; = \mathbf{e}^{\wedge} \mathbf{R}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 따라서 <b>이 때 $\mathbf{E}$는 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'}) = ([\mathbf{I}|0], [\mathbf{e}|\mathbf{R}])$에 대응하는 Fundamental Matrix가 된다.</b>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge0ea1a8" class="outline-3">
+<h3 id="orge0ea1a8"><span class="section-number-3">1.9</span> Extraction of cameras from the essential matrix</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+Essential Matrix $\mathbf{E}$가 다음과 같이 주어졌을 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} = \mathbf{U}\begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+행렬 $\mathbf{E}$는 SR Factorization을 통해 $\mathbf{R}, \mathbf{t}$를 분해할 수 있다. 이 때, <b>$\mathbf{E}$는 서로 부호가 다른 두 개의 SR Factorization 해를 가진다(up to sign).</b> 행렬 $\mathbf{E}$는 다음과 같이 분해할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} &amp; \sim \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{V}^{T} \\
+     &amp; = \mathbf{UZWW}^{T}\mathbf{V} \\
+     &amp; = \mathbf{UZU}^{T}(\mathbf{UWW}^{T}\mathbf{V}^{T}) \\
+     &amp; = \mathbf{SR} 
+  \end{aligned}
+\end{equation}
+<p>
+이 때, 직교행렬 $\mathbf{W}= \begin{bmatrix}0&amp;-1&amp; \\ 1&amp;0&amp; \\ &amp;&amp;1 \end{bmatrix}$이고 $\mathbf{W}^{T} = \begin{bmatrix}0&amp;1&amp; \\ -1&amp;0&amp; \\ &amp;&amp;1 \end{bmatrix}$일 때 $\mathbf{W}^{T} = \begin{bmatrix} -1&amp;&amp; \\ &amp;-1&amp; \\ &amp;&amp;1 \end{bmatrix}\mathbf{W}$관계가 성립한다. 따라서 <b>대각행렬 $\begin{bmatrix}1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}$은 $\mathbf{ZW}= -\mathbf{ZW}^{T}$와 같이 부호가 다른 두 개의 행렬로 분해가 가능</b> 하다.
+</p>
+
+<p>
+따라서 Essential Matrix $\mathbf{E}$는 다음과 같이 2개의 행렬로 분해가 가능하다.
+</p>
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} &amp; = (\mathbf{UZU}^{T})(\mathbf{UWV}^{T}) = \mathbf{S}_{0}\mathbf{R}_{0}\\
+    &amp; = (\mathbf{UZU}^{T})(\mathbf{UW}^{T}\mathbf{V}^{T}) =\mathbf{S}_{0}\mathbf{R}_{0}^{'}\\
+  \end{aligned}
+\end{equation}
+<p>
+Essential Matrix $\mathbf{E}$가 위 두 가지 케이스로만 분해된다는 것을 증명하려면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} = \mathbf{S}_{0}\mathbf{R}_{0} = \mathbf{SR}
+  \end{aligned}
+\end{equation}
+<p>
+에 대하여 $\mathbf{S}= \mathbf{S}_{0}, \mathbf{R}= \mathbf{R}_{0}, \mathbf{R}_{0}^{'}$임을 증명해야 한다.
+</p>
+
+<p>
+반대칭행렬 $\mathbf{S}, \mathbf{S}_{0}$는 rank가 2인 행렬이므로 $\mathbf{S}_{0}^{T} = \mathbf{s}^{&and;}, \mathbf{S}^{T} = \mathbf{s}^{&and;}$과 같이 벡터 형태로 나타낼 수 있고
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{s}, \mathbf{s}_{0} \in \text{Nul } \mathbf{E}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 $\mathbf{E}$의 Left Null Space에 포함된다. 따라서 $\mathbf{s}, \mathbf{s}_{0}$는 비례관계가 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{s} = \alpha \mathbf{s}_{0} \ \ \ \alpha \neq 0 \in \mathbb{R}
+  \end{aligned}
+\end{equation}
+<p>
+위 식에 따라 $\mathbf{SR}= &alpha; \mathbf{S}_{0}\mathbf{R}_{0}$이 성립하고 <b>이 때 $\| \mathbf{R}\| = \| \mathbf{R}_{0} \| = 1$이므로 Frobenius Norm을 비교해보면 $&alpha; = &plusmn; 1$인 것</b> 을 알 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{S} = \pm \mathbf{S}_{0}
+  \end{aligned}
+\end{equation}
+<p>
+다음으로 $\mathbf{R}= \mathbf{R}_{0}, \mathbf{R}_{0}^{'}$라는 것을 증명한다. 지금까지 구한 결과에 따라 Essential Matrix $\mathbf{E}$는 다음과 같이 쓸 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} &amp; = \mathbf{U} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix} \mathbf{V}^{T} = \mathbf{S}_{0}\mathbf{R} = \mathbf{S}_{0}(\mathbf{UXV}^{T}) \quad \text{where, } \mathbf{X} = \mathbf{U}^{T}\mathbf{RV} \\
+    &amp; = \mathbf{U}(\mathbf{ZX})\mathbf{V}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 $\mathbf{ZX}= \begin{bmatrix}1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;0 \end{bmatrix}= \begin{bmatrix}0&amp;1&amp; \\ -1&amp;0&amp; \\ &amp;&amp;0 \end{bmatrix}\mathbf{X}$이므로 이를 전개하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X} &amp; = \begin{bmatrix} 0&amp;-1&amp; \\ 1&amp;0&amp; \\ &amp;&amp;\pm1 \end{bmatrix} \\
+    &amp; = \mathbf{W} = -\mathbf{W}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+이므로 <b>따라서 부호의 변화를 포함한(up to sign) $\mathbf{R}= \mathbf{R}_{0}, \mathbf{R}_{0}^{'}$가 성립한다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org840610c" class="outline-3">
+<h3 id="org840610c"><span class="section-number-3">1.10</span> Geometrical interpretation of the four solutions</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+Essential Matrix $\mathbf{E}$는 다음과 같이 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X} &amp; = \begin{bmatrix} 0&amp;-1&amp; \\ 1&amp;0&amp; \\ &amp;&amp;\pm1 \end{bmatrix} \\
+    &amp; = \mathbf{S}_{0}\mathbf{R}_{0}
+  \end{aligned}
+\end{equation}
+<p>
+여기서 반대칭행렬 $\mathbf{S}_{0}^{T} = \mathbf{s}_{0}^{&and;}$에서 $\mathbf{s}_{0}$는 $\mathbf{E}$의 Left Null Space에 포함된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{s}_{0} \in \text{Nul }\mathbf{E}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, <b>$\mathbf{s}_{0}$는 행렬 $\mathbf{U}$의 세 번째 열(third column)인 $\mathbf{u}_{3}$가 된다.</b>
+</p>
+
+<p>
+$\mathbf{E}= \mathbf{t}^{&and;}\mathbf{R}$을 어떻게 분해하느냐에 따라 총 네 가지 해가 존재한다. 우선 $\mathbf{t}$를 보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{t} = \pm \mathbf{u}_{3}
+  \end{aligned}
+\end{equation}
+<p>
+이는 두 카메라 $\mathbf{C}, \mathbf{C}^{'}$가 주어졌을 때 어느 카메라를 원점으로 잡는가에 따라 두 가지 해가 존재함을 의미한다. 다음으로 $\mathbf{R}$을 보면, $\mathbf{R}= \mathbf{UW}^{T}\mathbf{V}^{T}$인 경우
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} = [\mathbf{UW}^{T}\mathbf{V}^{T} \ | \ \mathbf{u}_{3}]
+  \end{aligned}
+\end{equation}
+<p>
+가 되고 이를 다시 쓰면 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{E} &amp; = [\mathbf{UW}^{T}\mathbf{V}^{T} \ | \ \mathbf{u}_{3}] \\
+    &amp; = [\mathbf{UWV}^{T}(\mathbf{V}\mathbf{W}^{T}\mathbf{W}^{T}\mathbf{V}^{T})\ | \ \mathbf{u}_{3}] \\
+    &amp; = [\mathbf{UW}^{T}\mathbf{V} \ | \ \mathbf{u}_{3}] \begin{bmatrix} \mathbf{VW}^{T}\mathbf{W}^{T}\mathbf{V}^{T} &amp; \\ &amp; 1 \end{bmatrix} \\
+    &amp; = [\mathbf{UW}^{T}\mathbf{V} \ | \ \mathbf{u}_{3}] \begin{bmatrix} \mathbf{V}\begin{pmatrix} -1&amp;&amp; \\&amp;-1&amp; \\&amp;&amp;1 \end{pmatrix}\mathbf{V}^{T} &amp; \\ &amp; 1 \end{bmatrix} \\
+  \end{aligned}
+\end{equation}
+<p>
+이 성립한다. 이 때 $\mathbf{VW}^{T}\mathbf{W}^{T}\mathbf{V}^{T}$는 Baseline의 수직한 방향 2개를 상하대칭하는 행렬이 된다. 즉, <b>Baseline을 축으로 180 degree 회전하는 형태</b> 가 된다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7fe78bb" class="outline-2">
+<h2 id="org7fe78bb"><span class="section-number-2">2</span> References</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orge359721" class="outline-2">
+<h2 id="orge359721"><span class="section-number-2">3</span> Closure</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.
+</p>
+</div>
+</div>

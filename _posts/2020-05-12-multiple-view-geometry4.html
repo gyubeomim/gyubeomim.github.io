@@ -1,0 +1,583 @@
+---
+layout: post
+title: (Geometry) Notes on Multiple View Geometry (4)
+description:
+date: 2020-05-12
+categories: [Mathematics]
+tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
+use_math: true
+comments: true
+---
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5f540b1">1. 3D Reconstruction of Cameras and Structure</a>
+<ul>
+<li><a href="#org2523a51">1.1. The projective reconstruction theorem</a>
+<ul>
+<li><a href="#org6a45132">1.1.1. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org0c2c7d4">1.2. Stratified reconstruction</a>
+<ul>
+<li><a href="#org90f924b">1.2.1. The step to affine reconstruction</a></li>
+</ul>
+</li>
+<li><a href="#org306aed3">1.3. The step to metric reconstruction</a></li>
+</ul>
+</li>
+<li><a href="#org7144daf">2. Computation of the Fundamental Matrix $\mathbf{F}$</a>
+<ul>
+<li><a href="#org82ac703">2.1. Basic equations</a>
+<ul>
+<li><a href="#org73dd6c5">2.1.1. The minimum case - seven point correspondences</a></li>
+</ul>
+</li>
+<li><a href="#orgc703f6c">2.2. The normalized 8-point algorithm</a>
+<ul>
+<li><a href="#org07f0aec">2.2.1. Degenrate configurations</a></li>
+<li><a href="#orgb2a16ae">2.2.2. Proof</a></li>
+</ul>
+</li>
+<li><a href="#orgde0a041">2.3. The Gold Standard method</a></li>
+</ul>
+</li>
+<li><a href="#orgfca3872">3. References</a></li>
+<li><a href="#org8aa4775">4. Closure</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5f540b1" class="outline-2">
+<h2 id="org5f540b1"><span class="section-number-2">1</span> 3D Reconstruction of Cameras and Structure</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+이전 섹션에서 언급했듯이 <b>Fundamental Matrix $\mathbf{F}$는 여러 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'})$에 대하여 사영모호성(projective ambiguity)이 존재하기 때문에 결과물인 $\mathbf{P}, \mathbf{P}^{'}$를 통해 계산한 3차원 공간 상의 점 또한 모호성을 가지게 된다.</b> 해당 섹션에서는 Scene Constraint와 Internal Constraint를 사용하여 모호성을 제거하는 방법에 대해서 설명한다.
+</p>
+</div>
+
+<div id="outline-container-org2523a51" class="outline-3">
+<h3 id="org2523a51"><span class="section-number-3">1.1</span> The projective reconstruction theorem</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+두 카메라의 이미지 평면 상 대응쌍 점들인 $\mathbf{x}, \mathbf{x}^{'}$이 충분히 주어져서 이를 통해 Fundamental Matrix $\mathbf{F}$를 구했다고 가정해보자. 이 때, 사영모호성으로 인해 다음과 같은 두 카메라 행렬 대응쌍
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}_{1}, \mathbf{P}_{1}^{'}, \{\mathbf{X}_{1,i}\}) \\
+    &amp; (\mathbf{P}_{2}, \mathbf{P}_{2}^{'}, \{\mathbf{X}_{2,i}\}) \\
+  \end{aligned}
+\end{equation}
+<p>
+이 동일한 Fundamental Matrix $\mathbf{F}$를 갖게 되는 경우 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}_{2}, \mathbf{P}_{2}^{'}, \{\mathbf{X}_{2,i}\}) = \mathbf{H}\cdot (\mathbf{P}_{1}, \mathbf{P}_{1}^{'}, \{\mathbf{X}_{1,i}\})  \\
+  \end{aligned}
+\end{equation}
+<p>
+를 만족하는 Homography 행렬 $\mathbf{H}&isin; \text{PGL}_{4}$가 반드시 존재한다. 이 때 $\cdot$연산은 다음과 같이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P}_{2} = \mathbf{H}\cdot\mathbf{P}_{1} = \mathbf{P}_{1}\mathbf{H}^{-1} \\
+    &amp; \mathbf{P}_{2}^{'} = \mathbf{H}\cdot\mathbf{P}_{1} = \mathbf{P}_{1}^{'}\mathbf{H}^{-1} \\
+    &amp;\mathbf{X}_{2i} = \mathbf{H}\cdot \mathbf{X}_{1i} = \mathbf{H}\mathbf{X}_{1i}
+  \end{aligned}
+\end{equation}
+</div>
+
+<div id="outline-container-org6a45132" class="outline-4">
+<h4 id="org6a45132"><span class="section-number-4">1.1.1</span> Proof</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+이전 섹션에서 동일한 Fundamental Matrix $\mathbf{F}$를 공유하는 카메라 행렬 대응쌍 사이에 $\mathbf{P}_{2} = \mathbf{P}_{1}\mathbf{H}^{-1}, \mathbf{P}_{2}^{'} =\mathbf{P}_{1}^{'}\mathbf{H}^{-1}$를 만족하는 Homography 행렬 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재한다는 것을 증명하였다. 이를 적용해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P}_{2}\mathbf{X}_{2i} = \mathbf{P}_{1}\mathbf{H}^{-1}\mathbf{X}_{2i} = \mathbf{x}_{i} = \mathbf{P}_{1}\mathbf{X}_{1i} \\
+    &amp; \mathbf{P}_{2}^{'}\mathbf{X}_{2i} = \mathbf{P}_{1}^{'}\mathbf{H}^{-1}\mathbf{X}_{2i} = \mathbf{x}_{i}^{'} = \mathbf{P}_{1}^{'}\mathbf{X}_{1i}
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. $\mathbf{P}_{1}, \mathbf{P}_{2}$에 의해 Back Projection된 직선을 $\mathcal{R}$이라고 하고 $\mathbf{P}_{1}^{'}, \mathbf{P}_{2}^{'}$에 의해 Back Projection된 직선을 $\mathcal{R}^{'}$이라고 하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \{\mathbf{H}^{-1}\mathbf{X}_{2i}, \mathbf{X}_{1i}\} \in \mathcal{R} \cap \mathcal{R}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 3차원 공간 상의 점 $\{\mathbf{H}^{-1}\mathbf{X}_{2i}, \mathbf{X}_{1i}\}$는 두 직선의 교차점이 된다. 따라서 <b>두 직선 $\mathcal{R}, \mathcal{R}^{'}$이 Baseline과 같이 동일한 직선인 경우를 제외하면 $\{\mathbf{H}^{-1}\mathbf{X}_{2i}, \mathbf{X}_{1i}\}$는 교차점인 한 점을 의미</b> 하므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{H}^{-1}\mathbf{X}_{2i} = \mathbf{X}_{1i} \\
+    &amp; \mathbf{X}_{2i} = \mathbf{H}\mathbf{X}_{1i}
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. 따라서 추가적인 기하학적 원리를 사용하지 않으면 위와 같은 상황에서는 사영기하의 특성까지(up to projectivity) 복원할 수 있다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0c2c7d4" class="outline-3">
+<h3 id="org0c2c7d4"><span class="section-number-3">1.2</span> Stratified reconstruction</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Fundamental Matrix $\mathbf{F}$를 사용하여 계산한 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'})$의 사영모호성 문제를 해결하기 위해 Ground Truth 카메라 행렬 대응쌍인
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    (\mathbf{P}_{0}, \mathbf{P}_{0}^{'}, \{\hat{\mathbf{X}_{i}}\})
+  \end{aligned}
+\end{equation}
+<p>
+이 존재한다고 가정하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}_{1}, \mathbf{P}_{1}^{'}, \{\mathbf{X}_{i}\}) = \mathbf{H}\cdot(\mathbf{P}_{0}, \mathbf{P}_{0}^{'}, \{\hat{\mathbf{X}_{i}}\}) \\
+    &amp; \mathcal{T} = \mathbf{H}\cdot \mathcal{T}_{0}
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하는 Homography 행렬 $\mathbf{H}$가 존재한다. 이 때, 이미지 평면 상에서 평행한 직선의 특성을 활용하여 Affine Reconstruction을 수행한 다음, 이미지 평면 상에서 직교한 선들의 특성을 사용하여 Similarity Reconstruction을 순차적으로 수행한다.
+</p>
+</div>
+
+<div id="outline-container-org90f924b" class="outline-4">
+<h4 id="org90f924b"><span class="section-number-4">1.2.1</span> The step to affine reconstruction</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+Affine Reconstruction 단계에서는 평행한 직선들의 특성을 보존하는 Homography 행렬 $\mathbf{H}_{a}$를 찾아야 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{a}(\pi_{\infty}) = \pi_{\infty}
+  \end{aligned}
+\end{equation}
+<p>
+3차원 공간 상의 점들의 집합 $\{\mathbf{X}_{i}\}$를 사용하여 소실점을 3개 이상 구한 경우 이미지 평면에 투영된 무한대 평면 $&pi;_{&infin;}^{'}$를 계산할 수 있다. 이미지 평면 상에 투영된 무한대 평면 $&pi;_{&infin;}^{'}$를
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \pi_{\infty}^{'} = \begin{bmatrix} a &amp; b &amp; c &amp; 1  \end{bmatrix}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+라고 하면 실제 무한대 평면 $&pi;_{&infin;} = \begin{bmatrix}0&amp;0&amp;0&amp;1 \end{bmatrix}$을 $&pi;_{&infin;}^{'}$로 보내는 Homography 행렬 $\mathbf{H}_{a}$는 다음과 같이 구할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{a} = \begin{bmatrix} &amp;\mathbf{I}_{3}&amp; &amp; 0 \\ a&amp;b&amp;c&amp;1 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 $\mathbf{H}_{a}^{T}\pi_{\infty} = \pi_{\infty}^{'}$관계가 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \pi_{\infty}  = \mathbf{H}_{a}^{-1} \pi_{\infty}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+이를 $\mathcal{T}$에 적용하면 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathcal{T}_{a} = \mathbf{H} \cdot \mathcal{T} \\
+    &amp; (\mathbf{PH}_{a}^{-1}, \mathbf{P}^{'}\mathbf{H}_{a}^{-1}, \{\mathbf{H}_{a}\mathbf{X}_{i}\}) = \mathbf{H} \cdot (\mathbf{P}, \mathbf{P}^{'}, \{\mathbf{X}_{i}\})
+  \end{aligned}
+\end{equation}
+<p>
+연산을 통해 이미지를 Affine Reconstruction할 수 있다. 여기까지 진행했다면 Ground Truth $\mathcal{T}_{0}$와 $\mathcal{T}_{a}$는 Affine만큼만 차이가 나게 된다. 즉, 평행한 직선들은 모두 복원되었으나 아직 직교한 직선들은 복원되지 않은 상태이다.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org306aed3" class="outline-3">
+<h3 id="org306aed3"><span class="section-number-3">1.3</span> The step to metric reconstruction</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Metric Reconstruction 단계에서는 직교하는 선들을 보존하는 Homography 행렬 $\mathbf{H}_{s}$를 찾아야 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{s}(\Omega_{\infty}) = \Omega_{\infty}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $&Omega;_{&infin;}$는 무한대 평면상에 존재하는 Absolute Conic을 의미한다. Affine Reconstruction 단계에서 얻은 $\mathcal{T}_{a}$는 무한대 평면 $&pi;_{&infin;}$가 실제 무한대에 위치하게 된다. 이 때, $\{\mathbf{X}_{i}\}$들 중 직교하는 점들을 사용하여 $&Omega;_{&infin;}$를 구할 수 있다. 직교하는 점들의 대응쌍을 $\mathbf{d}_{1}, \mathbf{d}_{2}$라고 하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{d}_{1}^{T}\omega \mathbf{d}_{2} = 0
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하는 $&omega;$를 찾을 수 있고 $&omega;$는 이미지 평면 상에 투영된 Absolute Conic $&Omega;_{&infin;}$가 된다.
+</p>
+
+<p>
+카메라 행렬 $\mathbf{P}= \mathbf{K}[\mathbf{R}| \mathbf{t}] = [\mathbf{M}\ | \ \mathbf{m}]$가 주어졌을 때 무한대 평면 $&pi;_{&infin;}$는 $\mathbf{M}$에 의해 이미지 평면 $&pi;$에 투영된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{M}: \pi_{\infty} \mapsto \pi
+  \end{aligned}
+\end{equation}
+<p>
+반대로 $\mathbf{M}^{-1}$는 $\pi$평면 상의 점들을 무한대 평면 $&pi;_{&infin;}$으로 보내는 매핑이라고 할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{M}^{-1}: \pi \mapsto \pi_{\infty}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, 이미지 평면에 투영된 Absolute Conic에 $\mathbf{M}^{-1}$을 적용하면 $\mathbf{M}^{-1}(&omega;) = ~{&Omega;}_{&infin;}$가 된다. $~{&Omega;}_{&infin;}$는 아직 Metric Reconstruction이 되기 전이므로 $&Omega; &ne; ~{&Omega;}_{&infin;}$이다. 둘 사이에는 다음 공식이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{s}(\tilde{\Omega}_{\infty}) = \Omega_{\infty} = \mathbf{I}_{3}
+  \end{aligned}
+\end{equation}
+<p>
+Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatrix}\mathbf{A}^{-1} &amp; \\ &amp; 1 \end{bmatrix}$이라고 하고 이 때 이미지 평면을 $\pi_{s}$, 카메라 행렬을 $\mathbf{P}_{s}$라고 하면 $\mathbf{H}_{s}(\pi) = \pi_{s}$관계가 성립하고 무한대 평면을 Homography 변환한 공식은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \pi_{\infty} \mathbf{A}^{-1} = \pi_{\infty,s} \\ 
+    &amp; \mathbf{H}_{s}|_{\pi_{\infty}} = \mathbf{A}^{-1} \\
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. 각각 무한대 평면 $&pi;_{&infin;}, &pi;_{&infin;,s}$을 이미지 평면 $&pi;, &pi;_{s}$에 투영하는 공식은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P}|_{\pi_{\infty}} = \mathbf{M} \\
+    &amp; \mathbf{P}_{s}|_{\pi_{\infty}} = \mathbf{MA}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 변형된다. 따라서 $\mathbf{H}_{s}(~{&Omega;}_{&infin;})$는 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{s}(\tilde{\Omega}_{\infty}) &amp; = (\mathbf{A}^{-1})^{-T} \tilde{\Omega}_{\infty} \mathbf{A} \\
+    &amp; = \mathbf{A}^{T} (\mathbf{M}^{T}\omega \mathbf{M})\mathbf{A}  
+  \end{aligned}
+\end{equation}
+<p>
+따라서 Absolute Conic 특성에 의해 $\mathbf{A}^{T} (\mathbf{M}^{T}&omega; \mathbf{M})\mathbf{A}$는 $\mathbf{I}$이 되어야 하므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{A}^{T} (\mathbf{M}^{T}\omega \mathbf{M})\mathbf{A} = \mathbf{I} \\
+    &amp; (\mathbf{M}^{T} \omega \mathbf{M})^{-1} = \mathbf{AA}^{T} 
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. 결론적으로 $\mathbf{H}_{s} = \begin{bmatrix}\mathbf{A}^{-1} &amp; \\ &amp; 1 \end{bmatrix}$를 구하기 위해서는 <b>이미지 평면 상에서 직교하는 직선들의 특성을 사용하여 $&omega;$를 구한 후, $(\mathbf{M}^{T} &omega; \mathbf{M})^{-1}$를 Cholesky Decomposition하여 $\mathbf{AA}^{T}$를 구한다. 이를 통해 $\mathbf{A}^{-1}$값을 구할 수 있고 최종적으로 Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s}$를 구할 수 있다.</b>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7144daf" class="outline-2">
+<h2 id="org7144daf"><span class="section-number-2">2</span> Computation of the Fundamental Matrix $\mathbf{F}$</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org82ac703" class="outline-3">
+<h3 id="org82ac703"><span class="section-number-3">2.1</span> Basic equations</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+두 카메라의 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{'}$이 존재할 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{'T}\mathbf{Fx} = 0
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하는 3x3 크기의 행렬 $\mathbf{F}$를 Fundamental Matrix라고 한다. 만약 세 개의 대응점쌍 $\mathbf{x} = (\mathbf{x}_{1}, \mathbf{x}_{2}, \mathbf{x}_{3})$, $\mathbf{x}^{'} = (\mathbf{x}_{1}^{'}, \mathbf{x}_{2}^{'}, \mathbf{x}_{3}^{'})$이 주어졌을 때 $\mathbf{x}^{'T}\mathbf{Fx}=0$이를 다시 정리하면 $&sum; \mathbf{x}^{'}_{i}\mathbf{x}_{j}\mathbf{f}_{ij}=0$과 같이 정리할 수 있다. 해당 식은 선형시스템
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{A} \mathbf{f} = 0
+  \end{aligned}
+\end{equation}
+<p>
+꼴로 나타낼 수 있고 이 때 $\mathbf{A}$와 $\mathbf{f}$를 풀어쓰면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{A} = (\mathbf{a}_{ik}) \in \mathbb{R}^{N \times 9}, \ \ \text{i-th row is} \ (\mathbf{x}_{1}^{'i}\mathbf{x}_{1}^{i}, \mathbf{x}_{1}^{'i}\mathbf{x}_{2}^{i},\cdots, \mathbf{x}_{3}^{'i}\mathbf{x}_{3}^{i}) \\
+    &amp; \mathbf{f} = (\mathbf{f}_{11}, \mathbf{f}_{12}, \mathbf{f}_{13}, \cdots, \mathbf{f}_{33})^{T} \in \mathbb{R}^{9\times 1}
+  \end{aligned}
+\end{equation}
+<p>
+만약 주어진 대응점쌍의 개수 $N$이 8보다 크고 노이즈가 없는 완벽한 데이터로 생성이 되었으면 $\mathbf{A}$는 rank 8 행렬이 되고 유일한 해 $\mathbf{f}$가 존재한다. 이 때 $\mathbf{f}$는 $\mathbf{A}$의 Null Space의 원소가 된다.
+</p>
+
+<p>
+하지만 대부분의 경우 주어진 데이터에는 항상 노이즈가 존재하므로 $\mathbf{A}$행렬은 rank 9인 full rank 행렬이 된다. 이 때 해를 구하면 $\mathbf{f}$는 항상 영벡터가 계산되므로 $\| \mathbf{f}\| = 1$이라는 조건하에 $\|\mathbf{Af}\|$의 크기를 최소화하는 근사해 $\mathbf{f}$를 찾아야 한다. 해를 찾는 방법은 $\mathbf{A}$를 특이값 분해(SVD)한 다음
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{A} = \mathbf{UDV}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+대각행렬 $\mathbf{D}$의 eigenvalue 중 가장 절대값이 작은 것에 대응되는 $\mathbf{V}$의 열벡터를 $\mathbf{f}$의 일반해로 간주한다. 해당 열벡터 $\mathbf{f}$가 $\|\mathbf{Af}\|$의 크기를 최소화하는 벡터가 되며 이를 Linear Solution이라고 부른다.
+</p>
+
+<p>
+하지만 <b>이 때, Linear Solution $\mathbf{f}$로 복원한 $\mathbf{F}_{0}$가 rank 2 행렬임을 보장할 수 없다.</b> 수치적으로 해를 구하면 일반적으로 rank 3인 행렬이 나온다. 따라서 한 번 더 SVD를 사용하여 $\mathbf{F}_{0}$와 가장 가까운 rank 2 행렬을 찾아야 한다.
+</p>
+
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F}_{0} = \mathbf{U}_{0}\mathbf{D}_{0}\mathbf{V}^{T}_{0}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 대각행렬 $\mathbf{D}_{0} = \begin{bmatrix}&sigma;_{1}&amp;&amp; \\ &amp;&sigma;_{2}&amp; \\  &amp;&amp;&sigma;_{3} \end{bmatrix}$는 일반적으로 마지막 특이값 $&sigma;_{3}$가 0이 아니므로 rank 3인 행렬이 된다. 따라서 <b>임의로 $&sigma;_{3}=0$으로 변경한 행렬이 $\mathbf{F}_{0}$과 가장 가까운 rank 2 행렬이 된다.</b>
+</p>
+</div>
+
+<div id="outline-container-org73dd6c5" class="outline-4">
+<h4 id="org73dd6c5"><span class="section-number-4">2.1.1</span> The minimum case - seven point correspondences</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+7개의 대응점쌍이 주어진 경우 $\mathbf{A}&isin; \mathbb{R}^{7&times; 9}$인 rank 7 행렬이 된다. 이에 따라 Null Space의 차원이 2가 되므로 무수한 해가 존재한다. $\mathbf{Af}=0$의 풀어서 두 개의 선형독립인 Fundamental Matrix $\mathbf{F}_{1}, \mathbf{F}_{2}$를 구하고 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} = \alpha \mathbf{F}_{1} + (1-\alpha)\mathbf{F}_{2}
+  \end{aligned}
+\end{equation}
+<p>
+를 통해 $\mathbf{F}$를 구한다. $\mathbf{F}$행렬의 rank는 2이므로 $det(\mathbf{F})=0$을 만족하게 되고 이에 따라 $&alpha;$에 대한 3차 방정식을 얻는다. 3차 방정식이 세 개의 실수해를 가지는 경우는 Degenerate Configuration이 된다.
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgc703f6c" class="outline-3">
+<h3 id="orgc703f6c"><span class="section-number-3">2.2</span> The normalized 8-point algorithm</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+행렬 $\mathbf{A}$는 주어진 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{'}$으로 구성된 행렬이므로 <b>대응점쌍들을 정규화(normalization)하지 않고 바로 해를 구하는 경우 $\mathbf{x}_{i} = (1000000,20000000,1)$과 같이 마지막 값에 비해서 처음 두 값의 크기가 매우 크게 되므로 수치적으로 불안정한 문제</b> 를 가진다. 따라서 $\mathbf{x}^{i}, \mathbf{x}^{i'}$를 Centroid가 0이고 Centroid로부터 평균거리가 $\sqrt{2}$가 되도록하는 Homography 변환 $\mathbf{H}, \mathbf{H}^{'}$를 적용한다.
+</p>
+
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}^{i} \rightarrow \mathbf{Hx}^{i} \\
+    &amp; \mathbf{x}^{i'} \rightarrow \mathbf{H}^{'} \mathbf{x}^{i'} \\
+  \end{aligned}
+\end{equation}
+<p>
+이렇게 변환된 대응쌍점들을 사용하여 수치적으로 안정적인 Fundamental Matrix $\mathbf{F}^{'}$계산할 수 있다. 앞서 설명한 내용을 따라 $\mathbf{F}^{'}$를 계산한 다음 다시 원래의 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{'}$으로 복원하기 위해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    0 &amp; = (\mathbf{H}^{'}\mathbf{x}^{'})^{T}\mathbf{F}^{'}(\mathbf{Hx}) \\
+    &amp; =  \mathbf{x}^{T}(\mathbf{H}^{'T} \mathbf{F}^{'}\mathbf{H})\mathbf{x}
+  \end{aligned}
+\end{equation}
+<p>
+처럼 $\mathbf{F}= \mathbf{H}^{'T} \mathbf{F}^{'}\mathbf{H}$를 통해 원래 대응점쌍의 Fundamental Matrix $\mathbf{F}$를 계산할 수 있다.
+</p>
+</div>
+
+<div id="outline-container-org07f0aec" class="outline-4">
+<h4 id="org07f0aec"><span class="section-number-4">2.2.1</span> Degenrate configurations</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+두 개의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'}, \{\mathbf{X}^{i}\})$, $(\mathbf{Q}, \mathbf{Q}^{'}, \{\mathbf{Y}^{i}\})$가 다음의 조건을 만족하면 서로 <b>Conjugate Configuration</b> 이라고 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{PX}^{i} = \mathbf{QY}^{i}, \mathbf{P}^{'}\mathbf{x}^{i} = \mathbf{Q}^{'}\mathbf{Y}^{'} \ \ \forall s \\
+    &amp; (\mathbf{P}, \mathbf{P}^{}), (\mathbf{Q}, \mathbf{Q}^{'}) \ \ \text{share the same} \ \  \mathbf{F}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, <b>Conjuate Configuration이 있는 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'}, \{\mathbf{X}^{i}\})$을 Critical Triple이라고 부른다.</b>
+</p>
+
+<p>
+임의의 카메라 대응쌍 $\mathbf{P}, \mathbf{P}^{'}, \{\mathbf{X}^{i}\}$가 Critical Triple일 필요충분조건은 각각의 카메라 중심점 $\mathbf{C},\mathbf{C}^{'}$과 3차원 공간 상의 점 ${\mathbf{X}^{i}}$가 어떤 Ruled Quadric Surface, 즉 직선을 포함하는 Quadric Surface 상에 포함되는 것이다. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb2a16ae" class="outline-4">
+<h4 id="orgb2a16ae"><span class="section-number-4">2.2.2</span> Proof</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+임의의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{'}, \{\mathbf{X}^{i}\})$이 Critical Triple이라는 것을 보이기 위해서는 이와 대응하는 카메라 행렬 대응쌍 $(\mathbf{Q}, \mathbf{Q}^{'}, \{\mathbf{Y}^{i}\})$이 같은 Fundamental Matrix $\mathbf{F}$를 가진다는 사실을 사용해야 한다. $\mathbb{P}^{3}$공간에서 이차곡면은 4x4 크기의 행렬로 정의된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{S}_{p} := \mathbf{P}^{'}\mathbf{F}_{QQ^{'}}\mathbf{P}
+  \end{aligned}
+\end{equation}
+<p>
+여기서 이차곡면 $\mathbf{S}_{p} &isin; \mathbb{R}^{4&times; 4}$는 카메라 중심점 $\mathbf{C}, \mathbf{C}^{'}$과 3차원 공간 상의 점 $\{\mathbf{X}^{i}\}$를 포함해야 한다.
+</p>
+
+<p>
+<b>$\mathbf{S}_{p}$는 Ruled Quadric Surface이므로 직선을 포함하고 있음을 보이면 되므로 카메라 중심선을 연결한 직선인 baseline을 $\mathbf{S}_{p}$가 포함하고 있음</b> 을 보이면 된다. baseline 위에 있는 임의의 점 $\mathbf{X}$가 존재할 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{S}_{p} \mathbf{X} = \mathbf{P}^{'}\mathbf{F}_{QQ^{'}}\mathbf{P}\mathbf{X} = 0 \quad \because \mathbf{F}_{QQ^{'}}\mathbf{PX} = 0
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하므로 $\mathbf{S}_{p}$는 Ruled Quadric Surface임을 알 수 있다.
+</p>
+
+<p>
+반대로, 카메라 중심점 $\mathbf{C},\mathbf{C}^{'}$와 3차원 공간 상의 점 $\{\mathbf{X}^{i}\}$가 $\mathbf{S}_{p}$에 속하면 다음 공식이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}^{'}\mathbf{X}^{i})^{T}\mathbf{F}_{QQ^{'}}(\mathbf{PX}^{i}) = 0 \\
+  \end{aligned}
+\end{equation}
+<p>
+여기서 $\mathbf{x}^{'} = \mathbf{P}^{'}\mathbf{X}^{i}, \mathbf{x}= \mathbf{PX}^{i}$이고 $\mathbf{F}_{QQ^{'}}$이므로 $\mathbf{F}_{QQ^{'}}$에 대한 대응점 쌍이 $\mathbf{x}, \mathbf{x}^{'}$존재한다는 의미이다. 따라서
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}^{'} = \mathbf{P}^{'}\mathbf{X}^{i} = \mathbf{Q}^{'}\mathbf{Y}^{i} \\
+    &amp; \mathbf{x} = \mathbf{P}\mathbf{X}^{i} = \mathbf{Q}\mathbf{Y}^{i} \\
+  \end{aligned}
+\end{equation}
+<p>
+를 만족하므로 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{'},\{\mathbf{X}^{i}\})$과 $(\mathbf{Q},\mathbf{Q}^{'},\{\mathbf{Y}^{i}\})$는 같은 Fundamental Matrix $\mathbf{F}= \mathbf{F}_{PP^{'}} = \mathbf{F}_{QQ^{'}}$를 공유하는 Conjugate Triple이라는 것을 알 수 있다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgde0a041" class="outline-3">
+<h3 id="orgde0a041"><span class="section-number-3">2.3</span> The Gold Standard method</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+이미지 평면 상의 대응점 쌍 $\mathbf{x}&harr; \mathbf{x}^{'}$는 일반적으로 노이즈를 포함하고 있으므로 이를 통해 Fundamental Matrix $\mathbf{F}$를 정확하게 계산할 수 없고 $\|\mathbf{Af}\|$의 크기를 최소화하는 근사해 $\mathbf{F}^{'}$를 계산할 수 밖에 없다. 따라서 <b>$\mathbf{F}^{'}$를 더 정확하게 계산하기 위해 2D Homography 문제와 마찬가지로 주어진 데이터 $\mathbf{x}, \mathbf{x}^{'}$를 Ground Truth $\hat{\mathbf{x}}, \hat{\mathbf{x}}^{'}$과 가까워지게 보정하는 방법을 The Gold Standard method</b> 라고 한다.
+</p>
+
+<ul class="org-ul">
+<li>8개 이상의 대응점 쌍 $\mathbf{x}&harr; \mathbf{x}^{'}$이 주어졌을 때 우선 앞서 설명한 것과 같이 총 두 번 SVD를 사용하여 rank가 2인 Fundamental Matrix $\mathbf{F}_{0}$를 계산한다. 이 때, $\mathbf{F}_{0}$를 Linear Solution이라고 부른다.</li>
+<li>다음으로 Epipole $\mathbf{e}, \mathbf{e}^{'}$에 대하여 다음 공식이 성립한다.</li>
+</ul>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{e}^{'}\mathbf{F}_{0} = 0, \quad  \mathbf{F}_{0}\mathbf{e} = 0 \\
+  \end{aligned}
+\end{equation}
+<ul class="org-ul">
+<li>위 공식으로부터 $\mathbf{e}, \mathbf{e}^{'}$를 각각 계산한다.</li>
+<li>Epipole을 계산하면 Caninocal Form의 카메라 행렬 $\mathbf{P}, \mathbf{P}^{'}$를 계산할 수 있다.</li>
+</ul>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = [\mathbf{I}|0], \quad \mathbf{P}^{'} = [\mathbf{M}|\mathbf{m}] \\
+    &amp; \text{where, } \ \mathbf{M} = \mathbf{e}^{'\wedge}\mathbf{F}, \ \mathbf{m} = \mathbf{e}^{'}
+  \end{aligned}
+\end{equation}
+<ul class="org-ul">
+<li>이를 통해 $\mathbf{x}, \mathbf{x}^{'}$의 Back-projection된 직선들을 각각 구할 수 있다.</li>
+<li>두 Back-projection 직선과 가장 근접한 3차원 공간 상의 점 $\mathbf{X}^{i}$를 계산할 수 있다.</li>
+<li>이미지 평면에 3차원 공간 상의 점 $\mathbf{X}^{i}$를 재투영(reprojection) 한다.</li>
+</ul>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \hat{\mathbf{x}} = \mathbf{PX}^{i} \\
+    &amp; \hat{\mathbf{x}}^{'} = \mathbf{P}^{'}\mathbf{X}^{i} \\
+  \end{aligned}
+\end{equation}
+<p>
+다음과 같이 재투영 오차(reprojection error)를 Gauss-Newton, Levenerg-Marquardt 등과 같은 비선형 최적화 방법을 사용하여 최소화한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \sum_{i} d(\mathbf{x} - \hat{\mathbf{x}})^{2} + d(\mathbf{x}^{'}, \hat{\mathbf{x}}^{'})^{2}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 최적화되는 파라미터는 $\mathbf{X}^{i}$와 카메라 행렬 $\mathbf{P}^{'} = [\mathbf{M}|\mathbf{m}]$이다.
+</p>
+<hr />
+</div>
+</div>
+</div>
+<div id="outline-container-orgfca3872" class="outline-2">
+<h2 id="orgfca3872"><span class="section-number-2">3</span> References</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org8aa4775" class="outline-2">
+<h2 id="org8aa4775"><span class="section-number-2">4</span> Closure</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.
+</p>
+</div>
+</div>

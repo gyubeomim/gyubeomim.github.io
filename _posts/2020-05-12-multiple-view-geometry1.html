@@ -1,0 +1,774 @@
+---
+layout: post
+title: (Geometry) Notes on Multiple View Geometry (1)
+description:
+date: 2020-05-12
+categories: [Mathematics]
+tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
+use_math: true
+comments: true
+---
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org42a4514">1. Projective geometry and transformations in 2D</a>
+<ul>
+<li><a href="#org38a20e6">1.1. The 2D projective plane</a>
+<ul>
+<li><a href="#orgb7db0b5">1.1.1. Points and lines</a></li>
+<li><a href="#org7ec1d8b">1.1.2. Homogeneous representation of line</a></li>
+<li><a href="#orgfd7518b">1.1.3. Homogeneous representation of points</a></li>
+<li><a href="#orga895b63">1.1.4. Degree of freedom (dof)</a></li>
+<li><a href="#orgaa87e61">1.1.5. Intersection of lines</a></li>
+<li><a href="#org902b7d1">1.1.6. Line joining points</a></li>
+</ul>
+</li>
+<li><a href="#org8633f41">1.2. Ideal points and the line at infinity</a>
+<ul>
+<li><a href="#org225dc52">1.2.1. Intersection of parallel lines</a></li>
+<li><a href="#orgd54474a">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#orgbfac41c">1.2.3. A model for the projective plane</a></li>
+<li><a href="#org2e8fa2a">1.2.4. Duality</a></li>
+</ul>
+</li>
+<li><a href="#org9c137ac">1.3. Conics and dual conics</a>
+<ul>
+<li><a href="#org1a12ade">1.3.1. Five points define a conic</a></li>
+<li><a href="#org1d08a4a">1.3.2. Tangent lines to conics</a></li>
+<li><a href="#org1b7ba14">1.3.3. Dual conics</a></li>
+<li><a href="#org91e265c">1.3.4. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org0e6c709">1.4. Projective transformations</a></li>
+<li><a href="#org24f72f5">1.5. A hierarchy of transformations</a>
+<ul>
+<li><a href="#org0627276">1.5.1. Class 1: isometries</a></li>
+<li><a href="#org3d58c37">1.5.2. Class 2: similarity transformations</a></li>
+<li><a href="#org1449bf2">1.5.3. Class 3: affine transformations</a></li>
+<li><a href="#org341139e">1.5.4. Class 4: projective transformations</a></li>
+</ul>
+</li>
+<li><a href="#orgc2e36b0">1.6. Decomposition of a projective transformation</a></li>
+<li><a href="#org06dfff9">1.7. Recovery of affine and metric properties from images</a>
+<ul>
+<li><a href="#orgcde8061">1.7.1. The line at infinity</a></li>
+<li><a href="#orgd6880d9">1.7.2. Recovery of affine properties from images</a></li>
+<li><a href="#org5e937d0">1.7.3. Recovery of metric properties from images</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc051ad5">2. References</a></li>
+<li><a href="#org220ccef">3. Closure</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org42a4514" class="outline-2">
+<h2 id="org42a4514"><span class="section-number-2">1</span> Projective geometry and transformations in 2D</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org38a20e6" class="outline-3">
+<h3 id="org38a20e6"><span class="section-number-3">1.1</span> The 2D projective plane</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+일반적으로 평면 위의 점 $\mathbf{x}$는 $(x,y) &isin; \mathbb{R}^{2}$와 같이 표현한다. $\mathbb{R}^{2}$가 벡터공간(vector space)이라고 하면 $\mathbf{x}$는 하나의 벡터로 나타낼 수 있다. 또한, 두 점 $\mathbf{x}_{1}, \mathbf{x}_{2}$을 포함하는 직선 $\mathbf{l}$은 두 벡터를 뺌으로써 표현할 수 있다. 해당 섹션에서는 평면 위의 점과 직선에 대해 하나의 동일한 벡터로 표현할 수 있게 해주는 homogeneous notation에 대해 설명한다.
+</p>
+</div>
+
+<div id="outline-container-orgb7db0b5" class="outline-4">
+<h4 id="orgb7db0b5"><span class="section-number-4">1.1.1</span> Points and lines</h4>
+</div>
+
+<div id="outline-container-org7ec1d8b" class="outline-4">
+<h4 id="org7ec1d8b"><span class="section-number-4">1.1.2</span> Homogeneous representation of line</h4>
+<div class="outline-text-4" id="text-1-1-2">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/01.PNG" alt="01.PNG" align="center" width="400px" />
+</p>
+</div>
+
+<p>
+임의의 직선 $\mathbf{l}$은 다음과 같이 표현할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}: ax + by + c = 0 \quad (a,b) \neq 0
+  \end{aligned}
+\end{equation}
+<p>
+직선 $\mathbf{l}$위에 임의의 한 점 $\mathbf{x}= (x,y,1)$이 존재하면 직선 $ax+by+c=0$공식에 따라 직선 $\mathbf{l}$은 다음과 같이 표현할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{l} : (a,b,c) \\
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $(a,b,c)$는 직선 $\mathbf{l}$을 유일하게 표현하지 않는다. $(ka,kb,kc)$와 같이 0이 아닌 임의의 상수 $k$를 곱해도 동일한 직선 $\mathbf{l}$을 표현할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}: (ka,kb,kc)
+  \end{aligned}
+\end{equation}
+<p>
+따라서 <b>평면 위의 직선 $\mathbf{l}$은 스케일 값에 상관없이 모두 같은 직선을 의미</b> 한다. 이러한 동치관계(equivalent)에 있는 모든 벡터를 homogeneous 벡터라고 한다. <b>$\mathbb{R}^{3}$공간에서 동치관계에 있는 모든 벡터들의 집합을 사영공간(projective space) $\mathbb{P}^{2}$이라고 한다.</b> 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfd7518b" class="outline-4">
+<h4 id="orgfd7518b"><span class="section-number-4">1.1.3</span> Homogeneous representation of points</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+직선 $\mathbf{l}=(a,b,c)^{T}$과 직선 위의 한 점 $\mathbf{x}=(x,y)^{T}$사이에는 다음 공식이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    ax+by+c=0
+  \end{aligned}
+\end{equation}
+<p>
+이는 두 벡터 $\mathbf{l}$과 $\mathbf{x}$의 내적으로 표현할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \begin{pmatrix} x&amp;y&amp;1 \end{pmatrix} \begin{pmatrix} a\\b\\c \end{pmatrix} = \begin{pmatrix} x&amp;y&amp;1 \end{pmatrix}\mathbf{l} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이는 직선 위의 한 점 $\mathbf{x}=(x,y)$좌표 맨 끝에 1을 추가하여 직선과 내적한 것으로 볼 수 있다. 직선 $\mathbf{l}$는 스케일 값에 상관없이 하나의 직선을 표현할 수 있으므로 $(x,y,1)\mathbf{l}=0$이 성립한다는 전제하에 모든 $k$값에 대해 $(kx,ky,k)\mathbf{l}=0$또한 성립한다. 따라서 <b>임의의 상수 $k$에 대해서 $(kx,ky,k)$는 $\mathbb{R}^{2}$공간에서 한 점 $\mathbf{x}=(x,y)$를 의미하므로 직선과 동일하게 점 또한 homogeneous 벡터로 표현할 수 있다.</b> 이를 일반화하여 표현하면 임의의 점 $\mathbf{x}=(x_{1}, x_{2},x_{3})^{T}$는 $\mathbb{R}^{2}$공간 상의 한 점 $(x_{1}/x_{3}, x_{2}/x_{3})$을 표현한다.
+</p>
+
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/02.PNG" alt="02.PNG" align="center" width="400px" />
+</p>
+</div>
+
+<p>
+따라서 $\mathbb{P}^{2}$공간 상에서 임의의 한 점 $\mathbf{x}$가 직선 $\mathbf{l}$위에 존재할 경우
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{T}\mathbf{l} &amp; = \begin{bmatrix} x&amp;y&amp;1 \end{bmatrix} \begin{bmatrix} a\\b\\c \end{bmatrix} \\
+    &amp; = ax + by + c \\
+    &amp; = 0 \\
+    &amp; \therefore \mathbf{x}^{T}\mathbf{l} = 0
+  \end{aligned}
+\end{equation}
+<p>
+공식이 성립한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga895b63" class="outline-4">
+<h4 id="orga895b63"><span class="section-number-4">1.1.4</span> Degree of freedom (dof)</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+$\mathbb{P}^{2}$공간에서 하나의 점이 유일하게 결정되기 위해서는 반드시 2개의 값 $(x,y)$가 주어져야 한다. 직선을 유일하게 결정하기 위해서는 두 개의 독립적인 $\{a:b:c\}$비율이 주어져야 한다. 이와 같이 $\mathbb{P}^{2}$공간에서 점과 직선은 2자유도를 가진다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaa87e61" class="outline-4">
+<h4 id="orgaa87e61"><span class="section-number-4">1.1.5</span> Intersection of lines</h4>
+<div class="outline-text-4" id="text-1-1-5">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/03.PNG" alt="03.PNG" align="center" width="400px" />
+</p>
+</div>
+
+<p>
+$\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{'}$이 주어졌을 때 두 직선의 방정식은 다음과 같이 쓸 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}^{T}\mathbf{l} = 0 \\
+    &amp; \mathbf{x}^{T}\mathbf{l}^{'} = 0 \\
+  \end{aligned}
+\end{equation}
+<p>
+이 때, 교차점 $\mathbf{x}$는 스케일 값에 관계없이 하나의 점을 의미하므로 두 직선 $\mathbf{l}, \mathbf{l}^{'}$의 cross product의 배수로 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x} = \mathbf{l} \times \mathbf{l}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+예를 들어, $\mathbb{P}^{2}$공간에 $x=1$인 직선과 $y=1$인 직선이 존재하면 두 직선은 $(1,1)$에서 교점을 가진다. 이를 위 공식을 이용해서 구해보면 직선 $x=1$은 $-x+1=0 &rArr; (-1,0,1)^{T}$로 표현할 수 있고 직선 $y=1$은 $-y+1=0 &rArr; (0,-1,1)^{T}$로 표현할 수 있으므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x} = \mathbf{l}\times \mathbf{l}^{'} = \begin{vmatrix} \mathbf{I}&amp;\mathbf{j}&amp;\mathbf{k} \\ -1&amp;0&amp;1 \\ 0&amp;-1&amp;1 \end{vmatrix} = \begin{pmatrix} 1\\1\\1 \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. $(1,1,1)^{T}$는 $\mathbb{R}^{2}$공간에서 $(1,1)$을 의미한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org902b7d1" class="outline-4">
+<h4 id="org902b7d1"><span class="section-number-4">1.1.6</span> Line joining points</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<p>
+두 직선의 교점을 구하는 공식과 유사하게 $\mathbb{P}^{2}$공간에서 두 점 $\mathbf{x}, \mathbf{x}^{'}$가 주어졌을 때 두 점을 지나는 직선 $\mathbf{l}$은 다음과 같이 구할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l} = \mathbf{x} \times \mathbf{x}^{'}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8633f41" class="outline-3">
+<h3 id="org8633f41"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div class="outline-text-3" id="text-1-2">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/05.PNG" alt="05.PNG" align="center" width="700px" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org225dc52" class="outline-4">
+<h4 id="org225dc52"><span class="section-number-4">1.2.1</span> Intersection of parallel lines</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+만약 <b>두 직선 $\mathbf{l}, \mathbf{l}^{'}$이 평행한 경우 두 직선의 교차점은 $\mathbb{R}^{2}$공간에서는 만나지 않지만 $\mathbb{P}^{2}$공간에서는 만난다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbb{P}^{2} = \mathbb{R}^{2} \cup \mathbf{l}_{\infty}
+  \end{aligned}
+\end{equation}
+<p>
+평행한 두 직선 $\mathbf{l}, \mathbf{l}^{'}$은 다음과 같이 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{l}: (a,b,c)^{T} \\
+    &amp; \mathbf{l}^{'}: (a,b,c^{'})^{T} \\
+  \end{aligned}
+\end{equation}
+<p>
+평행한 두 직선은 무한대에 위치한 점 $\mathbf{x}_{&infin;}$에서 교차하므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}_{\infty} &amp; = \mathbf{l} \times \mathbf{l}^{'} \\
+    &amp; = (c^{'}-c)\begin{pmatrix} b \\ -a \\ 0 \end{pmatrix} \sim \begin{pmatrix} b \\ -a \\ 0 \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+공식이 성립한다. 이러한 <b>무한대 점 $\mathbf{x}_{&infin;}$를 $\mathbb{R}^{2}$공간으로 변환하면 $(b/0,-a/0)$이 되어 유효하지 않는 점으로 변환된다. 따라서 $\mathbb{P}^{2}$공간에서 무한대 점 $\mathbf{x}_{&infin;}=(x,y,0)^{T}$는 $\mathbb{R}^{2}$공간으로 변환되지 않는다.</b> 이를 통해 euclidean 공간에서 평행한 두 직선은 만나지 않지만 projective 공간에서는 무한대에서 만난다는 것을 알 수 있다.
+</p>
+
+<p>
+예를 들어 $\mathbb{P}^{2}$공간에 평행한 두 직선 $x=1$과 $x=2$가 주어지면 두 직선은 무한대에서 교차한다. 이를 homogeneous notation으로 표현하면 $-x+1=0 \Rightarrow (-1,0,1)^{T}$그리고 $-x+2=0 &rArr;(-1,0,2)^{T}$이므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}_{\infty} = \mathbf{l} \times \mathbf{l}^{'} = \begin{vmatrix} \mathbf{I}&amp;\mathbf{j}&amp;\mathbf{k} \\ -1&amp;0&amp;1 \\ -1&amp;0&amp;2 \end{vmatrix} = \begin{pmatrix} 0\\1\\0 \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이 때, $\mathbf{x}_{&infin;}$는 y축 방향의 무한대 점을 의미한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd54474a" class="outline-4">
+<h4 id="orgd54474a"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{T}$는 $x_{3} &ne; 0$일 때 $\mathbb{R}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{R}^{2}$공간과 대응되지 않고 $\mathbb{P}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}_{\infty} = \begin{pmatrix} x_{1}&amp;x_{2}&amp;0 \end{pmatrix}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+와 같은 형태를 갖는다. 이러한 무한대 점들은 특정한 직선 위에 존재하게 되는데 이러한 직선을 무한대 직선(line at infinity)라고 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}_{\infty} = \begin{pmatrix} 0&amp;0&amp;1 \end{pmatrix}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+따라서 $\mathbf{x}_{&infin;}^{T}\mathbf{l}_{&infin;} = \begin{pmatrix}x_{1}&amp;x_{2}&amp;0 \end{pmatrix}\begin{pmatrix}0&amp;0&amp;1 \end{pmatrix}^{T} = 0$이 성립한다.
+</p>
+
+<p>
+이전 섹션에서 설명한 것과 같이 두 평행한 직선 $\mathbf{l}=(a,b,c)^{T}$과 $\mathbf{l}_{&infin;}^{'}=(a,b,c^{'})^{T}$는 무한대 점 $\mathbf{x}_{&infin;}=(b,-a,0)^{T}$에서 교차한다는 것을 알 수 있다. 이를 통해 <b>$\mathbb{R}^{2}$공간에서는 평행한 직선들은 서로 교차하지 않지만 $\mathbb{P}^{2}$공간에서는 서로 다른 두 직선은 반드시 한 점에서 교차한다는 것을 알 수 있다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbfac41c" class="outline-4">
+<h4 id="orgbfac41c"><span class="section-number-4">1.2.3</span> A model for the projective plane</h4>
+<div class="outline-text-4" id="text-1-2-3">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/06.png" alt="06.png" align="center" width="400px" />
+</p>
+</div>
+
+<p>
+<b>기하학적으로 봤을 때, $\mathbb{P}^{2}$는 3차원 공간 $\mathbb{R}^{3}$에서 원점을 지나는 모든 직선들의 집합</b> 을 의미한다. $\mathbb{P}^{2}$상의 모든 벡터를 $k(x_{1},x_{2},x_{3})^{T}$라고 했을 때 $k$값에 따라 한 점 $(x_{1},x_{2},x_{3})^{T}$의 위치가 결정된다. $k$는 실수이므로 $k=0$인 경우 원점을 의미하고 $k&ne;0$인 경우 무수한 점들의 집합인 직선이 된다. 반대로, 이러한 $\mathbb{R}^{3}$공간 상의 원점을 통과하는 한 직선은 $\mathbb{P}^{2}$공간 상의 한 점으로 볼 수 있다. 이를 확장하면 <b>$\mathbb{P}^{2}$공간 상의 직선 $\mathbf{l}$은 $\mathbb{R}^{3}$공간 상의 원점을 포함하는 평면 $&pi;$에 대응</b> 한다.
+</p>
+
+<p>
+<b>$\mathbb{P}^{2}$공간에서는 스케일 값에 관계없이 한 점을 유일하게 정의할 수 있으므로 마지막 항 $x_{3}$로 좌표값을 나눈 $(x_{1}/x_{3}, x_{2}/x_{3}, 1)$를 일반적으로 한 점을 표현하는 대표값으로 간주한다.</b> 따라서 $\mathbb{R}^{3}$공간 상의 원점을 지나는 직선과 $x_{3}=1$인 평면이 교차하는 점이 곧 $\mathbb{P}^{2}$공간 상의 한 점이 된다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2e8fa2a" class="outline-4">
+<h4 id="org2e8fa2a"><span class="section-number-4">1.2.4</span> Duality</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+<b>$\mathbb{P}^{2}$공간에서는 점과 직선이 대칭성(duality)을 가진다.</b> 예를 들어 직선 $\mathbf{l}$위의 한 점 $\mathbf{x}$은 $\mathbf{x}^{T}\mathbf{l}=0$또는 $\mathbf{l}^{T}\mathbf{x}=0$과 같이 두 가지 방법으로 표현할 수 있다. 또한, 두 직선 $\mathbf{l},\mathbf{l}^{'}$이 교차하는 한 점은 $\mathbf{x}=\mathbf{l}&times; \mathbf{l}^{'}$이고 두 점 $\mathbf{x}, \mathbf{x}^{'}$을 통과하는 직선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{x}&times; \mathbf{x}^{'}$으로 표현할 수 있는데 이는 기본적으로 점과 직선의 위치가 바뀌었을 뿐 동일한 공식을 사용한다.
+</p>
+
+<p>
+이와 같이 <b>$\mathbb{P}^{2}$공간에서는 점과 직선이 동일한 공식에 대해 위치를 바꾸어도 성립하는 대칭성을 가진다. 즉, 두 점을 통과하는 직선의 공식은 두 직선이 교차하는 한 점의 공식과 대칭이다.</b>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9c137ac" class="outline-3">
+<h3 id="org9c137ac"><span class="section-number-3">1.3</span> Conics and dual conics</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+conic이란 평면에서 이차식으로 정의된 곡선을 의미한다. 일반적인 공식으로는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    ax^{2} + bxy +cy^{2} +dx+ ey + f = 0
+  \end{aligned}
+\end{equation}
+<p>
+과 같으며 계수 값에 따라 원, 타원, 쌍곡선, 포물선 등 다양한 곡선 형태로 표현될 수 있다. conic을 homogeneous form으로 나타내면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    ax^{2} + bxy +cy^{2} +dxz+ eyz + fz^{2} = 0
+  \end{aligned}
+\end{equation}
+<p>
+과 같고 이를 행렬 형태로 정리하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \begin{pmatrix} x&amp;y&amp;z \end{pmatrix} \begin{pmatrix} a&amp;b/2&amp;d/2 \\ b/2&amp;c&amp;e/2 \\ d/2&amp;e/2&amp;f \end{pmatrix} \begin{pmatrix} x\\y\\z \end{pmatrix} =0 
+  \end{aligned}
+\end{equation}
+<p>
+꼴로 쓸 수 있으며 이 때 대칭행렬 $\begin{pmatrix}a&amp;b/2&amp;d/2 \\ b/2&amp;c&amp;e/2 \\ d/2&amp;e/2&amp;f \end{pmatrix}$를 conic $\mathbf{C}$라고 한다.
+</p>
+</div>
+
+<div id="outline-container-org1a12ade" class="outline-4">
+<h4 id="org1a12ade"><span class="section-number-4">1.3.1</span> Five points define a conic</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+conic $\mathbf{C}$가 유일하게 결정되기 위해서는 다섯개의 점이 필요하다. 하나의 점에 대한 conic 방정식은 다음과 같이 다시 쓸 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; ax^{2} + bxy +cy^{2} +dxz+ eyz + fz^{2} = 0 \\
+    &amp; \Rightarrow \begin{pmatrix} x_{i}^{2}&amp;x_{i}y_{i}&amp;y_{i}^{2}&amp;x_{i}&amp;y_{i}&amp;1 \end{pmatrix} \mathbf{c} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $\mathbf{c}= \begin{pmatrix}a&amp;b&amp;c&amp;d&amp;e&amp;f \end{pmatrix}&isin; \mathbb{R}^{6}$인 벡터를 의미한다. $\mathbf{c}$는 5 자유도를 가지므로 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \underbrace{\begin{bmatrix}
+      x_{1}^{2}&amp;x_{1}y_{1}&amp;y_{1}^{2}&amp;x_{1}&amp;y_{1}&amp;1 \\
+      x_{2}^{2}&amp;x_{2}y_{2}&amp;y_{2}^{2}&amp;x_{2}&amp;y_{2}&amp;1 \\
+      x_{3}^{2}&amp;x_{3}y_{3}&amp;y_{3}^{2}&amp;x_{3}&amp;y_{3}&amp;1 \\
+      x_{4}^{2}&amp;x_{4}y_{4}&amp;y_{4}^{2}&amp;x_{4}&amp;y_{4}&amp;1 \\
+      x_{5}^{2}&amp;x_{5}y_{5}&amp;y_{5}^{2}&amp;x_{5}&amp;y_{5}&amp;1 \\
+    \end{bmatrix}}_{\mathbf{A}} \mathbf{c} = 0
+  \end{aligned}
+\end{equation}
+<p>
+위 식과 같이 <b>총 5개의 점을 사용하면 $\mathbf{A} \in \mathbb{R}^{5\times 6}$행렬의 null space 벡터가 유일한 $\mathbf{c}$의 해가 되고 conic을 유일하게 결정한다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1d08a4a" class="outline-4">
+<h4 id="org1d08a4a"><span class="section-number-4">1.3.2</span> Tangent lines to conics</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+conic $\mathbf{C}$위의 한 점 $\mathbf{x}$에서 접선 $\mathbf{l}$은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l} = \mathbf{Cx}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 쓸 수 있다.
+</p>
+
+<p>
+임의의 두 직선 $\mathbf{l},\mathbf{m}$을 포함하는 conic $\mathbf{C}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{C} = \mathbf{l}\mathbf{m}^{T} + \mathbf{m}\mathbf{l}^{T}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 쓸 수 있다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1b7ba14" class="outline-4">
+<h4 id="org1b7ba14"><span class="section-number-4">1.3.3</span> Dual conics</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<p>
+<b>projective space $\mathbb{P}^{n}$은 $\mathbb{R}^{n+1}$공간 상의 원점을 지나는 직선들의 집합(1차원 부분 선형공간)을 의미</b> 한다. 이와 대칭을 이루는 <b>dual projective space $(\mathbb{P}^{n})^{&or;}$는 $\mathbb{R}^{n}$공간 상 n차원 부분 선형공간들의 집합을 의미</b> 한다.
+</p>
+
+<p>
+n차원 부분 선형공간 $\mathbf{H}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H} = \{\sum_{i=0}^{n}a_{i}x_{i}=0 \ | \ a_{i}\neq 0 \ \text{ for some i}\}.
+  \end{aligned}
+\end{equation}
+<p>
+이 때 $a_{0},&ctdot;,a_{n} &isin; \mathbb{P}^{n}$을 하나의 projective space로 생각할 수 있고 하나의 dual projective space는 하나의 proejctive space와 대칭 관계를 가진다.
+</p>
+
+<p>
+$\mathbb{P}^{2}$상의 conic $\mathbf{C}$가 주어졌을 때, <b>$\mathbf{C}$의 dual conic $\mathbf{C}^{&lowast;}$은 $(\mathbb{P}^{2})^{\vee}$공간 상의 conic을 의미하며 $\mathbf{C}^{&lowast;}$은 conic $\mathbf{C}$의 접선에 대한 정보를 가지고 있다.</b> $(\mathbb{P}^{2})^{&or;}$는 $\mathbb{P}^{2}$상의 직선을 파라미터화하여 나타낼 수 있다. $\hat{\mathbf{C}}^{&lowast;}$는 다음과 같이 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{C}^{\ast}_{ij} = (-1)^{i+j} \det(\hat{\mathbf{C}}_{ij})
+  \end{aligned}
+\end{equation}
+<p>
+여기서 $\hat{\mathbf{C}}_{ij}$는 $\mathbf{C}_{ij}$에서 i번째 행, j번째 열을 제거한 행렬을 의미한다.
+</p>
+
+<p>
+\vspace{5mm}
+임의의 직선 $\mathbf{l}$이 주어졌을 때 $\mathbf{l}$이 conic $\mathbf{C}$에 접하는 필요충분조건은 다음과 같다. 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}^{T}\mathbf{C}^{\ast}\mathbf{l} = 0
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org91e265c" class="outline-4">
+<h4 id="org91e265c"><span class="section-number-4">1.3.4</span> Proof</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<p>
+($\Rightarrow$) conic $\mathbf{C}&isin; \mathbb{R}^{3&times; 3}$의 rank가 3이고 non-singular하다고 가정하면 $\mathbf{C}^{&lowast;} = det(\mathbf{C}^{-1})$와 같이 나타낼 수 있다. $\mathbf{C}$위의 한 점 $\mathbf{x}&isin; \mathbf{C}$가 주어졌을 때 $\mathbf{x}$에서 접선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{Cx}$로 나타낼 수 있다. 이를 위 식에 대입하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}^{T}\mathbf{C}^{\ast}\mathbf{l} &amp; = (\mathbf{Cx})^{T}\mathbf{C}^{\ast}\mathbf{Cx} \\
+    &amp; = \mathbf{x}^{T}\mathbf{C}^{T}\mathbf{C}^{\ast}\mathbf{Cx} \\
+    &amp; = \det(\mathbf{x}^{T}\mathbf{C}^{T}\mathbf{x}) &amp; \because \mathbf{C}^{\ast}=\det(\mathbf{C}^{-1}) \\ 
+    &amp; = 0  &amp; \because \mathbf{x} \in \mathbf{C}, (\mathbf{x}^{T}\mathbf{C}\mathbf{x})^{T} = 0
+  \end{aligned}
+\end{equation}
+<p>
+($\leftarrow$) 직선 $\mathbf{l}$과 dual conic $\mathbf{C}^{&lowast;}$가 $\mathbf{l}^{T}\mathbf{C}^{&lowast;}\mathbf{l}=0$을 만족할 때 $\mathbf{l}$과 $\mathbf{C}^{&lowast;}$가 한 점 $\mathbf{x}$에서 만난다는 것을 증명하면 된다. 이 때 $\mathbf{l} = \mathbf{Cx}$공식이 성립한다.
+</p>
+
+<p>
+$\mathbf{C}$는 non-singualr하기 때문에 역행렬이 존재하므로 $\mathbf{x}= \mathbf{C}^{-1}\mathbf{l}$과 같이 나타낼 수 있다. 따라서 $\mathbf{x}^{T}\mathbf{l}$은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{T}\mathbf{l} &amp; = (\mathbf{C}^{-1}\mathbf{l})^{T}\mathbf{l} \\
+    &amp; = \mathbf{l}^{T}\mathbf{C}^{-t}\mathbf{l} = 0 \\
+    &amp; (\mathbf{C}^{\ast} \sim \mathbf{C}^{-1} \ \text{ by assumption.}) \\ 
+  \end{aligned}
+\end{equation}
+<p>
+과 같고 $\mathbf{x}^{T}\mathbf{Cx}$는
+</p>
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{T}\mathbf{C}\mathbf{x} &amp; = (\mathbf{C}^{-1}\mathbf{l})^{T}\mathbf{C}\mathbf{C}^{-1}\mathbf{l} \\
+    &amp; = \mathbf{l}^{T}\mathbf{C}^{-t}\mathbf{cc}^{-1}\mathbf{l} \\
+    &amp; = \mathbf{l}^{T}\mathbf{C}^{-1}\mathbf{l} = 0 \\
+    &amp; (\mathbf{C}^{-t} = \mathbf{C}^{-1} \ \ \mathbf{C} \text{ is symmetric.})
+  \end{aligned}
+\end{equation}
+<p>
+공식이 성립함에 따라 $\mathbf{x}$는 $\mathbf{l}$과 $\mathbf{C}$의 교점임이 증명된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \{\mathbf{x}\} =  \mathbf{l} \cap \mathbf{C}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0e6c709" class="outline-3">
+<h3 id="org0e6c709"><span class="section-number-3">1.4</span> Projective transformations</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+$\mathbb{P}^{2}$의 projective transformation은 non-singular인 $3\times3$행렬로 정의되는 $\mathbb{P}^{2} \Rightarrow \mathbb{P}^{2}$사상을 의미하며 직선을 직선으로 보내는 성질을 가진다. <b>projective transformation은 collineation, projectivity 또는 homography</b> 라고도 불린다. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org24f72f5" class="outline-3">
+<h3 id="org24f72f5"><span class="section-number-3">1.5</span> A hierarchy of transformations</h3>
+<div class="outline-text-3" id="text-1-5">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/07.png" alt="07.png" align="center" width="700px" />
+</p>
+</div>
+
+<p>
+projective 변환은 변환 전과 후 사이에 어떤 성질을 보존하느냐에 따라 여러 종류의 변환 행렬이 존재한다.
+</p>
+</div>
+
+<div id="outline-container-org0627276" class="outline-4">
+<h4 id="org0627276"><span class="section-number-4">1.5.1</span> Class 1: isometries</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<p>
+물체가 변환 전과 후 사이에 물체의 크기가 동일한 경우 해당 변환을 isometry 변환이라고 부른다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{iso} = \begin{bmatrix} \mathbf{A}&amp;\mathbf{t} \\ \mathbf{0} &amp; 1 \end{bmatrix}
+  \end{aligned} 
+\end{equation}
+<p>
+이 때 $\mathbf{A}&isin; \mathbb{R}^{2&times;2}$는 2차원 물체의 회전과 반사(reflection)을 포함한 행렬이며 $\mathbf{t}&isin; \mathbb{R}^{2}$는 2차원 물체의 이동 벡터이다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3d58c37" class="outline-4">
+<h4 id="org3d58c37"><span class="section-number-4">1.5.2</span> Class 2: similarity transformations</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<p>
+isometry 변환에 스케일을 의미하는 $s$가 추가된 변환을 similarity 변환이라고 하며 <b>물체의 이동 및 회전에 추가적으로 스케일까지 같이 변환</b> 하는 성질을 가진다. 이 때 기존의 $\mathbf{A}$행렬에서 reflection의 성질을 제거한 $\mathbf{R}$행렬을 사용한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{S} = \begin{bmatrix} s\mathbf{R}&amp;\mathbf{t} \\ \mathbf{0} &amp; 1 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+similarity 변환은 물체의 각도와 길이의 비율을 보존되지만 스케일은 보존되지 않는다. 두 물체가 similarity 변환까지 동일하다는 의미는(=up to scale) 두 물체의 형태는 동일하지만 스케일에 차이가 있다는 의미이다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1449bf2" class="outline-4">
+<h4 id="org1449bf2"><span class="section-number-4">1.5.3</span> Class 3: affine transformations</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<p>
+affine 변환은 isometry 변환에서 행렬 $\mathbf{A}$의 아무 제약조건이 없는 변환행렬을 의미한다. 변환 후 물체는 일반적으로 변환 전과 다른 형태를 가진다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{A} = \begin{bmatrix} \mathbf{A}&amp;\mathbf{t} \\ \mathbf{0} &amp; 1 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+$\mathbf{H}_{A}$는 6자유도를 가지므로  세 개의 대응점 쌍으로부터 $\mathbf{H}_{A}$를 유일하게 결정할 수 있다.
+</p>
+
+<p>
+affine 변환은 물체의 길이 비율을 보존하며 또한 평행한 직선을 보존하는 성질을 가진다. 따라서 무한대 직선(line at infinity) $\mathbf{l}_{&infin;}$를 affine 변환해도 여전히 $\mathbf{l}_{&infin;}$가 된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{A}(\mathbf{l}_{\infty}) = \mathbf{l}_{\infty}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org341139e" class="outline-4">
+<h4 id="org341139e"><span class="section-number-4">1.5.4</span> Class 4: projective transformations</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<p>
+마지막으로 projective 변환은 변환행렬의 마지막 행이 $(0,0,1)$이 아닌 임의의 형태를 가지는 변환행렬을 의미한다. projective 변환은 직선을 직선으로 사상한다는 성질 외에는 이전에 설명한 모든 성질들을 보존하지 않는다는 특징이 있다. 평행한 직선 또한 projective 변환을 수행하면 평행하지 않게되며 물체의 길이비 또한 달라지게 된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{P} = \begin{bmatrix} \mathbf{A}&amp;\mathbf{t} \\ \mathbf{v}^{T}&amp;v\end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 $\mathbf{v}=\begin{bmatrix}v_{1}&amp;v_{2} \end{bmatrix}$는 임의의 2차원 벡터를 의미하며 $v$또한 임의의 스칼라 값을 의미한다. projective 변환행렬 $\mathbf{H}_{P}$는 8자유도를 가지므로 일반적으로 4개의 대응점 쌍을 통해 $\mathbf{H}_{P}$을 유일하게 결정할 수 있다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc2e36b0" class="outline-3">
+<h3 id="orgc2e36b0"><span class="section-number-3">1.6</span> Decomposition of a projective transformation</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+앞서 설명한 변환행렬의 계층구조에 따라 projective 변환행렬은 다른 변환행렬들의 곱으로 표현할 수 있다. 반대로 말하면, <b>projective 변환은 다른 변환행렬들로 분해가 가능하다.</b> 임의의 projective 변환 $\mathbf{H}_{p}$가 주어졌을 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{p} &amp; = \mathbf{H}_{S}\mathbf{H}_{A}\mathbf{H}_{P} \\
+    &amp; = \begin{bmatrix} s \mathbf{R}&amp;\mathbf{t} \\\mathbf{0}&amp;1 \end{bmatrix} \begin{bmatrix} \mathbf{K} &amp; \mathbf{0} \\ \mathbf{0} &amp; 1 \end{bmatrix} \begin{bmatrix} i &amp; \mathbf{0}\\ \mathbf{v}^{T}&amp; v\end{bmatrix} \\
+      &amp; = \begin{bmatrix} \mathbf{A}&amp;\mathbf{t} \\ \mathbf{v}^{T}&amp;v \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 <b>projective 변환 $\mathbf{H}_{p}$는 similarity 변환 $\mathbf{H}_{S}$과 affine 변환 $\mathbf{H}_{A}$그리고 나머지 변환 $\mathbf{H}_{P}$의 곱으로 분해가 가능</b> 하다. 이 때, $\mathbf{A}=s\mathbf{R}\mathbf{K}+\mathbf{tv}^{T}$이고 $\mathbf{K}$는 $det(\mathbf{K})=1$로 정규화된 상삼각행렬(upper-triangle) 행렬을 의미한다. 단, 위와 같은 분해는 $v &ne; 0$일 때만 가능하며 $s &gt;0$인 경우 분해가 유일하게 결정된다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org06dfff9" class="outline-3">
+<h3 id="org06dfff9"><span class="section-number-3">1.7</span> Recovery of affine and metric properties from images</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+임의의 이미지가 주어졌을 때 이미지 상에서 평행한 선들과 직교한 선들을 사용하여 affine 성질과 metric 성질을 복원할 수 있다.
+</p>
+</div>
+
+<div id="outline-container-orgcde8061" class="outline-4">
+<h4 id="orgcde8061"><span class="section-number-4">1.7.1</span> The line at infinity</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<p>
+affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의미하며 무한대 직선(line at infinity) $\mathbf{l}_{&infin;} = \begin{bmatrix}x&amp;y&amp;0 \end{bmatrix}$을 사용하여 복원할 수 있다. 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{A}\mathbf{l}_{\infty} =\begin{bmatrix} \mathbf{A}&amp;\mathbf{t} \\0&amp;1 \end{bmatrix} \begin{bmatrix} x\\y\\0 \end{bmatrix} = \begin{bmatrix} \mathbf{A} \begin{bmatrix} x\\y \end{bmatrix} \\ 0 \end{bmatrix} = \mathbf{l}_{\infty}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+위와 같이 $\mathbf{l}_{&infin;}$를 affine 변환해도 여전히 무한대에 위치한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd6880d9" class="outline-4">
+<h4 id="orgd6880d9"><span class="section-number-4">1.7.2</span> Recovery of affine properties from images</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<p>
+<b>임의의 homography $\mathbf{H}$가 affine 성질을 보존한다는 의미는 곧 무한대 직선 $\mathbf{l}_{&infin;}$를 $\mathbf{H}$변환해도 무한대에 위치한 직선이 된다는 의미</b> 이다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}(\mathbf{l}_{\infty}) = \mathbf{Hl}_{\infty} = \mathbf{l}_{\infty}^{'}
+  \end{aligned}
+\end{equation}
+<p>
+무한대 직선 $\mathbf{l}_{&infin;}$는 $\mathbf{l}_{&infin;}=(x,y,0)^{T}$와 같이 마지막 항이 0인 특징이 있으므로 임의의 homography $\mathbf{H}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}\mathbf{l}_{\infty} = \begin{bmatrix} \mathbf{A}&amp; \mathbf{t} \\ \mathbf {v} &amp; v \end{bmatrix} \begin{bmatrix} x\\y\\0 \end{bmatrix} = \begin{bmatrix} *\\ * \\0 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+이 성립하므로 $\mathbf{v}=(0,0)$이 되고 $v$는 스케일 상수가 되어 1로 변환이 가능하다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H} = \begin{bmatrix} \mathbf{A}&amp;\mathbf{t} \\ \mathbf{0} &amp; v \end{bmatrix} = \begin{bmatrix} \mathbf{A}/v &amp; \mathbf{t}/v \\ \mathbf{0} &amp; 1 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org5e937d0" class="outline-4">
+<h4 id="org5e937d0"><span class="section-number-4">1.7.3</span> Recovery of metric properties from images</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc051ad5" class="outline-2">
+<h2 id="orgc051ad5"><span class="section-number-2">2</span> References</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org220ccef" class="outline-2">
+<h2 id="org220ccef"><span class="section-number-2">3</span> Closure</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.
+</p>
+</div>
+</div>
