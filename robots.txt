@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://edward0im.github.io/apt-deal-info/sitemap.xml
+Sitemap: https://edward0im.github.io/sitemap.xml
