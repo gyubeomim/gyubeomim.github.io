@@ -12,44 +12,44 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org16a5dd0">1. Epipolar Geometry and the Fundamental Matrix</a>
+<li><a href="#org0753db7">1. Epipolar Geometry and the Fundamental Matrix</a>
 <ul>
-<li><a href="#org052689f">1.1. Proof</a></li>
-<li><a href="#orgdb46417">1.2. Derivation of fundemantal matrix(geometry)</a></li>
-<li><a href="#orge0b82db">1.3. Derivation of fundemantal matrix(algebraic)</a></li>
-<li><a href="#org4374172">1.4. The epipolar line homography</a></li>
-<li><a href="#org47a8195">1.5. Fundamental matrices arising from special motions</a>
+<li><a href="#orgc5b1470">1.1. Proof</a></li>
+<li><a href="#org73197d3">1.2. Derivation of fundemantal matrix(geometry)</a></li>
+<li><a href="#org7e2719e">1.3. Derivation of fundemantal matrix(algebraic)</a></li>
+<li><a href="#orgbb66c06">1.4. The epipolar line homography</a></li>
+<li><a href="#orgfb1a335">1.5. Fundamental matrices arising from special motions</a>
 <ul>
-<li><a href="#orgcb30c43">1.5.1. Pure translation</a></li>
+<li><a href="#orged8eed9">1.5.1. Pure translation</a></li>
 </ul>
 </li>
-<li><a href="#org7f5e05f">1.6. Retrieving the camera matrices</a>
+<li><a href="#orgc3e1e67">1.6. Retrieving the camera matrices</a>
 <ul>
-<li><a href="#orgd0572a7">1.6.1. Projective invariance and canonical cameras</a></li>
-<li><a href="#org424f8c3">1.6.2. Canonical form of camera matrices</a></li>
-<li><a href="#org1963595">1.6.3. Projective ambiguity of cameras given F</a></li>
-<li><a href="#orga7e86c5">1.6.4. Proof</a></li>
+<li><a href="#org74a4fb7">1.6.1. Projective invariance and canonical cameras</a></li>
+<li><a href="#org5675c68">1.6.2. Canonical form of camera matrices</a></li>
+<li><a href="#orga1ffcbd">1.6.3. Projective ambiguity of cameras given F</a></li>
+<li><a href="#org5cd6e58">1.6.4. Proof</a></li>
 </ul>
 </li>
-<li><a href="#org11f93e1">1.7. Canonical cameras given F</a></li>
-<li><a href="#orgc493677">1.8. The essential matrix</a>
+<li><a href="#org5998423">1.7. Canonical cameras given F</a></li>
+<li><a href="#orgbd6dbda">1.8. The essential matrix</a>
 <ul>
-<li><a href="#orga128341">1.8.1. Properties of the essential matrix</a></li>
-<li><a href="#org13928c4">1.8.2. Proof</a></li>
+<li><a href="#orgd8baeef">1.8.1. Properties of the essential matrix</a></li>
+<li><a href="#orgd9cf010">1.8.2. Proof</a></li>
 </ul>
 </li>
-<li><a href="#orge0ea1a8">1.9. Extraction of cameras from the essential matrix</a></li>
-<li><a href="#org840610c">1.10. Geometrical interpretation of the four solutions</a></li>
+<li><a href="#org9110e78">1.9. Extraction of cameras from the essential matrix</a></li>
+<li><a href="#org1c60b12">1.10. Geometrical interpretation of the four solutions</a></li>
 </ul>
 </li>
-<li><a href="#org7fe78bb">2. References</a></li>
-<li><a href="#orge359721">3. Closure</a></li>
+<li><a href="#orgcb9012a">2. References</a></li>
+<li><a href="#orge0f3b2d">3. Closure</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org16a5dd0" class="outline-2">
-<h2 id="org16a5dd0"><span class="section-number-2">1</span> Epipolar Geometry and the Fundamental Matrix</h2>
+<div id="outline-container-org0753db7" class="outline-2">
+<h2 id="org0753db7"><span class="section-number-2">1</span> Epipolar Geometry and the Fundamental Matrix</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Epipolar geometry는 <b>2개의 카메라 이미지 사이에 정의되는 기하학 관계</b> 를 의미한다. 이는 3차원 물체의 구조와는 독립적이며 <b>오로지 카메라의 내부 파라미터와 두 카메라 사이의 상대 포즈에만 의존한다.</b>
@@ -81,8 +81,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 \end{equation}
 </div>
 
-<div id="outline-container-org052689f" class="outline-3">
-<h3 id="org052689f"><span class="section-number-3">1.1</span> Proof</h3>
+<div id="outline-container-orgc5b1470" class="outline-3">
+<h3 id="orgc5b1470"><span class="section-number-3">1.1</span> Proof</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 ($\Rightarrow$)$\mathbf{l}^{&prime;} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{&prime;}$에 위치한 점 $\mathbf{x}^{&prime;}$에 대하여 다음이 성립한다.
@@ -109,8 +109,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 </div>
 </div>
 
-<div id="outline-container-orgdb46417" class="outline-3">
-<h3 id="orgdb46417"><span class="section-number-3">1.2</span> Derivation of fundemantal matrix(geometry)</h3>
+<div id="outline-container-org73197d3" class="outline-3">
+<h3 id="org73197d3"><span class="section-number-3">1.2</span> Derivation of fundemantal matrix(geometry)</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 두 카메라 $\mathbf{C}, \mathbf{C}^{&prime;}$가 있을 때 이미지 평면 $\pi_{\mathbf{C}}$위의 점 $\mathbf{x}$를 Back-projection한 직선 $\mathbf{l}_{x}$가 3차원 공간 상에서 임의의 평면 $&pi;_{0}$와 한 점에서 만난다고 가정한다. 이 때 $\mathbf{C}, \mathbf{C}^{&prime;}$의 이미지 점들을 연결해주는 Homography $\mathbf{H}_{&pi;_{0}}$를 생각해보면
@@ -149,8 +149,8 @@ $\pi_{\mathbf{C}^{\prime}}$위에 프로젝션된 점을 $\mathbf{x}^{&prime;} =
 </div>
 </div>
 
-<div id="outline-container-orge0b82db" class="outline-3">
-<h3 id="orge0b82db"><span class="section-number-3">1.3</span> Derivation of fundemantal matrix(algebraic)</h3>
+<div id="outline-container-org7e2719e" class="outline-3">
+<h3 id="org7e2719e"><span class="section-number-3">1.3</span> Derivation of fundemantal matrix(algebraic)</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Epipolar Line $\mathbf{l}^{&prime;} = \mathbf{P}^{&prime;}(\mathbf{X(\lambda)})$와 같다. 이 때 $\mathbf{X}(&lambda;)$는 카메라 $\mathbf{C}$의 중심점을 지나는 $\mathbf{x}$의 Back-projection 직선을 의미한다. $\mathbf{X}(&lambda;)$는 다음과 같이 다시 작성할 수 있다.
@@ -204,8 +204,8 @@ $\mathbf{P}^{&prime;}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;
 </div>
 </div>
 
-<div id="outline-container-org4374172" class="outline-3">
-<h3 id="org4374172"><span class="section-number-3">1.4</span> The epipolar line homography</h3>
+<div id="outline-container-orgbb66c06" class="outline-3">
+<h3 id="orgbb66c06"><span class="section-number-3">1.4</span> The epipolar line homography</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 두 카메라 $\mathbf{C}, \mathbf{C}^{&prime;}$이 존재하고 이미지 평면 위의 한 점을 각각 $\mathbf{x}, \mathbf{x}^{&prime;}$라고 하면 이에 상응하는 Epipolar Line $\mathbf{l}, \mathbf{l}^{&prime;}$이 존재한다. 이 때, <b>$\mathbf{l}$과 $\mathbf{l}^{\prime}$사이에는 별도의 대응 관계가 성립</b> 하는데 이는
@@ -241,12 +241,12 @@ $\mathbf{P}^{&prime;}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;
 </div>
 </div>
 
-<div id="outline-container-org47a8195" class="outline-3">
-<h3 id="org47a8195"><span class="section-number-3">1.5</span> Fundamental matrices arising from special motions</h3>
+<div id="outline-container-orgfb1a335" class="outline-3">
+<h3 id="orgfb1a335"><span class="section-number-3">1.5</span> Fundamental matrices arising from special motions</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-orgcb30c43" class="outline-4">
-<h4 id="orgcb30c43"><span class="section-number-4">1.5.1</span> Pure translation</h4>
+<div id="outline-container-orged8eed9" class="outline-4">
+<h4 id="orged8eed9"><span class="section-number-4">1.5.1</span> Pure translation</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <p>
 순수 이동(pure translation)이란 카메라 센터를 회전하지 않고 이동만 하는 것을 의미한다. 이 때, 월드의 모든 물체를 고정시킨 채로 카메라를 움직이는 것과 카메라를 고정시킨 채로 월드의 모든 물체를 이동시키는 것은 동일하다. 처음 위치의 카메라 행렬과 카메라 센터를 각각 $\mathbf{P}, \mathbf{C}$라고 하고 순수 이동 후 카메라 행렬과 카메라 센터를 각각 $\mathbf{P}^{&prime;}, \mathbf{C}^{&prime;}$라고 할 때 <b>두 카메라의 베이스라인의 길이는 카메라 중심점의 순수 이동량과 동일</b> 하다. 
@@ -283,12 +283,12 @@ $\mathbf{P}^{&prime;}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;
 </div>
 </div>
 
-<div id="outline-container-org7f5e05f" class="outline-3">
-<h3 id="org7f5e05f"><span class="section-number-3">1.6</span> Retrieving the camera matrices</h3>
+<div id="outline-container-orgc3e1e67" class="outline-3">
+<h3 id="orgc3e1e67"><span class="section-number-3">1.6</span> Retrieving the camera matrices</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
-<div id="outline-container-orgd0572a7" class="outline-4">
-<h4 id="orgd0572a7"><span class="section-number-4">1.6.1</span> Projective invariance and canonical cameras</h4>
+<div id="outline-container-org74a4fb7" class="outline-4">
+<h4 id="org74a4fb7"><span class="section-number-4">1.6.1</span> Projective invariance and canonical cameras</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <p>
 두 카메라 $\mathbf{C}, \mathbf{C}^{&prime;}$에 대응하는 이미지 평면 상의 점들 $\mathbf{x}, \mathbf{x}^{&prime;}$과 Fundamental Matrix $\mathbf{F}$가 존재할 때 $\mathbf{F}$는 $\mathbf{x}\leftrightarrow \mathbf{x}^{\prime}$대응쌍의 Homography 변환에 상관없이 동일하다. 다시 말하면, $\mathbb{P}^{3} \mapsto\mathbb{P}^{3}$을 만족하는 Homograhpy 변환 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재할 때 $\mathbf{H}$는
@@ -338,8 +338,8 @@ $(\mathbf{PH},\mathbf{P}^{&prime;}\mathbf{H})$에 해당하는 대응점쌍 $\ma
 </div>
 </div>
 
-<div id="outline-container-org424f8c3" class="outline-4">
-<h4 id="org424f8c3"><span class="section-number-4">1.6.2</span> Canonical form of camera matrices</h4>
+<div id="outline-container-org5675c68" class="outline-4">
+<h4 id="org5675c68"><span class="section-number-4">1.6.2</span> Canonical form of camera matrices</h4>
 <div class="outline-text-4" id="text-1-6-2">
 <p>
 위와 같은 성질에 따라 동일한 Fundamental Matrix $\mathbf{F}$에 여러 $(\mathbf{P},\mathbf{P}^{\prime})$쌍이 대응되므로 $\mathbf{F}$와 $(\mathbf{P},\mathbf{P}^{&prime;})$는 One-to-Many Correspondence 관계가 된다. 따라서 이러한 모호성에도 불구하고 <b>$\mathbf{F}$의 정확한 변환을 표현하기 위해 $\mathbf{P}=[\mathbf{I}|0]$, $\mathbf{P}^{&prime;}=[\mathbf{M}|\mathbf{m}]$과 같이 처음 카메라 행렬 $\mathbf{P}$를 단순하게 나타내는 방법을 Canonical Form</b> 이라고 한다. 하지만 $\mathbf{P}=[\mathbf{I}|0]$이라고 해서 $\mathbf{P}^{&prime;}$이 유일하게 결정되는 것은 아니다. 
@@ -400,8 +400,8 @@ Canonical Form에 상응하는 Fundamental Matrix $\mathbf{F}$를 구해보면 �
 </div>
 </div>
 
-<div id="outline-container-org1963595" class="outline-4">
-<h4 id="org1963595"><span class="section-number-4">1.6.3</span> Projective ambiguity of cameras given F</h4>
+<div id="outline-container-orga1ffcbd" class="outline-4">
+<h4 id="orga1ffcbd"><span class="section-number-4">1.6.3</span> Projective ambiguity of cameras given F</h4>
 <div class="outline-text-4" id="text-1-6-3">
 <p>
 Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하기 때문에 필연적으로 모호성이 발생하게 된다. 만약 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;})$의 $\mathbf{F}$와 $(~{\mathbf{P}}, ~{\mathbf{P}}^{&prime;})$의 $\mathbf{F}$가 동일한 경우, $(\mathbf{P},\mathbf{P}^{&prime;})$와 $(~{\mathbf{P}}, ~{\mathbf{P}}^{&prime;})$를 연결하는 Homography $\mathbf{H}$가 존재한다.
@@ -416,8 +416,8 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 </div>
 </div>
 
-<div id="outline-container-orga7e86c5" class="outline-4">
-<h4 id="orga7e86c5"><span class="section-number-4">1.6.4</span> Proof</h4>
+<div id="outline-container-org5cd6e58" class="outline-4">
+<h4 id="org5cd6e58"><span class="section-number-4">1.6.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-6-4">
 <p>
 두 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{\prime})$, $(~{\mathbf{P}}, ~{\mathbf{P}}^{&prime;})$이 주어졌을 때 이를 Canonical Form으로 쓰면 다음과 같다.
@@ -510,8 +510,8 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 </div>
 </div>
 
-<div id="outline-container-org11f93e1" class="outline-3">
-<h3 id="org11f93e1"><span class="section-number-3">1.7</span> Canonical cameras given F</h3>
+<div id="outline-container-org5998423" class="outline-3">
+<h3 id="org5998423"><span class="section-number-3">1.7</span> Canonical cameras given F</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 <b>임의의 정방행렬 $\mathbf{F}&isin; \mathbb{R}^{3&times; 3}$가 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;})$에 대응하는 Fundemental Matrix일 필요충분 조건은 $\mathbf{P}^{&prime;\intercal}\mathbf{F}\mathbf{P}$가 반대칭 행렬(skew symmetric matrix)일 때</b> 이다.
@@ -621,8 +621,8 @@ Null Space 값인 $\mathbf{e}^{&prime;}$는 스케일에 불변하므로 $\frac{
 </div>
 </div>
 
-<div id="outline-container-orgc493677" class="outline-3">
-<h3 id="orgc493677"><span class="section-number-3">1.8</span> The essential matrix</h3>
+<div id="outline-container-orgbd6dbda" class="outline-3">
+<h3 id="orgbd6dbda"><span class="section-number-3">1.8</span> The essential matrix</h3>
 <div class="outline-text-3" id="text-1-8">
 <p>
 임의의 카메라 행렬 $\mathbf{P}= \mathbf{K}[\mathbf{R}|\mathbf{t}]$가 주어졌을 때 이미지 평면 상의 점 $\mathbf{x}$에 대해 $\mathbf{x}= \mathbf{PX}= \mathbf{K}[\mathbf{R}|\mathbf{t}]\mathbf{X}$가 성립한다. 이 때, <b>정규화된 이미지 평면 위의 점을 $\bar{\mathbf{x}}$</b> 라고 하면
@@ -689,8 +689,8 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 \end{equation}
 </div>
 
-<div id="outline-container-orga128341" class="outline-4">
-<h4 id="orga128341"><span class="section-number-4">1.8.1</span> Properties of the essential matrix</h4>
+<div id="outline-container-orgd8baeef" class="outline-4">
+<h4 id="orgd8baeef"><span class="section-number-4">1.8.1</span> Properties of the essential matrix</h4>
 <div class="outline-text-4" id="text-1-8-1">
 <p>
 <b>임의의 정방행렬 $\mathbf{E}&isin; \mathbb{R}^{3&times; 3}$이 Essential Matrix이기 위한 필요충분조건은 $\mathbf{E}$의 가장 큰 두 특이값 $\sigma_{1}, \sigma_{2}$값이 동일하고 세번째 특이값 $&sigma;_{3}=0$인 조건</b> 이다.
@@ -698,8 +698,8 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 </div>
 </div>
 
-<div id="outline-container-org13928c4" class="outline-4">
-<h4 id="org13928c4"><span class="section-number-4">1.8.2</span> Proof</h4>
+<div id="outline-container-orgd9cf010" class="outline-4">
+<h4 id="orgd9cf010"><span class="section-number-4">1.8.2</span> Proof</h4>
 <div class="outline-text-4" id="text-1-8-2">
 <p>
 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;}) = ([\mathbf{I}|0], \ [\mathbf{R}|\mathbf{t}])$에 대한 Fundamental Matrix $\mathbf{F}$가 있다고 하면
@@ -784,8 +784,8 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 </div>
 </div>
 
-<div id="outline-container-orge0ea1a8" class="outline-3">
-<h3 id="orge0ea1a8"><span class="section-number-3">1.9</span> Extraction of cameras from the essential matrix</h3>
+<div id="outline-container-org9110e78" class="outline-3">
+<h3 id="org9110e78"><span class="section-number-3">1.9</span> Extraction of cameras from the essential matrix</h3>
 <div class="outline-text-3" id="text-1-9">
 <p>
 Essential Matrix $\mathbf{E}$가 다음과 같이 주어졌을 때
@@ -887,8 +887,8 @@ Essential Matrix $\mathbf{E}$가 위 두 가지 케이스로만 분해된다는 
 </div>
 </div>
 
-<div id="outline-container-org840610c" class="outline-3">
-<h3 id="org840610c"><span class="section-number-3">1.10</span> Geometrical interpretation of the four solutions</h3>
+<div id="outline-container-org1c60b12" class="outline-3">
+<h3 id="org1c60b12"><span class="section-number-3">1.10</span> Geometrical interpretation of the four solutions</h3>
 <div class="outline-text-3" id="text-1-10">
 <p>
 Essential Matrix $\mathbf{E}$는 다음과 같이 나타낼 수 있다.
@@ -950,16 +950,16 @@ $\mathbf{E}= \mathbf{t}^{&and;}\mathbf{R}$을 어떻게 분해하느냐에 따�
 </div>
 </div>
 
-<div id="outline-container-org7fe78bb" class="outline-2">
-<h2 id="org7fe78bb"><span class="section-number-2">2</span> References</h2>
+<div id="outline-container-orgcb9012a" class="outline-2">
+<h2 id="orgcb9012a"><span class="section-number-2">2</span> References</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orge359721" class="outline-2">
-<h2 id="orge359721"><span class="section-number-2">3</span> Closure</h2>
+<div id="outline-container-orge0f3b2d" class="outline-2">
+<h2 id="orge0f3b2d"><span class="section-number-2">3</span> Closure</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.
