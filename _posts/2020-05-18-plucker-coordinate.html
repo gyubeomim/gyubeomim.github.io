@@ -149,23 +149,23 @@ Plücker Coordinate에서 직선을 표현하는 방법은 다음과 같다. $\m
 <h3 id="org05d7f52"><span class="section-number-3">2.1</span> Up to scale uniqueness</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-만약 직선 위의 점 $\mathbf{p}_{1}, \mathbf{p}_{2}$가 아닌 다른 직선 위의 점 $\mathbf{p}^{'}_{1}, \mathbf{p}^{'}_{2}$가 존재할 때 이는 기존 점들을 통해 표현이 가능하다.
+만약 직선 위의 점 $\mathbf{p}_{1}, \mathbf{p}_{2}$가 아닌 다른 직선 위의 점 $\mathbf{p}^{&prime;}_{1}, \mathbf{p}^{&prime;}_{2}$가 존재할 때 이는 기존 점들을 통해 표현이 가능하다.
 </p>
 
 \begin{equation}
   \begin{aligned}
-    &amp; \mathbf{p}_{1}^{'} = \lambda \mathbf{p}_{1} + (1-\lambda) \mathbf{p}_{2} \\
-    &amp; \mathbf{p}_{2}^{'} = \mu \mathbf{p}_{1} + (1-\mu) \mathbf{p}_{2} 
+    &amp; \mathbf{p}_{1}^{\prime} = \lambda \mathbf{p}_{1} + (1-\lambda) \mathbf{p}_{2} \\
+    &amp; \mathbf{p}_{2}^{\prime} = \mu \mathbf{p}_{1} + (1-\mu) \mathbf{p}_{2} 
   \end{aligned}
 \end{equation}
 <p>
-직선의 방향벡터 $\mathbf{d}^{'}$와 모멘트 벡터 $\mathbf{m}$또한 기존의 점들을 스케일하여 표현할 수 있다.
+직선의 방향벡터 $\mathbf{d}^{&prime;}$와 모멘트 벡터 $\mathbf{m}$또한 기존의 점들을 스케일하여 표현할 수 있다.
 </p>
 
 \begin{equation}
   \begin{aligned}
-    &amp; \mathbf{d}^{'} = \mathbf{p}_{2}^{'} - \mathbf{p}_{1}^{'} = (\lambda-\mu)\mathbf{d} \\
-    &amp; \mathbf{m}^{'} = \mathbf{p}_{1}^{'} \times \mathbf{p}_{2}^{'} = (\lambda-\mu)\mathbf{m} \\
+    &amp; \mathbf{d}^{\prime} = \mathbf{p}_{2}^{\prime} - \mathbf{p}_{1}^{\prime} = (\lambda-\mu)\mathbf{d} \\
+    &amp; \mathbf{m}^{\prime} = \mathbf{p}_{1}^{\prime} \times \mathbf{p}_{2}^{\prime} = (\lambda-\mu)\mathbf{m} \\
   \end{aligned}
 \end{equation}
 <p>
@@ -190,12 +190,12 @@ Plücker Coordinate는 두 평면이 교차하는 직선을 사용하여 표현�
 
 \begin{equation}
   \begin{aligned}
-    &amp; \pi_{i}^{T}\mathbf{p}_{i} = 0 \\
+    &amp; \pi_{i}^{\intercal}\mathbf{p}_{i} = 0 \\
     &amp; \begin{bmatrix} \pi_{iw}&amp;\pi_{ix}&amp;\pi_{iy}&amp;\pi_{iz} \end{bmatrix}\begin{bmatrix} w_{i}\\x_{i}\\y_{i}\\z_{i} \end{bmatrix} = 0 
   \end{aligned}
 \end{equation}
 <p>
-이 때 두 평면의 좌표 $\begin{bmatrix}&pi;_{iw}&amp;&pi;_{ix}&amp;&pi;_{iy}&amp;&pi;_{iz} \end{bmatrix}^{T}$를 점으로 간주하면 점과 동일하게 2x2 submatrix 연산을 정의할 수 있다.
+이 때 두 평면의 좌표 $\begin{bmatrix}&pi;_{iw}&amp;&pi;_{ix}&amp;&pi;_{iy}&amp;&pi;_{iz} \end{bmatrix}^{\intercal}$를 점으로 간주하면 점과 동일하게 2x2 submatrix 연산을 정의할 수 있다.
 </p>
 
 \begin{equation}
@@ -244,7 +244,7 @@ Dual Representation으로 표현한 직선 $\mathbf{L}^{*}$은 다음과 같다.
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{m}^{T}\mathbf{p} = 0
+    \mathbf{m}^{\intercal}\mathbf{p} = 0
   \end{aligned}
 \end{equation}
 <p>
@@ -257,7 +257,7 @@ Dual Representation으로 표현한 직선 $\mathbf{L}^{*}$은 다음과 같다.
   \end{aligned}
 \end{equation}
 <p>
-위 행렬에서 하단의 $\mathbb{R}^{3\times 4}$행렬이 $\begin{bmatrix}\mathbf{m}&amp; \mathbf{d}^{&and;} \end{bmatrix}\begin{bmatrix}1 \\ \mathbf{p}\end{bmatrix}=0$을 의미하고 상단의 $\mathbb{R}^{1 \times 4}$행렬이 $-\mathbf{m}^{T}\mathbf{p}=0$을 의미한다. 위 행렬 또한 rank 2를 가지며 각 행은 직선을 교차하는 평면을 의미한다.
+위 행렬에서 하단의 $\mathbb{R}^{3\times 4}$행렬이 $\begin{bmatrix}\mathbf{m}&amp; \mathbf{d}^{&and;} \end{bmatrix}\begin{bmatrix}1 \\ \mathbf{p}\end{bmatrix}=0$을 의미하고 상단의 $\mathbb{R}^{1 \times 4}$행렬이 $-\mathbf{m}^{\intercal}\mathbf{p}=0$을 의미한다. 위 행렬 또한 rank 2를 가지며 각 행은 직선을 교차하는 평면을 의미한다.
 </p>
 </div>
 </div>
