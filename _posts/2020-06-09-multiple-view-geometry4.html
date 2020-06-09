@@ -16,7 +16,7 @@ comments: true
 <ul>
 <li><a href="#orga04292e">1.1. The projective reconstruction theorem</a>
 <ul>
-<li><a href="#org3c6705f">1.1.1. Proof</a></li>
+<li><a href="#org08d1abe">1.1.1. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgb9f497b">1.2. Stratified reconstruction</a>
@@ -37,7 +37,7 @@ comments: true
 <li><a href="#orged4a1f1">2.2. The normalized 8-point algorithm</a>
 <ul>
 <li><a href="#orgeda78db">2.2.1. Degenrate configurations</a></li>
-<li><a href="#org6bd3820">2.2.2. Proof</a></li>
+<li><a href="#org34ff959">2.2.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org4eba046">2.3. The Gold Standard method</a></li>
@@ -63,12 +63,12 @@ comments: true
 <ul>
 <li><a href="#orga811cd0">4.1. Homographies given the plane and vice versa</a>
 <ul>
-<li><a href="#org7cccf53">4.1.1. Proof</a></li>
+<li><a href="#org5d84897">4.1.1. Proof</a></li>
 <li><a href="#orgd63564f">4.1.2. A calibrated stereo rig</a></li>
 <li><a href="#org73345f3">4.1.3. Homographies compatible with epipolar geometry</a></li>
-<li><a href="#org574509b">4.1.4. Proof</a></li>
+<li><a href="#orgd237db8">4.1.4. Proof</a></li>
 <li><a href="#orgfdd97c9">4.1.5. Corollary</a></li>
-<li><a href="#orga07a869">4.1.6. Proof</a></li>
+<li><a href="#org333a94b">4.1.6. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org2f1e9ce">4.2. Computing \mathbf{F}given the homography induced by a plane</a></li>
@@ -128,8 +128,8 @@ comments: true
 \end{equation}
 </div>
 
-<div id="outline-container-org3c6705f" class="outline-4">
-<h4 id="org3c6705f"><span class="section-number-4">1.1.1</span> Proof</h4>
+<div id="outline-container-org08d1abe" class="outline-4">
+<h4 id="org08d1abe"><span class="section-number-4">1.1.1</span> Proof</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 이전 섹션에서 동일한 Fundamental Matrix $\mathbf{F}$를 공유하는 카메라 행렬 대응쌍 사이에 $\mathbf{P}_{2} = \mathbf{P}_{1}\mathbf{H}^{-1}, \mathbf{P}_{2}^{&prime;} =\mathbf{P}_{1}^{&prime;}\mathbf{H}^{-1}$를 만족하는 Homography 행렬 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재한다는 것을 증명하였다. 이를 적용해보면
@@ -490,8 +490,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-org6bd3820" class="outline-4">
-<h4 id="org6bd3820"><span class="section-number-4">2.2.2</span> Proof</h4>
+<div id="outline-container-org34ff959" class="outline-4">
+<h4 id="org34ff959"><span class="section-number-4">2.2.2</span> Proof</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 임의의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;}, \{\mathbf{X}^{i}\})$이 Critical Triple이라는 것을 보이기 위해서는 이와 대응하는 카메라 행렬 대응쌍 $(\mathbf{Q}, \mathbf{Q}^{&prime;}, \{\mathbf{Y}^{i}\})$이 같은 Fundamental Matrix $\mathbf{F}$를 가진다는 사실을 사용해야 한다. $\mathbb{P}^{3}$공간에서 이차곡면은 4x4 크기의 행렬로 정의된다.
@@ -969,8 +969,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </p>
 </div>
 
-<div id="outline-container-org7cccf53" class="outline-4">
-<h4 id="org7cccf53"><span class="section-number-4">4.1.1</span> Proof</h4>
+<div id="outline-container-org5d84897" class="outline-4">
+<h4 id="org5d84897"><span class="section-number-4">4.1.1</span> Proof</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <p>
 두 카메라의 이미지 평면 $&pi;_{\mathbf{P}}, &pi;_{\mathbf{P}^{&prime;}}$가 주어졌을 때, 월드 평면 상의 점 $\mathbf{X}&isin; &pi;$를 $\pi_{\mathbf{P}}$평면으로 프로젝션한 점 $\mathbf{x}$는 다음과 같다.
@@ -1111,8 +1111,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </div>
 </div>
 
-<div id="outline-container-org574509b" class="outline-4">
-<h4 id="org574509b"><span class="section-number-4">4.1.4</span> Proof</h4>
+<div id="outline-container-orgd237db8" class="outline-4">
+<h4 id="orgd237db8"><span class="section-number-4">4.1.4</span> Proof</h4>
 <div class="outline-text-4" id="text-4-1-4">
 <p>
 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Projective Reconstruction을 수행하면 두 카메라 행렬 대응쌍을
@@ -1164,8 +1164,8 @@ $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Proj
 </div>
 </div>
 
-<div id="outline-container-orga07a869" class="outline-4">
-<h4 id="orga07a869"><span class="section-number-4">4.1.6</span> Proof</h4>
+<div id="outline-container-org333a94b" class="outline-4">
+<h4 id="org333a94b"><span class="section-number-4">4.1.6</span> Proof</h4>
 <div class="outline-text-4" id="text-4-1-6">
 <p>
 ($\Rightarrow$) $\mathbf{H}$가 월드 상의 평면 $&pi;=(\mathbf{v}^{\intercal},1)^{\intercal}$에 대한 Homography이면서 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$일 때 앞서 정리에 의해

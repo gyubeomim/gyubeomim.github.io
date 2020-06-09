@@ -20,20 +20,20 @@ comments: true
 </li>
 <li><a href="#org9eeec49">2. SO(3): Rotations in 3D space</a>
 <ul>
-<li><a href="#org585c7bd">2.1. Lie algebra</a>
+<li><a href="#orgde52c01">2.1. Lie algebra</a>
 <ul>
 <li><a href="#org0df5f0a">2.1.1. so(3) derivation</a></li>
 </ul>
 </li>
-<li><a href="#orgffc2b14">2.2. Exponential and logarithm mapping</a></li>
-<li><a href="#org17dccf9">2.3. Adjoint representation</a></li>
+<li><a href="#org859e6e0">2.2. Exponential and logarithm mapping</a></li>
+<li><a href="#org7c30091">2.3. Adjoint representation</a></li>
 </ul>
 </li>
 <li><a href="#orga2b92a5">3. SE(3): Rigid body transformation in 3D space</a>
 <ul>
-<li><a href="#orge3ebda9">3.1. Lie algebra</a></li>
-<li><a href="#org36b1462">3.2. Exponential and logarithm mapping</a></li>
-<li><a href="#org6a21200">3.3. Adjoint representation</a></li>
+<li><a href="#org4ffea4f">3.1. Lie algebra</a></li>
+<li><a href="#orgc4fe707">3.2. Exponential and logarithm mapping</a></li>
+<li><a href="#org02a9819">3.3. Adjoint representation</a></li>
 </ul>
 </li>
 <li><a href="#org473dd1a">4. SE(3)-based optimization in SLAM</a></li>
@@ -93,8 +93,8 @@ SO(3) = \{ \mathbf{R} \in \mathbb{R}^{3 \times 3} \ | \ \mathbf{R}\mathbf{R}^{T}
 \end{equation}
 </div>
 
-<div id="outline-container-org585c7bd" class="outline-3">
-<h3 id="org585c7bd"><span class="section-number-3">2.1</span> Lie algebra</h3>
+<div id="outline-container-orgde52c01" class="outline-3">
+<h3 id="orgde52c01"><span class="section-number-3">2.1</span> Lie algebra</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 SO(3)군의 Lie algebra so(3)는 다음과 같은 $\mathbb{R}^{3\times 3}$크기의 반대칭 행렬을 말한다.
@@ -240,8 +240,8 @@ a_{3} &amp; 0 &amp; -a_{1} \\
 </div>
 </div>
 
-<div id="outline-container-orgffc2b14" class="outline-3">
-<h3 id="orgffc2b14"><span class="section-number-3">2.2</span> Exponential and logarithm mapping</h3>
+<div id="outline-container-org859e6e0" class="outline-3">
+<h3 id="org859e6e0"><span class="section-number-3">2.2</span> Exponential and logarithm mapping</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Lie Group SO(3)와 Lie Algebra so(3)는 지수 매핑(exponential mapping)과 로그 매핑(logarithm mapping)으로 서로 일대일 매칭되는 특징이 있다.
@@ -300,8 +300,8 @@ Exponetial Mapping의 정의에 따라 $\exp(\omega^{\wedge})$를 전개하면 �
 </div>
 </div>
 
-<div id="outline-container-org17dccf9" class="outline-3">
-<h3 id="org17dccf9"><span class="section-number-3">2.3</span> Adjoint representation</h3>
+<div id="outline-container-org7c30091" class="outline-3">
+<h3 id="org7c30091"><span class="section-number-3">2.3</span> Adjoint representation</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 <b>SO(3)군의 Adjoint 행렬은 임의의 $\omega^{\wedge} \in so(3)$와 대응하는 각속도 $\omega \in \mathbb{R}^{3}$를 다른 $\omega^{'}$로 변경해주는 행렬</b> 이다. 예를 들면, 두 개의 좌표계 $\{A\}, \{B\}$가 있다고 했을 때 $\{B\}$좌표계에서 본 각속도 $\omega_{B}$를 $\{A\}$좌표계에서 본 각속도 $\omega_{A}$로 변환하고자 할 때 사용한다. $\mathbf{R}_{AB} \in SO(3)$에 대하여 Adjoint 행렬을 $\text{Ad}_{\mathbf{R}_{AB}}$라고 하면 다음이 성립한다.
@@ -385,8 +385,8 @@ SE(3) = \left \{ \mathbf{T} =
 \end{equation}
 </div>
 
-<div id="outline-container-orge3ebda9" class="outline-3">
-<h3 id="orge3ebda9"><span class="section-number-3">3.1</span> Lie algebra</h3>
+<div id="outline-container-org4ffea4f" class="outline-3">
+<h3 id="org4ffea4f"><span class="section-number-3">3.1</span> Lie algebra</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 SE(3)군의 Lie algebra se(3)는 다음과 같은 $\mathbb{R}^{4\times 4}$크기의 행렬로 정의된다.
@@ -427,8 +427,8 @@ se(3)의 각 원소들은 생성자들의 선형결합(Linear Combination)으로
 </div>
 </div>
 
-<div id="outline-container-org36b1462" class="outline-3">
-<h3 id="org36b1462"><span class="section-number-3">3.2</span> Exponential and logarithm mapping</h3>
+<div id="outline-container-orgc4fe707" class="outline-3">
+<h3 id="orgc4fe707"><span class="section-number-3">3.2</span> Exponential and logarithm mapping</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Lie Group SE(3)와 Lie Algebra se(3)는 지수 매핑(exponential mapping)과 로그 매핑(logarithm mapping)으로 서로 일대일 매칭되는 특징이 있다. 우선, twist $\xi \in \mathbb{R}^{6}$를 se(3) lie algebra로 변환하는 연산 $\xi^{\wedge}$은 다음과 같이 정의된다.
@@ -510,8 +510,8 @@ SE(3)군의 로그 매핑은 회전 부분은 SO(3)군의 로그 매핑을 사�
 </div>
 </div>
 
-<div id="outline-container-org6a21200" class="outline-3">
-<h3 id="org6a21200"><span class="section-number-3">3.3</span> Adjoint representation</h3>
+<div id="outline-container-org02a9819" class="outline-3">
+<h3 id="org02a9819"><span class="section-number-3">3.3</span> Adjoint representation</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 SE(3)군의 Adjoint 행렬은 임의의 $\xi^{\wedge} \in se(3)$와 대응하는 twist $\xi \in \mathbb{R}^{6}$를 다른 좌표계의 $\xi^{'}$로 변경해주는 행렬이다. 예를 들면, 두 개의 좌표계 $\{A\}, \{B\}$가 있다고 했을 때 $\{B\}$좌표계에서 본 $\xi_{B}$를 $\{A\}$좌표계에서 본 $\xi_{A}$로 변환하고자 할 때 사용한다. $\mathbf{T}_{AB} \in SE(3)$에 대하여 Adjoint 행렬을 $\text{Ad}_{\mathbf{T}_{AB}}$라고 하면 다음이 성립한다.
