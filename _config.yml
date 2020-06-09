@@ -24,7 +24,7 @@ discus-identifier: tigerk0430-github-io # add your discus identifier
 # Custom vars
 version:             1.0.0
 
-plugins: [jekyll-paginate]
+plugins: ['jekyll-paginate','jekyll-sitemap']
 
 # Tag setting
 # collections:
