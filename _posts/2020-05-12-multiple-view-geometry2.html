@@ -297,12 +297,12 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
   \end{aligned}
 \end{equation}
 <p>
-결론적으로 <b>소실선 $\mathbf{l}$은 카메라 중심을 포함하고 체크보드 평면 $&pi;$과 평행인 평면 $&pi;^{'}$와 이미지 평면의 교집합</b> 을 의미한다. $&pi;^{'}$은 소실선 $\mathbf{l}$을 Back-projection함으로써 계산할 수 있다. 이 때 평면과 직선의 관계에 따라
+결론적으로 <b>소실선 $\mathbf{l}$은 카메라 중심을 포함하고 체크보드 평면 $&pi;$과 평행인 평면 $&pi;^{&prime;}$와 이미지 평면의 교집합</b> 을 의미한다. $&pi;^{&prime;}$은 소실선 $\mathbf{l}$을 Back-projection함으로써 계산할 수 있다. 이 때 평면과 직선의 관계에 따라
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \pi^{'} = \mathbf{K}^{\intercal}\mathbf{l}
+    \pi^{\prime} = \mathbf{K}^{\intercal}\mathbf{l}
   \end{aligned}
 \end{equation}
 <p>
@@ -521,16 +521,16 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
   \end{aligned}
 \end{equation}
 <p>
-이미지 평면 상의 두 점 $\mathbf{x}, \mathbf{x}^{'}$에 대하여 두 점의 Back-projection된 직선들이 서로 직교하는 경우 $\mathbf{x}^{'\intercal}\mathbf{wx}=0$이 성립한다. 이 식을 다시 작성하면
+이미지 평면 상의 두 점 $\mathbf{x}, \mathbf{x}^{&prime;}$에 대하여 두 점의 Back-projection된 직선들이 서로 직교하는 경우 $\mathbf{x}^{&prime;\intercal}\mathbf{wx}=0$이 성립한다. 이 식을 다시 작성하면
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}^{'\intercal}\mathbf{wx} = \mathbf{x}^{'\intercal}\mathbf{CS}^{-1}\mathbf{x} = \mathbf{x}^{'\intercal}\mathbf{CSx} = \mathbf{x}^{'\intercal}\mathbf{C}\dot{\mathbf{x}}
+    \mathbf{x}^{\prime\intercal}\mathbf{wx} = \mathbf{x}^{\prime\intercal}\mathbf{CS}^{-1}\mathbf{x} = \mathbf{x}^{\prime\intercal}\mathbf{CSx} = \mathbf{x}^{\prime\intercal}\mathbf{C}\dot{\mathbf{x}}
   \end{aligned}
 \end{equation}
 <p>
-이 때, $\dot{\mathbf{x}} = \mathbf{Sx}$는 점 $\mathbf{x}$가 Calibration Conic에 의해 반사된 점을 의미한다. 결론적으로, <b>직선 $\mathbf{C}\dot{\mathbf{x}}$는 반사된 점 $\dot{\mathbf{x}}$와 Calibration Conic의 접선들을 이어주는 직선이 되고 점 $\mathbf{x}^{'}$는 직선 $\mathbf{C}\dot{\mathbf{x}}$위에 존재</b> 한다.
+이 때, $\dot{\mathbf{x}} = \mathbf{Sx}$는 점 $\mathbf{x}$가 Calibration Conic에 의해 반사된 점을 의미한다. 결론적으로, <b>직선 $\mathbf{C}\dot{\mathbf{x}}$는 반사된 점 $\dot{\mathbf{x}}$와 Calibration Conic의 접선들을 이어주는 직선이 되고 점 $\mathbf{x}^{&prime;}$는 직선 $\mathbf{C}\dot{\mathbf{x}}$위에 존재</b> 한다.
 </p>
 </div>
 </div>
