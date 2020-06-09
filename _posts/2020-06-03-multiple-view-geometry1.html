@@ -2,7 +2,7 @@
 layout: post
 title: (Geometry) Notes on Multiple View Geometry (1)
 description:
-date: 2020-05-12
+date: 2020-06-03
 categories: [Mathematics]
 tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
 use_math: true
@@ -12,77 +12,77 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org42a4514">1. Projective geometry and transformations in 2D</a>
+<li><a href="#org939d92b">1. Projective geometry and transformations in 2D</a>
 <ul>
-<li><a href="#org38a20e6">1.1. The 2D projective plane</a>
+<li><a href="#orga832093">1.1. The 2D projective plane</a>
 <ul>
-<li><a href="#orgb7db0b5">1.1.1. Points and lines</a></li>
-<li><a href="#org7ec1d8b">1.1.2. Homogeneous representation of line</a></li>
-<li><a href="#orgfd7518b">1.1.3. Homogeneous representation of points</a></li>
-<li><a href="#orga895b63">1.1.4. Degree of freedom (dof)</a></li>
-<li><a href="#orgaa87e61">1.1.5. Intersection of lines</a></li>
-<li><a href="#org902b7d1">1.1.6. Line joining points</a></li>
+<li><a href="#org3fc02cd">1.1.1. Points and lines</a></li>
+<li><a href="#org5656ec7">1.1.2. Homogeneous representation of line</a></li>
+<li><a href="#org4059fb2">1.1.3. Homogeneous representation of points</a></li>
+<li><a href="#orgfe5003d">1.1.4. Degree of freedom (dof)</a></li>
+<li><a href="#org3e4f003">1.1.5. Intersection of lines</a></li>
+<li><a href="#orgef72f6c">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#orga47974e">1.2. Ideal points and the line at infinity</a>
+<li><a href="#orgf956b20">1.2. Ideal points and the line at infinity</a>
 <ul>
-<li><a href="#org225dc52">1.2.1. Intersection of parallel lines</a></li>
-<li><a href="#org3f807fd">1.2.2. Ideal points and the line at infinity</a></li>
-<li><a href="#orgbfac41c">1.2.3. A model for the projective plane</a></li>
-<li><a href="#org2e8fa2a">1.2.4. Duality</a></li>
+<li><a href="#org2038504">1.2.1. Intersection of parallel lines</a></li>
+<li><a href="#orgf348e5e">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#org773282c">1.2.3. A model for the projective plane</a></li>
+<li><a href="#org45777bb">1.2.4. Duality</a></li>
 </ul>
 </li>
-<li><a href="#org9c137ac">1.3. Conics and dual conics</a>
+<li><a href="#orgb8e7ae9">1.3. Conics and dual conics</a>
 <ul>
-<li><a href="#org1a12ade">1.3.1. Five points define a conic</a></li>
-<li><a href="#org1d08a4a">1.3.2. Tangent lines to conics</a></li>
-<li><a href="#org1b7ba14">1.3.3. Dual conics</a></li>
-<li><a href="#org91e265c">1.3.4. Proof</a></li>
+<li><a href="#org444e997">1.3.1. Five points define a conic</a></li>
+<li><a href="#org0e05942">1.3.2. Tangent lines to conics</a></li>
+<li><a href="#orgcde8919">1.3.3. Dual conics</a></li>
+<li><a href="#orgfe2e1b9">1.3.4. Proof</a></li>
 </ul>
 </li>
-<li><a href="#org0e6c709">1.4. Projective transformations</a></li>
-<li><a href="#org24f72f5">1.5. A hierarchy of transformations</a>
+<li><a href="#orgc4e6a57">1.4. Projective transformations</a></li>
+<li><a href="#org0436097">1.5. A hierarchy of transformations</a>
 <ul>
-<li><a href="#org0627276">1.5.1. Class 1: isometries</a></li>
-<li><a href="#org3d58c37">1.5.2. Class 2: similarity transformations</a></li>
-<li><a href="#org1449bf2">1.5.3. Class 3: affine transformations</a></li>
-<li><a href="#org341139e">1.5.4. Class 4: projective transformations</a></li>
+<li><a href="#org7fef94f">1.5.1. Class 1: isometries</a></li>
+<li><a href="#org6da788c">1.5.2. Class 2: similarity transformations</a></li>
+<li><a href="#org80181c3">1.5.3. Class 3: affine transformations</a></li>
+<li><a href="#orga2a4868">1.5.4. Class 4: projective transformations</a></li>
 </ul>
 </li>
-<li><a href="#orgc2e36b0">1.6. Decomposition of a projective transformation</a></li>
-<li><a href="#org06dfff9">1.7. Recovery of affine and metric properties from images</a>
+<li><a href="#orgc466ef6">1.6. Decomposition of a projective transformation</a></li>
+<li><a href="#org0bcdd0d">1.7. Recovery of affine and metric properties from images</a>
 <ul>
-<li><a href="#orgcde8061">1.7.1. The line at infinity</a></li>
-<li><a href="#orgd6880d9">1.7.2. Recovery of affine properties from images</a></li>
-<li><a href="#org5e937d0">1.7.3. Recovery of metric properties from images</a></li>
+<li><a href="#org2628956">1.7.1. The line at infinity</a></li>
+<li><a href="#org05ab077">1.7.2. Recovery of affine properties from images</a></li>
+<li><a href="#orgc8f12b6">1.7.3. Recovery of metric properties from images</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgc051ad5">2. References</a></li>
-<li><a href="#org220ccef">3. Closure</a></li>
+<li><a href="#orga82f681">2. References</a></li>
+<li><a href="#orgf4ac916">3. Closure</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org42a4514" class="outline-2">
-<h2 id="org42a4514"><span class="section-number-2">1</span> Projective geometry and transformations in 2D</h2>
+<div id="outline-container-org939d92b" class="outline-2">
+<h2 id="org939d92b"><span class="section-number-2">1</span> Projective geometry and transformations in 2D</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org38a20e6" class="outline-3">
-<h3 id="org38a20e6"><span class="section-number-3">1.1</span> The 2D projective plane</h3>
+<div id="outline-container-orga832093" class="outline-3">
+<h3 id="orga832093"><span class="section-number-3">1.1</span> The 2D projective plane</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 일반적으로 평면 위의 점 $\mathbf{x}$는 $(x,y) &isin; \mathbb{R}^{2}$와 같이 표현한다. $\mathbb{R}^{2}$가 벡터공간(vector space)이라고 하면 $\mathbf{x}$는 하나의 벡터로 나타낼 수 있다. 또한, 두 점 $\mathbf{x}_{1}, \mathbf{x}_{2}$을 포함하는 직선 $\mathbf{l}$은 두 벡터를 뺌으로써 표현할 수 있다. 해당 섹션에서는 평면 위의 점과 직선에 대해 하나의 동일한 벡터로 표현할 수 있게 해주는 homogeneous notation에 대해 설명한다.
 </p>
 </div>
 
-<div id="outline-container-orgb7db0b5" class="outline-4">
-<h4 id="orgb7db0b5"><span class="section-number-4">1.1.1</span> Points and lines</h4>
+<div id="outline-container-org3fc02cd" class="outline-4">
+<h4 id="org3fc02cd"><span class="section-number-4">1.1.1</span> Points and lines</h4>
 </div>
 
-<div id="outline-container-org7ec1d8b" class="outline-4">
-<h4 id="org7ec1d8b"><span class="section-number-4">1.1.2</span> Homogeneous representation of line</h4>
+<div id="outline-container-org5656ec7" class="outline-4">
+<h4 id="org5656ec7"><span class="section-number-4">1.1.2</span> Homogeneous representation of line</h4>
 <div class="outline-text-4" id="text-1-1-2">
 
 <div class="figure">
@@ -123,8 +123,8 @@ comments: true
 </div>
 </div>
 
-<div id="outline-container-orgfd7518b" class="outline-4">
-<h4 id="orgfd7518b"><span class="section-number-4">1.1.3</span> Homogeneous representation of points</h4>
+<div id="outline-container-org4059fb2" class="outline-4">
+<h4 id="org4059fb2"><span class="section-number-4">1.1.3</span> Homogeneous representation of points</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <p>
 직선 $\mathbf{l}=(a,b,c)^{\intercal}$과 직선 위의 한 점 $\mathbf{x}=(x,y)^{\intercal}$사이에는 다음 공식이 성립한다.
@@ -172,8 +172,8 @@ comments: true
 </div>
 </div>
 
-<div id="outline-container-orga895b63" class="outline-4">
-<h4 id="orga895b63"><span class="section-number-4">1.1.4</span> Degree of freedom (dof)</h4>
+<div id="outline-container-orgfe5003d" class="outline-4">
+<h4 id="orgfe5003d"><span class="section-number-4">1.1.4</span> Degree of freedom (dof)</h4>
 <div class="outline-text-4" id="text-1-1-4">
 <p>
 $\mathbb{P}^{2}$공간에서 하나의 점이 유일하게 결정되기 위해서는 반드시 2개의 값 $(x,y)$가 주어져야 한다. 직선을 유일하게 결정하기 위해서는 두 개의 독립적인 $\{a:b:c\}$비율이 주어져야 한다. 이와 같이 $\mathbb{P}^{2}$공간에서 점과 직선은 2자유도를 가진다.
@@ -181,8 +181,8 @@ $\mathbb{P}^{2}$공간에서 하나의 점이 유일하게 결정되기 위해�
 </div>
 </div>
 
-<div id="outline-container-orgaa87e61" class="outline-4">
-<h4 id="orgaa87e61"><span class="section-number-4">1.1.5</span> Intersection of lines</h4>
+<div id="outline-container-org3e4f003" class="outline-4">
+<h4 id="org3e4f003"><span class="section-number-4">1.1.5</span> Intersection of lines</h4>
 <div class="outline-text-4" id="text-1-1-5">
 
 <div class="figure">
@@ -224,8 +224,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-org902b7d1" class="outline-4">
-<h4 id="org902b7d1"><span class="section-number-4">1.1.6</span> Line joining points</h4>
+<div id="outline-container-orgef72f6c" class="outline-4">
+<h4 id="orgef72f6c"><span class="section-number-4">1.1.6</span> Line joining points</h4>
 <div class="outline-text-4" id="text-1-1-6">
 <p>
 두 직선의 교점을 구하는 공식과 유사하게 $\mathbb{P}^{2}$공간에서 두 점 $\mathbf{x}, \mathbf{x}^{&prime;}$가 주어졌을 때 두 점을 지나는 직선 $\mathbf{l}$은 다음과 같이 구할 수 있다.
@@ -240,8 +240,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-orga47974e" class="outline-3">
-<h3 id="orga47974e"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div id="outline-container-orgf956b20" class="outline-3">
+<h3 id="orgf956b20"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
@@ -250,8 +250,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-org225dc52" class="outline-4">
-<h4 id="org225dc52"><span class="section-number-4">1.2.1</span> Intersection of parallel lines</h4>
+<div id="outline-container-org2038504" class="outline-4">
+<h4 id="org2038504"><span class="section-number-4">1.2.1</span> Intersection of parallel lines</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 만약 <b>두 직선 $\mathbf{l}, \mathbf{l}^{&prime;}$이 평행한 경우 두 직선의 교차점은 $\mathbb{R}^{2}$공간에서는 만나지 않지만 $\mathbb{P}^{2}$공간에서는 만난다.</b>
@@ -301,8 +301,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-org3f807fd" class="outline-4">
-<h4 id="org3f807fd"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div id="outline-container-orgf348e5e" class="outline-4">
+<h4 id="orgf348e5e"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0$일 때 $\mathbb{R}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{R}^{2}$공간과 대응되지 않고 $\mathbb{P}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
@@ -332,8 +332,8 @@ homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0
 </div>
 </div>
 
-<div id="outline-container-orgbfac41c" class="outline-4">
-<h4 id="orgbfac41c"><span class="section-number-4">1.2.3</span> A model for the projective plane</h4>
+<div id="outline-container-org773282c" class="outline-4">
+<h4 id="org773282c"><span class="section-number-4">1.2.3</span> A model for the projective plane</h4>
 <div class="outline-text-4" id="text-1-2-3">
 
 <div class="figure">
@@ -351,8 +351,8 @@ homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0
 </div>
 </div>
 
-<div id="outline-container-org2e8fa2a" class="outline-4">
-<h4 id="org2e8fa2a"><span class="section-number-4">1.2.4</span> Duality</h4>
+<div id="outline-container-org45777bb" class="outline-4">
+<h4 id="org45777bb"><span class="section-number-4">1.2.4</span> Duality</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <p>
 <b>$\mathbb{P}^{2}$공간에서는 점과 직선이 대칭성(duality)을 가진다.</b> 예를 들어 직선 $\mathbf{l}$위의 한 점 $\mathbf{x}$은 $\mathbf{x}^{\intercal}\mathbf{l}=0$또는 $\mathbf{l}^{\intercal}\mathbf{x}=0$과 같이 두 가지 방법으로 표현할 수 있다. 또한, 두 직선 $\mathbf{l},\mathbf{l}^{&prime;}$이 교차하는 한 점은 $\mathbf{x}=\mathbf{l}&times; \mathbf{l}^{&prime;}$이고 두 점 $\mathbf{x}, \mathbf{x}^{&prime;}$을 통과하는 직선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{x}&times; \mathbf{x}^{&prime;}$으로 표현할 수 있는데 이는 기본적으로 점과 직선의 위치가 바뀌었을 뿐 동일한 공식을 사용한다.
@@ -365,8 +365,8 @@ homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0
 </div>
 </div>
 
-<div id="outline-container-org9c137ac" class="outline-3">
-<h3 id="org9c137ac"><span class="section-number-3">1.3</span> Conics and dual conics</h3>
+<div id="outline-container-orgb8e7ae9" class="outline-3">
+<h3 id="orgb8e7ae9"><span class="section-number-3">1.3</span> Conics and dual conics</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 conic이란 평면에서 이차식으로 정의된 곡선을 의미한다. 일반적인 공식으로는
@@ -400,8 +400,8 @@ conic이란 평면에서 이차식으로 정의된 곡선을 의미한다. 일�
 </p>
 </div>
 
-<div id="outline-container-org1a12ade" class="outline-4">
-<h4 id="org1a12ade"><span class="section-number-4">1.3.1</span> Five points define a conic</h4>
+<div id="outline-container-org444e997" class="outline-4">
+<h4 id="org444e997"><span class="section-number-4">1.3.1</span> Five points define a conic</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 conic $\mathbf{C}$가 유일하게 결정되기 위해서는 다섯개의 점이 필요하다. 하나의 점에 대한 conic 방정식은 다음과 같이 다시 쓸 수 있다.
@@ -434,8 +434,8 @@ conic $\mathbf{C}$가 유일하게 결정되기 위해서는 다섯개의 점이
 </div>
 </div>
 
-<div id="outline-container-org1d08a4a" class="outline-4">
-<h4 id="org1d08a4a"><span class="section-number-4">1.3.2</span> Tangent lines to conics</h4>
+<div id="outline-container-org0e05942" class="outline-4">
+<h4 id="org0e05942"><span class="section-number-4">1.3.2</span> Tangent lines to conics</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 conic $\mathbf{C}$위의 한 점 $\mathbf{x}$에서 접선 $\mathbf{l}$은
@@ -465,8 +465,8 @@ conic $\mathbf{C}$위의 한 점 $\mathbf{x}$에서 접선 $\mathbf{l}$은
 </div>
 </div>
 
-<div id="outline-container-org1b7ba14" class="outline-4">
-<h4 id="org1b7ba14"><span class="section-number-4">1.3.3</span> Dual conics</h4>
+<div id="outline-container-orgcde8919" class="outline-4">
+<h4 id="orgcde8919"><span class="section-number-4">1.3.3</span> Dual conics</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
 <b>projective space $\mathbb{P}^{n}$은 $\mathbb{R}^{n+1}$공간 상의 원점을 지나는 직선들의 집합(1차원 부분 선형공간)을 의미</b> 한다. 이와 대칭을 이루는 <b>dual projective space $(\mathbb{P}^{n})^{&or;}$는 $\mathbb{R}^{n}$공간 상 n차원 부분 선형공간들의 집합을 의미</b> 한다.
@@ -511,8 +511,8 @@ $\mathbb{P}^{2}$상의 conic $\mathbf{C}$가 주어졌을 때, <b>$\mathbf{C}$�
 </div>
 </div>
 
-<div id="outline-container-org91e265c" class="outline-4">
-<h4 id="org91e265c"><span class="section-number-4">1.3.4</span> Proof</h4>
+<div id="outline-container-orgfe2e1b9" class="outline-4">
+<h4 id="orgfe2e1b9"><span class="section-number-4">1.3.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 ($\Rightarrow$) conic $\mathbf{C}&isin; \mathbb{R}^{3&times; 3}$의 rank가 3이고 non-singular하다고 가정하면 $\mathbf{C}^{&lowast;} = det(\mathbf{C}^{-1})$와 같이 나타낼 수 있다. $\mathbf{C}$위의 한 점 $\mathbf{x}&isin; \mathbf{C}$가 주어졌을 때 $\mathbf{x}$에서 접선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{Cx}$로 나타낼 수 있다. 이를 위 식에 대입하면
@@ -565,8 +565,8 @@ $\mathbf{C}$는 non-singualr하기 때문에 역행렬이 존재하므로 $\math
 </div>
 </div>
 
-<div id="outline-container-org0e6c709" class="outline-3">
-<h3 id="org0e6c709"><span class="section-number-3">1.4</span> Projective transformations</h3>
+<div id="outline-container-orgc4e6a57" class="outline-3">
+<h3 id="orgc4e6a57"><span class="section-number-3">1.4</span> Projective transformations</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 $\mathbb{P}^{2}$의 projective transformation은 non-singular인 $3\times3$행렬로 정의되는 $\mathbb{P}^{2} \Rightarrow \mathbb{P}^{2}$사상을 의미하며 직선을 직선으로 보내는 성질을 가진다. <b>projective transformation은 collineation, projectivity 또는 homography</b> 라고도 불린다. 
@@ -574,8 +574,8 @@ $\mathbb{P}^{2}$의 projective transformation은 non-singular인 $3\times3$행�
 </div>
 </div>
 
-<div id="outline-container-org24f72f5" class="outline-3">
-<h3 id="org24f72f5"><span class="section-number-3">1.5</span> A hierarchy of transformations</h3>
+<div id="outline-container-org0436097" class="outline-3">
+<h3 id="org0436097"><span class="section-number-3">1.5</span> A hierarchy of transformations</h3>
 <div class="outline-text-3" id="text-1-5">
 
 <div class="figure">
@@ -588,8 +588,8 @@ projective 변환은 변환 전과 후 사이에 어떤 성질을 보존하느�
 </p>
 </div>
 
-<div id="outline-container-org0627276" class="outline-4">
-<h4 id="org0627276"><span class="section-number-4">1.5.1</span> Class 1: isometries</h4>
+<div id="outline-container-org7fef94f" class="outline-4">
+<h4 id="org7fef94f"><span class="section-number-4">1.5.1</span> Class 1: isometries</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <p>
 물체가 변환 전과 후 사이에 물체의 크기가 동일한 경우 해당 변환을 isometry 변환이라고 부른다.
@@ -606,8 +606,8 @@ projective 변환은 변환 전과 후 사이에 어떤 성질을 보존하느�
 </div>
 </div>
 
-<div id="outline-container-org3d58c37" class="outline-4">
-<h4 id="org3d58c37"><span class="section-number-4">1.5.2</span> Class 2: similarity transformations</h4>
+<div id="outline-container-org6da788c" class="outline-4">
+<h4 id="org6da788c"><span class="section-number-4">1.5.2</span> Class 2: similarity transformations</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <p>
 isometry 변환에 스케일을 의미하는 $s$가 추가된 변환을 similarity 변환이라고 하며 <b>물체의 이동 및 회전에 추가적으로 스케일까지 같이 변환</b> 하는 성질을 가진다. 이 때 기존의 $\mathbf{A}$행렬에서 reflection의 성질을 제거한 $\mathbf{R}$행렬을 사용한다.
@@ -624,8 +624,8 @@ similarity 변환은 물체의 각도와 길이의 비율을 보존되지만 스
 </div>
 </div>
 
-<div id="outline-container-org1449bf2" class="outline-4">
-<h4 id="org1449bf2"><span class="section-number-4">1.5.3</span> Class 3: affine transformations</h4>
+<div id="outline-container-org80181c3" class="outline-4">
+<h4 id="org80181c3"><span class="section-number-4">1.5.3</span> Class 3: affine transformations</h4>
 <div class="outline-text-4" id="text-1-5-3">
 <p>
 affine 변환은 isometry 변환에서 행렬 $\mathbf{A}$의 아무 제약조건이 없는 변환행렬을 의미한다. 변환 후 물체는 일반적으로 변환 전과 다른 형태를 가진다.
@@ -652,8 +652,8 @@ affine 변환은 물체의 길이 비율을 보존하며 또한 평행한 직선
 </div>
 </div>
 
-<div id="outline-container-org341139e" class="outline-4">
-<h4 id="org341139e"><span class="section-number-4">1.5.4</span> Class 4: projective transformations</h4>
+<div id="outline-container-orga2a4868" class="outline-4">
+<h4 id="orga2a4868"><span class="section-number-4">1.5.4</span> Class 4: projective transformations</h4>
 <div class="outline-text-4" id="text-1-5-4">
 <p>
 마지막으로 projective 변환은 변환행렬의 마지막 행이 $(0,0,1)$이 아닌 임의의 형태를 가지는 변환행렬을 의미한다. projective 변환은 직선을 직선으로 사상한다는 성질 외에는 이전에 설명한 모든 성질들을 보존하지 않는다는 특징이 있다. 평행한 직선 또한 projective 변환을 수행하면 평행하지 않게되며 물체의 길이비 또한 달라지게 된다.
@@ -671,8 +671,8 @@ affine 변환은 물체의 길이 비율을 보존하며 또한 평행한 직선
 </div>
 </div>
 
-<div id="outline-container-orgc2e36b0" class="outline-3">
-<h3 id="orgc2e36b0"><span class="section-number-3">1.6</span> Decomposition of a projective transformation</h3>
+<div id="outline-container-orgc466ef6" class="outline-3">
+<h3 id="orgc466ef6"><span class="section-number-3">1.6</span> Decomposition of a projective transformation</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 앞서 설명한 변환행렬의 계층구조에 따라 projective 변환행렬은 다른 변환행렬들의 곱으로 표현할 수 있다. 반대로 말하면, <b>projective 변환은 다른 변환행렬들로 분해가 가능하다.</b> 임의의 projective 변환 $\mathbf{H}_{p}$가 주어졌을 때
@@ -691,16 +691,16 @@ affine 변환은 물체의 길이 비율을 보존하며 또한 평행한 직선
 </div>
 </div>
 
-<div id="outline-container-org06dfff9" class="outline-3">
-<h3 id="org06dfff9"><span class="section-number-3">1.7</span> Recovery of affine and metric properties from images</h3>
+<div id="outline-container-org0bcdd0d" class="outline-3">
+<h3 id="org0bcdd0d"><span class="section-number-3">1.7</span> Recovery of affine and metric properties from images</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 임의의 이미지가 주어졌을 때 이미지 상에서 평행한 선들과 직교한 선들을 사용하여 affine 성질과 metric 성질을 복원할 수 있다.
 </p>
 </div>
 
-<div id="outline-container-orgcde8061" class="outline-4">
-<h4 id="orgcde8061"><span class="section-number-4">1.7.1</span> The line at infinity</h4>
+<div id="outline-container-org2628956" class="outline-4">
+<h4 id="org2628956"><span class="section-number-4">1.7.1</span> The line at infinity</h4>
 <div class="outline-text-4" id="text-1-7-1">
 <p>
 affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의미하며 무한대 직선(line at infinity) $\mathbf{l}_{&infin;} = \begin{bmatrix}x&amp;y&amp;0 \end{bmatrix}$을 사용하여 복원할 수 있다. 
@@ -717,8 +717,8 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
 </div>
 </div>
 
-<div id="outline-container-orgd6880d9" class="outline-4">
-<h4 id="orgd6880d9"><span class="section-number-4">1.7.2</span> Recovery of affine properties from images</h4>
+<div id="outline-container-org05ab077" class="outline-4">
+<h4 id="org05ab077"><span class="section-number-4">1.7.2</span> Recovery of affine properties from images</h4>
 <div class="outline-text-4" id="text-1-7-2">
 <p>
 <b>임의의 homography $\mathbf{H}$가 affine 성질을 보존한다는 의미는 곧 무한대 직선 $\mathbf{l}_{&infin;}$를 $\mathbf{H}$변환해도 무한대에 위치한 직선이 된다는 의미</b> 이다.
@@ -750,22 +750,22 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
 </div>
 </div>
 
-<div id="outline-container-org5e937d0" class="outline-4">
-<h4 id="org5e937d0"><span class="section-number-4">1.7.3</span> Recovery of metric properties from images</h4>
+<div id="outline-container-orgc8f12b6" class="outline-4">
+<h4 id="orgc8f12b6"><span class="section-number-4">1.7.3</span> Recovery of metric properties from images</h4>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc051ad5" class="outline-2">
-<h2 id="orgc051ad5"><span class="section-number-2">2</span> References</h2>
+<div id="outline-container-orga82f681" class="outline-2">
+<h2 id="orga82f681"><span class="section-number-2">2</span> References</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
 </p>
 </div>
 </div>
-<div id="outline-container-org220ccef" class="outline-2">
-<h2 id="org220ccef"><span class="section-number-2">3</span> Closure</h2>
+<div id="outline-container-orgf4ac916" class="outline-2">
+<h2 id="orgf4ac916"><span class="section-number-2">3</span> Closure</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.
