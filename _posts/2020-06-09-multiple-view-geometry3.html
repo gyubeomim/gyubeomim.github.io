@@ -1,6 +1,6 @@
 ---
 layout: post
-title: (Geometry) Notes on Multiple View Geometry (3)
+title: (Geometry) Notes on Multiple View Geometry Part 3
 description:
 date: 2020-06-09
 categories: [Mathematics]
@@ -16,7 +16,7 @@ comments: true
 <ul>
 <li><a href="#org4c13121">1.1. The projective reconstruction theorem</a>
 <ul>
-<li><a href="#org7fca2da">1.1.1. Proof</a></li>
+<li><a href="#org07989bc">1.1.1. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org83e42ac">1.2. Stratified reconstruction</a>
@@ -37,7 +37,7 @@ comments: true
 <li><a href="#org420946a">2.2. The normalized 8-point algorithm</a>
 <ul>
 <li><a href="#org0794e0a">2.2.1. Degenrate configurations</a></li>
-<li><a href="#org206af43">2.2.2. Proof</a></li>
+<li><a href="#org3badb18">2.2.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org10c6ec1">2.3. The Gold Standard method</a></li>
@@ -63,12 +63,12 @@ comments: true
 <ul>
 <li><a href="#org2115de8">4.1. Homographies given the plane and vice versa</a>
 <ul>
-<li><a href="#org02a14e9">4.1.1. Proof</a></li>
+<li><a href="#org49013ff">4.1.1. Proof</a></li>
 <li><a href="#org65b3510">4.1.2. A calibrated stereo rig</a></li>
 <li><a href="#orgbda5a48">4.1.3. Homographies compatible with epipolar geometry</a></li>
-<li><a href="#orgfeb2325">4.1.4. Proof</a></li>
+<li><a href="#org6441149">4.1.4. Proof</a></li>
 <li><a href="#org935f04e">4.1.5. Corollary</a></li>
-<li><a href="#orgac2cc68">4.1.6. Proof</a></li>
+<li><a href="#org58491cf">4.1.6. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orga2ad417">4.2. Computing $\mathbf{F}$given the homography induced by a plane</a></li>
@@ -87,7 +87,7 @@ comments: true
 <li><a href="#orgc24852f">5.1.2. Homographies induced by a plane</a></li>
 <li><a href="#org6c0234e">5.1.3. Point and line incidence relations</a></li>
 <li><a href="#orgac63c2f">5.1.4. Epipolar lines</a></li>
-<li><a href="#orgea5ee52">5.1.5. Proof</a></li>
+<li><a href="#orga6f89cc">5.1.5. Proof</a></li>
 <li><a href="#orgd482509">5.1.6. Extracting the fundamental matrices</a></li>
 <li><a href="#orgea24b7a">5.1.7. Retrieving the camera matrices</a></li>
 </ul>
@@ -144,8 +144,8 @@ comments: true
 \end{equation}
 </div>
 
-<div id="outline-container-org7fca2da" class="outline-4">
-<h4 id="org7fca2da"><span class="section-number-4">1.1.1</span> Proof</h4>
+<div id="outline-container-org07989bc" class="outline-4">
+<h4 id="org07989bc"><span class="section-number-4">1.1.1</span> Proof</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 이전 섹션에서 동일한 Fundamental Matrix $\mathbf{F}$를 공유하는 카메라 행렬 대응쌍 사이에 $\mathbf{P}_{2} = \mathbf{P}_{1}\mathbf{H}^{-1}, \mathbf{P}_{2}^{&prime;} =\mathbf{P}_{1}^{&prime;}\mathbf{H}^{-1}$를 만족하는 Homography 행렬 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재한다는 것을 증명하였다. 이를 적용해보면
@@ -506,8 +506,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-org206af43" class="outline-4">
-<h4 id="org206af43"><span class="section-number-4">2.2.2</span> Proof</h4>
+<div id="outline-container-org3badb18" class="outline-4">
+<h4 id="org3badb18"><span class="section-number-4">2.2.2</span> Proof</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 임의의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;}, \{\mathbf{X}^{i}\})$이 Critical Triple이라는 것을 보이기 위해서는 이와 대응하는 카메라 행렬 대응쌍 $(\mathbf{Q}, \mathbf{Q}^{&prime;}, \{\mathbf{Y}^{i}\})$이 같은 Fundamental Matrix $\mathbf{F}$를 가진다는 사실을 사용해야 한다. $\mathbb{P}^{3}$공간에서 이차곡면은 4x4 크기의 행렬로 정의된다.
@@ -985,8 +985,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </p>
 </div>
 
-<div id="outline-container-org02a14e9" class="outline-4">
-<h4 id="org02a14e9"><span class="section-number-4">4.1.1</span> Proof</h4>
+<div id="outline-container-org49013ff" class="outline-4">
+<h4 id="org49013ff"><span class="section-number-4">4.1.1</span> Proof</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <p>
 두 카메라의 이미지 평면 $&pi;_{\mathbf{P}}, &pi;_{\mathbf{P}^{&prime;}}$가 주어졌을 때, 월드 평면 상의 점 $\mathbf{X}&isin; &pi;$를 $\pi_{\mathbf{P}}$평면으로 프로젝션한 점 $\mathbf{x}$는 다음과 같다.
@@ -1127,8 +1127,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </div>
 </div>
 
-<div id="outline-container-orgfeb2325" class="outline-4">
-<h4 id="orgfeb2325"><span class="section-number-4">4.1.4</span> Proof</h4>
+<div id="outline-container-org6441149" class="outline-4">
+<h4 id="org6441149"><span class="section-number-4">4.1.4</span> Proof</h4>
 <div class="outline-text-4" id="text-4-1-4">
 <p>
 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Projective Reconstruction을 수행하면 두 카메라 행렬 대응쌍을
@@ -1180,8 +1180,8 @@ $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Proj
 </div>
 </div>
 
-<div id="outline-container-orgac2cc68" class="outline-4">
-<h4 id="orgac2cc68"><span class="section-number-4">4.1.6</span> Proof</h4>
+<div id="outline-container-org58491cf" class="outline-4">
+<h4 id="org58491cf"><span class="section-number-4">4.1.6</span> Proof</h4>
 <div class="outline-text-4" id="text-4-1-6">
 <p>
 ($\Rightarrow$) $\mathbf{H}$가 월드 상의 평면 $&pi;=(\mathbf{v}^{\intercal},1)^{\intercal}$에 대한 Homography이면서 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$일 때 앞서 정리에 의해
@@ -1538,8 +1538,8 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
 </div>
 </div>
 
-<div id="outline-container-orgea5ee52" class="outline-4">
-<h4 id="orgea5ee52"><span class="section-number-4">5.1.5</span> Proof</h4>
+<div id="outline-container-orga6f89cc" class="outline-4">
+<h4 id="orga6f89cc"><span class="section-number-4">5.1.5</span> Proof</h4>
 <div class="outline-text-4" id="text-5-1-5">
 <p>
 두 번째 이미지 평면 $\pi_{\mathbf{P}^{\prime}}$상의 Epipolar Line $\mathbf{l}^{&prime;}$을 Back-projection하여 생성된 평면을 $&pi;^{&prime;}$이라고 하면 $&pi;^{&prime;}$과 $\pi_{\mathbf{P}}$사이에는 교차선이 생성되고 해당 교차선은 $\pi_{\mathbf{P}}$평면의 Epipolar Line $\mathbf{l}$이 된다. 이 때 세 번째 이미지 평면 $\pi_{\mathbf{P}^{\prime\prime}}$상의 임의의 직선 $\mathbf{l}^{&prime;&prime;}$을 Back-projection한 평면 $&pi;^{&prime;&prime;}$과 $&pi;^{&prime;}$은 월드 평면 상의 직선 $\mathbf{L}$에서 교차선을 생성하며 이를 다시 $&pi;_{\mathbf{P}}$로 프로젝션하면 $\mathbf{L}$은 항상 Epipolar Line $\mathbf{l}$위에 한 점 $\mathbf{x}&isin; \mathbf{l}$로 프로젝션된다.

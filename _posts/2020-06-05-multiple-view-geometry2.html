@@ -1,6 +1,6 @@
 ---
 layout: post
-title: (Geometry) Notes on Multiple View Geometry (2)
+title: (Geometry) Notes on Multiple View Geometry Part 2
 description:
 date: 2020-06-05
 categories: [Mathematics]
@@ -14,7 +14,7 @@ comments: true
 <ul>
 <li><a href="#org098d0df">1. Epipolar Geometry and the Fundamental Matrix</a>
 <ul>
-<li><a href="#orgb3da07a">1.1. Proof</a></li>
+<li><a href="#org48e58bb">1.1. Proof</a></li>
 <li><a href="#orgc326480">1.2. Derivation of fundemantal matrix(geometry)</a></li>
 <li><a href="#org0608363">1.3. Derivation of fundemantal matrix(algebraic)</a></li>
 <li><a href="#orgb4b37c0">1.4. The epipolar line homography</a></li>
@@ -28,14 +28,14 @@ comments: true
 <li><a href="#org60837dd">1.6.1. Projective invariance and canonical cameras</a></li>
 <li><a href="#org1395de4">1.6.2. Canonical form of camera matrices</a></li>
 <li><a href="#org27fbdb8">1.6.3. Projective ambiguity of cameras given F</a></li>
-<li><a href="#org7a97e38">1.6.4. Proof</a></li>
+<li><a href="#orgb380ec4">1.6.4. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org664ef49">1.7. Canonical cameras given F</a></li>
 <li><a href="#org7692670">1.8. The essential matrix</a>
 <ul>
 <li><a href="#org7781e32">1.8.1. Properties of the essential matrix</a></li>
-<li><a href="#orge3ebc45">1.8.2. Proof</a></li>
+<li><a href="#orgc435fdf">1.8.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org6a4d981">1.9. Extraction of cameras from the essential matrix</a></li>
@@ -81,8 +81,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 \end{equation}
 </div>
 
-<div id="outline-container-orgb3da07a" class="outline-3">
-<h3 id="orgb3da07a"><span class="section-number-3">1.1</span> Proof</h3>
+<div id="outline-container-org48e58bb" class="outline-3">
+<h3 id="org48e58bb"><span class="section-number-3">1.1</span> Proof</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 ($\Rightarrow$)$\mathbf{l}^{&prime;} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{&prime;}$에 위치한 점 $\mathbf{x}^{&prime;}$에 대하여 다음이 성립한다.
@@ -416,8 +416,8 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 </div>
 </div>
 
-<div id="outline-container-org7a97e38" class="outline-4">
-<h4 id="org7a97e38"><span class="section-number-4">1.6.4</span> Proof</h4>
+<div id="outline-container-orgb380ec4" class="outline-4">
+<h4 id="orgb380ec4"><span class="section-number-4">1.6.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-6-4">
 <p>
 두 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{\prime})$, $(~{\mathbf{P}}, ~{\mathbf{P}}^{&prime;})$이 주어졌을 때 이를 Canonical Form으로 쓰면 다음과 같다.
@@ -698,8 +698,8 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 </div>
 </div>
 
-<div id="outline-container-orge3ebc45" class="outline-4">
-<h4 id="orge3ebc45"><span class="section-number-4">1.8.2</span> Proof</h4>
+<div id="outline-container-orgc435fdf" class="outline-4">
+<h4 id="orgc435fdf"><span class="section-number-4">1.8.2</span> Proof</h4>
 <div class="outline-text-4" id="text-1-8-2">
 <p>
 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;}) = ([\mathbf{I}|0], \ [\mathbf{R}|\mathbf{t}])$에 대한 Fundamental Matrix $\mathbf{F}$가 있다고 하면
