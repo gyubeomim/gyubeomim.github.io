@@ -1,0 +1,496 @@
+---
+layout: post
+title: (Geometry) Notes on Multiple View Geometry (5)
+description:
+date: 2020-06-10
+categories: [Mathematics]
+tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
+use_math: true
+comments: true
+---
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd2c5a3c">1. The Trifocal Tensor</a>
+<ul>
+<li><a href="#orgdeba8fa">1.1. The geometric basis for the trifocal tensor</a>
+<ul>
+<li><a href="#orgafa31cf">1.1.1. Incidence relations for lines</a></li>
+<li><a href="#org3b9b3b0">1.1.2. Homographies induced by a plane</a></li>
+<li><a href="#orgaa154e7">1.1.3. Point and line incidence relations</a></li>
+<li><a href="#orgaa1aeaa">1.1.4. Epipolar lines</a></li>
+<li><a href="#org86c3a65">1.1.5. Proof</a></li>
+<li><a href="#orgc50d62b">1.1.6. Extracting the fundamental matrices</a></li>
+<li><a href="#org76f7999">1.1.7. Retrieving the camera matrices</a></li>
+</ul>
+</li>
+<li><a href="#orgc579e1c">1.2. The trifocal tensor and tensor notation</a></li>
+</ul>
+</li>
+<li><a href="#org2b0b0c8">2. References</a></li>
+<li><a href="#orgc05ef1f">3. Closure</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd2c5a3c" class="outline-2">
+<h2 id="orgd2c5a3c"><span class="section-number-2">1</span> The Trifocal Tensor</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgdeba8fa" class="outline-3">
+<h3 id="orgdeba8fa"><span class="section-number-3">1.1</span> The geometric basis for the trifocal tensor</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Three-View Geometry에서 Trifocal Tensor $\mathcal{T}$는 Two-View Geometry에서 Fundamental Matrix $\mathbf{F}$와 유사한 역할을 한다. $\mathbf{F}$와 유사하게 $\mathcal{T}$은 서로 다른 세 개의 카메라 이미지 평면들을 특별한 제약조건으로 구속시킨다.
+</p>
+</div>
+
+<div id="outline-container-orgafa31cf" class="outline-4">
+<h4 id="orgafa31cf"><span class="section-number-4">1.1.1</span> Incidence relations for lines</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+월드 평면 상의 한 직선 $\mathbf{L}$과 이를 바라보고 있는 서로 다른 세 개의 카메라가 주어졌다고 가정하자. 세 개의 카메라의 이미지 평면을 각각 $&pi;_{\mathbf{P}}, &pi;_{\mathbf{P}^{&prime;}}, &pi;_{\mathbf{P}^{\dprime}}$이라고 하고 $\mathbf{L}$을 이미지 평면 상에 프로젝션한 직선들은 $\mathbf{l},\mathbf{l}^{&prime;},\mathbf{l}^{\dprime}$이라고 했을 때 $\mathbf{l} \leftrightarrow \mathbf{l}^{\prime} \leftrightarrow \mathbf{l}^{\dprime}$사이의 관계를 알아보자.
+</p>
+
+<p>
+카메라 행렬을 각각 $(\mathbf{P},\mathbf{P}^{&prime;},\mathbf{P}^{\dprime})$이라고 했을 때 이를 Canonical Form으로 나타내면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp;\mathbf{P} = [\mathbf{I} \ | \ 0]\\
+    &amp;\mathbf{P}^{\prime} = [\mathbf{A} \ | \ \mathbf{a}_{4}]\\
+    &amp;\mathbf{P}^{\dprime} = [\mathbf{B} \ | \ \mathbf{b}_{4}]\\
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 항상 사영모호성을 포함하여(up to projectivity) 나타낼 수 있다. 월드 상의 직선 $\mathbf{L}$은 $\mathbf{l},\mathbf{l}^{&prime;},\mathbf{l}^{\dprime}$을 Back-projection한 평면들$&pi;, &pi;^{&prime;}, &pi;^{\dprime}$의 교차선이므로 $\mathbf{l},\mathbf{l}^{&prime;},\mathbf{l}^{\dprime}$를 Back-projection 해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \pi = \mathbf{P}^{\intercal}\mathbf{l} = \begin{pmatrix} \mathbf{l} \\ 0 \end{pmatrix}\\
+    &amp; \pi^{\prime} = \mathbf{P}^{\prime\intercal}\mathbf{l}^{\prime}= \begin{pmatrix} \mathbf{A}^{\intercal}\mathbf{l}^{\prime} \\ \mathbf{a}_{4}^{\intercal}\mathbf{l}^{\prime} \end{pmatrix} \\
+    &amp; \pi^{\dprime} = \mathbf{P}^{\dprime\intercal}\mathbf{l}^{\dprime}= \begin{pmatrix} \mathbf{B}^{\intercal}\mathbf{l}^{\dprime} \\ \mathbf{b}_{4}^{\intercal}\mathbf{l}^{\dprime} \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+같은 평면들의 법선벡터(normal vector)를 얻을 수 있다. 이러한 세 평면의 법선벡터를 열벡터로 가지는 행렬 $\mathbf{M}&isin; \mathbb{R}^{4&times;3}$이 다음과 같이 주어졌을 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{M} = \begin{bmatrix} \pi &amp; \pi^{\prime} &amp; \pi^{\dprime} \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+$\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 수직인 2차원 평면을 의미하므로 $\mathbf{M}$의 rank는 2이다. 따라서 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{M} = \begin{bmatrix} \mathbf{m}_{1}&amp;\mathbf{m}_{2}&amp;\mathbf{m}_{3} \end{bmatrix} = \begin{bmatrix} \mathbf{l}&amp;\mathbf{A}^{\intercal}\mathbf{l}^{\prime} &amp; \mathbf{B}^{\intercal}\mathbf{l}^{\dprime} \\ 0 &amp; \mathbf{a}_{4}^{\intercal}\mathbf{l}^{\prime} &amp; \mathbf{b}_{4}^{\intercal}\mathbf{l}^{\dprime} \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+에서 $\mathbf{m}_{1} = &alpha; \mathbf{m}_{2} + &beta; \mathbf{m}_{3}$가 성립한다. 이 때, 행렬 $\mathbf{M}$의 두 번째 행에서 첫번째 열 $(2,1)$값이 $0$이므로 $&alpha;, &beta;$를 구할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    0 = k(\mathbf{b}^{\intercal}\mathbf{l}^{\dprime})\mathbf{m}_{2} - (k\mathbf{a}^{\intercal}\mathbf{l}^{\prime})\mathbf{m}_{3}
+  \end{aligned}
+\end{equation}
+<p>
+따라서 임의의 상수 k에 대하여 $&alpha; = k(\mathbf{b}_{4}^{\intercal}\mathbf{l}^{&prime;}), &beta; = k(\mathbf{a}_{4}^{\intercal}\mathbf{l}^{&prime;})$이 된다. 다음으로 행렬 $\mathbf{M}$의 첫번째 행을 전개해보면 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l} &amp; = (\mathbf{b}_{4}^{\intercal}\mathbf{l}^{\dprime})\mathbf{A}^{\intercal}\mathbf{l}^{\prime} - (\mathbf{a}_{4}^{\intercal}\mathbf{l}^{\prime})\mathbf{B}^{\intercal}\mathbf{l}^{\dprime} \\
+    &amp; = (\mathbf{l}^{\dprime\intercal}\mathbf{b}_{4})\mathbf{A}^{\intercal}\mathbf{l}^{\prime} - (\mathbf{l}^{\prime\intercal}\mathbf{a}_{4})\mathbf{B}^{\intercal}\mathbf{l}^{\dprime} \\
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. $\mathbf{a}_{4}^{\intercal}\mathbf{l}^{&prime;}, \mathbf{b}_{4}^{\intercal}\mathbf{l}^{\dprime}$은 스칼라 값이므로 전치(transpose)를 취해도 같은 값을 나타낸다. 직선 $\mathbf{l}$의 i번째 좌표값을 $l_{i}$라고 하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    l_{i} &amp; = \mathbf{l}^{\dprime\intercal}(\mathbf{b}_{4}\mathbf{a}_{i}^{\intercal})\mathbf{l}^{\prime} - \mathbf{l}^{\prime\intercal}(\mathbf{a}_{4}\mathbf{b}_{i}^{\intercal})\mathbf{l}^{\dprime} \\
+    &amp; = \mathbf{l}^{\prime\intercal}(\mathbf{a}_{i}\mathbf{b}_{4}^{\intercal})\mathbf{l}^{\dprime} - \mathbf{l}^{\prime\intercal}(\mathbf{a}_{4}\mathbf{b}_{i}^{\intercal})\mathbf{l}^{\dprime} \\
+    &amp; = \mathbf{l}^{\prime\intercal}(\mathbf{a}_{i}\mathbf{b}_{4}^{\intercal}-\mathbf{a}_{4}\mathbf{b}_{i}^{\intercal})\mathbf{l}^{\dprime} 
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 나타낼 수 있다. 이 때 $\mathbf{a}_{i}\mathbf{b}_{4}^{\intercal}-\mathbf{a}_{4}\mathbf{b}_{i}^{\intercal}$를 $\mathbf{T}_{i}$로 치환하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    l_{i} = \mathbf{l}^{\prime\intercal}\mathbf{T}_{i}\mathbf{l}^{\dprime}
+  \end{aligned}
+\end{equation}
+<p>
+으로 간결하게 표현할 수 있고 이 때, <b>행렬의 집합 $\{\mathbf{T}_{1},\mathbf{T}_{2},\mathbf{T}_{3}\}$은 Trifocal Tensor $\mathcal{T}$을 행렬로 표현한 것을 의미한다. 이를 사용하여 직선 $\mathbf{l}$을 다시 표현해보면 다음과 같다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}^{\intercal} &amp; = \mathbf{l}^{\prime\intercal}\begin{bmatrix} \mathbf{T}_{1} &amp; \mathbf{T}_{2} &amp; \mathbf{T}_{3} \end{bmatrix}\mathbf{l}^{\dprime} \\
+    &amp; = (\mathbf{l}^{\prime\intercal}\mathbf{T}_{1}\mathbf{l}^{\dprime},\mathbf{l}^{\prime\intercal}\mathbf{T}_{2}\mathbf{l}^{\dprime},\mathbf{l}^{\prime\intercal}\mathbf{T}_{3}\mathbf{l}^{\dprime})
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org3b9b3b0" class="outline-4">
+<h4 id="org3b9b3b0"><span class="section-number-4">1.1.2</span> Homographies induced by a plane</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+서로 다른 세 카메라의 이미지 평면을 각각 $\pi_{\mathbf{P}}, \pi_{\mathbf{P}^{\prime}}, \pi_{\mathbf{P}^{\dprime}}$하자. 두 번째 카메라 이미지 평면 상의 직선 $\mathbf{l}^{&prime;}$을 Back-projection하여 얻은 월드 상의 평면을 $&pi;^{&prime;}$이라고 하면 $&pi;^{&prime;}$을 통해 $&pi;_{\mathbf{P}}$에서 $&pi;_{\mathbf{P}^{\dprime}}$으로 변환하는 Homography $\mathbf{H}_{13}$가 존재한다. 해당 섹션에서는 $\mathbf{H}_{13}$를 $\mathbf{l}^{&prime;}$을 통해 기술하는 방법에 대해 설명한다.
+</p>
+
+<p>
+첫 번째 이미지 평면 상의 직선 $\mathbf{l}$은 Trifocal Tensor에 의해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l} = \mathbf{l}^{\prime\intercal} \begin{bmatrix} \mathbf{T}_{1},&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{l}^{\dprime}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 나타낼 수 있고 이를 정리하여 $\mathbf{l}=\mathbf{H}_{13}\mathbf{l}^{\dprime}$꼴로 나타내면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l} &amp; = \mathbf{l}^{\prime\intercal} \begin{bmatrix} \mathbf{T}_{1},&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{l}^{\dprime} \\
+    &amp; = (\begin{bmatrix} \mathbf{T}_{1}^{\intercal},&amp;\mathbf{T}_{2}^{\intercal}&amp;\mathbf{T}_{3}^{\intercal} \end{bmatrix}\mathbf{l}^{\prime})^{\intercal} \mathbf{l}^{\dprime} \\
+    &amp; = \mathbf{H}_{13}^{\intercal}\mathbf{l}^{\dprime}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 따라서 $\mathbf{H}_{13} = \begin{bmatrix}\mathbf{T}_{1}^{\intercal},&amp;\mathbf{T}_{2}^{\intercal}&amp;\mathbf{T}_{3}^{\intercal} \end{bmatrix}\mathbf{l}^{&prime;}$과 같다. $\mathbf{H}_{13}$을 사용하면 $\mathbf{x}^{\dprime} = \mathbf{H}_{13}\mathbf{x}$와 같이 $&pi;_{\mathbf{P}} &rarr; &pi;_{\mathbf{P}^{\dprime}}$으로 Homography 변환을 할 수 있다.
+</p>
+
+<p>
+이와 유사하게 $\mathbf{H}_{12}$는 $\mathbf{x}^{\prime} = \mathbf{H}_{12}\mathbf{x}$공식을 만족하며 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{12} = \begin{bmatrix} \mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{l}^{\dprime} \quad ^\forall \mathbf{l}^{\dprime}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orgaa154e7" class="outline-4">
+<h4 id="orgaa154e7"><span class="section-number-4">1.1.3</span> Point and line incidence relations</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+이전 섹션에서는 $\mathbf{l} = \mathbf{l}^{\prime\intercal}\mathcal{T}\mathbf{l}^{\dprime}$공식을 통해 세 이미지 평면에 존재하는 직선들이 Trifocal Tensor $\mathcal{T}$에 의해 제약된다는 것에 대해 설명했다. <b>해당 섹션에서는 세 개의 직선들 뿐만 아니라 점과 직선들의 관계들이 Trifocal Tensor $\mathcal{T}$에 의해 어떻게 제약되는 지 설명한다.</b>
+</p>
+
+<p>
+직선 $\mathbf{l}$위에 존재하는 임의의 점 $\mathbf{x}$에 대해 $\mathbf{x}^{\intercal}\mathbf{l}=0$이 성립하고 이를 Tensor 표현법으로 다시 나타내면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{\intercal}\mathbf{l} &amp; = \sum_{i}x^{i}l_{i}  \\
+    &amp; = \sum_{i}x^{i}\mathbf{l}^{\prime\intercal}\mathbf{T}_{i}\mathbf{l}^{\dprime} \quad \because l_{i} = \mathbf{l}^{\prime\intercal}\mathbf{T}_{i}\mathbf{l}^{\dprime}\\
+    &amp; = \mathbf{l}^{\prime\intercal}(\sum_{i}x^{i}\mathbf{T}_{i})\mathbf{l}^{\dprime} = 0\\
+  \end{aligned}
+\end{equation}
+<p>
+같이 나타낼 수 있고 이는 <b>한 점과 두 직선(point-line-line) 사이의 관계를 의미한다.</b>
+</p>
+
+<p>
+이전 섹션에서 설명한 $\mathbf{H}_{13}$은 첫 번째 이미지 평면에서 세 번째 이미지 평면으로 변환하는 Homography를 의미한다. 이를 통해 $\mathbf{x}^{\dprime} = \mathbf{H}_{13}\mathbf{x}$와 같이 세 번째 이미지 평면 상의 점 $\mathbf{x}^{\dprime}$을 구할 수 있고 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{\dprime} = \mathbf{H}_{13}\mathbf{x} = \begin{bmatrix} \mathbf{T}_{1}{^\intercal}\mathbf{l}^{\prime} &amp; \mathbf{T}_{2}^{\intercal}\mathbf{l}^{\prime} &amp; \mathbf{T}_{3}^{\intercal}\mathbf{l}^{\prime} \end{bmatrix}\mathbf{x} = (\sum_{i}x^{i}\mathbf{T}_{i}^{\intercal})\mathbf{l}^{\prime}
+  \end{aligned}
+\end{equation}
+<p>
+같이 전개할 수 있다. 이 때, $\mathbf{x}^{\dprime}$은 Scale Factor를 포함하고 있으므로 유일하게 $\mathbf{x}^{\dprime}$를 결정하기 위해 $\mathbf{x}^{\dprime&and;}$를 곱하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{\dprime\intercal}\mathbf{x}^{\dprime\wedge} = \mathbf{l}^{\prime\intercal}(\sum_{i}x^{i}\mathbf{T}_{i})\mathbf{x}^{\dprime\wedge} = \mathbf{0}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이는 <b>두 개의 점과 하나의 직선 사이(point-line-point)의 관계를 의미한다.</b>
+</p>
+
+<p>
+이와 유사하게 세 개의 점이 주어졌을 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{\prime\wedge}(\sum_{i}x^{i}\mathbf{T}_{i})\mathbf{x}^{\dprime\wedge} = \mathbf{0}
+  \end{aligned}
+\end{equation}
+<p>
+을 통해 Scale Factor를 제거하여 유일한 $\mathbf{x}^{&prime;}$을 구할 수 있으며 <b>해당 공식은 세 점 사이(point-point-point)의 관계를 의미한다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaa1aeaa" class="outline-4">
+<h4 id="orgaa1aeaa"><span class="section-number-4">1.1.4</span> Epipolar lines</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+<b>Trifocal Tensor $\mathcal{T}$를 통해 두 카메라의 Epipoar Line을 구할 수 있다.</b> 세 이미지 평면 $&pi;_{\mathbf{P}},&pi;_{\mathbf{P}^{&prime;}},&pi;_{\mathbf{P}^{\dprime}}$이 주어지고 $\pi_{\mathbf{P}}$위의 한 점 $\mathbf{x}$가 존재하며 $\pi_{\mathbf{P}^{\prime}}, \pi_{\mathbf{P}^{\dprime}}$평면에 Epipolar Line $\mathbf{l}^{&prime;}, \mathbf{l}^{\dprime}$이 존재한다고 가정하면 이들 사이에는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{l}^{\prime\intercal}(\sum_{i}x^{i}\mathbf{T}_{i}) =0 \\
+    &amp; (\sum_{i}x^{i}\mathbf{T}_{i})\mathbf{l}^{\dprime} = 0
+  \end{aligned}
+\end{equation}
+<p>
+관계가 성립한다. 즉, <b>$\mathbf{l}^{&prime;\intercal}$은 $(&sum;_{i}x^{i}\mathbf{T}_{i})$의 Left Null Vector이며 $\mathbf{l}^{\dprime}$은 $(&sum;_{i}x^{i}\mathbf{T}_{i})$의 Right Null Vector가 된다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org86c3a65" class="outline-4">
+<h4 id="org86c3a65"><span class="section-number-4">1.1.5</span> Proof</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<p>
+두 번째 이미지 평면 $\pi_{\mathbf{P}^{\prime}}$상의 Epipolar Line $\mathbf{l}^{&prime;}$을 Back-projection하여 생성된 평면을 $&pi;^{&prime;}$이라고 하면 $&pi;^{&prime;}$과 $\pi_{\mathbf{P}}$사이에는 교차선이 생성되고 해당 교차선은 $\pi_{\mathbf{P}}$평면의 Epipolar Line $\mathbf{l}$이 된다. 이 때 세 번째 이미지 평면 $\pi_{\mathbf{P}^{\dprime}}$상의 임의의 직선 $\mathbf{l}^{\dprime}$을 Back-projection한 평면 $&pi;^{\dprime}$과 $&pi;^{&prime;}$은 월드 평면 상의 직선 $\mathbf{L}$에서 교차선을 생성하며 이를 다시 $&pi;_{\mathbf{P}}$로 프로젝션하면 $\mathbf{L}$은 항상 Epipolar Line $\mathbf{l}$위에 한 점 $\mathbf{x}&isin; \mathbf{l}$로 프로젝션된다.
+</p>
+
+<p>
+이러한 $\mathbf{l} \leftrightarrow \mathbf{l}^{\prime} \leftrightarrow \mathbf{l}^{\dprime}$관계를 통해 Trifocal Tensor $\mathcal{T}$을 구할 수 있으며 이전 섹션에서 설명한 <b>한 점 $\mathbf{x}$와 두 직선 사이(point-line-line)의 관계 공식이 성립한다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x} \in \mathbf{l} = \mathbf{l}^{\prime\intercal}\mathcal{T}\mathbf{l}^{\dprime} \\
+    &amp;  \mathbf{l}^{\prime\intercal}(\sum_{i}x^{i}\mathbf{T}_{i})\mathbf{l}^{\dprime} = 0 \quad ^\forall \mathbf{l}^{\dprime} \\
+    &amp; \therefore \mathbf{l}^{\prime\intercal}(\sum_{i}x^{i}\mathbf{T}_{i}) = 0
+  \end{aligned}
+\end{equation}
+<p>
+위와 같이 <b>모든 $\mathbf{l}^{\dprime}$에 대해 위 공식을 만족해야 하므로 $\mathbf{l}^{\prime\intercal}(\sum_{i}x^{i}\mathbf{T}_{i}) = 0$공식이 성립하게 된다. 이를 모든 $\mathbf{l}^{&prime;}$에 대해서도 마찬가지로 성립하므로 $(\sum_{i}x^{i}\mathbf{T}_{i})\mathbf{l}^{\dprime} = 0$또한 성립한다.</b>
+</p>
+
+<p>
+\textbfazure{추가적으로 Epipole $\mathbf{e}^{&prime;}, \mathbf{e}^{\dprime}$은 모든 $^&forall; \mathbf{x}$에 대해 구할 수 있는 $\mathbf{l}^{&prime;}, \mathbf{l}^{\dprime}$들의 교차점을 계산함으로써 구할 수 있다..}
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc50d62b" class="outline-4">
+<h4 id="orgc50d62b"><span class="section-number-4">1.1.6</span> Extracting the fundamental matrices</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<p>
+이전 섹션에서 설명한 것과 같이 여러 점과 직선들과 관계를 통해 세 개의 이미지 평면에 대한 Trifocal Tensor $\mathcal{T}$를 구할 수 있다. 해당 섹션에서는 $\mathcal{T}$를 통해 세 개의 서로 다른 Fundamental Matrix $\mathbf{F}$를 구하는 방법에 대해 설명한다.
+</p>
+
+<p>
+Fundamental Matrix $\mathbf{F}_{21}$는 $\mathbf{F}_{21}=\mathbf{e}^{&prime;&and;}\mathbf{H}_{21}$를 통해 구할 수 있다. $\mathbf{F}_{ij}$는 i번째 이미지 평면과 j번째 이미지 평면 사이의 Fundamental Matrix를 의미한다. $\mathbf{e}^{&prime;}$은 이전 섹션에서 설명한 방법대로 $\mathbf{T}_{i}$의 Left Null Vector를 계산하여 $\mathbf{l}^{&prime;}, \mathbf{e}^{&prime;}$을 통해 구하고 $\mathbf{H}_{21}$은 $\begin{bmatrix}\mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{l}^{\dprime}$과 같이 구할 수 있으므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F}_{21} &amp; = \mathbf{e}^{\prime\wedge}\mathbf{H} \\
+    &amp; = \mathbf{e}^{\prime\wedge}\begin{bmatrix} \mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{l}^{\dprime}  \quad ^\exists \mathbf{l}^{\dprime}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이 때 $\mathbf{l}^{\dprime}$은 $\mathbf{T}_{i}$의 Null Space에 존재하면 안된다. 즉 $\mathbf{T}_{i}\mathbf{l}^{\dprime} &ne; 0$이어야 한다. 다시 말하면 $\begin{bmatrix}\mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{l}^{\dprime}$의 rank가 3이어야 한다. 이 때, Epipole $\mathbf{e}^{\dprime}$은 $\mathbf{l}^{\dprime}$의 Null Space에 존재하므로 $\mathbf{e}^{\dprime\intercal}\mathbf{l}^{\dprime} = 0$을 만족한다. 따라서
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{e}^{\dprime} \perp \text{Nul } \mathbf{T}_{i} \quad ^\forall i
+  \end{aligned}
+\end{equation}
+<p>
+를 만족하므로 \textbfazure{$\mathbf{l}^{\dprime}$대신 $\mathbf{e}^{\dprime}$을 대입하면 항상 행렬의 rank가 3이 된다. 결론적으로 Fundamental Matrix $\mathbf{F}_{21}$은}
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F}_{21} = \mathbf{e}^{\prime\wedge} \begin{bmatrix} \mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{e}^{\dprime}
+  \end{aligned}
+\end{equation}
+<p>
+\textbfazure{을 통해 구할 수 있다. 동일한 방법을 사용하여 $\mathbf{F}_{31}=\mathbf{e}^{\dprime&and;} \begin{bmatrix}\mathbf{T}_{1}^{\intercal}&amp;\mathbf{T}_{2}^{\intercal}&amp;\mathbf{T}_{3}^{\intercal} \end{bmatrix}\mathbf{e}^{&prime;}$을 구할 수 있다.}
+</p>
+</div>
+</div>
+
+<div id="outline-container-org76f7999" class="outline-4">
+<h4 id="org76f7999"><span class="section-number-4">1.1.7</span> Retrieving the camera matrices</h4>
+<div class="outline-text-4" id="text-1-1-7">
+<p>
+Two-view Geometry에서는 Fundamental Matrix $\mathbf{F}$가 주어지면 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$을 사영모호성을 포함하여(up to projectivity) 구할 수 있었다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = [\mathbf{I} \ | \ 0] \\
+    &amp; \mathbf{P}^{\prime} = [\mathbf{A} \ | \ \mathbf{e}^{\prime}] \\
+    &amp; \text{where, } \mathbf{F} = \mathbf{e}^{\prime\wedge}\mathbf{A} \ \text{ in two-view.}
+  \end{aligned}
+\end{equation}
+<p>
+Three-view Geoemtry에서는 Trifocal Tensor $\mathcal{T}$를 통해 $\mathbf{F}_{21} = \mathbf{e}^{\prime\wedge} \begin{bmatrix} \mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{e}^{\dprime}$그리고 $\mathbf{F}_{31}=\mathbf{e}^{\dprime&and;} \begin{bmatrix}\mathbf{T}_{1}^{\intercal}&amp;\mathbf{T}_{2}^{\intercal}&amp;\mathbf{T}_{3}^{\intercal} \end{bmatrix}\mathbf{e}^{&prime;}$을 구했을 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = [\mathbf{I} \ | \ 0] \\
+    &amp; \mathbf{P}^{\prime} = [ \begin{bmatrix} \mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{e}^{\dprime} \ | \ \mathbf{e}^{\prime}] \\
+    &amp; \text{but, } \mathbf{P}^{\dprime} \neq [\begin{bmatrix} \mathbf{T}_{1}^{\intercal}&amp;\mathbf{T}_{2}^{\intercal}&amp;\mathbf{T}_{3}^{\intercal} \end{bmatrix}\mathbf{e}^{\prime} \ | \ \mathbf{e}^{\dprime}] \ \ \text{in three-view.}
+  \end{aligned}
+\end{equation}
+<p>
+관계가 성립한다. 다시 말하면 \textbfazure{$(\mathbf{P},\mathbf{P}^{&prime;})$을 계산하면 월드좌표계가 고정되고 따라서 $\mathbf{P}^{\dprime}$은 고정된 월드좌표계에 대해서 다시 표현해야 한다는 것으 의미한다.} p256 공식 (9.10)에 의해 Canonical Form에 대한 가장 일반적인 카메라 행렬은 다음곽 같이 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}^{\dprime} = [\mathbf{H}+\mathbf{e}^{\dprime}\mathbf{v}^{\intercal} \ | \ \lambda \mathbf{e}^{\dprime}]
+  \end{aligned}
+\end{equation}
+<p>
+이를 전개하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+     \mathbf{P}^{\dprime} &amp; = [\mathbf{H}+\mathbf{e}^{\dprime}\mathbf{v}^{\intercal} \ | \ \lambda \mathbf{e}^{\dprime}] \\
+     &amp; = [\underbrace{\begin{bmatrix} \mathbf{T}_{1}^{\intercal}&amp;\mathbf{T}_{2}^{\intercal}&amp;\mathbf{T}_{3}^{\intercal} \end{bmatrix}\mathbf{e}^{\prime}+\mathbf{e}^{\dprime}\mathbf{v}^{\intercal}}_{\mathbf{B}} \ | \ \underbrace{\lambda \mathbf{e}^{\dprime}}_{\mathbf{b_{4}}}] \\
+  \end{aligned}
+\end{equation}
+<p>
+이 되고 $\mathbf{P}^{&prime;} = [\mathbf{A}\ | \ \mathbf{a}_{4}]$은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}^{\prime} &amp; = [\mathbf{A} \ | \ \mathbf{a}_{4}] \\
+    &amp; = [\underbrace{\begin{bmatrix} \mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{e}^{\dprime}}_{\mathbf{A}} \ | \ \underbrace{\mathbf{e}^{\prime}}_{\mathbf{a}_{4}}]
+  \end{aligned}
+\end{equation}
+<p>
+이므로 $\mathbf{T}_{i}$의 정의에 의해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{T}_{i} &amp; = \mathbf{a}_{i}\mathbf{b}_{4}^{\intercal} + \mathbf{a}_{4}\mathbf{b}_{i}^{\intercal} \\
+    &amp; = \mathbf{T}_{i}\mathbf{e}^{\dprime}\mathbf{e}^{\dprime\intercal} - \mathbf{e}^{\prime}\mathbf{b}_{i}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이를 정리하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{T}_{i}(\mathbf{I} - \mathbf{e}^{\dprime}\mathbf{e}^{\dprime\intercal}) = - \mathbf{e}^{\prime}\mathbf{b}_{i}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이 때 $\|\mathbf{e}^{&prime;}\|=1$이라고 가정하고 양 변에 $\mathbf{e}^{&prime;\intercal}$을 곱하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{b}_{i}^{\intercal} = \mathbf{e}^{\prime\intercal}\mathbf{T}_{i}(\mathbf{e}^{\dprime}\mathbf{e}^{\dprime} - \mathbf{I})
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. \textbfazure{최종적으로 $\mathbf{P}^{\dprime}$은 다음과 같다.}
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}^{\dprime} = [ (\mathbf{e}^{\dprime}\mathbf{e}^{\dprime\intercal}-\mathbf{I})\begin{bmatrix} \mathbf{T}_{1}^{\intercal}&amp;\mathbf{T}_{2}^{\intercal}&amp;\mathbf{T}_{3}^{\intercal} \end{bmatrix}\mathbf{e}^{\prime} \ | \ \mathbf{e}^{\dprime}]
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc579e1c" class="outline-3">
+<h3 id="orgc579e1c"><span class="section-number-3">1.2</span> The trifocal tensor and tensor notation</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Trifocal Tensor $\mathcal{T}$를 Tensor 표현법으로 나타내면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathcal{T}_{i}^{jk} &amp; = (j,k) \ \text{entry of} \ \mathbf{T}_{i} \\
+    &amp; = a_{i}^{j}b_{4}^{k} - a_{4}^{j}b_{i}^{k}
+  \end{aligned}
+\end{equation}
+<p>
+행렬로 표현한 직선 $\mathbf{l}$의 i번째 좌표는 $l_{i}=\mathbf{l}^{&prime;\intercal}\mathbf{T}_{i}\mathbf{l}^{\dprime}$과 같이 나타낼 수 있고 이를 Tensor 표현법으로 나타내면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    l_{i} &amp; = l_{i}^{\prime}\mathcal{T}_{i}^{jk}l_{k}^{\dprime} \\
+    &amp; = l_{i}^{\prime}l_{k}^{\dprime}\mathcal{T}_{i}^{jk}
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. Tensor 표현법을 통해 첫 번째 카메라의 직선 $\mathbf{l}$을 세 번째 카메라의 직선 $\mathbf{l}^{\dprime}$으로 변환하는 Homography $\mathbf{H}: &pi;_{\mathbf{P}}\mapsto&pi;_{\mathbf{P}^{\dprime}}$을 구할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; l_{i} = l_{k}^{\dprime}(l_{j}^{\prime}\mathcal{T}_{i}^{jk}) = l_{k}^{\dprime}h_{i}^{k} \\
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $h_{i}^{k} = l_{j}^{&prime;}\mathcal{T}_{i}^{jk}$를 의미한다. Homography $\mathbf{H}$를 사용하여 점을 변환하는 경우
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    x^{\dprime k} = h_{i}^{k}x^{i}
+  \end{aligned}
+\end{equation}
+<p>
+가 된다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2b0b0c8" class="outline-2">
+<h2 id="org2b0b0c8"><span class="section-number-2">2</span> References</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgc05ef1f" class="outline-2">
+<h2 id="orgc05ef1f"><span class="section-number-2">3</span> Closure</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.
+</p>
+</div>
+</div>
