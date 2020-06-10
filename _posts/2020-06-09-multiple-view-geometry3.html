@@ -1,6 +1,6 @@
 ---
 layout: post
-title: (Geometry) Notes on Multiple View Geometry (4)
+title: (Geometry) Notes on Multiple View Geometry (3)
 description:
 date: 2020-06-09
 categories: [Mathematics]
@@ -12,89 +12,105 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0ddb4ce">1. 3D Reconstruction of Cameras and Structure</a>
+<li><a href="#org739adef">1. 3D Reconstruction of Cameras and Structure</a>
 <ul>
-<li><a href="#orga04292e">1.1. The projective reconstruction theorem</a>
+<li><a href="#org4c13121">1.1. The projective reconstruction theorem</a>
 <ul>
-<li><a href="#orgcf8dd4c">1.1.1. Proof</a></li>
+<li><a href="#org04a7d18">1.1.1. Proof</a></li>
 </ul>
 </li>
-<li><a href="#orgb9f497b">1.2. Stratified reconstruction</a>
+<li><a href="#org83e42ac">1.2. Stratified reconstruction</a>
 <ul>
-<li><a href="#orgd7f43f3">1.2.1. The step to affine reconstruction</a></li>
+<li><a href="#org0092754">1.2.1. The step to affine reconstruction</a></li>
 </ul>
 </li>
-<li><a href="#org83f8662">1.3. The step to metric reconstruction</a></li>
+<li><a href="#org9c74175">1.3. The step to metric reconstruction</a></li>
 </ul>
 </li>
-<li><a href="#org127f54c">2. Computation of the Fundamental Matrix $\mathbf{F}$</a>
+<li><a href="#org0456a56">2. Computation of the Fundamental Matrix $\mathbf{F}$</a>
 <ul>
-<li><a href="#org8b7cc20">2.1. Basic equations</a>
+<li><a href="#orgc853de3">2.1. Basic equations</a>
 <ul>
-<li><a href="#org0de0133">2.1.1. The minimum case - seven point correspondences</a></li>
+<li><a href="#org65a0173">2.1.1. The minimum case - seven point correspondences</a></li>
 </ul>
 </li>
-<li><a href="#orged4a1f1">2.2. The normalized 8-point algorithm</a>
+<li><a href="#org420946a">2.2. The normalized 8-point algorithm</a>
 <ul>
-<li><a href="#orgeda78db">2.2.1. Degenrate configurations</a></li>
-<li><a href="#org73158a7">2.2.2. Proof</a></li>
+<li><a href="#org0794e0a">2.2.1. Degenrate configurations</a></li>
+<li><a href="#org775fd2b">2.2.2. Proof</a></li>
 </ul>
 </li>
-<li><a href="#org4eba046">2.3. The Gold Standard method</a></li>
+<li><a href="#org10c6ec1">2.3. The Gold Standard method</a></li>
 </ul>
 </li>
-<li><a href="#org8057c08">3. Structure Computation</a>
+<li><a href="#orgd29d590">3. Structure Computation</a>
 <ul>
-<li><a href="#org5f0ba56">3.1. Problem statement</a></li>
-<li><a href="#org8c62081">3.2. Linear triangulation methods</a>
+<li><a href="#orgce08e49">3.1. Problem statement</a></li>
+<li><a href="#org862de95">3.2. Linear triangulation methods</a>
 <ul>
-<li><a href="#org0820044">3.2.1. Inhomogeneous method</a></li>
+<li><a href="#org0ef204d">3.2.1. Inhomogeneous method</a></li>
 </ul>
 </li>
-<li><a href="#org7c0ce67">3.3. An optimial solution</a>
+<li><a href="#org4a1f756">3.3. An optimial solution</a>
 <ul>
-<li><a href="#org2c9d541">3.3.1. Reformulation of the minimization problem</a></li>
-<li><a href="#org24da70b">3.3.2. Details of the minimization</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org5d25096">4. Scene planes and homographies</a>
-<ul>
-<li><a href="#orga811cd0">4.1. Homographies given the plane and vice versa</a>
-<ul>
-<li><a href="#org4456cdb">4.1.1. Proof</a></li>
-<li><a href="#orgd63564f">4.1.2. A calibrated stereo rig</a></li>
-<li><a href="#org73345f3">4.1.3. Homographies compatible with epipolar geometry</a></li>
-<li><a href="#org8d094c7">4.1.4. Proof</a></li>
-<li><a href="#orgfdd97c9">4.1.5. Corollary</a></li>
-<li><a href="#org908cd80">4.1.6. Proof</a></li>
-</ul>
-</li>
-<li><a href="#orgc9edbb3">4.2. Computing $\mathbf{F}$given the homography induced by a plane</a></li>
-<li><a href="#orgedd0975">4.3. The infinite homography $\mathbf{H}_{\infty}$</a>
-<ul>
-<li><a href="#org97bd876">4.3.1. Affine and metric reconstruction</a></li>
+<li><a href="#org482430d">3.3.1. Reformulation of the minimization problem</a></li>
+<li><a href="#org3adf502">3.3.2. Details of the minimization</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgb1c6a1c">5. References</a></li>
-<li><a href="#org3cb6169">6. Closure</a></li>
+<li><a href="#orgcc6c581">4. Scene planes and homographies</a>
+<ul>
+<li><a href="#org2115de8">4.1. Homographies given the plane and vice versa</a>
+<ul>
+<li><a href="#org63e9994">4.1.1. Proof</a></li>
+<li><a href="#org65b3510">4.1.2. A calibrated stereo rig</a></li>
+<li><a href="#orgbda5a48">4.1.3. Homographies compatible with epipolar geometry</a></li>
+<li><a href="#orga455170">4.1.4. Proof</a></li>
+<li><a href="#org935f04e">4.1.5. Corollary</a></li>
+<li><a href="#org543e82f">4.1.6. Proof</a></li>
+</ul>
+</li>
+<li><a href="#orga2ad417">4.2. Computing $\mathbf{F}$given the homography induced by a plane</a></li>
+<li><a href="#org1e009e2">4.3. The infinite homography $\mathbf{H}_{\infty}$</a>
+<ul>
+<li><a href="#orgb5e1ca4">4.3.1. Affine and metric reconstruction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orga5cd98d">5. The Trifocal Tensor</a>
+<ul>
+<li><a href="#org59564f6">5.1. The geometric basis for the trifocal tensor</a>
+<ul>
+<li><a href="#orgf863c9e">5.1.1. Incidence relations for lines</a></li>
+<li><a href="#orgc24852f">5.1.2. Homographies induced by a plane</a></li>
+<li><a href="#org6c0234e">5.1.3. Point and line incidence relations</a></li>
+<li><a href="#orgac63c2f">5.1.4. Epipolar lines</a></li>
+<li><a href="#org7fca2da">5.1.5. Proof</a></li>
+<li><a href="#orgd482509">5.1.6. Extracting the fundamental matrices</a></li>
+<li><a href="#orgea24b7a">5.1.7. Retrieving the camera matrices</a></li>
+</ul>
+</li>
+<li><a href="#orgfad94ad">5.2. The trifocal tensor and tensor notation</a></li>
+</ul>
+</li>
+<li><a href="#orgb074f40">6. References</a></li>
+<li><a href="#org5de94fb">7. Closure</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0ddb4ce" class="outline-2">
-<h2 id="org0ddb4ce"><span class="section-number-2">1</span> 3D Reconstruction of Cameras and Structure</h2>
+<div id="outline-container-org739adef" class="outline-2">
+<h2 id="org739adef"><span class="section-number-2">1</span> 3D Reconstruction of Cameras and Structure</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 이전 섹션에서 언급했듯이 <b>Fundamental Matrix $\mathbf{F}$는 여러 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$에 대하여 사영모호성(projective ambiguity)이 존재하기 때문에 결과물인 $\mathbf{P}, \mathbf{P}^{&prime;}$를 통해 계산한 3차원 공간 상의 점 또한 모호성을 가지게 된다.</b> 해당 섹션에서는 Scene Constraint와 Internal Constraint를 사용하여 모호성을 제거하는 방법에 대해서 설명한다.
 </p>
 </div>
 
-<div id="outline-container-orga04292e" class="outline-3">
-<h3 id="orga04292e"><span class="section-number-3">1.1</span> The projective reconstruction theorem</h3>
+<div id="outline-container-org4c13121" class="outline-3">
+<h3 id="org4c13121"><span class="section-number-3">1.1</span> The projective reconstruction theorem</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 두 카메라의 이미지 평면 상 대응쌍 점들인 $\mathbf{x}, \mathbf{x}^{&prime;}$이 충분히 주어져서 이를 통해 Fundamental Matrix $\mathbf{F}$를 구했다고 가정해보자. 이 때, 사영모호성으로 인해 다음과 같은 두 카메라 행렬 대응쌍
@@ -128,8 +144,8 @@ comments: true
 \end{equation}
 </div>
 
-<div id="outline-container-orgcf8dd4c" class="outline-4">
-<h4 id="orgcf8dd4c"><span class="section-number-4">1.1.1</span> Proof</h4>
+<div id="outline-container-org04a7d18" class="outline-4">
+<h4 id="org04a7d18"><span class="section-number-4">1.1.1</span> Proof</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 이전 섹션에서 동일한 Fundamental Matrix $\mathbf{F}$를 공유하는 카메라 행렬 대응쌍 사이에 $\mathbf{P}_{2} = \mathbf{P}_{1}\mathbf{H}^{-1}, \mathbf{P}_{2}^{&prime;} =\mathbf{P}_{1}^{&prime;}\mathbf{H}^{-1}$를 만족하는 Homography 행렬 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재한다는 것을 증명하였다. 이를 적용해보면
@@ -167,8 +183,8 @@ comments: true
 </div>
 </div>
 
-<div id="outline-container-orgb9f497b" class="outline-3">
-<h3 id="orgb9f497b"><span class="section-number-3">1.2</span> Stratified reconstruction</h3>
+<div id="outline-container-org83e42ac" class="outline-3">
+<h3 id="org83e42ac"><span class="section-number-3">1.2</span> Stratified reconstruction</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Fundamental Matrix $\mathbf{F}$를 사용하여 계산한 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$의 사영모호성 문제를 해결하기 위해 Ground Truth 카메라 행렬 대응쌍인
@@ -194,8 +210,8 @@ Fundamental Matrix $\mathbf{F}$를 사용하여 계산한 카메라 행렬 대�
 </p>
 </div>
 
-<div id="outline-container-orgd7f43f3" class="outline-4">
-<h4 id="orgd7f43f3"><span class="section-number-4">1.2.1</span> The step to affine reconstruction</h4>
+<div id="outline-container-org0092754" class="outline-4">
+<h4 id="org0092754"><span class="section-number-4">1.2.1</span> The step to affine reconstruction</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 Affine Reconstruction 단계에서는 평행한 직선들의 특성을 보존하는 Homography 행렬 $\mathbf{H}_{a}$를 찾아야 한다.
@@ -251,8 +267,8 @@ Affine Reconstruction 단계에서는 평행한 직선들의 특성을 보존하
 </div>
 
 
-<div id="outline-container-org83f8662" class="outline-3">
-<h3 id="org83f8662"><span class="section-number-3">1.3</span> The step to metric reconstruction</h3>
+<div id="outline-container-org9c74175" class="outline-3">
+<h3 id="org9c74175"><span class="section-number-3">1.3</span> The step to metric reconstruction</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Metric Reconstruction 단계에서는 직교하는 선들을 보존하는 Homography 행렬 $\mathbf{H}_{s}$를 찾아야 한다.
@@ -350,12 +366,12 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-org127f54c" class="outline-2">
-<h2 id="org127f54c"><span class="section-number-2">2</span> Computation of the Fundamental Matrix $\mathbf{F}$</h2>
+<div id="outline-container-org0456a56" class="outline-2">
+<h2 id="org0456a56"><span class="section-number-2">2</span> Computation of the Fundamental Matrix $\mathbf{F}$</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org8b7cc20" class="outline-3">
-<h3 id="org8b7cc20"><span class="section-number-3">2.1</span> Basic equations</h3>
+<div id="outline-container-orgc853de3" class="outline-3">
+<h3 id="orgc853de3"><span class="section-number-3">2.1</span> Basic equations</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 두 카메라의 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{&prime;}$이 존재할 때
@@ -417,8 +433,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 </p>
 </div>
 
-<div id="outline-container-org0de0133" class="outline-4">
-<h4 id="org0de0133"><span class="section-number-4">2.1.1</span> The minimum case - seven point correspondences</h4>
+<div id="outline-container-org65a0173" class="outline-4">
+<h4 id="org65a0173"><span class="section-number-4">2.1.1</span> The minimum case - seven point correspondences</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 7개의 대응점쌍이 주어진 경우 $\mathbf{A}&isin; \mathbb{R}^{7&times; 9}$인 rank 7 행렬이 된다. 이에 따라 Null Space의 차원이 2가 되므로 무수한 해가 존재한다. $\mathbf{Af}=0$의 풀어서 두 개의 선형독립인 Fundamental Matrix $\mathbf{F}_{1}, \mathbf{F}_{2}$를 구하고 
@@ -438,8 +454,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 
 
 
-<div id="outline-container-orged4a1f1" class="outline-3">
-<h3 id="orged4a1f1"><span class="section-number-3">2.2</span> The normalized 8-point algorithm</h3>
+<div id="outline-container-org420946a" class="outline-3">
+<h3 id="org420946a"><span class="section-number-3">2.2</span> The normalized 8-point algorithm</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 행렬 $\mathbf{A}$는 주어진 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{&prime;}$으로 구성된 행렬이므로 <b>대응점쌍들을 정규화(normalization)하지 않고 바로 해를 구하는 경우 $\mathbf{x}_{i} = (1000000,20000000,1)$과 같이 마지막 값에 비해서 처음 두 값의 크기가 매우 크게 되므로 수치적으로 불안정한 문제</b> 를 가진다. 따라서 $\mathbf{x}^{i}, \mathbf{x}^{i&prime;}$를 Centroid가 0이고 Centroid로부터 평균거리가 $\sqrt{2}$가 되도록하는 Homography 변환 $\mathbf{H}, \mathbf{H}^{&prime;}$를 적용한다.
@@ -467,8 +483,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 </p>
 </div>
 
-<div id="outline-container-orgeda78db" class="outline-4">
-<h4 id="orgeda78db"><span class="section-number-4">2.2.1</span> Degenrate configurations</h4>
+<div id="outline-container-org0794e0a" class="outline-4">
+<h4 id="org0794e0a"><span class="section-number-4">2.2.1</span> Degenrate configurations</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 두 개의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{\prime}, \{\mathbf{X}^{i}\})$, $(\mathbf{Q}, \mathbf{Q}^{&prime;}, \{\mathbf{Y}^{i}\})$가 다음의 조건을 만족하면 서로 <b>Conjugate Configuration</b> 이라고 한다.
@@ -490,8 +506,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-org73158a7" class="outline-4">
-<h4 id="org73158a7"><span class="section-number-4">2.2.2</span> Proof</h4>
+<div id="outline-container-org775fd2b" class="outline-4">
+<h4 id="org775fd2b"><span class="section-number-4">2.2.2</span> Proof</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 임의의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;}, \{\mathbf{X}^{i}\})$이 Critical Triple이라는 것을 보이기 위해서는 이와 대응하는 카메라 행렬 대응쌍 $(\mathbf{Q}, \mathbf{Q}^{&prime;}, \{\mathbf{Y}^{i}\})$이 같은 Fundamental Matrix $\mathbf{F}$를 가진다는 사실을 사용해야 한다. $\mathbb{P}^{3}$공간에서 이차곡면은 4x4 크기의 행렬로 정의된다.
@@ -545,8 +561,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-org4eba046" class="outline-3">
-<h3 id="org4eba046"><span class="section-number-3">2.3</span> The Gold Standard method</h3>
+<div id="outline-container-org10c6ec1" class="outline-3">
+<h3 id="org10c6ec1"><span class="section-number-3">2.3</span> The Gold Standard method</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 이미지 평면 상의 대응점 쌍 $\mathbf{x}&harr; \mathbf{x}^{&prime;}$는 일반적으로 노이즈를 포함하고 있으므로 이를 통해 Fundamental Matrix $\mathbf{F}$를 정확하게 계산할 수 없고 $\|\mathbf{Af}\|$의 크기를 최소화하는 근사해 $\mathbf{F}^{&prime;}$를 계산할 수 밖에 없다. 따라서 <b>$\mathbf{F}^{&prime;}$를 더 정확하게 계산하기 위해 2D Homography 문제와 마찬가지로 주어진 데이터 $\mathbf{x}, \mathbf{x}^{&prime;}$를 Ground Truth $\hat{\mathbf{x}}, \hat{\mathbf{x}}^{&prime;}$과 가까워지게 보정하는 방법을 The Gold Standard method</b> 라고 한다.
@@ -601,12 +617,12 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-org8057c08" class="outline-2">
-<h2 id="org8057c08"><span class="section-number-2">3</span> Structure Computation</h2>
+<div id="outline-container-orgd29d590" class="outline-2">
+<h2 id="orgd29d590"><span class="section-number-2">3</span> Structure Computation</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org5f0ba56" class="outline-3">
-<h3 id="org5f0ba56"><span class="section-number-3">3.1</span> Problem statement</h3>
+<div id="outline-container-orgce08e49" class="outline-3">
+<h3 id="orgce08e49"><span class="section-number-3">3.1</span> Problem statement</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 해당 섹션에서는 두 카메라 행렬 대응쌍 $\mathbf{P},\mathbf{P}^{&prime;}$와 이미지 평면의 대응점 쌍 $\mathbf{x}, \mathbf{x}^{&prime;}$가 주어진 경우 $\mathbb{P}^{3}$공간 상의 점 $\mathbf{X}$를 구하는 방법에 대해 설명한다. <b>이론적으로는 대응점 쌍 $\mathbf{x}, \mathbf{x}^{&prime;}$를 Back-projection하여 얻은 두 직선의 교차점을 통해 $\mathbf{X}$를 계산할 수 있으나 실제 데이터는 노이즈가 존재하기 때문에 두 Back-projection 직선이 교차하지 않는다.</b> 또한 노이즈로 인해 두 이미지 평면 상에서 Epipolar Line $\mathbf{l}, \mathbf{l}^{\prime}$또한 $\mathbf{x}, \mathbf{x}^{&prime;}$와 만나지 않는다.
@@ -673,8 +689,8 @@ $&tau;$가 사영모호성에 불변이기 위해서는 임의의 Homography $\m
 </div>
 </div>
 
-<div id="outline-container-org8c62081" class="outline-3">
-<h3 id="org8c62081"><span class="section-number-3">3.2</span> Linear triangulation methods</h3>
+<div id="outline-container-org862de95" class="outline-3">
+<h3 id="org862de95"><span class="section-number-3">3.2</span> Linear triangulation methods</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 해당 섹션에서는 $\mathbf{X}&isin; \mathbb{P}^{3}$를 구하기 위해 선형방정식을 사용하는 방법을 설명한다. $\mathbf{x}=\mathbf{PX}, \mathbf{x}^{&prime;}=\mathbf{P}^{&prime;}\mathbf{X}$로부터
@@ -751,8 +767,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </p>
 </div>
 
-<div id="outline-container-org0820044" class="outline-4">
-<h4 id="org0820044"><span class="section-number-4">3.2.1</span> Inhomogeneous method</h4>
+<div id="outline-container-org0ef204d" class="outline-4">
+<h4 id="org0ef204d"><span class="section-number-4">3.2.1</span> Inhomogeneous method</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 카메라 행렬 대응쌍 $\mathbf{P},\mathbf{P}^{&prime;}$이 Affine 변환까지(up to affinity) 결정되는 경우 $\mathbf{X}=(X,\ Y,\ Z,\ 1)^{\intercal}$로 놓고 $\|\mathbf{AX}\|$를 최소화하는 근사해 $\hat{\mathbf{X}}$를 구하는 방법을 Inhomogeneous method라고 한다. $\mathbf{X}$는 Affine Point이므로 $\|\mathbf{X}\|=1$제약조건이 사라지게 된다. 따라서, <b>Inhomogeneous method는 임의의 Affine 변환 $\mathbf{H}_{A}$에 대해 불변인 특성을 지닌다.</b>
@@ -761,8 +777,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </div>
 </div>
 
-<div id="outline-container-org7c0ce67" class="outline-3">
-<h3 id="org7c0ce67"><span class="section-number-3">3.3</span> An optimial solution</h3>
+<div id="outline-container-org4a1f756" class="outline-3">
+<h3 id="org4a1f756"><span class="section-number-3">3.3</span> An optimial solution</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 해당 섹션에서는 최적의 $\mathbf{X}&isin;\mathbb{P}^{3}$을 구하기 위한 Optimal Triangulation 방법에 대해 설명한다. 우선 비선형 최소제곱법(non-linear least square)을 통해 $\mathbf{X}$를 구하는 방법이 있다.
@@ -775,8 +791,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </ul>
 </div>
 
-<div id="outline-container-org2c9d541" class="outline-4">
-<h4 id="org2c9d541"><span class="section-number-4">3.3.1</span> Reformulation of the minimization problem</h4>
+<div id="outline-container-org482430d" class="outline-4">
+<h4 id="org482430d"><span class="section-number-4">3.3.1</span> Reformulation of the minimization problem</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <p>
 반복법을 사용하지 않고도(non-iterative) Optimal Triangulation을 수행할 수 있다. 해당 방법은 <b>$d(\mathbf{x},\hat{\mathbf{x}})$를 최적화하는 대신 $\mathbf{x}$와 파라미터화된 Epipolar Line $\mathbf{l}(t)$사이의 거리 $d(\mathbf{x},\mathbf{l}(t))$를 최적화한다. 즉, $\mathbf{x}$와 $\mathbf{l}(t)$사이의 거리를 최소화하는 파라미터 $t$를 구함으로써 최적해를 구한다.</b>
@@ -790,8 +806,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </div>
 </div>
 
-<div id="outline-container-org24da70b" class="outline-4">
-<h4 id="org24da70b"><span class="section-number-4">3.3.2</span> Details of the minimization</h4>
+<div id="outline-container-org3adf502" class="outline-4">
+<h4 id="org3adf502"><span class="section-number-4">3.3.2</span> Details of the minimization</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <p>
 우선 $\mathbf{x}=(x,y,1)^{\intercal}$와 $\mathbf{x}^{&prime;}=(x^{&prime;},y^{&prime;},1)^{\intercal}$를 각각 원점 $(0,0,1)^{\intercal}$로 변환시킨다.
@@ -937,12 +953,12 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </div>
 </div>
 
-<div id="outline-container-org5d25096" class="outline-2">
-<h2 id="org5d25096"><span class="section-number-2">4</span> Scene planes and homographies</h2>
+<div id="outline-container-orgcc6c581" class="outline-2">
+<h2 id="orgcc6c581"><span class="section-number-2">4</span> Scene planes and homographies</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orga811cd0" class="outline-3">
-<h3 id="orga811cd0"><span class="section-number-3">4.1</span> Homographies given the plane and vice versa</h3>
+<div id="outline-container-org2115de8" class="outline-3">
+<h3 id="org2115de8"><span class="section-number-3">4.1</span> Homographies given the plane and vice versa</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 해당 섹션에서는 월드 상의 평면 $&pi;$이 주어졌을 때 이를 사용하여 하나의 이미지 평면에서 다른 이미지 평면으로 가는 Homography 변환에 대해 설명한다. Canonical Form으로 변환한 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$과 월드 상의 평면 $\pi$다음과 같이 주어졌을 때
@@ -969,8 +985,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </p>
 </div>
 
-<div id="outline-container-org4456cdb" class="outline-4">
-<h4 id="org4456cdb"><span class="section-number-4">4.1.1</span> Proof</h4>
+<div id="outline-container-org63e9994" class="outline-4">
+<h4 id="org63e9994"><span class="section-number-4">4.1.1</span> Proof</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <p>
 두 카메라의 이미지 평면 $&pi;_{\mathbf{P}}, &pi;_{\mathbf{P}^{&prime;}}$가 주어졌을 때, 월드 평면 상의 점 $\mathbf{X}&isin; &pi;$를 $\pi_{\mathbf{P}}$평면으로 프로젝션한 점 $\mathbf{x}$는 다음과 같다.
@@ -1008,8 +1024,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </div>
 </div>
 
-<div id="outline-container-orgd63564f" class="outline-4">
-<h4 id="orgd63564f"><span class="section-number-4">4.1.2</span> A calibrated stereo rig</h4>
+<div id="outline-container-org65b3510" class="outline-4">
+<h4 id="org65b3510"><span class="section-number-4">4.1.2</span> A calibrated stereo rig</h4>
 <div class="outline-text-4" id="text-4-1-2">
 <p>
 캘리브레이션 된 스테레오 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;})$가 다음과 같이 주어지고
@@ -1067,8 +1083,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </div>
 </div>
 
-<div id="outline-container-org73345f3" class="outline-4">
-<h4 id="org73345f3"><span class="section-number-4">4.1.3</span> Homographies compatible with epipolar geometry</h4>
+<div id="outline-container-orgbda5a48" class="outline-4">
+<h4 id="orgbda5a48"><span class="section-number-4">4.1.3</span> Homographies compatible with epipolar geometry</h4>
 <div class="outline-text-4" id="text-4-1-3">
 <p>
 월드 상의 평면 $\pi$위에 존재하는 4개의 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{x}_{i}^{&prime;}), \ i=1,&ctdot;,4$가 주어졌다고 가정해보자. 4개의 대응점 쌍으로부터 8개의 제약조건을 얻을 수 있으며 이를 통해 Homograpy $\mathbf{H}$를 유일하게 결정할 수 있다.
@@ -1111,8 +1127,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </div>
 </div>
 
-<div id="outline-container-org8d094c7" class="outline-4">
-<h4 id="org8d094c7"><span class="section-number-4">4.1.4</span> Proof</h4>
+<div id="outline-container-orga455170" class="outline-4">
+<h4 id="orga455170"><span class="section-number-4">4.1.4</span> Proof</h4>
 <div class="outline-text-4" id="text-4-1-4">
 <p>
 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Projective Reconstruction을 수행하면 두 카메라 행렬 대응쌍을
@@ -1149,8 +1165,8 @@ $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Proj
 </div>
 </div>
 
-<div id="outline-container-orgfdd97c9" class="outline-4">
-<h4 id="orgfdd97c9"><span class="section-number-4">4.1.5</span> Corollary</h4>
+<div id="outline-container-org935f04e" class="outline-4">
+<h4 id="org935f04e"><span class="section-number-4">4.1.5</span> Corollary</h4>
 <div class="outline-text-4" id="text-4-1-5">
 <p>
 두 카메라 사이의 임의의 Homography $\mathbf{H}$가 Epipolar Geometry를 따르기 위해서는 $\mathbf{H}$가 월드 상의 평면 $&pi;$에 대한 Homography이어야 한다. $\mathbf{H}$가 월드 상의 평면 $&pi;$에 대한 Homography이기 위한 필요충분조건은 다음과 같다.
@@ -1164,8 +1180,8 @@ $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Proj
 </div>
 </div>
 
-<div id="outline-container-org908cd80" class="outline-4">
-<h4 id="org908cd80"><span class="section-number-4">4.1.6</span> Proof</h4>
+<div id="outline-container-org543e82f" class="outline-4">
+<h4 id="org543e82f"><span class="section-number-4">4.1.6</span> Proof</h4>
 <div class="outline-text-4" id="text-4-1-6">
 <p>
 ($\Rightarrow$) $\mathbf{H}$가 월드 상의 평면 $&pi;=(\mathbf{v}^{\intercal},1)^{\intercal}$에 대한 Homography이면서 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$일 때 앞서 정리에 의해
@@ -1207,8 +1223,8 @@ $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Proj
 </div>
 </div>
 
-<div id="outline-container-orgc9edbb3" class="outline-3">
-<h3 id="orgc9edbb3"><span class="section-number-3">4.2</span> Computing $\mathbf{F}$given the homography induced by a plane</h3>
+<div id="outline-container-orga2ad417" class="outline-3">
+<h3 id="orga2ad417"><span class="section-number-3">4.2</span> Computing $\mathbf{F}$given the homography induced by a plane</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 일반적으로 두 개의 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;})$에 대한 Fundamental Matrix $\mathbf{F}$를 계산하기 위해서는 최소 8개의 대응점 쌍 $(\mathbf{x}_{i},\mathbf{x}_{i}^{&prime;}), \ i=1,&ctdot;,8$이 필요하다. 하지만 <b>Scene Plane Homography를 이용하면 6개의 대응점 쌍만 사용해도 $\mathbf{F}$를 계산할 수 있다.</b> 단, 6개의 대응점 쌍들 중 4개 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{x}_{i}^{&prime;}), \ i=1,&ctdot;,4$에 해당하는 월드 상의 점들의 동일한 평면 $\pi$위에 존재해야 한다는 제약조건이 있다.
@@ -1233,8 +1249,8 @@ $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Proj
 </div>
 </div>
 
-<div id="outline-container-orgedd0975" class="outline-3">
-<h3 id="orgedd0975"><span class="section-number-3">4.3</span> The infinite homography $\mathbf{H}_{\infty}$</h3>
+<div id="outline-container-org1e009e2" class="outline-3">
+<h3 id="org1e009e2"><span class="section-number-3">4.3</span> The infinite homography $\mathbf{H}_{\infty}$</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 Scene Plane이 무한대 평면(plane at infinity) $&pi;_{&infin;}$인 경우, 이 때 계산한 Homography를 Infinity Homography $\mathbf{H}_{&infin;}$라고 한다. 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$가 다음과 같이 주어졌을 때
@@ -1268,8 +1284,8 @@ Inifinite Homography $\mathbf{H}_{&infin;}$는 $d$가 무한대인 경우에 해
 </p>
 </div>
 
-<div id="outline-container-org97bd876" class="outline-4">
-<h4 id="org97bd876"><span class="section-number-4">4.3.1</span> Affine and metric reconstruction</h4>
+<div id="outline-container-orgb5e1ca4" class="outline-4">
+<h4 id="orgb5e1ca4"><span class="section-number-4">4.3.1</span> Affine and metric reconstruction</h4>
 <div class="outline-text-4" id="text-4-3-1">
 <p>
 만약 월드좌표계가 Affine인 경우 $&pi;_{&infin;}$는 $&pi;_{&infin;}=(0,0,0,1)^{\intercal}$과 같이 나타낼 수 있고 두 카메라 행렬이 $\mathbf{P}=[\mathbf{M}\ | \ \mathbf{m}], \ \mathbf{P}^{&prime;}=[\mathbf{M}^{&prime;} \ | \ \mathbf{m}^{&prime;}]$으로 주어진 경우 무한대 평면 상의 점 $\mathbf{X}&isin; &pi;_{&infin;}$를 각각 카메라에 프로젝션하면
@@ -1290,17 +1306,461 @@ Inifinite Homography $\mathbf{H}_{&infin;}$는 $d$가 무한대인 경우에 해
 </div>
 </div>
 </div>
-<div id="outline-container-orgb1c6a1c" class="outline-2">
-<h2 id="orgb1c6a1c"><span class="section-number-2">5</span> References</h2>
+<div id="outline-container-orga5cd98d" class="outline-2">
+<h2 id="orga5cd98d"><span class="section-number-2">5</span> The Trifocal Tensor</h2>
 <div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org59564f6" class="outline-3">
+<h3 id="org59564f6"><span class="section-number-3">5.1</span> The geometric basis for the trifocal tensor</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Three-View Geometry에서 Trifocal Tensor $\mathcal{T}$는 Two-View Geometry에서 Fundamental Matrix $\mathbf{F}$와 유사한 역할을 한다. $\mathbf{F}$와 유사하게 $\mathcal{T}$은 서로 다른 세 개의 카메라 이미지 평면들을 특별한 제약조건으로 구속시킨다.
+</p>
+</div>
+
+<div id="outline-container-orgf863c9e" class="outline-4">
+<h4 id="orgf863c9e"><span class="section-number-4">5.1.1</span> Incidence relations for lines</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+월드 평면 상의 한 직선 $\mathbf{L}$과 이를 바라보고 있는 서로 다른 세 개의 카메라가 주어졌다고 가정하자. 세 개의 카메라의 이미지 평면을 각각 $&pi;_{\mathbf{P}}, &pi;_{\mathbf{P}^{&prime;}}, &pi;_{\mathbf{P}^{&prime;&prime;}}$이라고 하고 $\mathbf{L}$을 이미지 평면 상에 프로젝션한 직선들은 $\mathbf{l},\mathbf{l}^{&prime;},\mathbf{l}^{&prime;&prime;}$이라고 했을 때 $\mathbf{l} \leftrightarrow \mathbf{l}^{\prime} \leftrightarrow \mathbf{l}^{\prime\prime}$사이의 관계를 알아보자.
+</p>
+
+<p>
+카메라 행렬을 각각 $(\mathbf{P},\mathbf{P}^{&prime;},\mathbf{P}^{&prime;&prime;})$이라고 했을 때 이를 Canonical Form으로 나타내면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp;\mathbf{P} = [\mathbf{I} \ | \ 0]\\
+    &amp;\mathbf{P}^{\prime} = [\mathbf{A} \ | \ \mathbf{a}_{4}]\\
+    &amp;\mathbf{P}^{\prime\prime} = [\mathbf{B} \ | \ \mathbf{b}_{4}]\\
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 항상 사영모호성을 포함하여(up to projectivity) 나타낼 수 있다. 월드 상의 직선 $\mathbf{L}$은 $\mathbf{l},\mathbf{l}^{&prime;},\mathbf{l}^{&prime;&prime;}$을 Back-projection한 평면들$&pi;, &pi;^{&prime;}, &pi;^{&prime;&prime;}$의 교차선이므로 $\mathbf{l},\mathbf{l}^{&prime;},\mathbf{l}^{&prime;&prime;}$를 Back-projection 해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \pi = \mathbf{P}^{\intercal}\mathbf{l} = \begin{pmatrix} \mathbf{l} \\ 0 \end{pmatrix}\\
+    &amp; \pi^{\prime} = \mathbf{P}^{\prime\intercal}\mathbf{l}^{\prime}= \begin{pmatrix} \mathbf{A}^{\intercal}\mathbf{l}^{\prime} \\ \mathbf{a}_{4}^{\intercal}\mathbf{l}^{\prime} \end{pmatrix} \\
+    &amp; \pi^{\prime\prime} = \mathbf{P}^{\prime\prime\intercal}\mathbf{l}^{\prime\prime}= \begin{pmatrix} \mathbf{B}^{\intercal}\mathbf{l}^{\prime\prime} \\ \mathbf{b}_{4}^{\intercal}\mathbf{l}^{\prime\prime} \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+같은 평면들의 법선벡터(normal vector)를 얻을 수 있다. 이러한 세 평면의 법선벡터를 열벡터로 가지는 행렬 $\mathbf{M}&isin; \mathbb{R}^{4&times;3}$이 다음과 같이 주어졌을 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{M} = \begin{bmatrix} \pi &amp; \pi^{\prime} &amp; \pi^{\prime\prime} \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+$\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 수직인 2차원 평면을 의미하므로 $\mathbf{M}$의 rank는 2이다. 따라서 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{M} = \begin{bmatrix} \mathbf{m}_{1}&amp;\mathbf{m}_{2}&amp;\mathbf{m}_{3} \end{bmatrix} = \begin{bmatrix} \mathbf{l}&amp;\mathbf{A}^{\intercal}\mathbf{l}^{\prime} &amp; \mathbf{B}^{\intercal}\mathbf{l}^{\prime\prime} \\ 0 &amp; \mathbf{a}_{4}^{\intercal}\mathbf{l}^{\prime} &amp; \mathbf{b}_{4}^{\intercal}\mathbf{l}^{\prime\prime} \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+에서 $\mathbf{m}_{1} = &alpha; \mathbf{m}_{2} + &beta; \mathbf{m}_{3}$가 성립한다. 이 때, 행렬 $\mathbf{M}$의 두 번째 행에서 첫번째 열 $(2,1)$값이 $0$이므로 $&alpha;, &beta;$를 구할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    0 = k(\mathbf{b}^{\intercal}\mathbf{l}^{\prime\prime})\mathbf{m}_{2} - (k\mathbf{a}^{\intercal}\mathbf{l}^{\prime})\mathbf{m}_{3}
+  \end{aligned}
+\end{equation}
+<p>
+따라서 임의의 상수 k에 대하여 $&alpha; = k(\mathbf{b}_{4}^{\intercal}\mathbf{l}^{&prime;}), &beta; = k(\mathbf{a}_{4}^{\intercal}\mathbf{l}^{&prime;})$이 된다. 다음으로 행렬 $\mathbf{M}$의 첫번째 행을 전개해보면 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l} &amp; = (\mathbf{b}_{4}^{\intercal}\mathbf{l}^{\prime\prime})\mathbf{A}^{\intercal}\mathbf{l}^{\prime} - (\mathbf{a}_{4}^{\intercal}\mathbf{l}^{\prime})\mathbf{B}^{\intercal}\mathbf{l}^{\prime\prime} \\
+    &amp; = (\mathbf{l}^{\prime\prime\intercal}\mathbf{b}_{4})\mathbf{A}^{\intercal}\mathbf{l}^{\prime} - (\mathbf{l}^{\prime\intercal}\mathbf{a}_{4})\mathbf{B}^{\intercal}\mathbf{l}^{\prime\prime} \\
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. $\mathbf{a}_{4}^{\intercal}\mathbf{l}^{&prime;}, \mathbf{b}_{4}^{\intercal}\mathbf{l}^{&prime;&prime;}$은 스칼라 값이므로 전치(transpose)를 취해도 같은 값을 나타낸다. 직선 $\mathbf{l}$의 i번째 좌표값을 $l_{i}$라고 하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    l_{i} &amp; = \mathbf{l}^{\prime\prime\intercal}(\mathbf{b}_{4}\mathbf{a}_{i}^{\intercal})\mathbf{l}^{\prime} - \mathbf{l}^{\prime\intercal}(\mathbf{a}_{4}\mathbf{b}_{i}^{\intercal})\mathbf{l}^{\prime\prime} \\
+    &amp; = \mathbf{l}^{\prime\intercal}(\mathbf{a}_{i}\mathbf{b}_{4}^{\intercal})\mathbf{l}^{\prime\prime} - \mathbf{l}^{\prime\intercal}(\mathbf{a}_{4}\mathbf{b}_{i}^{\intercal})\mathbf{l}^{\prime\prime} \\
+    &amp; = \mathbf{l}^{\prime\intercal}(\mathbf{a}_{i}\mathbf{b}_{4}^{\intercal}-\mathbf{a}_{4}\mathbf{b}_{i}^{\intercal})\mathbf{l}^{\prime\prime} 
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 나타낼 수 있다. 이 때 $\mathbf{a}_{i}\mathbf{b}_{4}^{\intercal}-\mathbf{a}_{4}\mathbf{b}_{i}^{\intercal}$를 $\mathbf{T}_{i}$로 치환하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    l_{i} = \mathbf{l}^{\prime\intercal}\mathbf{T}_{i}\mathbf{l}^{\prime\prime}
+  \end{aligned}
+\end{equation}
+<p>
+으로 간결하게 표현할 수 있고 이 때, <b>행렬의 집합 $\{\mathbf{T}_{1},\mathbf{T}_{2},\mathbf{T}_{3}\}$은 Trifocal Tensor $\mathcal{T}$을 행렬로 표현한 것을 의미한다. 이를 사용하여 직선 $\mathbf{l}$을 다시 표현해보면 다음과 같다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}^{\intercal} &amp; = \mathbf{l}^{\prime\intercal}\begin{bmatrix} \mathbf{T}_{1} &amp; \mathbf{T}_{2} &amp; \mathbf{T}_{3} \end{bmatrix}\mathbf{l}^{\prime\prime} \\
+    &amp; = (\mathbf{l}^{\prime\intercal}\mathbf{T}_{1}\mathbf{l}^{\prime\prime},\mathbf{l}^{\prime\intercal}\mathbf{T}_{2}\mathbf{l}^{\prime\prime},\mathbf{l}^{\prime\intercal}\mathbf{T}_{3}\mathbf{l}^{\prime\prime})
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orgc24852f" class="outline-4">
+<h4 id="orgc24852f"><span class="section-number-4">5.1.2</span> Homographies induced by a plane</h4>
+<div class="outline-text-4" id="text-5-1-2">
+<p>
+서로 다른 세 카메라의 이미지 평면을 각각 $\pi_{\mathbf{P}}, \pi_{\mathbf{P}^{\prime}}, \pi_{\mathbf{P}^{\prime\prime}}$하자. 두 번째 카메라 이미지 평면 상의 직선 $\mathbf{l}^{&prime;}$을 Back-projection하여 얻은 월드 상의 평면을 $&pi;^{&prime;}$이라고 하면 $&pi;^{&prime;}$을 통해 $&pi;_{\mathbf{P}}$에서 $&pi;_{\mathbf{P}^{&prime;&prime;}}$으로 변환하는 Homography $\mathbf{H}_{13}$가 존재한다. 해당 섹션에서는 $\mathbf{H}_{13}$를 $\mathbf{l}^{&prime;}$을 통해 기술하는 방법에 대해 설명한다.
+</p>
+
+<p>
+첫 번째 이미지 평면 상의 직선 $\mathbf{l}$은 Trifocal Tensor에 의해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l} = \mathbf{l}^{\prime\intercal} \begin{bmatrix} \mathbf{T}_{1},&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{l}^{\prime\prime}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 나타낼 수 있고 이를 정리하여 $\mathbf{l}=\mathbf{H}_{13}\mathbf{l}^{\prime\prime}$꼴로 나타내면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l} &amp; = \mathbf{l}^{\prime\intercal} \begin{bmatrix} \mathbf{T}_{1},&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{l}^{\prime\prime} \\
+    &amp; = (\begin{bmatrix} \mathbf{T}_{1}^{\intercal},&amp;\mathbf{T}_{2}^{\intercal}&amp;\mathbf{T}_{3}^{\intercal} \end{bmatrix}\mathbf{l}^{\prime})^{\intercal} \mathbf{l}^{\prime\prime} \\
+    &amp; = \mathbf{H}_{13}^{\intercal}\mathbf{l}^{\prime\prime}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 따라서 $\mathbf{H}_{13} = \begin{bmatrix}\mathbf{T}_{1}^{\intercal},&amp;\mathbf{T}_{2}^{\intercal}&amp;\mathbf{T}_{3}^{\intercal} \end{bmatrix}\mathbf{l}^{&prime;}$과 같다. $\mathbf{H}_{13}$을 사용하면 $\mathbf{x}^{&prime;&prime;} = \mathbf{H}_{13}\mathbf{x}$와 같이 $&pi;_{\mathbf{P}} &rarr; &pi;_{\mathbf{P}^{&prime;&prime;}}$으로 Homography 변환을 할 수 있다.
+</p>
+
+<p>
+이와 유사하게 $\mathbf{H}_{12}$는 $\mathbf{x}^{\prime} = \mathbf{H}_{12}\mathbf{x}$공식을 만족하며 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{12} = \begin{bmatrix} \mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{l}^{\prime\prime} \quad ^\forall \mathbf{l}^{\prime\prime}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org6c0234e" class="outline-4">
+<h4 id="org6c0234e"><span class="section-number-4">5.1.3</span> Point and line incidence relations</h4>
+<div class="outline-text-4" id="text-5-1-3">
+<p>
+이전 섹션에서는 $\mathbf{l} = \mathbf{l}^{\prime\intercal}\mathcal{T}\mathbf{l}^{\prime\prime}$공식을 통해 세 이미지 평면에 존재하는 직선들이 Trifocal Tensor $\mathcal{T}$에 의해 제약된다는 것에 대해 설명했다. <b>해당 섹션에서는 세 개의 직선들 뿐만 아니라 점과 직선들의 관계들이 Trifocal Tensor $\mathcal{T}$에 의해 어떻게 제약되는 지 설명한다.</b>
+</p>
+
+<p>
+직선 $\mathbf{l}$위에 존재하는 임의의 점 $\mathbf{x}$에 대해 $\mathbf{x}^{\intercal}\mathbf{l}=0$이 성립하고 이를 Tensor 표현법으로 다시 나타내면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{\intercal}\mathbf{l} &amp; = \sum_{i}x^{i}l_{i}  \\
+    &amp; = \sum_{i}x^{i}\mathbf{l}^{\prime\intercal}\mathbf{T}_{i}\mathbf{l}^{\prime\prime} \quad \because l_{i} = \mathbf{l}^{\prime\intercal}\mathbf{T}_{i}\mathbf{l}^{\prime\prime}\\
+    &amp; = \mathbf{l}^{\prime\intercal}(\sum_{i}x^{i}\mathbf{T}_{i})\mathbf{l}^{\prime\prime} = 0\\
+  \end{aligned}
+\end{equation}
+<p>
+같이 나타낼 수 있고 이는 <b>한 점과 두 직선(point-line-line) 사이의 관계를 의미한다.</b>
+</p>
+
+<p>
+이전 섹션에서 설명한 $\mathbf{H}_{13}$은 첫 번째 이미지 평면에서 세 번째 이미지 평면으로 변환하는 Homography를 의미한다. 이를 통해 $\mathbf{x}^{&prime;&prime;} = \mathbf{H}_{13}\mathbf{x}$와 같이 세 번째 이미지 평면 상의 점 $\mathbf{x}^{&prime;&prime;}$을 구할 수 있고 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{\prime\prime} = \mathbf{H}_{13}\mathbf{x} = \begin{bmatrix} \mathbf{T}_{1}{^\intercal}\mathbf{l}^{\prime} &amp; \mathbf{T}_{2}^{\intercal}\mathbf{l}^{\prime} &amp; \mathbf{T}_{3}^{\intercal}\mathbf{l}^{\prime} \end{bmatrix}\mathbf{x} = (\sum_{i}x^{i}\mathbf{T}_{i}^{\intercal})\mathbf{l}^{\prime}
+  \end{aligned}
+\end{equation}
+<p>
+같이 전개할 수 있다. 이 때, $\mathbf{x}^{&prime;&prime;}$은 Scale Factor를 포함하고 있으므로 유일하게 $\mathbf{x}^{&prime;&prime;}$를 결정하기 위해 $\mathbf{x}^{&prime;&prime;&and;}$를 곱하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{\prime\prime\intercal}\mathbf{x}^{\prime\prime\wedge} = \mathbf{l}^{\prime\intercal}(\sum_{i}x^{i}\mathbf{T}_{i})\mathbf{x}^{\prime\prime\wedge} = \mathbf{0}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이는 <b>두 개의 점과 하나의 직선 사이(point-line-point)의 관계를 의미한다.</b>
+</p>
+
+<p>
+이와 유사하게 세 개의 점이 주어졌을 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{\prime\wedge}(\sum_{i}x^{i}\mathbf{T}_{i})\mathbf{x}^{\prime\prime\wedge} = \mathbf{0}
+  \end{aligned}
+\end{equation}
+<p>
+을 통해 Scale Factor를 제거하여 유일한 $\mathbf{x}^{&prime;}$을 구할 수 있으며 <b>해당 공식은 세 점 사이(point-point-point)의 관계를 의미한다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgac63c2f" class="outline-4">
+<h4 id="orgac63c2f"><span class="section-number-4">5.1.4</span> Epipolar lines</h4>
+<div class="outline-text-4" id="text-5-1-4">
+<p>
+<b>Trifocal Tensor $\mathcal{T}$를 통해 두 카메라의 Epipoar Line을 구할 수 있다.</b> 세 이미지 평면 $&pi;_{\mathbf{P}},&pi;_{\mathbf{P}^{&prime;}},&pi;_{\mathbf{P}^{&prime;&prime;}}$이 주어지고 $\pi_{\mathbf{P}}$위의 한 점 $\mathbf{x}$가 존재하며 $\pi_{\mathbf{P}^{\prime}}, \pi_{\mathbf{P}^{\prime\prime}}$평면에 Epipolar Line $\mathbf{l}^{&prime;}, \mathbf{l}^{&prime;&prime;}$이 존재한다고 가정하면 이들 사이에는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{l}^{\prime\intercal}(\sum_{i}x^{i}\mathbf{T}_{i}) =0 \\
+    &amp; (\sum_{i}x^{i}\mathbf{T}_{i})\mathbf{l}^{\prime\prime} = 0
+  \end{aligned}
+\end{equation}
+<p>
+관계가 성립한다. 즉, <b>$\mathbf{l}^{&prime;\intercal}$은 $(&sum;_{i}x^{i}\mathbf{T}_{i})$의 Left Null Vector이며 $\mathbf{l}^{&prime;&prime;}$은 $(&sum;_{i}x^{i}\mathbf{T}_{i})$의 Right Null Vector가 된다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7fca2da" class="outline-4">
+<h4 id="org7fca2da"><span class="section-number-4">5.1.5</span> Proof</h4>
+<div class="outline-text-4" id="text-5-1-5">
+<p>
+두 번째 이미지 평면 $\pi_{\mathbf{P}^{\prime}}$상의 Epipolar Line $\mathbf{l}^{&prime;}$을 Back-projection하여 생성된 평면을 $&pi;^{&prime;}$이라고 하면 $&pi;^{&prime;}$과 $\pi_{\mathbf{P}}$사이에는 교차선이 생성되고 해당 교차선은 $\pi_{\mathbf{P}}$평면의 Epipolar Line $\mathbf{l}$이 된다. 이 때 세 번째 이미지 평면 $\pi_{\mathbf{P}^{\prime\prime}}$상의 임의의 직선 $\mathbf{l}^{&prime;&prime;}$을 Back-projection한 평면 $&pi;^{&prime;&prime;}$과 $&pi;^{&prime;}$은 월드 평면 상의 직선 $\mathbf{L}$에서 교차선을 생성하며 이를 다시 $&pi;_{\mathbf{P}}$로 프로젝션하면 $\mathbf{L}$은 항상 Epipolar Line $\mathbf{l}$위에 한 점 $\mathbf{x}&isin; \mathbf{l}$로 프로젝션된다.
+</p>
+
+<p>
+이러한 $\mathbf{l} \leftrightarrow \mathbf{l}^{\prime} \leftrightarrow \mathbf{l}^{\prime\prime}$관계를 통해 Trifocal Tensor $\mathcal{T}$을 구할 수 있으며 이전 섹션에서 설명한 <b>한 점 $\mathbf{x}$와 두 직선 사이(point-line-line)의 관계 공식이 성립한다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x} \in \mathbf{l} = \mathbf{l}^{\prime\intercal}\mathcal{T}\mathbf{l}^{\prime\prime} \\
+    &amp;  \mathbf{l}^{\prime\intercal}(\sum_{i}x^{i}\mathbf{T}_{i})\mathbf{l}^{\prime\prime} = 0 \quad ^\forall \mathbf{l}^{\prime\prime} \\
+    &amp; \therefore \mathbf{l}^{\prime\intercal}(\sum_{i}x^{i}\mathbf{T}_{i}) = 0
+  \end{aligned}
+\end{equation}
+<p>
+위와 같이 <b>모든 $\mathbf{l}^{&prime;&prime;}$에 대해 위 공식을 만족해야 하므로 $\mathbf{l}^{\prime\intercal}(\sum_{i}x^{i}\mathbf{T}_{i}) = 0$공식이 성립하게 된다. 이를 모든 $\mathbf{l}^{&prime;}$에 대해서도 마찬가지로 성립하므로 $(\sum_{i}x^{i}\mathbf{T}_{i})\mathbf{l}^{\prime\prime} = 0$또한 성립한다.</b>
+</p>
+
+<p>
+\textbfazure{추가적으로 Epipole $\mathbf{e}^{&prime;}, \mathbf{e}^{&prime;&prime;}$은 모든 $^&forall; \mathbf{x}$에 대해 구할 수 있는 $\mathbf{l}^{&prime;}, \mathbf{l}^{&prime;&prime;}$들의 교차점을 계산함으로써 구할 수 있다..}
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd482509" class="outline-4">
+<h4 id="orgd482509"><span class="section-number-4">5.1.6</span> Extracting the fundamental matrices</h4>
+<div class="outline-text-4" id="text-5-1-6">
+<p>
+이전 섹션에서 설명한 것과 같이 여러 점과 직선들과 관계를 통해 세 개의 이미지 평면에 대한 Trifocal Tensor $\mathcal{T}$를 구할 수 있다. 해당 섹션에서는 $\mathcal{T}$를 통해 세 개의 서로 다른 Fundamental Matrix $\mathbf{F}$를 구하는 방법에 대해 설명한다.
+</p>
+
+<p>
+Fundamental Matrix $\mathbf{F}_{21}$는 $\mathbf{F}_{21}=\mathbf{e}^{&prime;&and;}\mathbf{H}_{21}$를 통해 구할 수 있다. $\mathbf{F}_{ij}$는 i번째 이미지 평면과 j번째 이미지 평면 사이의 Fundamental Matrix를 의미한다. $\mathbf{e}^{&prime;}$은 이전 섹션에서 설명한 방법대로 $\mathbf{T}_{i}$의 Left Null Vector를 계산하여 $\mathbf{l}^{&prime;}, \mathbf{e}^{&prime;}$을 통해 구하고 $\mathbf{H}_{21}$은 $\begin{bmatrix}\mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{l}^{&prime;&prime;}$과 같이 구할 수 있으므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F}_{21} &amp; = \mathbf{e}^{\prime\wedge}\mathbf{H} \\
+    &amp; = \mathbf{e}^{\prime\wedge}\begin{bmatrix} \mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{l}^{\prime\prime}  \quad ^\exists \mathbf{l}^{\prime\prime}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이 때 $\mathbf{l}^{&prime;&prime;}$은 $\mathbf{T}_{i}$의 Null Space에 존재하면 안된다. 즉 $\mathbf{T}_{i}\mathbf{l}^{&prime;&prime;} &ne; 0$이어야 한다. 다시 말하면 $\begin{bmatrix}\mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{l}^{&prime;&prime;}$의 rank가 3이어야 한다. 이 때, Epipole $\mathbf{e}^{&prime;&prime;}$은 $\mathbf{l}^{&prime;&prime;}$의 Null Space에 존재하므로 $\mathbf{e}^{&prime;&prime;\intercal}\mathbf{l}^{&prime;&prime;} = 0$을 만족한다. 따라서
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{e}^{\prime\prime} \perp \text{Nul } \mathbf{T}_{i} \quad ^\forall i
+  \end{aligned}
+\end{equation}
+<p>
+를 만족하므로 \textbfazure{$\mathbf{l}^{\prime\prime}$대신 $\mathbf{e}^{&prime;&prime;}$을 대입하면 항상 행렬의 rank가 3이 된다. 결론적으로 Fundamental Matrix $\mathbf{F}_{21}$은}
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F}_{21} = \mathbf{e}^{\prime\wedge} \begin{bmatrix} \mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{e}^{\prime\prime}
+  \end{aligned}
+\end{equation}
+<p>
+\textbfazure{을 통해 구할 수 있다. 동일한 방법을 사용하여 $\mathbf{F}_{31}=\mathbf{e}^{&prime;&prime;&and;} \begin{bmatrix}\mathbf{T}_{1}^{\intercal}&amp;\mathbf{T}_{2}^{\intercal}&amp;\mathbf{T}_{3}^{\intercal} \end{bmatrix}\mathbf{e}^{&prime;}$을 구할 수 있다.}
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgea24b7a" class="outline-4">
+<h4 id="orgea24b7a"><span class="section-number-4">5.1.7</span> Retrieving the camera matrices</h4>
+<div class="outline-text-4" id="text-5-1-7">
+<p>
+Two-view Geometry에서는 Fundamental Matrix $\mathbf{F}$가 주어지면 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$을 사영모호성을 포함하여(up to projectivity) 구할 수 있었다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = [\mathbf{I} \ | \ 0] \\
+    &amp; \mathbf{P}^{\prime} = [\mathbf{A} \ | \ \mathbf{e}^{\prime}] \\
+    &amp; \text{where, } \mathbf{F} = \mathbf{e}^{\prime\wedge}\mathbf{A} \ \text{ in two-view.}
+  \end{aligned}
+\end{equation}
+<p>
+Three-view Geoemtry에서는 Trifocal Tensor $\mathcal{T}$를 통해 $\mathbf{F}_{21} = \mathbf{e}^{\prime\wedge} \begin{bmatrix} \mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{e}^{\prime\prime}$그리고 $\mathbf{F}_{31}=\mathbf{e}^{&prime;&prime;&and;} \begin{bmatrix}\mathbf{T}_{1}^{\intercal}&amp;\mathbf{T}_{2}^{\intercal}&amp;\mathbf{T}_{3}^{\intercal} \end{bmatrix}\mathbf{e}^{&prime;}$을 구했을 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = [\mathbf{I} \ | \ 0] \\
+    &amp; \mathbf{P}^{\prime} = [ \begin{bmatrix} \mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{e}^{\prime\prime} \ | \ \mathbf{e}^{\prime}] \\
+    &amp; \text{but, } \mathbf{P}^{\prime\prime} \neq [\begin{bmatrix} \mathbf{T}_{1}^{\intercal}&amp;\mathbf{T}_{2}^{\intercal}&amp;\mathbf{T}_{3}^{\intercal} \end{bmatrix}\mathbf{e}^{\prime} \ | \ \mathbf{e}^{\prime\prime}] \ \ \text{in three-view.}
+  \end{aligned}
+\end{equation}
+<p>
+관계가 성립한다. 다시 말하면 \textbfazure{$(\mathbf{P},\mathbf{P}^{&prime;})$을 계산하면 월드좌표계가 고정되고 따라서 $\mathbf{P}^{&prime;&prime;}$은 고정된 월드좌표계에 대해서 다시 표현해야 한다는 것으 의미한다.} p256 공식 (9.10)에 의해 Canonical Form에 대한 가장 일반적인 카메라 행렬은 다음곽 같이 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}^{\prime\prime} = [\mathbf{H}+\mathbf{e}^{\prime\prime}\mathbf{v}^{\intercal} \ | \ \lambda \mathbf{e}^{\prime\prime}]
+  \end{aligned}
+\end{equation}
+<p>
+이를 전개하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+     \mathbf{P}^{\prime\prime} &amp; = [\mathbf{H}+\mathbf{e}^{\prime\prime}\mathbf{v}^{\intercal} \ | \ \lambda \mathbf{e}^{\prime\prime}] \\
+     &amp; = [\underbrace{\begin{bmatrix} \mathbf{T}_{1}^{\intercal}&amp;\mathbf{T}_{2}^{\intercal}&amp;\mathbf{T}_{3}^{\intercal} \end{bmatrix}\mathbf{e}^{\prime}+\mathbf{e}^{\prime\prime}\mathbf{v}^{\intercal}}_{\mathbf{B}} \ | \ \underbrace{\lambda \mathbf{e}^{\prime\prime}}_{\mathbf{b_{4}}}] \\
+  \end{aligned}
+\end{equation}
+<p>
+이 되고 $\mathbf{P}^{&prime;} = [\mathbf{A}\ | \ \mathbf{a}_{4}]$은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}^{\prime} &amp; = [\mathbf{A} \ | \ \mathbf{a}_{4}] \\
+    &amp; = [\underbrace{\begin{bmatrix} \mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{e}^{\prime\prime}}_{\mathbf{A}} \ | \ \underbrace{\mathbf{e}^{\prime}}_{\mathbf{a}_{4}}]
+  \end{aligned}
+\end{equation}
+<p>
+이므로 $\mathbf{T}_{i}$의 정의에 의해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{T}_{i} &amp; = \mathbf{a}_{i}\mathbf{b}_{4}^{\intercal} + \mathbf{a}_{4}\mathbf{b}_{i}^{\intercal} \\
+    &amp; = \mathbf{T}_{i}\mathbf{e}^{\prime\prime}\mathbf{e}^{\prime\prime\intercal} - \mathbf{e}^{\prime}\mathbf{b}_{i}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이를 정리하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{T}_{i}(\mathbf{I} - \mathbf{e}^{\prime\prime}\mathbf{e}^{\prime\prime\intercal}) = - \mathbf{e}^{\prime}\mathbf{b}_{i}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이 때 $\|\mathbf{e}^{&prime;}\|=1$이라고 가정하고 양 변에 $\mathbf{e}^{&prime;\intercal}$을 곱하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{b}_{i}^{\intercal} = \mathbf{e}^{\prime\intercal}\mathbf{T}_{i}(\mathbf{e}^{\prime\prime}\mathbf{e}^{\prime\prime} - \mathbf{I})
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. \textbfazure{최종적으로 $\mathbf{P}^{&prime;&prime;}$은 다음과 같다.}
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}^{\prime\prime} = [ (\mathbf{e}^{\prime\prime}\mathbf{e}^{\prime\prime\intercal}-\mathbf{I})\begin{bmatrix} \mathbf{T}_{1}^{\intercal}&amp;\mathbf{T}_{2}^{\intercal}&amp;\mathbf{T}_{3}^{\intercal} \end{bmatrix}\mathbf{e}^{\prime} \ | \ \mathbf{e}^{\prime\prime}]
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfad94ad" class="outline-3">
+<h3 id="orgfad94ad"><span class="section-number-3">5.2</span> The trifocal tensor and tensor notation</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+Trifocal Tensor $\mathcal{T}$를 Tensor 표현법으로 나타내면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathcal{T}_{i}^{jk} &amp; = (j,k) \ \text{entry of} \ \mathbf{T}_{i} \\
+    &amp; = a_{i}^{j}b_{4}^{k} - a_{4}^{j}b_{i}^{k}
+  \end{aligned}
+\end{equation}
+<p>
+행렬로 표현한 직선 $\mathbf{l}$의 i번째 좌표는 $l_{i}=\mathbf{l}^{&prime;\intercal}\mathbf{T}_{i}\mathbf{l}^{&prime;&prime;}$과 같이 나타낼 수 있고 이를 Tensor 표현법으로 나타내면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    l_{i} &amp; = l_{i}^{\prime}\mathcal{T}_{i}^{jk}l_{k}^{\prime\prime} \\
+    &amp; = l_{i}^{\prime}l_{k}^{\prime\prime}\mathcal{T}_{i}^{jk}
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. Tensor 표현법을 통해 첫 번째 카메라의 직선 $\mathbf{l}$을 세 번째 카메라의 직선 $\mathbf{l}^{&prime;&prime;}$으로 변환하는 Homography $\mathbf{H}: &pi;_{\mathbf{P}}\mapsto&pi;_{\mathbf{P}^{&prime;&prime;}}$을 구할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; l_{i} = l_{k}^{\prime\prime}(l_{j}^{\prime}\mathcal{T}_{i}^{jk}) = l_{k}^{\prime\prime}h_{i}^{k} \\
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $h_{i}^{k} = l_{j}^{&prime;}\mathcal{T}_{i}^{jk}$를 의미한다. Homography $\mathbf{H}$를 사용하여 점을 변환하는 경우
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    x^{\prime\prime k} = h_{i}^{k}x^{i}
+  \end{aligned}
+\end{equation}
+<p>
+가 된다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb074f40" class="outline-2">
+<h2 id="orgb074f40"><span class="section-number-2">6</span> References</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 <a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
 </p>
 </div>
 </div>
-<div id="outline-container-org3cb6169" class="outline-2">
-<h2 id="org3cb6169"><span class="section-number-2">6</span> Closure</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-org5de94fb" class="outline-2">
+<h2 id="org5de94fb"><span class="section-number-2">7</span> Closure</h2>
+<div class="outline-text-2" id="text-7">
 <p>
 PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.
 </p>
