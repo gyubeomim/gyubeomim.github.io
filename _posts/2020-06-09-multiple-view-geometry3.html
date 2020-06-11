@@ -16,7 +16,7 @@ comments: true
 <ul>
 <li><a href="#org4c13121">1.1. The projective reconstruction theorem</a>
 <ul>
-<li><a href="#orgc308a55">1.1.1. Proof</a></li>
+<li><a href="#orgf0225ba">1.1.1. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org83e42ac">1.2. Stratified reconstruction</a>
@@ -37,7 +37,7 @@ comments: true
 <li><a href="#org420946a">2.2. The normalized 8-point algorithm</a>
 <ul>
 <li><a href="#org0794e0a">2.2.1. Degenrate configurations</a></li>
-<li><a href="#orga5638cb">2.2.2. Proof</a></li>
+<li><a href="#org16d3d97">2.2.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org10c6ec1">2.3. The Gold Standard method</a></li>
@@ -63,12 +63,12 @@ comments: true
 <ul>
 <li><a href="#org2115de8">4.1. Homographies given the plane and vice versa</a>
 <ul>
-<li><a href="#orgf43f6cb">4.1.1. Proof</a></li>
+<li><a href="#org2d71dcc">4.1.1. Proof</a></li>
 <li><a href="#org65b3510">4.1.2. A calibrated stereo rig</a></li>
 <li><a href="#orgbda5a48">4.1.3. Homographies compatible with epipolar geometry</a></li>
-<li><a href="#org91140a1">4.1.4. Proof</a></li>
+<li><a href="#org316444f">4.1.4. Proof</a></li>
 <li><a href="#org935f04e">4.1.5. Corollary</a></li>
-<li><a href="#orge9ada31">4.1.6. Proof</a></li>
+<li><a href="#org3f83aa3">4.1.6. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orga2ad417">4.2. Computing $\mathbf{F}$given the homography induced by a plane</a></li>
@@ -87,7 +87,7 @@ comments: true
 <li><a href="#orgc24852f">5.1.2. Homographies induced by a plane</a></li>
 <li><a href="#org6c0234e">5.1.3. Point and line incidence relations</a></li>
 <li><a href="#orgac63c2f">5.1.4. Epipolar lines</a></li>
-<li><a href="#orgf0225ba">5.1.5. Proof</a></li>
+<li><a href="#orgc66745b">5.1.5. Proof</a></li>
 <li><a href="#orgd482509">5.1.6. Extracting the fundamental matrices</a></li>
 <li><a href="#orgea24b7a">5.1.7. Retrieving the camera matrices</a></li>
 </ul>
@@ -162,8 +162,8 @@ comments: true
 \end{equation}
 </div>
 
-<div id="outline-container-orgc308a55" class="outline-4">
-<h4 id="orgc308a55"><span class="section-number-4">1.1.1</span> Proof</h4>
+<div id="outline-container-orgf0225ba" class="outline-4">
+<h4 id="orgf0225ba"><span class="section-number-4">1.1.1</span> Proof</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 이전 섹션에서 동일한 Fundamental Matrix $\mathbf{F}$를 공유하는 카메라 행렬 대응쌍 사이에 $\mathbf{P}_{2} = \mathbf{P}_{1}\mathbf{H}^{-1}, \mathbf{P}_{2}^{&prime;} =\mathbf{P}_{1}^{&prime;}\mathbf{H}^{-1}$를 만족하는 Homography 행렬 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재한다는 것을 증명하였다. 이를 적용해보면
@@ -524,8 +524,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-orga5638cb" class="outline-4">
-<h4 id="orga5638cb"><span class="section-number-4">2.2.2</span> Proof</h4>
+<div id="outline-container-org16d3d97" class="outline-4">
+<h4 id="org16d3d97"><span class="section-number-4">2.2.2</span> Proof</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 임의의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;}, \{\mathbf{X}^{i}\})$이 Critical Triple이라는 것을 보이기 위해서는 이와 대응하는 카메라 행렬 대응쌍 $(\mathbf{Q}, \mathbf{Q}^{&prime;}, \{\mathbf{Y}^{i}\})$이 같은 Fundamental Matrix $\mathbf{F}$를 가진다는 사실을 사용해야 한다. $\mathbb{P}^{3}$공간에서 이차곡면은 4x4 크기의 행렬로 정의된다.
@@ -1003,8 +1003,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </p>
 </div>
 
-<div id="outline-container-orgf43f6cb" class="outline-4">
-<h4 id="orgf43f6cb"><span class="section-number-4">4.1.1</span> Proof</h4>
+<div id="outline-container-org2d71dcc" class="outline-4">
+<h4 id="org2d71dcc"><span class="section-number-4">4.1.1</span> Proof</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <p>
 두 카메라의 이미지 평면 $&pi;_{\mathbf{P}}, &pi;_{\mathbf{P}^{&prime;}}$가 주어졌을 때, 월드 평면 상의 점 $\mathbf{X}&isin; &pi;$를 $\pi_{\mathbf{P}}$평면으로 프로젝션한 점 $\mathbf{x}$는 다음과 같다.
@@ -1145,8 +1145,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </div>
 </div>
 
-<div id="outline-container-org91140a1" class="outline-4">
-<h4 id="org91140a1"><span class="section-number-4">4.1.4</span> Proof</h4>
+<div id="outline-container-org316444f" class="outline-4">
+<h4 id="org316444f"><span class="section-number-4">4.1.4</span> Proof</h4>
 <div class="outline-text-4" id="text-4-1-4">
 <p>
 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Projective Reconstruction을 수행하면 두 카메라 행렬 대응쌍을
@@ -1198,8 +1198,8 @@ $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Proj
 </div>
 </div>
 
-<div id="outline-container-orge9ada31" class="outline-4">
-<h4 id="orge9ada31"><span class="section-number-4">4.1.6</span> Proof</h4>
+<div id="outline-container-org3f83aa3" class="outline-4">
+<h4 id="org3f83aa3"><span class="section-number-4">4.1.6</span> Proof</h4>
 <div class="outline-text-4" id="text-4-1-6">
 <p>
 ($\Rightarrow$) $\mathbf{H}$가 월드 상의 평면 $&pi;=(\mathbf{v}^{\intercal},1)^{\intercal}$에 대한 Homography이면서 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$일 때 앞서 정리에 의해
@@ -1556,8 +1556,8 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
 </div>
 </div>
 
-<div id="outline-container-orgf0225ba" class="outline-4">
-<h4 id="orgf0225ba"><span class="section-number-4">5.1.5</span> Proof</h4>
+<div id="outline-container-orgc66745b" class="outline-4">
+<h4 id="orgc66745b"><span class="section-number-4">5.1.5</span> Proof</h4>
 <div class="outline-text-4" id="text-5-1-5">
 <p>
 두 번째 이미지 평면 $\pi_{\mathbf{P}^{\prime}}$상의 Epipolar Line $\mathbf{l}^{&prime;}$을 Back-projection하여 생성된 평면을 $&pi;^{&prime;}$이라고 하면 $&pi;^{&prime;}$과 $\pi_{\mathbf{P}}$사이에는 교차선이 생성되고 해당 교차선은 $\pi_{\mathbf{P}}$평면의 Epipolar Line $\mathbf{l}$이 된다. 이 때 세 번째 이미지 평면 $\pi_{\mathbf{P}^{\prime\prime}}$상의 임의의 직선 $\mathbf{l}^{&prime;&prime;}$을 Back-projection한 평면 $&pi;^{&prime;&prime;}$과 $&pi;^{&prime;}$은 월드 평면 상의 직선 $\mathbf{L}$에서 교차선을 생성하며 이를 다시 $&pi;_{\mathbf{P}}$로 프로젝션하면 $\mathbf{L}$은 항상 Epipolar Line $\mathbf{l}$위에 한 점 $\mathbf{x}&isin; \mathbf{l}$로 프로젝션된다.
@@ -1812,16 +1812,16 @@ Tensor 표현법을 사용해서 이전 섹션에서 설명한 여러 점들과 
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{l}^{\prime\intercal} (\sum_{i}x^{i}\mathbf{T}_{i})\mathbf{x}^{\dprime\wedge} = \mathbf{0}^{\intercal}
+    \mathbf{l}^{\prime\intercal} (\sum_{i}x^{i}\mathbf{T}_{i})\mathbf{x}^{\prime\prime\wedge} = \mathbf{0}^{\intercal}
   \end{aligned}
 \end{equation}
 <p>
-이를 Tensor 표현법으로 나타내면 $(\mathbf{x}^{\dprime&and;})_{qs} = -x^{\dprimek}&epsilon;_{kqs}$가 되므로 이를 다시 정리하면
+이를 Tensor 표현법으로 나타내면 $(\mathbf{x}^{&prime;&prime;&and;})_{qs} = -x^{&prime;&prime; k}&epsilon;_{kqs}$가 되므로 이를 다시 정리하면
 </p>
 
 \begin{equation}
   \begin{aligned}
-    l^{\prime}_{j}x^{i}\mathcal{T}_{i}^{jq}x^{\dprime k}\epsilon_{kqs} = 0_{s}
+    l^{\prime}_{j}x^{i}\mathcal{T}_{i}^{jq}x^{\prime\prime k}\epsilon_{kqs} = 0_{s}
   \end{aligned}
 \end{equation}
 <p>
@@ -1843,44 +1843,44 @@ Tensor 표현법을 사용해서 이전 섹션에서 설명한 여러 점들과 
 <h4 id="org80f576c"><span class="section-number-4">5.3.1</span> Point transfer using fundamental matrices</h4>
 <div class="outline-text-4" id="text-5-3-1">
 <p>
-<b>Point Transfer는 세 개의 이미지 평면 $&pi;_{\mathbf{P}}, &pi;_{\mathbf{P}^{&prime;}}, &pi;_{\mathbf{P}^{\dprime}}$에 대한 Fundamental Matrix $\mathbf{F}_{21}, \mathbf{F}_{31}, \mathbf{F}_{32}$가 주어졌을 때 이미 알고 있는 $\mathbf{x}, \mathbf{x}^{&prime;}$의 위치를 통해 $\mathbf{x}^{\dprime}$의 위치를 결정하는 것을 말한다.</b> 이는 Epipolar Geometry를 통해 결정할 수 있다. 세 번째 이미지 평면 $\pi_{\mathbf{P}^{\dprime}}$상에 존재하는 Epipolar Line $\mathbf{l}^{\dprime}$은
+<b>Point Transfer는 세 개의 이미지 평면 $&pi;_{\mathbf{P}}, &pi;_{\mathbf{P}^{&prime;}}, &pi;_{\mathbf{P}^{&prime;&prime;}}$에 대한 Fundamental Matrix $\mathbf{F}_{21}, \mathbf{F}_{31}, \mathbf{F}_{32}$가 주어졌을 때 이미 알고 있는 $\mathbf{x}, \mathbf{x}^{&prime;}$의 위치를 통해 $\mathbf{x}^{&prime;&prime;}$의 위치를 결정하는 것을 말한다.</b> 이는 Epipolar Geometry를 통해 결정할 수 있다. 세 번째 이미지 평면 $\pi_{\mathbf{P}^{\prime\prime}}$상에 존재하는 Epipolar Line $\mathbf{l}^{&prime;&prime;}$은
 </p>
 
 \begin{equation}
   \begin{aligned}
-    &amp; \mathbf{l}^{\dprime}_{31} = \mathbf{F}_{31}\mathbf{x} \\
-    &amp; \mathbf{l}^{\dprime}_{32} = \mathbf{F}_{32}\mathbf{x}^{\prime} 
+    &amp; \mathbf{l}^{\prime\prime}_{31} = \mathbf{F}_{31}\mathbf{x} \\
+    &amp; \mathbf{l}^{\prime\prime}_{32} = \mathbf{F}_{32}\mathbf{x}^{\prime} 
   \end{aligned}
 \end{equation}
 <p>
-이므로 $\pi_{\mathbf{P}^{\dprime}}$위에 존재하는 한 점 $\mathbf{x}^{\dprime}$은 
+이므로 $\pi_{\mathbf{P}^{\prime\prime}}$위에 존재하는 한 점 $\mathbf{x}^{&prime;&prime;}$은 
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}^{\dprime} \in \mathbf{l}^{\dprime}_{31} \text{ and } \mathbf{l}^{\dprime}_{32}
+    \mathbf{x}^{\prime\prime} \in \mathbf{l}^{\prime\prime}_{31} \text{ and } \mathbf{l}^{\prime\prime}_{32}
   \end{aligned}
 \end{equation}
 <p>
-을 만족해야 한다. 따라서 $\mathbf{x}^{\dprime}$은 위 두 직선의 교차점으로 결정된다.
+을 만족해야 한다. 따라서 $\mathbf{x}^{&prime;&prime;}$은 위 두 직선의 교차점으로 결정된다.
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}^{\dprime} = (\mathbf{F}_{31}\mathbf{x}) \times (\mathbf{F}_{32}\mathbf{x}^{\prime})
+    \mathbf{x}^{\prime\prime} = (\mathbf{F}_{31}\mathbf{x}) \times (\mathbf{F}_{32}\mathbf{x}^{\prime})
   \end{aligned}
 \end{equation}
 <p>
-이 때, <b>위 공식에서 $\mathbf{F}_{21}$은 사용되지 않았는데 실제로는 대응점 쌍 $(\mathbf{x},\mathbf{x}^{&prime;})$에 노이즈가 존재하기 때문에 이를 개선시키기 위해 사용된다.</b> 대응점 쌍의 노이즈로 인해 $\mathbf{x}^{\intercal}\mathbf{F}_{21}\mathbf{x}^{\prime}=0$공식을 만족하지 않으므로 이전 섹션에서 설명한 Optimal Triangulation 방법을 사용하여 $d(\mathbf{x},\mathbf{l}(t))^{2} + d(\mathbf{x}^{\prime}, \mathbf{l}^{\prime}(t))^{2}$값이 최소가 되는 $\hat{\mathbf{x}} &harr; \hat{\mathbf{x}}^{&prime;}$를 구한 후 이를 통해 $\mathbf{x}^{\dprime}$을 계산한다.
+이 때, <b>위 공식에서 $\mathbf{F}_{21}$은 사용되지 않았는데 실제로는 대응점 쌍 $(\mathbf{x},\mathbf{x}^{&prime;})$에 노이즈가 존재하기 때문에 이를 개선시키기 위해 사용된다.</b> 대응점 쌍의 노이즈로 인해 $\mathbf{x}^{\intercal}\mathbf{F}_{21}\mathbf{x}^{\prime}=0$공식을 만족하지 않으므로 이전 섹션에서 설명한 Optimal Triangulation 방법을 사용하여 $d(\mathbf{x},\mathbf{l}(t))^{2} + d(\mathbf{x}^{\prime}, \mathbf{l}^{\prime}(t))^{2}$값이 최소가 되는 $\hat{\mathbf{x}} &harr; \hat{\mathbf{x}}^{&prime;}$를 구한 후 이를 통해 $\mathbf{x}^{&prime;&prime;}$을 계산한다.
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}^{\dprime} = (\mathbf{F}_{31}\hat{\mathbf{x}}) \times (\mathbf{F}_{32}\hat{\mathbf{x}}^{\prime})
+    \mathbf{x}^{\prime\prime} = (\mathbf{F}_{31}\hat{\mathbf{x}}) \times (\mathbf{F}_{32}\hat{\mathbf{x}}^{\prime})
   \end{aligned}
 \end{equation}
 <p>
-하지만 <b>해당 Point Transfer는 세 개의 카메라의 중심점 $\mathbf{C},\mathbf{C}^{&prime;},\mathbf{C}^{\dprime}$이 이루는 Trifocal 평면에 대응점 쌍 $\mathbf{x},\mathbf{x}^{&prime;}$이 존재하는 경우 $&pi;_{\mathbf{P}^{\dprime}}$에 프로젝션되는 Epipolar Line이 다음과 같이 동일하게 생성되어</b>
+하지만 <b>해당 Point Transfer는 세 개의 카메라의 중심점 $\mathbf{C},\mathbf{C}^{&prime;},\mathbf{C}^{&prime;&prime;}$이 이루는 Trifocal 평면에 대응점 쌍 $\mathbf{x},\mathbf{x}^{&prime;}$이 존재하는 경우 $&pi;_{\mathbf{P}^{&prime;&prime;}}$에 프로젝션되는 Epipolar Line이 다음과 같이 동일하게 생성되어</b>
 </p>
 
 \begin{equation}
@@ -1889,7 +1889,7 @@ Tensor 표현법을 사용해서 이전 섹션에서 설명한 여러 점들과 
   \end{aligned}
 \end{equation}
 <p>
-<b>이를 통해 $\mathbf{x}^{\dprime}$의 유일한 위치를 결정할 수 없다. 이는 Fundamental Matrix를 이용한 Point Transfer의 한계점으로 볼 수 있다.</b>
+<b>이를 통해 $\mathbf{x}^{&prime;&prime;}$의 유일한 위치를 결정할 수 없다. 이는 Fundamental Matrix를 이용한 Point Transfer의 한계점으로 볼 수 있다.</b>
 </p>
 </div>
 </div>
@@ -1908,7 +1908,7 @@ $\mathcal{T}$를 이용해 $\mathbf{F}_{21}$를 계산한다.
 </p>
   \begin{equation}
     \begin{aligned}
-      \mathbf{F}_{21} = \mathbf{e}^{\prime\intercal} \begin{bmatrix} \mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{e}^{\dprime}
+      \mathbf{F}_{21} = \mathbf{e}^{\prime\intercal} \begin{bmatrix} \mathbf{T}_{1}&amp;\mathbf{T}_{2}&amp;\mathbf{T}_{3} \end{bmatrix}\mathbf{e}^{\prime\prime}
     \end{aligned}
   \end{equation}</li>
 
@@ -1939,7 +1939,7 @@ $\mathbf{l}^{&prime;}$을 사용하여 $\mathbf{x}^{&prime;}$을 Point Transfer�
 
   \begin{equation}
     \begin{aligned}
-      x^{\dprime k} = x^{\prime i} l_{j}^{\prime} \mathcal{T}_{i}^{jk}
+      x^{\prime\prime k} = x^{\prime i} l_{j}^{\prime} \mathcal{T}_{i}^{jk}
     \end{aligned}
   \end{equation}</li>
 </ul>
@@ -1950,7 +1950,7 @@ $\mathbf{l}^{&prime;}$을 사용하여 $\mathbf{x}^{&prime;}$을 Point Transfer�
 <h4 id="orgd313ee1"><span class="section-number-4">5.3.3</span> Degenerate configurations</h4>
 <div class="outline-text-4" id="text-5-3-3">
 <p>
-Trifocal Tensor $\mathcal{T}$를 사용하는 경우에도 두 카메라의 중심점 $\mathbf{C}, \mathbf{C}^{&prime;}$을 잇는 baseline 직선 상 위에 3차원 공간 상의 점 $\mathbf{X}$가 존재하는 경우 이를 통해 $\mathbf{x}^{\dprime}$을 결정할 수 없다.
+Trifocal Tensor $\mathcal{T}$를 사용하는 경우에도 두 카메라의 중심점 $\mathbf{C}, \mathbf{C}^{&prime;}$을 잇는 baseline 직선 상 위에 3차원 공간 상의 점 $\mathbf{X}$가 존재하는 경우 이를 통해 $\mathbf{x}^{&prime;&prime;}$을 결정할 수 없다.
 </p>
 </div>
 </div>
@@ -1959,21 +1959,21 @@ Trifocal Tensor $\mathcal{T}$를 사용하는 경우에도 두 카메라의 중�
 <h4 id="orge22a023"><span class="section-number-4">5.3.4</span> Line transfer using the trifocal tensor</h4>
 <div class="outline-text-4" id="text-5-3-4">
 <p>
-Trifocal Trnsor $\mathcal{T}$를 사용하면 점 뿐만 아니라 직선 또한 Transfer할 수 있다. 세 이미지 평면 상의 직선 $\mathbf{l}&harr; \mathbf{l}^{&prime;} &harr; \mathbf{l}^{\dprime}$이 대응관계를 가지는 경우
+Trifocal Trnsor $\mathcal{T}$를 사용하면 점 뿐만 아니라 직선 또한 Transfer할 수 있다. 세 이미지 평면 상의 직선 $\mathbf{l}&harr; \mathbf{l}^{&prime;} &harr; \mathbf{l}^{&prime;&prime;}$이 대응관계를 가지는 경우
 </p>
 
 \begin{equation}
   \begin{aligned}
-    l_{i} = l_{j}^{\prime}l_{k}^{\dprime}\mathcal{T}_{i}^{jk}
+    l_{i} = l_{j}^{\prime}l_{k}^{\prime\prime}\mathcal{T}_{i}^{jk}
   \end{aligned}
 \end{equation}
 <p>
-와 같이 $\mathcal{T}$를 통해 표현할 수 있고 이는 곧 직선 $\mathbf{l}$이 벡터 $[l_{j}^{&prime;}l_{k}^{\dprime}\mathcal{T}^{jk}_{i}]$과 평행하다는 의미이다.
+와 같이 $\mathcal{T}$를 통해 표현할 수 있고 이는 곧 직선 $\mathbf{l}$이 벡터 $[l_{j}^{&prime;}l_{k}^{&prime;&prime;}\mathcal{T}^{jk}_{i}]$과 평행하다는 의미이다.
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{l} \ \parallel \ [l_{j}^{\prime}l_{k}^{\dprime}\mathcal{T}^{jk}_{i}]_{3\times 1}, \ i=1,2,3
+    \mathbf{l} \ \parallel \ [l_{j}^{\prime}l_{k}^{\prime\prime}\mathcal{T}^{jk}_{i}]_{3\times 1}, \ i=1,2,3
   \end{aligned}
 \end{equation}
 <p>
@@ -1982,21 +1982,21 @@ Trifocal Trnsor $\mathcal{T}$를 사용하면 점 뿐만 아니라 직선 또한
 
 \begin{equation}
   \begin{aligned}
-    &amp; (\mathbf{l}^{\wedge})_{si} l_{j}^{\prime}l_{k}^{\dprime}\mathcal{T}_{i}^{jk} = 0 \\
-    &amp; (l_{s}\epsilon^{ris})l_{j}^{\prime}l_{k}^{\dprime}\mathcal{T}_{i}^{jk} = 0
+    &amp; (\mathbf{l}^{\wedge})_{si} l_{j}^{\prime}l_{k}^{\prime\prime}\mathcal{T}_{i}^{jk} = 0 \\
+    &amp; (l_{s}\epsilon^{ris})l_{j}^{\prime}l_{k}^{\prime\prime}\mathcal{T}_{i}^{jk} = 0
   \end{aligned}
 \end{equation}
 <p>
-이 성립한다. 이는 곧 $\mathbf{l}^{\dprime}$에 대한 선형방정식이므로 이를 다시 정리하면
+이 성립한다. 이는 곧 $\mathbf{l}^{&prime;&prime;}$에 대한 선형방정식이므로 이를 다시 정리하면
 </p>
 
 \begin{equation}
   \begin{aligned}
-    (l_{s}\epsilon^{ris}l_{j}^{\prime}\mathcal{T}_{i}^{jk})l_{k}^{\dprime} = 0
+    (l_{s}\epsilon^{ris}l_{j}^{\prime}\mathcal{T}_{i}^{jk})l_{k}^{\prime\prime} = 0
   \end{aligned}
 \end{equation}
 <p>
-<b>선형방정식을 품으로써 $\mathbf{l}&harr; \mathbf{l}^{&prime;}$이 주어진 경우 $\mathbf{l}^{\dprime}$을 계산할 수 있다.</b>
+<b>선형방정식을 품으로써 $\mathbf{l}&harr; \mathbf{l}^{&prime;}$이 주어진 경우 $\mathbf{l}^{&prime;&prime;}$을 계산할 수 있다.</b>
 </p>
 </div>
 </div>
@@ -2005,7 +2005,7 @@ Trifocal Trnsor $\mathcal{T}$를 사용하면 점 뿐만 아니라 직선 또한
 <h4 id="orgba101e3"><span class="section-number-4">5.3.5</span> Degeneracies</h4>
 <div class="outline-text-4" id="text-5-3-5">
 <p>
-직선 $\mathbf{l}, \mathbf{l}^{&prime;}$이 Epipolar Line인 경우 이를 Back-projection한 평면  $&pi;$는 $&pi;^{&prime;}$과 동일한 Epipolar Plane이 되고 이 경우 세 번째 이미지 평면 $\pi_{\mathbf{P}^{\dprime}}$상의 직선 $\mathbf{l}^{\dprime}$을 유일하게 결정할 수 없다.
+직선 $\mathbf{l}, \mathbf{l}^{&prime;}$이 Epipolar Line인 경우 이를 Back-projection한 평면  $&pi;$는 $&pi;^{&prime;}$과 동일한 Epipolar Plane이 되고 이 경우 세 번째 이미지 평면 $\pi_{\mathbf{P}^{\prime\prime}}$상의 직선 $\mathbf{l}^{&prime;&prime;}$을 유일하게 결정할 수 없다.
 </p>
 </div>
 </div>
@@ -2059,22 +2059,22 @@ Trifocal Trnsor $\mathcal{T}$를 사용하면 점 뿐만 아니라 직선 또한
 <li>$\mathbf{x}^{&prime;\intercal}\mathbf{F}_{21}\mathbf{x}=0$을 만족하는 대응점 쌍 $(\mathbf{x}_{i},\mathbf{x}_{i}^{&prime;})$을 생성한다. 이를 통해 월드 공간 상의 점 $\mathbf{X}_{i}$를 Triangulation한다.</li>
 
 <li><p>
-세 점 사이(point-point-point)의 관계 공식을 사용하여 $\mathbf{x}_{i}^{\dprime}$을 구한다.
+세 점 사이(point-point-point)의 관계 공식을 사용하여 $\mathbf{x}_{i}^{&prime;&prime;}$을 구한다.
 </p>
   \begin{equation}
     \begin{aligned}
-      \mathbf{x}_{i}^{\dprime} = (\mathbf{F}_{31}\mathbf{x}_{i}) \times (\mathbf{F}_{32}\mathbf{x}_{i}^{\prime})
+      \mathbf{x}_{i}^{\prime\prime} = (\mathbf{F}_{31}\mathbf{x}_{i}) \times (\mathbf{F}_{32}\mathbf{x}_{i}^{\prime})
     \end{aligned}
   \end{equation}</li>
 
-<li>$\mathbf{P}_{3}\mathbf{X}_{i} = x_{i}^{\dprime}$공식을 사용하여 $\mathbf{P}_{3}$을 계산할 수 있다.</li>
+<li>$\mathbf{P}_{3}\mathbf{X}_{i} = x_{i}^{\prime\prime}$공식을 사용하여 $\mathbf{P}_{3}$을 계산할 수 있다.</li>
 </ul>
 <p>
 \end{itemize}
 </p>
 
 <p>
-단, 월드 공간 상의 점 $\mathbf{X}_{i}$가 세 카메라의 중심점 $\mathbf{C},\mathbf{C}^{&prime;},\mathbf{C}^{\dprime}$을 포함하는 Trifocal 평면에 존재하는 경우 $\mathbf{x}^{\dprime}$을 유일하게 결정할 수 없다.
+단, 월드 공간 상의 점 $\mathbf{X}_{i}$가 세 카메라의 중심점 $\mathbf{C},\mathbf{C}^{&prime;},\mathbf{C}^{&prime;&prime;}$을 포함하는 Trifocal 평면에 존재하는 경우 $\mathbf{x}^{&prime;&prime;}$을 유일하게 결정할 수 없다.
 </p>
 </div>
 </div>
