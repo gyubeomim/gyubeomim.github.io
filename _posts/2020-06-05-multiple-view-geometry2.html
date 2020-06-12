@@ -17,7 +17,7 @@ comments: true
 <li><a href="#org93b1350">1.1. Epipolar geometry</a></li>
 <li><a href="#org1ba9000">1.2. The fundamental matrix $\mathbf{F}$</a>
 <ul>
-<li><a href="#org0e0047a">1.2.1. Proof</a></li>
+<li><a href="#orge78625d">1.2.1. Proof</a></li>
 <li><a href="#orgbb95435">1.2.2. Geometric derivation</a></li>
 <li><a href="#org4240508">1.2.3. Algebraic derivation</a></li>
 </ul>
@@ -36,12 +36,12 @@ comments: true
 <ul>
 <li><a href="#org60837dd">1.5.1. Projective invariance and canonical cameras</a></li>
 <li><a href="#org6876bd7">1.5.2. Result 9.8</a></li>
-<li><a href="#orgcdb6d36">1.5.3. Proof</a></li>
+<li><a href="#org7bbe271">1.5.3. Proof</a></li>
 <li><a href="#org1395de4">1.5.4. Canonical form of camera matrices</a></li>
 <li><a href="#org05f840b">1.5.5. Result 9.9</a></li>
 <li><a href="#org27fbdb8">1.5.6. Projective ambiguity of cameras given F</a></li>
 <li><a href="#org8b4f99e">1.5.7. Theorem 9.10</a></li>
-<li><a href="#orgdca33e8">1.5.8. Proof</a></li>
+<li><a href="#org8051bce">1.5.8. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org664ef49">1.6. Canonical cameras given F</a>
@@ -56,10 +56,15 @@ comments: true
 <ul>
 <li><a href="#org7781e32">1.7.1. Properties of the essential matrix</a></li>
 <li><a href="#org5573a8b">1.7.2. Result 9.17</a></li>
-<li><a href="#org0e079ef">1.7.3. Proof</a></li>
+<li><a href="#orga846ad4">1.7.3. Proof</a></li>
 </ul>
 </li>
-<li><a href="#org6a4d981">1.8. Extraction of cameras from the essential matrix</a></li>
+<li><a href="#org6a4d981">1.8. Extraction of cameras from the essential matrix</a>
+<ul>
+<li><a href="#org232b3f3">1.8.1. Result 9.18</a></li>
+<li><a href="#orgabb9419">1.8.2. Proof</a></li>
+</ul>
+</li>
 <li><a href="#org09ea3fb">1.9. Geometrical interpretation of the four solutions</a></li>
 </ul>
 </li>
@@ -67,7 +72,8 @@ comments: true
 <ul>
 <li><a href="#org2fccbfa">2.1. The projective reconstruction theorem</a>
 <ul>
-<li><a href="#orgea8ffe9">2.1.1. Proof</a></li>
+<li><a href="#org0ef5eb4">2.1.1. Theorem 10.1 (Projective reconstruction theorem)</a></li>
+<li><a href="#org78cd0b1">2.1.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org2ba7b16">2.2. Stratified reconstruction</a>
@@ -75,7 +81,12 @@ comments: true
 <li><a href="#orgf85d5c4">2.2.1. The step to affine reconstruction</a></li>
 </ul>
 </li>
-<li><a href="#orge1997aa">2.3. The step to metric reconstruction</a></li>
+<li><a href="#orge1997aa">2.3. The step to metric reconstruction</a>
+<ul>
+<li><a href="#org37ab3f7">2.3.1. Result 10.5</a></li>
+<li><a href="#org82e68e3">2.3.2. Proof</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#org5cd7166">3. Computation of the Fundamental Matrix $\mathbf{F}$</a>
@@ -88,7 +99,7 @@ comments: true
 <li><a href="#org5576fa1">3.2. The normalized 8-point algorithm</a>
 <ul>
 <li><a href="#orgb761148">3.2.1. Degenrate configurations</a></li>
-<li><a href="#orgffc49cc">3.2.2. Proof</a></li>
+<li><a href="#orga6ff00d">3.2.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgc443854">3.3. The Gold Standard method</a></li>
@@ -114,19 +125,33 @@ comments: true
 <ul>
 <li><a href="#orgc939da6">5.1. Homographies given the plane and vice versa</a>
 <ul>
-<li><a href="#org212dc6b">5.1.1. Proof</a></li>
-<li><a href="#org92602c6">5.1.2. A calibrated stereo rig</a></li>
-<li><a href="#org452bdae">5.1.3. Homographies compatible with epipolar geometry</a></li>
-<li><a href="#org8c4bc68">5.1.4. Proof</a></li>
-<li><a href="#org611486b">5.1.5. Corollary</a></li>
-<li><a href="#orgc0ba606">5.1.6. Proof</a></li>
+<li><a href="#org0469075">5.1.1. Result 13.1</a></li>
+<li><a href="#org3d54e5b">5.1.2. Proof</a></li>
+<li><a href="#org92602c6">5.1.3. A calibrated stereo rig</a></li>
+<li><a href="#org452bdae">5.1.4. Homographies compatible with epipolar geometry</a></li>
+<li><a href="#orge85b662">5.1.5. Result 13.3</a></li>
+<li><a href="#org047285c">5.1.6. Proof</a></li>
+<li><a href="#org611486b">5.1.7. Corollary</a></li>
+<li><a href="#org134e283">5.1.8. Proof</a></li>
 </ul>
 </li>
-<li><a href="#org02fe78e">5.2. Computing $\mathbf{F}$given the homography induced by a plane</a></li>
-<li><a href="#orgfa30ee8">5.3. The infinite homography $\mathbf{H}_{\infty}$</a>
+<li><a href="#orge1c4778">5.2. Plane induced homographies given $\mathbf{F}$and image correspondences</a>
 <ul>
-<li><a href="#orgf3df7af">5.3.1. Definition 13.10</a></li>
-<li><a href="#org3b44cad">5.3.2. Affine and metric reconstruction</a></li>
+<li><a href="#orgfc2678a">5.2.1. Three points</a></li>
+<li><a href="#org9a11671">5.2.2. Result 13.6</a></li>
+<li><a href="#orgb72053a">5.2.3. Proof</a></li>
+<li><a href="#org8320f35">5.2.4. A point and line</a></li>
+<li><a href="#org0f237c0">5.2.5. Result 13.7</a></li>
+<li><a href="#orgbf97d6d">5.2.6. Proof</a></li>
+<li><a href="#org9cae6b9">5.2.7. The homography for a corresponding point and line</a></li>
+<li><a href="#org4de0518">5.2.8. Result 13.8</a></li>
+</ul>
+</li>
+<li><a href="#org02fe78e">5.3. Computing $\mathbf{F}$given the homography induced by a plane</a></li>
+<li><a href="#orgfa30ee8">5.4. The infinite homography $\mathbf{H}_{\infty}$</a>
+<ul>
+<li><a href="#orgf3df7af">5.4.1. Definition 13.10</a></li>
+<li><a href="#org3b44cad">5.4.2. Affine and metric reconstruction</a></li>
 </ul>
 </li>
 </ul>
@@ -179,8 +204,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 \end{equation}
 </div>
 
-<div id="outline-container-org0e0047a" class="outline-4">
-<h4 id="org0e0047a"><span class="section-number-4">1.2.1</span> Proof</h4>
+<div id="outline-container-orge78625d" class="outline-4">
+<h4 id="orge78625d"><span class="section-number-4">1.2.1</span> Proof</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 ($\Rightarrow$)$\mathbf{l}^{&prime;} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{&prime;}$에 위치한 점 $\mathbf{x}^{&prime;}$에 대하여 다음이 성립한다.
@@ -416,8 +441,8 @@ $\mathbf{P}^{&prime;}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;
 </div>
 </div>
 
-<div id="outline-container-orgcdb6d36" class="outline-4">
-<h4 id="orgcdb6d36"><span class="section-number-4">1.5.3</span> Proof</h4>
+<div id="outline-container-org7bbe271" class="outline-4">
+<h4 id="org7bbe271"><span class="section-number-4">1.5.3</span> Proof</h4>
 <div class="outline-text-4" id="text-1-5-3">
 <p>
 $(\mathbf{PH},\mathbf{P}^{&prime;}\mathbf{H})$에 해당하는 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{&prime;}$에 대해서
@@ -541,8 +566,8 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 </div>
 </div>
 
-<div id="outline-container-orgdca33e8" class="outline-4">
-<h4 id="orgdca33e8"><span class="section-number-4">1.5.8</span> Proof</h4>
+<div id="outline-container-org8051bce" class="outline-4">
+<h4 id="org8051bce"><span class="section-number-4">1.5.8</span> Proof</h4>
 <div class="outline-text-4" id="text-1-5-8">
 <p>
 두 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{\prime})$, $(~{\mathbf{P}}, ~{\mathbf{P}}^{&prime;})$이 주어졌을 때 이를 Canonical Form으로 쓰면 다음과 같다.
@@ -851,8 +876,8 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 </div>
 </div>
 
-<div id="outline-container-org0e079ef" class="outline-4">
-<h4 id="org0e079ef"><span class="section-number-4">1.7.3</span> Proof</h4>
+<div id="outline-container-orga846ad4" class="outline-4">
+<h4 id="orga846ad4"><span class="section-number-4">1.7.3</span> Proof</h4>
 <div class="outline-text-4" id="text-1-7-3">
 <p>
 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;}) = ([\mathbf{I}|0], \ [\mathbf{R}|\mathbf{t}])$에 대한 Fundamental Matrix $\mathbf{F}$가 있다고 하면
@@ -940,6 +965,10 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 <div id="outline-container-org6a4d981" class="outline-3">
 <h3 id="org6a4d981"><span class="section-number-3">1.8</span> Extraction of cameras from the essential matrix</h3>
 <div class="outline-text-3" id="text-1-8">
+</div>
+<div id="outline-container-org232b3f3" class="outline-4">
+<h4 id="org232b3f3"><span class="section-number-4">1.8.1</span> Result 9.18</h4>
+<div class="outline-text-4" id="text-1-8-1">
 <p>
 Essential Matrix $\mathbf{E}$가 다음과 같이 주어졌을 때
 </p>
@@ -950,7 +979,16 @@ Essential Matrix $\mathbf{E}$가 다음과 같이 주어졌을 때
   \end{aligned}
 \end{equation}
 <p>
-행렬 $\mathbf{E}$는 SR Factorization을 통해 $\mathbf{R}, \mathbf{t}$를 분해할 수 있다. 이 때, <b>$\mathbf{E}$는 서로 부호가 다른 두 개의 SR Factorization 해를 가진다(up to sign).</b> 행렬 $\mathbf{E}$는 다음과 같이 분해할 수 있다.
+행렬 $\mathbf{E}$는 SR Factorization을 통해 $\mathbf{R}, \mathbf{t}$를 분해할 수 있다. 이 때, <b>$\mathbf{E}$는 서로 부호가 다른 두 개의 SR Factorization 해를 가진다(up to sign).</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgabb9419" class="outline-4">
+<h4 id="orgabb9419"><span class="section-number-4">1.8.2</span> Proof</h4>
+<div class="outline-text-4" id="text-1-8-2">
+<p>
+행렬 $\mathbf{E}$는 다음과 같이 분해할 수 있다.
 </p>
 
 \begin{equation}
@@ -1039,6 +1077,7 @@ Essential Matrix $\mathbf{E}$가 위 두 가지 케이스로만 분해된다는 
 </p>
 </div>
 </div>
+</div>
 
 <div id="outline-container-org09ea3fb" class="outline-3">
 <h3 id="org09ea3fb"><span class="section-number-3">1.9</span> Geometrical interpretation of the four solutions</h3>
@@ -1114,6 +1153,10 @@ $\mathbf{E}= \mathbf{t}^{&and;}\mathbf{R}$을 어떻게 분해하느냐에 따�
 <div id="outline-container-org2fccbfa" class="outline-3">
 <h3 id="org2fccbfa"><span class="section-number-3">2.1</span> The projective reconstruction theorem</h3>
 <div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org0ef5eb4" class="outline-4">
+<h4 id="org0ef5eb4"><span class="section-number-4">2.1.1</span> Theorem 10.1 (Projective reconstruction theorem)</h4>
+<div class="outline-text-4" id="text-2-1-1">
 <p>
 두 카메라의 이미지 평면 상 대응쌍 점들인 $\mathbf{x}, \mathbf{x}^{&prime;}$이 충분히 주어져서 이를 통해 Fundamental Matrix $\mathbf{F}$를 구했다고 가정해보자. 이 때, 사영모호성으로 인해 다음과 같은 두 카메라 행렬 대응쌍
 </p>
@@ -1145,10 +1188,11 @@ $\mathbf{E}= \mathbf{t}^{&and;}\mathbf{R}$을 어떻게 분해하느냐에 따�
   \end{aligned}
 \end{equation}
 </div>
+</div>
 
-<div id="outline-container-orgea8ffe9" class="outline-4">
-<h4 id="orgea8ffe9"><span class="section-number-4">2.1.1</span> Proof</h4>
-<div class="outline-text-4" id="text-2-1-1">
+<div id="outline-container-org78cd0b1" class="outline-4">
+<h4 id="org78cd0b1"><span class="section-number-4">2.1.2</span> Proof</h4>
+<div class="outline-text-4" id="text-2-1-2">
 <p>
 이전 섹션에서 동일한 Fundamental Matrix $\mathbf{F}$를 공유하는 카메라 행렬 대응쌍 사이에 $\mathbf{P}_{2} = \mathbf{P}_{1}\mathbf{H}^{-1}, \mathbf{P}_{2}^{&prime;} =\mathbf{P}_{1}^{&prime;}\mathbf{H}^{-1}$를 만족하는 Homography 행렬 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재한다는 것을 증명하였다. 이를 적용해보면
 </p>
@@ -1321,6 +1365,29 @@ Metric Reconstruction 단계에서는 직교하는 선들을 보존하는 Homogr
     \mathbf{H}_{s}(\tilde{\Omega}_{\infty}) = \Omega_{\infty} = \mathbf{I}_{3}
   \end{aligned}
 \end{equation}
+</div>
+
+<div id="outline-container-org37ab3f7" class="outline-4">
+<h4 id="org37ab3f7"><span class="section-number-4">2.3.1</span> Result 10.5</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<p>
+이미지 평면에 프로젝션된 Absolute Conic을 $&omega;$라고 하고 Affine Reconstruction으로 구한 카메라 행렬을 $\mathbf{P}=[\mathbf{M}\ | \ \mathbf{m}]$이라고 할 때 Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s}$는 다음과 같이 구할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{s} = \begin{bmatrix} \mathbf{A}^{-1} &amp; \\ &amp; 1 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $\mathbf{AA}^{\intercal} = (\mathbf{M}^{\intercal}&omega; \mathbf{M})^{-1}$이고 $\mathbf{A}$는 이를 Cholesky Decomposition을 통해 얻을 수 있다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org82e68e3" class="outline-4">
+<h4 id="org82e68e3"><span class="section-number-4">2.3.2</span> Proof</h4>
+<div class="outline-text-4" id="text-2-3-2">
 <p>
 Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatrix}\mathbf{A}^{-1} &amp; \\ &amp; 1 \end{bmatrix}$이라고 하고 이 때 이미지 평면을 $\pi_{s}$, 카메라 행렬을 $\mathbf{P}_{s}$라고 하면 $\mathbf{H}_{s}(\pi) = \pi_{s}$관계가 성립하고 무한대 평면을 Homography 변환한 공식은
 </p>
@@ -1364,6 +1431,7 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 <p>
 가 성립한다. 결론적으로 $\mathbf{H}_{s} = \begin{bmatrix}\mathbf{A}^{-1} &amp; \\ &amp; 1 \end{bmatrix}$를 구하기 위해서는 <b>이미지 평면 상에서 직교하는 직선들의 특성을 사용하여 $&omega;$를 구한 후, $(\mathbf{M}^{\intercal} &omega; \mathbf{M})^{-1}$를 Cholesky Decomposition하여 $\mathbf{AA}^{\intercal}$를 구한다. 이를 통해 $\mathbf{A}^{-1}$값을 구할 수 있고 최종적으로 Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s}$를 구할 수 있다.</b>
 </p>
+</div>
 </div>
 </div>
 </div>
@@ -1508,8 +1576,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-orgffc49cc" class="outline-4">
-<h4 id="orgffc49cc"><span class="section-number-4">3.2.2</span> Proof</h4>
+<div id="outline-container-orga6ff00d" class="outline-4">
+<h4 id="orga6ff00d"><span class="section-number-4">3.2.2</span> Proof</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <p>
 임의의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;}, \{\mathbf{X}^{i}\})$이 Critical Triple이라는 것을 보이기 위해서는 이와 대응하는 카메라 행렬 대응쌍 $(\mathbf{Q}, \mathbf{Q}^{&prime;}, \{\mathbf{Y}^{i}\})$이 같은 Fundamental Matrix $\mathbf{F}$를 가진다는 사실을 사용해야 한다. $\mathbb{P}^{3}$공간에서 이차곡면은 4x4 크기의 행렬로 정의된다.
@@ -1963,7 +2031,15 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 <h3 id="orgc939da6"><span class="section-number-3">5.1</span> Homographies given the plane and vice versa</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
-해당 섹션에서는 월드 상의 평면 $&pi;$이 주어졌을 때 이를 사용하여 하나의 이미지 평면에서 다른 이미지 평면으로 가는 Homography 변환에 대해 설명한다. Canonical Form으로 변환한 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$과 월드 상의 평면 $\pi$다음과 같이 주어졌을 때
+해당 섹션에서는 월드 상의 평면 $&pi;$이 주어졌을 때 이를 사용하여 하나의 이미지 평면에서 다른 이미지 평면으로 가는 Homography 변환에 대해 설명한다.
+</p>
+</div>
+
+<div id="outline-container-org0469075" class="outline-4">
+<h4 id="org0469075"><span class="section-number-4">5.1.1</span> Result 13.1</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+Canonical Form으로 변환한 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$과 월드 상의 평면 $\pi$다음과 같이 주어졌을 때
 </p>
 
 \begin{equation}
@@ -1986,10 +2062,11 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 로 주어진다.
 </p>
 </div>
+</div>
 
-<div id="outline-container-org212dc6b" class="outline-4">
-<h4 id="org212dc6b"><span class="section-number-4">5.1.1</span> Proof</h4>
-<div class="outline-text-4" id="text-5-1-1">
+<div id="outline-container-org3d54e5b" class="outline-4">
+<h4 id="org3d54e5b"><span class="section-number-4">5.1.2</span> Proof</h4>
+<div class="outline-text-4" id="text-5-1-2">
 <p>
 두 카메라의 이미지 평면 $&pi;_{\mathbf{P}}, &pi;_{\mathbf{P}^{&prime;}}$가 주어졌을 때, 월드 평면 상의 점 $\mathbf{X}&isin; &pi;$를 $\pi_{\mathbf{P}}$평면으로 프로젝션한 점 $\mathbf{x}$는 다음과 같다.
 </p>
@@ -2027,8 +2104,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </div>
 
 <div id="outline-container-org92602c6" class="outline-4">
-<h4 id="org92602c6"><span class="section-number-4">5.1.2</span> A calibrated stereo rig</h4>
-<div class="outline-text-4" id="text-5-1-2">
+<h4 id="org92602c6"><span class="section-number-4">5.1.3</span> A calibrated stereo rig</h4>
+<div class="outline-text-4" id="text-5-1-3">
 <p>
 캘리브레이션 된 스테레오 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;})$가 다음과 같이 주어지고
 </p>
@@ -2086,8 +2163,8 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </div>
 
 <div id="outline-container-org452bdae" class="outline-4">
-<h4 id="org452bdae"><span class="section-number-4">5.1.3</span> Homographies compatible with epipolar geometry</h4>
-<div class="outline-text-4" id="text-5-1-3">
+<h4 id="org452bdae"><span class="section-number-4">5.1.4</span> Homographies compatible with epipolar geometry</h4>
+<div class="outline-text-4" id="text-5-1-4">
 <p>
 월드 상의 평면 $\pi$위에 존재하는 4개의 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{x}_{i}^{&prime;}), \ i=1,&ctdot;,4$가 주어졌다고 가정해보자. 4개의 대응점 쌍으로부터 8개의 제약조건을 얻을 수 있으며 이를 통해 Homograpy $\mathbf{H}$를 유일하게 결정할 수 있다.
 </p>
@@ -2111,7 +2188,16 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
   \end{aligned}
 \end{equation}
 <p>
-<b>위 조건은 $\mathbf{H}$가 Epipolar Geometry를 따르기 위한 필요충분조건이다.</b> 일반적으로 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어졌을 때 $\mathbf{H}$는
+<b>위 조건은 $\mathbf{H}$가 Epipolar Geometry를 따르기 위한 필요충분조건이다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge85b662" class="outline-4">
+<h4 id="orge85b662"><span class="section-number-4">5.1.5</span> Result 13.3</h4>
+<div class="outline-text-4" id="text-5-1-5">
+<p>
+일반적으로 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어졌을 때 $\mathbf{H}$는
 </p>
 
 \begin{equation}
@@ -2125,9 +2211,9 @@ $\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $
 </div>
 </div>
 
-<div id="outline-container-org8c4bc68" class="outline-4">
-<h4 id="org8c4bc68"><span class="section-number-4">5.1.4</span> Proof</h4>
-<div class="outline-text-4" id="text-5-1-4">
+<div id="outline-container-org047285c" class="outline-4">
+<h4 id="org047285c"><span class="section-number-4">5.1.6</span> Proof</h4>
+<div class="outline-text-4" id="text-5-1-6">
 <p>
 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Projective Reconstruction을 수행하면 두 카메라 행렬 대응쌍을
 </p>
@@ -2164,8 +2250,8 @@ $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Proj
 </div>
 
 <div id="outline-container-org611486b" class="outline-4">
-<h4 id="org611486b"><span class="section-number-4">5.1.5</span> Corollary</h4>
-<div class="outline-text-4" id="text-5-1-5">
+<h4 id="org611486b"><span class="section-number-4">5.1.7</span> Corollary</h4>
+<div class="outline-text-4" id="text-5-1-7">
 <p>
 두 카메라 사이의 임의의 Homography $\mathbf{H}$가 Epipolar Geometry를 따르기 위해서는 $\mathbf{H}$가 월드 상의 평면 $&pi;$에 대한 Homography이어야 한다. $\mathbf{H}$가 월드 상의 평면 $&pi;$에 대한 Homography이기 위한 필요충분조건은 다음과 같다.
 </p>
@@ -2178,9 +2264,9 @@ $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Proj
 </div>
 </div>
 
-<div id="outline-container-orgc0ba606" class="outline-4">
-<h4 id="orgc0ba606"><span class="section-number-4">5.1.6</span> Proof</h4>
-<div class="outline-text-4" id="text-5-1-6">
+<div id="outline-container-org134e283" class="outline-4">
+<h4 id="org134e283"><span class="section-number-4">5.1.8</span> Proof</h4>
+<div class="outline-text-4" id="text-5-1-8">
 <p>
 ($\Rightarrow$) $\mathbf{H}$가 월드 상의 평면 $&pi;=(\mathbf{v}^{\intercal},1)^{\intercal}$에 대한 Homography이면서 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$일 때 앞서 정리에 의해
 </p>
@@ -2220,9 +2306,264 @@ $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Proj
 </div>
 </div>
 
-<div id="outline-container-org02fe78e" class="outline-3">
-<h3 id="org02fe78e"><span class="section-number-3">5.2</span> Computing $\mathbf{F}$given the homography induced by a plane</h3>
+<div id="outline-container-orge1c4778" class="outline-3">
+<h3 id="orge1c4778"><span class="section-number-3">5.2</span> Plane induced homographies given $\mathbf{F}$and image correspondences</h3>
 <div class="outline-text-3" id="text-5-2">
+</div>
+<div id="outline-container-orgfc2678a" class="outline-4">
+<h4 id="orgfc2678a"><span class="section-number-4">5.2.1</span> Three points</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<p>
+<b>두 개의 이미지 평면 $&pi;_{\mathbf{P}}, &pi;_{\mathbf{P}^{&prime;}}$에 세 개의 대응점 쌍 $(\mathbf{x}_{i},\mathbf{x}_{i}^{&prime;}), \ i=1,2,3$이 주어졌을 때 이들을 Back-projection한 월드 상의 점 $\mathbf{X}_{i}, \ i=1,2,3$을 통해 월드 상의 평면 $&pi;$를 유일하게 결정할 수 있고 이를 통한 Homography $\mathbf{H}$를 계산할 수 있다.</b> 해당 섹션에서는 이러한 Homography $\mathbf{H}$를 구하는 방법에 대해 설명한다.
+</p>
+
+<p>
+$\mathbf{H}$를 구하는 방법에는 크게 두 가지 방법이 존재한다. <b>첫 번째 방법은 월드 상의 평면 $&pi;$를 직접 구하는 방법이 있다.</b> 세 개의 대응점 쌍 $(\mathbf{x}_{i},\mathbf{x}_{i}^{&prime;}), \ i=1,2,3$과 Fundamental Matrix $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$가 주어진 경우 이를 통해 카메라 행렬을 구할 수 있다(projective reconstrcution). 주어진 대응점 쌍 $(\mathbf{x}_{i},\mathbf{x}_{i}^{&prime;}), \ i=1,2,3$과 $\mathbf{F}$를 통해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = [\mathbf{I}\ | \ 0] \\
+    &amp; \mathbf{P}^{\prime} = [\mathbf{A} \ | \ \mathbf{e}^{\prime}]
+  \end{aligned}
+\end{equation}
+<p>
+을 사영모호성을 포함하여(up to projectivity) 결정할 수 있다. 그리고 $\mathbf{P},\mathbf{P}^{&prime;}$를 사용하여 Back-projection한 월드 상의 점 $\mathbf{X}_{i},\ i=1,2,3$또한 계산할 수 있다. 이 때, $\mathbf{X}_{i},\ i=1,2,3$은 동일한 직선 상에 존재하면 안된다(not colinear). 다음으로 월드 상의 세 개의 점 $\mathbf{X}_{i},\ i=1,2,3$을 포함하는 월드 상의 평면 $&pi;$를 유일하게 결정할 수 있고 $&pi;=(\mathbf{v}^{\intercal},d)^{\intercal}$일 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H} = \mathbf{A} - \mathbf{e}^{\prime}\mathbf{v}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 $&pi;$를 기반으로 $\pi_{\mathbf{P}} \leftrightarrow \pi_{\mathbf{P}^{\prime}}$사이의 점들을 변환하는 Homography $\mathbf{H}$를 계산할 수 있다. 
+</p>
+
+<p>
+<b>두 번째 방법은 $\mathbf{Hx}_{i} = \mathbf{x}^{&prime;}_{i},\ i=1,2,3$을 대수적으로 푸는 방법이다.</b> 이 때 $\mathbf{x}^{&prime;}_{i} &times; (\mathbf{Hx}_{i}) = 0$의 공식을 선형방정식의 $\mathbf{Ah}=0$형태로 변형함으로써 Homography $\mathbf{H}$를 구할 수 있다. 하지만 Homography $\mathbf{H}$를 구하려면 총 네 개의 대응점 쌍이 필요한데 주어진 대응점 쌍은 세 개이므로 추가적으로 한 개의 대응점 쌍이 필요하다. 미리 알고 있는 Fundamental Matrix $\mathbf{F}$를 사용하여 두 이미지 평면의 Epipole $\mathbf{e},\mathbf{e}^{&prime;}$을 구하고 이를 Back-projection함으로써 한 개의 대응점쌍을 추가하여 Homography $\mathbf{H}$를 계산할 수 있다. 단, 이 때 대응점 쌍 $(\mathbf{x}_{i},\mathbf{x}_{i}^{&prime;}), i=1,2,3$들이 Epipolar Line 위에 존재하면 안된다는 가정이 필요하다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9a11671" class="outline-4">
+<h4 id="org9a11671"><span class="section-number-4">5.2.2</span> Result 13.6</h4>
+<div class="outline-text-4" id="text-5-2-2">
+<p>
+Fundamental Matrix $\mathbf{F}$가 세 개의 대응점 쌍 $(\mathbf{x}_{i},\mathbf{x}_{i}^{&prime;}), i=1,2,3$이 주어졌을 때 이들을 통해 계산한 월드 상의 평면 $&pi;$로 인한 Homography $\mathbf{H}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H} = \mathbf{A} - \mathbf{e}^{\prime}(\mathbf{M}^{-1}\mathbf{b})^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 계산할 수 있다. 이 때,
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{M} = \begin{bmatrix} \mathbf{x}_{1}\\\mathbf{x}_{2} \\ \mathbf{x}_{3} \end{bmatrix} \\
+    &amp; \mathbf{b} = (\mathbf{x}^{\prime}_{i} \times (\mathbf{Ax}_{i}))^{\intercal}(\mathbf{x}_{i}^{\prime}\times \mathbf{e}^{\prime}) / \| \mathbf{x}_{i}^{\prime} \times \mathbf{e}^{\prime} \|
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orgb72053a" class="outline-4">
+<h4 id="orgb72053a"><span class="section-number-4">5.2.3</span> Proof</h4>
+<div class="outline-text-4" id="text-5-2-3">
+<p>
+Canonical 카메라 행렬 $\mathbf{P}=[\mathbf{I}\ | \ 0], \mathbf{P}^{&prime;}=[\mathbf{A}\ | \ \mathbf{e}^{&prime;}]$일 때 Fundmaental Matrix $\mathbf{F}=\mathbf{e}^{&prime; &and;}\mathbf{A}$와 같이 구할 수 있고 이 때 $\mathbf{e}^{&prime;&and;}\mathbf{F}= \mathbf{e}^{&prime;&and;}\mathbf{e}^{&prime;&and;}\mathbf{A}$가 되어서
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{e}^{\prime\wedge}\mathbf{F} = \mathbf{e}^{\prime\wedge}\mathbf{e}^{\prime\wedge}\mathbf{A} \sim \mathbf{A}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 $\mathbf{A}$와 비례 관계가 된다. 따라서 $\mathbf{A}= \mathbf{e}^{&prime;&and;}\mathbf{F}$가 성립한다.
+</p>
+
+<p>
+월드 상의 평면 $&pi;=(\mathbf{v}^{\intercal},d)^{\intercal}$이 주어졌을 때 임의의 Homography $\mathbf{H}$는 $\mathbf{H}=\mathbf{A}-\mathbf{e}^{&prime;}\mathbf{v}$와 같이 나타낼 수 있고 이 때 $\mathbf{v}$를 구하기 위해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}_{i}^{\prime} \times \mathbf{H}\mathbf{x}_{i} = 0
+  \end{aligned}
+\end{equation}
+<p>
+식을 세운 후 정리하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}_{i}^{\prime} \times \mathbf{H}\mathbf{x}_{i} = 0 \\
+    &amp; \mathbf{x}_{i}^{\prime} \times (\mathbf{A}\mathbf{x}_{i} - \mathbf{e}^{\prime}\mathbf{v}^{\intercal}\mathbf{x}_{i}) = 0 \\
+    &amp; \mathbf{x}_{i}^{\prime} \times \mathbf{A}\mathbf{x}_{i} = (\mathbf{x}_{i} \times \mathbf{e}^{\prime})\mathbf{v}^{\intercal}\mathbf{x}_{i} \\
+  \end{aligned}
+\end{equation}
+<p>
+꼴이 된다. 양변에 $(\mathbf{x}_{i} &times; \mathbf{e}^{&prime;})^{\intercal}$을 곱한 후 정리하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}_{i}^{\intercal}\mathbf{v} = \mathbf{b}_{i}
+  \end{aligned}
+\end{equation}
+<p>
+형태가 나온다. 이를 세 개의 점에 대해 모두 적용하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \begin{bmatrix} \mathbf{x}_{1}\\\mathbf{x}_{2}\\\mathbf{x}_{3} \end{bmatrix}\mathbf{v} = \begin{bmatrix} \mathbf{b}_{1}\\\mathbf{b}_{2}\\\mathbf{b}_{3} \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+가 된다 이 때, $\begin{bmatrix}\mathbf{x}_{1}\\\mathbf{x}_{2}\\\mathbf{x}_{3} \end{bmatrix}$를 행렬 $\mathbf{M}$으로 치환하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{M}\mathbf{v} = \mathbf{b}
+  \end{aligned}
+\end{equation}
+<p>
+꼴이 되고 이를 정리하면 <b>결론적으로 $\mathbf{v}= \mathbf{M}^{-1}\mathbf{b}$가 된다. 이에 따라 Homography $\mathbf{H}$는 $\mathbf{H}= \mathbf{A}- \mathbf{e}^{&prime;}(\mathbf{M}^{-1}\mathbf{b})^{\intercal}$과 같이 나타낼 수 있다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8320f35" class="outline-4">
+<h4 id="org8320f35"><span class="section-number-4">5.2.4</span> A point and line</h4>
+<div class="outline-text-4" id="text-5-2-4">
+<p>
+해당 섹션에서는 월드 상에 하나의 선과 하나의 점이 주어졌을 때 Homography $\mathbf{H}$를 구하는 방법에 대해 설명한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0f237c0" class="outline-4">
+<h4 id="org0f237c0"><span class="section-number-4">5.2.5</span> Result 13.7</h4>
+<div class="outline-text-4" id="text-5-2-5">
+<p>
+월드 상에 직선 $\mathbf{L}$에 대응하는 이미지 평면 상에 대응선 쌍 $\mathbf{l}&harr; \mathbf{l}^{&prime;}$이 주어졌을 때 월드 상의 직선 $\mathbf{L}$을 사용하여 $\mathbf{l}$을 $\mathbf{l}^{&prime;}$로 변환하는 Homography $\mathbf{H}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}(\mu) = \mathbf{l}^{\prime \wedge}\mathbf{F} + \mu \mathbf{e}^{\prime}\mathbf{l}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 나타낼 수 있다. 이 때, $\mathbf{l}^{&prime; \intercal}\mathbf{e}^{&prime;} &ne; 0$이어야 하며 $&mu;$는 $&mu; &isin; \mathbb{P}^{1}$인 파라미터이다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbf97d6d" class="outline-4">
+<h4 id="orgbf97d6d"><span class="section-number-4">5.2.6</span> Proof</h4>
+<div class="outline-text-4" id="text-5-2-6">
+<p>
+카메라 행렬 대응쌍 $\mathbf{P}= [\mathbf{I}\ | \ 0], \mathbf{P}^{&prime;}=[\mathbf{A}\ | \ \mathbf{e}^{&prime;}]$이 주어졌을 때 이미지 평면 상의 직선 $\mathbf{l}, \mathbf{l}^{&prime;}$을 Back-projection한 평면 $&pi;_{\mathbf{l}} = \mathbf{P}^{\intercal}\mathbf{l}, &pi;_{\mathbf{l}^{&prime;}} = \mathbf{P}^{&prime;\intercal}\mathbf{l}^{&prime;}$과 같이 나타낼 수 있다. 두 개의 Back-projection 평면들은 $&pi;_{\mathbf{l}},\ &pi;_{\mathbf{l}^{&prime;}}$이 교차하는 선이 월드 상의 직선 $\mathbf{L}$이 되고 이 때 $\mathbf{L}$을 포함하는 평면 $&pi;$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \pi(\mu) &amp; = \mu \mathbf{P}^{\intercal}\mathbf{l} + \mathbf{P}^{\prime \intercal}\mathbf{l}^{\prime}\\
+    &amp; = \mu \begin{pmatrix} \mathbf{l}\\0 \end{pmatrix} + \begin{pmatrix} \mathbf{A}^{\intercal}\mathbf{l}^{\prime} \\ \mathbf{e}^{\prime \intercal}\mathbf{l}^{\prime} \end{pmatrix} \\
+    &amp; = \begin{pmatrix} \mu \mathbf{l} + \mathbf{A}^{\intercal}\mathbf{l}^{\prime} \\ \mathbf{e}^{\prime \intercal}\mathbf{l}^{\prime} \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 $&mu;$로 파라미터화하여 $\mathbf{L}$을 포함하는 무수한 평면을 나타낼 수 있다. Result 13.1로부터 평면 $&pi;(&mu;)$를 사용한 Homography $\mathbf{H}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}(\mu) = \mathbf{A} - \mathbf{e}^{\prime}\mathbf{v}(\mu)^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 나타낼 수 있고 이 때, $\mathbf{v}$는 위에서 설명한 $\pi(\mu)$공식에 따라 $\mathbf{v}(&mu;) = (&mu;\mathbf{l}+ \mathbf{A}^{\intercal}\mathbf{l}^{&prime;})/(\mathbf{e}^{&prime; \intercal}\mathbf{l}^{&prime;})$이 된다. 위 공식에 행렬 $\mathbf{A}$에 $\mathbf{A}= \mathbf{e}^{&prime;}\mathbf{F}$를 대입하여 다시 정리하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}(\mu) = -(\mathbf{l}^{\prime\wedge}\mathbf{F} + \mu \mathbf{e}^{\prime}\mathbf{l}^{\intercal}) / (\mathbf{e}^{\prime \intercal}\mathbf{l}^{\prime}) \sim \mathbf{l}^{\prime\wedge}\mathbf{F} + \mu \mathbf{e}^{\prime}\mathbf{l}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 따라서 <b>$\mathbf{H}$는 따라서 $\mathbf{H}(&mu;) = \mathbf{l}^{&prime; &and;}\mathbf{F}+ &mu; \mathbf{e}^{&prime;}\mathbf{l}^{\intercal}$에 비례하므로 해당 식과 같이 쓸 수 있다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9cae6b9" class="outline-4">
+<h4 id="org9cae6b9"><span class="section-number-4">5.2.7</span> The homography for a corresponding point and line</h4>
+<div class="outline-text-4" id="text-5-2-7">
+<p>
+앞서 설명한 대응선 쌍 $\mathbf{l}&harr; \mathbf{l}^{&prime;}$을 이용한 Homography $\mathbf{H}(&mu;)$는 $\mu$값에 따라 Homography가 변하는 특징이 있다. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4de0518" class="outline-4">
+<h4 id="org4de0518"><span class="section-number-4">5.2.8</span> Result 13.8</h4>
+<div class="outline-text-4" id="text-5-2-8">
+<p>
+하나의 대응선 쌍 $\mathbf{l}&harr; \mathbf{l}^{&prime;}$과 하나의 대응점 쌍 $\mathbf{x}&harr; \mathbf{x}^{&prime;}$이 주어지면 이를 통해 $\mu$값을 특정되어 다음과 같은 유일한 Homography $\mathbf{H}$가 도출된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H} = \mathbf{l}^{\prime\wedge}\mathbf{F} + \frac{(\mathbf{x}^{\prime}\times \mathbf{e}^{\prime})^{\intercal}(\mathbf{x}^{\prime}\times((\mathbf{Fx})\times \mathbf{l}^{\prime}))}{\| \mathbf{x}^{\prime}\times \mathbf{e}^{\prime} \|^{2}(\mathbf{l}^{\intercal}\mathbf{x})}\mathbf{e}^{\prime}\mathbf{l}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+대응선 쌍 $\mathbf{l}&harr; \mathbf{l}^{&prime;}$를 사용하면 월드 상의 평면 $&pi;(&mu;)$를 통해 $\mathbf{H}(&mu;) = \mathbf{l}^{&prime; &and;}\mathbf{F}+ &mu; \mathbf{e}^{&prime;}\mathbf{l}^{\intercal}$와 같이 Homography를 구할 수 있다. 이 때, $\mathbf{Hx} = \mathbf{x}^{\prime}$식을 통해 $\mathbf{x}^{\prime}\times(\mathbf{Hx}) = 0$식을 전개해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}^{\prime} \times (\mathbf{l}^{\prime\wedge}\mathbf{Fx} + \mu \mathbf{e}^{\prime}\mathbf{l}^{\intercal}\mathbf{x})  = 0 \\
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이를 전개 후 정리해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    (\mathbf{x}^{\prime}\times \mathbf{e}^{\prime})\mathbf{l}^{\intercal}\mathbf{x} \cdot \mu &amp; = -\mathbf{x}^{\prime} \times \mathbf{l}^{\prime} \times \mathbf{Fx} \\
+    &amp; = \mathbf{x}^{\prime} \times \mathbf{Fx} \times \mathbf{l}^{\prime}
+  \end{aligned}
+\end{equation}
+<p>
+이 되고 양변에 $(\mathbf{x}^{&prime;}&times; \mathbf{e}^{&prime;})^{\intercal}$을 곱하여 $&mu;$에 대하여 정리 후 $\mathbf{H}(&mu;)$식 에 넣어주면 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H} = \mathbf{l}^{\prime\wedge}\mathbf{F} + \frac{(\mathbf{x}^{\prime}\times \mathbf{e}^{\prime})^{\intercal}(\mathbf{x}^{\prime}\times((\mathbf{Fx})\times \mathbf{l}^{\prime}))}{\| \mathbf{x}^{\prime}\times \mathbf{e}^{\prime} \|^{2}(\mathbf{l}^{\intercal}\mathbf{x})}\mathbf{e}^{\prime}\mathbf{l}^{\intercal} 
+  \end{aligned}
+\end{equation}
+<p>
+공식을 얻을 수 있다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org02fe78e" class="outline-3">
+<h3 id="org02fe78e"><span class="section-number-3">5.3</span> Computing $\mathbf{F}$given the homography induced by a plane</h3>
+<div class="outline-text-3" id="text-5-3">
 <p>
 일반적으로 두 개의 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;})$에 대한 Fundamental Matrix $\mathbf{F}$를 계산하기 위해서는 최소 8개의 대응점 쌍 $(\mathbf{x}_{i},\mathbf{x}_{i}^{&prime;}), \ i=1,&ctdot;,8$이 필요하다. 하지만 <b>Scene Plane Homography를 이용하면 6개의 대응점 쌍만 사용해도 $\mathbf{F}$를 계산할 수 있다.</b> 단, 6개의 대응점 쌍들 중 4개 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{x}_{i}^{&prime;}), \ i=1,&ctdot;,4$에 해당하는 월드 상의 점들의 동일한 평면 $\pi$위에 존재해야 한다는 제약조건이 있다.
 </p>
@@ -2247,12 +2588,12 @@ $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Proj
 </div>
 
 <div id="outline-container-orgfa30ee8" class="outline-3">
-<h3 id="orgfa30ee8"><span class="section-number-3">5.3</span> The infinite homography $\mathbf{H}_{\infty}$</h3>
-<div class="outline-text-3" id="text-5-3">
+<h3 id="orgfa30ee8"><span class="section-number-3">5.4</span> The infinite homography $\mathbf{H}_{\infty}$</h3>
+<div class="outline-text-3" id="text-5-4">
 </div>
 <div id="outline-container-orgf3df7af" class="outline-4">
-<h4 id="orgf3df7af"><span class="section-number-4">5.3.1</span> Definition 13.10</h4>
-<div class="outline-text-4" id="text-5-3-1">
+<h4 id="orgf3df7af"><span class="section-number-4">5.4.1</span> Definition 13.10</h4>
+<div class="outline-text-4" id="text-5-4-1">
 <p>
 Scene Plane이 무한대 평면(plane at infinity) $&pi;_{&infin;}$인 경우, 이 때 계산한 Homography를 Infinity Homography $\mathbf{H}_{&infin;}$라고 한다.
 </p>
@@ -2291,8 +2632,8 @@ Inifinite Homography $\mathbf{H}_{&infin;}$는 $d$가 무한대인 경우에 해
 </div>
 
 <div id="outline-container-org3b44cad" class="outline-4">
-<h4 id="org3b44cad"><span class="section-number-4">5.3.2</span> Affine and metric reconstruction</h4>
-<div class="outline-text-4" id="text-5-3-2">
+<h4 id="org3b44cad"><span class="section-number-4">5.4.2</span> Affine and metric reconstruction</h4>
+<div class="outline-text-4" id="text-5-4-2">
 <p>
 만약 월드좌표계가 Affine인 경우 $&pi;_{&infin;}$는 $&pi;_{&infin;}=(0,0,0,1)^{\intercal}$과 같이 나타낼 수 있고 두 카메라 행렬이 $\mathbf{P}=[\mathbf{M}\ | \ \mathbf{m}], \ \mathbf{P}^{&prime;}=[\mathbf{M}^{&prime;} \ | \ \mathbf{m}^{&prime;}]$으로 주어진 경우 무한대 평면 상의 점 $\mathbf{X}&isin; &pi;_{&infin;}$를 각각 카메라에 프로젝션하면
 </p>
