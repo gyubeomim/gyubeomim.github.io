@@ -17,12 +17,16 @@ comments: true
 <li><a href="#org59564f6">1.1. The geometric basis for the trifocal tensor</a>
 <ul>
 <li><a href="#orgf863c9e">1.1.1. Incidence relations for lines</a></li>
-<li><a href="#orgc24852f">1.1.2. Homographies induced by a plane</a></li>
-<li><a href="#org6c0234e">1.1.3. Point and line incidence relations</a></li>
-<li><a href="#orgac63c2f">1.1.4. Epipolar lines</a></li>
-<li><a href="#org6a4790c">1.1.5. Proof</a></li>
-<li><a href="#orgd482509">1.1.6. Extracting the fundamental matrices</a></li>
-<li><a href="#orgea24b7a">1.1.7. Retrieving the camera matrices</a></li>
+<li><a href="#org5757b22">1.1.2. Definition 15.1</a></li>
+<li><a href="#orgc24852f">1.1.3. Homographies induced by a plane</a></li>
+<li><a href="#org514b1c7">1.1.4. Result 15.2</a></li>
+<li><a href="#org6c0234e">1.1.5. Point and line incidence relations</a></li>
+<li><a href="#orgac63c2f">1.1.6. Epipolar lines</a></li>
+<li><a href="#orge01bfa4">1.1.7. Result 15.3</a></li>
+<li><a href="#org6a4790c">1.1.8. Proof</a></li>
+<li><a href="#org1ffdb10">1.1.9. Result 15.4</a></li>
+<li><a href="#orgd482509">1.1.10. Extracting the fundamental matrices</a></li>
+<li><a href="#orgea24b7a">1.1.11. Retrieving the camera matrices</a></li>
 </ul>
 </li>
 <li><a href="#orgfad94ad">1.2. The trifocal tensor and tensor notation</a>
@@ -41,7 +45,8 @@ comments: true
 </li>
 <li><a href="#orga9d5ca2">1.4. The fundamental matrices for three views</a>
 <ul>
-<li><a href="#org332085f">1.4.1. Uniqueness of camera matrices given three fundamental matrices</a></li>
+<li><a href="#org3ad6910">1.4.1. Definition 15.5</a></li>
+<li><a href="#org332085f">1.4.2. Uniqueness of camera matrices given three fundamental matrices</a></li>
 </ul>
 </li>
 </ul>
@@ -151,7 +156,16 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
   \end{aligned}
 \end{equation}
 <p>
-으로 간결하게 표현할 수 있고 이 때, <b>행렬의 집합 $\{\mathbf{T}_{1},\mathbf{T}_{2},\mathbf{T}_{3}\}$은 Trifocal Tensor $\mathcal{T}$을 행렬로 표현한 것을 의미한다. 이를 사용하여 직선 $\mathbf{l}$을 다시 표현해보면 다음과 같다.</b>
+으로 간결하게 표현할 수 있다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5757b22" class="outline-4">
+<h4 id="org5757b22"><span class="section-number-4">1.1.2</span> Definition 15.1</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+이 때, <b>행렬의 집합 $\{\mathbf{T}_{1},\mathbf{T}_{2},\mathbf{T}_{3}\}$은 Trifocal Tensor $\mathcal{T}$을 행렬로 표현한 것을 의미한다. 이를 사용하여 직선 $\mathbf{l}$을 다시 표현해보면 다음과 같다.</b>
 </p>
 
 \begin{equation}
@@ -164,8 +178,11 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
 </div>
 
 <div id="outline-container-orgc24852f" class="outline-4">
-<h4 id="orgc24852f"><span class="section-number-4">1.1.2</span> Homographies induced by a plane</h4>
-<div class="outline-text-4" id="text-1-1-2">
+<h4 id="orgc24852f"><span class="section-number-4">1.1.3</span> Homographies induced by a plane</h4>
+</div>
+<div id="outline-container-org514b1c7" class="outline-4">
+<h4 id="org514b1c7"><span class="section-number-4">1.1.4</span> Result 15.2</h4>
+<div class="outline-text-4" id="text-1-1-4">
 <p>
 서로 다른 세 카메라의 이미지 평면을 각각 $\pi_{\mathbf{P}}, \pi_{\mathbf{P}^{\prime}}, \pi_{\mathbf{P}^{\prime\prime}}$하자. 두 번째 카메라 이미지 평면 상의 직선 $\mathbf{l}^{&prime;}$을 Back-projection하여 얻은 월드 상의 평면을 $&pi;^{&prime;}$이라고 하면 $&pi;^{&prime;}$을 통해 $&pi;_{\mathbf{P}}$에서 $&pi;_{\mathbf{P}^{&prime;&prime;}}$으로 변환하는 Homography $\mathbf{H}_{13}$가 존재한다. 해당 섹션에서는 $\mathbf{H}_{13}$를 $\mathbf{l}^{&prime;}$을 통해 기술하는 방법에 대해 설명한다.
 </p>
@@ -207,8 +224,8 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
 </div>
 
 <div id="outline-container-org6c0234e" class="outline-4">
-<h4 id="org6c0234e"><span class="section-number-4">1.1.3</span> Point and line incidence relations</h4>
-<div class="outline-text-4" id="text-1-1-3">
+<h4 id="org6c0234e"><span class="section-number-4">1.1.5</span> Point and line incidence relations</h4>
+<div class="outline-text-4" id="text-1-1-5">
 <p>
 이전 섹션에서는 $\mathbf{l} = \mathbf{l}^{\prime\intercal}\mathcal{T}\mathbf{l}^{\prime\prime}$공식을 통해 세 이미지 평면에 존재하는 직선들이 Trifocal Tensor $\mathcal{T}$에 의해 제약된다는 것에 대해 설명했다. <b>해당 섹션에서는 세 개의 직선들 뿐만 아니라 점과 직선들의 관계들이 Trifocal Tensor $\mathcal{T}$에 의해 어떻게 제약되는 지 설명한다.</b>
 </p>
@@ -266,8 +283,11 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
 </div>
 
 <div id="outline-container-orgac63c2f" class="outline-4">
-<h4 id="orgac63c2f"><span class="section-number-4">1.1.4</span> Epipolar lines</h4>
-<div class="outline-text-4" id="text-1-1-4">
+<h4 id="orgac63c2f"><span class="section-number-4">1.1.6</span> Epipolar lines</h4>
+</div>
+<div id="outline-container-orge01bfa4" class="outline-4">
+<h4 id="orge01bfa4"><span class="section-number-4">1.1.7</span> Result 15.3</h4>
+<div class="outline-text-4" id="text-1-1-7">
 <p>
 <b>Trifocal Tensor $\mathcal{T}$를 통해 두 카메라의 Epipoar Line을 구할 수 있다.</b> 세 이미지 평면 $&pi;_{\mathbf{P}},&pi;_{\mathbf{P}^{&prime;}},&pi;_{\mathbf{P}^{&prime;&prime;}}$이 주어지고 $\pi_{\mathbf{P}}$위의 한 점 $\mathbf{x}$가 존재하며 $\pi_{\mathbf{P}^{\prime}}, \pi_{\mathbf{P}^{\prime\prime}}$평면에 Epipolar Line $\mathbf{l}^{&prime;}, \mathbf{l}^{&prime;&prime;}$이 존재한다고 가정하면 이들 사이에는
 </p>
@@ -285,8 +305,8 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
 </div>
 
 <div id="outline-container-org6a4790c" class="outline-4">
-<h4 id="org6a4790c"><span class="section-number-4">1.1.5</span> Proof</h4>
-<div class="outline-text-4" id="text-1-1-5">
+<h4 id="org6a4790c"><span class="section-number-4">1.1.8</span> Proof</h4>
+<div class="outline-text-4" id="text-1-1-8">
 <p>
 두 번째 이미지 평면 $\pi_{\mathbf{P}^{\prime}}$상의 Epipolar Line $\mathbf{l}^{&prime;}$을 Back-projection하여 생성된 평면을 $&pi;^{&prime;}$이라고 하면 $&pi;^{&prime;}$과 $\pi_{\mathbf{P}}$사이에는 교차선이 생성되고 해당 교차선은 $\pi_{\mathbf{P}}$평면의 Epipolar Line $\mathbf{l}$이 된다. 이 때 세 번째 이미지 평면 $\pi_{\mathbf{P}^{\prime\prime}}$상의 임의의 직선 $\mathbf{l}^{&prime;&prime;}$을 Back-projection한 평면 $&pi;^{&prime;&prime;}$과 $&pi;^{&prime;}$은 월드 평면 상의 직선 $\mathbf{L}$에서 교차선을 생성하며 이를 다시 $&pi;_{\mathbf{P}}$로 프로젝션하면 $\mathbf{L}$은 항상 Epipolar Line $\mathbf{l}$위에 한 점 $\mathbf{x}&isin; \mathbf{l}$로 프로젝션된다.
 </p>
@@ -305,7 +325,12 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
 <p>
 위와 같이 <b>모든 $\mathbf{l}^{&prime;&prime;}$에 대해 위 공식을 만족해야 하므로 $\mathbf{l}^{\prime\intercal}(\sum_{i}x^{i}\mathbf{T}_{i}) = 0$공식이 성립하게 된다. 이를 모든 $\mathbf{l}^{&prime;}$에 대해서도 마찬가지로 성립하므로 $(\sum_{i}x^{i}\mathbf{T}_{i})\mathbf{l}^{\prime\prime} = 0$또한 성립한다.</b>
 </p>
+</div>
+</div>
 
+<div id="outline-container-org1ffdb10" class="outline-4">
+<h4 id="org1ffdb10"><span class="section-number-4">1.1.9</span> Result 15.4</h4>
+<div class="outline-text-4" id="text-1-1-9">
 <p>
 <b>추가적으로 Epipole $\mathbf{e}^{&prime;}, \mathbf{e}^{&prime;&prime;}$은 모든 $^&forall; \mathbf{x}$에 대해 구할 수 있는 $\mathbf{l}^{&prime;}, \mathbf{l}^{&prime;&prime;}$들의 교차점을 계산함으로써 구할 수 있다.</b>
 </p>
@@ -313,8 +338,8 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
 </div>
 
 <div id="outline-container-orgd482509" class="outline-4">
-<h4 id="orgd482509"><span class="section-number-4">1.1.6</span> Extracting the fundamental matrices</h4>
-<div class="outline-text-4" id="text-1-1-6">
+<h4 id="orgd482509"><span class="section-number-4">1.1.10</span> Extracting the fundamental matrices</h4>
+<div class="outline-text-4" id="text-1-1-10">
 <p>
 이전 섹션에서 설명한 것과 같이 여러 점과 직선들과 관계를 통해 세 개의 이미지 평면에 대한 Trifocal Tensor $\mathcal{T}$를 구할 수 있다. 해당 섹션에서는 $\mathcal{T}$를 통해 세 개의 서로 다른 Fundamental Matrix $\mathbf{F}$를 구하는 방법에 대해 설명한다.
 </p>
@@ -354,8 +379,8 @@ Fundamental Matrix $\mathbf{F}_{21}$는 $\mathbf{F}_{21}=\mathbf{e}^{&prime;&and
 </div>
 
 <div id="outline-container-orgea24b7a" class="outline-4">
-<h4 id="orgea24b7a"><span class="section-number-4">1.1.7</span> Retrieving the camera matrices</h4>
-<div class="outline-text-4" id="text-1-1-7">
+<h4 id="orgea24b7a"><span class="section-number-4">1.1.11</span> Retrieving the camera matrices</h4>
+<div class="outline-text-4" id="text-1-1-11">
 <p>
 Two-view Geometry에서는 Fundamental Matrix $\mathbf{F}$가 주어지면 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$을 사영모호성을 포함하여(up to projectivity) 구할 수 있었다.
 </p>
@@ -752,13 +777,22 @@ Trifocal Trnsor $\mathcal{T}$를 사용하면 점 뿐만 아니라 직선 또한
   \end{aligned}
 \end{equation}
 <p>
-공식을 만족한다. 즉, <b>세 개의 Fundamental Matrix $\mathbf{F}_{21},\mathbf{F}_{31},\mathbf{F}_{32}$가 독립적이지 않고 서로 상호호환(compatible)하기 위해서는 위 공식이 성립해야 한다.</b>
+공식을 만족한다.
 </p>
 </div>
 
-<div id="outline-container-org332085f" class="outline-4">
-<h4 id="org332085f"><span class="section-number-4">1.4.1</span> Uniqueness of camera matrices given three fundamental matrices</h4>
+<div id="outline-container-org3ad6910" class="outline-4">
+<h4 id="org3ad6910"><span class="section-number-4">1.4.1</span> Definition 15.5</h4>
 <div class="outline-text-4" id="text-1-4-1">
+<p>
+즉, <b>세 개의 Fundamental Matrix $\mathbf{F}_{21},\mathbf{F}_{31},\mathbf{F}_{32}$가 독립적이지 않고 서로 상호호환(compatible)하기 위해서는 위 공식이 성립해야 한다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org332085f" class="outline-4">
+<h4 id="org332085f"><span class="section-number-4">1.4.2</span> Uniqueness of camera matrices given three fundamental matrices</h4>
+<div class="outline-text-4" id="text-1-4-2">
 <p>
 만약 세 개의 Fundamental Matrix가 상호호환인 경우 이를 생성하는 세 개의 카메라 행렬 $(\mathbf{P}_{1},\mathbf{P}_{2},\mathbf{P}_{3})$이 사영모호성을 포함하여(up to projectivity) 유일하게 결정된다.
 </p>

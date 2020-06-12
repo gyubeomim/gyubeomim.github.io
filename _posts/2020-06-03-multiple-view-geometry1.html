@@ -24,10 +24,10 @@ comments: true
 <li><a href="#orgef72f6c">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#orgbfbffb2">1.2. Ideal points and the line at infinity</a>
+<li><a href="#org27a064a">1.2. Ideal points and the line at infinity</a>
 <ul>
 <li><a href="#org2038504">1.2.1. Intersection of parallel lines</a></li>
-<li><a href="#org3c7546a">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#orgbfbffb2">1.2.2. Ideal points and the line at infinity</a></li>
 <li><a href="#org773282c">1.2.3. A model for the projective plane</a></li>
 <li><a href="#org45777bb">1.2.4. Duality</a></li>
 </ul>
@@ -67,20 +67,41 @@ comments: true
 <li><a href="#orgcf922fc">2.1.2. Result 8.16</a></li>
 </ul>
 </li>
-<li><a href="#orgf1490b1">2.2. The image of the absolute conic</a></li>
-<li><a href="#orga81efc8">2.3. Orthogonality and $\mathbf{w}$</a></li>
+<li><a href="#orgf1490b1">2.2. The image of the absolute conic</a>
+<ul>
+<li><a href="#orgc44dd1c">2.2.1. Result 8.17</a></li>
+</ul>
+</li>
+<li><a href="#orga81efc8">2.3. Orthogonality and $\mathbf{w}$</a>
+<ul>
+<li><a href="#org518448b">2.3.1. Result 8.19</a></li>
+</ul>
+</li>
 <li><a href="#org7ea3ec1">2.4. Vanishing points and vanishing lines</a>
 <ul>
-<li><a href="#orgfe4dad9">2.4.1. Camera rotation from vanishing points</a></li>
+<li><a href="#org3ca4a4a">2.4.1. Result 8.20</a></li>
+<li><a href="#orgfe4dad9">2.4.2. Camera rotation from vanishing points</a></li>
 </ul>
 </li>
 <li><a href="#orgcda6f8e">2.5. Vanishing Lines</a></li>
 <li><a href="#org523f3bf">2.6. Orthogonality relationships amongst vanishing points and lines</a></li>
-<li><a href="#orga0c70ae">2.7. Affine 3D measurements and reconstruction</a></li>
-<li><a href="#org4c64600">2.8. Determining camera calibration $\mathbf{K}$from a single view</a></li>
+<li><a href="#orga0c70ae">2.7. Affine 3D measurements and reconstruction</a>
+<ul>
+<li><a href="#org4bca73d">2.7.1. Result 8.24</a></li>
+</ul>
+</li>
+<li><a href="#org4c64600">2.8. Determining camera calibration $\mathbf{K}$from a single view</a>
+<ul>
+<li><a href="#org864033c">2.8.1. Result 8.26</a></li>
+</ul>
+</li>
 <li><a href="#org2b9d73c">2.9. Calibration from three orthogonal vanishing points</a></li>
 <li><a href="#orge3c4130">2.10. Computation of focal length and principal point using vanishing point and vanishing line</a></li>
-<li><a href="#orge6c269f">2.11. The calibrating conic</a></li>
+<li><a href="#orge6c269f">2.11. The calibrating conic</a>
+<ul>
+<li><a href="#org638da35">2.11.1. Result 8.30</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#orga82f681">3. References</a></li>
@@ -264,8 +285,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-orgbfbffb2" class="outline-3">
-<h3 id="orgbfbffb2"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div id="outline-container-org27a064a" class="outline-3">
+<h3 id="org27a064a"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
@@ -325,8 +346,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-org3c7546a" class="outline-4">
-<h4 id="org3c7546a"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div id="outline-container-orgbfbffb2" class="outline-4">
+<h4 id="orgbfbffb2"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0$일 때 $\mathbb{R}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{R}^{2}$공간과 대응되지 않고 $\mathbb{P}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
@@ -895,6 +916,11 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
     &amp; = \mathbf{K}^{-\intercal}\mathbf{K}^{-1} 
   \end{aligned}
 \end{equation}
+</div>
+
+<div id="outline-container-orgc44dd1c" class="outline-4">
+<h4 id="orgc44dd1c"><span class="section-number-4">2.2.1</span> Result 8.17</h4>
+<div class="outline-text-4" id="text-2-2-1">
 <p>
 이에 따라 <b>Image of Absolute Conic $\mathbf{w} = \mathbf{K}^{-\intercal}\mathbf{K}^{-1}$</b> 이 된다.
 </p>
@@ -928,6 +954,7 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
 \end{equation}
 </div>
 </div>
+</div>
 
 <div id="outline-container-orga81efc8" class="outline-3">
 <h3 id="orga81efc8"><span class="section-number-3">2.3</span> Orthogonality and $\mathbf{w}$</h3>
@@ -939,7 +966,15 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
 </div>
 
 <p>
-이미지 평면 상의 두 점 $\mathbf{x}_{1}, \mathbf{x}_{2}$를 Back-projection하면 두 직선 $\mathbf{K}^{-1}\mathbf{x}_{1}, \mathbf{K}^{-1}\mathbf{x}_2$가 생성된다. 만약 두 직선이 직교하는 경우 $\mathbf{x}_{1}^{\intercal}\mathbf{w}\mathbf{x}_{2}=0$의 공식이 성립한다. 그리고 $\mathbf{x}_{1}$가 직선 $\mathbf{l}$에 포함되어 있으면 $\mathbf{x}_{1}^{\intercal}\mathbf{l}=0$이 성립한다. 위 두 공식을 결합하면
+이미지 평면 상의 두 점 $\mathbf{x}_{1}, \mathbf{x}_{2}$를 Back-projection하면 두 직선 $\mathbf{K}^{-1}\mathbf{x}_{1}, \mathbf{K}^{-1}\mathbf{x}_2$가 생성된다. 만약 두 직선이 직교하는 경우 $\mathbf{x}_{1}^{\intercal}\mathbf{w}\mathbf{x}_{2}=0$의 공식이 성립한다. 그리고 $\mathbf{x}_{1}$가 직선 $\mathbf{l}$에 포함되어 있으면 $\mathbf{x}_{1}^{\intercal}\mathbf{l}=0$이 성립한다.
+</p>
+</div>
+
+<div id="outline-container-org518448b" class="outline-4">
+<h4 id="org518448b"><span class="section-number-4">2.3.1</span> Result 8.19</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<p>
+위 두 공식을 결합하면
 </p>
 
 \begin{equation}
@@ -949,6 +984,7 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
     &amp; \therefore \mathbf{l} = \mathbf{wx}_{2}
   \end{aligned}
 \end{equation}
+</div>
 </div>
 </div>
 
@@ -980,7 +1016,15 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
   \end{aligned}
 \end{equation}
 <p>
-이 때, $\mathbf{a}$는 Image of $\mathbf{A}$를 의미한다. 결론적으로 소실점(vanishing point) $\mathbf{v}$는 다음과 같이 정의된다.
+이 때, $\mathbf{a}$는 Image of $\mathbf{A}$를 의미한다.
+</p>
+</div>
+
+<div id="outline-container-org3ca4a4a" class="outline-4">
+<h4 id="org3ca4a4a"><span class="section-number-4">2.4.1</span> Result 8.20</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<p>
+결론적으로 소실점(vanishing point) $\mathbf{v}$는 다음과 같이 정의된다.
 </p>
 
 \begin{equation}
@@ -990,10 +1034,11 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
   \end{aligned}
 \end{equation}
 </div>
+</div>
 
 <div id="outline-container-orgfe4dad9" class="outline-4">
-<h4 id="orgfe4dad9"><span class="section-number-4">2.4.1</span> Camera rotation from vanishing points</h4>
-<div class="outline-text-4" id="text-2-4-1">
+<h4 id="orgfe4dad9"><span class="section-number-4">2.4.2</span> Camera rotation from vanishing points</h4>
+<div class="outline-text-4" id="text-2-4-2">
 <p>
 소실점을 사용하여 카메라의 회전을 계산할 수 있다. 이미지 1에서 추출한 소실점 $\mathbf{v}_{1}$과 이미지 2에서 추출한 소실점 $\mathbf{v}_{2}$이 있을 때, $\mathbf{v}_{1}$의 방향은 $\mathbf{d}_{1} = \mathbf{K}^{-1}\mathbf{v}_{1}$이 되고 $\mathbf{v}_{2}$의 방향은 $\mathbf{d}_{2} = \mathbf{K}^{-1}\mathbf{v}_{2}$가 된다.
 </p>
@@ -1098,7 +1143,15 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 <h3 id="orga0c70ae"><span class="section-number-3">2.7</span> Affine 3D measurements and reconstruction</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
-3차원 공간 상의 평면 $&pi;$에 수직인 물체들의 소실점을 수직소실점(vertical vanishing point) $\mathbf{v_{&perp;}}$라고 한다. 평면 $&pi;$의 소실선 $\mathbf{l}$과 수직소실점을 이용하면 물체의 크기를 스케일을 제외한 파라미터(up to scale)까지 계산할 수 있다. 정확하게 말하면 <b>소실선 $\mathbf{l}$과 수직소실점 $\mathbf{v}_{&perp;}$를 알면 평면 $&pi;$에 수직한 선분들의 상대적 길이를 알 수 있다.</b>
+3차원 공간 상의 평면 $&pi;$에 수직인 물체들의 소실점을 수직소실점(vertical vanishing point) $\mathbf{v_{&perp;}}$라고 한다.
+</p>
+</div>
+
+<div id="outline-container-org4bca73d" class="outline-4">
+<h4 id="org4bca73d"><span class="section-number-4">2.7.1</span> Result 8.24</h4>
+<div class="outline-text-4" id="text-2-7-1">
+<p>
+평면 $&pi;$의 소실선 $\mathbf{l}$과 수직소실점을 이용하면 물체의 크기를 스케일을 제외한 파라미터(up to scale)까지 계산할 수 있다. 정확하게 말하면 <b>소실선 $\mathbf{l}$과 수직소실점 $\mathbf{v}_{&perp;}$를 알면 평면 $&pi;$에 수직한 선분들의 상대적 길이를 알 수 있다.</b>
 </p>
 
 <p>
@@ -1138,6 +1191,7 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 \end{equation}
 </div>
 </div>
+</div>
 
 
 <div id="outline-container-org4c64600" class="outline-3">
@@ -1157,6 +1211,11 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
     &amp; \mathbf{l} \times (\mathbf{wv}) = 0
   \end{aligned}
 \end{equation}
+</div>
+
+<div id="outline-container-org864033c" class="outline-4">
+<h4 id="org864033c"><span class="section-number-4">2.8.1</span> Result 8.26</h4>
+<div class="outline-text-4" id="text-2-8-1">
 <p>
 내부 파라미터 제약조건으로는 $\mathbf{K}$가 Zero-Skew인 경우 $w_{12} = w_{21}=0$이 있고 또한, Square Pixels인 경우 $w_{12}=w_{21}=0, w_{11}=w_{22}$가 있다.
 </p>
@@ -1170,6 +1229,7 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 <p>
 위와 같이 $\mathbf{w} = \begin{bmatrix} w_{1} &amp; w_{2} &amp; w_{4} \\ w_{2} &amp; w_{3} &amp;w_{5} \\ w_{4} &amp; w_{5} &amp; w_{6} \end{bmatrix}$파라미터를 찾기 위해 충분한 제약조건을 확보한 후 $\mathbf{w}$를 6차원 벡터로 정렬하여 $\mathbf{Ax}=0$형태의 선형 시스템을 만든다. 다음으로 <b>특이값 분해(SVD)를 사용하여 $\mathbf{w}=\mathbf{K}^{-\intercal}\mathbf{K}^{-1}$값을 계산한 후 Cholesky Decomposition을 사용하여 $\mathbf{K}^{-\intercal}\mathbf{K}^{-1}$를 분해</b> 한다. 이를 통해 내부 파라미터 $\mathbf{K}$를 계산할 수 있다.
 </p>
+</div>
 </div>
 </div>
 
@@ -1267,8 +1327,17 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
   \end{aligned}
 \end{equation}
 <p>
-이 때, $\dot{\mathbf{x}} = \mathbf{Sx}$는 점 $\mathbf{x}$가 Calibration Conic에 의해 반사된 점을 의미한다. 결론적으로, <b>직선 $\mathbf{C}\dot{\mathbf{x}}$는 반사된 점 $\dot{\mathbf{x}}$와 Calibration Conic의 접선들을 이어주는 직선이 되고 점 $\mathbf{x}^{&prime;}$는 직선 $\mathbf{C}\dot{\mathbf{x}}$위에 존재</b> 한다.
+이 때, $\dot{\mathbf{x}} = \mathbf{Sx}$는 점 $\mathbf{x}$가 Calibration Conic에 의해 반사된 점을 의미한다.
 </p>
+</div>
+
+<div id="outline-container-org638da35" class="outline-4">
+<h4 id="org638da35"><span class="section-number-4">2.11.1</span> Result 8.30</h4>
+<div class="outline-text-4" id="text-2-11-1">
+<p>
+결론적으로, <b>직선 $\mathbf{C}\dot{\mathbf{x}}$는 반사된 점 $\dot{\mathbf{x}}$와 Calibration Conic의 접선들을 이어주는 직선이 되고 점 $\mathbf{x}^{&prime;}$는 직선 $\mathbf{C}\dot{\mathbf{x}}$위에 존재</b> 한다.
+</p>
+</div>
 </div>
 </div>
 </div>
