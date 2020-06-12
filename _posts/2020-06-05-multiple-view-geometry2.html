@@ -14,7 +14,7 @@ comments: true
 <ul>
 <li><a href="#org098d0df">1. Epipolar Geometry and the Fundamental Matrix</a>
 <ul>
-<li><a href="#org48e58bb">1.1. Proof</a></li>
+<li><a href="#orgc435fdf">1.1. Proof</a></li>
 <li><a href="#orgc326480">1.2. Derivation of fundemantal matrix(geometry)</a></li>
 <li><a href="#org0608363">1.3. Derivation of fundemantal matrix(algebraic)</a></li>
 <li><a href="#orgb4b37c0">1.4. The epipolar line homography</a></li>
@@ -28,22 +28,89 @@ comments: true
 <li><a href="#org60837dd">1.6.1. Projective invariance and canonical cameras</a></li>
 <li><a href="#org1395de4">1.6.2. Canonical form of camera matrices</a></li>
 <li><a href="#org27fbdb8">1.6.3. Projective ambiguity of cameras given F</a></li>
-<li><a href="#orgb380ec4">1.6.4. Proof</a></li>
+<li><a href="#org09ced9c">1.6.4. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org664ef49">1.7. Canonical cameras given F</a></li>
 <li><a href="#org7692670">1.8. The essential matrix</a>
 <ul>
 <li><a href="#org7781e32">1.8.1. Properties of the essential matrix</a></li>
-<li><a href="#orgc435fdf">1.8.2. Proof</a></li>
+<li><a href="#orga21127d">1.8.2. Proof</a></li>
 </ul>
 </li>
 <li><a href="#org6a4d981">1.9. Extraction of cameras from the essential matrix</a></li>
 <li><a href="#org09ea3fb">1.10. Geometrical interpretation of the four solutions</a></li>
 </ul>
 </li>
-<li><a href="#org40e9c52">2. References</a></li>
-<li><a href="#orgcb637de">3. Closure</a></li>
+<li><a href="#orgccda7b5">2. 3D Reconstruction of Cameras and Structure</a>
+<ul>
+<li><a href="#org2fccbfa">2.1. The projective reconstruction theorem</a>
+<ul>
+<li><a href="#org5cdab6d">2.1.1. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org2ba7b16">2.2. Stratified reconstruction</a>
+<ul>
+<li><a href="#orgf85d5c4">2.2.1. The step to affine reconstruction</a></li>
+</ul>
+</li>
+<li><a href="#orge1997aa">2.3. The step to metric reconstruction</a></li>
+</ul>
+</li>
+<li><a href="#org5cd7166">3. Computation of the Fundamental Matrix $\mathbf{F}$</a>
+<ul>
+<li><a href="#orgb2e606f">3.1. Basic equations</a>
+<ul>
+<li><a href="#org28334a6">3.1.1. The minimum case - seven point correspondences</a></li>
+</ul>
+</li>
+<li><a href="#org5576fa1">3.2. The normalized 8-point algorithm</a>
+<ul>
+<li><a href="#orgb761148">3.2.1. Degenrate configurations</a></li>
+<li><a href="#orgae05295">3.2.2. Proof</a></li>
+</ul>
+</li>
+<li><a href="#orgc443854">3.3. The Gold Standard method</a></li>
+</ul>
+</li>
+<li><a href="#org4b7d08d">4. Structure Computation</a>
+<ul>
+<li><a href="#orgea9eec4">4.1. Problem statement</a></li>
+<li><a href="#org57cc37e">4.2. Linear triangulation methods</a>
+<ul>
+<li><a href="#org2cb034c">4.2.1. Inhomogeneous method</a></li>
+</ul>
+</li>
+<li><a href="#org0f0b8fd">4.3. An optimial solution</a>
+<ul>
+<li><a href="#orge7ee13a">4.3.1. Reformulation of the minimization problem</a></li>
+<li><a href="#org53eca9d">4.3.2. Details of the minimization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org34812e0">5. Scene planes and homographies</a>
+<ul>
+<li><a href="#orgc939da6">5.1. Homographies given the plane and vice versa</a>
+<ul>
+<li><a href="#org30da625">5.1.1. Proof</a></li>
+<li><a href="#org92602c6">5.1.2. A calibrated stereo rig</a></li>
+<li><a href="#org452bdae">5.1.3. Homographies compatible with epipolar geometry</a></li>
+<li><a href="#org155807b">5.1.4. Proof</a></li>
+<li><a href="#org611486b">5.1.5. Corollary</a></li>
+<li><a href="#org76f79b4">5.1.6. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org02fe78e">5.2. Computing $\mathbf{F}$given the homography induced by a plane</a></li>
+<li><a href="#orgfa30ee8">5.3. The infinite homography $\mathbf{H}_{\infty}$</a>
+<ul>
+<li><a href="#org3b44cad">5.3.1. Affine and metric reconstruction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org40e9c52">6. References</a></li>
+<li><a href="#orgcb637de">7. Closure</a></li>
 </ul>
 </div>
 </div>
@@ -81,8 +148,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 \end{equation}
 </div>
 
-<div id="outline-container-org48e58bb" class="outline-3">
-<h3 id="org48e58bb"><span class="section-number-3">1.1</span> Proof</h3>
+<div id="outline-container-orgc435fdf" class="outline-3">
+<h3 id="orgc435fdf"><span class="section-number-3">1.1</span> Proof</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 ($\Rightarrow$)$\mathbf{l}^{&prime;} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{&prime;}$에 위치한 점 $\mathbf{x}^{&prime;}$에 대하여 다음이 성립한다.
@@ -416,8 +483,8 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 </div>
 </div>
 
-<div id="outline-container-orgb380ec4" class="outline-4">
-<h4 id="orgb380ec4"><span class="section-number-4">1.6.4</span> Proof</h4>
+<div id="outline-container-org09ced9c" class="outline-4">
+<h4 id="org09ced9c"><span class="section-number-4">1.6.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-6-4">
 <p>
 두 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{\prime})$, $(~{\mathbf{P}}, ~{\mathbf{P}}^{&prime;})$이 주어졌을 때 이를 Canonical Form으로 쓰면 다음과 같다.
@@ -698,8 +765,8 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 </div>
 </div>
 
-<div id="outline-container-orgc435fdf" class="outline-4">
-<h4 id="orgc435fdf"><span class="section-number-4">1.8.2</span> Proof</h4>
+<div id="outline-container-orga21127d" class="outline-4">
+<h4 id="orga21127d"><span class="section-number-4">1.8.2</span> Proof</h4>
 <div class="outline-text-4" id="text-1-8-2">
 <p>
 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;}) = ([\mathbf{I}|0], \ [\mathbf{R}|\mathbf{t}])$에 대한 Fundamental Matrix $\mathbf{F}$가 있다고 하면
@@ -950,17 +1017,1222 @@ $\mathbf{E}= \mathbf{t}^{&and;}\mathbf{R}$을 어떻게 분해하느냐에 따�
 </div>
 </div>
 
-<div id="outline-container-org40e9c52" class="outline-2">
-<h2 id="org40e9c52"><span class="section-number-2">2</span> References</h2>
+<div id="outline-container-orgccda7b5" class="outline-2">
+<h2 id="orgccda7b5"><span class="section-number-2">2</span> 3D Reconstruction of Cameras and Structure</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+이전 섹션에서 언급했듯이 <b>Fundamental Matrix $\mathbf{F}$는 여러 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$에 대하여 사영모호성(projective ambiguity)이 존재하기 때문에 결과물인 $\mathbf{P}, \mathbf{P}^{&prime;}$를 통해 계산한 3차원 공간 상의 점 또한 모호성을 가지게 된다.</b> 해당 섹션에서는 Scene Constraint와 Internal Constraint를 사용하여 모호성을 제거하는 방법에 대해서 설명한다.
+</p>
+</div>
+
+<div id="outline-container-org2fccbfa" class="outline-3">
+<h3 id="org2fccbfa"><span class="section-number-3">2.1</span> The projective reconstruction theorem</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+두 카메라의 이미지 평면 상 대응쌍 점들인 $\mathbf{x}, \mathbf{x}^{&prime;}$이 충분히 주어져서 이를 통해 Fundamental Matrix $\mathbf{F}$를 구했다고 가정해보자. 이 때, 사영모호성으로 인해 다음과 같은 두 카메라 행렬 대응쌍
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}_{1}, \mathbf{P}_{1}^{\prime}, \{\mathbf{X}_{1,i}\}) \\
+    &amp; (\mathbf{P}_{2}, \mathbf{P}_{2}^{\prime}, \{\mathbf{X}_{2,i}\}) \\
+  \end{aligned}
+\end{equation}
+<p>
+이 동일한 Fundamental Matrix $\mathbf{F}$를 갖게 되는 경우 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}_{2}, \mathbf{P}_{2}^{\prime}, \{\mathbf{X}_{2,i}\}) = \mathbf{H}\cdot (\mathbf{P}_{1}, \mathbf{P}_{1}^{\prime}, \{\mathbf{X}_{1,i}\})  \\
+  \end{aligned}
+\end{equation}
+<p>
+를 만족하는 Homography 행렬 $\mathbf{H}&isin; \text{PGL}_{4}$가 반드시 존재한다. 이 때 $\cdot$연산은 다음과 같이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P}_{2} = \mathbf{H}\cdot\mathbf{P}_{1} = \mathbf{P}_{1}\mathbf{H}^{-1} \\
+    &amp; \mathbf{P}_{2}^{\prime} = \mathbf{H}\cdot\mathbf{P}_{1} = \mathbf{P}_{1}^{\prime}\mathbf{H}^{-1} \\
+    &amp;\mathbf{X}_{2i} = \mathbf{H}\cdot \mathbf{X}_{1i} = \mathbf{H}\mathbf{X}_{1i}
+  \end{aligned}
+\end{equation}
+</div>
+
+<div id="outline-container-org5cdab6d" class="outline-4">
+<h4 id="org5cdab6d"><span class="section-number-4">2.1.1</span> Proof</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+이전 섹션에서 동일한 Fundamental Matrix $\mathbf{F}$를 공유하는 카메라 행렬 대응쌍 사이에 $\mathbf{P}_{2} = \mathbf{P}_{1}\mathbf{H}^{-1}, \mathbf{P}_{2}^{&prime;} =\mathbf{P}_{1}^{&prime;}\mathbf{H}^{-1}$를 만족하는 Homography 행렬 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재한다는 것을 증명하였다. 이를 적용해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P}_{2}\mathbf{X}_{2i} = \mathbf{P}_{1}\mathbf{H}^{-1}\mathbf{X}_{2i} = \mathbf{x}_{i} = \mathbf{P}_{1}\mathbf{X}_{1i} \\
+    &amp; \mathbf{P}_{2}^{\prime}\mathbf{X}_{2i} = \mathbf{P}_{1}^{\prime}\mathbf{H}^{-1}\mathbf{X}_{2i} = \mathbf{x}_{i}^{\prime} = \mathbf{P}_{1}^{\prime}\mathbf{X}_{1i}
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. $\mathbf{P}_{1}, \mathbf{P}_{2}$에 의해 Back Projection된 직선을 $\mathcal{R}$이라고 하고 $\mathbf{P}_{1}^{&prime;}, \mathbf{P}_{2}^{&prime;}$에 의해 Back Projection된 직선을 $\mathcal{R}^{&prime;}$이라고 하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \{\mathbf{H}^{-1}\mathbf{X}_{2i}, \mathbf{X}_{1i}\} \in \mathcal{R} \cap \mathcal{R}^{\prime}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 3차원 공간 상의 점 $\{\mathbf{H}^{-1}\mathbf{X}_{2i}, \mathbf{X}_{1i}\}$는 두 직선의 교차점이 된다. 따라서 <b>두 직선 $\mathcal{R}, \mathcal{R}^{&prime;}$이 Baseline과 같이 동일한 직선인 경우를 제외하면 $\{\mathbf{H}^{-1}\mathbf{X}_{2i}, \mathbf{X}_{1i}\}$는 교차점인 한 점을 의미</b> 하므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{H}^{-1}\mathbf{X}_{2i} = \mathbf{X}_{1i} \\
+    &amp; \mathbf{X}_{2i} = \mathbf{H}\mathbf{X}_{1i}
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. 따라서 추가적인 기하학적 원리를 사용하지 않으면 위와 같은 상황에서는 사영기하의 특성까지(up to projectivity) 복원할 수 있다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2ba7b16" class="outline-3">
+<h3 id="org2ba7b16"><span class="section-number-3">2.2</span> Stratified reconstruction</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Fundamental Matrix $\mathbf{F}$를 사용하여 계산한 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$의 사영모호성 문제를 해결하기 위해 Ground Truth 카메라 행렬 대응쌍인
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    (\mathbf{P}_{0}, \mathbf{P}_{0}^{\prime}, \{\hat{\mathbf{X}_{i}}\})
+  \end{aligned}
+\end{equation}
+<p>
+이 존재한다고 가정하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}_{1}, \mathbf{P}_{1}^{\prime}, \{\mathbf{X}_{i}\}) = \mathbf{H}\cdot(\mathbf{P}_{0}, \mathbf{P}_{0}^{\prime}, \{\hat{\mathbf{X}_{i}}\}) \\
+    &amp; \mathcal{T} = \mathbf{H}\cdot \mathcal{T}_{0}
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하는 Homography 행렬 $\mathbf{H}$가 존재한다. 이 때, 이미지 평면 상에서 평행한 직선의 특성을 활용하여 Affine Reconstruction을 수행한 다음, 이미지 평면 상에서 직교한 선들의 특성을 사용하여 Similarity Reconstruction을 순차적으로 수행한다.
+</p>
+</div>
+
+<div id="outline-container-orgf85d5c4" class="outline-4">
+<h4 id="orgf85d5c4"><span class="section-number-4">2.2.1</span> The step to affine reconstruction</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Affine Reconstruction 단계에서는 평행한 직선들의 특성을 보존하는 Homography 행렬 $\mathbf{H}_{a}$를 찾아야 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{a}(\pi_{\infty}) = \pi_{\infty}
+  \end{aligned}
+\end{equation}
+<p>
+3차원 공간 상의 점들의 집합 $\{\mathbf{X}_{i}\}$를 사용하여 소실점을 3개 이상 구한 경우 이미지 평면에 투영된 무한대 평면 $&pi;_{&infin;}^{&prime;}$를 계산할 수 있다. 이미지 평면 상에 투영된 무한대 평면 $&pi;_{&infin;}^{&prime;}$를
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \pi_{\infty}^{\prime} = \begin{bmatrix} a &amp; b &amp; c &amp; 1  \end{bmatrix}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+라고 하면 실제 무한대 평면 $&pi;_{&infin;} = \begin{bmatrix}0&amp;0&amp;0&amp;1 \end{bmatrix}$을 $&pi;_{&infin;}^{&prime;}$로 보내는 Homography 행렬 $\mathbf{H}_{a}$는 다음과 같이 구할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{a} = \begin{bmatrix} &amp;\mathbf{I}_{3}&amp; &amp; 0 \\ a&amp;b&amp;c&amp;1 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 $\mathbf{H}_{a}^{\intercal}\pi_{\infty} = \pi_{\infty}^{\prime}$관계가 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \pi_{\infty}  = \mathbf{H}_{a}^{-1} \pi_{\infty}^{\prime}
+  \end{aligned}
+\end{equation}
+<p>
+이를 $\mathcal{T}$에 적용하면 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathcal{T}_{a} = \mathbf{H} \cdot \mathcal{T} \\
+    &amp; (\mathbf{PH}_{a}^{-1}, \mathbf{P}^{\prime}\mathbf{H}_{a}^{-1}, \{\mathbf{H}_{a}\mathbf{X}_{i}\}) = \mathbf{H} \cdot (\mathbf{P}, \mathbf{P}^{\prime}, \{\mathbf{X}_{i}\})
+  \end{aligned}
+\end{equation}
+<p>
+연산을 통해 이미지를 Affine Reconstruction할 수 있다. 여기까지 진행했다면 Ground Truth $\mathcal{T}_{0}$와 $\mathcal{T}_{a}$는 Affine만큼만 차이가 나게 된다. 즉, 평행한 직선들은 모두 복원되었으나 아직 직교한 직선들은 복원되지 않은 상태이다.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orge1997aa" class="outline-3">
+<h3 id="orge1997aa"><span class="section-number-3">2.3</span> The step to metric reconstruction</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Metric Reconstruction 단계에서는 직교하는 선들을 보존하는 Homography 행렬 $\mathbf{H}_{s}$를 찾아야 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{s}(\Omega_{\infty}) = \Omega_{\infty}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $&Omega;_{&infin;}$는 무한대 평면상에 존재하는 Absolute Conic을 의미한다. Affine Reconstruction 단계에서 얻은 $\mathcal{T}_{a}$는 무한대 평면 $&pi;_{&infin;}$가 실제 무한대에 위치하게 된다. 이 때, $\{\mathbf{X}_{i}\}$들 중 직교하는 점들을 사용하여 $&Omega;_{&infin;}$를 구할 수 있다. 직교하는 점들의 대응쌍을 $\mathbf{d}_{1}, \mathbf{d}_{2}$라고 하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{d}_{1}^{\intercal}\omega \mathbf{d}_{2} = 0
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하는 $&omega;$를 찾을 수 있고 $&omega;$는 이미지 평면 상에 투영된 Absolute Conic $&Omega;_{&infin;}$가 된다.
+</p>
+
+<p>
+카메라 행렬 $\mathbf{P}= \mathbf{K}[\mathbf{R}| \mathbf{t}] = [\mathbf{M}\ | \ \mathbf{m}]$가 주어졌을 때 무한대 평면 $&pi;_{&infin;}$는 $\mathbf{M}$에 의해 이미지 평면 $&pi;$에 투영된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{M}: \pi_{\infty} \mapsto \pi
+  \end{aligned}
+\end{equation}
+<p>
+반대로 $\mathbf{M}^{-1}$는 $\pi$평면 상의 점들을 무한대 평면 $&pi;_{&infin;}$으로 보내는 매핑이라고 할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{M}^{-1}: \pi \mapsto \pi_{\infty}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, 이미지 평면에 투영된 Absolute Conic에 $\mathbf{M}^{-1}$을 적용하면 $\mathbf{M}^{-1}(&omega;) = ~{&Omega;}_{&infin;}$가 된다. $~{&Omega;}_{&infin;}$는 아직 Metric Reconstruction이 되기 전이므로 $&Omega; &ne; ~{&Omega;}_{&infin;}$이다. 둘 사이에는 다음 공식이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{s}(\tilde{\Omega}_{\infty}) = \Omega_{\infty} = \mathbf{I}_{3}
+  \end{aligned}
+\end{equation}
+<p>
+Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s} = \begin{bmatrix}\mathbf{A}^{-1} &amp; \\ &amp; 1 \end{bmatrix}$이라고 하고 이 때 이미지 평면을 $\pi_{s}$, 카메라 행렬을 $\mathbf{P}_{s}$라고 하면 $\mathbf{H}_{s}(\pi) = \pi_{s}$관계가 성립하고 무한대 평면을 Homography 변환한 공식은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \pi_{\infty} \mathbf{A}^{-1} = \pi_{\infty,s} \\ 
+    &amp; \mathbf{H}_{s}|_{\pi_{\infty}} = \mathbf{A}^{-1} \\
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. 각각 무한대 평면 $&pi;_{&infin;}, &pi;_{&infin;,s}$을 이미지 평면 $&pi;, &pi;_{s}$에 투영하는 공식은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P}|_{\pi_{\infty}} = \mathbf{M} \\
+    &amp; \mathbf{P}_{s}|_{\pi_{\infty}} = \mathbf{MA}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 변형된다. 따라서 $\mathbf{H}_{s}(~{&Omega;}_{&infin;})$는 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{s}(\tilde{\Omega}_{\infty}) &amp; = (\mathbf{A}^{-1})^{-\intercal} \tilde{\Omega}_{\infty} \mathbf{A} \\
+    &amp; = \mathbf{A}^{\intercal} (\mathbf{M}^{\intercal}\omega \mathbf{M})\mathbf{A}  
+  \end{aligned}
+\end{equation}
+<p>
+따라서 Absolute Conic 특성에 의해 $\mathbf{A}^{\intercal} (\mathbf{M}^{\intercal}&omega; \mathbf{M})\mathbf{A}$는 $\mathbf{I}$이 되어야 하므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{A}^{\intercal} (\mathbf{M}^{\intercal}\omega \mathbf{M})\mathbf{A} = \mathbf{I} \\
+    &amp; (\mathbf{M}^{\intercal} \omega \mathbf{M})^{-1} = \mathbf{AA}^{\intercal} 
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. 결론적으로 $\mathbf{H}_{s} = \begin{bmatrix}\mathbf{A}^{-1} &amp; \\ &amp; 1 \end{bmatrix}$를 구하기 위해서는 <b>이미지 평면 상에서 직교하는 직선들의 특성을 사용하여 $&omega;$를 구한 후, $(\mathbf{M}^{\intercal} &omega; \mathbf{M})^{-1}$를 Cholesky Decomposition하여 $\mathbf{AA}^{\intercal}$를 구한다. 이를 통해 $\mathbf{A}^{-1}$값을 구할 수 있고 최종적으로 Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{s}$를 구할 수 있다.</b>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5cd7166" class="outline-2">
+<h2 id="org5cd7166"><span class="section-number-2">3</span> Computation of the Fundamental Matrix $\mathbf{F}$</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgb2e606f" class="outline-3">
+<h3 id="orgb2e606f"><span class="section-number-3">3.1</span> Basic equations</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+두 카메라의 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{&prime;}$이 존재할 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{\prime\intercal}\mathbf{Fx} = 0
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하는 3x3 크기의 행렬 $\mathbf{F}$를 Fundamental Matrix라고 한다. 만약 세 개의 대응점쌍 $\mathbf{x} = (\mathbf{x}_{1}, \mathbf{x}_{2}, \mathbf{x}_{3})$, $\mathbf{x}^{&prime;} = (\mathbf{x}_{1}^{&prime;}, \mathbf{x}_{2}^{&prime;}, \mathbf{x}_{3}^{&prime;})$이 주어졌을 때 $\mathbf{x}^{&prime;\intercal}\mathbf{Fx}=0$이를 다시 정리하면 $&sum; \mathbf{x}^{&prime;}_{i}\mathbf{x}_{j}\mathbf{f}_{ij}=0$과 같이 정리할 수 있다. 해당 식은 선형시스템
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{A} \mathbf{f} = 0
+  \end{aligned}
+\end{equation}
+<p>
+꼴로 나타낼 수 있고 이 때 $\mathbf{A}$와 $\mathbf{f}$를 풀어쓰면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{A} = (\mathbf{a}_{ik}) \in \mathbb{R}^{N \times 9}, \ \ \text{i-th row is} \ (\mathbf{x}_{1}^{\prime i}\mathbf{x}_{1}^{i}, \mathbf{x}_{1}^{\prime i}\mathbf{x}_{2}^{i},\cdots, \mathbf{x}_{3}^{\prime i}\mathbf{x}_{3}^{i}) \\
+    &amp; \mathbf{f} = (\mathbf{f}_{11}, \mathbf{f}_{12}, \mathbf{f}_{13}, \cdots, \mathbf{f}_{33})^{\intercal} \in \mathbb{R}^{9\times 1}
+  \end{aligned}
+\end{equation}
+<p>
+만약 주어진 대응점쌍의 개수 $N$이 8보다 크고 노이즈가 없는 완벽한 데이터로 생성이 되었으면 $\mathbf{A}$는 rank 8 행렬이 되고 유일한 해 $\mathbf{f}$가 존재한다. 이 때 $\mathbf{f}$는 $\mathbf{A}$의 Null Space의 원소가 된다.
+</p>
+
+<p>
+하지만 대부분의 경우 주어진 데이터에는 항상 노이즈가 존재하므로 $\mathbf{A}$행렬은 rank 9인 full rank 행렬이 된다. 이 때 해를 구하면 $\mathbf{f}$는 항상 영벡터가 계산되므로 $\| \mathbf{f}\| = 1$이라는 조건하에 $\|\mathbf{Af}\|$의 크기를 최소화하는 근사해 $\mathbf{f}$를 찾아야 한다. 해를 찾는 방법은 $\mathbf{A}$를 특이값 분해(SVD)한 다음
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{A} = \mathbf{UDV}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+대각행렬 $\mathbf{D}$의 eigenvalue 중 가장 절대값이 작은 것에 대응되는 $\mathbf{V}$의 열벡터를 $\mathbf{f}$의 일반해로 간주한다. 해당 열벡터 $\mathbf{f}$가 $\|\mathbf{Af}\|$의 크기를 최소화하는 벡터가 되며 이를 Linear Solution이라고 부른다.
+</p>
+
+<p>
+하지만 <b>이 때, Linear Solution $\mathbf{f}$로 복원한 $\mathbf{F}_{0}$가 rank 2 행렬임을 보장할 수 없다.</b> 수치적으로 해를 구하면 일반적으로 rank 3인 행렬이 나온다. 따라서 한 번 더 SVD를 사용하여 $\mathbf{F}_{0}$와 가장 가까운 rank 2 행렬을 찾아야 한다.
+</p>
+
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F}_{0} = \mathbf{U}_{0}\mathbf{D}_{0}\mathbf{V}^{\intercal}_{0}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 대각행렬 $\mathbf{D}_{0} = \begin{bmatrix}&sigma;_{1}&amp;&amp; \\ &amp;&sigma;_{2}&amp; \\  &amp;&amp;&sigma;_{3} \end{bmatrix}$는 일반적으로 마지막 특이값 $&sigma;_{3}$가 0이 아니므로 rank 3인 행렬이 된다. 따라서 <b>임의로 $&sigma;_{3}=0$으로 변경한 행렬이 $\mathbf{F}_{0}$과 가장 가까운 rank 2 행렬이 된다.</b>
+</p>
+</div>
+
+<div id="outline-container-org28334a6" class="outline-4">
+<h4 id="org28334a6"><span class="section-number-4">3.1.1</span> The minimum case - seven point correspondences</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+7개의 대응점쌍이 주어진 경우 $\mathbf{A}&isin; \mathbb{R}^{7&times; 9}$인 rank 7 행렬이 된다. 이에 따라 Null Space의 차원이 2가 되므로 무수한 해가 존재한다. $\mathbf{Af}=0$의 풀어서 두 개의 선형독립인 Fundamental Matrix $\mathbf{F}_{1}, \mathbf{F}_{2}$를 구하고 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} = \alpha \mathbf{F}_{1} + (1-\alpha)\mathbf{F}_{2}
+  \end{aligned}
+\end{equation}
+<p>
+를 통해 $\mathbf{F}$를 구한다. $\mathbf{F}$행렬의 rank는 2이므로 $det(\mathbf{F})=0$을 만족하게 되고 이에 따라 $&alpha;$에 대한 3차 방정식을 얻는다. 3차 방정식이 세 개의 실수해를 가지는 경우는 Degenerate Configuration이 된다.
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org5576fa1" class="outline-3">
+<h3 id="org5576fa1"><span class="section-number-3">3.2</span> The normalized 8-point algorithm</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+행렬 $\mathbf{A}$는 주어진 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{&prime;}$으로 구성된 행렬이므로 <b>대응점쌍들을 정규화(normalization)하지 않고 바로 해를 구하는 경우 $\mathbf{x}_{i} = (1000000,20000000,1)$과 같이 마지막 값에 비해서 처음 두 값의 크기가 매우 크게 되므로 수치적으로 불안정한 문제</b> 를 가진다. 따라서 $\mathbf{x}^{i}, \mathbf{x}^{i&prime;}$를 Centroid가 0이고 Centroid로부터 평균거리가 $\sqrt{2}$가 되도록하는 Homography 변환 $\mathbf{H}, \mathbf{H}^{&prime;}$를 적용한다.
+</p>
+
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}^{i} \rightarrow \mathbf{Hx}^{i} \\
+    &amp; \mathbf{x}^{i\prime} \rightarrow \mathbf{H}^{\prime} \mathbf{x}^{i\prime} \\
+  \end{aligned}
+\end{equation}
+<p>
+이렇게 변환된 대응쌍점들을 사용하여 수치적으로 안정적인 Fundamental Matrix $\mathbf{F}^{\prime}$계산할 수 있다. 앞서 설명한 내용을 따라 $\mathbf{F}^{&prime;}$를 계산한 다음 다시 원래의 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{&prime;}$으로 복원하기 위해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    0 &amp; = (\mathbf{H}^{\prime}\mathbf{x}^{\prime})^{\intercal}\mathbf{F}^{\prime}(\mathbf{Hx}) \\
+    &amp; =  \mathbf{x}^{\intercal}(\mathbf{H}^{\prime\intercal} \mathbf{F}^{\prime}\mathbf{H})\mathbf{x}
+  \end{aligned}
+\end{equation}
+<p>
+처럼 $\mathbf{F}= \mathbf{H}^{&prime;\intercal} \mathbf{F}^{&prime;}\mathbf{H}$를 통해 원래 대응점쌍의 Fundamental Matrix $\mathbf{F}$를 계산할 수 있다.
+</p>
+</div>
+
+<div id="outline-container-orgb761148" class="outline-4">
+<h4 id="orgb761148"><span class="section-number-4">3.2.1</span> Degenrate configurations</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+두 개의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{\prime}, \{\mathbf{X}^{i}\})$, $(\mathbf{Q}, \mathbf{Q}^{&prime;}, \{\mathbf{Y}^{i}\})$가 다음의 조건을 만족하면 서로 <b>Conjugate Configuration</b> 이라고 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{PX}^{i} = \mathbf{QY}^{i}, \mathbf{P}^{\prime}\mathbf{x}^{i} = \mathbf{Q}^{\prime}\mathbf{Y}^{\prime} \ \ \forall s \\
+    &amp; (\mathbf{P}, \mathbf{P}^{}), (\mathbf{Q}, \mathbf{Q}^{\prime}) \ \ \text{share the same} \ \  \mathbf{F}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, <b>Conjuate Configuration이 있는 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;}, \{\mathbf{X}^{i}\})$을 Critical Triple이라고 부른다.</b>
+</p>
+
+<p>
+임의의 카메라 대응쌍 $\mathbf{P}, \mathbf{P}^{&prime;}, \{\mathbf{X}^{i}\}$가 Critical Triple일 필요충분조건은 각각의 카메라 중심점 $\mathbf{C},\mathbf{C}^{&prime;}$과 3차원 공간 상의 점 ${\mathbf{X}^{i}}$가 어떤 Ruled Quadric Surface, 즉 직선을 포함하는 Quadric Surface 상에 포함되는 것이다. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgae05295" class="outline-4">
+<h4 id="orgae05295"><span class="section-number-4">3.2.2</span> Proof</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+임의의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;}, \{\mathbf{X}^{i}\})$이 Critical Triple이라는 것을 보이기 위해서는 이와 대응하는 카메라 행렬 대응쌍 $(\mathbf{Q}, \mathbf{Q}^{&prime;}, \{\mathbf{Y}^{i}\})$이 같은 Fundamental Matrix $\mathbf{F}$를 가진다는 사실을 사용해야 한다. $\mathbb{P}^{3}$공간에서 이차곡면은 4x4 크기의 행렬로 정의된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{S}_{p} := \mathbf{P}^{\prime}\mathbf{F}_{QQ^{\prime}}\mathbf{P}
+  \end{aligned}
+\end{equation}
+<p>
+여기서 이차곡면 $\mathbf{S}_{p} &isin; \mathbb{R}^{4&times; 4}$는 카메라 중심점 $\mathbf{C}, \mathbf{C}^{&prime;}$과 3차원 공간 상의 점 $\{\mathbf{X}^{i}\}$를 포함해야 한다.
+</p>
+
+<p>
+<b>$\mathbf{S}_{p}$는 Ruled Quadric Surface이므로 직선을 포함하고 있음을 보이면 되므로 카메라 중심선을 연결한 직선인 baseline을 $\mathbf{S}_{p}$가 포함하고 있음</b> 을 보이면 된다. baseline 위에 있는 임의의 점 $\mathbf{X}$가 존재할 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{S}_{p} \mathbf{X} = \mathbf{P}^{\prime}\mathbf{F}_{QQ^{\prime}}\mathbf{P}\mathbf{X} = 0 \quad \because \mathbf{F}_{QQ^{\prime}}\mathbf{PX} = 0
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하므로 $\mathbf{S}_{p}$는 Ruled Quadric Surface임을 알 수 있다.
+</p>
+
+<p>
+반대로, 카메라 중심점 $\mathbf{C},\mathbf{C}^{&prime;}$와 3차원 공간 상의 점 $\{\mathbf{X}^{i}\}$가 $\mathbf{S}_{p}$에 속하면 다음 공식이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; (\mathbf{P}^{\prime}\mathbf{X}^{i})^{\intercal}\mathbf{F}_{QQ^{\prime}}(\mathbf{PX}^{i}) = 0 \\
+  \end{aligned}
+\end{equation}
+<p>
+여기서 $\mathbf{x}^{&prime;} = \mathbf{P}^{&prime;}\mathbf{X}^{i}, \mathbf{x}= \mathbf{PX}^{i}$이고 $\mathbf{F}_{QQ^{&prime;}}$이므로 $\mathbf{F}_{QQ^{&prime;}}$에 대한 대응점 쌍이 $\mathbf{x}, \mathbf{x}^{\prime}$존재한다는 의미이다. 따라서
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}^{\prime} = \mathbf{P}^{\prime}\mathbf{X}^{i} = \mathbf{Q}^{\prime}\mathbf{Y}^{i} \\
+    &amp; \mathbf{x} = \mathbf{P}\mathbf{X}^{i} = \mathbf{Q}\mathbf{Y}^{i} \\
+  \end{aligned}
+\end{equation}
+<p>
+를 만족하므로 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;},\{\mathbf{X}^{i}\})$과 $(\mathbf{Q},\mathbf{Q}^{&prime;},\{\mathbf{Y}^{i}\})$는 같은 Fundamental Matrix $\mathbf{F}= \mathbf{F}_{PP^{&prime;}} = \mathbf{F}_{QQ^{&prime;}}$를 공유하는 Conjugate Triple이라는 것을 알 수 있다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc443854" class="outline-3">
+<h3 id="orgc443854"><span class="section-number-3">3.3</span> The Gold Standard method</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+이미지 평면 상의 대응점 쌍 $\mathbf{x}&harr; \mathbf{x}^{&prime;}$는 일반적으로 노이즈를 포함하고 있으므로 이를 통해 Fundamental Matrix $\mathbf{F}$를 정확하게 계산할 수 없고 $\|\mathbf{Af}\|$의 크기를 최소화하는 근사해 $\mathbf{F}^{&prime;}$를 계산할 수 밖에 없다. 따라서 <b>$\mathbf{F}^{&prime;}$를 더 정확하게 계산하기 위해 2D Homography 문제와 마찬가지로 주어진 데이터 $\mathbf{x}, \mathbf{x}^{&prime;}$를 Ground Truth $\hat{\mathbf{x}}, \hat{\mathbf{x}}^{&prime;}$과 가까워지게 보정하는 방법을 The Gold Standard method</b> 라고 한다.
+</p>
+
+<ul class="org-ul">
+<li>8개 이상의 대응점 쌍 $\mathbf{x}&harr; \mathbf{x}^{&prime;}$이 주어졌을 때 우선 앞서 설명한 것과 같이 총 두 번 SVD를 사용하여 rank가 2인 Fundamental Matrix $\mathbf{F}_{0}$를 계산한다. 이 때, $\mathbf{F}_{0}$를 Linear Solution이라고 부른다.</li>
+<li>다음으로 Epipole $\mathbf{e}, \mathbf{e}^{&prime;}$에 대하여 다음 공식이 성립한다.</li>
+</ul>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{e}^{\prime}\mathbf{F}_{0} = 0, \quad  \mathbf{F}_{0}\mathbf{e} = 0 \\
+  \end{aligned}
+\end{equation}
+<ul class="org-ul">
+<li>위 공식으로부터 $\mathbf{e}, \mathbf{e}^{&prime;}$를 각각 계산한다.</li>
+<li>Epipole을 계산하면 Caninocal Form의 카메라 행렬 $\mathbf{P}, \mathbf{P}^{&prime;}$를 계산할 수 있다.</li>
+</ul>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = [\mathbf{I}|0], \quad \mathbf{P}^{\prime} = [\mathbf{M}|\mathbf{m}] \\
+    &amp; \text{where, } \ \mathbf{M} = \mathbf{e}^{\prime\wedge}\mathbf{F}, \ \mathbf{m} = \mathbf{e}^{\prime}
+  \end{aligned}
+\end{equation}
+<ul class="org-ul">
+<li>이를 통해 $\mathbf{x}, \mathbf{x}^{&prime;}$의 Back-projection된 직선들을 각각 구할 수 있다.</li>
+<li>두 Back-projection 직선과 가장 근접한 3차원 공간 상의 점 $\mathbf{X}^{i}$를 계산할 수 있다.</li>
+<li>이미지 평면에 3차원 공간 상의 점 $\mathbf{X}^{i}$를 재투영(reprojection) 한다.</li>
+</ul>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \hat{\mathbf{x}} = \mathbf{PX}^{i} \\
+    &amp; \hat{\mathbf{x}}^{\prime} = \mathbf{P}^{\prime}\mathbf{X}^{i} \\
+  \end{aligned}
+\end{equation}
+<p>
+다음과 같이 재투영 오차(reprojection error)를 Gauss-Newton, Levenerg-Marquardt 등과 같은 비선형 최적화 방법을 사용하여 최소화한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \sum_{i} d(\mathbf{x} - \hat{\mathbf{x}})^{2} + d(\mathbf{x}^{\prime}, \hat{\mathbf{x}}^{\prime})^{2}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 최적화되는 파라미터는 $\mathbf{X}^{i}$와 카메라 행렬 $\mathbf{P}^{&prime;} = [\mathbf{M}|\mathbf{m}]$이다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4b7d08d" class="outline-2">
+<h2 id="org4b7d08d"><span class="section-number-2">4</span> Structure Computation</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgea9eec4" class="outline-3">
+<h3 id="orgea9eec4"><span class="section-number-3">4.1</span> Problem statement</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+해당 섹션에서는 두 카메라 행렬 대응쌍 $\mathbf{P},\mathbf{P}^{&prime;}$와 이미지 평면의 대응점 쌍 $\mathbf{x}, \mathbf{x}^{&prime;}$가 주어진 경우 $\mathbb{P}^{3}$공간 상의 점 $\mathbf{X}$를 구하는 방법에 대해 설명한다. <b>이론적으로는 대응점 쌍 $\mathbf{x}, \mathbf{x}^{&prime;}$를 Back-projection하여 얻은 두 직선의 교차점을 통해 $\mathbf{X}$를 계산할 수 있으나 실제 데이터는 노이즈가 존재하기 때문에 두 Back-projection 직선이 교차하지 않는다.</b> 또한 노이즈로 인해 두 이미지 평면 상에서 Epipolar Line $\mathbf{l}, \mathbf{l}^{\prime}$또한 $\mathbf{x}, \mathbf{x}^{&prime;}$와 만나지 않는다.
+</p>
+
+<p>
+이를 해결하기 위해서 두 Back-projection 직선들에 동시에 수직인 최단거리 직선을 구한 다음 최단거리 직선의 중점(mid-point)를 계산하여 $\mathbf{X}$를 계산하는 방법이 존재한다. 해당 방법은 체크보드를 이용한 캘리브레이션 방법과 같이 $\mathbf{P}, \mathbf{P}^{&prime;}$가 고정된 경우에는 사용하면 좋은 방법이지만, 대부분의 경우 $\mathbf{P}, \mathbf{P}^{&prime;}$는 사영모호성(projective ambiguity)으로 인해 유일하게 결정되지 않는다.
+</p>
+
+<p>
+<b>현실 세계에서는 카메라 행렬을 Affinity 또는 Projectivity까지 알고 있는 경우(up to affinity, projectivity)가 대부분이다. 정확한 $\mathbf{X}$를 구하기 위해서는 triangulation이 사영모호성에 대해서도 불변이어야 한다.</b> Triangulation $&tau;$은 주어진 대응점 쌍과 카메라 행렬 대응쌍으로부터 $\mathbf{X}&isin; \mathbb{P}^{3}$를 계산하는 방법을 말한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X} = \tau(\mathbf{x},\mathbf{x}^{\prime},\mathbf{P},\mathbf{P}^{\prime})
+  \end{aligned}
+\end{equation}
+<p>
+$&tau;$가 사영모호성에 불변이기 위해서는 임의의 Homography $\mathbf{H}&isin;\text{PGL}_{4}$에 대하여
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X}_{H} &amp; = \tau(\mathbf{x},\mathbf{x}^{\prime},\mathbf{PH}^{-1},\mathbf{P}^{\prime}\mathbf{H}^{-1}) \\
+    &amp; = \mathbf{H}\cdot\tau(\mathbf{x},\mathbf{x}^{\prime},\mathbf{P},\mathbf{P}^{\prime}) \\
+    &amp; = \mathbf{HX}
+  \end{aligned}
+\end{equation}
+<p>
+공식이 성립해야 한다. 위와 같이 불변성이 성립하는 경우 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{PH}^{-1} \mathbf{X}_{H} &amp; = \mathbf{PH}^{-1}\mathbf{HX} \\
+    &amp; = \mathbf{PX} \\
+    &amp; = \mathbf{x}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 마찬가지로 $\mathbf{P}^{&prime;}\mathbf{H}^{-1}\mathbf{X}_{H} = \mathbf{x}^{&prime;}$이 된다. 예를 들어, Fundemantal Matrix $\mathbf{F}$와 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{\prime})$, 대응점 쌍 $(\mathbf{x}, \mathbf{x}^{&prime;})$이 주어졌을 때 $(\mathbf{P},\mathbf{P}^{&prime;})$를 Homography 변환한 카메라 행렬 대응쌍 $(\mathbf{PH}^{-1},\mathbf{P}^{\prime}\mathbf{H}^{-1})$또한 동일한 $\mathbf{F}$를 공유한다. 이를 통해
+</p>
+
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \{\mathbf{X}\}: \ \text{ 3D Points from} \ (\mathbf{x},\mathbf{x}^{\prime}) \ \text{and } (\mathbf{P},\mathbf{P}^{\prime}). \\
+    &amp; \{\mathbf{X}_{H}\}: \ \text{ 3D Points from} \ (\mathbf{x},\mathbf{x}^{\prime}) \ \text{and } (\mathbf{P}\mathbf{H}^{-1},\mathbf{P}^{\prime}\mathbf{H}^{-1}). \\
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 두 PointCloud $\{\mathbf{X}\},\{\mathbf{X}_{H}\}$를 구할 수 있고 <b>PointCloud가 Homography에 불변이기 위해서는 두 PointCloud 사이에</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}\{\mathbf{X}\} = \{\mathbf{X}_{H}\}
+  \end{aligned}
+\end{equation}
+<p>
+<b>인 변환 성질을 만족해야 한다.</b> 앞서 설명한 중점(mid-point)을 사용한 방법은 두 Back-projection 직선들에 서로 수직인 최단거리 직선이 Homography 변환을 수행하면 더 이상 직교하지 않게 되고 중점 또한 더 이상 중심이 위치하지 않게 된다. 따라서 <b>중점을 사용한 방법은 Homography에 불변하지 않다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org57cc37e" class="outline-3">
+<h3 id="org57cc37e"><span class="section-number-3">4.2</span> Linear triangulation methods</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+해당 섹션에서는 $\mathbf{X}&isin; \mathbb{P}^{3}$를 구하기 위해 선형방정식을 사용하는 방법을 설명한다. $\mathbf{x}=\mathbf{PX}, \mathbf{x}^{&prime;}=\mathbf{P}^{&prime;}\mathbf{X}$로부터
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x}^{\wedge}(\mathbf{PX}) = 0\\
+    &amp; \mathbf{x}^{\prime\wedge}(\mathbf{P}^{\prime}\mathbf{X})=0
+  \end{aligned}
+\end{equation}
+<p>
+공식이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x} = \begin{bmatrix} x&amp;y&amp;1 \end{bmatrix}^{\intercal} \\
+    &amp; \mathbf{P} = \begin{bmatrix} \mathbf{p}_{1}^{\intercal} &amp; \mathbf{p}_{2}^{\intercal} &amp; \mathbf{p}_{3}^{\intercal} \end{bmatrix}^{\intercal} \\
+    &amp; \mathbf{X} = \begin{bmatrix} X&amp;Y&amp;Z&amp;W \end{bmatrix}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+$\mathbf{p}^{i\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했을 때 $\mathbf{x}^{&and;}(\mathbf{PX})$를 전개한 후 정리하면 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; x(\mathbf{p}^{3\intercal}\mathbf{X}) - (\mathbf{p}^{1\intercal}\mathbf{X}) = 0 \\
+    &amp; y(\mathbf{p}^{3\intercal}\mathbf{X}) - (\mathbf{p}^{2\intercal}\mathbf{X}) = 0 \\
+    &amp; x(\mathbf{p}^{2\intercal}\mathbf{X}) - y(\mathbf{p}^{1\intercal}\mathbf{X}) = 0 \\
+  \end{aligned}
+\end{equation}
+<p>
+과 같고 이를 $\mathbf{x}^{&prime;&and;}\mathbf{P}^{&prime;}\mathbf{X}$도 같이 구한 후 $\mathbf{X}$에 대한 선형시스템으로 다시 작성하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \underbrace{\begin{bmatrix}
+        x \mathbf{p}^{3\intercal}-\mathbf{p}^{1\intercal} \\
+        y \mathbf{p}^{3\intercal}-\mathbf{p}^{2\intercal} \\
+        x^{\prime} \mathbf{p}^{\prime3\intercal}-\mathbf{p}^{\prime1\intercal} \\
+        y^{\prime} \mathbf{p}^{\prime3\intercal}-\mathbf{p}^{\prime2\intercal} \\
+    \end{bmatrix}}_{\mathbf{A}}\mathbf{X} = 0 \\
+  \end{aligned}
+\end{equation}
+<p>
+같이 $\mathbf{AX} = 0$형태로 정리할 수 있다. 데이터에 노이즈가 없는 경우 $\mathbf{A}&isin; \mathbb{R}^{4&times; 4}$의 rank가 3이 되어 Null Space 벡터를 통해 유일한 $\mathbf{X}$를 계산할 수 있지만 노이즈가 존재하는 경우 $\mathbf{A}$의 rank는 4가 되어 무수히 많은 해가 존재한다. 따라서 $\mathbf{A}$를 특이값 분해(SVD)하여 $\|\mathbf{X}\|=1$일 때 $\|\mathbf{AX}\|$의 크기를 최소화하는 근사해 $\hat{\mathbf{X}}$를 계산해야 한다.
+</p>
+
+<p>
+선형 방법에 Homography를 적용해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    y(\mathbf{p}^{3}) - \mathbf{p}^{2} &amp; = y(\mathbf{p}\mathbf{H}^{-1})^{3} - (\mathbf{p}\mathbf{H}^{-1})^{2} \\
+    &amp; = y(\mathbf{p}^{3})\mathbf{H}^{-1} - \mathbf{p}^{2}\mathbf{H}^{-1} \\
+    &amp; = (y(\mathbf{p}^{3})-\mathbf{p}^{2})\mathbf{H}^{-1}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 $\mathbf{A}&rArr; \mathbf{AH}^{-1}$로 변환되어 $\mathbf{X}&rArr; \mathbf{X}_{H}$로 변환이 된다. 이를 통해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+ \|\mathbf{AX}\| = \| \mathbf{AH}^{-1}\mathbf{X}_{H}\|
+  \end{aligned}
+\end{equation}
+<p>
+이 성립하지만 <b>Homography 변환을 할 때 $\|\mathbf{X}_{H} \| &ne; 1$이 되어 $\|\mathbf{X}\|=1$의 성질을 보존하지 않는다. 따라서 선형방정식을 통한 방법은 Homography에 대해 불변이 아니므로 최적의 솔루션이 아니다.</b>
+</p>
+</div>
+
+<div id="outline-container-org2cb034c" class="outline-4">
+<h4 id="org2cb034c"><span class="section-number-4">4.2.1</span> Inhomogeneous method</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+카메라 행렬 대응쌍 $\mathbf{P},\mathbf{P}^{&prime;}$이 Affine 변환까지(up to affinity) 결정되는 경우 $\mathbf{X}=(X,\ Y,\ Z,\ 1)^{\intercal}$로 놓고 $\|\mathbf{AX}\|$를 최소화하는 근사해 $\hat{\mathbf{X}}$를 구하는 방법을 Inhomogeneous method라고 한다. $\mathbf{X}$는 Affine Point이므로 $\|\mathbf{X}\|=1$제약조건이 사라지게 된다. 따라서, <b>Inhomogeneous method는 임의의 Affine 변환 $\mathbf{H}_{A}$에 대해 불변인 특성을 지닌다.</b>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0f0b8fd" class="outline-3">
+<h3 id="org0f0b8fd"><span class="section-number-3">4.3</span> An optimial solution</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+해당 섹션에서는 최적의 $\mathbf{X}&isin;\mathbb{P}^{3}$을 구하기 위한 Optimal Triangulation 방법에 대해 설명한다. 우선 비선형 최소제곱법(non-linear least square)을 통해 $\mathbf{X}$를 구하는 방법이 있다.
+</p>
+
+<ul class="org-ul">
+<li>주어진 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;})$와 대응점 쌍 $(\mathbf{x},\mathbf{x}^{&prime;})$에 대해여 이전 섹션에서 설명한 선형방정식 $\mathbf{AX}=0$을 통해 구한 근사해 $\hat{\mathbf{X}}$를 초기값 $\mathbf{X}_{0}$로 설정한다.</li>
+<li>$\mathbf{X}_{0}$를 각각 카메라에 프로젝션하면 $\hat{\mathbf{x}}, \hat{\mathbf{x}}^{&prime;}$가 생성되는데 이 때 $d(\mathbf{x},\hat{\mathbf{x}})^{2}+d(\mathbf{x}^{&prime;},\hat{\mathbf{x}}^{&prime;})^{2}$를 최소화한다. $d(\mathbf{x}_{1},\mathbf{x}_{2})$은 $\mathbf{x}_{1}$과 $\mathbf{x}_{2}$사이의 거리를 의미한다.</li>
+<li>Gauss-Newton 또는 Levenberg-Marquardt와 같은 비선형 최소제곱법을 통해 반복적으로(iterative) 최적해 $\mathbf{X}^{&lowast;}$를 구한다.</li>
+</ul>
+</div>
+
+<div id="outline-container-orge7ee13a" class="outline-4">
+<h4 id="orge7ee13a"><span class="section-number-4">4.3.1</span> Reformulation of the minimization problem</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<p>
+반복법을 사용하지 않고도(non-iterative) Optimal Triangulation을 수행할 수 있다. 해당 방법은 <b>$d(\mathbf{x},\hat{\mathbf{x}})$를 최적화하는 대신 $\mathbf{x}$와 파라미터화된 Epipolar Line $\mathbf{l}(t)$사이의 거리 $d(\mathbf{x},\mathbf{l}(t))$를 최적화한다. 즉, $\mathbf{x}$와 $\mathbf{l}(t)$사이의 거리를 최소화하는 파라미터 $t$를 구함으로써 최적해를 구한다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \min_{t} d(\mathbf{x},\mathbf{l}(t))^{2} + d(\mathbf{x}^{\prime}, \mathbf{l}^{\prime}(t))^{2}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org53eca9d" class="outline-4">
+<h4 id="org53eca9d"><span class="section-number-4">4.3.2</span> Details of the minimization</h4>
+<div class="outline-text-4" id="text-4-3-2">
+<p>
+우선 $\mathbf{x}=(x,y,1)^{\intercal}$와 $\mathbf{x}^{&prime;}=(x^{&prime;},y^{&prime;},1)^{\intercal}$를 각각 원점 $(0,0,1)^{\intercal}$로 변환시킨다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x} = (x,y,1)^{\intercal} \rightarrow (0,0,1)^{\intercal} \\
+    &amp; \mathbf{x}^{\prime} = (x^{\prime},y^{\prime},1)^{\intercal} \rightarrow (0,0,1)^{\intercal} \\
+  \end{aligned}
+\end{equation}
+<p>
+이를 변환해주는 행렬을
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{T}=\begin{bmatrix} 1&amp;&amp;-x \\&amp;1&amp;-y \\ &amp;&amp;1\end{bmatrix} &amp; \mathbf{T}^{\prime}=\begin{bmatrix} 1&amp;&amp;-x^{\prime} \\&amp;1&amp;-y^{\prime} \\ &amp;&amp;1\end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+로 설정한다. 다음으로 Epipole $\mathbf{e}=(e_{1},e_{2},e_{3})^{\intercal}, \ \mathbf{e}^{&prime;}=(e_{1}^{&prime;},e_{2}^{&prime;},e_{3}^{&prime;})^{\intercal}$을 각각 x축 상의 점인 $(1,0,f)^{\intercal}, (1,0,f^{&prime;})^{\intercal}$로 변환한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{e}=(e_{1},e_{2},e_{3})^{\intercal} \rightarrow (1,0,f)^{\intercal} \\
+    &amp; \mathbf{e}^{\prime}=(e_{1}^{\prime},e_{2}^{\prime},e_{3}^{\prime})^{\intercal} \rightarrow (1,0,f^{\prime})^{\intercal} \\
+  \end{aligned}
+\end{equation}
+<p>
+이는 이미지 평면에서 각각 $(1/f,0)^{\intercal}, (1/f^{&prime;},0)^{\intercal}$을 의미한다. 우선 $e_{1}^{2}+e_{2}^{2}=e_{1}^{&prime;2}+e_{2}^{&prime;2}=1$이 되도록 Epipole을 정규화한 다음, 이를 x축 상의 점으로 회전하는 행렬을 $\mathbf{R}, \mathbf{R}^{\prime}$다음과 같이 정의한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{R} = \begin{bmatrix} e_{1}&amp;e_{2}&amp; \\ -e_{2}&amp;e_{1}&amp; \\ &amp;&amp;1 \end{bmatrix} &amp; \mathbf{R}^{\prime} = \begin{bmatrix} e_{1}^{\prime}&amp;e_{2}^{\prime}&amp; \\ -e_{2}^{\prime}&amp;e_{1}^{\prime}&amp; \\ &amp;&amp;1 \end{bmatrix} &amp;
+  \end{aligned}
+\end{equation}
+<p>
+이를 통해 $\mathbf{Re}=(1,0,e_{3})^{\intercal}, \mathbf{R}^{&prime;}\mathbf{e}^{&prime;}=(1,0,e_{3}^{&prime;})^{\intercal}$로 변환한다. 이 때, $e_{3}=f, e_{3}^{&prime;}=f^{&prime;}$이다. 다음으로 Epipolar Line $\mathbf{l}$을 $\mathbf{l}(t)$로 파라미터화한다. Epipole $\mathbf{e}=(1,0,f)^{\intercal}$는 x축 선상에 위치한 점이므로 이를 지나는 Epipolar Line은 y축을 기준으로 $(0,t,1)^{\intercal}$곽 같이 파라미터화할 수 있다. 따라서 $\mathbf{l}(t)$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}(t) &amp; = \begin{pmatrix} 0\\t\\1 \end{pmatrix}\times \begin{pmatrix} 1\\0\\f \end{pmatrix} \\
+    &amp; = \begin{pmatrix} tf\\1\\ -t \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. 이전 단계에서 $\mathbf{x}$를 원점 $(0,0,1)^{\intercal}$로 옮겼으므로 $d(\mathbf{x},\mathbf{l}(t))$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    d(\mathbf{x},\mathbf{l}(t))= \frac{t^{2}}{1^{2}+(tf)^{2}}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 다음으로 $\mathbf{l}^{&prime;}(t)$를 계산해야 한다. Fundmamental Matrix $\mathbf{F}$를 사용하여 $\mathbf{l}^{&prime;}(t)$를 계산하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{l}^{\prime}(t) = \mathbf{F}\begin{pmatrix} 0\\t\\1 \end{pmatrix}\\
+    &amp; \because \mathbf{l}(t) \text{ is the epipolar line of } \begin{pmatrix} 0&amp;t&amp;1 \end{pmatrix}^{\intercal}.
+  \end{aligned}
+\end{equation}
+<p>
+과 같다. $\mathbf{F}$는 주어진 카메라 행렬 대응쌍에서 $\mathbf{F}_{0}$를 계산한 후 $\mathbf{F}_{0}$로부터 $\mathbf{T},\mathbf{R},\mathbf{T}^{&prime;},\mathbf{R}^{&prime;}$을 이용하여 계산할 수 있다. Epipole과 $\mathbf{F}$사이에는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{F}\begin{pmatrix} 1\\0\\f \end{pmatrix} = 0 \\
+    &amp; \begin{pmatrix} 1&amp;0&amp;f^{\prime} \end{pmatrix}\mathbf{F}=0
+  \end{aligned}
+\end{equation}
+<p>
+이 성립하므로 $\mathbf{F}_{1,col} = -f \mathbf{F}_{3,col}$그리고 $\mathbf{F}_{1,row} = -f^{&prime;}\mathbf{F}_{3,row}$가 되고 이를 정리하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} = \begin{bmatrix} f^{\prime}fd &amp; -f^{\prime}c &amp; -f^{\prime}d \\ -fb &amp; a &amp; b \\ -fd &amp; c &amp; d \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. 이를 통해 $\mathbf{l}^{&prime;}(t)$를 다시 표현하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{l}^{\prime}(t) &amp; = \mathbf{F}\begin{pmatrix} 0\\t\\1 \end{pmatrix} = t \mathbf{F}_{2,col} + \mathbf{F}_{3,col} \\
+    &amp; = \begin{pmatrix} -f^{\prime}(ct+d) \\ at+b \\ ct+d \end{pmatrix}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 다음으로 원점 $\mathbf{x}^{&prime;}$와 $\mathbf{l}^{\prime}(t)$사이의 거리 $d(\mathbf{x}^{&prime;}, \mathbf{l}^{&prime;}(t))$를 구하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    d(\mathbf{x}^{\prime}, \mathbf{l}^{\prime}(t))^{2} = \frac{(ct+d)^{2}}{(at+b)^{2} + f^{\prime2}(ct+d)^{2}}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이를 통해 최적화하고자 하는 목적함수 $d(\mathbf{x},\mathbf{l}(t))^{2} + d(\mathbf{x}^{&prime;}, \mathbf{l}^{&prime;}(t))^{2}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    s(t) = \frac{t^{2}}{1+f^{2}t^{2}} + \frac{(ct+d)^{2}}{(at+b)^{2} + f^{\prime2}(ct+d)^{2}}
+  \end{aligned}
+\end{equation}
+<p>
+가 되고 이를 미분하여 0$(s^{&prime;}(t)=0)$이 되는 $t$를 찾으면 총 6개의 $t_{i}, \ i=1,&ctdot;,6$이 나오고 이 때 $s(t_{i})$값을   비교하여 최소가 되는 $t_{i}$를 찾는다. 이렇게 찾은 $t_{\min}$값을 사용한 $\mathbf{l}(t_{min}), \mathbf{l}^{&prime;}(t_{min})$가 최적의 Epipolar Line이 된다. 다음으로 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \hat{\mathbf{x}} = \mathbf{l}(t_{\min}) \\
+    &amp; \hat{\mathbf{x}}^{\prime} = \mathbf{l}^{\prime}(t_{\min}) \\
+    &amp; \hat{\mathbf{x}} \leftarrow \mathbf{T}^{-1}\mathbf{R}^{-1}\hat{\mathbf{x}} \\
+    &amp; \hat{\mathbf{x}}^{\prime} \leftarrow \mathbf{T}^{\prime-1}\mathbf{R}^{\prime-1}\hat{\mathbf{x}}^{\prime} \\
+  \end{aligned}
+\end{equation}
+<p>
+순서대로 변환하기 전 원래의 $\hat{\mathbf{x}}, \hat{\mathbf{x}}^{&prime;}$을 복원한 다음
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \hat{\mathbf{x}} \times \mathbf{P}\hat{\mathbf{X}} = 0 \\
+    &amp; \hat{\mathbf{x}}^{\prime} \times \mathbf{P}\hat{\mathbf{X}}^{\prime} = 0 \\
+  \end{aligned}
+\end{equation}
+<p>
+식을 <b>$\mathbf{A}\hat{\mathbf{X}}=0$꼴로 정리하여 최종적으로 특이값 분해(SVD)를 통해 최적해 $\hat{\mathbf{X}}$를 구한다. 이와 같이 $\mathbf{X}$의 근사해를 구하는 방법을 Optimal Triangulation 방법이라고 한다.</b>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org34812e0" class="outline-2">
+<h2 id="org34812e0"><span class="section-number-2">5</span> Scene planes and homographies</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgc939da6" class="outline-3">
+<h3 id="orgc939da6"><span class="section-number-3">5.1</span> Homographies given the plane and vice versa</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+해당 섹션에서는 월드 상의 평면 $&pi;$이 주어졌을 때 이를 사용하여 하나의 이미지 평면에서 다른 이미지 평면으로 가는 Homography 변환에 대해 설명한다. Canonical Form으로 변환한 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$과 월드 상의 평면 $\pi$다음과 같이 주어졌을 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = [\mathbf{I} \ | \ 0] \\
+    &amp; \mathbf{P}^{\prime} = [\mathbf{A} \ | \ \mathbf{a}] \\
+    &amp; \pi = (\mathbf{v}, 1)^{\intercal} \quad \mathbf{v} \in \mathbb{R}^{3}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, Homography $\mathbf{H}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H} = \mathbf{A} - \mathbf{av}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+로 주어진다.
+</p>
+</div>
+
+<div id="outline-container-org30da625" class="outline-4">
+<h4 id="org30da625"><span class="section-number-4">5.1.1</span> Proof</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+두 카메라의 이미지 평면 $&pi;_{\mathbf{P}}, &pi;_{\mathbf{P}^{&prime;}}$가 주어졌을 때, 월드 평면 상의 점 $\mathbf{X}&isin; &pi;$를 $\pi_{\mathbf{P}}$평면으로 프로젝션한 점 $\mathbf{x}$는 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{PX} &amp; = [\mathbf{I}\ | \ 0]\begin{bmatrix} \tilde{\mathbf{X}} \\ 1 \end{bmatrix} \\
+    &amp; = \tilde{\mathbf{X}} = \mathbf{x}
+  \end{aligned}
+\end{equation}
+<p>
+따라서 $~{\mathbf{X}} = &rho;^{-1}\mathbf{x}$가 성립한다. $\mathbf{X}$를 다시 쓰면 $\mathbf{X}=\begin{bmatrix}x &amp; &rho; \end{bmatrix}^{\intercal}$이 되고 $\mathbf{X}$는 $\pi$평면 위의 점이므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \begin{bmatrix} \mathbf{v}^{\intercal} &amp; 1 \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \rho \end{bmatrix} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이 성립한다. 위 식을 풀면 $&rho; = -\mathbf{v}^{\intercal}\mathbf{x}$이 된다. $\mathbf{X}$를 $&pi;_{\mathbf{P}^{&prime;}}$에 프로젝션하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{\prime} &amp; = \mathbf{P}^{\prime}\mathbf{X} = [\mathbf{A} \ | \ \mathbf{a}]\begin{bmatrix} \mathbf{x} \\ -\mathbf{v}^{\intercal}\mathbf{x} \end{bmatrix} \\
+    &amp; = \mathbf{Ax} - \mathbf{av}^{\intercal}\mathbf{x} \\
+    &amp; = (\mathbf{A}-\mathbf{av}^{\intercal})\mathbf{x}
+  \end{aligned}
+\end{equation}
+<p>
+이 되므로 따라서 $\mathbf{H}= \mathbf{A}-\mathbf{av}^{\intercal}$이 된다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org92602c6" class="outline-4">
+<h4 id="org92602c6"><span class="section-number-4">5.1.2</span> A calibrated stereo rig</h4>
+<div class="outline-text-4" id="text-5-1-2">
+<p>
+캘리브레이션 된 스테레오 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;})$가 다음과 같이 주어지고
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = \mathbf{K}[\mathbf{I} \ | \ 0] \\
+    &amp; \mathbf{P}^{\prime} = \mathbf{K}^{\prime}[\mathbf{R} \ | \ \mathbf{t}]
+  \end{aligned}
+\end{equation}
+<p>
+월드 상의 평면 $&pi;=(\mathbf{n}^{\intercal},d)^{\intercal}$이 주어진 경우, $\pi$평면 상의 점 $\mathbf{X}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{n}^{\intercal}\tilde{\mathbf{X}}+d=0
+  \end{aligned}
+\end{equation}
+<p>
+이 성립한다. 이를 다시 정리하면 $-\frac{\mathbf{n}^{\intercal}~{\mathbf{X}}}{d}=1$이 된다. $\mathbf{X}$를 이미지 평면 $\pi_{\mathbf{P}}$상에 프로젝션한 점 $\mathbf{x}$는 다음과 같이 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x} &amp; = \mathbf{P}\mathbf{X} = \mathbf{K}[\mathbf{I}\ | \ 0]\begin{bmatrix} \tilde{\mathbf{X}}  \\ 1\end{bmatrix} \\
+      &amp; = \mathbf{K}\tilde{\mathbf{X}}
+  \end{aligned}
+\end{equation}
+<p>
+따라서 $~{\mathbf{X}} = \mathbf{K}^{-1}\mathbf{x}$가 되고 다음으로 $\mathbf{X}$를 이미지 평면 $&pi;_{\mathbf{P}^{&prime;}}$에 프로젝션한 점 $\mathbf{x}^{&prime;}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}^{\prime} &amp; = \mathbf{P}^{\prime}\mathbf{X} = \mathbf{K}^{\prime}[\mathbf{R}\ | \ \mathbf{t}]\begin{bmatrix} \tilde{\mathbf{X}}  \\ 1\end{bmatrix} \\
+      &amp; = \mathbf{K}^{\prime}\mathbf{R}\tilde{\mathbf{X}} + \mathbf{K}^{\prime}\mathbf{t}(-\frac{\mathbf{n^{\intercal}\tilde{\mathbf{X}}}}{d}) \\
+      &amp; = \mathbf{K}^{\prime}(\mathbf{R}-\frac{\mathbf{tn}^{\intercal}}{d})\tilde{\mathbf{X}} \\
+      &amp; = \mathbf{K}^{\prime}(\mathbf{R}-\frac{\mathbf{tn}^{\intercal}}{d})\mathbf{K}^{-1}\mathbf{x} \\
+  \end{aligned}
+\end{equation}
+<p>
+가 되어 결론적으로 캘리브레이션된 스테레오 카메라에서 Homography $\mathbf{H}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H} = \mathbf{K}^{\prime}(\mathbf{R}-\frac{\mathbf{tn}^{\intercal}}{d})\mathbf{K}^{-1} \\
+  \end{aligned}
+\end{equation}
+<p>
+가 된다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org452bdae" class="outline-4">
+<h4 id="org452bdae"><span class="section-number-4">5.1.3</span> Homographies compatible with epipolar geometry</h4>
+<div class="outline-text-4" id="text-5-1-3">
+<p>
+월드 상의 평면 $\pi$위에 존재하는 4개의 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{x}_{i}^{&prime;}), \ i=1,&ctdot;,4$가 주어졌다고 가정해보자. 4개의 대응점 쌍으로부터 8개의 제약조건을 얻을 수 있으며 이를 통해 Homograpy $\mathbf{H}$를 유일하게 결정할 수 있다.
+</p>
+
+<p>
+\vspace{5mm}
+</p>
+
+<p>
+다음으로 월드 상에 서로 일직선으로 있지 않은(no three are collinear) 임의의 4개의 대응점 쌍 $(\mathbf{x}_{i},\mathbf{x}_{i}^{&prime;}), i=1,&ctdot;,4$가 주어졌다고 가정해보자. <b>이 때, 한 이미지 평면 $&pi;_{\mathbf{P}}$에서 다른 이미지 평면 $&pi;_{\mathbf{P}^{&prime;}}$으로 점들을 변환하는 Homography $\mathbf{H}$가 존재하게 되는데 이러한 $\mathbf{H}$가 두 카메라 사이의 Fundamental Matrix $\mathbf{F}$와 서로 호환(compatible)이 되기 위해서는 $\mathbf{H}$가 월드 평면 상의 평면 $&pi;$에 대한 Homography 변환이어야 한다. 다시 말하면, $\mathbf{H}$가 Epipolar Geometry를 따르기 위해서는 $\mathbf{H}$가 $&pi;$에 대한 Homography이어야 한다.</b> Epipolar Geometry에 의해 $\mathbf{x}$가 $\mathbf{Hx}$와 대응이 되기 위한 조건은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    (\mathbf{Hx})^{\intercal}\mathbf{F}\mathbf{x} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이다. 즉, $\mathbf{x}^{\intercal}\mathbf{H}^{\intercal}\mathbf{Fx}=0$을 만족해야 하므로 $\mathbf{H}^{\intercal}\mathbf{F}$가 반대칭행렬(skew-symmetric)이어야 한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}^{\intercal}\mathbf{F} + \mathbf{F}^{\intercal}\mathbf{H} = 0
+  \end{aligned}
+\end{equation}
+<p>
+<b>위 조건은 $\mathbf{H}$가 Epipolar Geometry를 따르기 위한 필요충분조건이다.</b> 일반적으로 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어졌을 때 $\mathbf{H}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H} = \mathbf{A} - \mathbf{e}^{\prime}\mathbf{v}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이 때, $\mathbf{H}$는 $\mathbf{v}&isin; \mathbb{R}^{3}$로부터 3자유도를 가진다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org155807b" class="outline-4">
+<h4 id="org155807b"><span class="section-number-4">5.1.4</span> Proof</h4>
+<div class="outline-text-4" id="text-5-1-4">
+<p>
+$\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Projective Reconstruction을 수행하면 두 카메라 행렬 대응쌍을
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = [\mathbf{I} \ | \ 0] \\
+    &amp; \mathbf{P}^{\prime} = [\mathbf{A}  \ | \ \mathbf{e}^{\prime}]
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 구할 수 있다. 월드 상의 평면 $&pi;=(\mathbf{v}^{\intercal}, 1)^{\intercal}$이 주어졌을 때 앞의 정리에 의해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H} = \mathbf{A} - \mathbf{e}^{\prime}\mathbf{v}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 구할 수 있다. 이를 $\mathbf{F}^{\intercal}\mathbf{H}$에 대입하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F}^{\intercal}\mathbf{H} &amp; = -\mathbf{A}^{\intercal}\mathbf{e}^{\prime\wedge}(\mathbf{A}-\mathbf{e}^{\prime\intercal}\mathbf{v}) \\
+    &amp; = -\mathbf{A}^{\intercal}\mathbf{e}^{\prime\wedge}\mathbf{A} \quad \because \mathbf{e}^{\prime\wedge}\mathbf{e}^{\prime} = 0
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 반대칭행렬(skew-symmetric)이 된다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org611486b" class="outline-4">
+<h4 id="org611486b"><span class="section-number-4">5.1.5</span> Corollary</h4>
+<div class="outline-text-4" id="text-5-1-5">
+<p>
+두 카메라 사이의 임의의 Homography $\mathbf{H}$가 Epipolar Geometry를 따르기 위해서는 $\mathbf{H}$가 월드 상의 평면 $&pi;$에 대한 Homography이어야 한다. $\mathbf{H}$가 월드 상의 평면 $&pi;$에 대한 Homography이기 위한 필요충분조건은 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{F} = \mathbf{e}^{\prime\wedge}\mathbf{H}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org76f79b4" class="outline-4">
+<h4 id="org76f79b4"><span class="section-number-4">5.1.6</span> Proof</h4>
+<div class="outline-text-4" id="text-5-1-6">
+<p>
+($\Rightarrow$) $\mathbf{H}$가 월드 상의 평면 $&pi;=(\mathbf{v}^{\intercal},1)^{\intercal}$에 대한 Homography이면서 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$일 때 앞서 정리에 의해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H} = \mathbf{H}_{\begin{pmatrix} \mathbf{v}\\1 \end{pmatrix}} = \mathbf{A} - \mathbf{e}^{\prime\intercal}\mathbf{v} 
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. 따라서
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{e}^{\prime\wedge}\mathbf{H} &amp; = \mathbf{e}^{\prime\wedge}(\mathbf{A}-\mathbf{e}^{\prime\intercal}\mathbf{v}) \\
+    &amp; = \mathbf{e}^{\prime\wedge}\mathbf{A} = \mathbf{F} \quad \because \mathbf{e}^{\prime\wedge}\mathbf{e}^{\prime} = 0
+  \end{aligned}
+\end{equation}
+<p>
+가 된다.
+</p>
+
+<p>
+\vspace{5mm}
+($\Leftarrow$) $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{H}$인 경우 $\mathbf{H}$는 월드 상의 임의의 평면 $&pi;$에 의한 Homography이다. 예를 들어, $\mathbf{H}$가 무한대 평면 $&pi;_{&infin;}=(\mathbf{0}^{\intercal},1)^{\intercal}$에 의한 Homography라고 하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H} &amp; = \mathbf{H}_{\begin{pmatrix} \mathbf{0}\\1 \end{pmatrix}} = \mathbf{H} - \mathbf{e}^{\prime}\cdot 0  = \mathbf{H}
+  \end{aligned}
+\end{equation}
+<p>
+가 된다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org02fe78e" class="outline-3">
+<h3 id="org02fe78e"><span class="section-number-3">5.2</span> Computing $\mathbf{F}$given the homography induced by a plane</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+일반적으로 두 개의 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;})$에 대한 Fundamental Matrix $\mathbf{F}$를 계산하기 위해서는 최소 8개의 대응점 쌍 $(\mathbf{x}_{i},\mathbf{x}_{i}^{&prime;}), \ i=1,&ctdot;,8$이 필요하다. 하지만 <b>Scene Plane Homography를 이용하면 6개의 대응점 쌍만 사용해도 $\mathbf{F}$를 계산할 수 있다.</b> 단, 6개의 대응점 쌍들 중 4개 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{x}_{i}^{&prime;}), \ i=1,&ctdot;,4$에 해당하는 월드 상의 점들의 동일한 평면 $\pi$위에 존재해야 한다는 제약조건이 있다.
+</p>
+
+<p>
+6개의 대응점 쌍으로 Fundmaental Matrix $\mathbf{F}$를 계산하는 알고리즘의 순서는 다음과 같다.
+</p>
+<ul class="org-ul">
+<li>월드 상의 평면 $\pi$위에 존재하는 4개의 점들 $\mathbf{X}_{i},\ i=1,&ctdot;,4$를 프로젝션한 대응점 쌍들 $(\mathbf{x}_{i}, \mathbf{x}_{i}^{&prime;}), \ i=1,&ctdot;,4$를 사용하여 $\mathbf{x}_{i}^{&prime;} = \mathbf{H}\mathbf{x}_{i}$를 만족하는 Homorgaphy $\mathbf{H}$를 계산한다. 이 때 4쌍의 대응점은 Homography $\mathbf{H}$를 유일하게 결정한다.</li>
+<li><p>
+남은 2개의 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{x}_{i}^{&prime;}),\ i=5,6$을 사용하여 Epipole $\mathbf{e}^{&prime;}$를 구한다. $\mathbf{x}_{5}$를 Homography 변환한 $\mathbf{Hx}_{5}$와 $\mathbf{x}_{5}^{&prime;}$를 사용하여 두 점을 잇는 직선을 $(\mathbf{Hx}_{5})&times; \mathbf{x}_{5}^{&prime;}$와 같이 구한다. $\mathbf{x}_{6}$에 대해서도 마찬가지로 적용하여 직선 $(\mathbf{Hx}_{6})&times; \mathbf{x}_{6}^{&prime;}$를 구한 다음 두 직선이 교차하는 점을 구하면 그 점이 곧 Epipole $\mathbf{e}^{&prime;}$가 된다.
+</p>
+  \begin{equation}
+    \begin{aligned}
+      \mathbf{e}^{\prime} = (\mathbf{Hx}_{5}) \times \mathbf{x}_{5}^{\prime} \cap (\mathbf{Hx}_{6}) \times \mathbf{x}_{6}^{\prime}
+    \end{aligned}
+  \end{equation}</li>
+
+<li>Fundamental Matrix $\mathbf{F}$를 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{H}$를 통해 구한다.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfa30ee8" class="outline-3">
+<h3 id="orgfa30ee8"><span class="section-number-3">5.3</span> The infinite homography $\mathbf{H}_{\infty}$</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+Scene Plane이 무한대 평면(plane at infinity) $&pi;_{&infin;}$인 경우, 이 때 계산한 Homography를 Infinity Homography $\mathbf{H}_{&infin;}$라고 한다. 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$가 다음과 같이 주어졌을 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = \mathbf{K}[\mathbf{I} \ |\ 0 ] &amp; \mathbf{P}^{\prime} = \mathbf{K}^{\prime}[\mathbf{R} \ |\ \mathbf{t} ] \\
+  \end{aligned}
+\end{equation}
+<p>
+월드 상의 평면 $&pi;(d) = \begin{pmatrix}\mathbf{v}\\ d \end{pmatrix}$에 대해 Homography는 다음과 같이 구할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{\pi(d)} = \mathbf{K}^{\prime}(\mathbf{R}-\frac{\mathbf{tn}^{\intercal}}{d})\mathbf{K}^{-1}
+  \end{aligned}
+\end{equation}
+<p>
+Inifinite Homography $\mathbf{H}_{&infin;}$는 $d$가 무한대인 경우에 해당하므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_{\infty} = \lim_{d\rightarrow \infty} \mathbf{H}_{\pi(d)} = \mathbf{K}^{\prime}\mathbf{RK}^{-1}
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. 따라서 <b>$\mathbf{H}_{&infin;}$는 $\mathbf{t}$에 의존하지 않고 오직 카메라의 회전에만 의존한다는 것을 알 수 있다.</b>
+</p>
+</div>
+
+<div id="outline-container-org3b44cad" class="outline-4">
+<h4 id="org3b44cad"><span class="section-number-4">5.3.1</span> Affine and metric reconstruction</h4>
+<div class="outline-text-4" id="text-5-3-1">
+<p>
+만약 월드좌표계가 Affine인 경우 $&pi;_{&infin;}$는 $&pi;_{&infin;}=(0,0,0,1)^{\intercal}$과 같이 나타낼 수 있고 두 카메라 행렬이 $\mathbf{P}=[\mathbf{M}\ | \ \mathbf{m}], \ \mathbf{P}^{&prime;}=[\mathbf{M}^{&prime;} \ | \ \mathbf{m}^{&prime;}]$으로 주어진 경우 무한대 평면 상의 점 $\mathbf{X}&isin; &pi;_{&infin;}$를 각각 카메라에 프로젝션하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x} = \mathbf{PX} = [\mathbf{M} \ | \ \mathbf{m}] \begin{bmatrix} \tilde{\mathbf{X}} \\ 0 \end{bmatrix} = \mathbf{M}\tilde{\mathbf{X}} \\
+    &amp; \mathbf{x}^{\prime} = \mathbf{P}^{\prime}\mathbf{X} = [\mathbf{M}^{\prime} \ | \ \mathbf{m}^{\prime}] \begin{bmatrix} \tilde{\mathbf{X}} \\ 0 \end{bmatrix} = \mathbf{M}^{\prime}\tilde{\mathbf{X}} = (\mathbf{\mathbf{M}^{\prime}\mathbf{M}^{-1}})\mathbf{x} \\
+  \end{aligned}
+\end{equation}
+<p>
+따라서 $\mathbf{x}^{&prime;} = (\mathbf{M}^{&prime;}\mathbf{M}^{-1})\mathbf{x}$가 되어 월드좌표계가 Affine일 때 두 카메라 사이의 Infinite Homography는 $\mathbf{H}_{&infin;} = \mathbf{M}^{'}\mathbf{M}^{-1}$가 된다.
+</p>
+
+<hr />
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org40e9c52" class="outline-2">
+<h2 id="org40e9c52"><span class="section-number-2">6</span> References</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 <a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
 </p>
 </div>
 </div>
 <div id="outline-container-orgcb637de" class="outline-2">
-<h2 id="orgcb637de"><span class="section-number-2">3</span> Closure</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="orgcb637de"><span class="section-number-2">7</span> Closure</h2>
+<div class="outline-text-2" id="text-7">
 <p>
 PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.
 </p>
