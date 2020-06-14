@@ -24,10 +24,10 @@ comments: true
 <li><a href="#orgef72f6c">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#org1a9c1f8">1.2. Ideal points and the line at infinity</a>
+<li><a href="#org2f8c3dd">1.2. Ideal points and the line at infinity</a>
 <ul>
 <li><a href="#org2038504">1.2.1. Intersection of parallel lines</a></li>
-<li><a href="#org27a064a">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#org1a9c1f8">1.2.2. Ideal points and the line at infinity</a></li>
 <li><a href="#org773282c">1.2.3. A model for the projective plane</a></li>
 <li><a href="#org45777bb">1.2.4. Duality</a></li>
 </ul>
@@ -104,8 +104,47 @@ comments: true
 </li>
 </ul>
 </li>
-<li><a href="#orga82f681">3. References</a></li>
-<li><a href="#orgf4ac916">4. Closure</a></li>
+<li><a href="#orgce6716c">3. Camera Models</a>
+<ul>
+<li><a href="#orgde03192">3.1. Finite cameras</a>
+<ul>
+<li><a href="#orgf566956">3.1.1. The bais pinhole model</a></li>
+<li><a href="#org79fe86b">3.1.2. Central projection using homogeneous coordinates</a></li>
+<li><a href="#org5e2c31d">3.1.3. Principal point offset</a></li>
+<li><a href="#orge61f5b7">3.1.4. Camera rotation and translation</a></li>
+<li><a href="#orge999bfd">3.1.5. CCD cameras</a></li>
+<li><a href="#org6f1441b">3.1.6. Finite projective camera</a></li>
+<li><a href="#org98db9a5">3.1.7. General projective cameras</a></li>
+</ul>
+</li>
+<li><a href="#org8cb4177">3.2. The projective camera</a>
+<ul>
+<li><a href="#orgf09540c">3.2.1. Camera anatomy</a></li>
+<li><a href="#orgef8cc8b">3.2.2. Camera center</a></li>
+<li><a href="#org981c720">3.2.3. Column vectors</a></li>
+<li><a href="#org60a069d">3.2.4. Row vectors</a></li>
+<li><a href="#org627a343">3.2.5. The principal plane</a></li>
+<li><a href="#org99ff6a5">3.2.6. The principal point</a></li>
+<li><a href="#orgf798ecf">3.2.7. The principal axis vector</a></li>
+<li><a href="#org12816fc">3.2.8. Action of a projective camera on points</a></li>
+<li><a href="#org88aefed">3.2.9. Forward projection</a></li>
+<li><a href="#orgad65def">3.2.10. Back-projection of points to rays</a></li>
+<li><a href="#orga9d0b55">3.2.11. Depth of points</a></li>
+<li><a href="#org27a3030">3.2.12. Result 6.1</a></li>
+<li><a href="#org1da8450">3.2.13. Proof</a></li>
+</ul>
+</li>
+<li><a href="#orgc1e76e8">3.3. Cameras at infinity</a>
+<ul>
+<li><a href="#org5d7ad46">3.3.1. Definition 6.3</a></li>
+<li><a href="#org62ffc41">3.3.2. Affine cameras</a></li>
+<li><a href="#org3a14a64">3.3.3. Error in employing and affine camera</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orga82f681">4. References</a></li>
+<li><a href="#orgf4ac916">5. Closure</a></li>
 </ul>
 </div>
 </div>
@@ -285,8 +324,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-org1a9c1f8" class="outline-3">
-<h3 id="org1a9c1f8"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div id="outline-container-org2f8c3dd" class="outline-3">
+<h3 id="org2f8c3dd"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
@@ -346,8 +385,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-org27a064a" class="outline-4">
-<h4 id="org27a064a"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div id="outline-container-org1a9c1f8" class="outline-4">
+<h4 id="org1a9c1f8"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0$일 때 $\mathbb{R}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{R}^{2}$공간과 대응되지 않고 $\mathbb{P}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
@@ -1342,17 +1381,761 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 </div>
 </div>
 
-<div id="outline-container-orga82f681" class="outline-2">
-<h2 id="orga82f681"><span class="section-number-2">3</span> References</h2>
+
+
+<div id="outline-container-orgce6716c" class="outline-2">
+<h2 id="orgce6716c"><span class="section-number-2">3</span> Camera Models</h2>
 <div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgde03192" class="outline-3">
+<h3 id="orgde03192"><span class="section-number-3">3.1</span> Finite cameras</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-orgf566956" class="outline-4">
+<h4 id="orgf566956"><span class="section-number-4">3.1.1</span> The bais pinhole model</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+<b>핀홀 카메라(pinhole camera)란 $\mathbb{R}^{3}$공간 상에 있는 한 점 $\mathbf{X}$를 특정 중심점 $\mathbf{C}$를 향해 프로젝션시켰을 때 중간에 교차하는 이미지 평면 $\pi \in \mathbb{R}^{2}$상의 한 점 $\mathbf{x}$으로 상을 맺음으로써 이미지를 표현하는 수학적인 카메라 모델링 방법을 의미한다.</b>
+임의의 $\mathbb{R}^{3}$공간을 카메라 좌표계라고 생각해보면 좌표계의 원점은 카메라의 중심점 $\mathbf{C}$가 된다. 일반적으로 이미지 평면 $&pi;$은 $Z$축과 수직하도록 위치시키며 이 때, $Z$축을 Principal Axis라고 하고 이미지 평면과 Principal Axis가 만나는 점을 Principal Point $\mathbf{p}$라고 한다.
+</p>
+
+<p>
+3차원 공간 상의 점 $\mathbf{X}= \begin{bmatrix}X&amp;Y&amp;Z \end{bmatrix}^{\intercal}$가 주어졌을 때 $YZ$평면만 보는 경우 이미지 평면 $&pi;$과 카메라 중심점 $\mathbf{C}$사이의 거리인 $Y$축에 대한 초점거리(focal length) $f_{y}$를 계산할 수 있다. 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    f_{y}\frac{Y}{Z} = y
+  \end{aligned}
+\end{equation}
+<p>
+$XZ$평면에서 이미지 평면을 봤을 때 역시 유사하게 $f_{x}$를 계산할 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    f_{x}\frac{X}{Z} = x
+  \end{aligned}
+\end{equation}
+<p>
+이에 따라 <b>핀홀 카메라 행렬 $\mathbf{P}$는 월드 상의 점 $\mathbf{X}= \begin{pmatrix}X&amp;Y&amp;Z \end{pmatrix}^{\intercal} &isin; \mathbb{R}^{3}$를 2차원 이미지 평면 $&pi; &isin; \mathbb{R}^{2}$로 프로젝션하는 선형 사상이라고 볼 수 있다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}: (X,\ Y,\ Z)^{\intercal} \ \mapsto \ (f_{x}\frac{X}{Z},\ f_{y}\frac{Y}{Z})^{\intercal}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+
+<div id="outline-container-org79fe86b" class="outline-4">
+<h4 id="org79fe86b"><span class="section-number-4">3.1.2</span> Central projection using homogeneous coordinates</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+핀홀 카메라 행렬 $\mathbf{P}$은 Homogeneous Point를 옮기는 것으로 생각할 수도 있다. 다시 말하면, 핀홀 카메라 행렬 $\mathbf{P}$는 $\mathbb{P}^{3}$공간 상의 점 $\mathbf{X}=\begin{pmatrix}X&amp;Y&amp;Z&amp;1 \end{pmatrix}^{\intercal}$을 $\mathbb{P}^{2}$공간 상의 점 $\mathbf{x}=\begin{pmatrix}fX&amp;fY&amp;Z \end{pmatrix}^{\intercal}$로 프로젝션하는 선형 사상으로 볼 수 있다. 이 때, $f=f_{x}=f_{y}$라고 가정한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}: \begin{pmatrix} X\\Y\\Z\\1 \end{pmatrix} \mapsto \begin{pmatrix} fX \\ fY  \\ 1 \end{pmatrix} = \begin{bmatrix} f&amp;&amp;&amp;0 \\ &amp;f&amp;&amp;0 \\ &amp;&amp;1&amp;0 \end{bmatrix}\begin{pmatrix} X\\Y\\Z\\1 \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+이를 행렬 형태로 나타내면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x} = \mathbf{PX}
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. 이 때, $\mathbf{P}= \text{diag}(f,f,1)[\mathbf{I}\ |\ 0 ]_{3&times;4}$와 같이 나타낼 수 있다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5e2c31d" class="outline-4">
+<h4 id="org5e2c31d"><span class="section-number-4">3.1.3</span> Principal point offset</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+일반적으로 Principal Point $\mathbf{p}$는 이미지 평면 $&pi;$의 원점이 아니다. 따라서 핀홀 카메라 행렬을 통한 선형 사상이 이미지 평면 $&pi;$에 제대로 대응하기 위해서는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \begin{pmatrix} X&amp;Y&amp;Z \end{pmatrix}^{\intercal} \mapsto \begin{pmatrix} fX/Z + p_{x} &amp; fY/Z+p_{y} \end{pmatrix}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 Printcipal Point $\mathbf{p}=\begin{pmatrix}p_{x} &amp; p_{y} \end{pmatrix}^{\intercal}$를 보정해야 한다. 이를 카메라 행렬 $\mathbf{P}$를 통해 한 번에 표현해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}: \begin{pmatrix} X\\Y\\Z\\1 \end{pmatrix} \mapsto \begin{pmatrix} fX+Zp_{x} \\ fY+Zp_{y}  \\ 1 \end{pmatrix} = \begin{bmatrix} f&amp;&amp;p_{x}&amp;0 \\ &amp;f&amp;p_{y}&amp;0 \\ &amp;&amp;1&amp;0 \end{bmatrix}\begin{pmatrix} X\\Y\\Z\\1 \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 나타낼 수 있다. 이 때 <b>행렬 $\begin{bmatrix}f&amp;&amp;p_{x}&amp;0 \\ &amp;f&amp;p_{y}&amp;0 \\ &amp;&amp;1&amp;0 \end{bmatrix}$을 간결하게 $\mathbf{K}$로 나타내며 이를 내부파라미터 행렬(intrinsic parameter matrix, camera calibration matrix)이라고 한다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{K} = \begin{bmatrix} f&amp;&amp;p_{x} \\ &amp;f&amp;p_{y} \\ &amp;&amp;1 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+결론적으로 카메라의 Principal Point Offset을 포함한 카메라 행렬 $\mathbf{P}$를 통해 다음과 같은 $\mathbf{X}&isin; \mathbb{P}^{3} \mapsto\mathbf{x}&isin; \mathbb{P}^{2}$인 선형 사상이 가능하다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x} = \mathbf{K}[\mathbf{I}\ | \ 0]\mathbf{X}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orge61f5b7" class="outline-4">
+<h4 id="orge61f5b7"><span class="section-number-4">3.1.4</span> Camera rotation and translation</h4>
+<div class="outline-text-4" id="text-3-1-4">
+<p>
+일반적으로 카메라 좌표계는 월드 좌표계로와 동일하지 않다. $\mathbb{R}^{3}$공간 상에 월드 좌표계 $\{W\}$가 주어졌을 때 이로부터 위치가 $\mathbf{C}=\begin{pmatrix}c_{x}&amp;c_{y}&amp;c_{z}&amp;1 \end{pmatrix}^{\intercal}$만큼 떨어져 있으며 $\mathbf{R}$만큼 회전되어 있는 카메라 좌표계 $\{C\}$가 주어졌을 때 월드 좌표계 $\{W\}$에서 바라본 월드 상의 한 점 $\mathbf{X}$를 카메라 좌표계 $\{C\}$상의 점 $\mathbf{X}_{\mathbf{C}}$로 변환하는 공식은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \tilde{\mathbf{X}}_{\mathbf{C}} = \mathbf{R}(\tilde{\mathbf{X}}-\tilde{\mathbf{C}})
+  \end{aligned}
+\end{equation}
+<p>
+와 같다. 이 때, <b>$~{\mathbf{X}}, ~{\mathbf{C}}$는 Inhomogeneous Coordinate으로 나타낸 $\mathbf{X}$를 의미한다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{X} = \begin{bmatrix} X&amp;Y&amp;Z&amp;1 \end{bmatrix}^{\intercal} \\
+    &amp; \tilde{\mathbf{X}} = \begin{bmatrix} X&amp;Y&amp;Z \end{bmatrix}^{\intercal} \\
+    &amp; \mathbf{C} = \begin{bmatrix} c_{x}&amp;c_{y}&amp;c_{z}&amp;1 \end{bmatrix}^{\intercal} \\
+    &amp; \tilde{\mathbf{C}} = \begin{bmatrix} c_{x}&amp;c_{y}&amp;c_{z}\end{bmatrix}^{\intercal} \\
+  \end{aligned}
+\end{equation}
+<p>
+$\mathbf{X}_{\mathbf{C}}$를 이미지 평면 $&pi;$로 프로젝션시키면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x} = \mathbf{P}\mathbf{X}_{\mathbf{C}} = \mathbf{K}[\mathbf{I}\ | \ 0]\mathbf{X}_{\mathbf{C}}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 나타낼 수 있다. $\mathbf{X}_{\mathbf{C}}$를 자세히 나타내면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X}_{\mathbf{C}} &amp; = \mathbf{R} \begin{bmatrix} 1&amp;&amp;&amp;-c_{x} \\&amp;1&amp;&amp;-c_{y} \\ &amp;&amp;1&amp;-c_{z} \end{bmatrix} \begin{bmatrix} X\\Y\\Z\\1 \end{bmatrix} \\
+    &amp; = \begin{bmatrix} \mathbf{R} &amp; -\mathbf{R}\tilde{\mathbf{C}} \\ 0 &amp; 1 \end{bmatrix}\begin{bmatrix} X\\Y\\Z\\1 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 나타낼 수 있고 이를 $\mathbf{x} = \mathbf{K}[\mathbf{I}\ | \ 0]\mathbf{X}_{\mathbf{C}}$공식에 대입 후 정리하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X}_{\mathbf{C}} &amp; = \mathbf{K} [\mathbf{I} \ | \ 0 ]\mathbf{X}_{\mathbf{C}}\\
+    &amp; = \mathbf{K}[\mathbf{I} \ | \ 0]\begin{bmatrix} \mathbf{R} &amp; -\mathbf{R}\tilde{\mathbf{C}} \\ 0 &amp; 1 \end{bmatrix}\begin{bmatrix} X\\Y\\Z\\1 \end{bmatrix} \\
+    &amp; = \mathbf{K} [\mathbf{R} \ | \ -\mathbf{R}\tilde{\mathbf{C}}]\mathbf{X} \\
+    &amp; = \mathbf{KR}[\mathbf{I} \ | \ -\tilde{\mathbf{C}}]\mathbf{X}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 나타낼 수 있다. <b>일반적으로 $~{\mathbf{X}}_{\mathbf{C}}$를 $~{\mathbf{X}}_{\mathbf{C}}=\mathbf{R}~{\mathbf{X}} + \mathbf{t}$와 같이 월드 좌표계를 기준으로 표현하는 방법 또한 자주 사용된다.</b> 이 때 카메라 행렬 $\mathbf{P}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P} = \mathbf{K}[\mathbf{R} \ | \ \mathbf{t}]
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 나타낼 수 있고 이 때, $\mathbf{t} = -\mathbf{R}\tilde{\mathbf{C}}$관계가 성립한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge999bfd" class="outline-4">
+<h4 id="orge999bfd"><span class="section-number-4">3.1.5</span> CCD cameras</h4>
+<div class="outline-text-4" id="text-3-1-5">
+<p>
+현대에 주로 사용하는 카메라 중 하나인 CCD 카메라는 이미지 좌표를 픽셀의 수로 기록한다. 따라서 $(x,y) [mm]$와 같이 이미지 좌표가 mm로 주어져 있을 때, CCD 카메라에서는 $(m_{x}x,\ m_{y}y)$와 같이 나타낸다. 이 때 $m_{x}, m_{y}$는 1 $mm^{2}$크기 내에서 x축 또는 y축 방향으로 픽셀의 수를 의미한다. 따라서 mm로 주어진 일반 카메라 캘리브레이션 행렬 $\mathbf{K}$가 주어졌을 때 이를 CCD 카메라의 좌표계로 바꾸기 위해서는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+ \begin{pmatrix} m_{x}&amp;&amp; \\ &amp;m_{y}&amp; \\ &amp;&amp;1 \end{pmatrix}  \mathbf{K} = \begin{pmatrix} m_{x}&amp;&amp; \\ &amp;m_{y}&amp; \\ &amp;&amp;1 \end{pmatrix} \begin{pmatrix} f&amp;&amp;p_{x} \\ &amp;f&amp;p_{y} \\ &amp;&amp; 1 \end{pmatrix} = \begin{pmatrix} fm_{x} &amp;&amp; p_{x}m_{x} \\ &amp;fm_{y} &amp; p_{y}m_{y} \\ 0&amp;0&amp;1 \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 변환하는 작업을 수행해야 한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6f1441b" class="outline-4">
+<h4 id="org6f1441b"><span class="section-number-4">3.1.6</span> Finite projective camera</h4>
+<div class="outline-text-4" id="text-3-1-6">
+<p>
+해당 섹션에서는 행렬 $\mathbf{P}$가 어떤 조건을 만족해야 카메라 행렬이 되는지 알아보자. 카메라 행렬이 $\mathbf{P}=\mathbf{KR}[\mathbf{I}\ | \ \mathbf{t}]$와 같이 주어졌을 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P} = \mathbf{KR} [ \mathbf{I} \ | \ 0] 
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 나타낼 수 있고 <b>해당 카메라 행렬을 Finite Projective 카메라라고 하며 이 때 $\mathbf{KR}$가 non-singular한 행렬이 되어야 한다.</b> 임의의 non-singular 행렬 $\mathbf{M}&isin; \mathbb{R}^{3&times; 3}$가 주어졌을 때 $\mathbf{M}$에 QR factorization을 수행하는 $\mathbf{KR}$과 같이 상삼각행렬 $\mathbf{K}$와 직교행렬 $\mathbf{R}$로 분해할 수 있으므로 따라서 <b>카메라 행렬의 집합은 $\mathbf{P} \in \mathbb{R}^{3\times 4}$크기의 행렬들의 집합이고 $\mathbf{P}$의 왼쪽 $3\times3$부분이 non-singular인 집합이다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \{\text{set of camera matrix}\} = \{ \mathbf{P} = [\mathbf{M} \ | \ \mathbf{t}] \ | \ \mathbf{M} \text{ is non-singular } 3\times 3 \text{ matrix.}, \mathbf{t} \in \mathbb{R}^{3} \}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org98db9a5" class="outline-4">
+<h4 id="org98db9a5"><span class="section-number-4">3.1.7</span> General projective cameras</h4>
+<div class="outline-text-4" id="text-3-1-7">
+<p>
+General Projective Camera는 앞서 설명한 Finite projective camera와 달리 $\mathbf{P}= [\mathbf{M}\ | \ \mathbf{t}]$에서 $\mathbf{M} \in \mathbb{R}^{3\times 3}$행렬이 non-singular일 필요가 없으며 $\mathbf{P}$의 rank가 3인 카메라 행렬을 의미한다.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8cb4177" class="outline-3">
+<h3 id="org8cb4177"><span class="section-number-3">3.2</span> The projective camera</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-orgf09540c" class="outline-4">
+<h4 id="orgf09540c"><span class="section-number-4">3.2.1</span> Camera anatomy</h4>
+</div>
+<div id="outline-container-orgef8cc8b" class="outline-4">
+<h4 id="orgef8cc8b"><span class="section-number-4">3.2.2</span> Camera center</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+임의의 Finite Projective 카메라 행렬 $\mathbf{P}= \mathbf{KR}[\mathbf{I}\ | \ -~{\mathbf{C}}]$가 주어졌을 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{PC} = \mathbf{KR}(\mathbf{C}-\mathbf{C}) = \mathbf{0}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이 때, <b>$\mathbf{C}&isin; \mathbb{R}^{4}$는 카메라의 중심점 또는 월드 좌표계 상에서 카메라의 위치를 의미하고 rank 3인 카메라 행렬 $\mathbf{P}&isin; \mathbb{R}^{3&times; 4}$의 Null Space 벡터를 구함으로써 카메라 중심점을 구할 수 있다.</b>
+</p>
+
+<p>
+카메라 행렬 $\mathbf{P}=\mathbf{KR}[\mathbf{I}\ | \ -~{\mathbf{C}}]$가 주어졌고 $\mathbf{PC}= \mathbf{0}$이 성립할 때 다음과 같이 월드 상의 점 $\mathbf{X}(&lambda;)$가 주어졌다고 하자.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X}(\lambda) = \lambda\mathbf{A} + (1-\lambda)\mathbf{C}
+  \end{aligned}
+\end{equation}
+<p>
+이는 곧 $\mathbf{A}$와 $\mathbf{C}$를 잇는 직선을 의미하며 $\mathbf{X}(&lambda;)$를 카메라에 프로젝션시키면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x} = \mathbf{PX}(\lambda) = \lambda\mathbf{P}\mathbf{A} + (1-\lambda)\mathbf{PC} = \lambda \mathbf{PA}   
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. 즉, <b>월드 상의 점 $\mathbf{A}$와 $\mathbf{C}$를 잇는 직선이 $\mathbf{C}$값에 관계없이 이미지 평면 상의 한 점 $\mathbf{x}=\mathbf{\lambda}\mathbf{PA}$가 된다는 의미이고 이는 곧 카메라의 중심점이 가지는 성질을 의미한다.</b> 일반적인 General Projective Camera에서도 $\mathbf{P}$의 Null Space 벡터가 곧 카메라의 중심점 $\mathbf{C}$가 된다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org981c720" class="outline-4">
+<h4 id="org981c720"><span class="section-number-4">3.2.3</span> Column vectors</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<p>
+카메라 행렬 $\mathbf{P}$을 열벡터(column vector)로 나타내면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = \begin{bmatrix} \mathbf{p}_{1,col} &amp; \mathbf{p}_{2,col} &amp; \mathbf{p}_{3,col} &amp; \mathbf{p}_{4,col} \end{bmatrix}\\
+    &amp; \text{where, } \mathbf{p}_{i,col} \in \mathbb{R}^{3\times1}, \ i=1,\cdots,4
+  \end{aligned}
+\end{equation}
+<p>
+이 중 <b>$\mathbf{p}_{i,col}, \ i=1,2,3$은 각각 무한대 평면 $&pi;_{&infin;}$에 위치한 $X,Y,Z$축의 소실점(vanisinh point)들의 위치를 의미한다. 그리고 $\mathbf{p}_{4,col} = \mathbf{P}\begin{pmatrix}0&amp;0&amp;0&amp;1 \end{pmatrix}^{\intercal}$은 윌드 좌표계의 원점을 의미한다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org60a069d" class="outline-4">
+<h4 id="org60a069d"><span class="section-number-4">3.2.4</span> Row vectors</h4>
+<div class="outline-text-4" id="text-3-2-4">
+<p>
+카메라 행렬 $\mathbf{P}$을 행벡터(row vector)로 나타내면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{P} = \begin{bmatrix} \mathbf{p}_{1,row}^{\intercal} \\ \mathbf{p}_{2,row}^{\intercal} \\ \mathbf{p}_{3,row}^{\intercal} \end{bmatrix}\\
+    &amp; \text{where, } \mathbf{p}_{i,row} \in \mathbb{R}^{4\times1}, \ i=1,2,3
+  \end{aligned}
+\end{equation}
+<p>
+행벡터 $\mathbf{p}_{i,row}, \ i=1,2,3$은 카메라 좌표계 기준으로 각각 $X,Y,Z$축과 평행한 평면을 의미한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org627a343" class="outline-4">
+<h4 id="org627a343"><span class="section-number-4">3.2.5</span> The principal plane</h4>
+<div class="outline-text-4" id="text-3-2-5">
+<p>
+주평면(principal plane) $&pi;_{pp}$은 카메라의 중심점(center)를 포함하며 이미지 평면과 평행인 평면을 의미한다. 주평면은 카메라 좌표계 $\{C\}$에서 $XY$평면과 동일하며 $Z=0$인 특징이 있다. 주평면 상에 위치하는 한 점 $\mathbf{X}&isin; &pi;_{pp}$는 무한대 선(line at infinity) 상에서 이미지 평면 $&pi;$과 만나므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x} = \mathbf{PX} = \begin{pmatrix} x&amp;y&amp;0 \end{pmatrix}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+이 되고 따라서 <b>임의의 한 점 $\mathbf{X}$가 주평면 상에 위치하기 위한 필요충분 조건은 $\mathbf{p}_{3,row}^{\intercal}\mathbf{X}= 0$이다. 즉, 카메라 행렬의 세 번째 행벡터 $\mathbf{p}_{3,row}$가 곧 카메라의 주평면을 의미한다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org99ff6a5" class="outline-4">
+<h4 id="org99ff6a5"><span class="section-number-4">3.2.6</span> The principal point</h4>
+<div class="outline-text-4" id="text-3-2-6">
+<p>
+주점(principal point) $\mathbf{p}$는 주축(principal axis)와 이미지 평면 $&pi;$의 교차점을 의미한다. 주점 $\mathbf{p}$는 이미지 평면 $\pi$상에 위치하며 카메라 중심점 $\mathbf{C}$와 주점을 잇는 직선은 이미지 평면과 수직하다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{p}-\mathbf{C} \perp \pi
+  \end{aligned}
+\end{equation}
+<p>
+다음과 같은 방법으로 주점을 정의할 수도 있다. 주평면은 카메라 행렬의 세 번째 행벡터 $\mathbf{p}_{3,row}$이므로 주평면 상에 위치한 한 점 $\mathbf{X}$에 대해
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{p}_{3,row}^{\intercal}\mathbf{X} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이 성립한다. 이 때 $\mathbf{p}_{3,row} = \begin{pmatrix}&pi;_{1}&amp;&pi;_{2}&amp;&pi;_{3}&amp;&pi;_{4} \end{pmatrix}^{\intercal}$는 Dual Projective Space $(\mathbb{P}^{3})^{&or;}$에서 $\mathbf{p}_{3,row}$평면의 법선벡터를 의미한다. <b>주평면 $\mathbf{p}_{3,row}$와 무한대 평면(plane at infinity) $&pi;_{&infin;}$의 교차선은 무한대 평면에 존재하는 법선벡터는 $\begin{pmatrix}&pi;_{1}&amp;&pi;_{2}&amp;&pi;_{3}&amp;0 \end{pmatrix}^{\intercal}$가 된다. 결론적으로 이를 이미지 평면으로 프로젝션한 점이 주점(principal point) $\mathbf{p}$가 된다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{p} = \mathbf{P} \begin{pmatrix}  \pi_{1}\\\pi_{2}\\\pi_{3}\\0 \end{pmatrix} 
+  \end{aligned}
+\end{equation}
+<p>
+카메라 중심점 $\mathbf{C}$를 지나면서 무한대 평면 상에 존재하는 법선벡터 $\begin{bmatrix}&pi;_{1}&amp;&pi;_{2}&amp;&pi;_{3}&amp;0 \end{bmatrix}^{\intercal}$는 곧 주축(principal axis)와 동일하므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}\bigg( \lambda \begin{pmatrix} \pi_{1}\\\pi_{2}\\\pi_{3}\\0 \end{pmatrix} + (1-\lambda)\mathbf{C} \bigg) = \lambda \mathbf{P}\begin{pmatrix}  \pi_{1}\\\pi_{2}\\\pi_{3}\\0 \end{pmatrix} = \mathbf{p}
+  \end{aligned}
+\end{equation}
+<p>
+같이 주축을 이미지 평면에 프로젝션하면 주점 $\mathbf{p}$이 된다. <b>결론적으로 주점 $\mathbf{p}$는 카메라 행렬 $\mathbf{P}$의 세번째 행벡터 $\mathbf{p}_{3,row} = \begin{bmatrix}&pi;_{1}&amp;&pi;_{2}&amp;&pi;_{3}&amp;p_{4} \end{bmatrix}^{\intercal}$에서 처음 세 개의 항 $\mathbf{p}= (&pi;_{1},&pi;_{2},&pi;_{3})^{\intercal}$을 의미한다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf798ecf" class="outline-4">
+<h4 id="orgf798ecf"><span class="section-number-4">3.2.7</span> The principal axis vector</h4>
+<div class="outline-text-4" id="text-3-2-7">
+<p>
+카메라 행렬 $\mathbf{P}= [\mathbf{M}\ | \ \mathbf{p}_{4,col}]$이 주어졌을 때 행렬 $\mathbf{M}&isin; \mathbb{R}^{3&times; 3}$의 세 번째 행벡터 $\mathbf{m}_{3,row}$는 주점(principal point)를 의미한다. <b>해당 섹션에서는 주점 $\mathbf{m}_{3,row}$를 카메라 좌표계에서 $+Z$방향을 의미하는 주축(principal axis)의 방향과 동치로 간주한다.</b> 하지만, 카메라 행렬 $\mathbf{P}$는 부호를 제외하고(up to sign) 유일하게 결정되기 때문에 어떤 $\mathbf{m}_{3,row}$또는 $-\mathbf{m}_{3,row}$가 $+Z$를 의미하는지 알 수 없다. 
+</p>
+
+<p>
+이 때, $\mathbf{v}= det(\mathbf{M})\mathbf{m}_{3,row} = (0,0,1)^{\intercal}$과 같이 $\mathbf{M}$의 행렬식(determinant)를 앞에 곱해주면 항상 양의 방향을 의미하게 된다. 그리고 $\mathbf{P}&rarr; k \mathbf{P}$로 스케일이 변화해도 $\mathbf{v}&rarr; k^{4}\mathbf{v}$와 같이 같은 방향을 나타낸다. 일반적인 카메라 행렬 $k\mathbf{P}= k\mathbf{KR}[\mathbf{I}\ | \ -~{\mathbf{C}}]$가 주어졌을 때에도 $\mathbf{M}= k \mathbf{KR}$이고 $det(\mathbf{R}) &gt; 0$이므로 주축의 방향벡터 $\mathbf{v}=det(\mathbf{M})\mathbf{m}_{3,rowe}$는 동일한 방향을 나타낸다. <b>이에 따라</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{v} = \det(\mathbf{M})\mathbf{m}_{3,row}
+  \end{aligned}
+\end{equation}
+<p>
+<b>벡터는 주축(principal axis)의 방향벡터를 의미한다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org12816fc" class="outline-4">
+<h4 id="org12816fc"><span class="section-number-4">3.2.8</span> Action of a projective camera on points</h4>
+</div>
+<div id="outline-container-org88aefed" class="outline-4">
+<h4 id="org88aefed"><span class="section-number-4">3.2.9</span> Forward projection</h4>
+<div class="outline-text-4" id="text-3-2-9">
+<p>
+Forward-projection은 일반적으로 프로젝션이라고 불리며 <b>월드 상에 있는 한 점 $\mathbf{X}$가 주어졌을 때 이를 이미지 평면 상의 한 점 $\mathbf{x}$으로 변환하는 연산을 의미한다.</b> 임의의 카메라 행렬 $\mathbf{P}$에 대해 다음 공식이 성립한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x} = \mathbf{PX}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orgad65def" class="outline-4">
+<h4 id="orgad65def"><span class="section-number-4">3.2.10</span> Back-projection of points to rays</h4>
+<div class="outline-text-4" id="text-3-2-10">
+<p>
+Back-projection은 Forward-projection과는 반대로 <b>이미지 평면 상의 한 점 $\mathbf{x}$가 주어졌을 때 이를 월드 상의 한 직선으로 변환하는 연산을 의미한다.</b> 일반적으로 $\mathbf{x}$의 깊이값을 모르기 때문에 바로 월드 상의 한 점 $\mathbf{X}$로 변환되지 않는 특징이 있다. 임의의 카메라 행렬 $\mathbf{P}$는 rank가 3인 행렬이므로 Right Pseudo Inverse $\mathbf{P}^{&dagger;}$가 존재한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}^{\dagger} = \mathbf{P}^{\intercal}(\mathbf{PP}^{\intercal})^{-1}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 $\mathbf{PP}^{&dagger;} = \mathbf{PP}^{\intercal}(\mathbf{PP}^{\intercal})^{-1} = \mathbf{I}$가 성립한다. Back-projection한 직선 $\mathbf{P}^{&dagger;}\mathbf{x}$는 카메라의 중심점 $\mathbf{C}$를 지나가므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X}(\lambda) = \mathbf{P}^{\dagger}\mathbf{x} + \lambda \mathbf{C}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 나타낼 수 있다. Back-projection 직선을 다시 프로젝션하면 $\mathbf{P}\mathbf{X}(&lambda;) = \mathbf{PP}^{&dagger;}\mathbf{x}+ &lambda; \mathbf{PC}= \mathbf{x}$가 된다.
+</p>
+
+<p>
+Finite Projective 카메라의 경우 다른 방법으로 Back-projection을 표현할 수 있다. 임의의 Finite Projective 카메라 행렬 $\mathbf{P}=[\mathbf{M}\ | \ \mathbf{p}_{4,col}]$이 주어졌을 때 카메라의 중심점은 $~{\mathbf{C}}=-\mathbf{M}^{-1}\mathbf{p}_{4,col}$과 같이 나타낼 수 있다. 이 때 이미지 평면 상의 한 점 $\mathbf{x}$을 Back-projection한 직선은 무한대 평면 $&pi;_{&infin;}$와 $\mathbf{D}=((\mathbf{M}^{-1}\mathbf{x})^{\intercal},0)$에서 접하므로 Back-projection 직선은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X}(\mu) = \mu \begin{pmatrix} \mathbf{M}^{-1}\mathbf{x}\\0 \end{pmatrix} + \begin{pmatrix} -\mathbf{M}^{-1}\mathbf{p}_{4,col} \\ 1 \end{pmatrix} = \begin{pmatrix} \mathbf{M}^{-1}(\mu \mathbf{x} - \mathbf{p}_{4,col}) \\ 1 \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 나타낼 수 있다.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orga9d0b55" class="outline-4">
+<h4 id="orga9d0b55"><span class="section-number-4">3.2.11</span> Depth of points</h4>
+<div class="outline-text-4" id="text-3-2-11">
+<p>
+General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\begin{pmatrix}X&amp;Y&amp;Z&amp;1 \end{pmatrix}^{\intercal}$가 주어졌을 때 이를 이미지 평면으로 프로젝션시키면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x} = \mathbf{P}\begin{pmatrix} X\\Y\\Z\\1 \end{pmatrix} =  \begin{pmatrix} x\\y\\w \end{pmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 하나의 점 $\mathbf{x}$를 얻을 수 있다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org27a3030" class="outline-4">
+<h4 id="org27a3030"><span class="section-number-4">3.2.12</span> Result 6.1</h4>
+<div class="outline-text-4" id="text-3-2-12">
+<p>
+카메라 행렬 $\mathbf{P}$에 대한 월드 상의 점 $\mathbf{X}$의 깊이는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \text{depth}(\mathbf{X}; \mathbf{P}) = \frac{\text{sign}(\det(M))w}{\|\mathbf{m}_{3,row} \|}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 나타낼 수 있다. 이 때, $\mathbf{m}_{3,row} &isin; \mathbb{R}^{3&times; 3}$는 행렬 $\mathbf{M}$의 세번째 행벡터이다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1da8450" class="outline-4">
+<h4 id="org1da8450"><span class="section-number-4">3.2.13</span> Proof</h4>
+<div class="outline-text-4" id="text-3-2-13">
+<p>
+행벡터 $\mathbf{m}_{3,row}$는 주축의 방향을 의미하므로 월드 상의 점 $~{\mathbf{X}}$를 $\mathbf{m}_{3,row}$로 프로젝션한 값이 곧 $Z$축에 대한 깊이를 의미한다. 주축으로 프로젝션은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \text{depth} =  \frac{(\tilde{\mathbf{X}}-\tilde{\mathbf{C})}\mathbf{m}_{3.row}}{\| \mathbf{m}_{3,row} \|}
+  \end{aligned}
+\end{equation}
+<p>
+이 되고 Finite Projective 카메라의 경우 $\mathbf{m}_{3,row} = \mathbf{r}_{3,row} = 1$이 된다.
+</p>
+
+<p>
+깊이 값은 $\mathbf{x}= \mathbf{PX}$의 세 번째 행인 $w$이므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    w &amp; = (\mathbf{PX})_{3,row} \\
+    &amp; = (\mathbf{P}(\mathbf{X}-\mathbf{C}))_{3,row} \\
+    &amp; = (\tilde{\mathbf{X}}-\tilde{\mathbf{C}})\mathbf{m}_{3,row} \\
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 구할 수 있다. 결론적으로 $det(\mathbf{M})$의 부호에 따라 깊이 값이 카메라 뒤쪽에 위치할 수 있으므로 이를 고려하여 나타내면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \text{depth}(\mathbf{X}; \mathbf{P}) = \frac{\text{sign}(\det(M))w}{\|\mathbf{m}_{3,row} \|}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc1e76e8" class="outline-3">
+<h3 id="orgc1e76e8"><span class="section-number-3">3.3</span> Cameras at infinity</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+<b>임의의 General Projective 카메라의 중심점 $\mathbf{C}$가 무한대 평면 $&pi;_{&infin;}$에 존재하는 경우 이를 무한대 카메라(camera at infinity)라고 한다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{C} =(\ast,\ \ast,\ \ast, 0)^{\intercal} \in \pi_{\infty}
+  \end{aligned}
+\end{equation}
+<p>
+이와 동치(equivalent)인 경우는 카메라 행렬 $\mathbf{P}=[\mathbf{M}\ | \ \mathbf{p}_{4,col}]$가 주어졌을 때 행렬 $\mathbf{M}$가 singular한 경우이다.
+</p>
+
+<p>
+무한대 카메라는 크게 Affine 카메라와 Non-affine 카메라로 분류된다. 
+</p>
+</div>
+
+<div id="outline-container-org5d7ad46" class="outline-4">
+<h4 id="org5d7ad46"><span class="section-number-4">3.3.1</span> Definition 6.3</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+Affine 카메라 $\mathbf{P}_{a}$는 무한대 평면을 프로젝션했을 때 동일하게 무한대 평면이 되는 카메라를 의미한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}_{a}(\pi_{\infty}) = \pi_\infty
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $\mathbf{P}_{a} = \begin{bmatrix} \ast&amp;\ast&amp;\ast&amp;\ast \\ \ast&amp;\ast&amp;\ast&amp;\ast \\ 0&amp;0&amp;0&amp;\ast \end{bmatrix}$꼴이다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org62ffc41" class="outline-4">
+<h4 id="org62ffc41"><span class="section-number-4">3.3.2</span> Affine cameras</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<p>
+Finite Projective 카메라 행렬 $\mathbf{P}=\mathbf{KR}[\mathbf{I}\ | \ 0]$가 있고 월드 상의 물체가 존재한다고 하자. 이 때, 물체에 대한 Zoom In을 수행하면서 동시에 카메라를 주축의 반대 방향으로 움직이면 Vertigo Effect가 발생한다. Vertigo Effect는 히치콕 감독의 영화 Vertigo에서 해당 기법을 처음 사용해서 붙은 이름이다.
+</p>
+
+<p>
+이를 수식적으로 이해하기 위해 월드 상 물체의 깊이(depth) 값에 대해 다시 생각해보면 카메라의 중심점 $~{\mathbf{C}}$가 있고 월드 상의 점 $~{\mathbf{X}}$가 주어졌을 때 깊이 값 $d$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    d = -(\tilde{\mathbf{X}}-\tilde{\mathbf{C}})\mathbf{r}_{3,row}
+  \end{aligned}
+\end{equation}
+<p>
+이다. 이 때, $\mathbf{r}_{3,row}$는 회전행렬 $\mathbf{R}$의 세 번째 행벡터이고 주축(principal axis)를 의미한다. 다음으로 카메라 중심점과 월드의 원점 사이의 거리를 $d_{0}$라고 하면 위 공식에서 $~{\mathbf{X}}=0$인 경우에 해당하므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    d_{0} = - \tilde{\mathbf{C}}\mathbf{r}_{3,row}
+  \end{aligned}
+\end{equation}
+<p>
+이 된다.
+</p>
+
+<p>
+카메라를 주축의 반대 방향으로 움직이면 카메라의 중심점 $~{\mathbf{C}}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+\tilde{\mathbf{C}} - t\cdot \mathbf{r}_{3,row}
+  \end{aligned}
+\end{equation}
+<p>
+이 되고 이 때, t는 시간을 의미한다. 카메라가 뒤로 움직일 때 시간에 따른 카메라 행렬은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}_{t} &amp; = \mathbf{KR}[\mathbf{I} \ | \ -(\tilde{\mathbf{C}}-t\cdot \mathbf{r}_{3,row})] \\
+    &amp; = \mathbf{K}
+    \begin{bmatrix}
+     &amp; &amp; &amp; -\tilde{\mathbf{C}}\mathbf{r}_{1,row} \\
+     &amp; \mathbf{R} &amp; &amp; -\tilde{\mathbf{C}}\mathbf{r}_{2,row} \\
+     &amp; &amp; &amp; t -\tilde{\mathbf{C}}\mathbf{r}_{3,row} \\
+    \end{bmatrix} \\
+    &amp; = \mathbf{K}
+    \begin{bmatrix}
+     &amp; &amp; &amp; -\tilde{\mathbf{C}}\mathbf{r}_{1,row} \\
+     &amp; \mathbf{R} &amp; &amp; -\tilde{\mathbf{C}}\mathbf{r}_{2,row} \\
+     &amp; &amp; &amp; d_{0} + t \\
+    \end{bmatrix} \\
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 따라서 <b>카메라를 주축의 반대방향으로 움직이는 경우 $\mathbf{P}_{t}$는 $(3,4)$항에만 $d_{0}+t$가 추가된 형태가 된다. $d_{0} + t = d_{t}$라고 하면</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}_{t} = \mathbf{K} \begin{bmatrix} -&amp;-&amp;-&amp;- \\ -&amp;\text{no change}&amp;-&amp;-  \\ -&amp;-&amp;-&amp;d_{t} \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+가 된다.
+</p>
+
+<p>
+다음으로 카메라를 Zoom In 해보자. Zoom In을 수학적으로 표현하면 초점거리(focal length) $f$의 크기를 늘려주는 것과 동일하다. 
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \text{Zoom In}: f \rightarrow kf \quad ^{\forall}k &gt; 0
+  \end{aligned}
+\end{equation}
+<p>
+Zoom In을 행렬로 표현하면 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P} \rightarrow \begin{bmatrix} k&amp;&amp; \\ &amp;k&amp; \\ &amp;&amp;1 \end{bmatrix}\mathbf{P}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, 카메라를 주축의 방향으로 움직일 때 동시에 초점거리를 $k$배 하여 Zoom In하면 물체의 깊이(depth)는 변하지 않도록 하는 Vertigo Effect를 구현할 수 있다. 이 때 적절한 Zoom In 값 $k$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    k = d_{t}/d_{0}
+  \end{aligned}
+\end{equation}
+<p>
+이다. 결국 시간에 따른 카메라 행렬 $\mathbf{P}_{t}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \begin{bmatrix} d_{t}/d_{0}&amp;&amp; \\ &amp;d_{t}/d_{0}&amp; \\ &amp;&amp;1 \end{bmatrix} \mathbf{P}_{t} &amp; = \mathbf{K} \begin{bmatrix} d_{t}/d_{0}&amp;&amp; \\ &amp;d_{t}/d_{0}&amp; \\ &amp;&amp;1 \end{bmatrix} \begin{bmatrix} &amp;&amp;&amp;\ast \\ &amp;\mathbf{R}&amp;&amp;\ast \\ &amp;&amp;&amp;d_{t} \end{bmatrix} \\
+    &amp; = \frac{1}{k}\mathbf{K} \begin{bmatrix} 1&amp;&amp; \\ &amp;1&amp; \\ &amp;&amp;d_{0}/d_{t} \end{bmatrix} \begin{bmatrix} &amp;&amp;&amp;\ast \\ &amp;\mathbf{R}&amp;&amp;\ast \\ &amp;&amp;&amp;d_{t} \end{bmatrix} \\
+    &amp; = \frac{1}{k}\mathbf{K} \begin{bmatrix} -&amp;-&amp;-&amp;- \\ -&amp;\text{no change}&amp;-&amp;- \\ &amp;d_{0}/d_{t} \cdot \mathbf{r}_{3,row}&amp;&amp;d_{0} \end{bmatrix} \\
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. $\frac{1}{k}$는 스케일 값이므로 생략 가능하다. 시간이 무한히 흘렸다고 가정하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}_{\infty} = \lim_{t\rightarrow \infty} \mathbf{P}_{t} = \mathbf{K} \begin{bmatrix} \mathbf{r}_{1,row}^{\intercal} &amp; -\mathbf{r}_{1,row}^{\intercal}\tilde{\mathbf{C}} \\ \mathbf{r}_{2,row}^{\intercal} &amp; -\mathbf{r}_{2,row}^{\intercal}\tilde{\mathbf{C}} \\ \mathbf{0}^{\intercal} &amp; d_{0} \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. <b>위 식에서 $\mathbf{P}$의 세 번째 행의 세 개의 값들이 $\mathbf{0}^{\intercal}$이므로 이는 곧 Affine 카메라이다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3a14a64" class="outline-4">
+<h4 id="org3a14a64"><span class="section-number-4">3.3.3</span> Error in employing and affine camera</h4>
+<div class="outline-text-4" id="text-3-3-3">
+<p>
+<b>월드 좌표계의 원점을 포함하면서 카메라 $\mathbf{P}_{t}$의 이미지 평면과 수직인 평면 $&pi;$가 주어졌을 때 앞서 설명한 Vertigo Effect(zoom in + backward moving)을 수행하면 $&pi;$에 위치한 점들은 $\mathbf{P}^{t}$에 의해 얻어지는 이미지 상의 점들이 $t$에 대하여 일정하다.</b>
+</p>
+
+<p>
+이를 증명해보면 평면 $\pi$상에 점 $\mathbf{X}&isin; &pi;$가 주어졌을 때 $&pi;$가 월드 좌표계의 원점을 포함하므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{X} = \begin{pmatrix} \alpha \mathbf{r}_{1,row}  + \mathbf{\beta}\mathbf{r}_{2,row} \\ 1 \end{pmatrix} \in \mathbb{R}^{4}
+  \end{aligned}
+\end{equation}
+<p>
+같이 나타낼 수 있다. 이를 $\mathbf{P}_{t}$를 통해 프로젝션하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{P}_{t}\mathbf{X} &amp; = \mathbf{K} \begin{bmatrix} \mathbf{r}_{1,row}^{\intercal} &amp; -\mathbf{r}_{1,row}^{\intercal}\tilde{\mathbf{C}} \\ \mathbf{r}_{2,row}^{\intercal} &amp; -\mathbf{r}_{2,row}^{\intercal}\tilde{\mathbf{C}} \\ d_{0}/d_{t} \cdot \mathbf{r}_{3,row} &amp; d_{0} \end{bmatrix} \begin{bmatrix} \alpha \mathbf{r}_{1,row} + \beta \mathbf{r}_{2,row} \\ 1 \end{bmatrix} \\
+    &amp; = \begin{bmatrix} * \\ * \\ d_{0} \end{bmatrix} \quad \because \mathbf{r}_{1,row}\cdot \mathbf{r}_{3,row} =  \mathbf{r}_{2,row}\cdot \mathbf{r}_{3,row}= 0 \ 
+  \end{aligned}
+\end{equation}
+<p>
+따라서 <b>월드 좌표계의 원점을 포함하는 평면 $\pi$상의 점 $\mathbf{X}$의 깊이(depth)는 $d_{0}$로 항상 일정하기 때문에 Vertigo Effect을 수행하면 시간 $t$에 관계없이 일정한 크기로 보인다.</b>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orga82f681" class="outline-2">
+<h2 id="orga82f681"><span class="section-number-2">4</span> References</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 <a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
 </p>
 </div>
 </div>
 <div id="outline-container-orgf4ac916" class="outline-2">
-<h2 id="orgf4ac916"><span class="section-number-2">4</span> Closure</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="orgf4ac916"><span class="section-number-2">5</span> Closure</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.
 </p>
