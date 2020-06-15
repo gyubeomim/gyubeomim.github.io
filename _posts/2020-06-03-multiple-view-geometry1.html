@@ -24,10 +24,10 @@ comments: true
 <li><a href="#orgef72f6c">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#org16932c8">1.2. Ideal points and the line at infinity</a>
+<li><a href="#org5c8c1e7">1.2. Ideal points and the line at infinity</a>
 <ul>
 <li><a href="#org2038504">1.2.1. Intersection of parallel lines</a></li>
-<li><a href="#org880af0b">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#org16932c8">1.2.2. Ideal points and the line at infinity</a></li>
 <li><a href="#org773282c">1.2.3. A model for the projective plane</a></li>
 <li><a href="#org45777bb">1.2.4. Duality</a></li>
 </ul>
@@ -37,7 +37,7 @@ comments: true
 <li><a href="#org444e997">1.3.1. Five points define a conic</a></li>
 <li><a href="#org0e05942">1.3.2. Tangent lines to conics</a></li>
 <li><a href="#orgcde8919">1.3.3. Dual conics</a></li>
-<li><a href="#org5a49876">1.3.4. Proof</a></li>
+<li><a href="#orgd6db731">1.3.4. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgc4e6a57">1.4. Projective transformations</a></li>
@@ -86,7 +86,7 @@ comments: true
 <li><a href="#orgad65def">2.2.10. Back-projection of points to rays</a></li>
 <li><a href="#orga9d0b55">2.2.11. Depth of points</a></li>
 <li><a href="#org27a3030">2.2.12. Result 6.1</a></li>
-<li><a href="#orgd6db731">2.2.13. Proof</a></li>
+<li><a href="#org0b94729">2.2.13. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgc1e76e8">2.3. Cameras at infinity</a>
@@ -98,53 +98,70 @@ comments: true
 </li>
 </ul>
 </li>
-<li><a href="#orga736afc">3. More Single View Geometry</a>
+<li><a href="#org8786a60">3. Computation of the Camera Matrix $\mathbf{P}$</a>
 <ul>
-<li><a href="#org41ea6be">3.1. Camera calibration and the image of the absolute conic</a>
+<li><a href="#orgd197b76">3.1. Basic equations</a>
 <ul>
-<li><a href="#org754061c">3.1.1. Result 8.15</a></li>
-<li><a href="#orgcf922fc">3.1.2. Result 8.16</a></li>
+<li><a href="#org40bdb88">3.1.1. Minimal solution</a></li>
+<li><a href="#orgba8e5c7">3.1.2. Over-determined solution</a></li>
+<li><a href="#orgd9b1b6b">3.1.3. Degenerate configurations</a></li>
+<li><a href="#org2855ab0">3.1.4. Line correspondences</a></li>
 </ul>
 </li>
-<li><a href="#orgf1490b1">3.2. The image of the absolute conic</a>
+<li><a href="#orgd3557c9">3.2. Geometric error</a>
 <ul>
-<li><a href="#orgc44dd1c">3.2.1. Result 8.17</a></li>
-</ul>
-</li>
-<li><a href="#orga81efc8">3.3. Orthogonality and $\mathbf{w}$</a>
-<ul>
-<li><a href="#org518448b">3.3.1. Result 8.19</a></li>
-</ul>
-</li>
-<li><a href="#org7ea3ec1">3.4. Vanishing points and vanishing lines</a>
-<ul>
-<li><a href="#org3ca4a4a">3.4.1. Result 8.20</a></li>
-<li><a href="#orgfe4dad9">3.4.2. Camera rotation from vanishing points</a></li>
-</ul>
-</li>
-<li><a href="#orgcda6f8e">3.5. Vanishing Lines</a></li>
-<li><a href="#org523f3bf">3.6. Orthogonality relationships amongst vanishing points and lines</a></li>
-<li><a href="#orga0c70ae">3.7. Affine 3D measurements and reconstruction</a>
-<ul>
-<li><a href="#org4bca73d">3.7.1. Result 8.24</a></li>
-</ul>
-</li>
-<li><a href="#org4c64600">3.8. Determining camera calibration $\mathbf{K}$from a single view</a>
-<ul>
-<li><a href="#org864033c">3.8.1. Result 8.26</a></li>
-</ul>
-</li>
-<li><a href="#org2b9d73c">3.9. Calibration from three orthogonal vanishing points</a></li>
-<li><a href="#orge3c4130">3.10. Computation of focal length and principal point using vanishing point and vanishing line</a></li>
-<li><a href="#orge6c269f">3.11. The calibrating conic</a>
-<ul>
-<li><a href="#org638da35">3.11.1. Result 8.30</a></li>
+<li><a href="#orgdadc91e">3.2.1. Algorithm 7.1</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orga82f681">4. References</a></li>
-<li><a href="#orgf4ac916">5. Closure</a></li>
+<li><a href="#orga736afc">4. More Single View Geometry</a>
+<ul>
+<li><a href="#org41ea6be">4.1. Camera calibration and the image of the absolute conic</a>
+<ul>
+<li><a href="#org754061c">4.1.1. Result 8.15</a></li>
+<li><a href="#orgcf922fc">4.1.2. Result 8.16</a></li>
+</ul>
+</li>
+<li><a href="#orgf1490b1">4.2. The image of the absolute conic</a>
+<ul>
+<li><a href="#orgc44dd1c">4.2.1. Result 8.17</a></li>
+</ul>
+</li>
+<li><a href="#orga81efc8">4.3. Orthogonality and $\mathbf{w}$</a>
+<ul>
+<li><a href="#org518448b">4.3.1. Result 8.19</a></li>
+</ul>
+</li>
+<li><a href="#org7ea3ec1">4.4. Vanishing points and vanishing lines</a>
+<ul>
+<li><a href="#org3ca4a4a">4.4.1. Result 8.20</a></li>
+<li><a href="#orgfe4dad9">4.4.2. Camera rotation from vanishing points</a></li>
+</ul>
+</li>
+<li><a href="#orgcda6f8e">4.5. Vanishing Lines</a></li>
+<li><a href="#org523f3bf">4.6. Orthogonality relationships amongst vanishing points and lines</a></li>
+<li><a href="#orga0c70ae">4.7. Affine 3D measurements and reconstruction</a>
+<ul>
+<li><a href="#org4bca73d">4.7.1. Result 8.24</a></li>
+</ul>
+</li>
+<li><a href="#org4c64600">4.8. Determining camera calibration $\mathbf{K}$from a single view</a>
+<ul>
+<li><a href="#org864033c">4.8.1. Result 8.26</a></li>
+</ul>
+</li>
+<li><a href="#org2b9d73c">4.9. Calibration from three orthogonal vanishing points</a></li>
+<li><a href="#orge3c4130">4.10. Computation of focal length and principal point using vanishing point and vanishing line</a></li>
+<li><a href="#orge6c269f">4.11. The calibrating conic</a>
+<ul>
+<li><a href="#org638da35">4.11.1. Result 8.30</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orga82f681">5. References</a></li>
+<li><a href="#orgf4ac916">6. Closure</a></li>
 </ul>
 </div>
 </div>
@@ -324,8 +341,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-org16932c8" class="outline-3">
-<h3 id="org16932c8"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div id="outline-container-org5c8c1e7" class="outline-3">
+<h3 id="org5c8c1e7"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
@@ -385,8 +402,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-org880af0b" class="outline-4">
-<h4 id="org880af0b"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div id="outline-container-org16932c8" class="outline-4">
+<h4 id="org16932c8"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0$일 때 $\mathbb{R}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{R}^{2}$공간과 대응되지 않고 $\mathbb{P}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
@@ -594,8 +611,8 @@ $\mathbb{P}^{2}$상의 conic $\mathbf{C}$가 주어졌을 때, <b>$\mathbf{C}$�
 </div>
 </div>
 
-<div id="outline-container-org5a49876" class="outline-4">
-<h4 id="org5a49876"><span class="section-number-4">1.3.4</span> Proof</h4>
+<div id="outline-container-orgd6db731" class="outline-4">
+<h4 id="orgd6db731"><span class="section-number-4">1.3.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 ($\Rightarrow$) conic $\mathbf{C}&isin; \mathbb{R}^{3&times; 3}$의 rank가 3이고 non-singular하다고 가정하면 $\mathbf{C}^{&lowast;} = det(\mathbf{C}^{-1})$와 같이 나타낼 수 있다. $\mathbf{C}$위의 한 점 $\mathbf{x}&isin; \mathbf{C}$가 주어졌을 때 $\mathbf{x}$에서 접선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{Cx}$로 나타낼 수 있다. 이를 위 식에 대입하면
@@ -1344,8 +1361,8 @@ General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\
 </div>
 </div>
 
-<div id="outline-container-orgd6db731" class="outline-4">
-<h4 id="orgd6db731"><span class="section-number-4">2.2.13</span> Proof</h4>
+<div id="outline-container-org0b94729" class="outline-4">
+<h4 id="org0b94729"><span class="section-number-4">2.2.13</span> Proof</h4>
 <div class="outline-text-4" id="text-2-2-13">
 <p>
 행벡터 $\mathbf{m}_{3,row}$는 주축의 방향을 의미하므로 월드 상의 점 $~{\mathbf{X}}$를 $\mathbf{m}_{3,row}$로 프로젝션한 값이 곧 $Z$축에 대한 깊이를 의미한다. 주축으로 프로젝션은
@@ -1672,24 +1689,289 @@ Zoom In을 행렬로 표현하면 다음과 같다.
   \end{aligned}
 \end{equation}
 <p>
-<b>위 공식을 Discrepancy Equation이라고 부르며 $&Delta;=0$인 경우, 월드 좌표계의 원점을 포함하면서 이미지 평면과 수직인 평면 $\pi$상의 점인 경우, 두 카메라를 통해 촬영한 물체는 동일한 이미지 상의 점으로 프로젝션된다는 것을 의미한다.</b> 영화 Vertigo 또는 Jaws를 보면 이와 같은 현상을 볼 수 있는데 주인공의 얼굴이 변하지 않으면서 주변의 환경이 Zoom Out되는 것을 볼 수 있다. 
+<b>위 공식을 Discrepancy Equation이라고 부르며 $&Delta;=0$인 경우, 월드 좌표계의 원점을 포함하면서 이미지 평면과 수직인 평면 $\pi$상의 점인 경우, 두 카메라를 통해 촬영한 물체는 동일한 이미지 상의 점으로 프로젝션된다는 것을 의미한다.</b> 영화 Vertigo 또는 Jaws를 보면 이와 같은 현상을 볼 수 있는데 주인공의 얼굴이 변하지 않으면서 주변의 환경이 Zoom Out되는 것을 볼 수 있다.
 </p>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga736afc" class="outline-2">
-<h2 id="orga736afc"><span class="section-number-2">3</span> More Single View Geometry</h2>
+<div id="outline-container-org8786a60" class="outline-2">
+<h2 id="org8786a60"><span class="section-number-2">3</span> Computation of the Camera Matrix $\mathbf{P}$</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+해당 섹션에서는 $\mathbb{P}^{3}$공간 상의 점 $\mathbf{X}_{i}$와 $\mathbb{P}^{2}$공간 상의 점 $\mathbf{x}_{i}$들의 대응쌍 $(\mathbf{x}_{i}, \mathbf{X}_{i})$여러개를 사용하여 카메라 행렬 $\mathbf{P}$를 수치적으로 구하는 방법에 대해 설명한다. 이러한 방법을 일반적으로 Resectioning 또는 Calibration이라고 부른다.
+</p>
+</div>
+
+<div id="outline-container-orgd197b76" class="outline-3">
+<h3 id="orgd197b76"><span class="section-number-3">3.1</span> Basic equations</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+대응점 쌍 $(\mathbf{x}_{i}, \mathbf{X}_{i})$가 주어졌을 때 두 점 사이의 대응관계는 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}_{i} = \mathbf{PX}_{i}
+  \end{aligned}
+\end{equation}
+<p>
+이 때, $\mathbf{PX}_{i}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{PX}_{i} &amp; = \begin{bmatrix} \mathbf{p}_{1,row}^{\intercal} \\ \mathbf{p}_{2,row}^{\intercal} \\ \mathbf{p}_{3,row}^{\intercal} \end{bmatrix}\mathbf{X}_{i} 
+    &amp; = \begin{bmatrix}
+      \mathbf{p}_{1,row}^{\intercal}\mathbf{X}_{i} \\
+      \mathbf{p}_{2,row}^{\intercal}\mathbf{X}_{i} \\
+      \mathbf{p}_{3,row}^{\intercal}\mathbf{X}_{i} 
+    \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+와 같이 행벡터(row vector)를 사용하여 나타낼 수 있다. 이 때, $\mathbf{p}_{i,row} &isin; \mathbb{R}^{4&times; 1}$인 벡터를 의미한다. $\mathbf{x}= \begin{pmatrix}x&amp;y&amp;w \end{pmatrix}^{\intercal}$라고 하면 $\mathbf{x}_{i} &times; \mathbf{PX}_{i}=0$이므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{x}_{i} \times \mathbf{PX}_{i} =
+    \begin{pmatrix}
+      y_{i}\cdot\mathbf{p}_{2,row}^{\intercal}\mathbf{X}_{i} - w_{i}\cdot\mathbf{p}_{3,row}\mathbf{X}_{i} \\
+      w_{i}\cdot\mathbf{p}_{1,row}^{\intercal}\mathbf{X}_{i} - x_{i}\cdot\mathbf{p}_{3,row}\mathbf{X}_{i} \\
+      x_{i}\cdot\mathbf{p}_{2,row}^{\intercal}\mathbf{X}_{i} - y_{i}\cdot\mathbf{p}_{1,row}\mathbf{X}_{i} \\
+    \end{pmatrix} = 0
+  \end{aligned}
+\end{equation}
+<p>
+과 같다. 이를 $\mathbf{Ap} = 0$형태로 정리하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+     \begin{bmatrix}
+      \mathbf{0}^{\intercal} &amp; -w_{i}\mathbf{X}_{i}^{\intercal} &amp; y_{i}\mathbf{X}_{i}^{\intercal} \\
+      w_{i}\mathbf{X}_{i}^{\intercal} &amp; \mathbf{0}^{\intercal} &amp; -x_{i}\mathbf{X}_{i}^{\intercal}  \\
+      -y_{i}\mathbf{X}_{i}^{\intercal} &amp; x_{i}\mathbf{X}_{i}^{\intercal} &amp; \mathbf{0}^{\intercal}  \\
+    \end{bmatrix}
+      \begin{pmatrix} \mathbf{p}_{1,row} \\ \mathbf{p}_{2,row} \\ \mathbf{p}_{3,row} \end{pmatrix} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이 된다. 이 때 좌측 행렬의 마지막 행(row)은 선형의존이므로 첫 번째 행과 두 번째 행만 표현하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \underbrace{\begin{bmatrix}
+      \mathbf{0}^{\intercal} &amp; -w_{i}\mathbf{X}_{i}^{\intercal} &amp; y_{i}\mathbf{X}_{i}^{\intercal} \\
+      w_{i}\mathbf{X}_{i}^{\intercal} &amp; \mathbf{0}^{\intercal} &amp; -x_{i}\mathbf{X}_{i}^{\intercal}  \\
+    \end{bmatrix}}_{\mathbf{A}}
+      \begin{pmatrix} \mathbf{p}_{1,row} \\ \mathbf{p}_{2,row} \\ \mathbf{p}_{3,row} \end{pmatrix} = 0
+  \end{aligned}
+\end{equation}
+<p>
+과 같다. 이 때, 행렬 $\mathbf{A}$는 $\mathbb{R}^{2n&times; 12}$크기이고 벡터 $\begin{pmatrix}\mathbf{p}_{1,row} \\ \mathbf{p}_{2,row} \\ \mathbf{p}_{3,row} \end{pmatrix}$는 $12\times1$크기이다. 위 방정식은 $\mathbf{Ap}=0$형태이므로 특이값 분해(SVD) 같은 방법을 통해 벡터 $\mathbf{p}$를 구할 수 있다.
+</p>
+</div>
+
+<div id="outline-container-org40bdb88" class="outline-4">
+<h4 id="org40bdb88"><span class="section-number-4">3.1.1</span> Minimal solution</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+벡터 $\mathbf{p}&isin; \mathbb{R}^{12}$를 스케일을 제외하고(up to scale) 구하기 위해서는 총 11개의 식이 필요하다. 하나의 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{X}_{i})$을 사용하면 2개의 식이 도출되므로 $\mathbf{p}$를 구하기 위해서는 최소 5.5개의 대응점 쌍이 필요하다. 노이즈가 없는 5.5개의 대응점 쌍이 주어진 경우 행렬 $\mathbf{A}$의 rank가 11가 되어 Null Space 벡터가 유일한 해 벡터 $\mathbf{p}$가 된다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgba8e5c7" class="outline-4">
+<h4 id="orgba8e5c7"><span class="section-number-4">3.1.2</span> Over-determined solution</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+일반적으로 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{X}_{i})$은 6개보다 훨씬 많은 개수를 얻을 수 있으며 데이터가 노이즈를 포함하고 있으므로 행렬 $\mathbf{A}$의 rank가 12가 된다. 따라서 Null Space가 존재하지 않으므로 해 벡터 $\mathbf{p}$를 구할 수 없다. <b>이러한 $\mathbf{Ap}=0$선형 시스템을 Over-determined 시스템이라고 하며 이 때는 $\|\mathbf{p}\|=1$인 경우에 대하여 $\|\mathbf{Ap}\|$의 크기가 최소가 되는 근사해 $\hat{\mathbf{p}}$를 구해야 한다.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd9b1b6b" class="outline-4">
+<h4 id="orgd9b1b6b"><span class="section-number-4">3.1.3</span> Degenerate configurations</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+<b>5.5개 이상의 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{X}_{i})$이 서로 선형독립이 아닐 경우 유일한 해 벡터 $\mathbf{p}$를 결정할 수 없게 되고 이러한 대응점 쌍들을 Degenerate Configuration이라고 한다.</b> 유일한 해 벡터 $\mathbf{p}$를 결정할 수 없다는 의미는 월드 상의 한 점 $\mathbf{X}$에 대하여
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; ^{\exists}\mathbf{P}^{\prime}, \ \ \mathbf{P} \neq \mathbf{P}^{\prime} \\
+    &amp; \mathbf{PX}_{i} = \mathbf{P}^{\prime}\mathbf{X}_{i} \quad ^{\forall}i
+  \end{aligned}
+\end{equation}
+<p>
+를 만족하는 임의의 다른 카메라 행렬 $\mathbf{P}^{&prime;}$이 존재한다는 의미이다. 이는 특정 상수 $&theta;$에 대해 $\mathbf{PX} = -\theta \mathbf{P}^{\prime}\mathbf{X}$또한 성립한다는 의미와 동일하므로 이를 정리하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \underbrace{(\mathbf{P} + \theta \mathbf{P}^{\prime})}_{\mathbf{P}_{\theta}}\mathbf{X} = 0 \quad \text{for some } \theta
+  \end{aligned}
+\end{equation}
+<p>
+와 같고 $\mathbf{P}_{&theta;}\mathbf{X}=0$을 만족하는 월드 상의 점 $\mathbf{X}$는 $\mathbf{P}$와 $\mathbf{P}^{&prime;}$을 구분할 수 없다. 이와 같이 $\mathbf{P}, \mathbf{P}^{&prime;}$에 의해 같은 이미지 평면 상의 점으로 옮겨지는 $\mathbf{X}$의 집합을 $\mathcal{S}_{&theta;}$라고 하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathcal{S}_{\theta} = \{ \mathbf{X} \ | \ \mathbf{P}_{\theta}\mathbf{X}=0 \}
+  \end{aligned}
+\end{equation}
+<p>
+$\mathcal{S}_{&theta;}$를 만족하는 월드 상의 점 $\mathbf{X}$는 다음과 같다.
+</p>
+
+<ul class="org-ul">
+<li>모든 $\mathbf{X}_{i}$들이 Twisted Cubic 상에 위치한 경우</li>
+<li>모든 $\mathbf{X}_{i}$들이 동일한 평면 위에 존재하며 카메라 중심점을 포함한 직선 위에 존재하는 경우</li>
+</ul>
+
+<p>
+Twisted Cubic이란 $\mathbb{P}^{3}$공간 상에 존재하는 곡선을 의미한다. Twisted Cubic $\mathbf{C}_{&theta;}$으로 구성된 집합 $\mathcal{C}_{&theta;}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathcal{C}_{\theta} = \{ \mathbf{C}_{\theta} \ | \ \mathbf{P}_{\theta}\mathbf{C}_{\theta}=0 \ \text{ and } \mathbf{P}_{\theta} \text{'s rank is 3}   \}
+  \end{aligned}
+\end{equation}
+<p>
+을 만족하는 집합을 의미한다. 이 때, $\mathbf{C}_{&theta;}$는 3차식의 형태로 나타나는데 중근으로 인해 Twisted Cubic이 아닌 경우도 있으나 일반적으로 Twisted Cubic을 의미한다. $\mathbf{P}_{&theta;}\mathbf{C}_{&theta;}=0$이고 $\mathbf{P}_{&theta;}$의 rank가 3이므로 $\mathbf{C}_{&theta;}$는 $\mathbf{P}_{&theta;}$의 행공간(row space)에 들어가 있다는 의미가 된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{C}_{\theta} = \text{Row } \mathbf{P}_{\theta}
+  \end{aligned}
+\end{equation}
+<p>
+따라서 $\mathbf{C}_{&theta;} = \begin{pmatrix}c_{1}&amp;c_{2}&amp;c_{3}&amp;c_{4} \end{pmatrix}$일 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \det \begin{pmatrix} c_{1}&amp;c_{2}&amp;c_{3}&amp;c_{4} \\ -&amp;-&amp;-&amp;- \\ -&amp;\mathbf{P}_{\theta}&amp;-&amp;- \\ -&amp;-&amp;-&amp;- \end{pmatrix} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이 성립한다. <b>이를 전개하면 $det(2\ 3\ 4)c_{1} -det(1\ 3\ 4)c_{2} + det(1\ 2\ 4)c_{3} -det(1\ 2\ 3)c_{4}=0$이 되고 이 때, $det(a\ b\ c)$는 행렬 $\mathbf{P}_{&theta;}$의 $a,b,c$행과 열의 서브행렬식(sub-determinant, subminor)를 의미한다. 이를 통해 $\mathbf{C}_{&theta;}$를 다시 정리하면</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{C}_{\theta} = (\det(2\ 3\ 4), -\det(1\ 3\ 4), \det(1\ 2\ 4), -\det(1\ 2\ 3))
+  \end{aligned}
+\end{equation}
+<p>
+<b>으로 나타낼 수 있고 각각의 항들이 전부 3차식인 Twisted Cubic이 된다.</b> $\mathbf{P}, \mathbf{P}^{&prime;}$에 따라 $\mathbf{C}_{&theta;}$의 모든 항들이 공통근을 가질 수 있고 각 항들의 차수가 3차 이하로 떨어질 수 있다. 이러한 경우를 $\mathbf{C}_{&theta;}$의 Degenerate Configuration이라고 부르며 이러한 $\mathbf{C}_{&theta;}$는 Twisted Cubic이 아니다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2855ab0" class="outline-4">
+<h4 id="org2855ab0"><span class="section-number-4">3.1.4</span> Line correspondences</h4>
+<div class="outline-text-4" id="text-3-1-4">
+<p>
+월드 상의 한 직선 $\mathbf{L}$을 카메라 행렬 $\mathbf{P}$로 프로젝션하여 이미지 평면 상의 직선 $\mathbf{l}$을 얻었을 경우 점과 달리 직선은 $\mathbf{l}&ne; \mathbf{PL}$이다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{x} = \mathbf{PX} \ \text{ but, } \ \mathbf{l} \neq \mathbf{PL} \\
+  \end{aligned}
+\end{equation}
+<p>
+직선 $\mathbf{L}$상의 한 점 $\mathbf{X}$를 카메라에 프로젝션하여 얻은 점 $\mathbf{x}$는 직선 $\mathbf{l}$위에 존재하므로
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{l}^{\intercal}\mathbf{x} =  \mathbf{l}^{\intercal}\mathbf{PX} = 0 \\
+    &amp; \Rightarrow \mathbf{Ap} = 0
+  \end{aligned}
+\end{equation}
+<p>
+와 같은 벡터 $\mathbf{p}$에 대한 선형 방정식이 성립한다. <b>따라서 월드 상의 직선 $\mathbf{L}$위에 존재하는 여러 점들 $\mathbf{X}_{i}$를 사용하면 벡터 $\mathbf{p}$에 대한 선형 방정식이 성립하여 이를 통해 카메라 행렬 $\mathbf{P}$를 구할 수 있다.</b>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd3557c9" class="outline-3">
+<h3 id="orgd3557c9"><span class="section-number-3">3.2</span> Geometric error</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+앞서 설명한 방법과 같이 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{X}_{i})$를 이용하여 $\mathbf{Ap}=0$형태의 Over-determined 선형시스템을 구성한 후 $\| \mathbf{p}\|=1$이면서 $\| \mathbf{Ap}\|$의 크기를 최소화하는 근사해 벡터 $\hat{\mathbf{p}}$를 구할 수 있다. 해당 섹션에서는 더욱 정확한 카메라 행렬 $\mathbf{P}$를 구하기 위해 기하학적 에러(geometric error)를 최소화하는 방법에 대해 설명한다. <b>기하학적 에러는 이미지 평면 상에서 이미 주어진 $\mathbf{x}_{i}$와 월드 상의 점 $\mathbf{X}_{i}$를 프로젝션한 $\mathbf{PX}_{i}$사이의 픽셀 거리를 의미한다. 실제 데이터에서는 노이즈로 인해 $\mathbf{x}_{i} &ne; \mathbf{PX}_{i}$이므로 두 점 사이의 거리 $d(\mathbf{x}_{i}, \mathbf{PX}_{i})$를 최소화해주는 최적의 카메라 행렬 $\mathbf{P}$를 찾아야 한다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \min_{\mathbf{P}} d(\mathbf{x}_{i}, \mathbf{PX}_{i})^{2}
+  \end{aligned}
+\end{equation}
+<p>
+$d(\mathbf{x}_{i}, \mathbf{PX}_{i})^{2}$는 일반적으로 비선형이므로 비선형 최소제곱법(non-linear least squares) 방법들인 Gauss-Newton(GN) 또는 Levenberg-Marquardt(LM) 등과 같은 방법을 통해 최적의 카메라 행렬 $\mathbf{P}$를 구할 수 있다.
+</p>
+</div>
+
+<div id="outline-container-orgdadc91e" class="outline-4">
+<h4 id="orgdadc91e"><span class="section-number-4">3.2.1</span> Algorithm 7.1</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<ul class="org-ul">
+<li><b>Objective:</b> 주어진 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{X}_{i}),\ i=1,&ctdot;,6,&ctdot;$에 대하여 $\mathbf{P}$에 대한 MLE(maximum likelihook estimation) 값을 찾는다. 즉, $&sum;_{i} d(\mathbf{x}_{i}, \mathbf{PX}_{i})^{2}$를 최소로하는 카메라 행렬 $\mathbf{P}$를 찾는다.</li>
+
+<li><b>Normalization:</b> 이미지 포인트 $\mathbf{x}_{i}$를 정규화하는 행렬 $\mathbf{T}$를 통해 $\mathbf{x}_{i} &rarr; \bar{\mathbf{x}}_{i}$로 정규화시키고 월드 상의 점 $\mathbf{X}_{i}$를 정규화하는 행렬 $\mathbf{U}$를 통해 $\mathbf{X}_{i} &rarr; \bar{\mathbf{X}}_{i}$로 정규화시킨다. 정규화를 수행하지 않고 DLT(direct linear transformation)을 수행하는 경우 $\mathbb{P}^{2}, \mathbb{P}^{3}$공간의 특성 상 마지막 항의 값이 1로 매우 작고 나머지 항들은 매우 크므로 정상적인 해가 도출되지 않는다.</li>
+
+<li><b>DLT:</b> 정규화된 대응점 쌍들을 앞서 설명한 Over-determined 시스템 $\bar{\mathbf{A}}\bar{\mathbf{p}}=0$으로 구성한다. 다음으로 $\|\bar{\mathbf{p}} \|=1$이며 $\|\bar{\mathbf{A}}\bar{\mathbf{p}}\|$를 최소화하는 근사해 $\mathbf{p}$를 DLT를 통해 구한 후 이를 초기값 $\bar{\mathbf{P}}_{0}$으로 설정한다.</li>
+
+<li><p>
+<b>Minimize geometric error:</b> 다음과 같은 기하학적 에러를 GN 또는 LM 방법을 통해 최소화하여 최적의 정규화된 카메라 행렬 $\bar{\mathbf{P}}^{&lowast;}$를 계산한다.
+</p>
+
+  \begin{equation}
+    \begin{aligned}
+      \min_{\bar{\mathbf{P}}}\sum_{i} d(\bar{\mathbf{x}}_{i}, \bar{\mathbf{P}}_{0}\bar{\mathbf{X}}_{i})^{2}
+    \end{aligned}
+  \end{equation}</li>
+
+<li><p>
+<b>Denormalization:</b> 정규화된 카메라 행렬을 다시 원래 카메라 행렬로 복원한다.
+</p>
+  \begin{equation}
+    \begin{aligned}
+      \mathbf{P} = \mathbf{T}^{-1}\bar{\mathbf{P}}^{\ast}\mathbf{U}
+    \end{aligned}
+  \end{equation}</li>
+</ul>
+
+<p>
+위 알고리즘을 일반적으로 <b>The Gold Standard algorithm for estimating $\mathbf{P}$라고 한다.</b> 실제로 위 알고리즘을 사용할 때는 임의의 대응점 쌍을 사용하는 것이 아니고 체크보드 상의 대응점 쌍을 사용한다. 이렇게 <b>체크보드를 통해 카메라 행렬 $\mathbf{P}$를 추정하는 알고리즘을 Zhang's Method라고 한다.</b>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orga736afc" class="outline-2">
+<h2 id="orga736afc"><span class="section-number-2">4</span> More Single View Geometry</h2>
+<div class="outline-text-2" id="text-4">
 </div>
 <div id="outline-container-org41ea6be" class="outline-3">
-<h3 id="org41ea6be"><span class="section-number-3">3.1</span> Camera calibration and the image of the absolute conic</h3>
-<div class="outline-text-3" id="text-3-1">
+<h3 id="org41ea6be"><span class="section-number-3">4.1</span> Camera calibration and the image of the absolute conic</h3>
+<div class="outline-text-3" id="text-4-1">
 </div>
 <div id="outline-container-org754061c" class="outline-4">
-<h4 id="org754061c"><span class="section-number-4">3.1.1</span> Result 8.15</h4>
-<div class="outline-text-4" id="text-3-1-1">
+<h4 id="org754061c"><span class="section-number-4">4.1.1</span> Result 8.15</h4>
+<div class="outline-text-4" id="text-4-1-1">
 
 <div class="figure">
 <p><img src="/pictures/200607_mvg/09.png" alt="09.png" align="center" width="400px" />
@@ -1740,8 +2022,8 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 </div>
 
 <div id="outline-container-orgcf922fc" class="outline-4">
-<h4 id="orgcf922fc"><span class="section-number-4">3.1.2</span> Result 8.16</h4>
-<div class="outline-text-4" id="text-3-1-2">
+<h4 id="orgcf922fc"><span class="section-number-4">4.1.2</span> Result 8.16</h4>
+<div class="outline-text-4" id="text-4-1-2">
 <p>
 이미지 평면에 있는 직선 $\mathbf{l}$위에 한 점 $\mathbf{x}$가 위치할 때, 점과 직선 사이에는 다음 공식이 성립한다.
 </p>
@@ -1772,8 +2054,8 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 </div>
 
 <div id="outline-container-orgf1490b1" class="outline-3">
-<h3 id="orgf1490b1"><span class="section-number-3">3.2</span> The image of the absolute conic</h3>
-<div class="outline-text-3" id="text-3-2">
+<h3 id="orgf1490b1"><span class="section-number-3">4.2</span> The image of the absolute conic</h3>
+<div class="outline-text-3" id="text-4-2">
 <p>
 무한대 평면 $&pi;_{&infin;}$가 있을 때 $\pi_{\infty}$위에 위치한 무한대 점 $\mathbf{X}_{&infin;} = (\mathbf{d}^{\intercal}, 0)^{\intercal}$이 있다고 하면 이를 카메라 $\mathbf{P}=\mathbf{KR}[\mathbf{I}|-~{\mathbf{C}}]$에 프로젝션시키면 다음과 같다.
 </p>
@@ -1798,8 +2080,8 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 </div>
 
 <div id="outline-container-orgc44dd1c" class="outline-4">
-<h4 id="orgc44dd1c"><span class="section-number-4">3.2.1</span> Result 8.17</h4>
-<div class="outline-text-4" id="text-3-2-1">
+<h4 id="orgc44dd1c"><span class="section-number-4">4.2.1</span> Result 8.17</h4>
+<div class="outline-text-4" id="text-4-2-1">
 <p>
 이에 따라 <b>Image of Absolute Conic $\mathbf{w} = \mathbf{K}^{-\intercal}\mathbf{K}^{-1}$</b> 이 된다.
 </p>
@@ -1836,8 +2118,8 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 </div>
 
 <div id="outline-container-orga81efc8" class="outline-3">
-<h3 id="orga81efc8"><span class="section-number-3">3.3</span> Orthogonality and $\mathbf{w}$</h3>
-<div class="outline-text-3" id="text-3-3">
+<h3 id="orga81efc8"><span class="section-number-3">4.3</span> Orthogonality and $\mathbf{w}$</h3>
+<div class="outline-text-3" id="text-4-3">
 
 <div class="figure">
 <p><img src="/pictures/200607_mvg/17.png" alt="17.png" align="center" width="300px" />
@@ -1850,8 +2132,8 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 </div>
 
 <div id="outline-container-org518448b" class="outline-4">
-<h4 id="org518448b"><span class="section-number-4">3.3.1</span> Result 8.19</h4>
-<div class="outline-text-4" id="text-3-3-1">
+<h4 id="org518448b"><span class="section-number-4">4.3.1</span> Result 8.19</h4>
+<div class="outline-text-4" id="text-4-3-1">
 <p>
 위 두 공식을 결합하면
 </p>
@@ -1868,8 +2150,8 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 </div>
 
 <div id="outline-container-org7ea3ec1" class="outline-3">
-<h3 id="org7ea3ec1"><span class="section-number-3">3.4</span> Vanishing points and vanishing lines</h3>
-<div class="outline-text-3" id="text-3-4">
+<h3 id="org7ea3ec1"><span class="section-number-3">4.4</span> Vanishing points and vanishing lines</h3>
+<div class="outline-text-3" id="text-4-4">
 
 <div class="figure">
 <p><img src="/pictures/200607_mvg/13.png" alt="13.png" align="center" width="600px" />
@@ -1900,8 +2182,8 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 </div>
 
 <div id="outline-container-org3ca4a4a" class="outline-4">
-<h4 id="org3ca4a4a"><span class="section-number-4">3.4.1</span> Result 8.20</h4>
-<div class="outline-text-4" id="text-3-4-1">
+<h4 id="org3ca4a4a"><span class="section-number-4">4.4.1</span> Result 8.20</h4>
+<div class="outline-text-4" id="text-4-4-1">
 <p>
 결론적으로 소실점(vanishing point) $\mathbf{v}$는 다음과 같이 정의된다.
 </p>
@@ -1916,8 +2198,8 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 </div>
 
 <div id="outline-container-orgfe4dad9" class="outline-4">
-<h4 id="orgfe4dad9"><span class="section-number-4">3.4.2</span> Camera rotation from vanishing points</h4>
-<div class="outline-text-4" id="text-3-4-2">
+<h4 id="orgfe4dad9"><span class="section-number-4">4.4.2</span> Camera rotation from vanishing points</h4>
+<div class="outline-text-4" id="text-4-4-2">
 <p>
 소실점을 사용하여 카메라의 회전을 계산할 수 있다. 이미지 1에서 추출한 소실점 $\mathbf{v}_{1}$과 이미지 2에서 추출한 소실점 $\mathbf{v}_{2}$이 있을 때, $\mathbf{v}_{1}$의 방향은 $\mathbf{d}_{1} = \mathbf{K}^{-1}\mathbf{v}_{1}$이 되고 $\mathbf{v}_{2}$의 방향은 $\mathbf{d}_{2} = \mathbf{K}^{-1}\mathbf{v}_{2}$가 된다.
 </p>
@@ -1940,8 +2222,8 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 
 
 <div id="outline-container-orgcda6f8e" class="outline-3">
-<h3 id="orgcda6f8e"><span class="section-number-3">3.5</span> Vanishing Lines</h3>
-<div class="outline-text-3" id="text-3-5">
+<h3 id="orgcda6f8e"><span class="section-number-3">4.5</span> Vanishing Lines</h3>
+<div class="outline-text-3" id="text-4-5">
 
 <div class="figure">
 <p><img src="/pictures/200607_mvg/18.png" alt="18.png" align="center" width="700px" />
@@ -1973,8 +2255,8 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 </div>
 
 <div id="outline-container-org523f3bf" class="outline-3">
-<h3 id="org523f3bf"><span class="section-number-3">3.6</span> Orthogonality relationships amongst vanishing points and lines</h3>
-<div class="outline-text-3" id="text-3-6">
+<h3 id="org523f3bf"><span class="section-number-3">4.6</span> Orthogonality relationships amongst vanishing points and lines</h3>
+<div class="outline-text-3" id="text-4-6">
 
 <div class="figure">
 <p><img src="/pictures/200607_mvg/20.png" alt="20.png" align="center" width="600px" />
@@ -2019,16 +2301,16 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 </div>
 
 <div id="outline-container-orga0c70ae" class="outline-3">
-<h3 id="orga0c70ae"><span class="section-number-3">3.7</span> Affine 3D measurements and reconstruction</h3>
-<div class="outline-text-3" id="text-3-7">
+<h3 id="orga0c70ae"><span class="section-number-3">4.7</span> Affine 3D measurements and reconstruction</h3>
+<div class="outline-text-3" id="text-4-7">
 <p>
 3차원 공간 상의 평면 $&pi;$에 수직인 물체들의 소실점을 수직소실점(vertical vanishing point) $\mathbf{v_{&perp;}}$라고 한다.
 </p>
 </div>
 
 <div id="outline-container-org4bca73d" class="outline-4">
-<h4 id="org4bca73d"><span class="section-number-4">3.7.1</span> Result 8.24</h4>
-<div class="outline-text-4" id="text-3-7-1">
+<h4 id="org4bca73d"><span class="section-number-4">4.7.1</span> Result 8.24</h4>
+<div class="outline-text-4" id="text-4-7-1">
 <p>
 평면 $&pi;$의 소실선 $\mathbf{l}$과 수직소실점을 이용하면 물체의 크기를 스케일을 제외한 파라미터(up to scale)까지 계산할 수 있다. 정확하게 말하면 <b>소실선 $\mathbf{l}$과 수직소실점 $\mathbf{v}_{&perp;}$를 알면 평면 $&pi;$에 수직한 선분들의 상대적 길이를 알 수 있다.</b>
 </p>
@@ -2074,8 +2356,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 
 
 <div id="outline-container-org4c64600" class="outline-3">
-<h3 id="org4c64600"><span class="section-number-3">3.8</span> Determining camera calibration $\mathbf{K}$from a single view</h3>
-<div class="outline-text-3" id="text-3-8">
+<h3 id="org4c64600"><span class="section-number-3">4.8</span> Determining camera calibration $\mathbf{K}$from a single view</h3>
+<div class="outline-text-3" id="text-4-8">
 <p>
 단안 이미지에서 내부 파라미터 $\mathbf{K}$를 결정하기 위해서는 2가지 제약조건이 필요하다. <b>이미지 제약조건(scene constraint)과 내부 파라미터의 제약조건(internal constraint)</b> 이 있다.
 </p>
@@ -2093,8 +2375,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 </div>
 
 <div id="outline-container-org864033c" class="outline-4">
-<h4 id="org864033c"><span class="section-number-4">3.8.1</span> Result 8.26</h4>
-<div class="outline-text-4" id="text-3-8-1">
+<h4 id="org864033c"><span class="section-number-4">4.8.1</span> Result 8.26</h4>
+<div class="outline-text-4" id="text-4-8-1">
 <p>
 내부 파라미터 제약조건으로는 $\mathbf{K}$가 Zero-Skew인 경우 $w_{12} = w_{21}=0$이 있고 또한, Square Pixels인 경우 $w_{12}=w_{21}=0, w_{11}=w_{22}$가 있다.
 </p>
@@ -2114,8 +2396,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 
 
 <div id="outline-container-org2b9d73c" class="outline-3">
-<h3 id="org2b9d73c"><span class="section-number-3">3.9</span> Calibration from three orthogonal vanishing points</h3>
-<div class="outline-text-3" id="text-3-9">
+<h3 id="org2b9d73c"><span class="section-number-3">4.9</span> Calibration from three orthogonal vanishing points</h3>
+<div class="outline-text-3" id="text-4-9">
 <p>
 내부 파라미터 $\mathbf{K}$가 Zero-Skew이고 Square Pixel일 때 세 개의 서로 직교하는 수직소실점들 $\mathbf{v}_{i}, \ i=1,2,3$을 사용하여 $\mathbf{K}$를 계산할 수 있다. 우선 $\mathbf{K}$가 Zero-Skew이고 Square Pixel이므로 다음이 성립한다.
 </p>
@@ -2132,8 +2414,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 </div>
 
 <div id="outline-container-orge3c4130" class="outline-3">
-<h3 id="orge3c4130"><span class="section-number-3">3.10</span> Computation of focal length and principal point using vanishing point and vanishing line</h3>
-<div class="outline-text-3" id="text-3-10">
+<h3 id="orge3c4130"><span class="section-number-3">4.10</span> Computation of focal length and principal point using vanishing point and vanishing line</h3>
+<div class="outline-text-3" id="text-4-10">
 <p>
 3차원 공간 상의 평면 $&pi;$로부터 구할 수 있는 소실선 $\mathbf{l}$이 있고 $&pi;$와 수직인 수직소실점 $\mathbf{v}_{&perp;}$가 있다고 하면 이를 활용하여 초점거리 f와 주점(principal point)를 구할 수 있다.
 </p>
@@ -2149,8 +2431,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 </div>
 
 <div id="outline-container-orge6c269f" class="outline-3">
-<h3 id="orge6c269f"><span class="section-number-3">3.11</span> The calibrating conic</h3>
-<div class="outline-text-3" id="text-3-11">
+<h3 id="orge6c269f"><span class="section-number-3">4.11</span> The calibrating conic</h3>
+<div class="outline-text-3" id="text-4-11">
 <p>
 IAC(image of absolute conic)은 이미지 평면의 점을 Back-projection한 직선들 간의 각도를 구할 수 있고 Metric Rectification도 수행할 수 있는 유용한 도구이지만 Circular Point의 특성 상 실수의 근을 갖지 않아서 시각화가 불가능하다는 단점이 있다. 이를 보완하기 위해 고안된 것이 Calibration Conic이다. Calibration Conic은 $X^{2}+Y^{2}=Z^{2}$의 Cone을 프로젝션시킨 Image Conic을 의미하고 시각화가 가능한 장점이 존재한다.
 </p>
@@ -2211,8 +2493,8 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 </div>
 
 <div id="outline-container-org638da35" class="outline-4">
-<h4 id="org638da35"><span class="section-number-4">3.11.1</span> Result 8.30</h4>
-<div class="outline-text-4" id="text-3-11-1">
+<h4 id="org638da35"><span class="section-number-4">4.11.1</span> Result 8.30</h4>
+<div class="outline-text-4" id="text-4-11-1">
 <p>
 결론적으로, <b>직선 $\mathbf{C}\dot{\mathbf{x}}$는 반사된 점 $\dot{\mathbf{x}}$와 Calibration Conic의 접선들을 이어주는 직선이 되고 점 $\mathbf{x}^{&prime;}$는 직선 $\mathbf{C}\dot{\mathbf{x}}$위에 존재</b> 한다.
 </p>
@@ -2223,16 +2505,16 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 
 
 <div id="outline-container-orga82f681" class="outline-2">
-<h2 id="orga82f681"><span class="section-number-2">4</span> References</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="orga82f681"><span class="section-number-2">5</span> References</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 <a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
 </p>
 </div>
 </div>
 <div id="outline-container-orgf4ac916" class="outline-2">
-<h2 id="orgf4ac916"><span class="section-number-2">5</span> Closure</h2>
-<div class="outline-text-2" id="text-5">
+<h2 id="orgf4ac916"><span class="section-number-2">6</span> Closure</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.
 </p>
