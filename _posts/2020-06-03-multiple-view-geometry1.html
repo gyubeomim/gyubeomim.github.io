@@ -24,10 +24,10 @@ comments: true
 <li><a href="#orgef72f6c">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#org49b9a4e">1.2. Ideal points and the line at infinity</a>
+<li><a href="#orgf873ce9">1.2. Ideal points and the line at infinity</a>
 <ul>
 <li><a href="#org2038504">1.2.1. Intersection of parallel lines</a></li>
-<li><a href="#org5e010e3">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#org49b9a4e">1.2.2. Ideal points and the line at infinity</a></li>
 <li><a href="#org773282c">1.2.3. A model for the projective plane</a></li>
 <li><a href="#org45777bb">1.2.4. Duality</a></li>
 </ul>
@@ -37,7 +37,7 @@ comments: true
 <li><a href="#org444e997">1.3.1. Five points define a conic</a></li>
 <li><a href="#org0e05942">1.3.2. Tangent lines to conics</a></li>
 <li><a href="#orgcde8919">1.3.3. Dual conics</a></li>
-<li><a href="#orgcc88285">1.3.4. Proof</a></li>
+<li><a href="#orged65c41">1.3.4. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgc4e6a57">1.4. Projective transformations</a></li>
@@ -86,7 +86,7 @@ comments: true
 <li><a href="#orgad65def">2.2.10. Back-projection of points to rays</a></li>
 <li><a href="#orga9d0b55">2.2.11. Depth of points</a></li>
 <li><a href="#org27a3030">2.2.12. Result 6.1</a></li>
-<li><a href="#orged65c41">2.2.13. Proof</a></li>
+<li><a href="#org15ac29f">2.2.13. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgc1e76e8">2.3. Cameras at infinity</a>
@@ -113,6 +113,8 @@ comments: true
 <li><a href="#orgdadc91e">3.2.1. Algorithm 7.1</a></li>
 </ul>
 </li>
+<li><a href="#org2b517c6">3.3. Zhang's method</a></li>
+<li><a href="#orge7f15c4">3.4. Radial distortion</a></li>
 </ul>
 </li>
 <li><a href="#orga736afc">4. More Single View Geometry</a>
@@ -341,8 +343,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-org49b9a4e" class="outline-3">
-<h3 id="org49b9a4e"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div id="outline-container-orgf873ce9" class="outline-3">
+<h3 id="orgf873ce9"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
@@ -402,8 +404,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-org5e010e3" class="outline-4">
-<h4 id="org5e010e3"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div id="outline-container-org49b9a4e" class="outline-4">
+<h4 id="org49b9a4e"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0$일 때 $\mathbb{R}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{R}^{2}$공간과 대응되지 않고 $\mathbb{P}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
@@ -611,8 +613,8 @@ $\mathbb{P}^{2}$상의 conic $\mathbf{C}$가 주어졌을 때, <b>$\mathbf{C}$�
 </div>
 </div>
 
-<div id="outline-container-orgcc88285" class="outline-4">
-<h4 id="orgcc88285"><span class="section-number-4">1.3.4</span> Proof</h4>
+<div id="outline-container-orged65c41" class="outline-4">
+<h4 id="orged65c41"><span class="section-number-4">1.3.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 ($\Rightarrow$) conic $\mathbf{C}&isin; \mathbb{R}^{3&times; 3}$의 rank가 3이고 non-singular하다고 가정하면 $\mathbf{C}^{&lowast;} = det(\mathbf{C}^{-1})$와 같이 나타낼 수 있다. $\mathbf{C}$위의 한 점 $\mathbf{x}&isin; \mathbf{C}$가 주어졌을 때 $\mathbf{x}$에서 접선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{Cx}$로 나타낼 수 있다. 이를 위 식에 대입하면
@@ -1361,8 +1363,8 @@ General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\
 </div>
 </div>
 
-<div id="outline-container-orged65c41" class="outline-4">
-<h4 id="orged65c41"><span class="section-number-4">2.2.13</span> Proof</h4>
+<div id="outline-container-org15ac29f" class="outline-4">
+<h4 id="org15ac29f"><span class="section-number-4">2.2.13</span> Proof</h4>
 <div class="outline-text-4" id="text-2-2-13">
 <p>
 행벡터 $\mathbf{m}_{3,row}$는 주축의 방향을 의미하므로 월드 상의 점 $~{\mathbf{X}}$를 $\mathbf{m}_{3,row}$로 프로젝션한 값이 곧 $Z$축에 대한 깊이를 의미한다. 주축으로 프로젝션은
@@ -1958,9 +1960,172 @@ $d(\mathbf{x}_{i}, \mathbf{PX}_{i})^{2}$는 일반적으로 비선형이므로 �
 </div>
 </div>
 </div>
+
+
+<div id="outline-container-org2b517c6" class="outline-3">
+<h3 id="org2b517c6"><span class="section-number-3">3.3</span> Zhang's method</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+실제로 Gold Standard 알고리즘을 사용할 때는 임의의 대응점 쌍을 사용하는 것이 아닌 체커보드 상의 대응점 쌍을 사용한다. 이렇게 <b>체커보드를 통해 카메라 행렬 $\mathbf{P}$를 추정하는 알고리즘을 Zhang's Method라고 한다.</b> 월드 상의 체커보드 평면 $&pi;_{0}$가 주어졌을 때 월드 상의 원점을 체커보드의 좌측 상단으로 설정하고 체커보드의 평면이 $Z=0$인 평면으로 설정한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \pi_{0} = \{ \mathbf{X}=(x,y,z)^{\intercal} \ | \ z=0 \}
+  \end{aligned}
+\end{equation}
+<p>
+이에 따라 체커보드 평면 $&pi;_{0}$위의 임의의 점 $\mathbf{X}_{i}$들은 $Z=0$인 점이 된다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{X}_{i} = (\ast,\ \ast,\ 0)^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+체커보드 상의 한 점 $\mathbf{X}=(x,\ y,\ 0,\ 1)^{\intercal}$를 프로젝션하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{PX} &amp; = \mathbf{P} \begin{pmatrix} x\\y\\0\\1 \end{pmatrix} = \mathbf{K}[\mathbf{R} \ | \ \mathbf{t}] \begin{pmatrix} x\\y\\0\\1 \end{pmatrix} \\
+    &amp; = \mathbf{K}[\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{t}]
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. $z=0$이므로 행렬 $\mathbf{R}$의 세 번째 열벡터(column vector)는 0이 된다. 행렬 $\mathbf{K}[\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{t}] &isin; \mathbb{R}^{3&times; 3}$는 체커보드 평면 $&pi;_{0}$에서 이미지 평면 $&pi;$로 변환하는 Homography $\mathbf{H}$로 볼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H} = \mathbf{K}[\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{t}]
+  \end{aligned}
+\end{equation}
+<p>
+체커보드는 패턴의 길이와 갯수를 모두 알고 있기 때문에 자동적으로 체커보드 평면 $\pi_{0}$상의 점 $\mathbf{x}_{i},i=1,&ctdot;$를 알 수 있다. 다음으로 Feature Extraction 알고리즘을 사용하면 이미지 평면 $\pi$상에서 본 $&pi;_{0}$의 점 $\mathbf{x}^{&prime;}_{i}, i=1,&ctdot;$들을 알 수 있다. 따라서 대응점 쌍 $\mathbf{x}_{i} &isin; &pi;_{0} &harr; \mathbf{x}_{i}^{&prime;} &isin; &pi;$을 얻을 수 있다. 이를 통해 $&pi;_{0} \mapsto&pi;$로 가는 Homography $\mathbf{H}$를 계산해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{H} = \begin{bmatrix} \mathbf{h}_{1,col} &amp; \mathbf{h}_{2,col} &amp; \mathbf{h}_{3,col} \end{bmatrix} = \mathbf{K} \begin{bmatrix} \mathbf{r}_{1,col} &amp; \mathbf{r}_{2,col} &amp; \mathbf{t} \end{bmatrix} \\
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. 이를 정리하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp;  \mathbf{K}^{-1}\begin{bmatrix} \mathbf{h}_{1,col} &amp; \mathbf{h}_{2,col} &amp; \mathbf{h}_{3,col} \end{bmatrix} =  \begin{bmatrix} \mathbf{r}_{1,col} &amp; \mathbf{r}_{2,col} &amp; \mathbf{t} \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. 이 때, 직교행렬 $\mathbf{R}$의 열벡터인 $\mathbf{r}_{1,col}$과 $\mathbf{r}_{2,col}$은 서로 직교하므로 $\mathbf{r}_{1,col}^{\intercal}\mathbf{r}_{2,col}=0$이 성립한다. 해당 제약조건을 이용하면 $\mathbf{K}^{-1}\mathbf{h}_{1,col} = \mathbf{r}_{1,col}$이고 $\mathbf{K}^{-1}\mathbf{h}_{2,col} = \mathbf{r}_{2,col}$이므로 직교조건에 의해
+</p>
+
+\begin{equation}
+  \label{eq:1386}
+  \begin{aligned}
+    \mathbf{h}_{1,col}^{\intercal}\mathbf{K}^{-\intercal}\mathbf{K}^{-1}\mathbf{h}_{2,col} = 0
+  \end{aligned}
+\end{equation}
+<p>
+이 성립한다. 또한 직교행렬 조건에 의해 스케일을 제외하고(up to scale) $\mathbf{r}_{1,col}^{\intercal}\mathbf{r}_{1,col}  =  \mathbf{r}_{2,col}^{\intercal}\mathbf{r}_{2,col}$이므로
+</p>
+
+\begin{equation}
+  \label{eq:1395}
+  \begin{aligned}
+    &amp; \mathbf{h}_{1,col}^{\intercal}\mathbf{K}^{-\intercal}\mathbf{K}^{-1}\mathbf{h}_{1,col} = \mathbf{h}_{2,col}^{\intercal}\mathbf{K}^{-\intercal}\mathbf{K}^{-1}\mathbf{h}_{2,col}
+  \end{aligned}
+\end{equation}
+<p>
+공식이 성립한다. 한 개의 체커보드 사진으로 부터 위와 같은 두 개의 방정식을 얻을 수 있다. 일반적인 카메라 캘리브레이션 행렬 $\mathbf{K}$는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{K} = \begin{bmatrix} f_{x} &amp; s &amp; x_{0} \\ &amp; f_{y} &amp; y_{0} \\ &amp;&amp;1 \end{bmatrix}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 5개의 변수를 가지고 있으므로 $\mathbf{K}^{-\intercal}\mathbf{K}^{-1}$또한 5개의 변수를 가지고 있는 행렬이 된다. 따라서 최소 세 개 이상의 Homography $\mathbf{H}_{j}, \ j=1,2,3$가 주어졌을 때 $\mathbf{K}^{-\intercal}\mathbf{K}^{-1}$를 결정할 수 있다.
+</p>
+
+<ul class="org-ul">
+<li>5개의 파라미터를 갖고 있는 행렬 $\mathbf{K}$를 구하기 위해 최소 세 개 이상의 체커보드 이미지를 획득한다. 하나의 이미지 당 두 개의 방정식을 얻을 수 있으므로 세 장 이상을 획득해야 한다. 각각의 이미지마다 Homography $\mathbf{H}_{j},\ j=1,2,3$을 구할 수 있고 공식 \eqref{eq:1386}, \eqref{eq:1395}를 구한다.</li>
+
+<li><p>
+$\mathbf{S}=\mathbf{K}^{-\intercal}\mathbf{K}^{-1}$로 설정한다. 행렬 $\mathbf{S}$에 Cholesky Decomposition 또는 특이값 분해(SVD)를 수행하여 $\mathbf{K}^{-1}$을 구한다. 행렬 $\mathbf{S}$는 대칭이면서 Positivie Definite 행렬이므로 $\mathbf{U}^{\intercal}\mathbf{DU}$와 같이 분해되며 대각행렬 $\mathbf{D}$의 제곱근 행렬이 존재한다.
+</p>
+
+  \begin{equation}
+    \begin{aligned}
+      \text{SVD}(\mathbf{S}) = \mathbf{U}^{\intercal}\mathbf{D}\mathbf{U} = (\mathbf{U}\sqrt{\mathbf{D}})(\mathbf{U}\sqrt{\mathbf{D}})^{\intercal}
+    \end{aligned}
+  \end{equation}</li>
+</ul>
+
+<p>
+이를 통해 $\mathbf{K}$를 구할 수 있다.
+</p>
+
+<ul class="org-ul">
+<li><p>
+$\mathbf{K}^{-1}\mathbf{H} = [\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{t}]$식을 통해 $\mathbf{r}_{1,col}, \mathbf{r}_{2,col}, \mathbf{t}$를 구한 다음
+</p>
+
+  \begin{equation}
+    \begin{aligned}
+      \mathbf{r}_{3,col} = \mathbf{r}_{1} \times \mathbf{r}_{2}
+    \end{aligned}
+  \end{equation}
+<p>
+를 통해 구한다. 결론적으로 각각의 Homography $\mathbf{H}_{j},\ j=1,2,3$을 통해 카메라의 회전 $\mathbf{R}$과 이동 $\mathbf{t}$그리고 내부 파라미터 행렬 $\mathbf{K}$를 구할 수 있다.
+</p></li>
+</ul>
+</div>
 </div>
 
 
+<div id="outline-container-orge7f15c4" class="outline-3">
+<h3 id="orge7f15c4"><span class="section-number-3">3.4</span> Radial distortion</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+<b>실제 카메라 이미지는 이상적인 핀홀 카메라 모델과 다르게 방사형 왜곡(radial distortion)을 포함하고 있기 때문에 이를 바로 캘리브레이션하면 정확한 $\mathbf{R},\mathbf{t},\mathbf{K}$를 구할 수 없다.</b> 실제 툴킷을 사용하여 캘리브레이션을 수행해보면 앞서 구한 $\mathbf{R},\mathbf{t},\mathbf{K}$외에도 Distortion 파라미터들을 구할 수 있다. 해당 파라미터들이 이미지의 방사형 왜곡을 보정해주는 파라미터들이다.
+</p>
+
+<p>
+초점거리(focal length) $f$가 작은 경우 Field of View(FOV)가 넓어지고 이 때 이미지의 가장자리 부근에서 방사형 왜곡이 크게 발생한다. 반대로 초점거리 $f$가 작으면 FOV가 작아지고 왜곡이 상대적으로 덜 발생한다.
+</p>
+
+<p>
+왜곡이 존재하는 이미지 평면 상에서 한 점을 $(\breve{u}, \breve{v})$라고 하고 왜곡이 보정된 이미지 평면 상의 점을 $(u,v)$라고 하자. 두 점들의 단위는 $[pixel]$이다. 그리고 정규화된 이미지 평면(normalized image plane) 상의 왜곡이 존재하는 한 점을 $(\breve{x}, \breve{y})$라고 하고 왜곡이 보정된 점을 $(x,y)$라고 하자. 두 정규화된 점들의 단위는 $[mm]$이다. 정규화되었다는 말의 의미는 이미지 평면의 원점 $u_{0}, v_{0}$가 모두 0이라는 의미이다. 정규화된 점들 사이에는
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \breve{x} = x + x(k_{1}r^{2} + k_{2}r^{4}) \\
+    &amp; \breve{y} = y + y(k_{1}r^{2} + k_{2}r^{4}) \quad \text{where, } r^{2} = x^{2} + y^{2}
+  \end{aligned}
+\end{equation}
+<p>
+가 성립한다. $r^{2}$값은 원점에서 거리가 멀어질 수록 왜곡이 크게 발생하는 것을 의미한다. 해당 정규화된 점들을 픽셀 단위 이미지 평면 상의 점들로 다시 표현하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \breve{u} = u_{0} + \alpha \breve{x} \\
+    &amp; \breve{v} = v_{0} + \beta \breve{v} \\
+  \end{aligned}
+\end{equation}
+<p>
+가 된다. 이 때 $u_{0}, v_{0}$는 이미지 평면의 원점을 의미하며 $&alpha;, &beta;$는 mm 단위의 점들을 pixel 단위로 변환해주는 계수를 의미한다. 따라서 방사형 왜곡 파라미터 $k_{1}, k_{2}$를 구함으로써 왜곡된 점들과 실제 점들 사이의 관계를 알 수 있다.
+</p>
+</div>
+</div>
+</div>
 <div id="outline-container-orga736afc" class="outline-2">
 <h2 id="orga736afc"><span class="section-number-2">4</span> More Single View Geometry</h2>
 <div class="outline-text-2" id="text-4">
