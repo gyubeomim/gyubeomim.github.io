@@ -12,180 +12,180 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org939d92b">1. Projective geometry and transformations in 2D</a>
+<li><a href="#org2ed3f2b">1. Projective geometry and transformations in 2D</a>
 <ul>
-<li><a href="#orga832093">1.1. The 2D projective plane</a>
+<li><a href="#orgbbc5171">1.1. The 2D projective plane</a>
 <ul>
-<li><a href="#org3fc02cd">1.1.1. Points and lines</a></li>
-<li><a href="#org5656ec7">1.1.2. Homogeneous representation of line</a></li>
-<li><a href="#org4059fb2">1.1.3. Homogeneous representation of points</a></li>
-<li><a href="#orgfe5003d">1.1.4. Degree of freedom (dof)</a></li>
-<li><a href="#org3e4f003">1.1.5. Intersection of lines</a></li>
-<li><a href="#orgef72f6c">1.1.6. Line joining points</a></li>
+<li><a href="#org3c09f24">1.1.1. Points and lines</a></li>
+<li><a href="#orge5fabdd">1.1.2. Homogeneous representation of line</a></li>
+<li><a href="#orgd2e2c7a">1.1.3. Homogeneous representation of points</a></li>
+<li><a href="#orge27c81e">1.1.4. Degree of freedom (dof)</a></li>
+<li><a href="#org09a1cbc">1.1.5. Intersection of lines</a></li>
+<li><a href="#orgd6f0fd8">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#orgd01f692">1.2. Ideal points and the line at infinity</a>
+<li><a href="#org34d927e">1.2. Ideal points and the line at infinity</a>
 <ul>
-<li><a href="#org2038504">1.2.1. Intersection of parallel lines</a></li>
-<li><a href="#orgf873ce9">1.2.2. Ideal points and the line at infinity</a></li>
-<li><a href="#org773282c">1.2.3. A model for the projective plane</a></li>
-<li><a href="#org45777bb">1.2.4. Duality</a></li>
+<li><a href="#org33a2beb">1.2.1. Intersection of parallel lines</a></li>
+<li><a href="#org21e95bf">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#org72e8cb0">1.2.3. A model for the projective plane</a></li>
+<li><a href="#org60ab6cc">1.2.4. Duality</a></li>
 </ul>
 </li>
-<li><a href="#orgb8e7ae9">1.3. Conics and dual conics</a>
+<li><a href="#orge8ff5da">1.3. Conics and dual conics</a>
 <ul>
-<li><a href="#org444e997">1.3.1. Five points define a conic</a></li>
-<li><a href="#org0e05942">1.3.2. Tangent lines to conics</a></li>
-<li><a href="#orgcde8919">1.3.3. Dual conics</a></li>
-<li><a href="#org15ac29f">1.3.4. Proof</a></li>
+<li><a href="#orge2a652c">1.3.1. Five points define a conic</a></li>
+<li><a href="#orga4777ea">1.3.2. Tangent lines to conics</a></li>
+<li><a href="#org00bc856">1.3.3. Dual conics</a></li>
+<li><a href="#org4c00980">1.3.4. Proof</a></li>
 </ul>
 </li>
-<li><a href="#orgc4e6a57">1.4. Projective transformations</a></li>
-<li><a href="#org0436097">1.5. A hierarchy of transformations</a>
+<li><a href="#org1fbb244">1.4. Projective transformations</a></li>
+<li><a href="#org623f103">1.5. A hierarchy of transformations</a>
 <ul>
-<li><a href="#org7fef94f">1.5.1. Class 1: isometries</a></li>
-<li><a href="#org6da788c">1.5.2. Class 2: similarity transformations</a></li>
-<li><a href="#org80181c3">1.5.3. Class 3: affine transformations</a></li>
-<li><a href="#orga2a4868">1.5.4. Class 4: projective transformations</a></li>
+<li><a href="#org54901fa">1.5.1. Class 1: isometries</a></li>
+<li><a href="#org7392a82">1.5.2. Class 2: similarity transformations</a></li>
+<li><a href="#orgb9678bc">1.5.3. Class 3: affine transformations</a></li>
+<li><a href="#orgd06b5ae">1.5.4. Class 4: projective transformations</a></li>
 </ul>
 </li>
-<li><a href="#orgc466ef6">1.6. Decomposition of a projective transformation</a></li>
-<li><a href="#org0bcdd0d">1.7. Recovery of affine and metric properties from images</a>
+<li><a href="#orgb8ca668">1.6. Decomposition of a projective transformation</a></li>
+<li><a href="#org526d26d">1.7. Recovery of affine and metric properties from images</a>
 <ul>
-<li><a href="#org2628956">1.7.1. The line at infinity</a></li>
-<li><a href="#org05ab077">1.7.2. Recovery of affine properties from images</a></li>
-<li><a href="#orgc8f12b6">1.7.3. Recovery of metric properties from images</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgce6716c">2. Camera Models</a>
-<ul>
-<li><a href="#orgde03192">2.1. Finite cameras</a>
-<ul>
-<li><a href="#orgf566956">2.1.1. The bais pinhole model</a></li>
-<li><a href="#org79fe86b">2.1.2. Central projection using homogeneous coordinates</a></li>
-<li><a href="#org5e2c31d">2.1.3. Principal point offset</a></li>
-<li><a href="#orge61f5b7">2.1.4. Camera rotation and translation</a></li>
-<li><a href="#orge999bfd">2.1.5. CCD cameras</a></li>
-<li><a href="#org6f1441b">2.1.6. Finite projective camera</a></li>
-<li><a href="#org98db9a5">2.1.7. General projective cameras</a></li>
-</ul>
-</li>
-<li><a href="#org8cb4177">2.2. The projective camera</a>
-<ul>
-<li><a href="#orgf09540c">2.2.1. Camera anatomy</a></li>
-<li><a href="#orgef8cc8b">2.2.2. Camera center</a></li>
-<li><a href="#org981c720">2.2.3. Column vectors</a></li>
-<li><a href="#org60a069d">2.2.4. Row vectors</a></li>
-<li><a href="#org627a343">2.2.5. The principal plane</a></li>
-<li><a href="#org99ff6a5">2.2.6. The principal point</a></li>
-<li><a href="#orgf798ecf">2.2.7. The principal axis vector</a></li>
-<li><a href="#org12816fc">2.2.8. Action of a projective camera on points</a></li>
-<li><a href="#org88aefed">2.2.9. Forward projection</a></li>
-<li><a href="#orgad65def">2.2.10. Back-projection of points to rays</a></li>
-<li><a href="#orga9d0b55">2.2.11. Depth of points</a></li>
-<li><a href="#org27a3030">2.2.12. Result 6.1</a></li>
-<li><a href="#org6cd85b3">2.2.13. Proof</a></li>
-</ul>
-</li>
-<li><a href="#orgc1e76e8">2.3. Cameras at infinity</a>
-<ul>
-<li><a href="#org5d7ad46">2.3.1. Definition 6.3</a></li>
-<li><a href="#org62ffc41">2.3.2. Affine cameras</a></li>
-<li><a href="#org3a14a64">2.3.3. Error in employing and affine camera</a></li>
+<li><a href="#org7444b05">1.7.1. The line at infinity</a></li>
+<li><a href="#org3d06792">1.7.2. Recovery of affine properties from images</a></li>
+<li><a href="#orgce9c971">1.7.3. Recovery of metric properties from images</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org8786a60">3. Computation of the Camera Matrix $\mathbf{P}$</a>
+<li><a href="#org242fd93">2. Camera Models</a>
 <ul>
-<li><a href="#orgd197b76">3.1. Basic equations</a>
+<li><a href="#org789fc92">2.1. Finite cameras</a>
 <ul>
-<li><a href="#org40bdb88">3.1.1. Minimal solution</a></li>
-<li><a href="#orgba8e5c7">3.1.2. Over-determined solution</a></li>
-<li><a href="#orgd9b1b6b">3.1.3. Degenerate configurations</a></li>
-<li><a href="#org2855ab0">3.1.4. Line correspondences</a></li>
+<li><a href="#orge4be984">2.1.1. The bais pinhole model</a></li>
+<li><a href="#org0408683">2.1.2. Central projection using homogeneous coordinates</a></li>
+<li><a href="#org5e965a4">2.1.3. Principal point offset</a></li>
+<li><a href="#org64fbfdc">2.1.4. Camera rotation and translation</a></li>
+<li><a href="#orga129628">2.1.5. CCD cameras</a></li>
+<li><a href="#orgcd8922a">2.1.6. Finite projective camera</a></li>
+<li><a href="#orgc4164d4">2.1.7. General projective cameras</a></li>
 </ul>
 </li>
-<li><a href="#orgd3557c9">3.2. Geometric error</a>
+<li><a href="#org2c3697f">2.2. The projective camera</a>
 <ul>
-<li><a href="#orgdadc91e">3.2.1. Algorithm 7.1</a></li>
+<li><a href="#org22832e1">2.2.1. Camera anatomy</a></li>
+<li><a href="#orgcfcfd8a">2.2.2. Camera center</a></li>
+<li><a href="#org2d2c205">2.2.3. Column vectors</a></li>
+<li><a href="#orge07a723">2.2.4. Row vectors</a></li>
+<li><a href="#orgc59a349">2.2.5. The principal plane</a></li>
+<li><a href="#org7cc86c9">2.2.6. The principal point</a></li>
+<li><a href="#org9af3a78">2.2.7. The principal axis vector</a></li>
+<li><a href="#orgc6f943d">2.2.8. Action of a projective camera on points</a></li>
+<li><a href="#orgcb388f1">2.2.9. Forward projection</a></li>
+<li><a href="#org311cba5">2.2.10. Back-projection of points to rays</a></li>
+<li><a href="#org1793d4e">2.2.11. Depth of points</a></li>
+<li><a href="#org69ad3cd">2.2.12. Result 6.1</a></li>
+<li><a href="#orgd994ffa">2.2.13. Proof</a></li>
 </ul>
 </li>
-<li><a href="#org2b517c6">3.3. Zhang's method</a></li>
-<li><a href="#orge7f15c4">3.4. Radial distortion</a></li>
-</ul>
-</li>
-<li><a href="#orga736afc">4. More Single View Geometry</a>
+<li><a href="#org82a9257">2.3. Cameras at infinity</a>
 <ul>
-<li><a href="#org41ea6be">4.1. Camera calibration and the image of the absolute conic</a>
-<ul>
-<li><a href="#org754061c">4.1.1. Result 8.15</a></li>
-<li><a href="#orgcf922fc">4.1.2. Result 8.16</a></li>
-</ul>
-</li>
-<li><a href="#orgf1490b1">4.2. The image of the absolute conic</a>
-<ul>
-<li><a href="#orgc44dd1c">4.2.1. Result 8.17</a></li>
-</ul>
-</li>
-<li><a href="#orga81efc8">4.3. Orthogonality and $\mathbf{w}$</a>
-<ul>
-<li><a href="#org518448b">4.3.1. Result 8.19</a></li>
-</ul>
-</li>
-<li><a href="#org7ea3ec1">4.4. Vanishing points and vanishing lines</a>
-<ul>
-<li><a href="#org3ca4a4a">4.4.1. Result 8.20</a></li>
-<li><a href="#orgfe4dad9">4.4.2. Camera rotation from vanishing points</a></li>
-</ul>
-</li>
-<li><a href="#orgcda6f8e">4.5. Vanishing Lines</a></li>
-<li><a href="#org523f3bf">4.6. Orthogonality relationships amongst vanishing points and lines</a></li>
-<li><a href="#orga0c70ae">4.7. Affine 3D measurements and reconstruction</a>
-<ul>
-<li><a href="#org4bca73d">4.7.1. Result 8.24</a></li>
-</ul>
-</li>
-<li><a href="#org4c64600">4.8. Determining camera calibration $\mathbf{K}$from a single view</a>
-<ul>
-<li><a href="#org864033c">4.8.1. Result 8.26</a></li>
-</ul>
-</li>
-<li><a href="#org2b9d73c">4.9. Calibration from three orthogonal vanishing points</a></li>
-<li><a href="#orge3c4130">4.10. Computation of focal length and principal point using vanishing point and vanishing line</a></li>
-<li><a href="#orge6c269f">4.11. The calibrating conic</a>
-<ul>
-<li><a href="#org638da35">4.11.1. Result 8.30</a></li>
+<li><a href="#orge4a7cfb">2.3.1. Definition 6.3</a></li>
+<li><a href="#org24ca582">2.3.2. Affine cameras</a></li>
+<li><a href="#org733615f">2.3.3. Error in employing and affine camera</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orga82f681">5. References</a></li>
-<li><a href="#orgf4ac916">6. Closure</a></li>
+<li><a href="#orga726c0f">3. Computation of the Camera Matrix $\mathbf{P}$</a>
+<ul>
+<li><a href="#org28f62c7">3.1. Basic equations</a>
+<ul>
+<li><a href="#org9edc8cd">3.1.1. Minimal solution</a></li>
+<li><a href="#org8841518">3.1.2. Over-determined solution</a></li>
+<li><a href="#org9b76f06">3.1.3. Degenerate configurations</a></li>
+<li><a href="#org32025f2">3.1.4. Line correspondences</a></li>
+</ul>
+</li>
+<li><a href="#orgab831b2">3.2. Geometric error</a>
+<ul>
+<li><a href="#org01712ce">3.2.1. Algorithm 7.1</a></li>
+</ul>
+</li>
+<li><a href="#org26b4be3">3.3. Zhang's method</a></li>
+<li><a href="#org8fb5b40">3.4. Radial distortion</a></li>
+</ul>
+</li>
+<li><a href="#org301b750">4. More Single View Geometry</a>
+<ul>
+<li><a href="#org19fb24a">4.1. Camera calibration and the image of the absolute conic</a>
+<ul>
+<li><a href="#org7fe7636">4.1.1. Result 8.15</a></li>
+<li><a href="#org05b8c02">4.1.2. Result 8.16</a></li>
+</ul>
+</li>
+<li><a href="#orgdaf8c96">4.2. The image of the absolute conic</a>
+<ul>
+<li><a href="#org5c4f7b9">4.2.1. Result 8.17</a></li>
+</ul>
+</li>
+<li><a href="#orgce6a744">4.3. Orthogonality and $\mathbf{w}$</a>
+<ul>
+<li><a href="#org7c2b307">4.3.1. Result 8.19</a></li>
+</ul>
+</li>
+<li><a href="#org7e56d6f">4.4. Vanishing points and vanishing lines</a>
+<ul>
+<li><a href="#org9068e45">4.4.1. Result 8.20</a></li>
+<li><a href="#orgbb5a333">4.4.2. Camera rotation from vanishing points</a></li>
+</ul>
+</li>
+<li><a href="#org67f4750">4.5. Vanishing Lines</a></li>
+<li><a href="#org2eeee02">4.6. Orthogonality relationships amongst vanishing points and lines</a></li>
+<li><a href="#org5944910">4.7. Affine 3D measurements and reconstruction</a>
+<ul>
+<li><a href="#org3aa2cbf">4.7.1. Result 8.24</a></li>
+</ul>
+</li>
+<li><a href="#orgc33aec0">4.8. Determining camera calibration $\mathbf{K}$from a single view</a>
+<ul>
+<li><a href="#orgaf0ee4a">4.8.1. Result 8.26</a></li>
+</ul>
+</li>
+<li><a href="#org29b4d40">4.9. Calibration from three orthogonal vanishing points</a></li>
+<li><a href="#orgd48d533">4.10. Computation of focal length and principal point using vanishing point and vanishing line</a></li>
+<li><a href="#org8e58aaf">4.11. The calibrating conic</a>
+<ul>
+<li><a href="#org9bfd482">4.11.1. Result 8.30</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgb0c3b39">5. References</a></li>
+<li><a href="#orgc9af484">6. Closure</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org939d92b" class="outline-2">
-<h2 id="org939d92b"><span class="section-number-2">1</span> Projective geometry and transformations in 2D</h2>
+<div id="outline-container-org2ed3f2b" class="outline-2">
+<h2 id="org2ed3f2b"><span class="section-number-2">1</span> Projective geometry and transformations in 2D</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orga832093" class="outline-3">
-<h3 id="orga832093"><span class="section-number-3">1.1</span> The 2D projective plane</h3>
+<div id="outline-container-orgbbc5171" class="outline-3">
+<h3 id="orgbbc5171"><span class="section-number-3">1.1</span> The 2D projective plane</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 일반적으로 평면 위의 점 $\mathbf{x}$는 $(x,y) &isin; \mathbb{R}^{2}$와 같이 표현한다. $\mathbb{R}^{2}$가 벡터공간(vector space)이라고 하면 $\mathbf{x}$는 하나의 벡터로 나타낼 수 있다. 또한, 두 점 $\mathbf{x}_{1}, \mathbf{x}_{2}$을 포함하는 직선 $\mathbf{l}$은 두 벡터를 뺌으로써 표현할 수 있다. 해당 섹션에서는 평면 위의 점과 직선에 대해 하나의 동일한 벡터로 표현할 수 있게 해주는 homogeneous notation에 대해 설명한다.
 </p>
 </div>
 
-<div id="outline-container-org3fc02cd" class="outline-4">
-<h4 id="org3fc02cd"><span class="section-number-4">1.1.1</span> Points and lines</h4>
+<div id="outline-container-org3c09f24" class="outline-4">
+<h4 id="org3c09f24"><span class="section-number-4">1.1.1</span> Points and lines</h4>
 </div>
 
-<div id="outline-container-org5656ec7" class="outline-4">
-<h4 id="org5656ec7"><span class="section-number-4">1.1.2</span> Homogeneous representation of line</h4>
+<div id="outline-container-orge5fabdd" class="outline-4">
+<h4 id="orge5fabdd"><span class="section-number-4">1.1.2</span> Homogeneous representation of line</h4>
 <div class="outline-text-4" id="text-1-1-2">
 
 <div class="figure">
@@ -226,8 +226,8 @@ comments: true
 </div>
 </div>
 
-<div id="outline-container-org4059fb2" class="outline-4">
-<h4 id="org4059fb2"><span class="section-number-4">1.1.3</span> Homogeneous representation of points</h4>
+<div id="outline-container-orgd2e2c7a" class="outline-4">
+<h4 id="orgd2e2c7a"><span class="section-number-4">1.1.3</span> Homogeneous representation of points</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <p>
 직선 $\mathbf{l}=(a,b,c)^{\intercal}$과 직선 위의 한 점 $\mathbf{x}=(x,y)^{\intercal}$사이에는 다음 공식이 성립한다.
@@ -275,8 +275,8 @@ comments: true
 </div>
 </div>
 
-<div id="outline-container-orgfe5003d" class="outline-4">
-<h4 id="orgfe5003d"><span class="section-number-4">1.1.4</span> Degree of freedom (dof)</h4>
+<div id="outline-container-orge27c81e" class="outline-4">
+<h4 id="orge27c81e"><span class="section-number-4">1.1.4</span> Degree of freedom (dof)</h4>
 <div class="outline-text-4" id="text-1-1-4">
 <p>
 $\mathbb{P}^{2}$공간에서 하나의 점이 유일하게 결정되기 위해서는 반드시 2개의 값 $(x,y)$가 주어져야 한다. 직선을 유일하게 결정하기 위해서는 두 개의 독립적인 $\{a:b:c\}$비율이 주어져야 한다. 이와 같이 $\mathbb{P}^{2}$공간에서 점과 직선은 2자유도를 가진다.
@@ -284,8 +284,8 @@ $\mathbb{P}^{2}$공간에서 하나의 점이 유일하게 결정되기 위해�
 </div>
 </div>
 
-<div id="outline-container-org3e4f003" class="outline-4">
-<h4 id="org3e4f003"><span class="section-number-4">1.1.5</span> Intersection of lines</h4>
+<div id="outline-container-org09a1cbc" class="outline-4">
+<h4 id="org09a1cbc"><span class="section-number-4">1.1.5</span> Intersection of lines</h4>
 <div class="outline-text-4" id="text-1-1-5">
 
 <div class="figure">
@@ -327,8 +327,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-orgef72f6c" class="outline-4">
-<h4 id="orgef72f6c"><span class="section-number-4">1.1.6</span> Line joining points</h4>
+<div id="outline-container-orgd6f0fd8" class="outline-4">
+<h4 id="orgd6f0fd8"><span class="section-number-4">1.1.6</span> Line joining points</h4>
 <div class="outline-text-4" id="text-1-1-6">
 <p>
 두 직선의 교점을 구하는 공식과 유사하게 $\mathbb{P}^{2}$공간에서 두 점 $\mathbf{x}, \mathbf{x}^{&prime;}$가 주어졌을 때 두 점을 지나는 직선 $\mathbf{l}$은 다음과 같이 구할 수 있다.
@@ -343,8 +343,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-orgd01f692" class="outline-3">
-<h3 id="orgd01f692"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div id="outline-container-org34d927e" class="outline-3">
+<h3 id="org34d927e"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
@@ -353,8 +353,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-org2038504" class="outline-4">
-<h4 id="org2038504"><span class="section-number-4">1.2.1</span> Intersection of parallel lines</h4>
+<div id="outline-container-org33a2beb" class="outline-4">
+<h4 id="org33a2beb"><span class="section-number-4">1.2.1</span> Intersection of parallel lines</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 만약 <b>두 직선 $\mathbf{l}, \mathbf{l}^{&prime;}$이 평행한 경우 두 직선의 교차점은 $\mathbb{R}^{2}$공간에서는 만나지 않지만 $\mathbb{P}^{2}$공간에서는 만난다.</b>
@@ -404,8 +404,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-orgf873ce9" class="outline-4">
-<h4 id="orgf873ce9"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div id="outline-container-org21e95bf" class="outline-4">
+<h4 id="org21e95bf"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0$일 때 $\mathbb{R}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{R}^{2}$공간과 대응되지 않고 $\mathbb{P}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
@@ -435,8 +435,8 @@ homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0
 </div>
 </div>
 
-<div id="outline-container-org773282c" class="outline-4">
-<h4 id="org773282c"><span class="section-number-4">1.2.3</span> A model for the projective plane</h4>
+<div id="outline-container-org72e8cb0" class="outline-4">
+<h4 id="org72e8cb0"><span class="section-number-4">1.2.3</span> A model for the projective plane</h4>
 <div class="outline-text-4" id="text-1-2-3">
 
 <div class="figure">
@@ -454,8 +454,8 @@ homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0
 </div>
 </div>
 
-<div id="outline-container-org45777bb" class="outline-4">
-<h4 id="org45777bb"><span class="section-number-4">1.2.4</span> Duality</h4>
+<div id="outline-container-org60ab6cc" class="outline-4">
+<h4 id="org60ab6cc"><span class="section-number-4">1.2.4</span> Duality</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <p>
 <b>$\mathbb{P}^{2}$공간에서는 점과 직선이 대칭성(duality)을 가진다.</b> 예를 들어 직선 $\mathbf{l}$위의 한 점 $\mathbf{x}$은 $\mathbf{x}^{\intercal}\mathbf{l}=0$또는 $\mathbf{l}^{\intercal}\mathbf{x}=0$과 같이 두 가지 방법으로 표현할 수 있다. 또한, 두 직선 $\mathbf{l},\mathbf{l}^{&prime;}$이 교차하는 한 점은 $\mathbf{x}=\mathbf{l}&times; \mathbf{l}^{&prime;}$이고 두 점 $\mathbf{x}, \mathbf{x}^{&prime;}$을 통과하는 직선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{x}&times; \mathbf{x}^{&prime;}$으로 표현할 수 있는데 이는 기본적으로 점과 직선의 위치가 바뀌었을 뿐 동일한 공식을 사용한다.
@@ -468,8 +468,8 @@ homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0
 </div>
 </div>
 
-<div id="outline-container-orgb8e7ae9" class="outline-3">
-<h3 id="orgb8e7ae9"><span class="section-number-3">1.3</span> Conics and dual conics</h3>
+<div id="outline-container-orge8ff5da" class="outline-3">
+<h3 id="orge8ff5da"><span class="section-number-3">1.3</span> Conics and dual conics</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 conic이란 평면에서 이차식으로 정의된 곡선을 의미한다. 일반적인 공식으로는
@@ -503,8 +503,8 @@ conic이란 평면에서 이차식으로 정의된 곡선을 의미한다. 일�
 </p>
 </div>
 
-<div id="outline-container-org444e997" class="outline-4">
-<h4 id="org444e997"><span class="section-number-4">1.3.1</span> Five points define a conic</h4>
+<div id="outline-container-orge2a652c" class="outline-4">
+<h4 id="orge2a652c"><span class="section-number-4">1.3.1</span> Five points define a conic</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 conic $\mathbf{C}$가 유일하게 결정되기 위해서는 다섯개의 점이 필요하다. 하나의 점에 대한 conic 방정식은 다음과 같이 다시 쓸 수 있다.
@@ -537,8 +537,8 @@ conic $\mathbf{C}$가 유일하게 결정되기 위해서는 다섯개의 점이
 </div>
 </div>
 
-<div id="outline-container-org0e05942" class="outline-4">
-<h4 id="org0e05942"><span class="section-number-4">1.3.2</span> Tangent lines to conics</h4>
+<div id="outline-container-orga4777ea" class="outline-4">
+<h4 id="orga4777ea"><span class="section-number-4">1.3.2</span> Tangent lines to conics</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 conic $\mathbf{C}$위의 한 점 $\mathbf{x}$에서 접선 $\mathbf{l}$은
@@ -568,8 +568,8 @@ conic $\mathbf{C}$위의 한 점 $\mathbf{x}$에서 접선 $\mathbf{l}$은
 </div>
 </div>
 
-<div id="outline-container-orgcde8919" class="outline-4">
-<h4 id="orgcde8919"><span class="section-number-4">1.3.3</span> Dual conics</h4>
+<div id="outline-container-org00bc856" class="outline-4">
+<h4 id="org00bc856"><span class="section-number-4">1.3.3</span> Dual conics</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
 <b>projective space $\mathbb{P}^{n}$은 $\mathbb{R}^{n+1}$공간 상의 원점을 지나는 직선들의 집합(1차원 부분 선형공간)을 의미</b> 한다. 이와 대칭을 이루는 <b>dual projective space $(\mathbb{P}^{n})^{&or;}$는 $\mathbb{R}^{n}$공간 상 n차원 부분 선형공간들의 집합을 의미</b> 한다.
@@ -613,8 +613,8 @@ $\mathbb{P}^{2}$상의 conic $\mathbf{C}$가 주어졌을 때, <b>$\mathbf{C}$�
 </div>
 </div>
 
-<div id="outline-container-org15ac29f" class="outline-4">
-<h4 id="org15ac29f"><span class="section-number-4">1.3.4</span> Proof</h4>
+<div id="outline-container-org4c00980" class="outline-4">
+<h4 id="org4c00980"><span class="section-number-4">1.3.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 ($\Rightarrow$) conic $\mathbf{C}&isin; \mathbb{R}^{3&times; 3}$의 rank가 3이고 non-singular하다고 가정하면 $\mathbf{C}^{&lowast;} = det(\mathbf{C}^{-1})$와 같이 나타낼 수 있다. $\mathbf{C}$위의 한 점 $\mathbf{x}&isin; \mathbf{C}$가 주어졌을 때 $\mathbf{x}$에서 접선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{Cx}$로 나타낼 수 있다. 이를 위 식에 대입하면
@@ -667,8 +667,8 @@ $\mathbf{C}$는 non-singualr하기 때문에 역행렬이 존재하므로 $\math
 </div>
 </div>
 
-<div id="outline-container-orgc4e6a57" class="outline-3">
-<h3 id="orgc4e6a57"><span class="section-number-3">1.4</span> Projective transformations</h3>
+<div id="outline-container-org1fbb244" class="outline-3">
+<h3 id="org1fbb244"><span class="section-number-3">1.4</span> Projective transformations</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 $\mathbb{P}^{2}$의 projective transformation은 non-singular인 $3\times3$행렬로 정의되는 $\mathbb{P}^{2} \Rightarrow \mathbb{P}^{2}$사상을 의미하며 직선을 직선으로 보내는 성질을 가진다. <b>projective transformation은 collineation, projectivity 또는 homography</b> 라고도 불린다. 
@@ -676,8 +676,8 @@ $\mathbb{P}^{2}$의 projective transformation은 non-singular인 $3\times3$행�
 </div>
 </div>
 
-<div id="outline-container-org0436097" class="outline-3">
-<h3 id="org0436097"><span class="section-number-3">1.5</span> A hierarchy of transformations</h3>
+<div id="outline-container-org623f103" class="outline-3">
+<h3 id="org623f103"><span class="section-number-3">1.5</span> A hierarchy of transformations</h3>
 <div class="outline-text-3" id="text-1-5">
 
 <div class="figure">
@@ -690,8 +690,8 @@ projective 변환은 변환 전과 후 사이에 어떤 성질을 보존하느�
 </p>
 </div>
 
-<div id="outline-container-org7fef94f" class="outline-4">
-<h4 id="org7fef94f"><span class="section-number-4">1.5.1</span> Class 1: isometries</h4>
+<div id="outline-container-org54901fa" class="outline-4">
+<h4 id="org54901fa"><span class="section-number-4">1.5.1</span> Class 1: isometries</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <p>
 물체가 변환 전과 후 사이에 물체의 크기가 동일한 경우 해당 변환을 isometry 변환이라고 부른다.
@@ -708,8 +708,8 @@ projective 변환은 변환 전과 후 사이에 어떤 성질을 보존하느�
 </div>
 </div>
 
-<div id="outline-container-org6da788c" class="outline-4">
-<h4 id="org6da788c"><span class="section-number-4">1.5.2</span> Class 2: similarity transformations</h4>
+<div id="outline-container-org7392a82" class="outline-4">
+<h4 id="org7392a82"><span class="section-number-4">1.5.2</span> Class 2: similarity transformations</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <p>
 isometry 변환에 스케일을 의미하는 $s$가 추가된 변환을 similarity 변환이라고 하며 <b>물체의 이동 및 회전에 추가적으로 스케일까지 같이 변환</b> 하는 성질을 가진다. 이 때 기존의 $\mathbf{A}$행렬에서 reflection의 성질을 제거한 $\mathbf{R}$행렬을 사용한다.
@@ -726,8 +726,8 @@ similarity 변환은 물체의 각도와 길이의 비율을 보존되지만 스
 </div>
 </div>
 
-<div id="outline-container-org80181c3" class="outline-4">
-<h4 id="org80181c3"><span class="section-number-4">1.5.3</span> Class 3: affine transformations</h4>
+<div id="outline-container-orgb9678bc" class="outline-4">
+<h4 id="orgb9678bc"><span class="section-number-4">1.5.3</span> Class 3: affine transformations</h4>
 <div class="outline-text-4" id="text-1-5-3">
 <p>
 affine 변환은 isometry 변환에서 행렬 $\mathbf{A}$의 아무 제약조건이 없는 변환행렬을 의미한다. 변환 후 물체는 일반적으로 변환 전과 다른 형태를 가진다.
@@ -754,8 +754,8 @@ affine 변환은 물체의 길이 비율을 보존하며 또한 평행한 직선
 </div>
 </div>
 
-<div id="outline-container-orga2a4868" class="outline-4">
-<h4 id="orga2a4868"><span class="section-number-4">1.5.4</span> Class 4: projective transformations</h4>
+<div id="outline-container-orgd06b5ae" class="outline-4">
+<h4 id="orgd06b5ae"><span class="section-number-4">1.5.4</span> Class 4: projective transformations</h4>
 <div class="outline-text-4" id="text-1-5-4">
 <p>
 마지막으로 projective 변환은 변환행렬의 마지막 행이 $(0,0,1)$이 아닌 임의의 형태를 가지는 변환행렬을 의미한다. projective 변환은 직선을 직선으로 사상한다는 성질 외에는 이전에 설명한 모든 성질들을 보존하지 않는다는 특징이 있다. 평행한 직선 또한 projective 변환을 수행하면 평행하지 않게되며 물체의 길이비 또한 달라지게 된다.
@@ -767,14 +767,14 @@ affine 변환은 물체의 길이 비율을 보존하며 또한 평행한 직선
   \end{aligned}
 \end{equation}
 <p>
-이 때 $\mathbf{v}=\begin{bmatrix}v_{1}&amp;v_{2} \end{bmatrix}$는 임의의 2차원 벡터를 의미하며 $v$또한 임의의 스칼라 값을 의미한다. projective 변환행렬 $\mathbf{H}_{P}$는 8자유도를 가지므로 일반적으로 4개의 대응점 쌍을 통해 $\mathbf{H}_{P}$을 유일하게 결정할 수 있다.
+이 때 $\mathbf{v}=\begin{bmatrix}v_{1}&amp;v_{2} \end{bmatrix}^{\intercal}$는 임의의 2차원 벡터를 의미하며 $v$또한 임의의 스칼라 값을 의미한다. projective 변환행렬 $\mathbf{H}_{P}$는 8자유도를 가지므로 일반적으로 4개의 대응점 쌍을 통해 $\mathbf{H}_{P}$을 유일하게 결정할 수 있다.
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc466ef6" class="outline-3">
-<h3 id="orgc466ef6"><span class="section-number-3">1.6</span> Decomposition of a projective transformation</h3>
+<div id="outline-container-orgb8ca668" class="outline-3">
+<h3 id="orgb8ca668"><span class="section-number-3">1.6</span> Decomposition of a projective transformation</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 앞서 설명한 변환행렬의 계층구조에 따라 projective 변환행렬은 다른 변환행렬들의 곱으로 표현할 수 있다. 반대로 말하면, <b>projective 변환은 다른 변환행렬들로 분해가 가능하다.</b> 임의의 projective 변환 $\mathbf{H}_{p}$가 주어졌을 때
@@ -793,16 +793,16 @@ affine 변환은 물체의 길이 비율을 보존하며 또한 평행한 직선
 </div>
 </div>
 
-<div id="outline-container-org0bcdd0d" class="outline-3">
-<h3 id="org0bcdd0d"><span class="section-number-3">1.7</span> Recovery of affine and metric properties from images</h3>
+<div id="outline-container-org526d26d" class="outline-3">
+<h3 id="org526d26d"><span class="section-number-3">1.7</span> Recovery of affine and metric properties from images</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 임의의 이미지가 주어졌을 때 이미지 상에서 평행한 선들과 직교한 선들을 사용하여 affine 성질과 metric 성질을 복원할 수 있다.
 </p>
 </div>
 
-<div id="outline-container-org2628956" class="outline-4">
-<h4 id="org2628956"><span class="section-number-4">1.7.1</span> The line at infinity</h4>
+<div id="outline-container-org7444b05" class="outline-4">
+<h4 id="org7444b05"><span class="section-number-4">1.7.1</span> The line at infinity</h4>
 <div class="outline-text-4" id="text-1-7-1">
 <p>
 affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의미하며 무한대 직선(line at infinity) $\mathbf{l}_{&infin;} = \begin{bmatrix}x&amp;y&amp;0 \end{bmatrix}$을 사용하여 복원할 수 있다. 
@@ -819,8 +819,8 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
 </div>
 </div>
 
-<div id="outline-container-org05ab077" class="outline-4">
-<h4 id="org05ab077"><span class="section-number-4">1.7.2</span> Recovery of affine properties from images</h4>
+<div id="outline-container-org3d06792" class="outline-4">
+<h4 id="org3d06792"><span class="section-number-4">1.7.2</span> Recovery of affine properties from images</h4>
 <div class="outline-text-4" id="text-1-7-2">
 <p>
 <b>임의의 homography $\mathbf{H}$가 affine 성질을 보존한다는 의미는 곧 무한대 직선 $\mathbf{l}_{&infin;}$를 $\mathbf{H}$변환해도 무한대에 위치한 직선이 된다는 의미</b> 이다.
@@ -852,24 +852,24 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
 </div>
 </div>
 
-<div id="outline-container-orgc8f12b6" class="outline-4">
-<h4 id="orgc8f12b6"><span class="section-number-4">1.7.3</span> Recovery of metric properties from images</h4>
+<div id="outline-container-orgce9c971" class="outline-4">
+<h4 id="orgce9c971"><span class="section-number-4">1.7.3</span> Recovery of metric properties from images</h4>
 </div>
 </div>
 </div>
 
 
 
-<div id="outline-container-orgce6716c" class="outline-2">
-<h2 id="orgce6716c"><span class="section-number-2">2</span> Camera Models</h2>
+<div id="outline-container-org242fd93" class="outline-2">
+<h2 id="org242fd93"><span class="section-number-2">2</span> Camera Models</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgde03192" class="outline-3">
-<h3 id="orgde03192"><span class="section-number-3">2.1</span> Finite cameras</h3>
+<div id="outline-container-org789fc92" class="outline-3">
+<h3 id="org789fc92"><span class="section-number-3">2.1</span> Finite cameras</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-orgf566956" class="outline-4">
-<h4 id="orgf566956"><span class="section-number-4">2.1.1</span> The bais pinhole model</h4>
+<div id="outline-container-orge4be984" class="outline-4">
+<h4 id="orge4be984"><span class="section-number-4">2.1.1</span> The bais pinhole model</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 <b>핀홀 카메라(pinhole camera)란 $\mathbb{R}^{3}$공간 상에 있는 한 점 $\mathbf{X}$를 특정 중심점 $\mathbf{C}$를 향해 프로젝션시켰을 때 중간에 교차하는 이미지 평면 $\pi \in \mathbb{R}^{2}$상의 한 점 $\mathbf{x}$으로 상을 맺음으로써 이미지를 표현하는 수학적인 카메라 모델링 방법을 의미한다.</b>
@@ -907,8 +907,8 @@ $XZ$평면에서 이미지 평면을 봤을 때 역시 유사하게 $f_{x}$를 �
 </div>
 
 
-<div id="outline-container-org79fe86b" class="outline-4">
-<h4 id="org79fe86b"><span class="section-number-4">2.1.2</span> Central projection using homogeneous coordinates</h4>
+<div id="outline-container-org0408683" class="outline-4">
+<h4 id="org0408683"><span class="section-number-4">2.1.2</span> Central projection using homogeneous coordinates</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 핀홀 카메라 행렬 $\mathbf{P}$은 Homogeneous Point를 옮기는 것으로 생각할 수도 있다. 다시 말하면, 핀홀 카메라 행렬 $\mathbf{P}$는 $\mathbb{P}^{3}$공간 상의 점 $\mathbf{X}=\begin{pmatrix}X&amp;Y&amp;Z&amp;1 \end{pmatrix}^{\intercal}$을 $\mathbb{P}^{2}$공간 상의 점 $\mathbf{x}=\begin{pmatrix}fX&amp;fY&amp;Z \end{pmatrix}^{\intercal}$로 프로젝션하는 선형 사상으로 볼 수 있다. 이 때, $f=f_{x}=f_{y}$라고 가정한다.
@@ -934,8 +934,8 @@ $XZ$평면에서 이미지 평면을 봤을 때 역시 유사하게 $f_{x}$를 �
 </div>
 </div>
 
-<div id="outline-container-org5e2c31d" class="outline-4">
-<h4 id="org5e2c31d"><span class="section-number-4">2.1.3</span> Principal point offset</h4>
+<div id="outline-container-org5e965a4" class="outline-4">
+<h4 id="org5e965a4"><span class="section-number-4">2.1.3</span> Principal point offset</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 일반적으로 Principal Point $\mathbf{p}$는 이미지 평면 $&pi;$의 원점이 아니다. 따라서 핀홀 카메라 행렬을 통한 선형 사상이 이미지 평면 $&pi;$에 제대로 대응하기 위해서는
@@ -976,8 +976,8 @@ $XZ$평면에서 이미지 평면을 봤을 때 역시 유사하게 $f_{x}$를 �
 </div>
 </div>
 
-<div id="outline-container-orge61f5b7" class="outline-4">
-<h4 id="orge61f5b7"><span class="section-number-4">2.1.4</span> Camera rotation and translation</h4>
+<div id="outline-container-org64fbfdc" class="outline-4">
+<h4 id="org64fbfdc"><span class="section-number-4">2.1.4</span> Camera rotation and translation</h4>
 <div class="outline-text-4" id="text-2-1-4">
 <p>
 일반적으로 카메라 좌표계는 월드 좌표계로와 동일하지 않다. $\mathbb{R}^{3}$공간 상에 월드 좌표계 $\{W\}$가 주어졌을 때 이로부터 위치가 $\mathbf{C}=\begin{pmatrix}c_{x}&amp;c_{y}&amp;c_{z}&amp;1 \end{pmatrix}^{\intercal}$만큼 떨어져 있으며 $\mathbf{R}$만큼 회전되어 있는 카메라 좌표계 $\{C\}$가 주어졌을 때 월드 좌표계 $\{W\}$에서 바라본 월드 상의 한 점 $\mathbf{X}$를 카메라 좌표계 $\{C\}$상의 점 $\mathbf{X}_{\mathbf{C}}$로 변환하는 공식은
@@ -1046,8 +1046,8 @@ $\mathbf{X}_{\mathbf{C}}$를 이미지 평면 $&pi;$로 프로젝션시키면
 </div>
 </div>
 
-<div id="outline-container-orge999bfd" class="outline-4">
-<h4 id="orge999bfd"><span class="section-number-4">2.1.5</span> CCD cameras</h4>
+<div id="outline-container-orga129628" class="outline-4">
+<h4 id="orga129628"><span class="section-number-4">2.1.5</span> CCD cameras</h4>
 <div class="outline-text-4" id="text-2-1-5">
 <p>
 현대에 주로 사용하는 카메라 중 하나인 CCD 카메라는 이미지 좌표를 픽셀의 수로 기록한다. 따라서 $(x,y) [mm]$와 같이 이미지 좌표가 mm로 주어져 있을 때, CCD 카메라에서는 $(m_{x}x,\ m_{y}y)$와 같이 나타낸다. 이 때 $m_{x}, m_{y}$는 1 $mm^{2}$크기 내에서 x축 또는 y축 방향으로 픽셀의 수를 의미한다. 따라서 mm로 주어진 일반 카메라 캘리브레이션 행렬 $\mathbf{K}$가 주어졌을 때 이를 CCD 카메라의 좌표계로 바꾸기 위해서는
@@ -1064,16 +1064,16 @@ $\mathbf{X}_{\mathbf{C}}$를 이미지 평면 $&pi;$로 프로젝션시키면
 </div>
 </div>
 
-<div id="outline-container-org6f1441b" class="outline-4">
-<h4 id="org6f1441b"><span class="section-number-4">2.1.6</span> Finite projective camera</h4>
+<div id="outline-container-orgcd8922a" class="outline-4">
+<h4 id="orgcd8922a"><span class="section-number-4">2.1.6</span> Finite projective camera</h4>
 <div class="outline-text-4" id="text-2-1-6">
 <p>
-해당 섹션에서는 행렬 $\mathbf{P}$가 어떤 조건을 만족해야 카메라 행렬이 되는지 알아보자. 카메라 행렬이 $\mathbf{P}=\mathbf{KR}[\mathbf{I}\ | \ \mathbf{t}]$와 같이 주어졌을 때
+카메라 행렬이 $\mathbf{P}=\mathbf{K}[\mathbf{R}\ | \ \mathbf{t}]$와 같이 주어졌을 때 이를 다시 표현하면
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{P} = \mathbf{KR} [ \mathbf{I} \ | \ 0] 
+    \mathbf{P} = \mathbf{KR} [ \mathbf{I} \ | \ -\tilde{\mathbf{C}}] \quad \text{where, } \mathbf{t} = -\mathbf{R}\tilde{\mathbf{C}}
   \end{aligned}
 \end{equation}
 <p>
@@ -1088,8 +1088,8 @@ $\mathbf{X}_{\mathbf{C}}$를 이미지 평면 $&pi;$로 프로젝션시키면
 </div>
 </div>
 
-<div id="outline-container-org98db9a5" class="outline-4">
-<h4 id="org98db9a5"><span class="section-number-4">2.1.7</span> General projective cameras</h4>
+<div id="outline-container-orgc4164d4" class="outline-4">
+<h4 id="orgc4164d4"><span class="section-number-4">2.1.7</span> General projective cameras</h4>
 <div class="outline-text-4" id="text-2-1-7">
 <p>
 General Projective Camera는 앞서 설명한 Finite projective camera와 달리 $\mathbf{P}= [\mathbf{M}\ | \ \mathbf{t}]$에서 $\mathbf{M} \in \mathbb{R}^{3\times 3}$행렬이 non-singular일 필요가 없으며 $\mathbf{P}$의 rank가 3인 카메라 행렬을 의미한다.
@@ -1098,15 +1098,15 @@ General Projective Camera는 앞서 설명한 Finite projective camera와 달리
 </div>
 </div>
 
-<div id="outline-container-org8cb4177" class="outline-3">
-<h3 id="org8cb4177"><span class="section-number-3">2.2</span> The projective camera</h3>
+<div id="outline-container-org2c3697f" class="outline-3">
+<h3 id="org2c3697f"><span class="section-number-3">2.2</span> The projective camera</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-orgf09540c" class="outline-4">
-<h4 id="orgf09540c"><span class="section-number-4">2.2.1</span> Camera anatomy</h4>
+<div id="outline-container-org22832e1" class="outline-4">
+<h4 id="org22832e1"><span class="section-number-4">2.2.1</span> Camera anatomy</h4>
 </div>
-<div id="outline-container-orgef8cc8b" class="outline-4">
-<h4 id="orgef8cc8b"><span class="section-number-4">2.2.2</span> Camera center</h4>
+<div id="outline-container-orgcfcfd8a" class="outline-4">
+<h4 id="orgcfcfd8a"><span class="section-number-4">2.2.2</span> Camera center</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 임의의 Finite Projective 카메라 행렬 $\mathbf{P}= \mathbf{KR}[\mathbf{I}\ | \ -~{\mathbf{C}}]$가 주어졌을 때
@@ -1145,8 +1145,8 @@ General Projective Camera는 앞서 설명한 Finite projective camera와 달리
 </div>
 </div>
 
-<div id="outline-container-org981c720" class="outline-4">
-<h4 id="org981c720"><span class="section-number-4">2.2.3</span> Column vectors</h4>
+<div id="outline-container-org2d2c205" class="outline-4">
+<h4 id="org2d2c205"><span class="section-number-4">2.2.3</span> Column vectors</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <p>
 카메라 행렬 $\mathbf{P}$을 열벡터(column vector)로 나타내면 다음과 같다.
@@ -1164,8 +1164,8 @@ General Projective Camera는 앞서 설명한 Finite projective camera와 달리
 </div>
 </div>
 
-<div id="outline-container-org60a069d" class="outline-4">
-<h4 id="org60a069d"><span class="section-number-4">2.2.4</span> Row vectors</h4>
+<div id="outline-container-orge07a723" class="outline-4">
+<h4 id="orge07a723"><span class="section-number-4">2.2.4</span> Row vectors</h4>
 <div class="outline-text-4" id="text-2-2-4">
 <p>
 카메라 행렬 $\mathbf{P}$을 행벡터(row vector)로 나타내면 다음과 같다.
@@ -1183,8 +1183,8 @@ General Projective Camera는 앞서 설명한 Finite projective camera와 달리
 </div>
 </div>
 
-<div id="outline-container-org627a343" class="outline-4">
-<h4 id="org627a343"><span class="section-number-4">2.2.5</span> The principal plane</h4>
+<div id="outline-container-orgc59a349" class="outline-4">
+<h4 id="orgc59a349"><span class="section-number-4">2.2.5</span> The principal plane</h4>
 <div class="outline-text-4" id="text-2-2-5">
 <p>
 주평면(principal plane) $&pi;_{pp}$은 카메라의 중심점(center)를 포함하며 이미지 평면과 평행인 평면을 의미한다. 주평면은 카메라 좌표계 $\{C\}$에서 $XY$평면과 동일하며 $Z=0$인 특징이 있다. 주평면 상에 위치하는 한 점 $\mathbf{X}&isin; &pi;_{pp}$는 무한대 선(line at infinity) 상에서 이미지 평면 $&pi;$과 만나므로
@@ -1201,8 +1201,8 @@ General Projective Camera는 앞서 설명한 Finite projective camera와 달리
 </div>
 </div>
 
-<div id="outline-container-org99ff6a5" class="outline-4">
-<h4 id="org99ff6a5"><span class="section-number-4">2.2.6</span> The principal point</h4>
+<div id="outline-container-org7cc86c9" class="outline-4">
+<h4 id="org7cc86c9"><span class="section-number-4">2.2.6</span> The principal point</h4>
 <div class="outline-text-4" id="text-2-2-6">
 <p>
 주점(principal point) $\mathbf{p}$는 주축(principal axis)와 이미지 평면 $&pi;$의 교차점을 의미한다. 주점 $\mathbf{p}$는 이미지 평면 $\pi$상에 위치하며 카메라 중심점 $\mathbf{C}$와 주점을 잇는 직선은 이미지 평면과 수직하다.
@@ -1246,8 +1246,8 @@ General Projective Camera는 앞서 설명한 Finite projective camera와 달리
 </div>
 </div>
 
-<div id="outline-container-orgf798ecf" class="outline-4">
-<h4 id="orgf798ecf"><span class="section-number-4">2.2.7</span> The principal axis vector</h4>
+<div id="outline-container-org9af3a78" class="outline-4">
+<h4 id="org9af3a78"><span class="section-number-4">2.2.7</span> The principal axis vector</h4>
 <div class="outline-text-4" id="text-2-2-7">
 <p>
 카메라 행렬 $\mathbf{P}= [\mathbf{M}\ | \ \mathbf{p}_{4,col}]$이 주어졌을 때 행렬 $\mathbf{M}&isin; \mathbb{R}^{3&times; 3}$의 세 번째 행벡터 $\mathbf{m}_{3,row}$는 주점(principal point)를 의미한다. <b>해당 섹션에서는 주점 $\mathbf{m}_{3,row}$를 카메라 좌표계에서 $+Z$방향을 의미하는 주축(principal axis)의 방향과 동치로 간주한다.</b> 하지만, 카메라 행렬 $\mathbf{P}$는 부호를 제외하고(up to sign) 유일하게 결정되기 때문에 어떤 $\mathbf{m}_{3,row}$또는 $-\mathbf{m}_{3,row}$가 $+Z$를 의미하는지 알 수 없다. 
@@ -1268,11 +1268,11 @@ General Projective Camera는 앞서 설명한 Finite projective camera와 달리
 </div>
 </div>
 
-<div id="outline-container-org12816fc" class="outline-4">
-<h4 id="org12816fc"><span class="section-number-4">2.2.8</span> Action of a projective camera on points</h4>
+<div id="outline-container-orgc6f943d" class="outline-4">
+<h4 id="orgc6f943d"><span class="section-number-4">2.2.8</span> Action of a projective camera on points</h4>
 </div>
-<div id="outline-container-org88aefed" class="outline-4">
-<h4 id="org88aefed"><span class="section-number-4">2.2.9</span> Forward projection</h4>
+<div id="outline-container-orgcb388f1" class="outline-4">
+<h4 id="orgcb388f1"><span class="section-number-4">2.2.9</span> Forward projection</h4>
 <div class="outline-text-4" id="text-2-2-9">
 <p>
 Forward-projection은 일반적으로 프로젝션이라고 불리며 <b>월드 상에 있는 한 점 $\mathbf{X}$가 주어졌을 때 이를 이미지 평면 상의 한 점 $\mathbf{x}$으로 변환하는 연산을 의미한다.</b> 임의의 카메라 행렬 $\mathbf{P}$에 대해 다음 공식이 성립한다.
@@ -1286,8 +1286,8 @@ Forward-projection은 일반적으로 프로젝션이라고 불리며 <b>월드 
 </div>
 </div>
 
-<div id="outline-container-orgad65def" class="outline-4">
-<h4 id="orgad65def"><span class="section-number-4">2.2.10</span> Back-projection of points to rays</h4>
+<div id="outline-container-org311cba5" class="outline-4">
+<h4 id="org311cba5"><span class="section-number-4">2.2.10</span> Back-projection of points to rays</h4>
 <div class="outline-text-4" id="text-2-2-10">
 <p>
 Back-projection은 Forward-projection과는 반대로 <b>이미지 평면 상의 한 점 $\mathbf{x}$가 주어졌을 때 이를 월드 상의 한 직선으로 변환하는 연산을 의미한다.</b> 일반적으로 $\mathbf{x}$의 깊이값을 모르기 때문에 바로 월드 상의 한 점 $\mathbf{X}$로 변환되지 않는 특징이 있다. 임의의 카메라 행렬 $\mathbf{P}$는 rank가 3인 행렬이므로 Right Pseudo Inverse $\mathbf{P}^{&dagger;}$가 존재한다.
@@ -1327,8 +1327,8 @@ Finite Projective 카메라의 경우 다른 방법으로 Back-projection을 표
 </div>
 
 
-<div id="outline-container-orga9d0b55" class="outline-4">
-<h4 id="orga9d0b55"><span class="section-number-4">2.2.11</span> Depth of points</h4>
+<div id="outline-container-org1793d4e" class="outline-4">
+<h4 id="org1793d4e"><span class="section-number-4">2.2.11</span> Depth of points</h4>
 <div class="outline-text-4" id="text-2-2-11">
 <p>
 General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\begin{pmatrix}X&amp;Y&amp;Z&amp;1 \end{pmatrix}^{\intercal}$가 주어졌을 때 이를 이미지 평면으로 프로젝션시키면
@@ -1345,8 +1345,8 @@ General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\
 </div>
 </div>
 
-<div id="outline-container-org27a3030" class="outline-4">
-<h4 id="org27a3030"><span class="section-number-4">2.2.12</span> Result 6.1</h4>
+<div id="outline-container-org69ad3cd" class="outline-4">
+<h4 id="org69ad3cd"><span class="section-number-4">2.2.12</span> Result 6.1</h4>
 <div class="outline-text-4" id="text-2-2-12">
 <p>
 카메라 행렬 $\mathbf{P}$에 대한 월드 상의 점 $\mathbf{X}$의 깊이는
@@ -1363,8 +1363,8 @@ General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\
 </div>
 </div>
 
-<div id="outline-container-org6cd85b3" class="outline-4">
-<h4 id="org6cd85b3"><span class="section-number-4">2.2.13</span> Proof</h4>
+<div id="outline-container-orgd994ffa" class="outline-4">
+<h4 id="orgd994ffa"><span class="section-number-4">2.2.13</span> Proof</h4>
 <div class="outline-text-4" id="text-2-2-13">
 <p>
 행벡터 $\mathbf{m}_{3,row}$는 주축의 방향을 의미하므로 월드 상의 점 $~{\mathbf{X}}$를 $\mathbf{m}_{3,row}$로 프로젝션한 값이 곧 $Z$축에 대한 깊이를 의미한다. 주축으로 프로젝션은
@@ -1403,8 +1403,8 @@ General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\
 </div>
 </div>
 
-<div id="outline-container-orgc1e76e8" class="outline-3">
-<h3 id="orgc1e76e8"><span class="section-number-3">2.3</span> Cameras at infinity</h3>
+<div id="outline-container-org82a9257" class="outline-3">
+<h3 id="org82a9257"><span class="section-number-3">2.3</span> Cameras at infinity</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 <b>임의의 General Projective 카메라의 중심점 $\mathbf{C}$가 무한대 평면 $&pi;_{&infin;}$에 존재하는 경우 이를 무한대 카메라(camera at infinity)라고 한다.</b>
@@ -1424,26 +1424,26 @@ General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\
 </p>
 </div>
 
-<div id="outline-container-org5d7ad46" class="outline-4">
-<h4 id="org5d7ad46"><span class="section-number-4">2.3.1</span> Definition 6.3</h4>
+<div id="outline-container-orge4a7cfb" class="outline-4">
+<h4 id="orge4a7cfb"><span class="section-number-4">2.3.1</span> Definition 6.3</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
-Affine 카메라 $\mathbf{P}_{a}$는 무한대 평면을 프로젝션했을 때 동일하게 무한대 평면이 되는 카메라를 의미한다.
+Affine 카메라 $\mathbf{P}_{A}$는 무한대 평면을 프로젝션했을 때 동일하게 무한대 평면이 되는 카메라를 의미한다.
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{P}_{a}(\pi_{\infty}) = \pi_\infty
+    \mathbf{P}_{A}(\pi_{\infty}) = \pi_\infty
   \end{aligned}
 \end{equation}
 <p>
-이 때, $\mathbf{P}_{a} = \begin{bmatrix} \ast&amp;\ast&amp;\ast&amp;\ast \\ \ast&amp;\ast&amp;\ast&amp;\ast \\ 0&amp;0&amp;0&amp;\ast \end{bmatrix}$꼴이다.
+이 때, $\mathbf{P}_{A} = \begin{bmatrix} \ast&amp;\ast&amp;\ast&amp;\ast \\ \ast&amp;\ast&amp;\ast&amp;\ast \\ 0&amp;0&amp;0&amp;\ast \end{bmatrix}$꼴이다.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org62ffc41" class="outline-4">
-<h4 id="org62ffc41"><span class="section-number-4">2.3.2</span> Affine cameras</h4>
+<div id="outline-container-org24ca582" class="outline-4">
+<h4 id="org24ca582"><span class="section-number-4">2.3.2</span> Affine cameras</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <p>
 Finite Projective 카메라 행렬 $\mathbf{P}=\mathbf{KR}[\mathbf{I}\ | \ 0]$가 있고 월드 상의 물체가 존재한다고 하자. 이 때, 물체에 대한 Zoom In을 수행하면서 동시에 카메라를 주축의 반대 방향으로 움직이면 Vertigo Effect가 발생한다. Vertigo Effect는 히치콕 감독의 영화 Vertigo에서 해당 기법을 처음 사용해서 붙은 이름이다.
@@ -1567,8 +1567,8 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 </div>
 </div>
 
-<div id="outline-container-org3a14a64" class="outline-4">
-<h4 id="org3a14a64"><span class="section-number-4">2.3.3</span> Error in employing and affine camera</h4>
+<div id="outline-container-org733615f" class="outline-4">
+<h4 id="org733615f"><span class="section-number-4">2.3.3</span> Error in employing and affine camera</h4>
 <div class="outline-text-4" id="text-2-3-3">
 <p>
 <b>해당 섹션에서는 General Projective 카메라와 Affine 카메라로 동일한 물체를 찍었을 때 얼마나 큰 차이가 있는지에 대해서 설명한다.</b> General Projective 카메라는 $\mathbf{P}_{0}$로 표기하고 Affine 카메라는 $\mathbf{P}_{&infin;}$로 표기하며 시간 $t$에 따른 카메라 행렬의 변화는 $\mathbf{P}_{t}$로 표기한다.
@@ -1668,7 +1668,7 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 \begin{equation}
   \begin{aligned}
     &amp; \mathbf{x}_{\text{proj}} = \begin{pmatrix} \mathbf{K}_{2\times 2}\tilde{\mathbf{x}} + (d_{0}+\Delta)\tilde{\mathbf{x}}_{0} \\ d_{0} + \Delta \end{pmatrix} \\
-    &amp; \mathbf{x}_{\text{affine}} = \begin{pmatrix} \mathbf{K}_{2\times 2}\tilde{\mathbf{x}} + d_{0}\tilde{\mathbf{x}}_{0} \\ d_{0} + \Delta \end{pmatrix} \\
+    &amp; \mathbf{x}_{\text{affine}} = \begin{pmatrix} \mathbf{K}_{2\times 2}\tilde{\mathbf{x}} + d_{0}\tilde{\mathbf{x}}_{0} \\ d_{0} \end{pmatrix} \\
   \end{aligned}
 \end{equation}
 <p>
@@ -1698,16 +1698,16 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 </div>
 </div>
 
-<div id="outline-container-org8786a60" class="outline-2">
-<h2 id="org8786a60"><span class="section-number-2">3</span> Computation of the Camera Matrix $\mathbf{P}$</h2>
+<div id="outline-container-orga726c0f" class="outline-2">
+<h2 id="orga726c0f"><span class="section-number-2">3</span> Computation of the Camera Matrix $\mathbf{P}$</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 해당 섹션에서는 $\mathbb{P}^{3}$공간 상의 점 $\mathbf{X}_{i}$와 $\mathbb{P}^{2}$공간 상의 점 $\mathbf{x}_{i}$들의 대응쌍 $(\mathbf{x}_{i}, \mathbf{X}_{i})$여러개를 사용하여 카메라 행렬 $\mathbf{P}$를 수치적으로 구하는 방법에 대해 설명한다. 이러한 방법을 일반적으로 Resectioning 또는 Calibration이라고 부른다.
 </p>
 </div>
 
-<div id="outline-container-orgd197b76" class="outline-3">
-<h3 id="orgd197b76"><span class="section-number-3">3.1</span> Basic equations</h3>
+<div id="outline-container-org28f62c7" class="outline-3">
+<h3 id="org28f62c7"><span class="section-number-3">3.1</span> Basic equations</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{X}_{i})$가 주어졌을 때 두 점 사이의 대응관계는 다음과 같다.
@@ -1778,8 +1778,8 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 </p>
 </div>
 
-<div id="outline-container-org40bdb88" class="outline-4">
-<h4 id="org40bdb88"><span class="section-number-4">3.1.1</span> Minimal solution</h4>
+<div id="outline-container-org9edc8cd" class="outline-4">
+<h4 id="org9edc8cd"><span class="section-number-4">3.1.1</span> Minimal solution</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 벡터 $\mathbf{p}&isin; \mathbb{R}^{12}$를 스케일을 제외하고(up to scale) 구하기 위해서는 총 11개의 식이 필요하다. 하나의 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{X}_{i})$을 사용하면 2개의 식이 도출되므로 $\mathbf{p}$를 구하기 위해서는 최소 5.5개의 대응점 쌍이 필요하다. 노이즈가 없는 5.5개의 대응점 쌍이 주어진 경우 행렬 $\mathbf{A}$의 rank가 11가 되어 Null Space 벡터가 유일한 해 벡터 $\mathbf{p}$가 된다.
@@ -1787,8 +1787,8 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 </div>
 </div>
 
-<div id="outline-container-orgba8e5c7" class="outline-4">
-<h4 id="orgba8e5c7"><span class="section-number-4">3.1.2</span> Over-determined solution</h4>
+<div id="outline-container-org8841518" class="outline-4">
+<h4 id="org8841518"><span class="section-number-4">3.1.2</span> Over-determined solution</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p>
 일반적으로 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{X}_{i})$은 6개보다 훨씬 많은 개수를 얻을 수 있으며 데이터가 노이즈를 포함하고 있으므로 행렬 $\mathbf{A}$의 rank가 12가 된다. 따라서 Null Space가 존재하지 않으므로 해 벡터 $\mathbf{p}$를 구할 수 없다. <b>이러한 $\mathbf{Ap}=0$선형 시스템을 Over-determined 시스템이라고 하며 이 때는 $\|\mathbf{p}\|=1$인 경우에 대하여 $\|\mathbf{Ap}\|$의 크기가 최소가 되는 근사해 $\hat{\mathbf{p}}$를 구해야 한다.</b>
@@ -1796,8 +1796,8 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 </div>
 </div>
 
-<div id="outline-container-orgd9b1b6b" class="outline-4">
-<h4 id="orgd9b1b6b"><span class="section-number-4">3.1.3</span> Degenerate configurations</h4>
+<div id="outline-container-org9b76f06" class="outline-4">
+<h4 id="org9b76f06"><span class="section-number-4">3.1.3</span> Degenerate configurations</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
 <b>5.5개 이상의 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{X}_{i})$이 서로 선형독립이 아닐 경우 유일한 해 벡터 $\mathbf{p}$를 결정할 수 없게 되고 이러한 대응점 쌍들을 Degenerate Configuration이라고 한다.</b> 유일한 해 벡터 $\mathbf{p}$를 결정할 수 없다는 의미는 월드 상의 한 점 $\mathbf{X}$에 대하여
@@ -1878,8 +1878,8 @@ Twisted Cubic이란 $\mathbb{P}^{3}$공간 상에 존재하는 곡선을 의미�
 </div>
 </div>
 
-<div id="outline-container-org2855ab0" class="outline-4">
-<h4 id="org2855ab0"><span class="section-number-4">3.1.4</span> Line correspondences</h4>
+<div id="outline-container-org32025f2" class="outline-4">
+<h4 id="org32025f2"><span class="section-number-4">3.1.4</span> Line correspondences</h4>
 <div class="outline-text-4" id="text-3-1-4">
 <p>
 월드 상의 한 직선 $\mathbf{L}$을 카메라 행렬 $\mathbf{P}$로 프로젝션하여 이미지 평면 상의 직선 $\mathbf{l}$을 얻었을 경우 점과 달리 직선은 $\mathbf{l}&ne; \mathbf{PL}$이다.
@@ -1907,8 +1907,8 @@ Twisted Cubic이란 $\mathbb{P}^{3}$공간 상에 존재하는 곡선을 의미�
 </div>
 </div>
 
-<div id="outline-container-orgd3557c9" class="outline-3">
-<h3 id="orgd3557c9"><span class="section-number-3">3.2</span> Geometric error</h3>
+<div id="outline-container-orgab831b2" class="outline-3">
+<h3 id="orgab831b2"><span class="section-number-3">3.2</span> Geometric error</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 앞서 설명한 방법과 같이 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{X}_{i})$를 이용하여 $\mathbf{Ap}=0$형태의 Over-determined 선형시스템을 구성한 후 $\| \mathbf{p}\|=1$이면서 $\| \mathbf{Ap}\|$의 크기를 최소화하는 근사해 벡터 $\hat{\mathbf{p}}$를 구할 수 있다. 해당 섹션에서는 더욱 정확한 카메라 행렬 $\mathbf{P}$를 구하기 위해 기하학적 에러(geometric error)를 최소화하는 방법에 대해 설명한다. <b>기하학적 에러는 이미지 평면 상에서 이미 주어진 $\mathbf{x}_{i}$와 월드 상의 점 $\mathbf{X}_{i}$를 프로젝션한 $\mathbf{PX}_{i}$사이의 픽셀 거리를 의미한다. 실제 데이터에서는 노이즈로 인해 $\mathbf{x}_{i} &ne; \mathbf{PX}_{i}$이므로 두 점 사이의 거리 $d(\mathbf{x}_{i}, \mathbf{PX}_{i})$를 최소화해주는 최적의 카메라 행렬 $\mathbf{P}$를 찾아야 한다.</b>
@@ -1924,8 +1924,8 @@ $d(\mathbf{x}_{i}, \mathbf{PX}_{i})^{2}$는 일반적으로 비선형이므로 �
 </p>
 </div>
 
-<div id="outline-container-orgdadc91e" class="outline-4">
-<h4 id="orgdadc91e"><span class="section-number-4">3.2.1</span> Algorithm 7.1</h4>
+<div id="outline-container-org01712ce" class="outline-4">
+<h4 id="org01712ce"><span class="section-number-4">3.2.1</span> Algorithm 7.1</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <ul class="org-ul">
 <li><b>Objective:</b> 주어진 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{X}_{i}),\ i=1,&ctdot;,6,&ctdot;$에 대하여 $\mathbf{P}$에 대한 MLE(maximum likelihook estimation) 값을 찾는다. 즉, $&sum;_{i} d(\mathbf{x}_{i}, \mathbf{PX}_{i})^{2}$를 최소로하는 카메라 행렬 $\mathbf{P}$를 찾는다.</li>
@@ -1962,8 +1962,8 @@ $d(\mathbf{x}_{i}, \mathbf{PX}_{i})^{2}$는 일반적으로 비선형이므로 �
 </div>
 
 
-<div id="outline-container-org2b517c6" class="outline-3">
-<h3 id="org2b517c6"><span class="section-number-3">3.3</span> Zhang's method</h3>
+<div id="outline-container-org26b4be3" class="outline-3">
+<h3 id="org26b4be3"><span class="section-number-3">3.3</span> Zhang's method</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 실제로 Gold Standard 알고리즘을 사용할 때는 임의의 대응점 쌍을 사용하는 것이 아닌 체커보드 상의 대응점 쌍을 사용한다. 이렇게 <b>체커보드를 통해 카메라 행렬 $\mathbf{P}$를 추정하는 알고리즘을 Zhang's Method라고 한다.</b> 월드 상의 체커보드 평면 $&pi;_{0}$가 주어졌을 때 월드 상의 원점을 체커보드의 좌측 상단으로 설정하고 체커보드의 평면이 $Z=0$인 평면으로 설정한다.
@@ -2089,8 +2089,8 @@ $\mathbf{K}^{-1}\mathbf{H} = [\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{
 </div>
 
 
-<div id="outline-container-orge7f15c4" class="outline-3">
-<h3 id="orge7f15c4"><span class="section-number-3">3.4</span> Radial distortion</h3>
+<div id="outline-container-org8fb5b40" class="outline-3">
+<h3 id="org8fb5b40"><span class="section-number-3">3.4</span> Radial distortion</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 <b>실제 카메라 이미지는 이상적인 핀홀 카메라 모델과 다르게 방사형 왜곡(radial distortion)을 포함하고 있기 때문에 이를 바로 캘리브레이션하면 정확한 $\mathbf{R},\mathbf{t},\mathbf{K}$를 구할 수 없다.</b> 실제 툴킷을 사용하여 캘리브레이션을 수행해보면 앞서 구한 $\mathbf{R},\mathbf{t},\mathbf{K}$외에도 Distortion 파라미터들을 구할 수 있다. 해당 파라미터들이 이미지의 방사형 왜곡을 보정해주는 파라미터들이다.
@@ -2126,16 +2126,16 @@ $\mathbf{K}^{-1}\mathbf{H} = [\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{
 </div>
 </div>
 </div>
-<div id="outline-container-orga736afc" class="outline-2">
-<h2 id="orga736afc"><span class="section-number-2">4</span> More Single View Geometry</h2>
+<div id="outline-container-org301b750" class="outline-2">
+<h2 id="org301b750"><span class="section-number-2">4</span> More Single View Geometry</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org41ea6be" class="outline-3">
-<h3 id="org41ea6be"><span class="section-number-3">4.1</span> Camera calibration and the image of the absolute conic</h3>
+<div id="outline-container-org19fb24a" class="outline-3">
+<h3 id="org19fb24a"><span class="section-number-3">4.1</span> Camera calibration and the image of the absolute conic</h3>
 <div class="outline-text-3" id="text-4-1">
 </div>
-<div id="outline-container-org754061c" class="outline-4">
-<h4 id="org754061c"><span class="section-number-4">4.1.1</span> Result 8.15</h4>
+<div id="outline-container-org7fe7636" class="outline-4">
+<h4 id="org7fe7636"><span class="section-number-4">4.1.1</span> Result 8.15</h4>
 <div class="outline-text-4" id="text-4-1-1">
 
 <div class="figure">
@@ -2186,8 +2186,8 @@ $\mathbf{K}^{-1}\mathbf{H} = [\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{
 </div>
 </div>
 
-<div id="outline-container-orgcf922fc" class="outline-4">
-<h4 id="orgcf922fc"><span class="section-number-4">4.1.2</span> Result 8.16</h4>
+<div id="outline-container-org05b8c02" class="outline-4">
+<h4 id="org05b8c02"><span class="section-number-4">4.1.2</span> Result 8.16</h4>
 <div class="outline-text-4" id="text-4-1-2">
 <p>
 이미지 평면에 있는 직선 $\mathbf{l}$위에 한 점 $\mathbf{x}$가 위치할 때, 점과 직선 사이에는 다음 공식이 성립한다.
@@ -2218,8 +2218,8 @@ $\mathbf{K}^{-1}\mathbf{H} = [\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{
 </div>
 </div>
 
-<div id="outline-container-orgf1490b1" class="outline-3">
-<h3 id="orgf1490b1"><span class="section-number-3">4.2</span> The image of the absolute conic</h3>
+<div id="outline-container-orgdaf8c96" class="outline-3">
+<h3 id="orgdaf8c96"><span class="section-number-3">4.2</span> The image of the absolute conic</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 무한대 평면 $&pi;_{&infin;}$가 있을 때 $\pi_{\infty}$위에 위치한 무한대 점 $\mathbf{X}_{&infin;} = (\mathbf{d}^{\intercal}, 0)^{\intercal}$이 있다고 하면 이를 카메라 $\mathbf{P}=\mathbf{KR}[\mathbf{I}|-~{\mathbf{C}}]$에 프로젝션시키면 다음과 같다.
@@ -2244,8 +2244,8 @@ $\mathbf{K}^{-1}\mathbf{H} = [\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{
 \end{equation}
 </div>
 
-<div id="outline-container-orgc44dd1c" class="outline-4">
-<h4 id="orgc44dd1c"><span class="section-number-4">4.2.1</span> Result 8.17</h4>
+<div id="outline-container-org5c4f7b9" class="outline-4">
+<h4 id="org5c4f7b9"><span class="section-number-4">4.2.1</span> Result 8.17</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <p>
 이에 따라 <b>Image of Absolute Conic $\mathbf{w} = \mathbf{K}^{-\intercal}\mathbf{K}^{-1}$</b> 이 된다.
@@ -2257,7 +2257,7 @@ $\mathbf{K}^{-1}\mathbf{H} = [\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{
 
 \begin{equation}
   \begin{aligned}
-    \cos\theta = \frac{\mathbf{x}_{1}^{\intercal}\mathbf{w}\mathbf{x}_{2}}{\sqrt{\mathbf{x}_{1}^{\intercal}\mathbf{w}\mathbf{x}_{2}}\sqrt{\mathbf{x}_{2}^{\intercal}\mathbf{w}\mathbf{x}_{2}}}
+    \cos\theta = \frac{\mathbf{x}_{1}^{\intercal}\mathbf{w}\mathbf{x}_{2}}{\sqrt{\mathbf{x}_{1}^{\intercal}\mathbf{w}\mathbf{x}_{1}}\sqrt{\mathbf{x}_{2}^{\intercal}\mathbf{w}\mathbf{x}_{2}}}
   \end{aligned}
 \end{equation}
 <p>
@@ -2282,8 +2282,8 @@ $\mathbf{K}^{-1}\mathbf{H} = [\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{
 </div>
 </div>
 
-<div id="outline-container-orga81efc8" class="outline-3">
-<h3 id="orga81efc8"><span class="section-number-3">4.3</span> Orthogonality and $\mathbf{w}$</h3>
+<div id="outline-container-orgce6a744" class="outline-3">
+<h3 id="orgce6a744"><span class="section-number-3">4.3</span> Orthogonality and $\mathbf{w}$</h3>
 <div class="outline-text-3" id="text-4-3">
 
 <div class="figure">
@@ -2296,8 +2296,8 @@ $\mathbf{K}^{-1}\mathbf{H} = [\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{
 </p>
 </div>
 
-<div id="outline-container-org518448b" class="outline-4">
-<h4 id="org518448b"><span class="section-number-4">4.3.1</span> Result 8.19</h4>
+<div id="outline-container-org7c2b307" class="outline-4">
+<h4 id="org7c2b307"><span class="section-number-4">4.3.1</span> Result 8.19</h4>
 <div class="outline-text-4" id="text-4-3-1">
 <p>
 위 두 공식을 결합하면
@@ -2314,8 +2314,8 @@ $\mathbf{K}^{-1}\mathbf{H} = [\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{
 </div>
 </div>
 
-<div id="outline-container-org7ea3ec1" class="outline-3">
-<h3 id="org7ea3ec1"><span class="section-number-3">4.4</span> Vanishing points and vanishing lines</h3>
+<div id="outline-container-org7e56d6f" class="outline-3">
+<h3 id="org7e56d6f"><span class="section-number-3">4.4</span> Vanishing points and vanishing lines</h3>
 <div class="outline-text-3" id="text-4-4">
 
 <div class="figure">
@@ -2346,8 +2346,8 @@ $\mathbf{K}^{-1}\mathbf{H} = [\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{
 </p>
 </div>
 
-<div id="outline-container-org3ca4a4a" class="outline-4">
-<h4 id="org3ca4a4a"><span class="section-number-4">4.4.1</span> Result 8.20</h4>
+<div id="outline-container-org9068e45" class="outline-4">
+<h4 id="org9068e45"><span class="section-number-4">4.4.1</span> Result 8.20</h4>
 <div class="outline-text-4" id="text-4-4-1">
 <p>
 결론적으로 소실점(vanishing point) $\mathbf{v}$는 다음과 같이 정의된다.
@@ -2362,8 +2362,8 @@ $\mathbf{K}^{-1}\mathbf{H} = [\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{
 </div>
 </div>
 
-<div id="outline-container-orgfe4dad9" class="outline-4">
-<h4 id="orgfe4dad9"><span class="section-number-4">4.4.2</span> Camera rotation from vanishing points</h4>
+<div id="outline-container-orgbb5a333" class="outline-4">
+<h4 id="orgbb5a333"><span class="section-number-4">4.4.2</span> Camera rotation from vanishing points</h4>
 <div class="outline-text-4" id="text-4-4-2">
 <p>
 소실점을 사용하여 카메라의 회전을 계산할 수 있다. 이미지 1에서 추출한 소실점 $\mathbf{v}_{1}$과 이미지 2에서 추출한 소실점 $\mathbf{v}_{2}$이 있을 때, $\mathbf{v}_{1}$의 방향은 $\mathbf{d}_{1} = \mathbf{K}^{-1}\mathbf{v}_{1}$이 되고 $\mathbf{v}_{2}$의 방향은 $\mathbf{d}_{2} = \mathbf{K}^{-1}\mathbf{v}_{2}$가 된다.
@@ -2375,7 +2375,7 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{d}_{2} = \mathbf{Rd}_{2}
+    \mathbf{d}_{2} = \mathbf{Rd}_{1}
   \end{aligned}
 \end{equation}
 <p>
@@ -2386,8 +2386,8 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 </div>
 
 
-<div id="outline-container-orgcda6f8e" class="outline-3">
-<h3 id="orgcda6f8e"><span class="section-number-3">4.5</span> Vanishing Lines</h3>
+<div id="outline-container-org67f4750" class="outline-3">
+<h3 id="org67f4750"><span class="section-number-3">4.5</span> Vanishing Lines</h3>
 <div class="outline-text-3" id="text-4-5">
 
 <div class="figure">
@@ -2419,8 +2419,8 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 </div>
 </div>
 
-<div id="outline-container-org523f3bf" class="outline-3">
-<h3 id="org523f3bf"><span class="section-number-3">4.6</span> Orthogonality relationships amongst vanishing points and lines</h3>
+<div id="outline-container-org2eeee02" class="outline-3">
+<h3 id="org2eeee02"><span class="section-number-3">4.6</span> Orthogonality relationships amongst vanishing points and lines</h3>
 <div class="outline-text-3" id="text-4-6">
 
 <div class="figure">
@@ -2465,16 +2465,16 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 </div>
 </div>
 
-<div id="outline-container-orga0c70ae" class="outline-3">
-<h3 id="orga0c70ae"><span class="section-number-3">4.7</span> Affine 3D measurements and reconstruction</h3>
+<div id="outline-container-org5944910" class="outline-3">
+<h3 id="org5944910"><span class="section-number-3">4.7</span> Affine 3D measurements and reconstruction</h3>
 <div class="outline-text-3" id="text-4-7">
 <p>
 3차원 공간 상의 평면 $&pi;$에 수직인 물체들의 소실점을 수직소실점(vertical vanishing point) $\mathbf{v_{&perp;}}$라고 한다.
 </p>
 </div>
 
-<div id="outline-container-org4bca73d" class="outline-4">
-<h4 id="org4bca73d"><span class="section-number-4">4.7.1</span> Result 8.24</h4>
+<div id="outline-container-org3aa2cbf" class="outline-4">
+<h4 id="org3aa2cbf"><span class="section-number-4">4.7.1</span> Result 8.24</h4>
 <div class="outline-text-4" id="text-4-7-1">
 <p>
 평면 $&pi;$의 소실선 $\mathbf{l}$과 수직소실점을 이용하면 물체의 크기를 스케일을 제외한 파라미터(up to scale)까지 계산할 수 있다. 정확하게 말하면 <b>소실선 $\mathbf{l}$과 수직소실점 $\mathbf{v}_{&perp;}$를 알면 평면 $&pi;$에 수직한 선분들의 상대적 길이를 알 수 있다.</b>
@@ -2520,8 +2520,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 </div>
 
 
-<div id="outline-container-org4c64600" class="outline-3">
-<h3 id="org4c64600"><span class="section-number-3">4.8</span> Determining camera calibration $\mathbf{K}$from a single view</h3>
+<div id="outline-container-orgc33aec0" class="outline-3">
+<h3 id="orgc33aec0"><span class="section-number-3">4.8</span> Determining camera calibration $\mathbf{K}$from a single view</h3>
 <div class="outline-text-3" id="text-4-8">
 <p>
 단안 이미지에서 내부 파라미터 $\mathbf{K}$를 결정하기 위해서는 2가지 제약조건이 필요하다. <b>이미지 제약조건(scene constraint)과 내부 파라미터의 제약조건(internal constraint)</b> 이 있다.
@@ -2539,8 +2539,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 \end{equation}
 </div>
 
-<div id="outline-container-org864033c" class="outline-4">
-<h4 id="org864033c"><span class="section-number-4">4.8.1</span> Result 8.26</h4>
+<div id="outline-container-orgaf0ee4a" class="outline-4">
+<h4 id="orgaf0ee4a"><span class="section-number-4">4.8.1</span> Result 8.26</h4>
 <div class="outline-text-4" id="text-4-8-1">
 <p>
 내부 파라미터 제약조건으로는 $\mathbf{K}$가 Zero-Skew인 경우 $w_{12} = w_{21}=0$이 있고 또한, Square Pixels인 경우 $w_{12}=w_{21}=0, w_{11}=w_{22}$가 있다.
@@ -2560,8 +2560,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 </div>
 
 
-<div id="outline-container-org2b9d73c" class="outline-3">
-<h3 id="org2b9d73c"><span class="section-number-3">4.9</span> Calibration from three orthogonal vanishing points</h3>
+<div id="outline-container-org29b4d40" class="outline-3">
+<h3 id="org29b4d40"><span class="section-number-3">4.9</span> Calibration from three orthogonal vanishing points</h3>
 <div class="outline-text-3" id="text-4-9">
 <p>
 내부 파라미터 $\mathbf{K}$가 Zero-Skew이고 Square Pixel일 때 세 개의 서로 직교하는 수직소실점들 $\mathbf{v}_{i}, \ i=1,2,3$을 사용하여 $\mathbf{K}$를 계산할 수 있다. 우선 $\mathbf{K}$가 Zero-Skew이고 Square Pixel이므로 다음이 성립한다.
@@ -2578,8 +2578,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 </div>
 </div>
 
-<div id="outline-container-orge3c4130" class="outline-3">
-<h3 id="orge3c4130"><span class="section-number-3">4.10</span> Computation of focal length and principal point using vanishing point and vanishing line</h3>
+<div id="outline-container-orgd48d533" class="outline-3">
+<h3 id="orgd48d533"><span class="section-number-3">4.10</span> Computation of focal length and principal point using vanishing point and vanishing line</h3>
 <div class="outline-text-3" id="text-4-10">
 <p>
 3차원 공간 상의 평면 $&pi;$로부터 구할 수 있는 소실선 $\mathbf{l}$이 있고 $&pi;$와 수직인 수직소실점 $\mathbf{v}_{&perp;}$가 있다고 하면 이를 활용하여 초점거리 f와 주점(principal point)를 구할 수 있다.
@@ -2595,8 +2595,8 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 </div>
 </div>
 
-<div id="outline-container-orge6c269f" class="outline-3">
-<h3 id="orge6c269f"><span class="section-number-3">4.11</span> The calibrating conic</h3>
+<div id="outline-container-org8e58aaf" class="outline-3">
+<h3 id="org8e58aaf"><span class="section-number-3">4.11</span> The calibrating conic</h3>
 <div class="outline-text-3" id="text-4-11">
 <p>
 IAC(image of absolute conic)은 이미지 평면의 점을 Back-projection한 직선들 간의 각도를 구할 수 있고 Metric Rectification도 수행할 수 있는 유용한 도구이지만 Circular Point의 특성 상 실수의 근을 갖지 않아서 시각화가 불가능하다는 단점이 있다. 이를 보완하기 위해 고안된 것이 Calibration Conic이다. Calibration Conic은 $X^{2}+Y^{2}=Z^{2}$의 Cone을 프로젝션시킨 Image Conic을 의미하고 시각화가 가능한 장점이 존재한다.
@@ -2649,7 +2649,8 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{x}^{\prime\intercal}\mathbf{wx} = \mathbf{x}^{\prime\intercal}\mathbf{CS}^{-1}\mathbf{x} = \mathbf{x}^{\prime\intercal}\mathbf{CSx} = \mathbf{x}^{\prime\intercal}\mathbf{C}\dot{\mathbf{x}}
+    &amp; \mathbf{x}^{\prime\intercal}\mathbf{wx} = \mathbf{x}^{\prime\intercal}\mathbf{CS}^{-1}\mathbf{x} = \mathbf{x}^{\prime\intercal}\mathbf{CSx} = \mathbf{x}^{\prime\intercal}\mathbf{C}\dot{\mathbf{x}} \\
+    &amp; \because \mathbf{S}^{-1} = \mathbf{S}
   \end{aligned}
 \end{equation}
 <p>
@@ -2657,8 +2658,8 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 </p>
 </div>
 
-<div id="outline-container-org638da35" class="outline-4">
-<h4 id="org638da35"><span class="section-number-4">4.11.1</span> Result 8.30</h4>
+<div id="outline-container-org9bfd482" class="outline-4">
+<h4 id="org9bfd482"><span class="section-number-4">4.11.1</span> Result 8.30</h4>
 <div class="outline-text-4" id="text-4-11-1">
 <p>
 결론적으로, <b>직선 $\mathbf{C}\dot{\mathbf{x}}$는 반사된 점 $\dot{\mathbf{x}}$와 Calibration Conic의 접선들을 이어주는 직선이 되고 점 $\mathbf{x}^{&prime;}$는 직선 $\mathbf{C}\dot{\mathbf{x}}$위에 존재</b> 한다.
@@ -2669,16 +2670,16 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 </div>
 
 
-<div id="outline-container-orga82f681" class="outline-2">
-<h2 id="orga82f681"><span class="section-number-2">5</span> References</h2>
+<div id="outline-container-orgb0c3b39" class="outline-2">
+<h2 id="orgb0c3b39"><span class="section-number-2">5</span> References</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orgf4ac916" class="outline-2">
-<h2 id="orgf4ac916"><span class="section-number-2">6</span> Closure</h2>
+<div id="outline-container-orgc9af484" class="outline-2">
+<h2 id="orgc9af484"><span class="section-number-2">6</span> Closure</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.
