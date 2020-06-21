@@ -295,7 +295,8 @@ comments: true
 <h3 id="orgcc7c1d6"><span class="section-number-3">4.6</span> Matrix</h3>
 <div class="outline-text-3" id="text-4-6">
 <ul class="org-ul">
-<li>행렬에 임의로 행과 열을 추가하고 싶은 경우 <b>carriage return</b> 키를 사용하면 된다. 행렬에 커서를 올려놓은 상태에서 <b>carriage return</b> 키를 누르시면 행(row)가 추가되고 <b>shift + carriage return</b> 키를 누르면 열(col)이 추가된다. 행과 열을 삭제하고 <b>shift + 방향키</b> 로 해당 행 또는 열을 선택하고 <b>backspace(del)</b> 버튼을 누르면 삭제된다.</li>
+<li>행렬에 임의로 행과 열을 추가하고 싶은 경우 <b>carriage return</b> 키를 사용하면 된다. 행렬에 커서를 올려놓은 상태에서 <b>carriage return</b> 키를 누르면 행(row)가 추가되고 <b>shift + carriage return</b> 키를 누르면 열(col)이 추가된다.</li>
+<li>행과 열을 삭제하고 싶은 경우 <b>shift + 방향키</b> 로 해당 행 또는 열을 선택하고 <b>backspace(del)</b> 버튼을 누르면 삭제된다.</li>
 </ul>
 
 <div class="figure">
@@ -384,24 +385,39 @@ comments: true
 <ul class="org-ul">
 <li><b>binomCdf(10,0.5,0,5)</b> : 이산 이항분포에 대한 누적 확률 계산</li>
 <li><b>binomPdf(10,0.5)</b> : 이산 이항분포에 대한 확률 계산</li>
-
+</ul>
+<hr />
+<ul class="org-ul">
 <li><b>​poissCdf(25,0,25)</b> : 이산 포아송 분포의 누적 확률 계산</li>
 <li><b>poissPdf(25,25)</b> : 이산 포아송 분포의 확률 계산</li>
+</ul>
 
+<hr />
+<ul class="org-ul">
 <li><b>​normCdf(-∞,1.96,0,1)</b> : 지정 범위 사이에서 정규 분포 확률 계산</li>
 <li><b>normPdf(1.96,0,1)</b> : 지정 값에서 정규 분포에 대한 확률 밀도 함수 계산</li>
+</ul>
 
+<hr />
+<ul class="org-ul">
 <li><b>​tTest 20,samp1,1,0: stat.results</b> : t테스트 수행</li>
 <li><b>tTest_2Samp samp1,samp2,1,1,0,0: stat.results</b> : 2표본 t테스트 수행</li>
+</ul>
 
+<hr />
+<ul class="org-ul">
 <li><b>tCdf(-∞,1.96,9)</b>: Student-t 분포 확률 계산</li>
 <li><b>tPdf(1.96,9)</b> : Student-t 분포에 대한 확률 밀도 함수 계산</li>
+</ul>
 
-<li>​*zTest 20,2.09,samp1,1,0: stat.results* : z테스트 수행</li>
+<hr />
+<ul class="org-ul">
+<li><b>​zTest 20,2.09,samp1,1,0: stat.results</b> : z테스트 수행</li>
 <li><b>zTest_1Prop 0.5,1,8,0: stat.results</b> : 1비율 z테스트 수행</li>
 <li><b>zInterval 2.09,samp1,1,0.95: stat.results</b> : z신뢰구간 계산</li>
 </ul>
 
+<hr />
 <p>
 ​- <b>chi22way samp4: stat.results</b> : chi-square 테스트 수행 
 </p>
@@ -409,8 +425,11 @@ comments: true
 <li><b>chi2Cdf(0,10,9)</b>  : chi-square 분포 확률 계산</li>
 <li><b>chi2GOF</b> : chi-square 표본 데이터가 지정된 분포와 일치하는 모집단으로부터 온 것인지를 확인하는 테스트 수행</li>
 <li><b>chi2Pdf(10,9)</b> : chi-square 분포에 대한 확률 밀도 함수 계산</li>
+</ul>
 
-<li>​*ANOVA samp1,samp2,samp3: stat.results* : One way ANOVA 일원분산분석 수행</li>
+<hr />
+<ul class="org-ul">
+<li><b>ANOVA samp1,samp2,samp3: stat.results</b> : One way ANOVA 일원분산분석 수행</li>
 <li><b>ANOVA2way samp1,samp2,stat.df: stat.results</b> : Two way ANOVA 이원분산분석 수행</li>
 </ul>
 </div>
@@ -421,10 +440,7 @@ comments: true
 <h2 id="org846125f"><span class="section-number-2">5</span> References</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-<a href="https://blog.naver.com/gyurse/220906389668">Naver Blog Post</a>
-</p>
-
-<p>
+<a href="https://blog.naver.com/gyurse/220906389668">Naver Blog 포스트</a>
 <a href="http://oozin.tistory.com/128">딩동댕님 블로그</a>
 </p>
 </div>
