@@ -45,14 +45,14 @@ comments: true
 <li><a href="#org78a316a">31. Normal Equation</a></li>
 <li><a href="#org793981f">32. Another Derivation of Normal Equation</a></li>
 <li><a href="#org34f4e4a">33. What If $\mathbf{C} =\mathbf{A}^{T}\mathbf{A}$is NOT Invertible?</a></li>
-<li><a href="#orgab723b9">34. Orthogonal Projection Perspective</a></li>
+<li><a href="#org26678fd">34. Orthogonal Projection Perspective</a></li>
 <li><a href="#orgb57a05a">35. Orthogonal and Orthonormal Sets</a></li>
 <li><a href="#orgf8fdee6">36. Orthogonal and Orthonormal Basis</a></li>
 <li><a href="#org42fb7d1">37. Orthogonal Projection $\hat{\mathbf{y}}$of $\mathbf{y}$onto Line</a></li>
 <li><a href="#orgaa79bd5">38. Orthogonal Projection $\hat{\mathbf{y}}$of $\mathbf{y}$onto Plane</a></li>
 <li><a href="#org5250ad3">39. Orthogonal Projection when $\mathbf{y} \in W$</a></li>
 <li><a href="#org88c137f">40. Transformation: Orthogonal Projection</a></li>
-<li><a href="#org26678fd">41. Orthogonal Projection Perspective</a></li>
+<li><a href="#org6a66f8d">41. Orthogonal Projection Perspective</a></li>
 <li><a href="#org60063db">42. Gram-Schmidt Orthogonalization</a></li>
 <li><a href="#orga723081">43. Eigenvectors and Eigenvalues</a></li>
 <li><a href="#org1d93bcd">44. Null Space</a></li>
@@ -140,7 +140,7 @@ comments: true
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{I}_{3\times3} = \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+    \mathbf{I} = \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \in \mathbb{R}^{3\times 3}
   \end{aligned}
 \end{equation}
 <p>
@@ -149,7 +149,7 @@ comments: true
 
 \begin{equation}
   \begin{aligned}
-    \forall \mathbf{x} \in \mathbb{R}^{n}, \quad \mathbf{I}\mathbf{x} = \mathbf{x}
+    ^{\forall} \mathbf{x} \in \mathbb{R}^{n}, \quad \mathbf{I}\mathbf{x} = \mathbf{x}
   \end{aligned}
 \end{equation}
 <hr />
@@ -176,6 +176,11 @@ $2\times 2$크기의 정방행렬 $\mathbf{A}= \begin{bmatrix}a &amp; b \\ c &am
     \mathbf{A}^{-1} = \frac{1}{ad-bc} \begin{bmatrix} d &amp; -b \\ -c &amp; a \end{bmatrix}
   \end{aligned}
 \end{equation}
+<p>
+$3\times 3$크기 이상의 정방행렬도 역행렬을 구할 수 있다. 역행렬은 정방행렬이면서 Full Rank인 행렬(= non-singular, $\det{\mathbf{A}} \neq 0$)에만 존재한다.
+</p>
+
+
 <hr />
 </div>
 </div>
@@ -194,7 +199,7 @@ $2\times 2$크기의 정방행렬 $\mathbf{A}= \begin{bmatrix}a &amp; b \\ c &am
   \end{aligned}
 \end{equation}
 <p>
-그러나, 행렬 $\mathbf{A}$의 판별식 $det{\mathbf{A}}=0$인 경우 역행렬이 존재하지 않게되고 위와 같이 문제를 풀 수 없다. <b>이런 경우 선형시스템은 해가 존재하지 않거나 무수히 많은 해가 존재한다.</b>
+그러나, <b>행렬 $\mathbf{A}$의 판별식 $det{\mathbf{A}}=0$인 경우 역행렬이 존재하지 않게되고 위와 같이 문제를 풀 수 없다. 이런 경우 선형시스템은 해가 존재하지 않거나 무수히 많은 해가 존재한다.</b>
 </p>
 
 <hr />
@@ -222,7 +227,8 @@ $2\times 2$크기의 정방행렬 $\mathbf{A}= \begin{bmatrix}a &amp; b \\ c &am
 <div id="outline-container-orga1f02a2" class="outline-2">
 <h2 id="orga1f02a2"><span class="section-number-2">7</span> Span</h2>
 <div class="outline-text-2" id="text-7">
-<p>
+<p align="center" width="400px">
+<img src="/pictures/200621_linalg/03.PNG" alt="03.PNG" align="center" width="400px" />
 주어진 여러 벡터 $\mathbf{v}_{1}, &ctdot;, \mathbf{v}_{n} &isin; \mathbb{R}^{n}$에 대해 Span$\{\mathbf{v}_{1},&ctdot;,\mathbf{v}_{n} \}$은 모든 $\mathbf{v}_{1}, &ctdot;, \mathbf{v}_{n}$에 대한 선형결합의 집합을 의미한다. 즉, Span$\{\mathbf{v}_{1},&ctdot;,\mathbf{v}_{n} \}$은 다음과 같이 쓸 수 있는 모든 벡터들의 집합이다.
 </p>
 
@@ -242,7 +248,7 @@ $2\times 2$크기의 정방행렬 $\mathbf{A}= \begin{bmatrix}a &amp; b \\ c &am
 <h2 id="orgcfa3204"><span class="section-number-2">8</span> From Matrix Equation to Vector Equation</h2>
 <div class="outline-text-2" id="text-8">
 <p>
-$\mathbf{Ax}= \mathbf{b}$와 같은 선형 시스템을 다음과 같이 열벡터를 기준으로 펼쳐보면
+$\mathbf{Ax}= \mathbf{b}$와 같은 선형 시스템을 다음과 같이 열벡터 $\mathbf{a}_{i}$를 기준으로 펼쳐보면
 </p>
 
 \begin{equation}
@@ -310,9 +316,21 @@ $\mathbf{b}^{T}$는 곧 $\mathbf{A}^{T}$의 행벡터(Row Vector)들의 선형�
     \mathbf{v}_{j} \in \text{Span} \{ \mathbf{v}_{1}, \mathbf{v}_{2}, \cdots, \mathbf{v}_{j-1}\} \quad \text{for some  } j = 1, \cdots, n? 
   \end{aligned}
 \end{equation}
+
+<div class="figure">
+<p><img src="/pictures/200621_linalg/04.PNG" alt="04.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 만약 $\mathbf{v}_{j}$가 선형결합으로 표현이 된다면 $\mathbf{v}_{1}, &ctdot;, \mathbf{v}_{n}$는 <b>선형의존 (Linearly Dependent)</b> 이다. 만약, $\mathbf{v}_{j}$가 표현되지 않는다면 $\mathbf{v}_{1}, &ctdot;, \mathbf{v}_{n}$는 <b>선형독립 (Linearly Independent)</b> 이다.
 </p>
+
+
+<div class="figure">
+<p><img src="/pictures/200621_linalg/02.PNG" alt="02.PNG" align="center" width="400px" />
+</p>
+</div>
 
 <p>
 $\mathbf{Ax}= \mathbf{b}$와 같은 시스템에서 $\mathbf{A}$행렬이 $\mathbb{R}^{n\times m}$이고 $n &lt; m$인 경우 방정식의 개수보다 미지수의 개수가 많으므로 $\mathbf{A}$의 열벡터에 의해 Span되는 공간이 항상 $\mathbf{b}$의 차원보다 크게 되어 <b>무수히 많은 해가 존재한다. 이를 Underdetermined System이라고 한다.</b>
@@ -412,6 +430,12 @@ Span $\{ \mathbf{a}_{1}, &ctdot;, \mathbf{a}_{n} \}$으로 형성된 공간은 �
 <li>벡터들 간 선형독립이어야 한다.</li>
 </ul>
 
+
+<div class="figure">
+<p><img src="/pictures/200621_linalg/05.PNG" alt="05.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 3차원 공간 $\mathbb{R}^{3}$의 경우 기저벡터는 3개가 존재하고 $\mathbf{e}_{1} = [ 1 \ 0 \ 0 ]^{T}, \mathbf{e}_{2} = [ 0 \ 1 \  0 ]^{T}, \mathbf{e}_{3} = [ 0 \  0 \  1 ]^{T}$일 때, 이를 <b>표준기저벡터(Standard Basis Vector)라고 한다.</b>
 </p>
@@ -432,6 +456,12 @@ Span $\{ \mathbf{a}_{1}, &ctdot;, \mathbf{a}_{n} \}$으로 형성된 공간은 �
 <div id="outline-container-orgfce7a01" class="outline-2">
 <h2 id="orgfce7a01"><span class="section-number-2">15</span> Column Space of Matrix</h2>
 <div class="outline-text-2" id="text-15">
+
+<div class="figure">
+<p><img src="/pictures/200621_linalg/06.PNG" alt="06.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 행렬 $\mathbf{A}$의 열공간(Column Space)이란 $\mathbf{A}$의 열벡터로 인해 Span된 부분공간을 의미한다. 일반적으로 Col $\mathbf{A}$라고 표기한다.
 </p>
@@ -462,6 +492,12 @@ Span $\{ \mathbf{a}_{1}, &ctdot;, \mathbf{a}_{n} \}$으로 형성된 공간은 �
 <div id="outline-container-org7f51094" class="outline-2">
 <h2 id="org7f51094"><span class="section-number-2">17</span> Transformation</h2>
 <div class="outline-text-2" id="text-17">
+
+<div class="figure">
+<p><img src="/pictures/200621_linalg/08.PNG" alt="08.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 변환(Transformation), 함수(Function), 매핑(Mapping) $T$은 입력 $x$를 출력 $y$로 매핑해주는 것을 의미한다.
 </p>
@@ -471,7 +507,7 @@ Span $\{ \mathbf{a}_{1}, &ctdot;, \mathbf{a}_{n} \}$으로 형성된 공간은 �
   \end{aligned}
 \end{equation}
 <p>
-이 때 입력 $x$에 의해 매핑되는 출력 $y$는 유일하게 결정된다. <b>Domain</b> 이란 입력 $x$의 모든 가능한 집합을 의미한다. <b>Co-Domain</b> 이란 출력 $y$의 모든 가능한 집합을 의미한다. <b>Image</b> 란 주어진 입력 $x$에 대해 매핑된 출력 $y$를 의미한다. <b>Range</b> 란 Domain내에 있는 입력 $x$들에 의해 매핑된 모든 출력 $y$의 집합을 의미한다.
+이 때 입력 $x$에 의해 매핑되는 출력 $y$는 유일하게 결정된다. <b>Domain(정의역)</b> 이란 입력 $x$의 모든 가능한 집합을 의미한다. <b>Co-Domain(공역)</b> 이란 출력 $y$의 모든 가능한 집합을 의미한다. <b>Image</b> 란 주어진 입력 $x$에 대해 매핑된 출력 $y$를 의미한다. <b>Range(치역)</b> 란 Domain내에 있는 입력 $x$들에 의해 매핑된 모든 출력 $y$의 집합을 의미한다.
 </p>
 
 <hr />
@@ -540,6 +576,12 @@ $T: \mathbf{x}&isin; \mathbb{R}^{n} \mapsto\mathbf{y}&isin; \mathbb{R}^{m}$은 n
 <div id="outline-container-org95f3f8d" class="outline-2">
 <h2 id="org95f3f8d"><span class="section-number-2">21</span> Onto and One-To-One</h2>
 <div class="outline-text-2" id="text-21">
+
+<div class="figure">
+<p><img src="/pictures/200621_linalg/09.PNG" alt="09.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 Onto는 <b>전사함수(Surjective)라고도 불리며 공역이 치역과 같은 경우를 의미한다.</b> 이는 Co-Domain의 모든 원소들이 사영된 것을 의미한다.
 </p>
@@ -686,6 +728,12 @@ One-To-One은 <b>일대일함수(Injective)라고도 불리며 정의역의 원�
 <div id="outline-container-org39d6e3c" class="outline-2">
 <h2 id="org39d6e3c"><span class="section-number-2">29</span> Orthogonal Vectors</h2>
 <div class="outline-text-2" id="text-29">
+
+<div class="figure">
+<p><img src="/pictures/200621_linalg/10.PNG" alt="10.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 두 벡터 $\mathbf{u,v}&isin; \mathbb{R}^{n}$가 있을 때 둘이 수직이려면 두 벡터의 내적이 0이어야 한다.
 </p>
@@ -714,6 +762,12 @@ $\mathbf{A}&isin;\mathbb{R}^{m&times; n}, \mathbf{b}&isin;\mathbb{R}^{n}, m &Lt;
     \hat{\mathbf{x}} = \arg\min_{\mathbf{x}} \| \mathbf{b}-\mathbf{Ax} \|
   \end{aligned}
 \end{equation}
+
+<div class="figure">
+<p><img src="/pictures/200621_linalg/11.PNG" alt="11.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 최소제곱법의 중요한 포인트 중 하나는 어떤 $\mathbf{x}$파라미터를 선정하던지 벡터 $\mathbf{Ax}$는 반드시 Col $\mathbf{A}$안에 위치한다는 것이다. 따라서 <b>최소제곱법은 Col $\mathbf{A}$와 $\mathbf{b}$의 거리가 최소가 되는 $\mathbf{x}$를 찾는 문제가 된다.</b>
 </p>
@@ -809,8 +863,8 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
 <hr />
 </div>
 </div>
-<div id="outline-container-orgab723b9" class="outline-2">
-<h2 id="orgab723b9"><span class="section-number-2">34</span> Orthogonal Projection Perspective</h2>
+<div id="outline-container-org26678fd" class="outline-2">
+<h2 id="org26678fd"><span class="section-number-2">34</span> Orthogonal Projection Perspective</h2>
 <div class="outline-text-2" id="text-34">
 <p>
 행렬 $\mathbf{C}=\mathbf{A}^{T}\mathbf{A}$가 있을 때 $\mathbf{b}$점에서 Col $\mathbf{A}$공간으로 프로젝션하면 다음과 같다.
@@ -827,6 +881,12 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
 <div id="outline-container-orgb57a05a" class="outline-2">
 <h2 id="orgb57a05a"><span class="section-number-2">35</span> Orthogonal and Orthonormal Sets</h2>
 <div class="outline-text-2" id="text-35">
+
+<div class="figure">
+<p><img src="/pictures/200621_linalg/12.PNG" alt="12.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 벡터들의 집합 $\mathbf{u}_{1},&ctdot;,\mathbf{u}_{n} &isin; \mathbb{R}^{n}$가 있을 때 모든 벡터 쌍들이 $\mathbf{u}_{i} &sdot; \mathbf{u}_{j} = 0, \ \ i &ne; j$를 만족하면 해당 집합은 <b>직교(Orhogonal)</b> 하다고 말한다.
 </p>
@@ -855,6 +915,12 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
 <div id="outline-container-org42fb7d1" class="outline-2">
 <h2 id="org42fb7d1"><span class="section-number-2">37</span> Orthogonal Projection $\hat{\mathbf{y}}$of $\mathbf{y}$onto Line</h2>
 <div class="outline-text-2" id="text-37">
+
+<div class="figure">
+<p><img src="/pictures/200621_linalg/14.PNG" alt="14.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 1차원 부분공간 $L = \text{Span} \{ \mathbf{u} \}$위로 $\mathbf{y}$를 프로젝션하여 $\hat{\mathbf{y}}$를 구하면 다음과 같다.
 </p>
@@ -879,6 +945,12 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
 <div id="outline-container-orgaa79bd5" class="outline-2">
 <h2 id="orgaa79bd5"><span class="section-number-2">38</span> Orthogonal Projection $\hat{\mathbf{y}}$of $\mathbf{y}$onto Plane</h2>
 <div class="outline-text-2" id="text-38">
+
+<div class="figure">
+<p><img src="/pictures/200621_linalg/15.PNG" alt="15.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 2차원 부분공간 $W = \text{Span} \{ \mathbf{u}_{1}, \mathbf{u}_{2} \}$위로 $\mathbf{y}$를 프로젝션하여 $\hat{\mathbf{y}}$를 구하면 다음과 같다.
 </p>
@@ -952,8 +1024,8 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
 <hr />
 </div>
 </div>
-<div id="outline-container-org26678fd" class="outline-2">
-<h2 id="org26678fd"><span class="section-number-2">41</span> Orthogonal Projection Perspective</h2>
+<div id="outline-container-org6a66f8d" class="outline-2">
+<h2 id="org6a66f8d"><span class="section-number-2">41</span> Orthogonal Projection Perspective</h2>
 <div class="outline-text-2" id="text-41">
 <p>
 정규직교인 열벡터를 가지는 행렬 $\mathbf{A}= \mathbf{U}=  [\mathbf{u}_{1} \ \mathbf{u}_{2}]$가 있을 때 $\mathbf{b}$벡터를 Col $\mathbf{A}$공간으로 정사영시키는 경우
@@ -979,6 +1051,12 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
 <div id="outline-container-org60063db" class="outline-2">
 <h2 id="org60063db"><span class="section-number-2">42</span> Gram-Schmidt Orthogonalization</h2>
 <div class="outline-text-2" id="text-42">
+
+<div class="figure">
+<p><img src="/pictures/200621_linalg/18.PNG" alt="18.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 벡터 $\mathbf{x}_{1} = \begin{bmatrix}3\\6\\0 \end{bmatrix}, \mathbf{x}_{2} = \begin{bmatrix}1\\2\\2 \end{bmatrix}$로 인해 Span되는 부분공간 $W{x}_{1} = \text{Span}[ \mathbf{x}\ \mathbf{x}_{2} ]$가 있을 때 두 벡터의 내적 $\mathbf{x}_{1}&sdot; \mathbf{x}_{2} = 15 &ne; 0$이므로 두 벡터는 수직이 아니다.
 </p>
@@ -1002,6 +1080,12 @@ $\mathbf{Ax}&cong; \mathbf{b}$를 만족하는 최소제곱법의 근사해는 �
 <div id="outline-container-orga723081" class="outline-2">
 <h2 id="orga723081"><span class="section-number-2">43</span> Eigenvectors and Eigenvalues</h2>
 <div class="outline-text-2" id="text-43">
+
+<div class="figure">
+<p><img src="/pictures/200621_linalg/17.PNG" alt="17.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 정방행렬 $\mathbf{A}&isin; \mathbb{R}^{n&times; n}$에 대한 고유벡터(eigenvector)는 $\mathbf{Ax}=&lambda; \mathbf{x}$를 만족하는 0이 아닌 벡터 $\mathbf{x}&isin; \mathbb{R}^{n}$을 말한다. 이 때 $&lambda;$는 행렬 $\mathbf{A}$의 고유값(eigenvalue)이라고 한다.
 </p>
@@ -1048,6 +1132,12 @@ $\mathbf{A}= \begin{bmatrix}\mathbf{a}_{1}^{T} \\ \mathbf{a}_{2}^{T} \\ \vdots\\
 <div id="outline-container-org9403c50" class="outline-2">
 <h2 id="org9403c50"><span class="section-number-2">45</span> Orthogonal Complement</h2>
 <div class="outline-text-2" id="text-45">
+
+<div class="figure">
+<p><img src="/pictures/200621_linalg/19.PNG" alt="19.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 벡터 $\mathbf{z}$가 부분공간 $W &isin; \mathbb{R}^{n}$의 모든 벡터와 직교하면 $\mathbf{z}$는 부분공간 $W$와 직교한다고 말할 수 있다. 부분공간 $W$와 직교하는 모든 벡터 $\mathbf{z}$의 집합을 직교여공간(Orthogonal Complement)라고 부르며 $W^{&perp;}$로 표시한다.
 </p>
@@ -1306,6 +1396,12 @@ $(\mathbf{A}-&lambda; \mathbf{x})\mathbf{x}=0$에서 $(\mathbf{A}-&lambda; \math
 <div id="outline-container-org9f707bd" class="outline-2">
 <h2 id="org9f707bd"><span class="section-number-2">54</span> Singular Value Decomposition</h2>
 <div class="outline-text-2" id="text-54">
+
+<div class="figure">
+<p><img src="/pictures/200621_linalg/20.PNG" alt="20.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 행렬 $\mathbf{A}&isin; \mathbb{R}^{m &times; n}$이 주어졌을 때 특이값 분해(Singular Value Decomposition, SVD)는 다음과 같이 나타낼 수 있다.
 </p>
