@@ -72,16 +72,16 @@ Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
 <h2 id="org6c01022"><span class="section-number-2">3</span> Joint Distribution</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-두 개의 확률변수 $x,y$가 있을 때 다변수 확률분포$p(x,y) &sim; \mathcal{N}(\mathbf{\mu}, &Sigma;)$는 다음과 같이 나타낼 수 있다.
+두 개의 확률변수 $x_{a},x_{b}$가 있을 때 다변수 확률분포$p(x_{a}, x_{b}) &sim; \mathcal{N}(\mathbf{\mu}, &Sigma;)$는 다음과 같이 나타낼 수 있다.
 </p>
 
 \begin{equation}
   \begin{aligned}
-    p(x,y) = \frac{1}{\sqrt{(2\pi)^{n}|\Sigma|}}\exp{-\frac{1}{2}\bigg(\begin{bmatrix} x - \mathbb{E}(x) \\ y - \mathbb{E}(y) \end{bmatrix}\bigg)^{T}\Sigma^{-1}\bigg(\begin{bmatrix} x - \mathbb{E}(x) \\ y - \mathbb{E}(y) \end{bmatrix}\bigg)}
+    p(x_{a}, x_{b}) = \frac{1}{\sqrt{(2\pi)^{n}|\Sigma|}}\exp{-\frac{1}{2}\bigg(\begin{bmatrix} x_{a} - \mathbb{E}(x_{a}) \\ x_{b} - \mathbb{E}(x_{b}) \end{bmatrix}\bigg)^{T}\Sigma^{-1}\bigg(\begin{bmatrix} x_{a} - \mathbb{E}(x_{a}) \\ x_{b} - \mathbb{E}(x_{b}) \end{bmatrix}\bigg)}
   \end{aligned}
 \end{equation}
 <p>
-이 때 평균은 $\mathbf{\mu}= \begin{bmatrix}\mathbb{E}(x) \\ \mathbb{E}(y) \end{bmatrix}$이고 분산은 $&Sigma; = \begin{bmatrix}&Sigma;_{xx} &amp; &Sigma;_{xy} \\ &Sigma;_{yx} &amp; &Sigma;_{yy} \end{bmatrix}$이다. 
+이 때 평균은 $\mathbf{\mu}= \begin{bmatrix}\mathbb{E}(x_{a}) \\ \mathbb{E}(x_{b}) \end{bmatrix}$이고 분산은 $&Sigma; = \begin{bmatrix}&Sigma;_{x_{a}x_{a}} &amp; &Sigma;_{x_{a}x_{b}} \\ &Sigma;_{x_{b}x_{a}} &amp; &Sigma;_{x_{b}x_{b}} \end{bmatrix}$이다. 
 </p>
 </div>
 </div>
