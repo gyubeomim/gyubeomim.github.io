@@ -1,13 +1,3 @@
---- 
-layout: post
-title: (Geometry) Notes on Multiple View Geometry Part 1
-description: 
-date: 2020-06-03
-categories: [Mathematics]
-tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
-use_math: true
-comments: true
----
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -24,10 +14,10 @@ comments: true
 <li><a href="#orgef72f6c">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#org3885a05">1.2. Ideal points and the line at infinity</a>
+<li><a href="#org83ed84f">1.2. Ideal points and the line at infinity</a>
 <ul>
 <li><a href="#org2038504">1.2.1. Intersection of parallel lines</a></li>
-<li><a href="#orgdba5663">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#org3885a05">1.2.2. Ideal points and the line at infinity</a></li>
 <li><a href="#org773282c">1.2.3. A model for the projective plane</a></li>
 <li><a href="#org45777bb">1.2.4. Duality</a></li>
 </ul>
@@ -37,7 +27,7 @@ comments: true
 <li><a href="#org444e997">1.3.1. Five points define a conic</a></li>
 <li><a href="#org0e05942">1.3.2. Tangent lines to conics</a></li>
 <li><a href="#orgcde8919">1.3.3. Dual conics</a></li>
-<li><a href="#orgea4fc36">1.3.4. Proof</a></li>
+<li><a href="#orge976870">1.3.4. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgc4e6a57">1.4. Projective transformations</a></li>
@@ -86,7 +76,7 @@ comments: true
 <li><a href="#orgad65def">2.2.10. Back-projection of points to rays</a></li>
 <li><a href="#orga9d0b55">2.2.11. Depth of points</a></li>
 <li><a href="#org27a3030">2.2.12. Result 6.1</a></li>
-<li><a href="#orge976870">2.2.13. Proof</a></li>
+<li><a href="#org4aa514c">2.2.13. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgc1e76e8">2.3. Cameras at infinity</a>
@@ -167,7 +157,16 @@ comments: true
 </ul>
 </div>
 </div>
-
+--- 
+layout: post
+title: (Geometry) Notes on Multiple View Geometry Part 1
+description: 
+date: 2020-06-03
+categories: [Mathematics]
+tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
+use_math: true
+comments: true
+---
 <div id="outline-container-org939d92b" class="outline-2">
 <h2 id="org939d92b"><span class="section-number-2">1</span> Projective geometry and transformations in 2D</h2>
 <div class="outline-text-2" id="text-1">
@@ -343,8 +342,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-org3885a05" class="outline-3">
-<h3 id="org3885a05"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div id="outline-container-org83ed84f" class="outline-3">
+<h3 id="org83ed84f"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
@@ -404,8 +403,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-orgdba5663" class="outline-4">
-<h4 id="orgdba5663"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div id="outline-container-org3885a05" class="outline-4">
+<h4 id="org3885a05"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0$일 때 $\mathbb{R}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{R}^{2}$공간과 대응되지 않고 $\mathbb{P}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
@@ -619,8 +618,8 @@ $\mathbb{P}^{2}$상의 conic $\mathbf{C}$가 주어졌을 때, <b>$\mathbf{C}$�
 </div>
 </div>
 
-<div id="outline-container-orgea4fc36" class="outline-4">
-<h4 id="orgea4fc36"><span class="section-number-4">1.3.4</span> Proof</h4>
+<div id="outline-container-orge976870" class="outline-4">
+<h4 id="orge976870"><span class="section-number-4">1.3.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 ($\Rightarrow$) conic $\mathbf{C}&isin; \mathbb{R}^{3&times; 3}$의 rank가 3이고 non-singular하다고 가정하면 $\mathbf{C}^{&lowast;} = det(\mathbf{C}^{-1})$와 같이 나타낼 수 있다. $\mathbf{C}$위의 한 점 $\mathbf{x}&isin; \mathbf{C}$가 주어졌을 때 $\mathbf{x}$에서 접선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{Cx}$로 나타낼 수 있다. 이를 위 식에 대입하면
@@ -804,7 +803,7 @@ affine 변환은 물체의 길이 비율을 보존하며 또한 평행한 직선
 <div class="outline-text-3" id="text-1-7">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/24.png" alt="24.png" align="center" width="400px" />
+<p><img src="/pictures/200607_mvg/24.png" alt="24.png" align="center" width="700px" />
 </p>
 </div>
 
@@ -885,7 +884,7 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
 <div class="outline-text-4" id="text-2-1-1">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/26.png" alt="26.png" align="center" width="400px" />
+<p><img src="/pictures/200607_mvg/26.png" alt="26.png" align="center" width="700px" />
 </p>
 </div>
 
@@ -1016,7 +1015,7 @@ $XZ$평면에서 이미지 평면을 봤을 때 역시 유사하게 $f_{x}$를 �
 <div class="outline-text-4" id="text-2-1-4">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/30.png" alt="30.png" align="center" width="400px" />
+<p><img src="/pictures/200607_mvg/30.png" alt="30.png" align="center" width="600px" />
 </p>
 </div>
 
@@ -1179,7 +1178,7 @@ General Projective Camera는 앞서 설명한 Finite projective camera와 달리
 <div class="outline-text-4" id="text-2-2-3">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/31.png" alt="31.png" align="center" width="400px" />
+<p><img src="/pictures/200607_mvg/31.png" alt="31.png" align="center" width="800px" />
 </p>
 </div>
 
@@ -1397,7 +1396,7 @@ General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\
 <div class="outline-text-4" id="text-2-2-12">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/35.png" alt="35.png" align="center" width="400px" />
+<p><img src="/pictures/200607_mvg/35.png" alt="35.png" align="center" width="700px" />
 </p>
 </div>
 
@@ -1416,8 +1415,8 @@ General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\
 </div>
 </div>
 
-<div id="outline-container-orge976870" class="outline-4">
-<h4 id="orge976870"><span class="section-number-4">2.2.13</span> Proof</h4>
+<div id="outline-container-org4aa514c" class="outline-4">
+<h4 id="org4aa514c"><span class="section-number-4">2.2.13</span> Proof</h4>
 <div class="outline-text-4" id="text-2-2-13">
 <p>
 행벡터 $\mathbf{m}_{3,row}$는 주축의 방향을 의미하므로 월드 상의 점 $~{\mathbf{X}}$를 $\mathbf{m}_{3,row}$로 프로젝션한 값이 곧 $Z$축에 대한 깊이를 의미한다. 주축으로 프로젝션은
@@ -1461,7 +1460,7 @@ General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\
 <div class="outline-text-3" id="text-2-3">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/36.png" alt="36.png" align="center" width="400px" />
+<p><img src="/pictures/200607_mvg/36.png" alt="36.png" align="center" width="600px" />
 </p>
 </div>
 
@@ -1488,7 +1487,7 @@ General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\
 <div class="outline-text-4" id="text-2-3-1">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/38.png" alt="38.png" align="center" width="400px" />
+<p><img src="/pictures/200607_mvg/38.png" alt="38.png" align="center" width="700px" />
 </p>
 </div>
 
@@ -1512,7 +1511,7 @@ Affine 카메라 $\mathbf{P}_{A}$는 무한대 평면을 프로젝션했을 때 
 <div class="outline-text-4" id="text-2-3-2">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/39.png" alt="39.png" align="center" width="400px" />
+<p><img src="/pictures/200607_mvg/39.png" alt="39.png" align="center" width="700px" />
 </p>
 </div>
 
@@ -1643,7 +1642,7 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 <div class="outline-text-4" id="text-2-3-3">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/40.png" alt="40.png" align="center" width="400px" />
+<p><img src="/pictures/200607_mvg/40.png" alt="40.png" align="center" width="800px" />
 </p>
 </div>
 
@@ -2559,7 +2558,7 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 <div class="outline-text-3" id="text-4-7">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/43.png" alt="43.png" align="center" width="400px" />
+<p><img src="/pictures/200607_mvg/43.png" alt="43.png" align="center" width="700px" />
 </p>
 </div>
 
@@ -2684,7 +2683,7 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 <div class="outline-text-3" id="text-4-10">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/45.png" alt="45.png" align="center" width="400px" />
+<p><img src="/pictures/200607_mvg/45.png" alt="45.png" align="center" width="800px" />
 </p>
 </div>
 
@@ -2707,7 +2706,7 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 <div class="outline-text-3" id="text-4-11">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/46.png" alt="46.png" align="center" width="400px" />
+<p><img src="/pictures/200607_mvg/46.png" alt="46.png" align="center" width="700px" />
 </p>
 </div>
 
@@ -2748,7 +2747,7 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
 \end{equation}
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/47.png" alt="47.png" align="center" width="400px" />
+<p><img src="/pictures/200607_mvg/47.png" alt="47.png" align="center" width="700px" />
 </p>
 </div>
 
