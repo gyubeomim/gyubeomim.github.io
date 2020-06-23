@@ -54,16 +54,16 @@ Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
   \end{aligned}
 \end{equation}
 <p>
-이 때 $P(B|A)$를 Posterior라고 하고 $P(A|B)$를 Likelihood, $P(B)$를 Prior라고 한다. 로봇의 위치를 $x$, 로봇의 센서를 통해 관측한 값을 $z$이라고 했을 때
+이 때 $P(B|A)$를 Posterior라고 하고 $P(A|B)$를 Likelihood, $P(B)$를 Prior라고 한다. 예를 들어, 로봇의 위치를 $x$, 로봇의 센서를 통해 관측한 값을 $z$이라고 했을 때 주어진 관측 데이터를 바탕으로 현재 로봇이 $x$에 위치할 확률 $p(x|z)$는
 </p>
 
 \begin{equation}
   \begin{aligned}
-    p(x|z) = \frac{p(z|x)p(x)}{p(z)}
+    p(x|z) = \frac{p(z|x)p(x)}{p(z)} = \eta \cdot p(z|x)p(x)
   \end{aligned}
 \end{equation}
 <p>
-과 같이 나타낸다. 이 때, $p(x|z)$를 주어진 관측 데이터를 바탕으로 현재 로봇이 $x$에 위치할 확률을 의미하고 $p(z|x)$는 $x$위치에서 해당 관측값이 나올 확률을 의미하며 마지막으로 $p(x)$는 로봇이 $x$위치에 존재할 확률을 의미한다.
+과 같다. $p(z|x)$는 $x$위치에서 해당 관측값이 나올 확률을 의미하며 마지막으로 $p(x)$는 로봇이 $x$위치에 존재할 확률을 의미한다. $1/p(z)$는 $&eta;$로 치환하여 주로 표기하며 $p(z|x)p(x)$확률분포의 넓이가 1이 되도록 정규화해주는 Normalization Factor라고 한다.
 </p>
 </div>
 </div>
