@@ -82,7 +82,7 @@ Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
 
 \begin{equation}
   \begin{aligned}
-    p(x_{a} | x_{b}=b) &amp; = \frac{p(x_{a},x_{b})}{p(x_{b})} = \frac{p(x_{a} | x_{b})p(x_{a})}{p(x_{b})} = \eta \cdot p(x_{a}, x_{b})p(x_{a}) \\
+    p(x_{a} | x_{b}=b) &amp; = \frac{p(x_{a},x_{b})}{p(x_{b})} = \frac{p(x_{b} | x_{a})p(x_{a})}{p(x_{b})} = \eta \cdot p(x_{a}, x_{b})p(x_{a}) \\
     &amp; \sim \mathcal{N}(\mu_{a|b}, \Sigma_{a|b})
   \end{aligned}
 \end{equation}
