@@ -54,7 +54,7 @@ Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
   \end{aligned}
 \end{equation}
 <p>
-이 때 $P(B|A)$를 Posterior라고 하고 $P(A|B)$를 Likelihood, $P(B)$를 Prior라고 한다. 로보틱스에서는 로봇의 상태를 $x$, 로봇의 센서를 통해 관측한 값을 $z$이라고 했을 때
+이 때 $P(B|A)$를 Posterior라고 하고 $P(A|B)$를 Likelihood, $P(B)$를 Prior라고 한다. 로봇의 위치를 $x$, 로봇의 센서를 통해 관측한 값을 $z$이라고 했을 때
 </p>
 
 \begin{equation}
@@ -63,7 +63,7 @@ Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
   \end{aligned}
 \end{equation}
 <p>
-과 같이 나타낸다. 이 때, $p(x|z)$를 Posterior, $p(z|x)$를 Likelihood, $p(x)$를 Prior라고 한다.
+과 같이 나타낸다. 이 때, $p(x|z)$를 주어진 관측 데이터를 바탕으로 현재 로봇이 $x$에 위치할 확률을 의미하고 $p(z|x)$는 $x$위치에서 해당 관측값이 나올 확률을 의미하며 마지막으로 $p(x)$는 로봇이 $x$위치에 존재할 확률을 의미한다.
 </p>
 </div>
 </div>
