@@ -138,7 +138,7 @@ Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
   \end{aligned}
 \end{equation}
 <p>
-Recursive Bayes Filter는 위와 같이 이전 스텝의 $\text{bel}(x_{t-1})$로부터 현재 스텝의 $\text{bel}(x_{t})$를 구할 수 있으므로 재귀 필터라고 부른다. <b>이 때, $p(z_{t} \ | \ x_{t})$를 관측 모델(observation model)이라고 부르며 $&int; p(x_{t} \ | \ x_{t-1},u_{t})$를 모션 모델(motion model)이라고 부른다. $\text{bel}(x_{t})$가 가우시안 분포를 따르는 경우 이를 특별히 Kalman Filter라고 한다.</b>
+Recursive Bayes Filter는 위와 같이 이전 스텝의 $\text{bel}(x_{t-1})$로부터 현재 스텝의 $\text{bel}(x_{t})$를 구할 수 있으므로 재귀 필터라고 부른다. <b>이 때, $p(z_{t} \ | \ x_{t})$를 관측 모델(observation model)이라고 부르며 $&int; p(x_{t} \ | \ x_{t-1},u_{t})$를 모션 모델(motion model)이라고 부른다. $\text{bel}(x_{t})$가 가우시안 분포를 따르는 경우 이를 특별히 칼만 필터(kalman filter)라고 한다.</b>
 </p>
 
 \begin{equation}
@@ -159,20 +159,20 @@ Recursive Bayes Filter는 위와 같이 이전 스텝의 $\text{bel}(x_{t-1})$�
 
 \begin{equation}
   \begin{aligned}
-    &amp; x_{t} = \mathbf{A}x_{t-1} + \mathbf{B}u_{t} + \epsilon_{t} \quad \epsilon_{t} \sim \mathcal{N}(0, \mathbf{R}_{t}) \\
+    &amp; x_{t} = \mathbf{A}x_{t-1} + \mathbf{B}u_{t} + \epsilon_{t} 
   \end{aligned}
 \end{equation}
 <p>
-그리고 관측 모델은
+이 때, $&epsilon;_{t} &sim; \mathcal{N}(0, \mathbf{R}_{t})$는 모션 모델의 노이즈를 의미한다.  관측 모델은
 </p>
 
 \begin{equation}
   \begin{aligned}
-    z_{t} = \mathbf{C}_{t}x_{t} + \delta_{t} \quad \delta_{t} \sim \mathcal{N}(0, \mathbf{Q}_{t})
+    z_{t} = \mathbf{C}_{t}x_{t} + \delta_{t} 
   \end{aligned}
 \end{equation}
 <p>
-이다. 초기값 $\text{bel}(x_{0})$은 다음과 같이 주어진다.
+이다. 이 때, $&delta;_{t} &sim; \mathcal{N}(0, \mathbf{Q}_{t})$는 관측 모델의 노이즈를 의미한다. 초기값 $\text{bel}(x_{0})$은 다음과 같이 주어진다.
 </p>
 
 \begin{equation}
@@ -191,7 +191,7 @@ Recursive Bayes Filter는 위와 같이 이전 스텝의 $\text{bel}(x_{t-1})$�
   \end{aligned}
 \end{equation}
 <p>
-과 같고 <b>$\overline{\text{bel}}(x_{t})$를 Predictoin Step, $\text{bel}(x_{t})$를 Correction Step이라고 한다. 일반적으로 Prediction Step을 먼저 구한 후 Correction Step 값을 구한다.</b>
+과 같고 <b>$\overline{\text{bel}}(x_{t})$를 Prediction Step, $\text{bel}(x_{t})$를 Correction Step이라고 한다.</b> 칼만필터는 Prediction Step에서 이전 스텝의 값과 모션 모델을 사용하여 예측값을 먼저 구한 후 Correction Step에서 관측값과 관측 모델을 사용하여 보정된 값을 구하는 방식으로 동작한다.
 </p>
 </div>
 
