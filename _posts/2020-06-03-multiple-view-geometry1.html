@@ -24,10 +24,10 @@ comments: true
 <li><a href="#orgef72f6c">1.1.6. Line joining points</a></li>
 </ul>
 </li>
-<li><a href="#orga28a51b">1.2. Ideal points and the line at infinity</a>
+<li><a href="#orgdba5663">1.2. Ideal points and the line at infinity</a>
 <ul>
 <li><a href="#org2038504">1.2.1. Intersection of parallel lines</a></li>
-<li><a href="#orgd01f692">1.2.2. Ideal points and the line at infinity</a></li>
+<li><a href="#orga28a51b">1.2.2. Ideal points and the line at infinity</a></li>
 <li><a href="#org773282c">1.2.3. A model for the projective plane</a></li>
 <li><a href="#org45777bb">1.2.4. Duality</a></li>
 </ul>
@@ -37,7 +37,7 @@ comments: true
 <li><a href="#org444e997">1.3.1. Five points define a conic</a></li>
 <li><a href="#org0e05942">1.3.2. Tangent lines to conics</a></li>
 <li><a href="#orgcde8919">1.3.3. Dual conics</a></li>
-<li><a href="#org6cd85b3">1.3.4. Proof</a></li>
+<li><a href="#org86f39e5">1.3.4. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgc4e6a57">1.4. Projective transformations</a></li>
@@ -63,7 +63,7 @@ comments: true
 <ul>
 <li><a href="#orgde03192">2.1. Finite cameras</a>
 <ul>
-<li><a href="#orgf566956">2.1.1. The bais pinhole model</a></li>
+<li><a href="#org8b7c7b8">2.1.1. The basic pinhole model</a></li>
 <li><a href="#org79fe86b">2.1.2. Central projection using homogeneous coordinates</a></li>
 <li><a href="#org5e2c31d">2.1.3. Principal point offset</a></li>
 <li><a href="#orge61f5b7">2.1.4. Camera rotation and translation</a></li>
@@ -86,7 +86,7 @@ comments: true
 <li><a href="#orgad65def">2.2.10. Back-projection of points to rays</a></li>
 <li><a href="#orga9d0b55">2.2.11. Depth of points</a></li>
 <li><a href="#org27a3030">2.2.12. Result 6.1</a></li>
-<li><a href="#org86f39e5">2.2.13. Proof</a></li>
+<li><a href="#orgea4fc36">2.2.13. Proof</a></li>
 </ul>
 </li>
 <li><a href="#orgc1e76e8">2.3. Cameras at infinity</a>
@@ -343,8 +343,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-orga28a51b" class="outline-3">
-<h3 id="orga28a51b"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
+<div id="outline-container-orgdba5663" class="outline-3">
+<h3 id="orgdba5663"><span class="section-number-3">1.2</span> Ideal points and the line at infinity</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
@@ -404,8 +404,8 @@ $\mathbb{P}^{2}$공간 상의 두 개의 직선 $\mathbf{l}, \mathbf{l}^{&prime;
 </div>
 </div>
 
-<div id="outline-container-orgd01f692" class="outline-4">
-<h4 id="orgd01f692"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
+<div id="outline-container-orga28a51b" class="outline-4">
+<h4 id="orga28a51b"><span class="section-number-4">1.2.2</span> Ideal points and the line at infinity</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0$일 때 $\mathbb{R}^{2}$공간 상의 한 점과 대응된다. 그러나 $x_{3} =0$이면 해당 점은 $\mathbb{R}^{2}$공간과 대응되지 않고 $\mathbb{P}^{2}$공간에만 존재하는데 이를 ideal point 또는 무한대 점(point at infinity)라고 부른다. 무한대 점은
@@ -471,6 +471,12 @@ homogeneous 벡터 $\mathbf{x}=(x_{1},x_{2},x_{3})^{\intercal}$는 $x_{3} &ne; 0
 <div id="outline-container-orgb8e7ae9" class="outline-3">
 <h3 id="orgb8e7ae9"><span class="section-number-3">1.3</span> Conics and dual conics</h3>
 <div class="outline-text-3" id="text-1-3">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/21.png" alt="21.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 conic이란 평면에서 이차식으로 정의된 곡선을 의미한다. 일반적인 공식으로는
 </p>
@@ -613,8 +619,8 @@ $\mathbb{P}^{2}$상의 conic $\mathbf{C}$가 주어졌을 때, <b>$\mathbf{C}$�
 </div>
 </div>
 
-<div id="outline-container-org6cd85b3" class="outline-4">
-<h4 id="org6cd85b3"><span class="section-number-4">1.3.4</span> Proof</h4>
+<div id="outline-container-org86f39e5" class="outline-4">
+<h4 id="org86f39e5"><span class="section-number-4">1.3.4</span> Proof</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 ($\Rightarrow$) conic $\mathbf{C}&isin; \mathbb{R}^{3&times; 3}$의 rank가 3이고 non-singular하다고 가정하면 $\mathbf{C}^{&lowast;} = det(\mathbf{C}^{-1})$와 같이 나타낼 수 있다. $\mathbf{C}$위의 한 점 $\mathbf{x}&isin; \mathbf{C}$가 주어졌을 때 $\mathbf{x}$에서 접선 $\mathbf{l}$은 $\mathbf{l}= \mathbf{Cx}$로 나타낼 수 있다. 이를 위 식에 대입하면
@@ -796,6 +802,12 @@ affine 변환은 물체의 길이 비율을 보존하며 또한 평행한 직선
 <div id="outline-container-org0bcdd0d" class="outline-3">
 <h3 id="org0bcdd0d"><span class="section-number-3">1.7</span> Recovery of affine and metric properties from images</h3>
 <div class="outline-text-3" id="text-1-7">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/24.png" alt="24.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 임의의 이미지가 주어졌을 때 이미지 상에서 평행한 선들과 직교한 선들을 사용하여 affine 성질과 metric 성질을 복원할 수 있다.
 </p>
@@ -868,16 +880,33 @@ affine 성질은 평행한 선들이 보존되는 affine 변환의 성질을 의
 <h3 id="orgde03192"><span class="section-number-3">2.1</span> Finite cameras</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-orgf566956" class="outline-4">
-<h4 id="orgf566956"><span class="section-number-4">2.1.1</span> The bais pinhole model</h4>
+<div id="outline-container-org8b7c7b8" class="outline-4">
+<h4 id="org8b7c7b8"><span class="section-number-4">2.1.1</span> The basic pinhole model</h4>
 <div class="outline-text-4" id="text-2-1-1">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/26.png" alt="26.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
-<b>핀홀 카메라(pinhole camera)란 $\mathbb{R}^{3}$공간 상에 있는 한 점 $\mathbf{X}$를 특정 중심점 $\mathbf{C}$를 향해 프로젝션시켰을 때 중간에 교차하는 이미지 평면 $\pi \in \mathbb{R}^{2}$상의 한 점 $\mathbf{x}$으로 상을 맺음으로써 이미지를 표현하는 수학적인 카메라 모델링 방법을 의미한다.</b>
-임의의 $\mathbb{R}^{3}$공간을 카메라 좌표계라고 생각해보면 좌표계의 원점은 카메라의 중심점 $\mathbf{C}$가 된다. 일반적으로 이미지 평면 $&pi;$은 $Z$축과 수직하도록 위치시키며 이 때, $Z$축을 Principal Axis라고 하고 이미지 평면과 Principal Axis가 만나는 점을 Principal Point $\mathbf{p}$라고 한다.
+<b>핀홀 카메라(pinhole camera)란 $\mathbb{R}^{3}$공간 상에 있는 한 점 $~{\mathbf{X}}$를 특정 중심점 $~{\mathbf{C}}$를 향해 프로젝션시켰을 때 중간에 교차하는 이미지 평면 $\pi \in \mathbb{R}^{2}$상의 한 점 $\mathbf{x}$으로 상을 맺음으로써 이미지를 표현하는 수학적인 카메라 모델링 방법을 의미한다. $~{\mathbf{X}}, ~{\mathbf{C}}$는 Inhomogeneous Coordinate으로 나타낸 $\mathbf{X}$를 의미한다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mathbf{X} = \begin{bmatrix} X&amp;Y&amp;Z&amp;1 \end{bmatrix}^{\intercal} \\
+    &amp; \tilde{\mathbf{X}} = \begin{bmatrix} X&amp;Y&amp;Z \end{bmatrix}^{\intercal} \\
+    &amp; \mathbf{C} = \begin{bmatrix} c_{x}&amp;c_{y}&amp;c_{z}&amp;1 \end{bmatrix}^{\intercal} \\
+    &amp; \tilde{\mathbf{C}} = \begin{bmatrix} c_{x}&amp;c_{y}&amp;c_{z}\end{bmatrix}^{\intercal} \\
+  \end{aligned}
+\end{equation}
+<p>
+임의의 $\mathbb{R}^{3}$공간을 카메라 좌표계라고 생각해보면 좌표계의 원점은 카메라의 중심점 $~{\mathbf{C}}$가 된다. 일반적으로 이미지 평면 $&pi;$은 $Z$축과 수직하도록 위치시키며 이 때, $Z$축을 Principal Axis라고 하고 이미지 평면과 Principal Axis가 만나는 점을 Principal Point $\mathbf{p}$라고 한다.
 </p>
 
 <p>
-3차원 공간 상의 점 $\mathbf{X}= \begin{bmatrix}X&amp;Y&amp;Z \end{bmatrix}^{\intercal}$가 주어졌을 때 $YZ$평면만 보는 경우 이미지 평면 $&pi;$과 카메라 중심점 $\mathbf{C}$사이의 거리인 $Y$축에 대한 초점거리(focal length) $f_{y}$를 계산할 수 있다. 
+3차원 공간 상의 점 $~{\mathbf{X}} = \begin{bmatrix}X&amp;Y&amp;Z \end{bmatrix}^{\intercal}$가 주어졌을 때 $YZ$평면만 보는 경우 이미지 평면 $&pi;$과 카메라 중심점 $\tilde{\mathbf{C}}$사이의 거리인 $Y$축에 대한 초점거리(focal length) $f_{y}$를 계산할 수 있다. 
 </p>
 
 \begin{equation}
@@ -895,7 +924,7 @@ $XZ$평면에서 이미지 평면을 봤을 때 역시 유사하게 $f_{x}$를 �
   \end{aligned}
 \end{equation}
 <p>
-이에 따라 <b>핀홀 카메라 행렬 $\mathbf{P}$는 월드 상의 점 $\mathbf{X}= \begin{pmatrix}X&amp;Y&amp;Z \end{pmatrix}^{\intercal} &isin; \mathbb{R}^{3}$를 2차원 이미지 평면 $&pi; &isin; \mathbb{R}^{2}$로 프로젝션하는 선형 사상이라고 볼 수 있다.</b>
+이에 따라 <b>핀홀 카메라 행렬 $\mathbf{P}$는 월드 상의 점 $~{\mathbf{X}} = \begin{pmatrix}X&amp;Y&amp;Z \end{pmatrix}^{\intercal} &isin; \mathbb{R}^{3}$를 2차원 이미지 평면 $&pi; &isin; \mathbb{R}^{2}$로 프로젝션하는 선형 사상이라고 볼 수 있다.</b>
 </p>
 
 \begin{equation}
@@ -937,6 +966,12 @@ $XZ$평면에서 이미지 평면을 봤을 때 역시 유사하게 $f_{x}$를 �
 <div id="outline-container-org5e2c31d" class="outline-4">
 <h4 id="org5e2c31d"><span class="section-number-4">2.1.3</span> Principal point offset</h4>
 <div class="outline-text-4" id="text-2-1-3">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/28.PNG" alt="28.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 일반적으로 Principal Point $\mathbf{p}$는 이미지 평면 $&pi;$의 원점이 아니다. 따라서 핀홀 카메라 행렬을 통한 선형 사상이 이미지 평면 $&pi;$에 제대로 대응하기 위해서는
 </p>
@@ -979,8 +1014,14 @@ $XZ$평면에서 이미지 평면을 봤을 때 역시 유사하게 $f_{x}$를 �
 <div id="outline-container-orge61f5b7" class="outline-4">
 <h4 id="orge61f5b7"><span class="section-number-4">2.1.4</span> Camera rotation and translation</h4>
 <div class="outline-text-4" id="text-2-1-4">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/30.PNG" alt="30.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
-일반적으로 카메라 좌표계는 월드 좌표계로와 동일하지 않다. $\mathbb{R}^{3}$공간 상에 월드 좌표계 $\{W\}$가 주어졌을 때 이로부터 위치가 $\mathbf{C}=\begin{pmatrix}c_{x}&amp;c_{y}&amp;c_{z}&amp;1 \end{pmatrix}^{\intercal}$만큼 떨어져 있으며 $\mathbf{R}$만큼 회전되어 있는 카메라 좌표계 $\{C\}$가 주어졌을 때 월드 좌표계 $\{W\}$에서 바라본 월드 상의 한 점 $\mathbf{X}$를 카메라 좌표계 $\{C\}$상의 점 $\mathbf{X}_{\mathbf{C}}$로 변환하는 공식은
+일반적으로 카메라 좌표계는 월드 좌표계로와 동일하지 않다. $\mathbb{R}^{3}$공간 상에 월드 좌표계 $\{W\}$가 주어졌을 때 이로부터 위치가 $\mathbf{C}=\begin{pmatrix}c_{x}&amp;c_{y}&amp;c_{z}&amp;1 \end{pmatrix}^{\intercal}$만큼 떨어져 있으며 $\mathbf{R}$만큼 회전되어 있는 카메라 좌표계 $\{C\}$가 주어졌을 때 월드 좌표계 $\{W\}$에서 바라본 월드 상의 한 점 $~{\mathbf{X}}$를 카메라 좌표계 $\{C\}$상의 점 $~{\mathbf{X}}_{\mathbf{C}}$로 변환하는 공식은
 </p>
 
 \begin{equation}
@@ -989,19 +1030,7 @@ $XZ$평면에서 이미지 평면을 봤을 때 역시 유사하게 $f_{x}$를 �
   \end{aligned}
 \end{equation}
 <p>
-와 같다. 이 때, <b>$~{\mathbf{X}}, ~{\mathbf{C}}$는 Inhomogeneous Coordinate으로 나타낸 $\mathbf{X}$를 의미한다.</b>
-</p>
-
-\begin{equation}
-  \begin{aligned}
-    &amp; \mathbf{X} = \begin{bmatrix} X&amp;Y&amp;Z&amp;1 \end{bmatrix}^{\intercal} \\
-    &amp; \tilde{\mathbf{X}} = \begin{bmatrix} X&amp;Y&amp;Z \end{bmatrix}^{\intercal} \\
-    &amp; \mathbf{C} = \begin{bmatrix} c_{x}&amp;c_{y}&amp;c_{z}&amp;1 \end{bmatrix}^{\intercal} \\
-    &amp; \tilde{\mathbf{C}} = \begin{bmatrix} c_{x}&amp;c_{y}&amp;c_{z}\end{bmatrix}^{\intercal} \\
-  \end{aligned}
-\end{equation}
-<p>
-$\mathbf{X}_{\mathbf{C}}$를 이미지 평면 $&pi;$로 프로젝션시키면
+와 같다. Homogeneous Coordinate로 나타낸 $\mathbf{X}_{\mathbf{C}}$를 이미지 평면 $&pi;$로 프로젝션시키면
 </p>
 
 \begin{equation}
@@ -1148,6 +1177,12 @@ General Projective Camera는 앞서 설명한 Finite projective camera와 달리
 <div id="outline-container-org981c720" class="outline-4">
 <h4 id="org981c720"><span class="section-number-4">2.2.3</span> Column vectors</h4>
 <div class="outline-text-4" id="text-2-2-3">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/31.png" alt="31.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 카메라 행렬 $\mathbf{P}$을 열벡터(column vector)로 나타내면 다음과 같다.
 </p>
@@ -1186,6 +1221,12 @@ General Projective Camera는 앞서 설명한 Finite projective camera와 달리
 <div id="outline-container-org627a343" class="outline-4">
 <h4 id="org627a343"><span class="section-number-4">2.2.5</span> The principal plane</h4>
 <div class="outline-text-4" id="text-2-2-5">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/32.png" alt="32.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 주평면(principal plane) $&pi;_{pp}$은 카메라의 중심점(center)를 포함하며 이미지 평면과 평행인 평면을 의미한다. 주평면은 카메라 좌표계 $\{C\}$에서 $XY$평면과 동일하며 $Z=0$인 특징이 있다. 주평면 상에 위치하는 한 점 $\mathbf{X}&isin; &pi;_{pp}$는 무한대 선(line at infinity) 상에서 이미지 평면 $&pi;$과 만나므로
 </p>
@@ -1289,6 +1330,12 @@ Forward-projection은 일반적으로 프로젝션이라고 불리며 <b>월드 
 <div id="outline-container-orgad65def" class="outline-4">
 <h4 id="orgad65def"><span class="section-number-4">2.2.10</span> Back-projection of points to rays</h4>
 <div class="outline-text-4" id="text-2-2-10">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/34.png" alt="34.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 Back-projection은 Forward-projection과는 반대로 <b>이미지 평면 상의 한 점 $\mathbf{x}$가 주어졌을 때 이를 월드 상의 한 직선으로 변환하는 연산을 의미한다.</b> 일반적으로 $\mathbf{x}$의 깊이값을 모르기 때문에 바로 월드 상의 한 점 $\mathbf{X}$로 변환되지 않는 특징이 있다. 임의의 카메라 행렬 $\mathbf{P}$는 rank가 3인 행렬이므로 Right Pseudo Inverse $\mathbf{P}^{&dagger;}$가 존재한다.
 </p>
@@ -1348,6 +1395,12 @@ General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\
 <div id="outline-container-org27a3030" class="outline-4">
 <h4 id="org27a3030"><span class="section-number-4">2.2.12</span> Result 6.1</h4>
 <div class="outline-text-4" id="text-2-2-12">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/35.png" alt="35.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 카메라 행렬 $\mathbf{P}$에 대한 월드 상의 점 $\mathbf{X}$의 깊이는
 </p>
@@ -1363,8 +1416,8 @@ General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\
 </div>
 </div>
 
-<div id="outline-container-org86f39e5" class="outline-4">
-<h4 id="org86f39e5"><span class="section-number-4">2.2.13</span> Proof</h4>
+<div id="outline-container-orgea4fc36" class="outline-4">
+<h4 id="orgea4fc36"><span class="section-number-4">2.2.13</span> Proof</h4>
 <div class="outline-text-4" id="text-2-2-13">
 <p>
 행벡터 $\mathbf{m}_{3,row}$는 주축의 방향을 의미하므로 월드 상의 점 $~{\mathbf{X}}$를 $\mathbf{m}_{3,row}$로 프로젝션한 값이 곧 $Z$축에 대한 깊이를 의미한다. 주축으로 프로젝션은
@@ -1406,6 +1459,12 @@ General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\
 <div id="outline-container-orgc1e76e8" class="outline-3">
 <h3 id="orgc1e76e8"><span class="section-number-3">2.3</span> Cameras at infinity</h3>
 <div class="outline-text-3" id="text-2-3">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/36.png" alt="36.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 <b>임의의 General Projective 카메라의 중심점 $\mathbf{C}$가 무한대 평면 $&pi;_{&infin;}$에 존재하는 경우 이를 무한대 카메라(camera at infinity)라고 한다.</b>
 </p>
@@ -1427,6 +1486,12 @@ General Projective 카메라 $\mathbf{P}$와 월드 상의 한 점 $\mathbf{X}=\
 <div id="outline-container-org5d7ad46" class="outline-4">
 <h4 id="org5d7ad46"><span class="section-number-4">2.3.1</span> Definition 6.3</h4>
 <div class="outline-text-4" id="text-2-3-1">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/38.png" alt="38.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 Affine 카메라 $\mathbf{P}_{A}$는 무한대 평면을 프로젝션했을 때 동일하게 무한대 평면이 되는 카메라를 의미한다.
 </p>
@@ -1445,8 +1510,14 @@ Affine 카메라 $\mathbf{P}_{A}$는 무한대 평면을 프로젝션했을 때 
 <div id="outline-container-org62ffc41" class="outline-4">
 <h4 id="org62ffc41"><span class="section-number-4">2.3.2</span> Affine cameras</h4>
 <div class="outline-text-4" id="text-2-3-2">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/39.png" alt="39.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
-Finite Projective 카메라 행렬 $\mathbf{P}=\mathbf{KR}[\mathbf{I}\ | \ 0]$가 있고 월드 상의 물체가 존재한다고 하자. 이 때, 물체에 대한 Zoom In을 수행하면서 동시에 카메라를 주축의 반대 방향으로 움직이면 Vertigo Effect가 발생한다. Vertigo Effect는 히치콕 감독의 영화 Vertigo에서 해당 기법을 처음 사용해서 붙은 이름이다.
+Finite Projective 카메라 행렬 $\mathbf{P}=\mathbf{KR}[\mathbf{I}\ | \ 0]$가 있고 월드 상의 물체가 존재한다고 하자. 이 때, <b>물체에 대한 Zoom In을 수행하면서 동시에 카메라를 주축의 반대 방향으로 움직이면 Vertigo Effect가 발생한다. Vertigo Effect는 히치콕 감독의 영화 Vertigo에서 해당 기법을 처음 사용해서 붙은 이름이다.</b>
 </p>
 
 <p>
@@ -1570,6 +1641,12 @@ Zoom In을 행렬로 표현하면 다음과 같다.
 <div id="outline-container-org3a14a64" class="outline-4">
 <h4 id="org3a14a64"><span class="section-number-4">2.3.3</span> Error in employing and affine camera</h4>
 <div class="outline-text-4" id="text-2-3-3">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/40.png" alt="40.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 <b>해당 섹션에서는 General Projective 카메라와 Affine 카메라로 동일한 물체를 찍었을 때 얼마나 큰 차이가 있는지에 대해서 설명한다.</b> General Projective 카메라는 $\mathbf{P}_{0}$로 표기하고 Affine 카메라는 $\mathbf{P}_{&infin;}$로 표기하며 시간 $t$에 따른 카메라 행렬의 변화는 $\mathbf{P}_{t}$로 표기한다.
 </p>
@@ -1910,6 +1987,12 @@ Twisted Cubic이란 $\mathbb{P}^{3}$공간 상에 존재하는 곡선을 의미�
 <div id="outline-container-orgd3557c9" class="outline-3">
 <h3 id="orgd3557c9"><span class="section-number-3">3.2</span> Geometric error</h3>
 <div class="outline-text-3" id="text-3-2">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/41.png" alt="41.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 앞서 설명한 방법과 같이 대응점 쌍 $(\mathbf{x}_{i}, \mathbf{X}_{i})$를 이용하여 $\mathbf{Ap}=0$형태의 Over-determined 선형시스템을 구성한 후 $\| \mathbf{p}\|=1$이면서 $\| \mathbf{Ap}\|$의 크기를 최소화하는 근사해 벡터 $\hat{\mathbf{p}}$를 구할 수 있다. 해당 섹션에서는 더욱 정확한 카메라 행렬 $\mathbf{P}$를 구하기 위해 기하학적 에러(geometric error)를 최소화하는 방법에 대해 설명한다. <b>기하학적 에러는 이미지 평면 상에서 이미 주어진 $\mathbf{x}_{i}$와 월드 상의 점 $\mathbf{X}_{i}$를 프로젝션한 $\mathbf{PX}_{i}$사이의 픽셀 거리를 의미한다. 실제 데이터에서는 노이즈로 인해 $\mathbf{x}_{i} &ne; \mathbf{PX}_{i}$이므로 두 점 사이의 거리 $d(\mathbf{x}_{i}, \mathbf{PX}_{i})$를 최소화해주는 최적의 카메라 행렬 $\mathbf{P}$를 찾아야 한다.</b>
 </p>
@@ -1965,13 +2048,19 @@ $d(\mathbf{x}_{i}, \mathbf{PX}_{i})^{2}$는 일반적으로 비선형이므로 �
 <div id="outline-container-org2b517c6" class="outline-3">
 <h3 id="org2b517c6"><span class="section-number-3">3.3</span> Zhang's method</h3>
 <div class="outline-text-3" id="text-3-3">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/42.png" alt="42.png" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 실제로 Gold Standard 알고리즘을 사용할 때는 임의의 대응점 쌍을 사용하는 것이 아닌 체커보드 상의 대응점 쌍을 사용한다. 이렇게 <b>체커보드를 통해 카메라 행렬 $\mathbf{P}$를 추정하는 알고리즘을 Zhang's Method라고 한다.</b> 월드 상의 체커보드 평면 $&pi;_{0}$가 주어졌을 때 월드 상의 원점을 체커보드의 좌측 상단으로 설정하고 체커보드의 평면이 $Z=0$인 평면으로 설정한다.
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \pi_{0} = \{ \mathbf{X}=(x,y,z)^{\intercal} \ | \ z=0 \}
+    \pi_{0} = \{ \mathbf{X}=(X,Y,Z)^{\intercal} \ | \ Z=0 \}
   \end{aligned}
 \end{equation}
 <p>
@@ -1984,14 +2073,14 @@ $d(\mathbf{x}_{i}, \mathbf{PX}_{i})^{2}$는 일반적으로 비선형이므로 �
   \end{aligned}
 \end{equation}
 <p>
-체커보드 상의 한 점 $\mathbf{X}=(x,\ y,\ 0,\ 1)^{\intercal}$를 프로젝션하면
+체커보드 상의 한 점 $\mathbf{X}=(X,\ Y,\ 0,\ 1)^{\intercal}$를 프로젝션하면
 </p>
 
 \begin{equation}
   \begin{aligned}
-    \mathbf{PX} &amp; = \mathbf{P} \begin{pmatrix} x\\y\\0\\1 \end{pmatrix} = \mathbf{K}[\mathbf{R} \ | \ \mathbf{t}] \begin{pmatrix} x\\y\\0\\1 \end{pmatrix} \\
-    &amp; = \mathbf{K}[\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{t}]
-  \end{aligned}
+      \mathbf{PX} &amp; = \mathbf{P} \begin{pmatrix} X\\Y\\0\\1 \end{pmatrix} = \mathbf{K}[\mathbf{R} \ | \ \mathbf{t}] \begin{pmatrix} X\\Y\\0\\1 \end{pmatrix} \\
+      &amp; = \mathbf{K}[\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{t}]\mathbf{X}
+\end{aligned}
 \end{equation}
 <p>
 가 된다. $z=0$이므로 행렬 $\mathbf{R}$의 세 번째 열벡터(column vector)는 0이 된다. 행렬 $\mathbf{K}[\mathbf{r}_{1,col} \ \mathbf{r}_{2,col} \ \mathbf{t}] &isin; \mathbb{R}^{3&times; 3}$는 체커보드 평면 $&pi;_{0}$에서 이미지 평면 $&pi;$로 변환하는 Homography $\mathbf{H}$로 볼 수 있다.
@@ -2468,6 +2557,12 @@ $\mathbf{K}, \mathbf{v}_{1}, \mathbf{v}_{2}$의 값을 모두 알고 있다고 �
 <div id="outline-container-orga0c70ae" class="outline-3">
 <h3 id="orga0c70ae"><span class="section-number-3">4.7</span> Affine 3D measurements and reconstruction</h3>
 <div class="outline-text-3" id="text-4-7">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/43.PNG" alt="43.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 3차원 공간 상의 평면 $&pi;$에 수직인 물체들의 소실점을 수직소실점(vertical vanishing point) $\mathbf{v_{&perp;}}$라고 한다.
 </p>
@@ -2563,6 +2658,12 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 <div id="outline-container-org2b9d73c" class="outline-3">
 <h3 id="org2b9d73c"><span class="section-number-3">4.9</span> Calibration from three orthogonal vanishing points</h3>
 <div class="outline-text-3" id="text-4-9">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/44.PNG" alt="44.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 내부 파라미터 $\mathbf{K}$가 Zero-Skew이고 Square Pixel일 때 세 개의 서로 직교하는 수직소실점들 $\mathbf{v}_{i}, \ i=1,2,3$을 사용하여 $\mathbf{K}$를 계산할 수 있다. 우선 $\mathbf{K}$가 Zero-Skew이고 Square Pixel이므로 다음이 성립한다.
 </p>
@@ -2581,16 +2682,22 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 <div id="outline-container-orge3c4130" class="outline-3">
 <h3 id="orge3c4130"><span class="section-number-3">4.10</span> Computation of focal length and principal point using vanishing point and vanishing line</h3>
 <div class="outline-text-3" id="text-4-10">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/45.PNG" alt="45.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 3차원 공간 상의 평면 $&pi;$로부터 구할 수 있는 소실선 $\mathbf{l}$이 있고 $&pi;$와 수직인 수직소실점 $\mathbf{v}_{&perp;}$가 있다고 하면 이를 활용하여 초점거리 f와 주점(principal point)를 구할 수 있다.
 </p>
 
 <p>
-초점거리 f를 구하는 방법은 다음과 같다. 수직소실점을 $\mathbf{v}_{1}$이라고 하고 이미지 평면과 평면 $&pi;$의 교선을 $\mathbf{l}_{1}$이라고 하면 $\mathbf{v}_{1}\mathbf{C}$와 $\mathbf{xC}$는 서로 직교한다. 그리고 카메라 중심에서 이미지 평면으로 수선을 내린 점 P가 있으면 $\mathbf{CP}$의 길이가 곧 초점거리 f가 된다. <b>$\mathbf{v}_{1}x$를 지름으로 하는 원을 그린 후 점 $\mathbf{P}$에 수평으로 그린 선과 원의 교점을 각각 $\mathbf{a}, \mathbf{b}$라고 하면 두 점 중 하나가 곧 카메라의 중심 $\mathbf{C}$가 되고 이는 곧 $\mathbf{aP}= \mathbf{bP}$가 초점거리 f</b> 가 된다.
+초점거리 f를 구하는 방법은 다음과 같다. 수직소실점을 $\mathbf{v}_{&perp;}$이라고 하고 이미지 평면 $&pi;_{\mathbf{C}}$과 평면 $&pi;$의 교차선을 $\mathbf{l}$이라고 하면 $\mathbf{v}_{&perp;}~{\mathbf{C}}$와 $\mathbf{x}~{\mathbf{C}}$는 서로 직교한다. 그리고 카메라 중심에서 이미지 평면으로 수선을 내린 점 P가 있으면 $~{\mathbf{C}}\mathbf{p}$의 길이가 곧 초점거리 f가 된다. <b>$\mathbf{v}_{&perp;}x$를 지름으로 하는 원을 그린 후 점 $\mathbf{p}$에 수평으로 그린 선과 원의 교점을 각각 $\mathbf{a}, \mathbf{b}$라고 하면 두 점 중 하나가 곧 카메라의 중심 $~{\mathbf{C}}$가 되고 이는 곧 $\mathbf{ap}= \mathbf{bp}$가 초점거리 f가 된다.</b>
 </p>
 
 <p>
-주점(principal point) P를 구하는 방법은 다음과 같다. 수직소실점을 $\mathbf{v}_{1}$라고 하고 이미지 평면과 $\pi$평면의 교선을 $\mathbf{l}_{1}$라고 하면 $\mathbf{v}_{1}$에서 $\mathbf{l}_{1}$에 수선을 내리면 해당 수선에 주점(principal point) P가 위치한다. 이러한 특징으로 인해 <b>서로 다른 세 개의 수직소실점이 존재하는 경우 이들의 수심(orthocenter of the triangle)이 곧 주점 P가 된다.</b>
+주점(principal point) P를 구하는 방법은 다음과 같다. 수직소실점을 $\mathbf{v}_{1}$라고 하고 이미지 평면과 $\pi$평면의 교차선을 $\mathbf{l}_{1}$라고 하면 $\mathbf{v}_{1}$에서 $\mathbf{l}_{1}$에 수선을 내리면 해당 수선에 주점(principal point) $\mathbf{p}$가 위치한다. 이러한 특징으로 인해 <b>서로 다른 세 개의 수직소실점이 존재하는 경우 이들의 수심(orthocenter of the triangle)이 곧 주점 $\mathbf{p}$가 된다.</b>
 </p>
 </div>
 </div>
@@ -2598,6 +2705,12 @@ $\mathbf{H}_{2&times;2}$는 Cross-Ratio를 보장한다. 다음으로 길이의 
 <div id="outline-container-orge6c269f" class="outline-3">
 <h3 id="orge6c269f"><span class="section-number-3">4.11</span> The calibrating conic</h3>
 <div class="outline-text-3" id="text-4-11">
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/46.PNG" alt="46.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 IAC(image of absolute conic)은 이미지 평면의 점을 Back-projection한 직선들 간의 각도를 구할 수 있고 Metric Rectification도 수행할 수 있는 유용한 도구이지만 Circular Point의 특성 상 실수의 근을 갖지 않아서 시각화가 불가능하다는 단점이 있다. 이를 보완하기 위해 고안된 것이 Calibration Conic이다. Calibration Conic은 $X^{2}+Y^{2}=Z^{2}$의 Cone을 프로젝션시킨 Image Conic을 의미하고 시각화가 가능한 장점이 존재한다.
 </p>
@@ -2633,6 +2746,12 @@ $\mathbf{C}$를 분해하면 다음과 같이 다시 정의할 수 있다.
     &amp; \mathbf{C} = \mathbf{w}\mathbf{S} \quad \text{where, } \mathbf{S} = \mathbf{KDK}^{-1}
   \end{aligned}
 \end{equation}
+
+<div class="figure">
+<p><img src="/pictures/200607_mvg/47.PNG" alt="47.PNG" align="center" width="400px" />
+</p>
+</div>
+
 <p>
 이 때 이미지 상의 임의의 점 $\mathbf{x}=\mathbf{K}~{\mathbf{X}}$에 대하여 $\mathbf{Sx}$는 Calibration Conic에 의해 반사된 점(reflected point)을 의미한다.
 </p>
