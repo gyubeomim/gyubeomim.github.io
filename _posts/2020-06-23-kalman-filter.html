@@ -1,0 +1,244 @@
+--- 
+layout: post
+title: (Estimation) Kalman Filter
+description: 
+date: 2020-06-21
+categories: [Engineering]
+tag: [Engineering, Filter, Kalam Filter, Linear Filter,
+Prediction, Correction, Bayesian]
+use_math: true
+comments: true
+---
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org2de8678">1. Bayesian Rule</a></li>
+<li><a href="#org6c01022">2. Joint Distribution</a></li>
+<li><a href="#orga5fbff1">3. Conditional Distribution</a></li>
+<li><a href="#org466bcf8">4. Recursive Bayes Filter</a></li>
+<li><a href="#org9cb8881">5. Kalman Filter</a>
+<ul>
+<li><a href="#org3d1efce">5.1. Prediction step</a></li>
+<li><a href="#org6c30b8e">5.2. Correction Step</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org2de8678" class="outline-2">
+<h2 id="org2de8678"><span class="section-number-2">1</span> Bayesian Rule</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    P(B|A) = \frac{P(B\cap A)}{P(A)} = \frac{P(A|B)P(B)}{P(A)}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 $P(B|A)$를 Posterior라고 하고 $P(A|B)$를 Likelihood, $P(B)$를 Prior라고 한다. 로보틱스에서는 로봇의 상태를 $x$, 로봇의 센서를 통해 관측한 값을 $z$이라고 했을 때
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    p(x|z) = \frac{p(z|x)p(x)}{p(z)}
+  \end{aligned}
+\end{equation}
+<p>
+과 같이 나타낸다. 이 때, $p(x|z)$를 Posterior, $p(z|x)$를 Likelihood, $p(x)$를 Prior라고 한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6c01022" class="outline-2">
+<h2 id="org6c01022"><span class="section-number-2">2</span> Joint Distribution</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+두 개의 확률변수 $x,y$가 있을 때 다변수 확률분포$p(x,y) &sim; \mathcal{N}(\mathbf{\mu}, &Sigma;)$는 다음과 같이 나타낼 수 있다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    p(x,y) = \frac{1}{\sqrt{(2\pi)^{n}|\Sigma|}}\exp{-\frac{1}{2}\bigg(\begin{bmatrix} x - \mathbb{E}(x) \\ y - \mathbb{E}(y) \end{bmatrix}\bigg)^{T}\Sigma^{-1}\bigg(\begin{bmatrix} x - \mathbb{E}(x) \\ y - \mathbb{E}(y) \end{bmatrix}\bigg)}
+  \end{aligned}
+\end{equation}
+<p>
+이 때 평균은 $\mathbf{\mu}= \begin{bmatrix}\mathbb{E}(x) \\ \mathbb{E}(y) \end{bmatrix}$이고 분산은 $&Sigma; = \begin{bmatrix}&Sigma;_{xx} &amp; &Sigma;_{xy} \\ &Sigma;_{yx} &amp; &Sigma;_{yy} \end{bmatrix}$이다. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga5fbff1" class="outline-2">
+<h2 id="orga5fbff1"><span class="section-number-2">3</span> Conditional Distribution</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+두 개의 확률변수 $x_{a}, x_{b}$가 주어졌을 때 조건부 확률분포 $p(x_{a}|x_{b}=b)$가 가우시안 분포를 따른다고 하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    p(x_{a} | x_{b}=b) = \frac{p(x_{a},x_{b})p(x_{a})}{p(x_{b})} = \eta \cdot p(x_{a}, x_{b})p(x_{a}) \sim \mathcal{N}(\mu_{a|b}, \Sigma_{a|b})
+  \end{aligned}
+\end{equation}
+<p>
+가 된다 이 때 평균 $&mu;_{a|b}$과 분산 $&Sigma;_{a|b}$은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \mu_{a|b} = \mu_{a} + \Sigma_{ab}\Sigma_{bb}^{-1}(b - \mu_{b}) \\
+    &amp; \Sigma_{a|b} = \Sigma_{aa} - \Sigma_{ab}\Sigma_{bb}^{-1}\Sigma_{ab}^{\intercal}
+  \end{aligned}
+\end{equation}
+<p>
+과 같다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org466bcf8" class="outline-2">
+<h2 id="org466bcf8"><span class="section-number-2">4</span> Recursive Bayes Filter</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+시간 $t$에 대하여 로봇의 위치에 대한 상태 $x_{t}$와 관측값 $z_{t}$그리고 제어입력 $u_{t}$가 주어졌을 때 $\text{bel}(x_{t})$(Belief of $x_{t}$)는 다음과 같이 정의한다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \text{bel}(x_{t}) = p(x_{t} \ | \ z_{1:t}, u_{1:t})
+  \end{aligned}
+\end{equation}
+<p>
+<b>$\text{bel}(x_{t})$는 처음부터 $t$초까지 센서를 통한 관측과 제어입력으로 인해 현재 로봇이 $x$에 위치할 확률을 의미한다. 해당 식을 Markov Assumption과 Bayesian Rule을 사용하여 전개하면 재귀적인 필터를 유도할 수 있고 이를 Recursive Bayes Filter라고 한다.</b> Recursive Bayes Filter 다음과 같다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \text{bel}(x_{t}) = \eta \cdot p(z_{t} \ | \  x_{t})\overline{\text{bel}}(x_{t}) \\
+    &amp; \overline{\text{bel}}(x_{t}) = \int p(x_{t} \ | \ x_{t-1}, u_{t})\text{bel}(x_{t-1})\\
+  \end{aligned}
+\end{equation}
+<p>
+Recursive Bayes Filter는 위와 같이 이전 스텝의 $\text{bel}(x_{t-1})$로부터 현재 스텝의 $\text{bel}(x_{t})$를 구할 수 있으므로 재귀 필터라고 부른다. <b>이 때, $p(z_{t} \ | \ x_{t})$를 관측 모델(observation model)이라고 부르며 $&int; p(x_{t} \ | \ x_{t-1},u_{t})$를 모션 모델(motion model)이라고 부른다. $\text{bel}(x_{t})$가 가우시안 분포를 따르는 경우 이를 특별히 Kalman Filter라고 한다.</b>
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \text{bel}(x_{t}) \sim \mathcal{N}(\mu, \sigma^{2}) \quad \text{(Kalman Filter)}
+  \end{aligned}
+\end{equation}
+</div>
+</div>
+
+
+<div id="outline-container-org9cb8881" class="outline-2">
+<h2 id="org9cb8881"><span class="section-number-2">5</span> Kalman Filter</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+시간 $t$에 로봇의 위치를 $x_{t}$, 로봇의 센서로 부터 관측한 값을 $z_{t}$, 로봇의 제어입력을 $u_{t}$라고 하면 다음과 같은 모션 모델(motion model)과 관측 모델(observation model)을 정의할 수 있다. 우선 모션 모델은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; x_{t} = \mathbf{A}x_{t-1} + \mathbf{B}u_{t} + \epsilon_{t} \quad \epsilon_{t} \sim \mathcal{N}(0, \mathbf{R}_{t}) \\
+  \end{aligned}
+\end{equation}
+<p>
+그리고 관측 모델은
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    z_{t} = \mathbf{C}_{t}x_{t} + \delta_{t} \quad \delta_{t} \sim \mathcal(0, \mathbf{Q}_{t})
+  \end{aligned}
+\end{equation}
+<p>
+이다. 초기값 $\text{bel}(x_{0})$은 다음과 같이 주어진다.
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \text{bel}(x_{0}) \sim \mathcal(\mu_{0}, \Sigma_{0})
+  \end{aligned}
+\end{equation}
+<p>
+시간 $t$에서 Belief가 모두 가우시안 분포를 따른다고 가정하면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \text{bel}(x_{t}) = p(x_{t} \ | \ z_{1:t},u_{1:t}) \sim \mathcal{N}(\mu_{t}, \Sigma_{t}) \\
+    &amp; \overline{\text{bel}}(x_{t}) \sim \mathcal{N}(\overline{\mu}_{t}, \overline{\Sigma}_{t}) \\
+  \end{aligned}
+\end{equation}
+<p>
+과 같고 <b>$\overline{\text{bel}}(x_{t})$를 Predictoin Step, $\text{bel}(x_{t})$를 Correction Step이라고 한다. 일반적으로 Prediction Step을 먼저 구한 후 Correction Step 값을 구한다.</b>
+</p>
+</div>
+
+<div id="outline-container-org3d1efce" class="outline-3">
+<h3 id="org3d1efce"><span class="section-number-3">5.1</span> Prediction step</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Prediction Step은 $\overline{\text{bel}}(x_{t})$를 구하는 과정을 말한다. $\overline{\text{bel}}(x_{t})$는 가우시안 분포를 따르므로 평균 $\overline{\mu}_{t}$과 분산 $\overline{\Sigma}_{t}$을 각각 구해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    &amp; \overline{\mu}_{t} = \mathbf{A}_{t}\mu_{t-1} + \mathbf{B}_{t}\mu_{t} \\
+    &amp; \overline{\Sigma}_{t} = \mathbf{A}_{t}\Sigma_{t}\mathbf{A}_{t}^{\intercal} + \mathbf{R}_{t}
+  \end{aligned}
+\end{equation}
+<p>
+같이 구할 수 있다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6c30b8e" class="outline-3">
+<h3 id="org6c30b8e"><span class="section-number-3">5.2</span> Correction Step</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+Correction Step은 $\text{bel}(x_{t})$를 구하는 과정을 말한다. $\text{bel}(x_{t})$는 가우시안 분포를 따르므로 평균 $&mu;_{t}$을 구해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mu_{t} &amp; = \mu_{x|z} \\
+    &amp; = \mu_{x} + \Sigma_{xz}\Sigma_{zz}^{-1}(z_{t}-\mu_{t}) \\
+    &amp; = \overline{\mu}_{t} + \overline{\Sigma}_{t}\mathbf{C}_{t}^{\intercal}(\mathbf{C}_{t}\overline{\Sigma}_{t}\mathbf{C}_{t}^{\intercal} + \mathbf{Q}_{t})^{-1}(z_{t} - \mathbf{C}_{t}\overline{\mu}_{t}) \\
+    &amp; = \overline{\mu}_{t} + \mathbf{K}_{t}(z_{t} - \mathbf{C}_{t}\overline{\mu}_{t})
+  \end{aligned}
+\end{equation}
+<p>
+와 같고 분산 $&Sigma;_{t}$를 구해보면
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \Sigma_{t} &amp; = \Sigma_{x|z} \\
+    &amp; = \Sigma_{xx} - \Sigma_{zx}\Sigma_{zz}^{-1}\Sigma_{xz} \\
+    &amp; = \overline{\Sigma}_{t} - \overline{\Sigma}_{t}\mathbf{C}_{t}^{\intercal}(\mathbf{C}_{t}\overline{\Sigma}_{t}\mathbf{C}_{t}^{\intercal} + \mathbf{Q}_{t})^{-1}\mathbf{C}_{t}\overline{\Sigma}_{t} \\
+    &amp; = (\mathbf{I} - \mathbf{K}_{t}\mathbf{C}_{t})\overline{\Sigma}_{t}
+  \end{aligned}
+\end{equation}
+<p>
+이다. 이 때, $\mathbf{K}_{t}$는 Kalman Coefficient를 의미하며
+</p>
+
+\begin{equation}
+  \begin{aligned}
+    \mathbf{K}_{t} = \overline{\Sigma}_{t}\mathbf{C}_{t}^{\intercal}(\mathbf{C}_{t}\overline{\Sigma}_{t}\mathbf{C}_{t}^{\intercal} + \mathbf{Q}_{t})^{-1
+  \end{aligned}
+\end{equation}
+<p>
+이다.
+</p>
+</div>
+</div>
+</div>
