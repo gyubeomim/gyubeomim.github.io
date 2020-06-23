@@ -4,7 +4,7 @@ title: (Estimation) Kalman Filter
 description: 
 date: 2020-06-21
 categories: [Engineering]
-tag: [Engineering, Filter, Kalam Filter, Linear Filter,
+tag: [Engineering, Filter, Kalman Filter, Linear Filter,
 Prediction, Correction, Bayesian]
 use_math: true
 comments: true
@@ -13,14 +13,15 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2de8678">1. Bayesian Rule</a></li>
-<li><a href="#org6c01022">2. Joint Distribution</a></li>
-<li><a href="#orga5fbff1">3. Conditional Distribution</a></li>
-<li><a href="#org466bcf8">4. Recursive Bayes Filter</a></li>
-<li><a href="#org9cb8881">5. Kalman Filter</a>
+<li><a href="#org58d0eaa">1. Introduction</a></li>
+<li><a href="#org2de8678">2. Bayesian Rule</a></li>
+<li><a href="#org6c01022">3. Joint Distribution</a></li>
+<li><a href="#orga5fbff1">4. Conditional Distribution</a></li>
+<li><a href="#org466bcf8">5. Recursive Bayes Filter</a></li>
+<li><a href="#org9cb8881">6. Kalman Filter</a>
 <ul>
-<li><a href="#org3d1efce">5.1. Prediction step</a></li>
-<li><a href="#org6c30b8e">5.2. Correction Step</a></li>
+<li><a href="#org3d1efce">6.1. Prediction step</a></li>
+<li><a href="#org6c30b8e">6.2. Correction Step</a></li>
 </ul>
 </li>
 </ul>
@@ -28,9 +29,21 @@ comments: true
 </div>
 
 
-<div id="outline-container-org2de8678" class="outline-2">
-<h2 id="org2de8678"><span class="section-number-2">1</span> Bayesian Rule</h2>
+<div id="outline-container-org58d0eaa" class="outline-2">
+<h2 id="org58d0eaa"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+칼만 필터(kalman filter)는 노이즈가 존재하는 데이터에서 상태변수를 추정하는 대표적인 상태 추정 알고리즘이다. 실제 세상에서 획득하는 데이터에는 항상 노이즈가 존재하므로 공학 분야에서 칼만 필터는 매우 널리 사용된다.
+</p>
+
+<p>
+칼만 필터를 이해하기에 앞서 Bayesian Rule, Joint Distribution, Conditional Distribution, Recursive Bayes Filter와 같은 선행 지식들을 먼저 설명한 후 칼만 필터에 대해 설명한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org2de8678" class="outline-2">
+<h2 id="org2de8678"><span class="section-number-2">2</span> Bayesian Rule</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
 </p>
@@ -56,8 +69,8 @@ Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
 </div>
 
 <div id="outline-container-org6c01022" class="outline-2">
-<h2 id="org6c01022"><span class="section-number-2">2</span> Joint Distribution</h2>
-<div class="outline-text-2" id="text-2">
+<h2 id="org6c01022"><span class="section-number-2">3</span> Joint Distribution</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 두 개의 확률변수 $x,y$가 있을 때 다변수 확률분포$p(x,y) &sim; \mathcal{N}(\mathbf{\mu}, &Sigma;)$는 다음과 같이 나타낼 수 있다.
 </p>
@@ -74,8 +87,8 @@ Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
 </div>
 
 <div id="outline-container-orga5fbff1" class="outline-2">
-<h2 id="orga5fbff1"><span class="section-number-2">3</span> Conditional Distribution</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="orga5fbff1"><span class="section-number-2">4</span> Conditional Distribution</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 두 개의 확률변수 $x_{a}, x_{b}$가 주어졌을 때 조건부 확률분포 $p(x_{a}|x_{b}=b)$가 가우시안 분포를 따른다고 하면
 </p>
@@ -103,8 +116,8 @@ Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
 </div>
 
 <div id="outline-container-org466bcf8" class="outline-2">
-<h2 id="org466bcf8"><span class="section-number-2">4</span> Recursive Bayes Filter</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="org466bcf8"><span class="section-number-2">5</span> Recursive Bayes Filter</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 시간 $t$에 대하여 로봇의 위치에 대한 상태 $x_{t}$와 관측값 $z_{t}$그리고 제어입력 $u_{t}$가 주어졌을 때 $\text{bel}(x_{t})$(Belief of $x_{t}$)는 다음과 같이 정의한다.
 </p>
@@ -138,8 +151,8 @@ Recursive Bayes Filter는 위와 같이 이전 스텝의 $\text{bel}(x_{t-1})$�
 
 
 <div id="outline-container-org9cb8881" class="outline-2">
-<h2 id="org9cb8881"><span class="section-number-2">5</span> Kalman Filter</h2>
-<div class="outline-text-2" id="text-5">
+<h2 id="org9cb8881"><span class="section-number-2">6</span> Kalman Filter</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 시간 $t$에 로봇의 위치를 $x_{t}$, 로봇의 센서로 부터 관측한 값을 $z_{t}$, 로봇의 제어입력을 $u_{t}$라고 하면 다음과 같은 모션 모델(motion model)과 관측 모델(observation model)을 정의할 수 있다. 우선 모션 모델은
 </p>
@@ -155,7 +168,7 @@ Recursive Bayes Filter는 위와 같이 이전 스텝의 $\text{bel}(x_{t-1})$�
 
 \begin{equation}
   \begin{aligned}
-    z_{t} = \mathbf{C}_{t}x_{t} + \delta_{t} \quad \delta_{t} \sim \mathcal(0, \mathbf{Q}_{t})
+    z_{t} = \mathbf{C}_{t}x_{t} + \delta_{t} \quad \delta_{t} \sim \mathcal{N}(0, \mathbf{Q}_{t})
   \end{aligned}
 \end{equation}
 <p>
@@ -183,8 +196,8 @@ Recursive Bayes Filter는 위와 같이 이전 스텝의 $\text{bel}(x_{t-1})$�
 </div>
 
 <div id="outline-container-org3d1efce" class="outline-3">
-<h3 id="org3d1efce"><span class="section-number-3">5.1</span> Prediction step</h3>
-<div class="outline-text-3" id="text-5-1">
+<h3 id="org3d1efce"><span class="section-number-3">6.1</span> Prediction step</h3>
+<div class="outline-text-3" id="text-6-1">
 <p>
 Prediction Step은 $\overline{\text{bel}}(x_{t})$를 구하는 과정을 말한다. $\overline{\text{bel}}(x_{t})$는 가우시안 분포를 따르므로 평균 $\overline{\mu}_{t}$과 분산 $\overline{\Sigma}_{t}$을 각각 구해보면
 </p>
@@ -202,8 +215,8 @@ Prediction Step은 $\overline{\text{bel}}(x_{t})$를 구하는 과정을 말한�
 </div>
 
 <div id="outline-container-org6c30b8e" class="outline-3">
-<h3 id="org6c30b8e"><span class="section-number-3">5.2</span> Correction Step</h3>
-<div class="outline-text-3" id="text-5-2">
+<h3 id="org6c30b8e"><span class="section-number-3">6.2</span> Correction Step</h3>
+<div class="outline-text-3" id="text-6-2">
 <p>
 Correction Step은 $\text{bel}(x_{t})$를 구하는 과정을 말한다. $\text{bel}(x_{t})$는 가우시안 분포를 따르므로 평균 $&mu;_{t}$을 구해보면
 </p>
