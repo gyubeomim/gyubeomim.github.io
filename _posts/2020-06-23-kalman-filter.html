@@ -1,14 +1,3 @@
---- 
-layout: post
-title: (Estimation) Kalman Filter
-description: 
-date: 2020-06-23
-categories: [Engineering]
-tag: [Engineering, Filter, Kalman Filter, Linear Filter,
-Prediction, Correction, Bayesian]
-use_math: true
-comments: true
----
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -29,7 +18,17 @@ comments: true
 </ul>
 </div>
 </div>
-
+--- 
+layout: post
+title: (Estimation) Kalman Filter
+description: 
+date: 2020-06-23
+categories: [Engineering]
+tag: [Engineering, Filter, Kalman Filter, Linear Filter,
+Prediction, Correction, Bayesian]
+use_math: true
+comments: true
+---
 
 <div id="outline-container-orge1456cf" class="outline-2">
 <h2 id="orge1456cf"><span class="section-number-2">1</span> Introduction</h2>
@@ -80,7 +79,7 @@ Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
 
 \begin{equation}
   \begin{aligned}
-    p(a, b) = \frac{1}{\sqrt{(2\pi)^{n}|\boldsymbol{\Sigma}|}}\exp{-\frac{1}{2}\big\mathbf{g}(\begin{bmatrix} a - \mathbb{E}(a) \\ b - \mathbb{E}(b) \end{bmatrix}\bigg)^{T}\boldsymbol{\Sigma}^{-1}\big\mathbf{g}(\begin{bmatrix} a - \mathbb{E}(a) \\ b - \mathbb{E}(b) \end{bmatrix}\bigg)}
+    p(a, b) = \frac{1}{\sqrt{(2\pi)^{n}|\boldsymbol{\Sigma}|}}\exp{-\frac{1}{2}\bigg(\begin{bmatrix} a - \mathbb{E}(a) \\ b - \mathbb{E}(b) \end{bmatrix}\bigg)^{T}\boldsymbol{\Sigma}^{-1}\bigg(\begin{bmatrix} a - \mathbb{E}(a) \\ b - \mathbb{E}(b) \end{bmatrix}\bigg)}
   \end{aligned}
 \end{equation}
 <p>
