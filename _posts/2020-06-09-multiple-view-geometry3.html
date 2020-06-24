@@ -1,3 +1,51 @@
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org95810c5">1. The Trifocal Tensor</a>
+<ul>
+<li><a href="#org59573af">1.1. The geometric basis for the trifocal tensor</a>
+<ul>
+<li><a href="#org2c0015d">1.1.1. Incidence relations for lines</a></li>
+<li><a href="#orga4f2963">1.1.2. Definition 15.1</a></li>
+<li><a href="#org8451252">1.1.3. Homographies induced by a plane</a></li>
+<li><a href="#orgd269fac">1.1.4. Result 15.2</a></li>
+<li><a href="#orgec4897a">1.1.5. Point and line incidence relations</a></li>
+<li><a href="#org47534fb">1.1.6. Epipolar lines</a></li>
+<li><a href="#org661c550">1.1.7. Result 15.3</a></li>
+<li><a href="#orgcef3106">1.1.8. Proof</a></li>
+<li><a href="#org7cbbb71">1.1.9. Result 15.4</a></li>
+<li><a href="#orgc6c9607">1.1.10. Extracting the fundamental matrices</a></li>
+<li><a href="#org7038faa">1.1.11. Retrieving the camera matrices</a></li>
+</ul>
+</li>
+<li><a href="#orgdb3dcce">1.2. The trifocal tensor and tensor notation</a>
+<ul>
+<li><a href="#org26b5b38">1.2.1. The trilinearities</a></li>
+</ul>
+</li>
+<li><a href="#org42e0aff">1.3. Transfer</a>
+<ul>
+<li><a href="#org6343d9b">1.3.1. Point transfer using fundamental matrices</a></li>
+<li><a href="#org4d3ff0b">1.3.2. Point transfer using the trifocal tensor</a></li>
+<li><a href="#org3011d27">1.3.3. Degenerate configurations</a></li>
+<li><a href="#orgbad2ca1">1.3.4. Line transfer using the trifocal tensor</a></li>
+<li><a href="#org423dc43">1.3.5. Degeneracies</a></li>
+</ul>
+</li>
+<li><a href="#org7b9b4a0">1.4. The fundamental matrices for three views</a>
+<ul>
+<li><a href="#org7202c11">1.4.1. Definition 15.5</a></li>
+<li><a href="#org575604f">1.4.2. Uniqueness of camera matrices given three fundamental matrices</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org0c34a1a">2. References</a></li>
+<li><a href="#org207a9af">3. Closure</a></li>
+</ul>
+</div>
+</div>
 --- 
 layout: post
 title: (Geometry) Notes on Multiple View Geometry Part 3
@@ -8,75 +56,26 @@ tag: [Photogrammetry, Geometry, Computer Vision, SLAM]
 use_math: true
 comments: true
 ---
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#orga5cd98d">1. The Trifocal Tensor</a>
-<ul>
-<li><a href="#org59564f6">1.1. The geometric basis for the trifocal tensor</a>
-<ul>
-<li><a href="#orgf863c9e">1.1.1. Incidence relations for lines</a></li>
-<li><a href="#org5757b22">1.1.2. Definition 15.1</a></li>
-<li><a href="#orgc24852f">1.1.3. Homographies induced by a plane</a></li>
-<li><a href="#org514b1c7">1.1.4. Result 15.2</a></li>
-<li><a href="#org6c0234e">1.1.5. Point and line incidence relations</a></li>
-<li><a href="#orgac63c2f">1.1.6. Epipolar lines</a></li>
-<li><a href="#orge01bfa4">1.1.7. Result 15.3</a></li>
-<li><a href="#org6a4790c">1.1.8. Proof</a></li>
-<li><a href="#org1ffdb10">1.1.9. Result 15.4</a></li>
-<li><a href="#orgd482509">1.1.10. Extracting the fundamental matrices</a></li>
-<li><a href="#orgea24b7a">1.1.11. Retrieving the camera matrices</a></li>
-</ul>
-</li>
-<li><a href="#orgfad94ad">1.2. The trifocal tensor and tensor notation</a>
-<ul>
-<li><a href="#orgc239d6c">1.2.1. The trilinearities</a></li>
-</ul>
-</li>
-<li><a href="#orgde9d6d6">1.3. Transfer</a>
-<ul>
-<li><a href="#org80f576c">1.3.1. Point transfer using fundamental matrices</a></li>
-<li><a href="#orgacac2ef">1.3.2. Point transfer using the trifocal tensor</a></li>
-<li><a href="#orgd313ee1">1.3.3. Degenerate configurations</a></li>
-<li><a href="#orge22a023">1.3.4. Line transfer using the trifocal tensor</a></li>
-<li><a href="#orgba101e3">1.3.5. Degeneracies</a></li>
-</ul>
-</li>
-<li><a href="#orga9d5ca2">1.4. The fundamental matrices for three views</a>
-<ul>
-<li><a href="#org3ad6910">1.4.1. Definition 15.5</a></li>
-<li><a href="#org332085f">1.4.2. Uniqueness of camera matrices given three fundamental matrices</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgb074f40">2. References</a></li>
-<li><a href="#org5de94fb">3. Closure</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orga5cd98d" class="outline-2">
-<h2 id="orga5cd98d"><span class="section-number-2">1</span> The Trifocal Tensor</h2>
+<div id="outline-container-org95810c5" class="outline-2">
+<h2 id="org95810c5"><span class="section-number-2">1</span> The Trifocal Tensor</h2>
 <div class="outline-text-2" id="text-1">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/66.png" alt="66.png" align="center" width="700px" />
+<p><img src="file:///pictures/200607_mvg/66.png" alt="66.png" align="center" width="700px" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org59564f6" class="outline-3">
-<h3 id="org59564f6"><span class="section-number-3">1.1</span> The geometric basis for the trifocal tensor</h3>
+<div id="outline-container-org59573af" class="outline-3">
+<h3 id="org59573af"><span class="section-number-3">1.1</span> The geometric basis for the trifocal tensor</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Three-View Geometry에서 Trifocal Tensor $\mathcal{T}$는 Two-View Geometry에서 Fundamental Matrix $\mathbf{F}$와 유사한 역할을 한다. $\mathbf{F}$와 유사하게 $\mathcal{T}$은 서로 다른 세 개의 카메라 이미지 평면들을 특별한 제약조건으로 구속시킨다.
 </p>
 </div>
 
-<div id="outline-container-orgf863c9e" class="outline-4">
-<h4 id="orgf863c9e"><span class="section-number-4">1.1.1</span> Incidence relations for lines</h4>
+<div id="outline-container-org2c0015d" class="outline-4">
+<h4 id="org2c0015d"><span class="section-number-4">1.1.1</span> Incidence relations for lines</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 월드 평면 상의 한 직선 $\mathbf{L}$과 이를 바라보고 있는 서로 다른 세 개의 카메라가 주어졌다고 가정하자. 세 개의 카메라의 이미지 평면을 각각 $&pi;_{\mathbf{P}}, &pi;_{\mathbf{P}^{&prime;}}, &pi;_{\mathbf{P}^{&prime;&prime;}}$이라고 하고 $\mathbf{L}$을 이미지 평면 상에 프로젝션한 직선들은 $\mathbf{l},\mathbf{l}^{&prime;},\mathbf{l}^{&prime;&prime;}$이라고 했을 때 $\mathbf{l} \leftrightarrow \mathbf{l}^{\prime} \leftrightarrow \mathbf{l}^{\prime\prime}$사이의 관계를 알아보자.
@@ -167,8 +166,8 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
 </div>
 </div>
 
-<div id="outline-container-org5757b22" class="outline-4">
-<h4 id="org5757b22"><span class="section-number-4">1.1.2</span> Definition 15.1</h4>
+<div id="outline-container-orga4f2963" class="outline-4">
+<h4 id="orga4f2963"><span class="section-number-4">1.1.2</span> Definition 15.1</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 이 때, <b>행렬의 집합 $\{\mathbf{T}_{1},\mathbf{T}_{2},\mathbf{T}_{3}\}$은 Trifocal Tensor $\mathcal{T}$을 행렬로 표현한 것을 의미한다. 이를 사용하여 직선 $\mathbf{l}$을 다시 표현해보면 다음과 같다.</b>
@@ -183,11 +182,11 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
 </div>
 </div>
 
-<div id="outline-container-orgc24852f" class="outline-4">
-<h4 id="orgc24852f"><span class="section-number-4">1.1.3</span> Homographies induced by a plane</h4>
+<div id="outline-container-org8451252" class="outline-4">
+<h4 id="org8451252"><span class="section-number-4">1.1.3</span> Homographies induced by a plane</h4>
 </div>
-<div id="outline-container-org514b1c7" class="outline-4">
-<h4 id="org514b1c7"><span class="section-number-4">1.1.4</span> Result 15.2</h4>
+<div id="outline-container-orgd269fac" class="outline-4">
+<h4 id="orgd269fac"><span class="section-number-4">1.1.4</span> Result 15.2</h4>
 <div class="outline-text-4" id="text-1-1-4">
 <p>
 서로 다른 세 카메라의 이미지 평면을 각각 $\pi_{\mathbf{P}}, \pi_{\mathbf{P}^{\prime}}, \pi_{\mathbf{P}^{\prime\prime}}$하자. 두 번째 카메라 이미지 평면 상의 직선 $\mathbf{l}^{&prime;}$을 Back-projection하여 얻은 월드 상의 평면을 $&pi;^{&prime;}$이라고 하면 $&pi;^{&prime;}$을 통해 $&pi;_{\mathbf{P}}$에서 $&pi;_{\mathbf{P}^{&prime;&prime;}}$으로 변환하는 Homography $\mathbf{H}_{13}$가 존재한다. 해당 섹션에서는 $\mathbf{H}_{13}$를 $\mathbf{l}^{&prime;}$을 통해 기술하는 방법에 대해 설명한다.
@@ -229,12 +228,12 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
 </div>
 </div>
 
-<div id="outline-container-org6c0234e" class="outline-4">
-<h4 id="org6c0234e"><span class="section-number-4">1.1.5</span> Point and line incidence relations</h4>
+<div id="outline-container-orgec4897a" class="outline-4">
+<h4 id="orgec4897a"><span class="section-number-4">1.1.5</span> Point and line incidence relations</h4>
 <div class="outline-text-4" id="text-1-1-5">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/68.png" alt="68.png" align="center" width="700px" />
+<p><img src="file:///pictures/200607_mvg/68.png" alt="68.png" align="center" width="700px" />
 </p>
 </div>
 
@@ -294,11 +293,11 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
 </div>
 </div>
 
-<div id="outline-container-orgac63c2f" class="outline-4">
-<h4 id="orgac63c2f"><span class="section-number-4">1.1.6</span> Epipolar lines</h4>
+<div id="outline-container-org47534fb" class="outline-4">
+<h4 id="org47534fb"><span class="section-number-4">1.1.6</span> Epipolar lines</h4>
 </div>
-<div id="outline-container-orge01bfa4" class="outline-4">
-<h4 id="orge01bfa4"><span class="section-number-4">1.1.7</span> Result 15.3</h4>
+<div id="outline-container-org661c550" class="outline-4">
+<h4 id="org661c550"><span class="section-number-4">1.1.7</span> Result 15.3</h4>
 <div class="outline-text-4" id="text-1-1-7">
 <p>
 <b>Trifocal Tensor $\mathcal{T}$를 통해 두 카메라의 Epipoar Line을 구할 수 있다.</b> 세 이미지 평면 $&pi;_{\mathbf{P}},&pi;_{\mathbf{P}^{&prime;}},&pi;_{\mathbf{P}^{&prime;&prime;}}$이 주어지고 $\pi_{\mathbf{P}}$위의 한 점 $\mathbf{x}$가 존재하며 $\pi_{\mathbf{P}^{\prime}}, \pi_{\mathbf{P}^{\prime\prime}}$평면에 Epipolar Line $\mathbf{l}^{&prime;}, \mathbf{l}^{&prime;&prime;}$이 존재한다고 가정하면 이들 사이에는
@@ -316,8 +315,8 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
 </div>
 </div>
 
-<div id="outline-container-org6a4790c" class="outline-4">
-<h4 id="org6a4790c"><span class="section-number-4">1.1.8</span> Proof</h4>
+<div id="outline-container-orgcef3106" class="outline-4">
+<h4 id="orgcef3106"><span class="section-number-4">1.1.8</span> Proof</h4>
 <div class="outline-text-4" id="text-1-1-8">
 <p>
 두 번째 이미지 평면 $\pi_{\mathbf{P}^{\prime}}$상의 Epipolar Line $\mathbf{l}^{&prime;}$을 Back-projection하여 생성된 평면을 $&pi;^{&prime;}$이라고 하면 $&pi;^{&prime;}$과 $\pi_{\mathbf{P}}$사이에는 교차선이 생성되고 해당 교차선은 $\pi_{\mathbf{P}}$평면의 Epipolar Line $\mathbf{l}$이 된다. 이 때 세 번째 이미지 평면 $\pi_{\mathbf{P}^{\prime\prime}}$상의 임의의 직선 $\mathbf{l}^{&prime;&prime;}$을 Back-projection한 평면 $&pi;^{&prime;&prime;}$과 $&pi;^{&prime;}$은 월드 평면 상의 직선 $\mathbf{L}$에서 교차선을 생성하며 이를 다시 $&pi;_{\mathbf{P}}$로 프로젝션하면 $\mathbf{L}$은 항상 Epipolar Line $\mathbf{l}$위에 한 점 $\mathbf{x}&isin; \mathbf{l}$로 프로젝션된다.
@@ -340,8 +339,8 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
 </div>
 </div>
 
-<div id="outline-container-org1ffdb10" class="outline-4">
-<h4 id="org1ffdb10"><span class="section-number-4">1.1.9</span> Result 15.4</h4>
+<div id="outline-container-org7cbbb71" class="outline-4">
+<h4 id="org7cbbb71"><span class="section-number-4">1.1.9</span> Result 15.4</h4>
 <div class="outline-text-4" id="text-1-1-9">
 <p>
 <b>추가적으로 Epipole $\mathbf{e}^{&prime;}, \mathbf{e}^{&prime;&prime;}$은 모든 $^&forall; \mathbf{x}$에 대해 구할 수 있는 $\mathbf{l}^{&prime;}, \mathbf{l}^{&prime;&prime;}$들의 교차점을 계산함으로써 구할 수 있다.</b>
@@ -349,8 +348,8 @@ $\mathbf{M}$의 열공간(column space)는 월드 상의 직선 $\mathbf{L}$과 
 </div>
 </div>
 
-<div id="outline-container-orgd482509" class="outline-4">
-<h4 id="orgd482509"><span class="section-number-4">1.1.10</span> Extracting the fundamental matrices</h4>
+<div id="outline-container-orgc6c9607" class="outline-4">
+<h4 id="orgc6c9607"><span class="section-number-4">1.1.10</span> Extracting the fundamental matrices</h4>
 <div class="outline-text-4" id="text-1-1-10">
 <p>
 이전 섹션에서 설명한 것과 같이 여러 점과 직선들과 관계를 통해 세 개의 이미지 평면에 대한 Trifocal Tensor $\mathcal{T}$를 구할 수 있다. 해당 섹션에서는 $\mathcal{T}$를 통해 세 개의 서로 다른 Fundamental Matrix $\mathbf{F}$를 구하는 방법에 대해 설명한다.
@@ -390,8 +389,8 @@ Fundamental Matrix $\mathbf{F}_{21}$는 $\mathbf{F}_{21}=\mathbf{e}^{&prime;&and
 </div>
 </div>
 
-<div id="outline-container-orgea24b7a" class="outline-4">
-<h4 id="orgea24b7a"><span class="section-number-4">1.1.11</span> Retrieving the camera matrices</h4>
+<div id="outline-container-org7038faa" class="outline-4">
+<h4 id="org7038faa"><span class="section-number-4">1.1.11</span> Retrieving the camera matrices</h4>
 <div class="outline-text-4" id="text-1-1-11">
 <p>
 Two-view Geometry에서는 Fundamental Matrix $\mathbf{F}$가 주어지면 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$을 사영모호성을 포함하여(up to projectivity) 구할 수 있었다.
@@ -485,8 +484,8 @@ Three-view Geoemtry에서는 Trifocal Tensor $\mathcal{T}$를 통해 $\mathbf{F}
 </div>
 </div>
 
-<div id="outline-container-orgfad94ad" class="outline-3">
-<h3 id="orgfad94ad"><span class="section-number-3">1.2</span> The trifocal tensor and tensor notation</h3>
+<div id="outline-container-orgdb3dcce" class="outline-3">
+<h3 id="orgdb3dcce"><span class="section-number-3">1.2</span> The trifocal tensor and tensor notation</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Trifocal Tensor $\mathcal{T}$를 Tensor 표현법으로 나타내면 다음과 같다.
@@ -568,8 +567,8 @@ Tensor 표현법을 나타내는데 유용한 $&epsilon;_{ijk}$에 대해 설명
 
 
 
-<div id="outline-container-orgc239d6c" class="outline-4">
-<h4 id="orgc239d6c"><span class="section-number-4">1.2.1</span> The trilinearities</h4>
+<div id="outline-container-org26b5b38" class="outline-4">
+<h4 id="org26b5b38"><span class="section-number-4">1.2.1</span> The trilinearities</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 Tensor 표현법을 사용해서 이전 섹션에서 설명한 여러 점들과 직선의 관계를 다시 표현할 수 있다. 예를 들어 두 점과 한 직선 사이(point-line-point)의 관계 공식을 일반적인 형태로 나타내면 다음과 같다.
@@ -596,16 +595,16 @@ Tensor 표현법을 사용해서 이전 섹션에서 설명한 여러 점들과 
 </div>
 </div>
 
-<div id="outline-container-orgde9d6d6" class="outline-3">
-<h3 id="orgde9d6d6"><span class="section-number-3">1.3</span> Transfer</h3>
+<div id="outline-container-org42e0aff" class="outline-3">
+<h3 id="org42e0aff"><span class="section-number-3">1.3</span> Transfer</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 세 개의 카메라가 주어졌을 때 이 중 두 개의 이미지 평면에서 점 또는 직선의 위치를 알고 있을 때 Trifocal Tensor $\mathcal{T}$를 사용하여 나머지 한 개의 이미지 평면 상의 점 또는 직선의 위치를 결정하는 방법을 Transfer라고 한다.
 </p>
 </div>
 
-<div id="outline-container-org80f576c" class="outline-4">
-<h4 id="org80f576c"><span class="section-number-4">1.3.1</span> Point transfer using fundamental matrices</h4>
+<div id="outline-container-org6343d9b" class="outline-4">
+<h4 id="org6343d9b"><span class="section-number-4">1.3.1</span> Point transfer using fundamental matrices</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 <b>Point Transfer는 세 개의 이미지 평면 $&pi;_{\mathbf{P}}, &pi;_{\mathbf{P}^{&prime;}}, &pi;_{\mathbf{P}^{&prime;&prime;}}$에 대한 Fundamental Matrix $\mathbf{F}_{21}, \mathbf{F}_{31}, \mathbf{F}_{32}$가 주어졌을 때 이미 알고 있는 $\mathbf{x}, \mathbf{x}^{&prime;}$의 위치를 통해 $\mathbf{x}^{&prime;&prime;}$의 위치를 결정하는 것을 말한다.</b> 이는 Epipolar Geometry를 통해 결정할 수 있다. 세 번째 이미지 평면 $\pi_{\mathbf{P}^{\prime\prime}}$상에 존재하는 Epipolar Line $\mathbf{l}^{&prime;&prime;}$은
@@ -660,12 +659,12 @@ Tensor 표현법을 사용해서 이전 섹션에서 설명한 여러 점들과 
 </div>
 
 
-<div id="outline-container-orgacac2ef" class="outline-4">
-<h4 id="orgacac2ef"><span class="section-number-4">1.3.2</span> Point transfer using the trifocal tensor</h4>
+<div id="outline-container-org4d3ff0b" class="outline-4">
+<h4 id="org4d3ff0b"><span class="section-number-4">1.3.2</span> Point transfer using the trifocal tensor</h4>
 <div class="outline-text-4" id="text-1-3-2">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/67.png" alt="67.png" align="center" width="800px" />
+<p><img src="file:///pictures/200607_mvg/67.png" alt="67.png" align="center" width="800px" />
 </p>
 </div>
 
@@ -717,8 +716,8 @@ $\mathbf{l}^{&prime;}$을 사용하여 $\mathbf{x}^{&prime;}$을 Point Transfer�
 </div>
 </div>
 
-<div id="outline-container-orgd313ee1" class="outline-4">
-<h4 id="orgd313ee1"><span class="section-number-4">1.3.3</span> Degenerate configurations</h4>
+<div id="outline-container-org3011d27" class="outline-4">
+<h4 id="org3011d27"><span class="section-number-4">1.3.3</span> Degenerate configurations</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
 Trifocal Tensor $\mathcal{T}$를 사용하는 경우에도 두 카메라의 중심점 $\mathbf{C}, \mathbf{C}^{&prime;}$을 잇는 baseline 직선 상 위에 3차원 공간 상의 점 $\mathbf{X}$가 존재하는 경우 이를 통해 $\mathbf{x}^{&prime;&prime;}$을 결정할 수 없다.
@@ -726,8 +725,8 @@ Trifocal Tensor $\mathcal{T}$를 사용하는 경우에도 두 카메라의 중�
 </div>
 </div>
 
-<div id="outline-container-orge22a023" class="outline-4">
-<h4 id="orge22a023"><span class="section-number-4">1.3.4</span> Line transfer using the trifocal tensor</h4>
+<div id="outline-container-orgbad2ca1" class="outline-4">
+<h4 id="orgbad2ca1"><span class="section-number-4">1.3.4</span> Line transfer using the trifocal tensor</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 Trifocal Trnsor $\mathcal{T}$를 사용하면 점 뿐만 아니라 직선 또한 Transfer할 수 있다. 세 이미지 평면 상의 직선 $\mathbf{l}&harr; \mathbf{l}^{&prime;} &harr; \mathbf{l}^{&prime;&prime;}$이 대응관계를 가지는 경우
@@ -772,8 +771,8 @@ Trifocal Trnsor $\mathcal{T}$를 사용하면 점 뿐만 아니라 직선 또한
 </div>
 </div>
 
-<div id="outline-container-orgba101e3" class="outline-4">
-<h4 id="orgba101e3"><span class="section-number-4">1.3.5</span> Degeneracies</h4>
+<div id="outline-container-org423dc43" class="outline-4">
+<h4 id="org423dc43"><span class="section-number-4">1.3.5</span> Degeneracies</h4>
 <div class="outline-text-4" id="text-1-3-5">
 <p>
 직선 $\mathbf{l}, \mathbf{l}^{&prime;}$이 Epipolar Line인 경우 이를 Back-projection한 평면  $&pi;$는 $&pi;^{&prime;}$과 동일한 Epipolar Plane이 되고 이 경우 세 번째 이미지 평면 $\pi_{\mathbf{P}^{\prime\prime}}$상의 직선 $\mathbf{l}^{&prime;&prime;}$을 유일하게 결정할 수 없다.
@@ -782,12 +781,12 @@ Trifocal Trnsor $\mathcal{T}$를 사용하면 점 뿐만 아니라 직선 또한
 </div>
 </div>
 
-<div id="outline-container-orga9d5ca2" class="outline-3">
-<h3 id="orga9d5ca2"><span class="section-number-3">1.4</span> The fundamental matrices for three views</h3>
+<div id="outline-container-org7b9b4a0" class="outline-3">
+<h3 id="org7b9b4a0"><span class="section-number-3">1.4</span> The fundamental matrices for three views</h3>
 <div class="outline-text-3" id="text-1-4">
 
 <div class="figure">
-<p><img src="/pictures/200607_mvg/69.png" alt="69.png" align="center" width="800px" />
+<p><img src="file:///pictures/200607_mvg/69.png" alt="69.png" align="center" width="800px" />
 </p>
 </div>
 
@@ -805,8 +804,8 @@ Trifocal Trnsor $\mathcal{T}$를 사용하면 점 뿐만 아니라 직선 또한
 </p>
 </div>
 
-<div id="outline-container-org3ad6910" class="outline-4">
-<h4 id="org3ad6910"><span class="section-number-4">1.4.1</span> Definition 15.5</h4>
+<div id="outline-container-org7202c11" class="outline-4">
+<h4 id="org7202c11"><span class="section-number-4">1.4.1</span> Definition 15.5</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <p>
 <b>세 개의 Fundamental Matrix $\mathbf{F}_{21},\mathbf{F}_{31},\mathbf{F}_{32}$가 독립적이지 않고 서로 상호호환(compatible)하기 위해서는 위 공식이 성립해야 한다.</b>
@@ -814,8 +813,8 @@ Trifocal Trnsor $\mathcal{T}$를 사용하면 점 뿐만 아니라 직선 또한
 </div>
 </div>
 
-<div id="outline-container-org332085f" class="outline-4">
-<h4 id="org332085f"><span class="section-number-4">1.4.2</span> Uniqueness of camera matrices given three fundamental matrices</h4>
+<div id="outline-container-org575604f" class="outline-4">
+<h4 id="org575604f"><span class="section-number-4">1.4.2</span> Uniqueness of camera matrices given three fundamental matrices</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <p>
 만약 세 개의 Fundamental Matrix가 상호호환인 경우 이를 생성하는 세 개의 카메라 행렬 $(\mathbf{P}_{1},\mathbf{P}_{2},\mathbf{P}_{3})$이 사영모호성을 포함하여(up to projectivity) 유일하게 결정된다.
@@ -864,16 +863,16 @@ Trifocal Trnsor $\mathcal{T}$를 사용하면 점 뿐만 아니라 직선 또한
 </div>
 </div>
 
-<div id="outline-container-orgb074f40" class="outline-2">
-<h2 id="orgb074f40"><span class="section-number-2">2</span> References</h2>
+<div id="outline-container-org0c34a1a" class="outline-2">
+<h2 id="org0c34a1a"><span class="section-number-2">2</span> References</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
 </p>
 </div>
 </div>
-<div id="outline-container-org5de94fb" class="outline-2">
-<h2 id="org5de94fb"><span class="section-number-2">3</span> Closure</h2>
+<div id="outline-container-org207a9af" class="outline-2">
+<h2 id="org207a9af"><span class="section-number-2">3</span> Closure</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.

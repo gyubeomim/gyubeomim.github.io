@@ -1,3 +1,18 @@
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org900df95">1. Line Representations</a></li>
+<li><a href="#org25f52de">2. Plücker coordinate representation</a>
+<ul>
+<li><a href="#org2420165">2.1. Up to scale uniqueness</a></li>
+</ul>
+</li>
+<li><a href="#org0ccb027">3. Dual represention of plücker coordinate</a></li>
+<li><a href="#org3ad10d2">4. References</a></li>
+</ul>
+</div>
+</div>
 --- 
 layout: post
 title: (Geometry) Notes on Plücker Coordinate
@@ -8,24 +23,8 @@ tag: [Photogrammetry, Geometry, SLAM]
 use_math: true
 comments: true
 ---
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org1fc8e93">1. Line Representations</a></li>
-<li><a href="#orgd4d8759">2. Plücker coordinate representation</a>
-<ul>
-<li><a href="#org05d7f52">2.1. Up to scale uniqueness</a></li>
-</ul>
-</li>
-<li><a href="#orge3d9fdd">3. Dual represention of plücker coordinate</a></li>
-<li><a href="#orgf314d0f">4. References</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org1fc8e93" class="outline-2">
-<h2 id="org1fc8e93"><span class="section-number-2">1</span> Line Representations</h2>
+<div id="outline-container-org900df95" class="outline-2">
+<h2 id="org900df95"><span class="section-number-2">1</span> Line Representations</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 3차원 공간 상에서 직선을 표현하는 방법은 여러가지가 있다. 예를 들면 두 점 $\mathbf{p}_{1}, \mathbf{p}_{2}$을 사용함으로써 직선 $\mathbf{L}$을 표현할 수 있다.
@@ -72,7 +71,7 @@ comments: true
 
 
 <div class="figure">
-<p><img src="/pictures/200518/01.png" alt="01.png" align="center" width="500px" />
+<p><img src="file:///pictures/200518/01.png" alt="01.png" align="center" width="500px" />
 </p>
 </div>
 
@@ -82,8 +81,8 @@ Plücker Coordinate는 6자유도를 가지므로 $\mathbb{P}^{5} \subset \mathb
 </div>
 </div>
 
-<div id="outline-container-orgd4d8759" class="outline-2">
-<h2 id="orgd4d8759"><span class="section-number-2">2</span> Plücker coordinate representation</h2>
+<div id="outline-container-org25f52de" class="outline-2">
+<h2 id="org25f52de"><span class="section-number-2">2</span> Plücker coordinate representation</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Plücker Coordinate에서 직선을 표현하는 방법은 다음과 같다. $\mathbb{P}^{3}$공간에 두 점 $\mathbf{p}_{1}, \mathbf{p}_{2}$가 존재할 때
@@ -145,8 +144,8 @@ Plücker Coordinate에서 직선을 표현하는 방법은 다음과 같다. $\m
 \end{equation}
 </div>
 
-<div id="outline-container-org05d7f52" class="outline-3">
-<h3 id="org05d7f52"><span class="section-number-3">2.1</span> Up to scale uniqueness</h3>
+<div id="outline-container-org2420165" class="outline-3">
+<h3 id="org2420165"><span class="section-number-3">2.1</span> Up to scale uniqueness</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 만약 직선 위의 점 $\mathbf{p}_{1}, \mathbf{p}_{2}$가 아닌 다른 직선 위의 점 $\mathbf{p}^{&prime;}_{1}, \mathbf{p}^{&prime;}_{2}$가 존재할 때 이는 기존 점들을 통해 표현이 가능하다.
@@ -175,8 +174,8 @@ Plücker Coordinate에서 직선을 표현하는 방법은 다음과 같다. $\m
 </div>
 </div>
 
-<div id="outline-container-orge3d9fdd" class="outline-2">
-<h2 id="orge3d9fdd"><span class="section-number-2">3</span> Dual represention of plücker coordinate</h2>
+<div id="outline-container-org0ccb027" class="outline-2">
+<h2 id="org0ccb027"><span class="section-number-2">3</span> Dual represention of plücker coordinate</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Plücker Coordinate는 두 평면이 교차하는 직선을 사용하여 표현할 수 있다. 이렇게 <b>두 평면의 교선으로 직선을 표현하는 방법을 Dual Representation</b> 이라고 한다. 서로 평행하지 않은 두 평면 $&pi;_{1}, &pi;_{2}$가 존재한다고 하면 평면 $\pi_{i}$위의 점 $\mathbf{p}_{i}$에 대해 다음의 공식이 성립한다.
@@ -184,7 +183,7 @@ Plücker Coordinate는 두 평면이 교차하는 직선을 사용하여 표현�
 
 
 <div class="figure">
-<p><img src="/pictures/200518/03.png" alt="03.png" align="center" width="500px" />
+<p><img src="file:///pictures/200518/03.png" alt="03.png" align="center" width="500px" />
 </p>
 </div>
 
@@ -262,8 +261,8 @@ Dual Representation으로 표현한 직선 $\mathbf{L}^{*}$은 다음과 같다.
 </div>
 </div>
 
-<div id="outline-container-orgf314d0f" class="outline-2">
-<h2 id="orgf314d0f"><span class="section-number-2">4</span> References</h2>
+<div id="outline-container-org3ad10d2" class="outline-2">
+<h2 id="org3ad10d2"><span class="section-number-2">4</span> References</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="https://m.blog.naver.com/PostView.nhn?blogId=ybill&amp;logNo=120103312432&amp;proxyReferer=https:%5C/%5C/www.google.com%5C/">line 표현법과 plucker coordinate을 이용한 line과 폴리곤의 충돌 판단</a>
