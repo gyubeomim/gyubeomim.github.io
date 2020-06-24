@@ -254,25 +254,20 @@ Correction Step은 $\text{bel}(x_{t})$를 구하는 과정을 말한다. $\text{
 이다. 함수로 표현한 Kalman Filter는 다음과 같다.
 </p>
 
-\begin{algorithm}[H]
-  \SetKwInput{KwInput}{Input}
-  \SetKwInput{KwOutput}{Output}
-  \DontPrintSemicolon
-
-  \SetKwFunction{KF}{KalmanFilter}
-  \SetKwProg{Fn}{Function}{:}{}
-  \Fn{\KF{$\mu_{t-1}$, $\Sigma_{t-1}$, $u_{t}$, $z_{t}$}} {
-    (Prediction Step)\\
+<div class="org-src-container">
+<pre class="src src-c++">KalmanFilter($\mu_{t-1}$, $\Sigma_{t-1}$, $u_{t}$, $z_{t}$) {
+    (<span class="org-type">Prediction</span> <span class="org-variable-name">Step</span>)\\
     \overline{\mu}_{t} = \mathbf{A}_{t}\mu_{t-1} + \mathbf{B}_{t}u_{t}\\
     \overline{\Sigma}_{t} = \mathbf{A}_{t}\Sigma_{t-1}\mathbf{A}_{t}^{\intercal} + \mathbf{R}_{t}\\
 
-    (Correction Step) \\
+    (<span class="org-type">Correction</span> <span class="org-variable-name">Step</span>) \\
     \mathbf{K}_{t} = \overline{\Sigma}_{t}\mathbf{C}_{t}^{\intercal}(\mathbf{C}_{t}\overline{\Sigma}_{t}\mathbf{C}_{t}^{\intercal} + \mathbf{Q}_{t})^{-1} \\
     \mu_{t} = \overline{\mu}_{t} + \mathbf{K}_{t}(z_{t} - \mathbf{C}_{t}\overline{\mu}_{t}) \\
     \Sigma_{t} = (\mathbf{I} - \mathbf{K}_{t}\mathbf{C}_{t})\overline{\Sigma}_{t} \\
-    return \mu_{t}, \Sigma_{t}
-  }
-\end{algorithm}
+    <span class="org-keyword">return</span> \mu_{t}, \Sigma_{t}
+    }
+</pre>
+</div>
 </div>
 </div>
 </div>
