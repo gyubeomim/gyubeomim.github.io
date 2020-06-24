@@ -256,17 +256,17 @@ Correction Step은 $\text{bel}(x_{t})$를 구하는 과정을 말한다. $\text{
 
 \begin{equation}
 \begin{aligned}
-    \text{KalmanFilter}($\mu_{t-1}$, $\Sigma_{t-1}$, $u_{t}$, $z_{t}$) { \\
-        (Prediction Step)\\
-        \overline{\mu}_{t} = \mathbf{A}_{t}\mu_{t-1} + \mathbf{B}_{t}u_{t}\\
-        \overline{\Sigma}_{t} = \mathbf{A}_{t}\Sigma_{t-1}\mathbf{A}_{t}^{\intercal} + \mathbf{R}_{t}\\
-
-        (Correction Step) \\
-        \mathbf{K}_{t} = \overline{\Sigma}_{t}\mathbf{C}_{t}^{\intercal}(\mathbf{C}_{t}\overline{\Sigma}_{t}\mathbf{C}_{t}^{\intercal} + \mathbf{Q}_{t})^{-1} \\
-        \mu_{t} = \overline{\mu}_{t} + \mathbf{K}_{t}(z_{t} - \mathbf{C}_{t}\overline{\mu}_{t}) \\
-        \Sigma_{t} = (\mathbf{I} - \mathbf{K}_{t}\mathbf{C}_{t})\overline{\Sigma}_{t} \\
-        return \mu_{t}, \Sigma_{t} \\
-        }
+    &amp; \text{KalmanFilter}(\mu_{t-1}, \Sigma_{t-1}, u_{t}, z_{t}) { \\
+    &amp;   (Prediction Step)\\
+    &amp;   \overline{\mu}_{t} = \mathbf{A}_{t}\mu_{t-1} + \mathbf{B}_{t}u_{t}\\
+    &amp;   \overline{\Sigma}_{t} = \mathbf{A}_{t}\Sigma_{t-1}\mathbf{A}_{t}^{\intercal} + \mathbf{R}_{t}\\
+    &amp;
+    &amp;   (Correction Step) \\
+    &amp;   \mathbf{K}_{t} = \overline{\Sigma}_{t}\mathbf{C}_{t}^{\intercal}(\mathbf{C}_{t}\overline{\Sigma}_{t}\mathbf{C}_{t}^{\intercal} + \mathbf{Q}_{t})^{-1} \\
+    &amp;   \mu_{t} = \overline{\mu}_{t} + \mathbf{K}_{t}(z_{t} - \mathbf{C}_{t}\overline{\mu}_{t}) \\
+    &amp;   \Sigma_{t} = (\mathbf{I} - \mathbf{K}_{t}\mathbf{C}_{t})\overline{\Sigma}_{t} \\
+    &amp;   return \mu_{t}, \Sigma_{t} \\
+    &amp;   }
 \end{aligned}
 \end{equation}
 </div>
