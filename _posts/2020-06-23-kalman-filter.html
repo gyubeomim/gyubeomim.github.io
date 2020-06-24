@@ -256,7 +256,7 @@ Correction Step은 $\text{bel}(x_{t})$를 구하는 과정을 말한다. $\text{
 
 \begin{equation}
 \begin{aligned}
-&amp; \text{KalmanFilter}(\mu_{t-1}, \Sigma_{t-1}, u_{t}, z_{t}) { \\
+&amp; \text{KalmanFilter}(\mu_{t-1}, \Sigma_{t-1}, u_{t}, z_{t}) \{ \\
 &amp;   (Prediction Step)\\
 &amp;   \overline{\mu}_{t} = \mathbf{A}_{t}\mu_{t-1} + \mathbf{B}_{t}u_{t}\\
 &amp;   \overline{\Sigma}_{t} = \mathbf{A}_{t}\Sigma_{t-1}\mathbf{A}_{t}^{\intercal} + \mathbf{R}_{t}\\
@@ -265,7 +265,7 @@ Correction Step은 $\text{bel}(x_{t})$를 구하는 과정을 말한다. $\text{
 &amp;   \mu_{t} = \overline{\mu}_{t} + \mathbf{K}_{t}(z_{t} - \mathbf{C}_{t}\overline{\mu}_{t}) \\
 &amp;   \Sigma_{t} = (\mathbf{I} - \mathbf{K}_{t}\mathbf{C}_{t})\overline{\Sigma}_{t} \\
 &amp;   return \mu_{t}, \Sigma_{t} \\
-&amp;   }
+&amp;   \}
 \end{aligned}
 \end{equation}
 </div>
