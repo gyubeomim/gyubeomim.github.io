@@ -22,12 +22,12 @@ comments: true
 <ul>
 <li><a href="#org3d1efce">6.1. Prediction step</a></li>
 <li><a href="#org6c30b8e">6.2. Correction Step</a></li>
-<li><a href="#orgced400b">6.3. Pseudo code</a></li>
+<li><a href="#orgd138f50">6.3. Pseudo code</a></li>
 </ul>
 </li>
 <li><a href="#org5f534f4">7. Extended Kalman Filter</a>
 <ul>
-<li><a href="#org04baf5c">7.1. Pseudo code</a></li>
+<li><a href="#org4452ac6">7.1. Pseudo code</a></li>
 </ul>
 </li>
 <li><a href="#org5706b9e">8. References</a></li>
@@ -256,8 +256,8 @@ Correction Step은 $\text{bel}(\mathbf{x}_{t})$를 구하는 과정을 말한다
 </div>
 </div>
 
-<div id="outline-container-orgced400b" class="outline-3">
-<h3 id="orgced400b"><span class="section-number-3">6.3</span> Pseudo code</h3>
+<div id="outline-container-orgd138f50" class="outline-3">
+<h3 id="orgd138f50"><span class="section-number-3">6.3</span> Pseudo code</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 칼만필터를 함수로 표현하면 다음과 같다. 
@@ -300,7 +300,7 @@ Correction Step은 $\text{bel}(\mathbf{x}_{t})$를 구하는 과정을 말한다
   \end{aligned}
 \end{equation}
 <p>
-위 식에서 $\mathbf{g}(&sdot;,&sdot;)$은 비선형 모션모델을 의미하고 $\mathbf{h}(&sdot;)$은 비선형 관측모델을 의미한다. $\mathbf{x}_{t-1}=\boldsymbol{\mu}_{t-1},\ \mathbf{x}_{t} = \overline{\bolsymbol{\mu}}_{t}$에서 1차 테일러 근사를 수행하면 다음과 같다.
+위 식에서 $\mathbf{g}(&sdot;,&sdot;)$은 비선형 모션모델을 의미하고 $\mathbf{h}(&sdot;)$은 비선형 관측모델을 의미한다. $\mathbf{x}_{t-1}=\boldsymbol{\mu}_{t-1},\ \mathbf{x}_{t} = \overline{\boldsymbol{\mu}}_{t}$에서 1차 테일러 근사를 수행하면 다음과 같다.
 </p>
 
 \begin{equation}
@@ -315,13 +315,13 @@ Correction Step은 $\text{bel}(\mathbf{x}_{t})$를 구하는 과정을 말한다
 
 \begin{equation}
   \begin{aligned}
-    &amp; \mathbf{G}_{t} = \frac{\partial \mathbf{g}(\mathbf{u}_{t},\mathbf{x}_{t-1})}{\partial \mathbf{x}_{t-1}}|_{\mathbf{x}_{t-1}=\boldsymbol{\mu}_{t-1}} &amp; \mathbf{H}_{t} = \frac{\partial \mathbf{h}(\mathbf{x}_{t})}{\partial \mathbf{x}_{t}}|_{\mathbf{x}_{t}=\boldsymbol{\mu}_{t}} \\
+    &amp; \mathbf{G}_{t} = \frac{\partial \mathbf{g}(\mathbf{u}_{t},\mathbf{x}_{t-1})}{\partial \mathbf{x}_{t-1}}\bigg|_{\mathbf{x}_{t-1}=\boldsymbol{\mu}_{t-1}} &amp; \mathbf{H}_{t} = \frac{\partial \mathbf{h}(\mathbf{x}_{t})}{\partial \mathbf{x}_{t}}\bigg|_{\mathbf{x}_{t}=\boldsymbol{\mu}_{t}} \\
   \end{aligned}
 \end{equation}
 </div>
 
-<div id="outline-container-org04baf5c" class="outline-3">
-<h3 id="org04baf5c"><span class="section-number-3">7.1</span> Pseudo code</h3>
+<div id="outline-container-org4452ac6" class="outline-3">
+<h3 id="org4452ac6"><span class="section-number-3">7.1</span> Pseudo code</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 확장칼만필터를 함수로 표현하면 다음과 같다. 
