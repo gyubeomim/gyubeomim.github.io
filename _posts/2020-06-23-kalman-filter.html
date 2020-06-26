@@ -13,26 +13,31 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2441459">1. Introduction</a></li>
-<li><a href="#orgfc3c5ac">2. Bayesian Rule</a></li>
-<li><a href="#orga31aff4">3. Joint Distribution</a></li>
-<li><a href="#org523975d">4. Conditional Distribution</a></li>
-<li><a href="#org8e991ad">5. Recursive Bayes Filter</a></li>
-<li><a href="#org3c75387">6. Kalman Filter</a>
+<li><a href="#org58d0eaa">1. Introduction</a></li>
+<li><a href="#org2de8678">2. Bayesian Rule</a></li>
+<li><a href="#org6c01022">3. Joint Distribution</a></li>
+<li><a href="#orga5fbff1">4. Conditional Distribution</a></li>
+<li><a href="#org466bcf8">5. Recursive Bayes Filter</a></li>
+<li><a href="#org9cb8881">6. Kalman Filter</a>
 <ul>
-<li><a href="#org94fa2cc">6.1. Prediction step</a></li>
-<li><a href="#orge2db865">6.2. Correction Step</a></li>
-<li><a href="#org8b22971">6.3. Pseudo code</a></li>
+<li><a href="#org3d1efce">6.1. Prediction step</a></li>
+<li><a href="#org6c30b8e">6.2. Correction Step</a></li>
+<li><a href="#orge871316">6.3. Pseudo code</a></li>
 </ul>
 </li>
-<li><a href="#orged6a382">7. Extended Kalman Filter</a></li>
+<li><a href="#org5f534f4">7. Extended Kalman Filter</a>
+<ul>
+<li><a href="#orgd877478">7.1. Pseudo code</a></li>
+</ul>
+</li>
+<li><a href="#org5706b9e">8. References</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org2441459" class="outline-2">
-<h2 id="org2441459"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org58d0eaa" class="outline-2">
+<h2 id="org58d0eaa"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 칼만 필터(kalman filter)는 노이즈가 존재하는 데이터에서 상태변수를 추정하는 대표적인 상태 추정 알고리즘이다. 실제 세상에서 획득하는 데이터에는 항상 노이즈가 존재하므로 공학 분야에서 칼만 필터는 매우 널리 사용된다.
@@ -44,8 +49,8 @@ comments: true
 </div>
 </div>
 
-<div id="outline-container-orgfc3c5ac" class="outline-2">
-<h2 id="orgfc3c5ac"><span class="section-number-2">2</span> Bayesian Rule</h2>
+<div id="outline-container-org2de8678" class="outline-2">
+<h2 id="org2de8678"><span class="section-number-2">2</span> Bayesian Rule</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
@@ -71,8 +76,8 @@ Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
 </div>
 </div>
 
-<div id="outline-container-orga31aff4" class="outline-2">
-<h2 id="orga31aff4"><span class="section-number-2">3</span> Joint Distribution</h2>
+<div id="outline-container-org6c01022" class="outline-2">
+<h2 id="org6c01022"><span class="section-number-2">3</span> Joint Distribution</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 두 개의 확률변수 $a,b$가 있을 때 다변수 확률분포$p(a, b) &sim; \mathcal{N}(\mathbf{\boldsymbol{\mu}}, \boldsymbol{\Sigma})$는 다음과 같이 나타낼 수 있다.
@@ -89,8 +94,8 @@ Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
 </div>
 </div>
 
-<div id="outline-container-org523975d" class="outline-2">
-<h2 id="org523975d"><span class="section-number-2">4</span> Conditional Distribution</h2>
+<div id="outline-container-orga5fbff1" class="outline-2">
+<h2 id="orga5fbff1"><span class="section-number-2">4</span> Conditional Distribution</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 두 개의 확률변수 $a, b$가 주어졌을 때 조건부 확률분포 $p(a|b=b_{0})$가 가우시안 분포를 따른다고 하면
@@ -118,8 +123,8 @@ Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
 </div>
 </div>
 
-<div id="outline-container-org8e991ad" class="outline-2">
-<h2 id="org8e991ad"><span class="section-number-2">5</span> Recursive Bayes Filter</h2>
+<div id="outline-container-org466bcf8" class="outline-2">
+<h2 id="org466bcf8"><span class="section-number-2">5</span> Recursive Bayes Filter</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 시간 $t$에 대하여 로봇의 위치에 대한 상태 $\mathbf{x}_{t}$와 관측값 $\mathbf{z}_{t}$그리고 제어입력 $\mathbf{u}_{t}$가 주어졌을 때 $\text{bel}(\mathbf{x}_{t})$(Belief of $\mathbf{x}_{t}$)는 다음과 같이 정의한다.
@@ -153,8 +158,8 @@ Recursive Bayes Filter는 위와 같이 이전 스텝의 $\text{bel}(\mathbf{x}_
 </div>
 
 
-<div id="outline-container-org3c75387" class="outline-2">
-<h2 id="org3c75387"><span class="section-number-2">6</span> Kalman Filter</h2>
+<div id="outline-container-org9cb8881" class="outline-2">
+<h2 id="org9cb8881"><span class="section-number-2">6</span> Kalman Filter</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 시간 $t$에 로봇의 위치를 $\mathbf{x}_{t}$, 로봇의 센서로 부터 관측한 값을 $\mathbf{z}_{t}$, 로봇의 제어입력을 $\mathbf{u}_{t}$라고 하면 이를 통해 <b>모션 모델(motion model)과 관측 모델(observation model)을 정의할 수 있다. 이 때, 모션모델과 관측모델은 선형이어야(linear model) 한다는 제약조건이 있다.</b> 모션모델과 관측모델은 다음과 같다.
@@ -190,8 +195,8 @@ $&epsilon;_{t} &sim; \mathcal{N}(0, \mathbf{R}_{t})$는 모션 모델의 노이�
 </p>
 </div>
 
-<div id="outline-container-org94fa2cc" class="outline-3">
-<h3 id="org94fa2cc"><span class="section-number-3">6.1</span> Prediction step</h3>
+<div id="outline-container-org3d1efce" class="outline-3">
+<h3 id="org3d1efce"><span class="section-number-3">6.1</span> Prediction step</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Prediction Step은 $\overline{\text{bel}}(\mathbf{x}_{t})$를 구하는 과정을 말한다. $\overline{\text{bel}}(\mathbf{x}_{t})$는 가우시안 분포를 따르므로 평균 $\overline{\boldsymbol{\mu}}_{t}$과 분산 $\overline{\boldsymbol{\Sigma}}_{t}$을 각각 구해보면
@@ -209,8 +214,8 @@ Prediction Step은 $\overline{\text{bel}}(\mathbf{x}_{t})$를 구하는 과정�
 </div>
 </div>
 
-<div id="outline-container-orge2db865" class="outline-3">
-<h3 id="orge2db865"><span class="section-number-3">6.2</span> Correction Step</h3>
+<div id="outline-container-org6c30b8e" class="outline-3">
+<h3 id="org6c30b8e"><span class="section-number-3">6.2</span> Correction Step</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 Correction Step은 $\text{bel}(\mathbf{x}_{t})$를 구하는 과정을 말한다. $\text{bel}(\mathbf{x}_{t})$는 가우시안 분포를 따르므로 평균 $\boldsymbol{\mu}_{t}$을 구해보면
@@ -251,11 +256,11 @@ Correction Step은 $\text{bel}(\mathbf{x}_{t})$를 구하는 과정을 말한다
 </div>
 </div>
 
-<div id="outline-container-org8b22971" class="outline-3">
-<h3 id="org8b22971"><span class="section-number-3">6.3</span> Pseudo code</h3>
+<div id="outline-container-orge871316" class="outline-3">
+<h3 id="orge871316"><span class="section-number-3">6.3</span> Pseudo code</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
-지금까지 과정을 함수로 표현하면 다음과 같다. 
+칼만필터를 함수로 표현하면 다음과 같다. 
 </p>
 
 \begin{equation}
@@ -277,15 +282,15 @@ Correction Step은 $\text{bel}(\mathbf{x}_{t})$를 구하는 과정을 말한다
 </div>
 </div>
 
-<div id="outline-container-orged6a382" class="outline-2">
-<h2 id="orged6a382"><span class="section-number-2">7</span> Extended Kalman Filter</h2>
+<div id="outline-container-org5f534f4" class="outline-2">
+<h2 id="org5f534f4"><span class="section-number-2">7</span> Extended Kalman Filter</h2>
 <div class="outline-text-2" id="text-7">
 <p>
-칼만필터는 모션모델과 관측모델이 선형이라는 가정 하에 상태를 추정한다. 하지만 현실세계의 대부분의 현상들은 비선형으로 모델링되므로 앞서 정의한 칼만필터를 그대로 적용하면 정상적으로 동작하지 않는다. 비선형의 모션모델과 관측모델에서도 칼만필터를 사용하기 위해 Extended Kalman Filter(EKF)가 제안되었다. <b>EKF는 테일러 1차 근사(talyor 1st approximation)을 사용하여 비선형 모델을 선형 모델로 근사한 후 칼만필터를 적용하는 방법을 사용했다.</b>
+칼만필터는 모션모델과 관측모델이 선형이라는 가정 하에 상태를 추정한다. 하지만 현실세계의 대부분의 현상들은 비선형으로 모델링되므로 앞서 정의한 칼만필터를 그대로 적용하면 정상적으로 동작하지 않는다. 비선형의 모션모델과 관측모델에서도 칼만필터를 사용하기 위해 확장칼만필터(Extended Kalman Filter,EKF)가 제안되었다. <b>확장칼만필터는 테일러 1차 근사(talyor 1st approximation)을 사용하여 비선형 모델을 선형 모델로 근사한 후 칼만필터를 적용하는 방법을 사용했다.</b>
 </p>
 
 <p>
-EKF에서 모션모델과 관측모델은 다음과 같다.
+확장칼만필터에서 모션모델과 관측모델은 다음과 같다.
 </p>
 
 \begin{equation}
@@ -313,5 +318,43 @@ $\mathbf{G}_{t}$는 모션모델의 자코비안 행렬을 의미하며 $\mathbf
     &amp; \mathbf{G}_{t} = \frac{\partial \mathbf{g}(\mathbf{u}_{t},\mathbf{x}_{t-1})}{\partial \mathbf{x}_{t-1}}|_{\mathbf{x}_{t-1}=\boldsymbol{\mu}_{t-1}} &amp; \mathbf{H}_{t} = \frac{\partial \mathbf{h}(\mathbf{x}_{t})}{\partial \mathbf{x}_{t}}|_{\mathbf{x}_{t}=\boldsymbol{\mu}_{t}} \\
   \end{aligned}
 \end{equation}
+</div>
+
+<div id="outline-container-orgd877478" class="outline-3">
+<h3 id="orgd877478"><span class="section-number-3">7.1</span> Pseudo code</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+확장칼만필터를 함수로 표현하면 다음과 같다. 
+</p>
+
+\begin{equation}
+\begin{aligned}
+&amp; \text{ExtendedKalmanFilter}(\mu_{t-1}, \Sigma_{t-1}, u_{t}, z_{t}) \{ \\
+&amp; \quad\quad \text{(Prediction Step)}\\
+&amp; \quad\quad \overline{\mu}_{t} = \mathbf{g}(\mathbf{u}_{t}, \mu_{t-1}) \\
+&amp; \quad\quad \overline{\Sigma}_{t} = \mathbf{G}_{t}\Sigma_{t-1}\mathbf{G}_{t}^{\intercal} + \mathbf{R}_{t}\\
+&amp; \\
+&amp; \quad\quad \text{(Correction Step)} \\
+&amp; \quad\quad \mathbf{K}_{t} = \overline{\Sigma}_{t}\mathbf{H}_{t}^{\intercal}(\mathbf{H}_{t}\overline{\Sigma}_{t}\mathbf{H}_{t}^{\intercal} + \mathbf{Q}_{t})^{-1} \\
+&amp; \quad\quad \mu_{t} = \overline{\mu}_{t} + \mathbf{K}_{t}(z_{t} - \mathbf{h}(\overline{\mu}_{t})) \\
+&amp; \quad\quad \Sigma_{t} = (\mathbf{I} - \mathbf{K}_{t}\mathbf{H}_{t})\overline{\Sigma}_{t} \\
+&amp; \quad\quad \text{return} \ \ \mu_{t}, \Sigma_{t} \\
+&amp;   \}
+\end{aligned}
+\end{equation}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5706b9e" class="outline-2">
+<h2 id="org5706b9e"><span class="section-number-2">8</span> References</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+<a href="https://junpyopark.github.io/probability/">JUNPYOPARK's Blog</a>
+</p>
+
+<p>
+<a href="http://jinyongjeong.github.io/2017/02/14/lec03_kalman_filter_and_EKF/">Jinyong Jeong's Blog</a>
+</p>
 </div>
 </div>
