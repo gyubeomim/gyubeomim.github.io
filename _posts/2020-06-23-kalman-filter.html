@@ -22,12 +22,12 @@ comments: true
 <ul>
 <li><a href="#org3d1efce">6.1. Prediction step</a></li>
 <li><a href="#org6c30b8e">6.2. Correction Step</a></li>
-<li><a href="#org4452ac6">6.3. Pseudo code</a></li>
+<li><a href="#org82ab855">6.3. Pseudo code</a></li>
 </ul>
 </li>
 <li><a href="#org5f534f4">7. Extended Kalman Filter</a>
 <ul>
-<li><a href="#org82ab855">7.1. Pseudo code</a></li>
+<li><a href="#orgd08f374">7.1. Pseudo code</a></li>
 </ul>
 </li>
 <li><a href="#org5706b9e">8. References</a></li>
@@ -103,7 +103,7 @@ Bayesian Rule은 다음과 같이 조건부확률 간 관계를 의미한다.
 
 \begin{equation}
   \begin{aligned}
-    p(a | b=b) &amp; = \frac{p(a,b)}{p(b)} = \frac{p(b | a)p(a)}{p(b)} = \eta \cdot p(a, b)p(a) \\
+    p(a | b=b_{0}) &amp; = \frac{p(a,b)}{p(b)} = \frac{p(b | a)p(a)}{p(b)} = \eta \cdot p(a, b)p(a) \\
     &amp; \sim \mathcal{N}(\boldsymbol{\mu}_{a|b}, \boldsymbol{\Sigma}_{a|b})
   \end{aligned}
 \end{equation}
@@ -256,8 +256,8 @@ Correction Step은 $\text{bel}(\mathbf{x}_{t})$를 구하는 과정을 말한다
 </div>
 </div>
 
-<div id="outline-container-org4452ac6" class="outline-3">
-<h3 id="org4452ac6"><span class="section-number-3">6.3</span> Pseudo code</h3>
+<div id="outline-container-org82ab855" class="outline-3">
+<h3 id="org82ab855"><span class="section-number-3">6.3</span> Pseudo code</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 칼만필터를 함수로 표현하면 다음과 같다. 
@@ -320,8 +320,8 @@ Correction Step은 $\text{bel}(\mathbf{x}_{t})$를 구하는 과정을 말한다
 \end{equation}
 </div>
 
-<div id="outline-container-org82ab855" class="outline-3">
-<h3 id="org82ab855"><span class="section-number-3">7.1</span> Pseudo code</h3>
+<div id="outline-container-orgd08f374" class="outline-3">
+<h3 id="orgd08f374"><span class="section-number-3">7.1</span> Pseudo code</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 확장칼만필터를 함수로 표현하면 다음과 같다. 
