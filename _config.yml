@@ -5,9 +5,9 @@ permalink:           pretty
 #relative_permalinks: true
 
 # Setup
-title:               edward0im blog
+title:               Edward Gyubeom Im
 tagline:             "Tech Evangelist & Engineer & Researcher"
-description:         "edward0im blog"
+description:         "Edward Gyubeom Im"
 url:                 https://edward0im.github.io
 baseurl:            ''
 paginate:            10
