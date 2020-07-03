@@ -5,7 +5,7 @@ title: About
 
 <div class="figure">
 <p>
-<img src="/assets/edward.jpg" width="300" align="center" /> <br/>
+<img src="/assets/edward.jpg" width="250" align="center" /> <br/>
 </p>
 </div>
 
