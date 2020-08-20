@@ -21,7 +21,7 @@ Go to my github [here](https://github.com/edward0im).
 
 <div class="figure">
 <p>
-<img src="/pictures/200704/cv.png" align="center" /> <br/>
+<img src="/pictures/200820/cv.png" align="center" /> <br/>
 </p>
 </div>
 
