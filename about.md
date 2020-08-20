@@ -13,6 +13,9 @@ My name is Edward Gyubeom Im. I obtained my Master's Degree in Department of Tra
 
 <br/><br/>
 
+Go to my github [here](https://github.com/edward0im).
+
+<br/><br/>
 --------------
 
 <br/><br/>
