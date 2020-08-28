@@ -12,28 +12,28 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgda90c10">1. Introduction</a></li>
-<li><a href="#org6826bf2">2. Installation</a></li>
-<li><a href="#org7bae98b">3. Docker commands</a></li>
-<li><a href="#org9a6204c">4. w/o sudo command</a></li>
-<li><a href="#orge3467ea">5. docker service</a></li>
-<li><a href="#org01094f0">6. nvidia-docker</a>
+<li><a href="#org18a292b">1. Introduction</a></li>
+<li><a href="#org733bf13">2. Installation</a></li>
+<li><a href="#org4b85032">3. Docker commands</a></li>
+<li><a href="#orgc8f824c">4. w/o sudo command</a></li>
+<li><a href="#org4afd9a1">5. docker service</a></li>
+<li><a href="#org598a0dc">6. nvidia-docker</a>
 <ul>
-<li><a href="#org0e1828f">6.1. Installation</a></li>
-<li><a href="#org054f071">6.2. Usage</a></li>
+<li><a href="#org355dc04">6.1. Installation</a></li>
+<li><a href="#orgc0a44b7">6.2. Usage</a></li>
 </ul>
 </li>
-<li><a href="#org815a616">7. Docker Hub</a></li>
-<li><a href="#orgcc9a83e">8. Connect to internet in docker container</a></li>
-<li><a href="#orgb074582">9. Bash autocompletion in docker</a></li>
-<li><a href="#orgde1c94a">10. Dockerfile</a></li>
-<li><a href="#org2ee7ede">11. Reference</a></li>
+<li><a href="#org4c80c1f">7. Docker Hub</a></li>
+<li><a href="#org31ab0c7">8. Connect to the internet in docker container</a></li>
+<li><a href="#org02538fb">9. Bash autocompletion in docker</a></li>
+<li><a href="#org938a318">10. Dockerfile</a></li>
+<li><a href="#org108c949">11. Reference</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgda90c10" class="outline-2">
-<h2 id="orgda90c10"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org18a292b" class="outline-2">
+<h2 id="org18a292b"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 리눅스에서 프로그램을 빌드하다가 한 번쯤은 버전 문제로 제대로 실행하지 못한 경험이 있을 것이다. Docker는 이러한 빌드 문제를 해결해줄 수 있는 좋은 솔루션이다. 필자 또한 빌드 문제로 많은 시간을 낭비하다가 결국 Docker를 사용하기 시작했다. 해당 포스트는 필자가 docker를 사용하면서 필요한 정보들을 정리해놓은 포스트이다. 
@@ -41,8 +41,8 @@ comments: true
 <hr />
 </div>
 </div>
-<div id="outline-container-org6826bf2" class="outline-2">
-<h2 id="org6826bf2"><span class="section-number-2">2</span> Installation</h2>
+<div id="outline-container-org733bf13" class="outline-2">
+<h2 id="org733bf13"><span class="section-number-2">2</span> Installation</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Ubuntu 16.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 설치할 수 있다.
@@ -54,8 +54,8 @@ Ubuntu 16.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 
 <hr />
 </div>
 </div>
-<div id="outline-container-org7bae98b" class="outline-2">
-<h2 id="org7bae98b"><span class="section-number-2">3</span> Docker commands</h2>
+<div id="outline-container-org4b85032" class="outline-2">
+<h2 id="org4b85032"><span class="section-number-2">3</span> Docker commands</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 가장 자주 사용하는 docker 명령어들을 정리하였다.
@@ -95,8 +95,8 @@ $ docker pull ubuntu:16.04
 <hr />
 </div>
 </div>
-<div id="outline-container-org9a6204c" class="outline-2">
-<h2 id="org9a6204c"><span class="section-number-2">4</span> w/o sudo command</h2>
+<div id="outline-container-orgc8f824c" class="outline-2">
+<h2 id="orgc8f824c"><span class="section-number-2">4</span> w/o sudo command</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 우분투에서 docker를 처음 설치하고 실행하면 매번 실행할 때마다 sudo 명령어를 입력해줘야 한다. 이를 sudo 명령어없이 편하게 사용하려면 현재 계정을 docker 그룹에 포함시키면 된다. 명령어는 아래와 같다.
@@ -110,8 +110,8 @@ $ sudo service docker restart
 <hr />
 </div>
 </div>
-<div id="outline-container-orge3467ea" class="outline-2">
-<h2 id="orge3467ea"><span class="section-number-2">5</span> docker service</h2>
+<div id="outline-container-org4afd9a1" class="outline-2">
+<h2 id="org4afd9a1"><span class="section-number-2">5</span> docker service</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">&#49436;&#48708;&#49828; &#46041;&#51089; &#49345;&#53468; &#54869;&#51064;</span>
@@ -121,15 +121,15 @@ $ sudo service docker status
 <hr />
 </div>
 </div>
-<div id="outline-container-org01094f0" class="outline-2">
-<h2 id="org01094f0"><span class="section-number-2">6</span> nvidia-docker</h2>
+<div id="outline-container-org598a0dc" class="outline-2">
+<h2 id="org598a0dc"><span class="section-number-2">6</span> nvidia-docker</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 <b>nvidia-docker</b> 는 호스트 컴퓨터에 NVIDIA 드라이버가 있을 경우 컨테이너에서 GPU를 사용할 수 있도록 해주는 프로그램이다.
 </p>
 </div>
-<div id="outline-container-org0e1828f" class="outline-3">
-<h3 id="org0e1828f"><span class="section-number-3">6.1</span> Installation</h3>
+<div id="outline-container-org355dc04" class="outline-3">
+<h3 id="org355dc04"><span class="section-number-3">6.1</span> Installation</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li><p>
@@ -138,7 +138,7 @@ $ sudo service docker status
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Add the package repositories</span>
 $ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
-$ <span class="org-variable-name">distribution</span>=$(. /etc/os-release;<span class="org-builtin">echo</span> $<span class="org-variable-name">ID</span>$<span class="org-variable-name">VERSION_ID</span>)
+$ <span class="org-variable-name">distribution</span>=$(<span class="org-sh-quoted-exec">.</span> /etc/os-release;<span class="org-builtin">echo</span> $<span class="org-variable-name">ID</span>$<span class="org-variable-name">VERSION_ID</span>)
 $ curl -s -L https://nvidia.github.io/nvidia-docker/$<span class="org-variable-name">distribution</span>/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 $ sudo apt-get update
 
@@ -156,7 +156,7 @@ $ docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
 <div class="org-src-container">
 <pre class="src src-sh">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 $ sudo apt-key fingerprint 0EBFCD88
-$ sudo add-apt-repository <span class="org-string">"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable</span>
+$ sudo add-apt-repository <span class="org-string">"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(</span><span class="org-sh-quoted-exec">lsb_release</span><span class="org-string"> -cs) stable</span>
 <span class="org-string">$ sudo apt-get update</span>
 <span class="org-string">$ sudo apt-get install docker-ce</span>
 <span class="org-string">$ sudo service docker restart</span>
@@ -165,8 +165,8 @@ $ sudo add-apt-repository <span class="org-string">"deb [arch=amd64] https://dow
 </ul>
 </div>
 </div>
-<div id="outline-container-org054f071" class="outline-3">
-<h3 id="org054f071"><span class="section-number-3">6.2</span> Usage</h3>
+<div id="outline-container-orgc0a44b7" class="outline-3">
+<h3 id="orgc0a44b7"><span class="section-number-3">6.2</span> Usage</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 <b>nvidia-docker</b> 명령어는 <b>docker run &#x2013;runtime=nvidia</b> 와 동일하다. 만약 non-cuda 이미지에서 GPU를 사용하고 싶을 경우 아래와 같은 명령어를 사용하면 된다. 출처는 <a href="https://github.com/NVIDIA/nvidia-docker/wiki/Usage#non-cuda-image">여기</a>이다.
@@ -180,8 +180,8 @@ $ docker run --runtime=nvidia -e <span class="org-variable-name">NVIDIA_VISIBLE_
 </div>
 </div>
 </div>
-<div id="outline-container-org815a616" class="outline-2">
-<h2 id="org815a616"><span class="section-number-2">7</span> Docker Hub</h2>
+<div id="outline-container-org4c80c1f" class="outline-2">
+<h2 id="org4c80c1f"><span class="section-number-2">7</span> Docker Hub</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 docker도 github처럼 사이트를 운영하고 있다. 여기에 가입하고 명령어를 통해 터미널에서 로그인할 수 있다.
@@ -205,8 +205,8 @@ $ docker push edward0im/ubuntu_cuda9.0
 <hr />
 </div>
 </div>
-<div id="outline-container-orgcc9a83e" class="outline-2">
-<h2 id="orgcc9a83e"><span class="section-number-2">8</span> Connect to internet in docker container</h2>
+<div id="outline-container-org31ab0c7" class="outline-2">
+<h2 id="org31ab0c7"><span class="section-number-2">8</span> Connect to the internet in docker container</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 Docker 컨테이너는 NAT 기술을 사용하여 외부 네트워크로 통신한다. 실제 인터넷 선은 하나 밖에 제공되어 있지 않고 그 선을 통해 데이터가 나가야 하기 때문에 Linux의 <b>iptables</b> 명령을 사용해서 해당 브릿지 인터페이스에 MASQUERADE 기능을 부여하거나 SNAT 값을 줘야 한다. 해당 방법은 이 <a href="https://blog.neonkid.xyz/87">블로그</a>를 통해 얻은 정보이다.
@@ -246,8 +246,8 @@ RETURN     all  --  anywhere             anywhere
 <hr />
 </div>
 </div>
-<div id="outline-container-orgb074582" class="outline-2">
-<h2 id="orgb074582"><span class="section-number-2">9</span> Bash autocompletion in docker</h2>
+<div id="outline-container-org02538fb" class="outline-2">
+<h2 id="org02538fb"><span class="section-number-2">9</span> Bash autocompletion in docker</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 Docker에 접속하면 기본적으로 bash에서 tab 자동 완성(autocompletion)이 작동하지 않는다. 아래 작성한 방법들 모두 적용해본 결과 정상적으로 작동하는 걸 확인했다. 정확히 어느 파트는 필요없는 지에 대한 내용은 아직 모르겠다. ROS 명령어들을 자동완성하고 싶은 경우 <b>source /opt/ros/kinetic/setup.bash</b> 를 .bashrc 파일에 넣어줘야 한다.
@@ -262,11 +262,11 @@ Docker에 접속하면 기본적으로 bash에서 tab 자동 완성(autocompleti
   $ vim /etc/bash.bashrc
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">&#50500;&#47000; &#53076;&#46300;&#47484; &#51452;&#49437; &#54644;&#51228;&#54620;&#45796;.</span>
-<span class="org-keyword">if</span> <span class="org-negation-char">!</span> shopt -oq posix; <span class="org-keyword">then</span>
+<span class="org-keyword">if ! </span><span class="org-builtin">shopt</span> -oq posix; <span class="org-keyword">then</span>
  <span class="org-keyword">if</span> [ -f /usr/share/bash-completion/bash_completion ]; <span class="org-keyword">then</span>
-   . /usr/share/bash-completion/bash_completion
+   <span class="org-builtin">.</span> /usr/share/bash-completion/bash_completion
  <span class="org-keyword">elif</span> [ -f /etc/bash_completion ]; <span class="org-keyword">then</span>
-   . /etc/bash_completion
+   <span class="org-builtin">.</span> /etc/bash_completion
  <span class="org-keyword">fi</span>
 <span class="org-keyword">fi</span>
 
@@ -279,8 +279,8 @@ Docker에 접속하면 기본적으로 bash에서 tab 자동 완성(autocompleti
 <hr />
 </div>
 </div>
-<div id="outline-container-orgde1c94a" class="outline-2">
-<h2 id="orgde1c94a"><span class="section-number-2">10</span> Dockerfile</h2>
+<div id="outline-container-org938a318" class="outline-2">
+<h2 id="org938a318"><span class="section-number-2">10</span> Dockerfile</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 Dockerfile은 <code>docker build</code> 명령어를 사용하여 docker 이미지를 생성할 수 있는 파일이다. 아래에 Dockerfile의 간단한 사용 예시를 작성했다. 우선 example 폴더를 만들고 그 안에 아래와 같은 Dockerfile을 생성한다.
@@ -331,8 +331,8 @@ $ sudo docker run --name hello-nginx -d -p 80:80 -v /root/data:/data hello:0.1
 <hr />
 </div>
 </div>
-<div id="outline-container-org2ee7ede" class="outline-2">
-<h2 id="org2ee7ede"><span class="section-number-2">11</span> Reference</h2>
+<div id="outline-container-org108c949" class="outline-2">
+<h2 id="org108c949"><span class="section-number-2">11</span> Reference</h2>
 <div class="outline-text-2" id="text-11">
 <p>
 <a href="https://www.slideshare.net/pyrasis/docker-fordummies-44424016">도커 무작정 따라하기</a>
