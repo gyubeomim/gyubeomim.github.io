@@ -34,7 +34,7 @@ comments: true
 </p>
 
 <p>
-Graph SLAM의 Pipeline은 크게 Front-end와 Back-end로 구분할 수 있는데 로봇의 센서를 입력으로 받아 Pose Graph를 생성하는 부분을 Front-end라고 부르며 Front-end는 시간이 지날수록 노이즈로 인한 에러가 누적된다. 이렇게 <b>누적된 에러를 최적화하는 부분을 Back-end라고 부르며 이 때 사용하는 알고리즘을 Pose Graph Optimization (PGO)</b> 라고 한다. PGO는 로봇의 포즈만 변경시키고 맵 상에 존재하는 맵포인트들은 최적화하지 않는다. PGO와 달리 <b>로봇의 포즈와 맵포인트를 동시에 최적화하는 방법을 Bundle Adjustment</b> 라고 한다. 해당 포스트에서는 PGO만을 다룬다.
+GraphSLAM의 Pipeline은 크게 Front-end와 Back-end로 구분할 수 있는데 로봇의 센서를 입력으로 받아 Pose Graph를 생성하는 부분을 Front-end라고 부르며 Front-end는 시간이 지날수록 노이즈로 인한 에러가 누적된다. 이렇게 <b>누적된 에러를 최적화하는 부분을 Back-end라고 부르며 이 때 사용하는 알고리즘을 Pose Graph Optimization (PGO)</b> 라고 한다. PGO는 로봇의 포즈만 변경시키고 맵 상에 존재하는 맵포인트들은 최적화하지 않는다. PGO와 달리 <b>로봇의 포즈와 맵포인트를 동시에 최적화하는 방법을 Bundle Adjustment</b> 라고 한다. 해당 포스트에서는 PGO만을 다룬다.
 </p>
 
 
