@@ -30,7 +30,7 @@ comments: true
 <h2 id="orgfe011ef"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-로봇이 SLAM을 수행하는 동안 센서 데이터가 입력으로 들어오는데 순차적으로 들어오는 센서 데이터들의 차이를 통해 로봇의 포즈를 계산하는 알고리즘을 <b>Odometry</b> 또는 <b>Front-end</b> 라고 한다. 이 때, 센서 데이터의 노이즈로 인해 Odometry는 필연적으로 에러를 포함하고 있는데 시간이 지날수록 에러는 누적되어 전체적인 Trajectroy가 어긋나게 된다. 이러한 문제를 해결하기 위해 1997년 Lu and Milios는 로봇의 포즈를 그래프 자료구조로 표현함으로써 최적화하는 GraphSLAM 방법을 제안하였다. <a href="#org7352b84">(1)</a>  
+로봇이 SLAM을 수행하는 동안 센서 데이터가 입력으로 들어오는데 순차적으로 들어오는 센서 데이터들의 차이를 통해 로봇의 포즈를 계산하는 알고리즘을 <b>Odometry</b> 또는 <b>Front-end</b> 라고 한다. 이 때, 센서 데이터의 노이즈로 인해 Odometry는 필연적으로 에러를 포함하고 있는데 시간이 지날수록 에러는 누적되어 전체적인 Trajectroy가 어긋나게 된다. 이러한 문제를 해결하기 위해 1997년 Lu and Milios<a href="#org7352b84">(1)</a> 는 로봇의 포즈를 그래프 자료구조로 표현함으로써 최적화하는 GraphSLAM 방법을 제안하였다.
 </p>
 
 <p>
@@ -263,12 +263,10 @@ PGO를 테스트해 볼 수 있는 튜토리얼 코드를 github에 작성하였
 <div id="outline-container-org7352b84" class="outline-2">
 <h2 id="org7352b84"><span class="section-number-2">5</span> References</h2>
 <div class="outline-text-2" id="text-5">
-<p>
-<a href="https://www.youtube.com/watch?v=_i8PaekcguA&amp;list=PLubUquiqNQdOTNocmWCSWk9ZaWhV7ubCD">Facebook SLAMKR Online Study Season 1</a>
-</p>
-
-<p>
-<a href="https://youtu.be/wVsfCnyt5jA">Robot Mapping Course - Freiburg University</a>
-</p>
+<ol class="org-ol">
+<li><a href="https://journals.sagepub.com/doi/abs/10.1177/0278364906065387?casa_token=GgYv1_E10lkAAAAA%3Aa2dCyZPksSJUerYbSFzncckAtMAAhGQM2UwCl2oBUPMMfzhhBN0lakSfEGX7ETfRdrPbcTR0qc8aVqE&amp;">Thrun, S. and Montemerlo, M., 2006. The graph SLAM algorithm with applications to large-scale mapping of urban structures. The International Journal of Robotics Research, 25(5-6), pp.403-429.</a></li>
+<li><a href="https://www.youtube.com/watch?v=_i8PaekcguA&amp;list=PLubUquiqNQdOTNocmWCSWk9ZaWhV7ubCD">Facebook SLAMKR Online Study Season 1</a></li>
+<li><a href="https://youtu.be/wVsfCnyt5jA">Robot Mapping Course - Freiburg University</a></li>
+</ol>
 </div>
 </div>
