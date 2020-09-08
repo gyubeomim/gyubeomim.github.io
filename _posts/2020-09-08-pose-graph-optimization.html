@@ -103,7 +103,7 @@ Loop Closing과 같은 특수한 상황이 발생하면 Front-end에서 에러�
 
 \begin{equation}
 \begin{aligned}
-\mathbf{x}^{*} = \arg\min_{\mathbf{x}} \| \mathbf{z} -  \hat{\mathbf{z}} \|^{2}_{\Sigma} 
+\mathbf{x}^{*} = \arg\min_{\mathbf{x}} \| \mathbf{z} -  \hat{\mathbf{z}} \|^{2}_{\Sigma} = \| \mathbf{e} \|_{\Sigma}^{2}
 \end{aligned}
 \end{equation}
 <p>
@@ -119,7 +119,7 @@ Loop Closing과 같은 특수한 상황이 발생하면 Front-end에서 에러�
 \end{aligned}
 \end{equation}
 <p>
-$\mathbf{z}$는 두 노드 사이의 관측값을 의미하고 $\hat{\mathbf{z}}$는 두 노드 사이의 예측값을 의미한다. 그리고 $\| \mathbf{e}\|_{&Sigma;}^{2}=\mathbf{e}^{\intercal}&Sigma;^{-1}\mathbf{e}=\mathbf{e}^{\intercal}&Omega; \mathbf{e}$를 의미한다.
+그리고 $\mathbf{z}$는 두 노드 사이의 관측값을 의미하고 $\hat{\mathbf{z}}$는 두 노드 사이의 예측값을 의미한다. 관측값과 예측값의 차이를 에러함수 $\mathbf{e}$로 정의한다. 그리고 $\| \mathbf{e}\|_{&Sigma;}^{2}=\mathbf{e}^{\intercal}&Sigma;^{-1}\mathbf{e}=\mathbf{e}^{\intercal}&Omega; \mathbf{e}$를 의미한다.
 </p>
 </div>
 </div>
