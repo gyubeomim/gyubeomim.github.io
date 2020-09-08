@@ -37,7 +37,7 @@ Pose Graph Optimization(PGO)은 로봇이 SLAM을 수행하면서 누적된 포�
 <figure>
 <img src="/pictures/200908/01.png" alt="01.png" align="center" width="500px">
 
-<figcaption><span class="figure-number">Figure 1: </span>Images from Freiburg Univ.</figcaption>
+<figcaption><span class="figure-number">Figure 1: </span>Pose Graph-based SLAM System Pipeline. Images is from the freiburg university Robot Mapping lecture.</figcaption>
 </figure>
 </div>
 </div>
@@ -87,12 +87,24 @@ Pose Graph는 로봇의 포즈를 자료구조 중 하나인 그래프로 표현
 <h2 id="org2dda22f"><span class="section-number-2">3</span> Pose Graph Optimization</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-Front-end에서 Pose Graph를 순차적으로 구축하면 시간에 따라 노이즈로 인한 에러가 누적되는데 Loop Closing과 같은 특별한 상황이 발생하면 Front-end에서 모든 노드와 엣지 정보를 Back-end로 전달하고 로봇의 포즈를 에러가 가장 적은 Pose Graph가 되도록 최적화하는 과정을 수행한다. 이러한 과정을 Pose Graph Optimization (PGO)라고 하며 다음 공식과 같이 기술할 수 있다.
+Loop Closing과 같은 특별한 상황이 발생하면 Front-end에서 모든 노드와 엣지 정보를 Back-end로 전달하고 Back-end에서는 로봇의 포즈를 에러가 가장 적은 Pose Graph가 되도록 최적화하는 과정을 수행한다. 이러한 과정을 Pose Graph Optimization (PGO)라고 하며 다음 공식과 같이 기술할 수 있다.
 </p>
 
 \begin{equation}
 \begin{aligned}
 \mathbf{x}^{*} = \arg\min_{\mathbf{x}} \| \mathbf{z} -  \hat{\mathbf{z}} \|^{2}_{\Sigma} 
+\end{aligned}
+\end{equation}
+<p>
+이 때, $\mathbf{x}= \begin{bmatrix}\mathbf{x}_{1} &amp; &ctdot; &amp; \mathbf{x}_{i} &amp; &ctdot; &amp; \mathbf{x}_{n}\end{bmatrix}^{\intercal}$는 로봇의 포즈 벡터를 의미하고 각각의 포즈 노드는 다음과 같다.
+</p>
+
+\begin{equation}
+\begin{aligned}
+    \mathbf{x}_{i} = \begin{bmatrix}
+\mathbf{R}_{i} &amp; \mathbf{t}_{i} \\ 
+0 &amp; 1
+\end{bmatrix} \in \mathbb{R}^{4\times4}
 \end{aligned}
 \end{equation}
 </div>
