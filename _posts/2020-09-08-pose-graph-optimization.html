@@ -50,7 +50,7 @@ GraphSLAM의 Pipeline은 크게 Front-end와 Back-end로 구분할 수 있는데
 <h2 id="orgc75538f"><span class="section-number-2">2</span> Pose graph</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Pose Graph는 로봇의 포즈를 자료구조 중 하나인 그래프로 표현한 SLAM에 특화된 자료구조를 의미한다. Pose Graph에서 노드는 로봇의 포즈(Pose)로 나타내고 엣지는 노드 사이의 상대 포즈(Relative Pose)로 나타낸다. 아래 그림은 Graph와 Pose Graph 자료구조의 차이점을 나타낸 그림이다.
+Pose Graph는 로봇의 포즈를 자료구조 중 하나인 그래프로 표현한 SLAM에 특화된 자료구조를 의미한다. <b>Pose Graph에서 노드는 로봇의 포즈(Pose)로 나타내고 엣지는 노드 사이의 상대 포즈(Relative Pose)로 나타낸다.</b> 아래 그림은 Graph와 Pose Graph 자료구조의 차이점을 나타낸 그림이다.
 </p>
 
 
@@ -145,7 +145,7 @@ PGO 공식을 순차적인 노드와 비순차적인 노드로 분리하면 다�
 <h3 id="org2343d20"><span class="section-number-3">3.1</span> Graphical explain of PGO</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
-PGO의 과정을 그림으로 순차적으로 나타내면 다음과 같다. 자율주행차량이 주행을 하면서 Loop Closing이 발생하는 상황을 예로 들어서 PGO를 설명해보자. 즉, 해당 시나리오에서는 Loop Closing이 발생하여 기존에 누적된 에러를 제거하기 위해 PGO를 사용했다고 가정한다.
+PGO의 과정을 그림으로 순차적으로 나타내면 다음과 같다. 자율주행차량이 주행을 하면서 Loop Closing이 발생하는 상황을 예로 들어서 PGO를 설명해보자. <b>해당 시나리오에서는 Loop Closing이 발생하여 기존에 누적된 에러를 제거하기 위해 PGO를 사용했다고 가정한다.</b>
 </p>
 
 
