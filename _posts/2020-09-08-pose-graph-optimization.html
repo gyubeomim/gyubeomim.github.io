@@ -229,7 +229,7 @@ Loop Detection 알고리즘에 의해 Loop를 발견했다고 가정해보자. L
 </figure>
 
 <p>
-관측값과 예측값의 차이를 에러 $\mathbf{e}$로 설정한다.
+관측값과 예측값의 차이를 에러 $\mathbf{e}_{ij}$로 설정한다. Pose graph에서 관측값과 예측값은 상대포즈(Relative Pose)로 나타내므로 둘의 차이는 $\mathbf{z}_{ij}-\hat{\mathbf{z}}_{ij}$이 아닌 $\mathbf{z}^{-1}_{ij}\hat{\mathbf{z}}_{ij}$로 나타낸다.
 </p>
 
 <hr>
