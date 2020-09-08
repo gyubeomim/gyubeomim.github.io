@@ -49,6 +49,10 @@ body {
   /*font-family: Georgia, "Times New Roman", serif;*/
 /*}*/
 
+figcaption {
+    text-align: center;
+}
+
 /*
  change the color of bold font.
 */
