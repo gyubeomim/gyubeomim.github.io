@@ -74,6 +74,17 @@ Pose Graph는 로봇의 포즈를 자료구조 중 하나인 그래프로 표현
 
 <div id="outline-container-org2dda22f" class="outline-2">
 <h2 id="org2dda22f"><span class="section-number-2">3</span> Pose Graph Optimization</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Front-ends에서 Pose Graph를 순차적으로 구축하면 시간에 따라 노이즈로 인한 에러가 누적되는데 Loop Closing과 같은 특별한 상황이 발생하면 Front-ends에서 모든 노드와 엣지 정보를 Back-ends로 전달하고 로봇의 포즈를 에러가 가장 적은 Pose Graph가 되도록 최적화하는 과정을 수행한다. 이러한 과정을 Pose Graph Optimization (PGO)라고 하며 다음 공식과 같이 기술할 수 있다.
+</p>
+
+\begin{equation}
+\begin{aligned}
+\mathbf{x}^{*} = \arg\min_{\mathbf{x}} \| \mathbf{z} -  \hat{\mathbf{z}} \|^{2}_{\Sigma} 
+\end{aligned}
+\end{equation}
+</div>
 </div>
 
 <div id="outline-container-org2c9fa8a" class="outline-2">
