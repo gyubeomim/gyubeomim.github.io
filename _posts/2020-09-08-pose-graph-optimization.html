@@ -121,8 +121,23 @@ Loop Closing과 같은 특수한 상황이 발생하면 Front-end에서 에러�
 <p>
 그리고 $\mathbf{z}$는 두 노드 사이의 관측값을 의미하고 $\hat{\mathbf{z}}$는 두 노드 사이의 예측값을 의미한다. 관측값과 예측값의 차이를 에러함수 $\mathbf{e}$로 정의한다. 그리고 $\| \mathbf{e}\|_{&Sigma;}^{2}=\mathbf{e}^{\intercal}&Sigma;^{-1}\mathbf{e}=\mathbf{e}^{\intercal}&Omega; \mathbf{e}$를 의미한다.
 </p>
+
+<p>
+PGO 공식을 순차적인 노드와 비순차적인 노드로 분리하면 다음과 같이 나타낼 수 있다.
+</p>
+
+\begin{equation}
+\begin{aligned}
+    \mathbf{x}^{*} = \arg\min_{\mathbf{x}} \sum_{i} \left \| \mathbf{z}_{i,i+1} -  \hat{\mathbf{z}}_{i,i+1} \right \|^{2}_{\Sigma_{i,i+1}} 
++ \sum_{i,j} \left \| \mathbf{z}_{i,j} - \hat{\mathbf{z}}_{i,j} \right \|^{2}_{\Sigma_{i,j}}
+\end{aligned}
+\end{equation}
+<p>
+이 때, $\mathbf{z}_{i,i+1}, \hat{\mathbf{z}}_{i,i+1}$은 순차적인 노드들 간 관측값 및 예측값을 의미하며 $\mathbf{z}_{i,j}, \hat{\mathbf{z}}_{i,j}$는 시간 순서와는 상관없는, 즉 비순차적인 노드들 간 관측값 및 예측값을 의미한다.
+</p>
 </div>
 </div>
+
 
 <div id="outline-container-org2c9fa8a" class="outline-2">
 <h2 id="org2c9fa8a"><span class="section-number-2">4</span> Code Review</h2>
