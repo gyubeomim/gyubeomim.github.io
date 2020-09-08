@@ -141,31 +141,35 @@ PGO 공식을 순차적인 노드와 비순차적인 노드로 분리하면 다�
 <img src="/pictures/200908/04.png" alt="04.png" align="center" width="800px">
 
 </figure>
-
+<hr>
 
 <figure>
 <img src="/pictures/200908/05.png" alt="05.png" align="center" width="800px">
 
 </figure>
 
+<hr>
 
 <figure>
 <img src="/pictures/200908/06.png" alt="06.png" align="center" width="800px">
 
 </figure>
 
+<hr>
 
 <figure>
 <img src="/pictures/200908/07.png" alt="07.png" align="center" width="800px">
 
 </figure>
 
+<hr>
 
 <figure>
 <img src="/pictures/200908/08.png" alt="08.png" align="center" width="800px">
 
 </figure>
 
+<hr>
 
 <figure>
 <img src="/pictures/200908/09.png" alt="09.png" align="center" width="800px">
@@ -176,12 +180,14 @@ PGO 공식을 순차적인 노드와 비순차적인 노드로 분리하면 다�
 Loop Closing이 발생하는 상황을 예로 들어서 PGO를 설명해보자. 자율주행차량이 주행을 하면서 같은 장소를 다시 한 번 방문하는 경우를 예시로 들었다. 차량은 위와 같이 센서의 입력에 따라 순차적으로 Pose 노드를 생성하며 주행한다.
 </p>
 
+<hr>
 
 <figure>
 <img src="/pictures/200908/10.png" alt="10.png" align="center" width="800px">
 
 </figure>
 
+<hr>
 
 <figure>
 <img src="/pictures/200908/11.png" alt="11.png" align="center" width="800px">
@@ -192,6 +198,7 @@ Loop Closing이 발생하는 상황을 예로 들어서 PGO를 설명해보자. 
 Loop Detection 알고리즘에 의해 Loop를 발견했다고 가정해보자. Loop가 발견된 순간 기존의 노드와 엣지는 전부 예측값으로 변경된다. ($\mathbf{z} \Rightarrow \hat{\mathbf{z}}$)
 </p>
 
+<hr>
 
 <figure>
 <img src="/pictures/200908/12.png" alt="12.png" align="center" width="800px">
@@ -202,6 +209,7 @@ Loop Detection 알고리즘에 의해 Loop를 발견했다고 가정해보자. L
 관측값을 계산한다. LiDAR SLAM의 경우 GICP 같은 알고리즘을 사용하여 새로운 $\mathbf{z}_{ij}$를 계산한다.
 </p>
 
+<hr>
 
 <figure>
 <img src="/pictures/200908/13.png" alt="13.png" align="center" width="800px">
@@ -212,6 +220,7 @@ Loop Detection 알고리즘에 의해 Loop를 발견했다고 가정해보자. L
 관측값과 예측값의 차이를 에러 $\mathbf{e}$로 설정한다.
 </p>
 
+<hr>
 
 <figure>
 <img src="/pictures/200908/14.png" alt="14.png" align="center" width="800px">
