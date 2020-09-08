@@ -40,7 +40,7 @@ Pose Graph는 로봇의 포즈를 자료구조 중 하나인 그래프로 표현
 
 
 <div class="figure">
-<p><img src="/pictures/200908/02.png" alt="02.png" align="center" />
+<p><img src="file:///pictures/200908/02.png" alt="02.png" align="center" />
 </p>
 </div>
 
@@ -50,22 +50,25 @@ Pose Graph는 로봇의 포즈를 자료구조 중 하나인 그래프로 표현
 
 
 <div class="figure">
-<p><img src="/pictures/200908/03.png" alt="03.png" align="center" width="300px" />
+<p><img src="file:///pictures/200908/03.png" alt="03.png" align="center" width="300px" />
 </p>
 </div>
 
 \begin{equation}
 \begin{aligned}
-\text{(i-th Node) } \mathbf{x}_{i} &amp; = [x_{i} \ y_{i} \ z_{i} \ \alpha_{i} \ \beta_{i} \ \gamma_{i}]^{\intercal} \\
+\text{(Node) } \mathbf{x}_{i} &amp; = [x_{i} \ y_{i} \ z_{i} \ \alpha_{i} \ \beta_{i} \ \gamma_{i}]^{\intercal} \\
 &amp; = \begin{bmatrix} \mathbf{R}_{i} &amp; \mathbf{t}_{i} \\ \mathbf{0} &amp; 1 \end{bmatrix}_{4\times 4}
 \end{aligned}
 \end{equation}
 \begin{equation}
 \begin{aligned}
-\text{(Edge b/w Node i and Node j) } \mathbf{z}_{ij} &amp; = [x_{ij} \ y_{ij} \ z_{ij} \ \alpha_{ij} \ \beta_{ij} \ \gamma_{ij}]^{\intercal} \\
+\text{(Edge) } \mathbf{z}_{ij} &amp; = [x_{ij} \ y_{ij} \ z_{ij} \ \alpha_{ij} \ \beta_{ij} \ \gamma_{ij}]^{\intercal} \\
 &amp; = \begin{bmatrix} \mathbf{R}_{ij} &amp; \mathbf{t}_{ij} \\ \mathbf{0} &amp; 1 \end{bmatrix}_{4\times 4} \\ 
 \end{aligned}
 \end{equation}
+<p>
+이 때, $\mathbf{x}_{i}$는 i번째 포즈를 의미하며 $\mathbf{z}_{ij}$는 노드 i,j 사이의 상대포즈를 의미한다.
+</p>
 </div>
 </div>
 
