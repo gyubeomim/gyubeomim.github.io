@@ -1,3 +1,13 @@
+--- 
+layout: post
+title: (SLAM) Notes on Pose Graph Optimization with Codes
+description: 
+date: 2020-09-08
+categories: [Engineering]
+tag: [Engineering, SLAM, Pose Graph, Optimization, Loop Closing, Nonlinear Least Square]
+use_math: true
+comments: true
+---
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -10,16 +20,7 @@
 </ul>
 </div>
 </nav>
---- 
-layout: post
-title: (SLAM) Notes on Pose Graph Optimization with Codes
-description: 
-date: 2020-09-08
-categories: [Engineering]
-tag: [Engineering, SLAM, Pose Graph, Optimization, Loop Closing, Nonlinear Least Square]
-use_math: true
-comments: true
----
+
 
 <div id="outline-container-orgfe011ef" class="outline-2">
 <h2 id="orgfe011ef"><span class="section-number-2">1</span> Introduction</h2>
@@ -86,7 +87,7 @@ Pose Graph는 로봇의 포즈를 자료구조 중 하나인 그래프로 표현
 <h2 id="org2dda22f"><span class="section-number-2">3</span> Pose Graph Optimization</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-Loop Closing과 같은 특별한 상황이 발생하면 Front-end에서 에러가 누적된 모든 노드와 엣지 정보를 Back-end로 전달하고 Back-end에서는 GICP 같은 방법을 사용하여 현재의 노드들의 관측값을 업데이트 해준 후 이전 스텝의 예측값과 차이(에러)가 가장 적은 Pose Graph가 되도록 최적화하는 과정을 수행한다. 이를 단계별로 나타내면 다음과 같다.
+Loop Closing과 같은 특수한 상황이 발생하면 Front-end에서 에러가 누적된 모든 노드와 엣지 정보를 Back-end로 전달하고 Back-end에서는 GICP 같은 방법을 사용하여 현재의 노드들의 관측값을 업데이트 해준 후 이전 스텝의 예측값과 차이(에러)가 가장 적은 Pose Graph가 되도록 최적화하는 과정을 수행한다. 이를 단계별로 정리하면 다음과 같다.
 </p>
 
 <ul class="org-ul">
