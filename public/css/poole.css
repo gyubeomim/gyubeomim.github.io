@@ -96,9 +96,9 @@ h2 {
     font-size: 2.0rem;
     margin-top: 3rem;
     margin-bottom: 1rem;
-    text-decoration: underline;
-    text-decoration-color: #227dc3;
-    text-underline-position: under;
+    /* text-decoration: underline; */
+    /* text-decoration-color: #227dc3; */
+    /* text-underline-position: under; */
 }
 
 h3 {
