@@ -8,7 +8,7 @@ tag: [Engineering, SLAM, Pose Graph, Optimization, Loop Closing, Nonlinear Least
 use_math: true
 comments: true
 ---
-<div id="table-of-contents">
+<nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
@@ -19,7 +19,7 @@ comments: true
 <li><a href="#org7352b84">5. References</a></li>
 </ul>
 </div>
-</div>
+</nav>
 
 
 <div id="outline-container-orgfe011ef" class="outline-2">
@@ -34,11 +34,11 @@ Pose Graph Optimization(PGO)은 로봇이 SLAM을 수행하면서 누적된 포�
 </p>
 
 
-<div class="figure">
-<p><img src="/pictures/200908/01.png" alt="01.png" align="center" width="500px" />
-</p>
-<p><span class="figure-number">Figure 1: </span>Images from Freiburg Univ.</p>
-</div>
+<figure>
+<img src="/pictures/200908/01.png" alt="01.png" align="center" width="500px">
+
+<figcaption><span class="figure-number">Figure 1: </span>Images from Freiburg Univ.</figcaption>
+</figure>
 </div>
 </div>
 
@@ -50,20 +50,20 @@ Pose Graph는 로봇의 포즈를 자료구조 중 하나인 그래프로 표현
 </p>
 
 
-<div class="figure">
-<p><img src="/pictures/200908/02.png" alt="02.png" align="center" />
-</p>
-</div>
+<figure>
+<img src="/pictures/200908/02.png" alt="02.png" align="center">
+
+</figure>
 
 <p>
 본 포스팅에서는 3차원 SLAM에 관한 내용을 다루므로 Pose Graph에서 Pose $\mathbf{x}$와 Edge $\mathbf{z}$는 다음과 같이 정의된다.
 </p>
 
 
-<div class="figure">
-<p><img src="/pictures/200908/03.png" alt="03.png" align="center" width="300px" />
-</p>
-</div>
+<figure>
+<img src="/pictures/200908/03.png" alt="03.png" align="center" width="300px">
+
+</figure>
 
 \begin{equation}
 \begin{aligned}

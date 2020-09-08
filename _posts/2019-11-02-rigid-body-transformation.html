@@ -8,24 +8,24 @@ tag: [Robotics, SLAM, Transformation, Geometry, Spatial Description]
 use_math: true
 comments: true
 ---
-<div id="table-of-contents">
+<nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8940ae5">1. Introduction</a></li>
-<li><a href="#org9d04aec">2. Rigid Body Transformation</a></li>
-<li><a href="#orgb55f814">3. Properties of Transformation Matrix</a></li>
-<li><a href="#org38d968c">4. Special Euclidean Group (SE3)</a></li>
-<li><a href="#org62d9481">5. Reference</a></li>
+<li><a href="#orgedf86a8">1. Introduction</a></li>
+<li><a href="#orgba094b7">2. Rigid Body Transformation</a></li>
+<li><a href="#orga53b4fd">3. Properties of Transformation Matrix</a></li>
+<li><a href="#orgf06a443">4. Special Euclidean Group (SE3)</a></li>
+<li><a href="#org756073b">5. Reference</a></li>
 </ul>
 </div>
-</div>
+</nav>
 
 <p>
 이전 포스트: <a href="../../../../2019/10/31/rotation-matrix">Rotation Matrix (회전 행렬)</a> 
 </p>
-<div id="outline-container-org8940ae5" class="outline-2">
-<h2 id="org8940ae5"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-orgedf86a8" class="outline-2">
+<h2 id="orgedf86a8"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 본 포스트는 강체 변환 (Rigid Body Transformation)에 대해 다룬다. 강체(Rigid Body)란 이론적으로 무한대의 강성을 가지는 물체를 말한다. 따라서 강체에 힘을 가해도 변형이 되지 않으며 무게중심으로 지정되는 하나의 점에 의해 운동이 결정되는 특징이 있다. 필자가 공부하고 있는 Simultaneous Localization and Mapping (SLAM)에서 움직이는 로봇은 형태가 일정하다고 가정하므로 결국 강체 변환 (Rigid Body Transformation)을 사용하여 수학적으로 표현한다.
@@ -34,21 +34,21 @@ comments: true
 <p>
 해당 포스트는 강체 변환에 대해 공부 목적으로 작성한 포스트이고 이미 잘 정리된 여러 블로그 포스트들의 내용을 참고하여 작성하였다. 
 </p>
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-org9d04aec" class="outline-2">
-<h2 id="org9d04aec"><span class="section-number-2">2</span> Rigid Body Transformation</h2>
+<div id="outline-container-orgba094b7" class="outline-2">
+<h2 id="orgba094b7"><span class="section-number-2">2</span> Rigid Body Transformation</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 이전 포스트에서는 회전행렬을 통한 강체의 순수한 회전에 대해 다뤘다. 하지만 3차원 상의 물체는 회전과 이동을 모두 표현할 수 있어야하므로 회전행렬만으로는 부족하다. 따라서 물체의 회전과 이동을 한 번에 표현하는 변환행렬 (homogeneous transformation matrix)를 아래와 같이 정의한다.
 </p>
 
 
-<div class="figure">
-<p><img src="/pictures/191106/01.PNG" alt="01.PNG" align="center" width="350" />
-</p>
-</div>
+<figure>
+<img src="/pictures/191106/01.PNG" alt="01.PNG" align="center" width="350">
+
+</figure>
 
 <p>
 위와 같이 고정좌표계 $\{S\}$를 기준으로 바위에 붙어있는 이동프레임 $\{B\}$가 있다고 가정해보자. 이 때 이동프레임 $\{B\}$원점의 좌표 및 축의 회전 각도는 다음과 같이 표현할 수 있다.
@@ -113,21 +113,21 @@ T
 <p>
 이와 같이 기존 3차원 벡터 $[\begin{array}{c}v \end{array}]$의 마지막 행에 1을 추가하여 4차원 벡터로 만든 형태 $[\begin{array}{c}v \\ 1 \end{array}]$를 homogeneous coordinate라고 부른다.
 </p>
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-orgb55f814" class="outline-2">
-<h2 id="orgb55f814"><span class="section-number-2">3</span> Properties of Transformation Matrix</h2>
+<div id="outline-container-orga53b4fd" class="outline-2">
+<h2 id="orga53b4fd"><span class="section-number-2">3</span> Properties of Transformation Matrix</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li><p>
 다음과 같은 연속적인 변환을 나타낼 때는 변환행렬의 곱셈을 통해 표현할 수 있다.
 </p>
 
-<div class="figure">
-<p><img src="/pictures/191106/02.PNG" alt="02.PNG" align="center" width="350" />
-</p>
-</div>
+<figure>
+<img src="/pictures/191106/02.PNG" alt="02.PNG" align="center" width="350">
+
+</figure>
 
    \begin{equation}
    \begin{aligned}
@@ -139,10 +139,10 @@ T
 $\{a\} \rightarrow \{b\}$로 변환한 다음 다시 $\{b\} \rightarrow \{a\}$로 변환하면 원래 $\{a\}$frame이 된다. 즉, 변환하지 않은 것과 동일하다.
 </p>
 
-<div class="figure">
-<p><img src="/pictures/191106/03.PNG" alt="03.PNG" align="center" width="350" />
-</p>
-</div>
+<figure>
+<img src="/pictures/191106/03.PNG" alt="03.PNG" align="center" width="350">
+
+</figure>
 
    \begin{equation}
    \begin{aligned}
@@ -157,10 +157,10 @@ $\{a\} \rightarrow \{b\}$로 변환한 다음 다시 $\{b\} \rightarrow \{a\}$�
 변환행렬의 역행렬은 다음과 같다. 회전행렬은 $R^{-1}=R^{T}$이지만 변환행렬은 $T^{-1} \neq T^{T}$이다.
 </p>
 
-<div class="figure">
-<p><img src="/pictures/191106/04.PNG" alt="04.PNG" align="center" width="350" />
-</p>
-</div>
+<figure>
+<img src="/pictures/191106/04.PNG" alt="04.PNG" align="center" width="350">
+
+</figure>
    \begin{equation}
    \begin{aligned}
    &amp; ^{a}_{b}T = \left[\begin{array}{cc} ^{a}_{b}R &amp; ^{a}_{b}p \\ 0 &amp; 1 \end{array}\right] \\
@@ -172,10 +172,10 @@ $\{a\} \rightarrow \{b\}$로 변환한 다음 다시 $\{b\} \rightarrow \{a\}$�
 $\{b\}$frame에서 3차원 공간 상의 점 $v$를 표현하면 $\vec{v}_{b}$와 같고 이를 $\{a\}$frame에서 $\vec{v}_{a}$로 표현하기 위해서는 아래와 같은 변환이 필요하다.
 </p>
 
-<div class="figure">
-<p><img src="/pictures/191106/05.PNG" alt="05.PNG" align="center" width="350" />
-</p>
-</div>
+<figure>
+<img src="/pictures/191106/05.PNG" alt="05.PNG" align="center" width="350">
+
+</figure>
 
    \begin{equation}
    \begin{aligned}
@@ -191,10 +191,10 @@ $\{b\}$frame에서 3차원 공간 상의 점 $v$를 표현하면 $\vec{v}_{b}$�
 frame 뿐만 아니라 특정 벡터를 회전 및 이동하는 연산자로써 변환행렬을 사용할 수 있다. 두 $\{a\}$frame 위의 벡터 $\vec{v}_{1}, \vec{v}_{2}$의 변환관계는 다음과 같이 표현할 수 있다.
 </p>
 
-<div class="figure">
-<p><img src="/pictures/191106/06.PNG" alt="06.PNG" align="center" width="350" />
-</p>
-</div>
+<figure>
+<img src="/pictures/191106/06.PNG" alt="06.PNG" align="center" width="350">
+
+</figure>
 
    \begin{equation}
    \begin{aligned}
@@ -202,21 +202,21 @@ frame 뿐만 아니라 특정 벡터를 회전 및 이동하는 연산자로써 
    &amp; \vec{v}_{2} = T\vec{v}_{1}
    \end{aligned}
    \end{equation}
-<hr /></li>
+<hr></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org38d968c" class="outline-2">
-<h2 id="org38d968c"><span class="section-number-2">4</span> Special Euclidean Group (SE3)</h2>
+<div id="outline-container-orgf06a443" class="outline-2">
+<h2 id="orgf06a443"><span class="section-number-2">4</span> Special Euclidean Group (SE3)</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 이와 같이 강체의 이동과 회전에 관여하는 행렬을 따로 Group으로 묶을 수 있다. 변환행렬의 성질을 만족하는 모든 집합은 Special Euclidean Group (SE)에 속한다. 3차원 공간의 경우 SE(3)이다. SE(3) Group은 Lie Group에 속한다.
 </p>
 
-<div class="figure">
-<p><img src="/pictures/191106/07.PNG" alt="07.PNG" align="center" width="350" />
-</p>
-</div>
+<figure>
+<img src="/pictures/191106/07.PNG" alt="07.PNG" align="center" width="350">
+
+</figure>
 \begin{equation}
 \begin{aligned}
 SE(3) = \left \{ T = \begin{bmatrix} R &amp; p \\  \mathbf{0}_{3\times3} &amp; 1 \end{bmatrix} \in \mathbb{R}^{4\times4} \ | \ R \in SO(3), p \in \mathbb{R}^{3}  \right \} 
@@ -240,16 +240,16 @@ SE(3) = \left \{ T = \begin{bmatrix} R &amp; p \\  \mathbf{0}_{3\times3} &amp; 1
 &amp; T_1 T_2 \neq T_2 T_1
 \end{aligned}
 \end{equation}
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-org62d9481" class="outline-2">
-<h2 id="org62d9481"><span class="section-number-2">5</span> Reference</h2>
+<div id="outline-container-org756073b" class="outline-2">
+<h2 id="org756073b"><span class="section-number-2">5</span> Reference</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <a href="https://keunjun.blog">Keunjun's blog</a>
 </p>
-<hr />
+<hr>
 <p>
 다음 포스트: <a href="../../../../2019/11/12/euler-angle">Euler Angle (오일러 각도)</a>
 </p>

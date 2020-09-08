@@ -8,29 +8,29 @@ tag: [Robotics, SLAM, Transformation, Geometry, Spatial Description]
 use_math: true
 comments: true
 ---
-<div id="table-of-contents">
+<nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org98d08f7">1. Introduction</a></li>
-<li><a href="#org1d11780">2. Properties of Rotation Matrix</a></li>
-<li><a href="#org7483e6f">3. Special Orthogonal Group (SO3)</a></li>
-<li><a href="#org7e2e02b">4. Reference</a></li>
+<li><a href="#org46b139f">1. Introduction</a></li>
+<li><a href="#org624cc21">2. Properties of Rotation Matrix</a></li>
+<li><a href="#orgec3c2c1">3. Special Orthogonal Group (SO3)</a></li>
+<li><a href="#orgb0b41c2">4. Reference</a></li>
 </ul>
 </div>
-</div>
+</nav>
 
 <p>
 이전 포스트: <a href="../../../../2019/10/30/coordinate-system">Coordinate System (좌표계)</a> 
 </p>
-<div id="outline-container-org98d08f7" class="outline-2">
-<h2 id="org98d08f7"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org46b139f" class="outline-2">
+<h2 id="org46b139f"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 
-<div class="figure">
-<p><img src="/pictures/191030/03.PNG" alt="03.PNG" align="center" width="300px" />
-</p>
-</div>
+<figure>
+<img src="/pictures/191030/03.PNG" alt="03.PNG" align="center" width="300px">
+
+</figure>
 
 <p>
 표현을 간략하게 하기 위해 아래와 같은 기호를 사용한다.
@@ -66,11 +66,11 @@ comments: true
 이 때, $(\hat{X},\hat{Y},\hat{Z}) \rightarrow (\hat{x},\hat{y},\hat{z})$변환은 크기는 변하지 않고 오직 회전에만 관여하므로 이 변환에 사용하는 행렬 $R$을 <b>회전행렬 (Rotation Matrix)</b> 이라고 한다.
 그리고 $R$은 보통 $^{S}_{B}R$또는 $R_{SB}$로 표기한다. 이 표현의 의미는 $\{S\}$frame에서 바라본 $\{S\}$frame의 회전(량)을 의미한다.
 </p>
-<hr />
+<hr>
 </div>
 </div>
-<div id="outline-container-org1d11780" class="outline-2">
-<h2 id="org1d11780"><span class="section-number-2">2</span> Properties of Rotation Matrix</h2>
+<div id="outline-container-org624cc21" class="outline-2">
+<h2 id="org624cc21"><span class="section-number-2">2</span> Properties of Rotation Matrix</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 다음과 같이 총 12개의 변수를 사용하여 $\{B\}$frame을 $\{S\}$frame 기준으로 표현할 수 있다.
@@ -96,7 +96,7 @@ $\{B\}$frame의 축들은 단위벡터라는 조건
    \begin{array}{ll} \text{(i) } &amp; \left | \hat{x} \right |^2 = 1: r_{11}^2+r_{21}^2+r_{31}^2=1 \\   \text{(ii) } &amp; \left | \hat{y} \right |^2 = 1: r_{12}^2+r_{22}^2+r_{32}^2=1 \\   \text{(iii) } &amp; \left | \hat{z} \right |^2 = 1: r_{13}^2+r_{23}^2+r_{33}^2=1 \end{array}
    \end{aligned}
    \end{equation}
-<hr /></li>
+<hr></li>
 <li><p>
 $\{B\}$frame의 축들은 서로 수직하다는 조건
 </p>
@@ -108,7 +108,7 @@ $\{B\}$frame의 축들은 서로 수직하다는 조건
 <p>
 위 조건들을 합쳐서 보통 다음과 같이 표현한다. $\color{red}{(\text{i}\sim\text{vi}) \quad R^\text{T}R=\mathbf{I}}$. 이를 Orthogonal property라고 한다.
 </p>
-<hr /></li>
+<hr></li>
 <li><p>
 (일반적으로) 오른손 좌표계를 사용한다는 조건
 </p>
@@ -117,15 +117,15 @@ $\{B\}$frame의 축들은 서로 수직하다는 조건
    \text{(vii) det}R=1 \Leftrightarrow \hat{x} \times \hat{y} = \hat{z}
    \end{aligned}
    \end{equation}
-<hr /></li>
+<hr></li>
 <li><p>
 다음과 같은 연속적인 회전을 나타낼 때는 회전 행렬의 곱셈을 통해 표현할 수 있다.
 </p>
 
-<div class="figure">
-<p><img src="/pictures/191030/04.PNG" alt="04.PNG" align="center" width="300px" />
-</p>
-</div>
+<figure>
+<img src="/pictures/191030/04.PNG" alt="04.PNG" align="center" width="300px">
+
+</figure>
 
    \begin{equation}
    \begin{aligned}
@@ -147,15 +147,15 @@ $\{a\} \rightarrow \{b\}$만큼 회전한 다음 다시 $\{b\} \rightarrow \{a\}
    ^{a}_{b}R^{b}_{a}R = \mathbf{I}
    \end{aligned}
    \end{equation}
-<hr /></li>
+<hr></li>
 <li><p>
 또한 다음과 조건들로부터 아래와 같은 식을 유도할 수 있다.
 </p>
 
-<div class="figure">
-<p><img src="/pictures/191030/05.PNG" alt="05.PNG" align="center" width="300px" />
-</p>
-</div>
+<figure>
+<img src="/pictures/191030/05.PNG" alt="05.PNG" align="center" width="300px">
+
+</figure>
    \begin{equation}
    \begin{aligned}
    ^{a}_{b}R\ ^{a}_{b}R^\text{T}=\mathbf{I} \quad \text{and} \quad ^{a}_{b}R\ ^{b}_{a}R = \mathbf{I}
@@ -173,15 +173,15 @@ $\{a\} \rightarrow \{b\}$만큼 회전한 다음 다시 $\{b\} \rightarrow \{a\}
 <p>
 따라서 <b>회전행렬은 역행렬과 전치행렬이 동일</b> 하며 이는 반대방향으로 회전을 나타냄을 알 수 있다.
 </p>
-<hr /></li>
+<hr></li>
 <li><p>
 회전행렬을 통해 특정 vector의 기준 좌표계 또한 변환할 수 있다.
 </p>
 
-<div class="figure">
-<p><img src="/pictures/191030/05.PNG" alt="05.PNG" align="center" width="300px" />
-</p>
-</div>
+<figure>
+<img src="/pictures/191030/05.PNG" alt="05.PNG" align="center" width="300px">
+
+</figure>
 
    \begin{equation}
    \begin{aligned}
@@ -192,24 +192,24 @@ $\{a\} \rightarrow \{b\}$만큼 회전한 다음 다시 $\{b\} \rightarrow \{a\}
 $\vec{v}$벡터를 $\{a\}$frame과 $\{b\}$frame에서 각각 표현하면 다음과 같다.
 </p>
 <p align="center" width="450px">
-<img src="/pictures/191102/01.PNG" alt="01.PNG" align="center" width="450px" />
+<img src="/pictures/191102/01.PNG" alt="01.PNG" align="center" width="450px">
 이 때 $\{b\}$frame은 $\{a\}$frame과 회전행렬을 통해 표현이 가능하므로
 </p>
 <p align="center" width="300px">
-<img src="/pictures/191102/02.PNG" alt="02.PNG" align="center" width="300px" />
+<img src="/pictures/191102/02.PNG" alt="02.PNG" align="center" width="300px">
 따라서 아래와 같이 특정 vector의 기준좌표계를 회전행렬을 통해 변환할 수 있다.
 </p>
 
-<div class="figure">
-<p><img src="/pictures/191102/03.PNG" alt="03.PNG" align="center" width="500px" />
-</p>
-</div>
+<figure>
+<img src="/pictures/191102/03.PNG" alt="03.PNG" align="center" width="500px">
+
+</figure>
    \begin{equation}
    \begin{aligned}
    \therefore \vec{v}_a \ = \ ^{a}_{b}R\vec{v}_b
    \end{aligned}
    \end{equation}
-<hr /></li>
+<hr></li>
 <li><p>
 회전행렬을 사용하여 특정 vector를 회전시킬 수도 있다.
 </p>
@@ -222,22 +222,22 @@ $\vec{v}$벡터를 $\{a\}$frame과 $\{b\}$frame에서 각각 표현하면 다음
 frame이 회전할 때 frame 위에 있는 사람이 보면 vector가 회전하는 것처럼 보인다.
 </p>
 
-<div class="figure">
-<p><img src="/pictures/191102/04.PNG" alt="04.PNG" align="center" width="600" />
-</p>
-</div>
-<hr /></li>
+<figure>
+<img src="/pictures/191102/04.PNG" alt="04.PNG" align="center" width="600">
+
+</figure>
+<hr></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org7483e6f" class="outline-2">
-<h2 id="org7483e6f"><span class="section-number-2">3</span> Special Orthogonal Group (SO3)</h2>
+<div id="outline-container-orgec3c2c1" class="outline-2">
+<h2 id="orgec3c2c1"><span class="section-number-2">3</span> Special Orthogonal Group (SO3)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 회전행렬과 같이 순수한 회전에만 관여하는 행렬을 따로 Group으로 묶을 수 있다. 회전행렬의 성질을 만족하는 모든 집합은 Special Orthogonal Group (SO)에 속하며 본 자료에서 다루는 3차원 공간 상의 회전행렬은 SO(3)에 속한다. SO(3) 그룹은 Lie Group에 속한다. 
 </p>
 <p align="center" width="350">
-<img src="/pictures/191102/05.PNG" alt="05.PNG" align="center" width="350" />
+<img src="/pictures/191102/05.PNG" alt="05.PNG" align="center" width="350">
 SO(3) 그룹(또는 집합)의 정의는 다음과 같다.
 </p>
 \begin{equation}
@@ -268,13 +268,13 @@ R_{1} + R_{2} \notin SO(3) \quad \text{and} \quad R_{1}R_{2} \in SO(3)
 </div>
 </div>
 
-<div id="outline-container-org7e2e02b" class="outline-2">
-<h2 id="org7e2e02b"><span class="section-number-2">4</span> Reference</h2>
+<div id="outline-container-orgb0b41c2" class="outline-2">
+<h2 id="orgb0b41c2"><span class="section-number-2">4</span> Reference</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="https://keunjun.blog">Keunjun's blog</a>
 </p>
-<hr />
+<hr>
 <p>
 다음 포스트: <a href="../../../../2019/11/02/rigid-body-transformation">Rigid Body Transformation (강체 변환)</a>
 </p>
