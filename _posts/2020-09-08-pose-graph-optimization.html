@@ -1,13 +1,3 @@
---- 
-layout: post
-title: (SLAM) Notes on Pose Graph Optimization with codes
-description: 
-date: 2020-09-08
-categories: [Engineering]
-tag: [Engineering, SLAM, Pose Graph, Optimization, Loop Closing, Nonlinear Least Square]
-use_math: true
-comments: true
----
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -25,7 +15,16 @@ comments: true
 </ul>
 </div>
 </nav>
-
+--- 
+layout: post
+title: (SLAM) Notes on Pose Graph Optimization with codes
+description: 
+date: 2020-09-08
+categories: [Engineering]
+tag: [Engineering, SLAM, Pose Graph, Optimization, Loop Closing, Nonlinear Least Square]
+use_math: true
+comments: true
+---
 
 <div id="outline-container-org0e830e1" class="outline-2">
 <h2 id="org0e830e1"><span class="section-number-2">1</span> Introduction</h2>
@@ -156,7 +155,7 @@ PGO 공식을 순차적인 노드와 비순차적인 노드로 분리하면 다�
 <h3 id="orgf0bbaad"><span class="section-number-3">3.1</span> Nonlinear least square method</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
-GN 방법을 사용해서 해당 문제를 푼다고 가정해보자. 에러함수 $\mathbf{e}_{ij}$를 자세히 나타내면 $\mathbf{e}_{ij}(\mathbf{x})$와 같고 차량의 포즈 벡터 $\mathbf{x}$에 따라 에러함수의 값이 달라진다. GN 방법은 반복적(Iterative)으로 에러가 감소하는 방향으로 증분량 $&Delta; \mathbf{x}$를 업데이트한다.
+GN 방법을 사용해서 해당 문제를 푼다고 가정해보자. 에러함수 $\mathbf{e}_{ij}$를 자세히 나타내면 $\mathbf{e}_{ij}(\mathbf{x})$와 같고 이는 차량의 포즈 벡터 $\mathbf{x}$에 따라 에러함수의 값이 달라지는 것을 의미한다. GN 방법은 $\mathbf{e}(\mathbf{x})$에 반복적(Iterative)으로 에러가 감소하는 방향으로 증분량 $&Delta; \mathbf{x}$를 업데이트한다.
 </p>
 
 \begin{equation}
