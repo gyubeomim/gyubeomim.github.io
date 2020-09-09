@@ -1,3 +1,20 @@
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org0e830e1">1. Introduction</a></li>
+<li><a href="#orge3b3fc5">2. Pose graph</a></li>
+<li><a href="#org0299799">3. Pose graph optimization</a>
+<ul>
+<li><a href="#orgf0bbaad">3.1. Nonlinear least square method</a></li>
+<li><a href="#org510ea51">3.2. Graphical explain of PGO</a></li>
+</ul>
+</li>
+<li><a href="#org33ba380">4. Code review</a></li>
+<li><a href="#org1c08706">5. References</a></li>
+</ul>
+</div>
+</nav>
 --- 
 layout: post
 title: (SLAM) Notes on Pose Graph Optimization with codes
@@ -8,23 +25,6 @@ tag: [Engineering, SLAM, Pose Graph, Optimization, Loop Closing, Nonlinear Least
 use_math: true
 comments: true
 ---
-<nav id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org0e830e1">1. Introduction</a></li>
-<li><a href="#orge3b3fc5">2. Pose graph</a></li>
-<li><a href="#org0299799">3. Pose graph optimization</a>
-<ul>
-<li><a href="#org510ea51">3.1. Graphical explain of PGO</a></li>
-</ul>
-</li>
-<li><a href="#org33ba380">4. Code review</a></li>
-<li><a href="#org1c08706">5. References</a></li>
-</ul>
-</div>
-</nav>
-
 
 <div id="outline-container-org0e830e1" class="outline-2">
 <h2 id="org0e830e1"><span class="section-number-2">1</span> Introduction</h2>
@@ -149,7 +149,11 @@ PGO 공식을 순차적인 노드와 비순차적인 노드로 분리하면 다�
 <p>
 이 때, 에러함수 $\mathbf{e}$는 회전과 관련된 $\cos, \sin$성분을 포함하고 있으므로 비선형성을 가진다. 따라서 해당 공식은 한 번에 해를 구할 수 있는 Closed form solution이 존재하지 않는다. 이러한 비선형 문제를 풀기 위해서는 Gauss-Newton(GN) 또는 Levenberg-Marquardt(LM)과 같은 비선형 최소제곱법을 사용해야 한다.
 </p>
+</div>
 
+<div id="outline-container-orgf0bbaad" class="outline-3">
+<h3 id="orgf0bbaad"><span class="section-number-3">3.1</span> Nonlinear least square method</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 GN 방법을 사용해서 해당 문제를 푼다고 가정해보자. 에러함수 $\mathbf{e}_{ij}$를 자세히 나타내면 $\mathbf{e}_{ij}(\mathbf{x})$와 같고 차량의 포즈 벡터 $\mathbf{x}$에 따라 에러함수의 값이 달라진다. GN 방법은 반복적(Iterative)으로 에러가 감소하는 방향으로 증분량 $&Delta; \mathbf{x}$를 업데이트한다.
 </p>
@@ -170,13 +174,14 @@ GN 방법을 사용해서 해당 문제를 푼다고 가정해보자. 에러함�
 \end{aligned}
 \end{equation}
 </div>
+</div>
 
 
 
 
 <div id="outline-container-org510ea51" class="outline-3">
-<h3 id="org510ea51"><span class="section-number-3">3.1</span> Graphical explain of PGO</h3>
-<div class="outline-text-3" id="text-3-1">
+<h3 id="org510ea51"><span class="section-number-3">3.2</span> Graphical explain of PGO</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 PGO의 과정을 그림으로 순차적으로 나타내면 다음과 같다. 자율주행차량이 주행을 하면서 Loop Closing이 발생하는 상황을 예로 들어서 PGO를 설명해보자. <b>해당 시나리오에서는 Loop Closing이 발생하여 기존에 누적된 에러를 제거하기 위해 PGO를 사용했다고 가정한다.</b>
 </p>
