@@ -190,7 +190,7 @@ GN 방법을 사용해서 해당 문제를 푼다고 가정해보자. 에러함�
 
 \begin{equation}
 \begin{aligned}
-&amp; = \underline{\mathbf{c}_{ij}}{\mathbf{e}_{i}^{\intercal}\Omega_{ij}\mathbf{e}_{ij}} + 2\mathbf{e}_{ij}^{\intercal}\Omega_{ij}\mathbf{J}_{ij}\Delta \mathbf{x} + \Delta \mathbf{x}^{\intercal} \mathbf{J}_{ij}^{\intercal}\Omega_{ij}\mathbf{J}_{ij}\Delta \mathbf{x} \\
+&amp; = \underbrace{\mathbf{e}_{i}^{\intercal}\Omega_{ij}\mathbf{e}_{ij}}_{\mathbf{c}_{ij}} + 2 \underbrace{\mathbf{e}_{ij}^{\intercal}\Omega_{ij}\mathbf{J}_{ij}}_{\mathbf{b}_{ij}} \Delta \mathbf{x} + \Delta \mathbf{x}^{\intercal} \underbrace{\mathbf{J}_{ij}^{\intercal}\Omega_{ij}\mathbf{J}_{ij}}_{\mathbf{H}_{ij}} \Delta \mathbf{x} \\
 &amp; = \mathbf{c}_{ij}+ 2\mathbf{b}_{ij}\Delta \mathbf{x} + \Delta \mathbf{x}^{\intercal} \mathbf{H}_{ij} \Delta \mathbf{x}
 \end{aligned}
 \end{equation}
