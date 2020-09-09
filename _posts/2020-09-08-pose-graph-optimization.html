@@ -1,13 +1,3 @@
---- 
-layout: post
-title: (SLAM) Notes on Pose Graph Optimization with codes
-description: 
-date: 2020-09-08
-categories: [Engineering]
-tag: [Engineering, SLAM, Pose Graph, Optimization, Loop Closing, Nonlinear Least Square]
-use_math: true
-comments: true
----
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -25,7 +15,16 @@ comments: true
 </ul>
 </div>
 </nav>
-
+--- 
+layout: post
+title: (SLAM) Notes on Pose Graph Optimization with codes
+description: 
+date: 2020-09-08
+categories: [Engineering]
+tag: [Engineering, SLAM, Pose Graph, Optimization, Loop Closing, Nonlinear Least Square]
+use_math: true
+comments: true
+---
 
 <div id="outline-container-org0e830e1" class="outline-2">
 <h2 id="org0e830e1"><span class="section-number-2">1</span> Introduction</h2>
@@ -231,8 +230,15 @@ $\mathbf{E}(\mathbf{x}+&Delta; \mathbf{x})$은 $&Delta; \mathbf{x}$에 대한 2�
 \end{aligned}
 \end{equation}
 <p>
-지금까지 과정을 반복적(iterative)으로 수행하는 알고리즘을 Gauss-Newton 방법이라고 한다. <b>정리하면, PGO에서 정의한 공식은 비선형항을 포함하므로 closed form solution이 존재하지 않고 따라서 지금까지 설명한 GN 방법을 통해 반복적으로 최적화된다.</b>
+지금까지 과정을 반복적(iterative)으로 수행하는 알고리즘을 Gauss-Newton 방법이라고 한다. <b>정리하면, PGO에서 정의한 공식은 비선형항을 포함하므로 closed form solution이 존재하지 않고 따라서 지금까지 설명한 GN 방법을 통해 반복적으로 최적화된다.</b> LM 방법은 GN 방법과 비교했을 때 전체적인 프로세스는 동일하나 증분량을 구하는 공식에서 damping factor $&lambda;$항이 추가된다.
 </p>
+
+\begin{equation}
+\begin{aligned}
+&amp; \text{(GN) }\mathbf{H}\Delta \mathbf{x} = - \mathbf{b} \\
+&amp; \text{(LM) }(\mathbf{H} + \lambda \mathbf{I})\Delta \mathbf{x} = - \mathbf{b}
+\end{aligned}
+\end{equation}
 </div>
 </div>
 
@@ -350,16 +356,46 @@ Loop Detection 알고리즘에 의해 Loop를 발견했다고 가정해보자. L
 <h2 id="org33ba380"><span class="section-number-2">4</span> Code review</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-PGO를 테스트해 볼 수 있는 튜토리얼 코드를 github에 작성하였다. 코드는 <a href="https://github.com/edward0im/pgo_toy_example">해당 링크</a>를 통해 다운로드 및 실행 가능하다. 최적화 라이브러리로 g2o를 사용하였으며 ROS 환경에서 구동할 수 있도록 설정하였다. 보다 자세한 실행 방법은 링크 내에 설명되어 있다.
+PGO를 테스트해 볼 수 있는 튜토리얼 예제를 github에 작성하였다. 코드는 <a href="https://github.com/edward0im/pgo_toy_example">해당 링크</a>를 통해 다운로드 및 실행 가능하다. 최적화 라이브러리로 g2o를 사용하였으며 ROS 환경에서 구동할 수 있도록 설정하였다. 보다 자세한 실행 방법은 링크 내에 설명되어 있다.
 </p>
 
 <p>
-실행한 결과는 다음과 같다.
+예제는 각 케이스마다 20번씩 최적화를 수행하며 20번이 지난 후에는 랜덤하게 초기화되어 다음 케이스로 넘어간다. 예제를 실행한 결과는 다음과 같다.
 </p>
 
 
 <figure>
 <img src="/pictures/200908/intro.gif" alt="intro.gif" align="center" width="800px">
+
+</figure>
+
+<p>
+예제의 상황은 Front-end에서 Loop Closing이 발생한 상황부터 시작한다.
+</p>
+
+
+<figure>
+<img src="/pictures/200909/01.png" alt="01.png" align="center" width="500px">
+
+</figure>
+
+<p>
+Loop Closing이 발생하면 Front-end에서 GICP를 통해 새로운 관측값 $\mathbf{z}_{ij}$를 구하고 기존의 값들은 예측값 $\hat{\mathbf{z}}_{ij}$으로 전환된다.
+</p>
+
+
+<figure>
+<img src="/pictures/200909/02.png" alt="02.png" align="center" width="500px">
+
+</figure>
+
+<p>
+관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정하여 이전 섹션에서 설명한 GN, LM과 같은 방법을 통해 20번씩 최적화를 수행한다. 실제 SLAM 알고리즘에서 20번 최적화는 순식간에 완료되지만 시각화를 위해 천천히 최적화하도록 코드를 작성하였다.
+</p>
+
+
+<figure>
+<img src="/pictures/200909/03.png" alt="03.png" align="center" width="500px">
 
 </figure>
 </div>
