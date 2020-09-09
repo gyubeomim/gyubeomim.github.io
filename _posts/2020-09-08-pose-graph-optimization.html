@@ -8,29 +8,29 @@ tag: [Engineering, SLAM, Pose Graph, Optimization, Loop Closing, Nonlinear Least
 use_math: true
 comments: true
 ---
-<nav id="table-of-contents">
+<div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfe011ef">1. Introduction</a></li>
-<li><a href="#orgc75538f">2. Pose graph</a></li>
-<li><a href="#org299e6d7">3. Pose graph optimization</a>
+<li><a href="#org0e830e1">1. Introduction</a></li>
+<li><a href="#orge3b3fc5">2. Pose graph</a></li>
+<li><a href="#org0299799">3. Pose graph optimization</a>
 <ul>
-<li><a href="#org2343d20">3.1. Graphical explain of PGO</a></li>
+<li><a href="#org510ea51">3.1. Graphical explain of PGO</a></li>
 </ul>
 </li>
-<li><a href="#org0628e20">4. Code review</a></li>
-<li><a href="#org7352b84">5. References</a></li>
+<li><a href="#org33ba380">4. Code review</a></li>
+<li><a href="#org1c08706">5. References</a></li>
 </ul>
 </div>
-</nav>
+</div>
 
 
-<div id="outline-container-orgfe011ef" class="outline-2">
-<h2 id="orgfe011ef"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org0e830e1" class="outline-2">
+<h2 id="org0e830e1"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-로봇이 SLAM을 수행하는 동안 센서 데이터가 입력으로 들어오는데 순차적으로 들어오는 센서 데이터들의 차이를 통해 로봇의 포즈를 계산하는 알고리즘을 <b>Odometry</b> 또는 <b>Front-end</b> 라고 한다. 이 때, 센서 데이터의 노이즈로 인해 Odometry는 필연적으로 에러를 포함하고 있는데 시간이 지날수록 에러는 누적되어 전체적인 Trajectroy가 어긋나게 된다. 이러한 문제를 해결하기 위해 1997년 Lu and Milios는 로봇의 포즈를 그래프 자료구조로 표현함으로써 최적화하는 GraphSLAM 방법을 제안하였다<a href="#org7352b84">(1)</a>.
+로봇이 SLAM을 수행하는 동안 센서 데이터가 입력으로 들어오는데 순차적으로 들어오는 센서 데이터들의 차이를 통해 로봇의 포즈를 계산하는 알고리즘을 <b>Odometry</b> 또는 <b>Front-end</b> 라고 한다. 이 때, 센서 데이터의 노이즈로 인해 Odometry는 필연적으로 에러를 포함하고 있는데 시간이 지날수록 에러는 누적되어 전체적인 Trajectroy가 어긋나게 된다. 이러한 문제를 해결하기 위해 1997년 Lu and Milios는 로봇의 포즈를 그래프 자료구조로 표현함으로써 최적화하는 GraphSLAM 방법을 제안하였다<a href="#org1c08706">(1)</a>.
 </p>
 
 <p>
@@ -38,36 +38,36 @@ GraphSLAM의 Pipeline은 크게 Front-end와 Back-end로 구분할 수 있는데
 </p>
 
 
-<figure>
-<img src="/pictures/200908/01.png" alt="01.png" align="center" width="500px">
-
-<figcaption><span class="figure-number">Figure 1: </span>Pose Graph-based SLAM System Pipeline. The image is from the freiburg university Robot Mapping lecture.</figcaption>
-</figure>
+<div class="figure">
+<p><img src="/pictures/200908/01.png" alt="01.png" align="center" width="500px" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Pose Graph-based SLAM System Pipeline. The image is from the freiburg university Robot Mapping lecture.</p>
 </div>
 </div>
+</div>
 
-<div id="outline-container-orgc75538f" class="outline-2">
-<h2 id="orgc75538f"><span class="section-number-2">2</span> Pose graph</h2>
+<div id="outline-container-orge3b3fc5" class="outline-2">
+<h2 id="orge3b3fc5"><span class="section-number-2">2</span> Pose graph</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Pose Graph는 로봇의 포즈를 자료구조 중 하나인 그래프로 표현한 SLAM에 특화된 자료구조를 의미한다. <b>Pose Graph에서 노드는 로봇의 포즈(Pose)로 나타내고 엣지는 노드 사이의 상대 포즈(Relative Pose)로 나타낸다.</b> 아래 그림은 Graph와 Pose Graph 자료구조의 차이점을 나타낸 그림이다.
 </p>
 
 
-<figure>
-<img src="/pictures/200908/02.png" alt="02.png" align="center">
-
-</figure>
+<div class="figure">
+<p><img src="/pictures/200908/02.png" alt="02.png" align="center" />
+</p>
+</div>
 
 <p>
 본 포스팅에서는 3차원 SLAM에 관한 내용을 다루므로 Pose Graph에서 Pose $\mathbf{x}$와 Edge $\mathbf{z}$는 다음과 같이 정의된다.
 </p>
 
 
-<figure>
-<img src="/pictures/200908/03.png" alt="03.png" align="center" width="300px">
-
-</figure>
+<div class="figure">
+<p><img src="/pictures/200908/03.png" alt="03.png" align="center" width="300px" />
+</p>
+</div>
 
 \begin{equation}
 \begin{aligned}
@@ -87,8 +87,8 @@ Pose Graph는 로봇의 포즈를 자료구조 중 하나인 그래프로 표현
 </div>
 </div>
 
-<div id="outline-container-org299e6d7" class="outline-2">
-<h2 id="org299e6d7"><span class="section-number-2">3</span> Pose graph optimization</h2>
+<div id="outline-container-org0299799" class="outline-2">
+<h2 id="org0299799"><span class="section-number-2">3</span> Pose graph optimization</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Loop Closing과 같은 특수한 상황이 발생하면 Front-end에서 에러가 누적된 모든 노드와 엣지 정보를 Back-end로 전달하고 Back-end에서는 GICP 같은 방법을 사용하여 현재의 노드들의 관측값을 업데이트 해준 후 이전 스텝의 예측값과 차이(에러)가 가장 적은 Pose Graph가 되도록 최적화하는 과정을 수행한다. 이를 단계별로 정리하면 다음과 같다.
@@ -141,92 +141,92 @@ PGO 공식을 순차적인 노드와 비순차적인 노드로 분리하면 다�
 </p>
 </div>
 
-<div id="outline-container-org2343d20" class="outline-3">
-<h3 id="org2343d20"><span class="section-number-3">3.1</span> Graphical explain of PGO</h3>
+<div id="outline-container-org510ea51" class="outline-3">
+<h3 id="org510ea51"><span class="section-number-3">3.1</span> Graphical explain of PGO</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 PGO의 과정을 그림으로 순차적으로 나타내면 다음과 같다. 자율주행차량이 주행을 하면서 Loop Closing이 발생하는 상황을 예로 들어서 PGO를 설명해보자. <b>해당 시나리오에서는 Loop Closing이 발생하여 기존에 누적된 에러를 제거하기 위해 PGO를 사용했다고 가정한다.</b>
 </p>
 
 
-<figure>
-<img src="/pictures/200908/04.png" alt="04.png" align="center" width="800px">
+<div class="figure">
+<p><img src="/pictures/200908/04.png" alt="04.png" align="center" width="800px" />
+</p>
+</div>
+<hr />
 
-</figure>
-<hr>
+<div class="figure">
+<p><img src="/pictures/200908/05.png" alt="05.png" align="center" width="800px" />
+</p>
+</div>
 
-<figure>
-<img src="/pictures/200908/05.png" alt="05.png" align="center" width="800px">
+<hr />
 
-</figure>
+<div class="figure">
+<p><img src="/pictures/200908/06.png" alt="06.png" align="center" width="800px" />
+</p>
+</div>
 
-<hr>
+<hr />
 
-<figure>
-<img src="/pictures/200908/06.png" alt="06.png" align="center" width="800px">
+<div class="figure">
+<p><img src="/pictures/200908/07.png" alt="07.png" align="center" width="800px" />
+</p>
+</div>
 
-</figure>
+<hr />
 
-<hr>
+<div class="figure">
+<p><img src="/pictures/200908/08.png" alt="08.png" align="center" width="800px" />
+</p>
+</div>
 
-<figure>
-<img src="/pictures/200908/07.png" alt="07.png" align="center" width="800px">
+<hr />
 
-</figure>
-
-<hr>
-
-<figure>
-<img src="/pictures/200908/08.png" alt="08.png" align="center" width="800px">
-
-</figure>
-
-<hr>
-
-<figure>
-<img src="/pictures/200908/09.png" alt="09.png" align="center" width="800px">
-
-</figure>
+<div class="figure">
+<p><img src="/pictures/200908/09.png" alt="09.png" align="center" width="800px" />
+</p>
+</div>
 
 <p>
 자율주행차량은 위와 같이 센서의 입력에 따라 순차적으로 Pose 노드를 생성하며 주행한다. 이 때는 Front-end 알고리즘만 작동한다.
 </p>
 
-<hr>
+<hr />
 
-<figure>
-<img src="/pictures/200908/10.png" alt="10.png" align="center" width="800px">
+<div class="figure">
+<p><img src="/pictures/200908/10.png" alt="10.png" align="center" width="800px" />
+</p>
+</div>
 
-</figure>
+<hr />
 
-<hr>
-
-<figure>
-<img src="/pictures/200908/11.png" alt="11.png" align="center" width="800px">
-
-</figure>
+<div class="figure">
+<p><img src="/pictures/200908/11.png" alt="11.png" align="center" width="800px" />
+</p>
+</div>
 
 <p>
 Loop Detection 알고리즘에 의해 Loop를 발견했다고 가정해보자. Loop가 발견된 순간 기존의 노드와 엣지는 전부 예측값으로 변경된다. ($\mathbf{z} \rightarrow \hat{\mathbf{z}}$)
 </p>
 
-<hr>
+<hr />
 
-<figure>
-<img src="/pictures/200908/12.png" alt="12.png" align="center" width="800px">
-
-</figure>
+<div class="figure">
+<p><img src="/pictures/200908/12.png" alt="12.png" align="center" width="800px" />
+</p>
+</div>
 
 <p>
 관측값을 계산한다. LiDAR SLAM의 경우 GICP 같은 알고리즘을 사용하여 새로운 $\mathbf{z}_{ij}$를 계산한다.
 </p>
 
-<hr>
+<hr />
 
-<figure>
-<img src="/pictures/200908/13.png" alt="13.png" align="center" width="800px">
-
-</figure>
+<div class="figure">
+<p><img src="/pictures/200908/13.png" alt="13.png" align="center" width="800px" />
+</p>
+</div>
 
 <p>
 관측값과 예측값의 차이를 에러 $\mathbf{e}_{ij}$로 설정한다. Pose graph에서 관측값과 예측값은 상대포즈(Relative Pose)로 나타내므로 둘의 차이는 $\mathbf{z}_{ij}-\hat{\mathbf{z}}_{ij}$이 아닌 실제로는 $\mathbf{z}^{-1}_{ij}\hat{\mathbf{z}}_{ij}$로 나타낸다.
@@ -237,12 +237,12 @@ Loop Detection 알고리즘에 의해 Loop를 발견했다고 가정해보자. L
 \mathbf{e}_{ij} = \mathbf{z}^{-1}_{ij}\hat{\mathbf{z}}_{ij}
 \end{aligned}
 \end{equation}
-<hr>
+<hr />
 
-<figure>
-<img src="/pictures/200908/14.png" alt="14.png" align="center" width="800px">
-
-</figure>
+<div class="figure">
+<p><img src="/pictures/200908/14.png" alt="14.png" align="center" width="800px" />
+</p>
+</div>
 
 <p>
 모든 노드들의 에러가 최소화되는 차량의 포즈 $\mathbf{x}$를 계산한다. 이 때 비선형 최소제곱법(GN, LM)을 통해 반복적으로 에러가 최소가 되는 로봇의 포즈를 업데이트한다. 본 포스팅에서는 최적화 라이브러리로 g2o를 사용하였다. 
@@ -251,17 +251,28 @@ Loop Detection 알고리즘에 의해 Loop를 발견했다고 가정해보자. L
 </div>
 </div>
 
-<div id="outline-container-org0628e20" class="outline-2">
-<h2 id="org0628e20"><span class="section-number-2">4</span> Code review</h2>
+<div id="outline-container-org33ba380" class="outline-2">
+<h2 id="org33ba380"><span class="section-number-2">4</span> Code review</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 PGO를 테스트해 볼 수 있는 튜토리얼 코드를 github에 작성하였다. 코드는 <a href="https://github.com/edward0im/pgo_toy_example">해당 링크</a>를 통해 다운로드 및 실행 가능하다. 최적화 라이브러리로 g2o를 사용하였으며 ROS 환경에서 구동할 수 있도록 설정하였다. 보다 자세한 실행 방법은 링크 내에 설명되어 있다.
 </p>
+
+<p>
+실행한 결과는 다음과 같다.
+</p>
+
+
+<div class="figure">
+<p><img src="/pictures/200908/intro.gif" alt="intro.gif" align="center" width="500px" />
+</p>
+</div>
 </div>
 </div>
 
-<div id="outline-container-org7352b84" class="outline-2">
-<h2 id="org7352b84"><span class="section-number-2">5</span> References</h2>
+
+<div id="outline-container-org1c08706" class="outline-2">
+<h2 id="org1c08706"><span class="section-number-2">5</span> References</h2>
 <div class="outline-text-2" id="text-5">
 <ol class="org-ol">
 <li><a href="https://journals.sagepub.com/doi/abs/10.1177/0278364906065387?casa_token=GgYv1_E10lkAAAAA%3Aa2dCyZPksSJUerYbSFzncckAtMAAhGQM2UwCl2oBUPMMfzhhBN0lakSfEGX7ETfRdrPbcTR0qc8aVqE&amp;">Thrun, S. and Montemerlo, M., 2006. The graph SLAM algorithm with applications to large-scale mapping of urban structures. The International Journal of Robotics Research, 25(5-6), pp.403-429.</a></li>
