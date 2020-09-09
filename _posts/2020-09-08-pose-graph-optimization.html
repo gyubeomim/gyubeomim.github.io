@@ -156,7 +156,7 @@ PGO 공식을 순차적인 노드와 비순차적인 노드로 분리하면 다�
 <h3 id="orgf0bbaad"><span class="section-number-3">3.1</span> Nonlinear least square method</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
-GN 방법을 사용해서 해당 문제를 푼다고 가정해보자. 에러함수 $\mathbf{e}_{ij}$를 자세히 나타내면 $\mathbf{e}_{ij}(\mathbf{x})$와 같고 이는 차량의 포즈 벡터 $\mathbf{x}$에 따라 에러함수의 값이 달라지는 것을 의미한다. GN 방법은 $\mathbf{e}(\mathbf{x})$에 반복적(Iterative)으로 에러가 감소하는 방향으로 증분량 $&Delta; \mathbf{x}$를 업데이트한다.
+GN 방법을 사용해서 해당 문제를 푼다고 가정해보자. 에러함수 $\mathbf{e}_{ij}$를 자세히 나타내면 $\mathbf{e}_{ij}(\mathbf{x})$와 같고 이는 차량의 포즈 벡터 $\mathbf{x}$에 따라 에러함수의 값이 달라지는 것을 의미한다. GN 방법은 $\mathbf{e}(\mathbf{x})$에 반복적(iterative)으로 에러가 감소하는 방향으로 증분량 $&Delta; \mathbf{x}$를 업데이트한다.
 </p>
 
 \begin{equation}
@@ -165,7 +165,7 @@ GN 방법을 사용해서 해당 문제를 푼다고 가정해보자. 에러함�
 \end{aligned}
 \end{equation}
 <p>
-이 때, $&Delta; \mathbf{x}&rarr; \mathbf{x}$에서 1차 테일러 전개를 사용하면 위 식은 다음과 같이 근사된다.
+이 때, $\mathbf{e}_{ij}(\mathbf{x}+&Delta; \mathbf{x})$를 $\Delta \mathbf{x} \rightarrow \mathbf{x}$부근에서 1차 테일러 전개를 사용하면 위 식은 다음과 같이 근사된다.
 </p>
 
 \begin{equation}
@@ -175,7 +175,7 @@ GN 방법을 사용해서 해당 문제를 푼다고 가정해보자. 에러함�
 \end{aligned}
 \end{equation}
 <p>
-이는 에러함수 전체에 적용하면 아래와 같다.
+이 때, $\mathbf{J}_{ij} = \frac{&part; \mathbf{e}_{ij}(\mathbf{x}+ &Delta; \mathbf{x})}{&part; &Delta; \mathbf{x}}$이다. 이를 에러함수 전체에 적용하면 아래와 같다.
 </p>
 
 \begin{equation}
@@ -184,11 +184,57 @@ GN 방법을 사용해서 해당 문제를 푼다고 가정해보자. 에러함�
 (\mathbf{e}_{ij}+\mathbf{J}_{ij}\Delta \mathbf{x})
 \end{aligned}
 \end{equation}
+<p>
+위 식을 전개한 후 치환하면 아래와 같다.
+</p>
+
+\begin{equation}
+\begin{aligned}
+&amp; \mathbf{e}_{i}^{\intercal}\Omega_{ij}\mathbf{e}_{ij} + 2\mathbf{e}_{ij}^{\intercal}\Omega_{ij}\mathbf{J}_{ij}\Delta \mathbf{x} + \Delta \mathbf{x}^{\intercal} \mathbf{J}_{ij}^{\intercal}\Omega_{ij}\mathbf{J}_{ij}\Delta \mathbf{x}
+&amp; = \mathbf{c}_{ij}+ 2\mathbf{b}_{ij}\Delta \mathbf{x} + \Delta \mathbf{x}^{\intercal} \mathbf{H}_{ij} \Delta \mathbf{x}
+\end{aligned}
+\end{equation}
+<p>
+위 식을 i,j 노드뿐만 아니라 전체 노드에 적용하면 다음과 같다.
+</p>
+
+\begin{equation}
+\begin{aligned}
+    \mathbf{E}(\mathbf{x}+\Delta \mathbf{x}) = \sum_{ij}\mathbf{e}_{ij}^{\intercal}\Omega_{ij}\mathbf{e}_{ij} = \mathbf{c}+ 2\mathbf{b}\Delta \mathbf{x} + \Delta \mathbf{x}^{T} \mathbf{H} \Delta \mathbf{x}
+\end{aligned}
+\end{equation}
+<p>
+$\mathbf{E}(\mathbf{x}+&Delta; \mathbf{x})$은 $&Delta; \mathbf{x}$에 대한 2차식(Quadratic) 형태이고 $\mathbf{H}= \mathbf{e}^{\intercal}&Omega; \mathbf{e}$는 positive definite 행렬이므로 <b>$\mathbf{E}(\mathbf{x}+ &Delta; \mathbf{x})$를 1차 미분하여 0으로 설정한 값이 $&Delta; \mathbf{x}$의 극소가 된다.</b>
+</p>
+
+\begin{equation}
+\begin{aligned}
+    \frac{\partial \mathbf{E}(\mathbf{x}+\Delta \mathbf{x})}{\partial \Delta \mathbf{x}}  \simeq 2\mathbf{b} + 2\mathbf{H} \Delta \mathbf{x} = 0
+\end{aligned}
+\end{equation}
+<p>
+이를 정리하면 다음과 같은 공식이 도출된다.
+</p>
+
+\begin{equation}
+\begin{aligned}
+    \mathbf{H}\Delta \mathbf{x} = - \mathbf{b}
+\end{aligned}
+\end{equation}
+<p>
+여기서 전체 에러가 최소가 되는 $&Delta; \mathbf{x}$는 $&Delta; \mathbf{x}= -\mathbf{H}\mathbf{b}$를 통해 구할 수 있다. 이를 통해 최종적으로 $\mathbf{x}$의 값을 업데이트한다.
+</p>
+
+\begin{equation}
+\begin{aligned}
+        \mathbf{x} \leftarrow \mathbf{x} + \Delta \mathbf{x}
+\end{aligned}
+\end{equation}
+<p>
+지금까지 과정을 반복적(iterative)으로 수행하는 알고리즘을 Gauss-Newton 방법이라고 한다. 
+</p>
 </div>
 </div>
-
-
-
 
 <div id="outline-container-org510ea51" class="outline-3">
 <h3 id="org510ea51"><span class="section-number-3">3.2</span> Graphical explain of PGO</h3>
