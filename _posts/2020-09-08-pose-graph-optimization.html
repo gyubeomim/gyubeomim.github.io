@@ -1,3 +1,13 @@
+--- 
+layout: post
+title: (SLAM) Notes on Pose Graph Optimization with codes
+description: 
+date: 2020-09-08
+categories: [Engineering]
+tag: [Engineering, SLAM, Pose Graph, Optimization, Loop Closing, Nonlinear Least Square]
+use_math: true
+comments: true
+---
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -15,16 +25,7 @@
 </ul>
 </div>
 </nav>
---- 
-layout: post
-title: (SLAM) Notes on Pose Graph Optimization with codes
-description: 
-date: 2020-09-08
-categories: [Engineering]
-tag: [Engineering, SLAM, Pose Graph, Optimization, Loop Closing, Nonlinear Least Square]
-use_math: true
-comments: true
----
+
 
 <div id="outline-container-org0e830e1" class="outline-2">
 <h2 id="org0e830e1"><span class="section-number-2">1</span> Introduction</h2>
@@ -147,7 +148,7 @@ PGO 공식을 순차적인 노드와 비순차적인 노드로 분리하면 다�
 \end{aligned}
 \end{equation}
 <p>
-이 때, 에러함수 $\mathbf{e}$는 회전과 관련된 $\cos, \sin$성분을 포함하고 있으므로 비선형성을 가진다. 따라서 해당 공식은 한 번에 해를 구할 수 있는 Closed form solution이 존재하지 않는다. 이러한 비선형 문제를 풀기 위해서는 Gauss-Newton(GN) 또는 Levenberg-Marquardt(LM)과 같은 비선형 최소제곱법을 사용해야 한다.
+이 때, 에러함수 $\mathbf{e}$는 회전과 관련된 $\cos, \sin$성분을 포함하고 있으므로 비선형성을 가진다. 따라서 <b>해당 공식은 한 번에 해를 구할 수 있는 closed form solution이 존재하지 않는다. 이러한 비선형 문제를 풀기 위해서는 Gauss-Newton(GN) 또는 Levenberg-Marquardt(LM)과 같은 비선형 최소제곱법을 사용해야 한다.</b>
 </p>
 </div>
 
