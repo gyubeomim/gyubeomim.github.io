@@ -137,9 +137,42 @@ PGO 공식을 순차적인 노드와 비순차적인 노드로 분리하면 다�
 \end{aligned}
 \end{equation}
 <p>
-이 때, $\mathbf{z}_{i,i+1}, \hat{\mathbf{z}}_{i,i+1}$은 순차적인 노드들 간 관측값 및 예측값을 의미하며 $\mathbf{z}_{i,j}, \hat{\mathbf{z}}_{i,j}$는 시간 순서와는 상관없는, 즉 비순차적인 노드들 간 관측값 및 예측값을 의미한다.
+이 때, $\mathbf{z}_{i,i+1}, \hat{\mathbf{z}}_{i,i+1}$은 순차적인 노드들 간 관측값 및 예측값을 의미하며 $\mathbf{z}_{i,j}, \hat{\mathbf{z}}_{i,j}$는 시간 순서와는 상관없는, 즉 비순차적인 노드들 간 관측값 및 예측값을 의미한다. 위 식을 에러함수로 간략하게 나타내면 다음과 같다.
 </p>
+
+\begin{equation}
+\begin{aligned}
+    \mathbf{x}^{*} = \arg\min_{\mathbf{x}} \sum_{i} (\mathbf{e}_{i,i+1}^{\intercal}\Omega_{i,i+1}\mathbf{e}_{i,i+1})
+ + \sum_{ij} (\mathbf{e}_{ij}^{\intercal}\Omega_{ij}\mathbf{e}_{ij})
+\end{aligned}
+\end{equation}
+<p>
+이 때, 에러함수 $\mathbf{e}$는 회전과 관련된 $\cos, \sin$성분을 포함하고 있으므로 비선형성을 가진다. 따라서 해당 공식은 한 번에 해를 구할 수 있는 Closed form solution이 존재하지 않는다. 이러한 비선형 문제를 풀기 위해서는 Gauss-Newton(GN) 또는 Levenberg-Marquardt(LM)과 같은 비선형 최소제곱법을 사용해야 한다.
+</p>
+
+<p>
+GN 방법을 사용해서 해당 문제를 푼다고 가정해보자. 에러함수 $\mathbf{e}_{ij}$를 자세히 나타내면 $\mathbf{e}_{ij}(\mathbf{x})$와 같고 차량의 포즈 벡터 $\mathbf{x}$에 따라 에러함수의 값이 달라진다. GN 방법은 반복적(Iterative)으로 에러가 감소하는 방향으로 증분량 $&Delta; \mathbf{x}$를 업데이트한다.
+</p>
+
+\begin{equation}
+\begin{aligned}
+    \mathbf{e}_{ij}(\mathbf{x}+\Delta \mathbf{x})^{\intercal}\Omega_{ij}\mathbf{e}_{ij}(\mathbf{x}+\Delta \mathbf{x})
+\end{aligned}
+\end{equation}
+<p>
+이 때, $&Delta; \mathbf{x}&rarr; \mathbf{x}$에서 1차 테일러 전개를 사용하면 위 식은 다음과 같이 근사된다.
+</p>
+
+\begin{equation}
+\begin{aligned}
+    \mathbf{e}_{ij}(\mathbf{x}+\Delta \mathbf{x})^{\intercal}\Omega_{ij}\mathbf{e}_{ij}(\mathbf{x}+\Delta \mathbf{x}) \simeq (\mathbf{e}_{ij}+\mathbf{J}_{ij}\Delta \mathbf{x})^{\intercal}\Omega_{ij}
+(\mathbf{e}_{ij}+\mathbf{J}_{ij}\Delta \mathbf{x})
+\end{aligned}
+\end{equation}
 </div>
+
+
+
 
 <div id="outline-container-org510ea51" class="outline-3">
 <h3 id="org510ea51"><span class="section-number-3">3.1</span> Graphical explain of PGO</h3>
