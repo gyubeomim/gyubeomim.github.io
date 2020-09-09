@@ -1,13 +1,3 @@
---- 
-layout: post
-title: (SLAM) Notes on Pose Graph Optimization with codes
-description: 
-date: 2020-09-08
-categories: [Engineering]
-tag: [Engineering, SLAM, Pose Graph, Optimization, Loop Closing, Nonlinear Least Square]
-use_math: true
-comments: true
----
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -25,7 +15,16 @@ comments: true
 </ul>
 </div>
 </nav>
-
+--- 
+layout: post
+title: (SLAM) Notes on Pose Graph Optimization with codes
+description: 
+date: 2020-09-08
+categories: [Engineering]
+tag: [Engineering, SLAM, Pose Graph, Optimization, Loop Closing, Nonlinear Least Square]
+use_math: true
+comments: true
+---
 
 <div id="outline-container-org0e830e1" class="outline-2">
 <h2 id="org0e830e1"><span class="section-number-2">1</span> Introduction</h2>
@@ -231,7 +230,7 @@ $\mathbf{E}(\mathbf{x}+&Delta; \mathbf{x})$은 $&Delta; \mathbf{x}$에 대한 2�
 \end{aligned}
 \end{equation}
 <p>
-지금까지 과정을 반복적(iterative)으로 수행하는 알고리즘을 Gauss-Newton 방법이라고 한다. 정리하면, <b>PGO에서 정의한 공식은 비선형항을 포함하므로 closed form solution이 존재하지 않고 따라서 지금까지 설명한 GN 방법을 통해 실질적으로 최적화된다.</b>
+지금까지 과정을 반복적(iterative)으로 수행하는 알고리즘을 Gauss-Newton 방법이라고 한다. <b>정리하면, PGO에서 정의한 공식은 비선형항을 포함하므로 closed form solution이 존재하지 않고 따라서 지금까지 설명한 GN 방법을 통해 반복적으로 최적화된다.</b>
 </p>
 </div>
 </div>
