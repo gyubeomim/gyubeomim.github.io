@@ -399,9 +399,33 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
 <img src="/pictures/200909/03.png" alt="03.png" align="center" width="800px">
 
 </figure>
-</div>
+
+<div class="org-src-container">
+<pre class="src src-c++"><span class="org-constant">PGOToyExample</span>::<span class="org-function-name">PGOToyExample</span>(<span class="org-type">bool</span> <span class="org-variable-name">verbose</span>)
+    : vertex_id_(0), verbose_(verbose)
+{
+  num_poses_ = 15; <span class="org-comment-delimiter">// </span><span class="org-comment">Set number of poses.</span>
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Set g2o solver.</span>
+  <span class="org-constant">std</span>::<span class="org-type">unique_ptr</span>&lt;<span class="org-constant">g2o</span>::<span class="org-constant">BlockSolver_6_3</span>::LinearSolverType&gt; <span class="org-variable-name">linear_solver</span>;
+  linear_solver = <span class="org-constant">g2o</span>::make_unique&lt;<span class="org-constant">g2o</span>::<span class="org-type">LinearSolverDense</span>&lt;<span class="org-constant">g2o</span>::<span class="org-constant">BlockSolver_6_3</span>::PoseMatrixType&gt;&gt;();
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">use LM method to minimize nonlinear least square.</span>
+  <span class="org-constant">g2o</span>::<span class="org-type">OptimizationAlgorithmLevenberg</span>* <span class="org-variable-name">solver</span> =
+      <span class="org-keyword">new</span> <span class="org-constant">g2o</span>::<span class="org-type">OptimizationAlgorithmLevenberg</span>(<span class="org-constant">g2o</span>::make_unique&lt;<span class="org-constant">g2o</span>::BlockSolver_6_3&gt;(<span class="org-constant">std</span>::move(linear_solver)));
+  solver-&gt;setUserLambdaInit(1);
+
+  optimizer_ = <span class="org-keyword">new</span> <span class="org-constant">g2o</span>::<span class="org-type">SparseOptimizer</span>();
+  optimizer_-&gt;setAlgorithm(solver);
+}
+</pre>
 </div>
 
+<p>
+보다 자세한 코드 리뷰는 <a href="https://www.facebook.com/groups/slamkr/permalink/1221930924833216/">해당 링크</a>의 자료를 참고하면 된다. 
+</p>
+</div>
+</div>
 
 <div id="outline-container-org1c08706" class="outline-2">
 <h2 id="org1c08706"><span class="section-number-2">5</span> References</h2>
