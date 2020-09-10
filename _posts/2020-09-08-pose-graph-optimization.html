@@ -20,7 +20,11 @@ comments: true
 <li><a href="#org510ea51">3.2. Graphical explain of PGO</a></li>
 </ul>
 </li>
-<li><a href="#org33ba380">4. Code review</a></li>
+<li><a href="#org4a51cae">4. Example code</a>
+<ul>
+<li><a href="#org33ba380">4.1. Code review</a></li>
+</ul>
+</li>
 <li><a href="#org1c08706">5. References</a></li>
 </ul>
 </div>
@@ -353,8 +357,8 @@ Loop Detection 알고리즘에 의해 Loop를 발견했다고 가정해보자. L
 </div>
 </div>
 
-<div id="outline-container-org33ba380" class="outline-2">
-<h2 id="org33ba380"><span class="section-number-2">4</span> Code review</h2>
+<div id="outline-container-org4a51cae" class="outline-2">
+<h2 id="org4a51cae"><span class="section-number-2">4</span> Example code</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 PGO를 테스트해 볼 수 있는 튜토리얼 예제를 github에 작성하였다. 코드는 <a href="https://github.com/edward0im/pgo_toy_example">해당 링크</a>를 통해 다운로드 및 실행 가능하다. 최적화 라이브러리로 g2o를 사용하였으며 ROS 환경에서 구동할 수 있도록 설정하였다. 보다 자세한 실행 방법은 링크 내에 설명되어 있다.
@@ -399,7 +403,11 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
 <img src="/pictures/200909/03.png" alt="03.png" align="center" width="800px">
 
 </figure>
+</div>
 
+<div id="outline-container-org33ba380" class="outline-3">
+<h3 id="org33ba380"><span class="section-number-3">4.1</span> Code review</h3>
+<div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 <pre class="src src-c++"><span class="org-constant">PGOToyExample</span>::<span class="org-function-name">PGOToyExample</span>(<span class="org-type">bool</span> <span class="org-variable-name">verbose</span>)
     : vertex_id_(0), verbose_(verbose)
@@ -421,9 +429,271 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
 </pre>
 </div>
 
+<div class="org-src-container">
+<pre class="src src-c++"><span class="org-type">void</span> <span class="org-constant">PGOToyExample</span>::<span class="org-function-name">SetOriginalPoses</span>() {
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Set the original poses.</span>
+  <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;num_poses_; i++){
+    <span class="org-type">Vec3</span> <span class="org-variable-name">trans</span>;
+    <span class="org-keyword">if</span>(i==0) {
+      trans = Vec3(0,0,0);
+    }
+    <span class="org-keyword">else</span> <span class="org-keyword">if</span>(i&gt;=1 &amp;&amp; i &lt;=7) {
+      trans = Vec3(i + <span class="org-constant">Sampling</span>::Gaussian(.2),
+                   <span class="org-constant">Sampling</span>::Gaussian(.2),
+                   <span class="org-constant">Sampling</span>::Gaussian(.2));
+    }
+    <span class="org-keyword">else</span> <span class="org-keyword">if</span>(i==8) {
+      trans = Vec3(8 + <span class="org-constant">Sampling</span>::Gaussian(.2),
+                   7 - i + <span class="org-constant">Sampling</span>::Gaussian(.2),
+                   <span class="org-constant">Sampling</span>::Gaussian(.2));
+    }
+    <span class="org-keyword">else</span> <span class="org-keyword">if</span>(i&gt;=9) {
+      trans = Vec3(17 - i + <span class="org-constant">Sampling</span>::Gaussian(.2),
+                   -1 + <span class="org-constant">Sampling</span>::Gaussian(.2),
+                   <span class="org-constant">Sampling</span>::Gaussian(.2));
+    }
+
+    <span class="org-type">Quaternion</span> <span class="org-variable-name">q</span>;
+    q.setIdentity(); <span class="org-comment-delimiter">// </span><span class="org-comment">Set the initial rotation to identity.</span>
+
+    <span class="org-constant">g2o</span>::<span class="org-type">SE3Quat</span> <span class="org-variable-name">pose</span>;
+    pose.setRotation(q);
+    pose.setTranslation(trans);
+
+    original_poses_.push_back(pose);
+  }
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-c++"><span class="org-type">void</span> <span class="org-constant">PGOToyExample</span>::<span class="org-function-name">MakeCurrentPoseAndAddVertex</span>() {
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Add noise in original poses and add vertex in g2o.</span>
+  <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0;i&lt;original_poses_.size();i++){
+    <span class="org-constant">g2o</span>::<span class="org-type">VertexSE3Expmap</span>* <span class="org-variable-name">vtx</span> = <span class="org-keyword">new</span> <span class="org-constant">g2o</span>::<span class="org-type">VertexSE3Expmap</span>();
+    vtx-&gt;setId(vertex_id_);
+
+    <span class="org-keyword">if</span>(i==0){
+      vtx-&gt;setFixed(<span class="org-constant">true</span>);
+    }
+
+    <span class="org-type">Vec3</span> <span class="org-variable-name">trans</span>(<span class="org-constant">Sampling</span>::Gaussian(.2),
+               <span class="org-constant">Sampling</span>::Gaussian(.2),
+               <span class="org-constant">Sampling</span>::Gaussian(.2));
+    <span class="org-type">Quaternion</span> <span class="org-variable-name">q</span>;
+    q.UnitRandom();
+
+    <span class="org-constant">g2o</span>::<span class="org-type">SE3Quat</span> <span class="org-variable-name">origin</span> = original_poses_.at(i);
+    <span class="org-constant">g2o</span>::<span class="org-type">SE3Quat</span> <span class="org-variable-name">noise</span>;
+    noise.setTranslation(origin.translation() + trans); <span class="org-comment-delimiter">// </span><span class="org-comment">Add noise to original poses.</span>
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">Add noise pose into the g2o optimizer.</span>
+    vtx-&gt;setEstimate(noise);
+    optimizer_-&gt;addVertex(vtx);
+    vertex_id_ += 1;
+  }
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-c++"><span class="org-type">void</span> <span class="org-constant">PGOToyExample</span>::<span class="org-function-name">AddEdge</span>() {
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Add temporal edges.</span>
+  <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=1;i&lt;original_poses_.size();i++){
+    <span class="org-constant">g2o</span>::<span class="org-type">EdgeSE3Expmap</span>* <span class="org-variable-name">e</span>(<span class="org-keyword">new</span> <span class="org-constant">g2o</span>::<span class="org-type">EdgeSE3Expmap</span>());
+    <span class="org-constant">g2o</span>::<span class="org-type">SE3Quat</span> <span class="org-variable-name">relative_pose</span> = original_poses_.at(i-1).inverse() * original_poses_.at(i);
+
+    e-&gt;setMeasurement(relative_pose);
+
+<span class="org-preprocessor">#if</span> 0
+    <span class="org-comment-delimiter">// </span><span class="org-comment">if not using the information matrix.</span>
+    <span class="org-type">MatXX</span> <span class="org-variable-name">information</span> = <span class="org-constant">Eigen</span>::<span class="org-constant">MatrixXd</span>::Identity(6,6);
+<span class="org-preprocessor">#else</span>
+    <span class="org-comment-delimiter">// </span><span class="org-comment">Use the random information matrix. Information matrix should be symmetric.</span>
+    <span class="org-type">MatXX</span> <span class="org-variable-name">A</span> = <span class="org-constant">Eigen</span>::<span class="org-constant">MatrixXd</span>::Random(6,6).cwiseAbs();
+    <span class="org-type">MatXX</span> <span class="org-variable-name">information</span> = A.transpose() * A;
+<span class="org-preprocessor">#endif</span>
+
+    e-&gt;setInformation(information);
+    e-&gt;vertices()[0] = optimizer_-&gt;vertex(i-1);
+    e-&gt;vertices()[1] = optimizer_-&gt;vertex(i);
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">Add the edge into the g2o optimizer.</span>
+    optimizer_-&gt;addEdge(e);
+  }
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Add non-temporal edges. (5 &amp; 11)</span>
+  <span class="org-constant">g2o</span>::<span class="org-type">EdgeSE3Expmap</span>* <span class="org-variable-name">e511</span>(<span class="org-keyword">new</span> <span class="org-constant">g2o</span>::<span class="org-type">EdgeSE3Expmap</span>());
+  <span class="org-constant">g2o</span>::<span class="org-type">SE3Quat</span> <span class="org-variable-name">relative_pose</span> = original_poses_.at(5).inverse() * original_poses_.at(11);
+  e511-&gt;setMeasurement(relative_pose);
+  <span class="org-type">MatXX</span> <span class="org-variable-name">A</span> = <span class="org-constant">Eigen</span>::<span class="org-constant">MatrixXd</span>::Random(6,6).cwiseAbs();
+  <span class="org-type">MatXX</span> <span class="org-variable-name">information</span> = A.transpose() * A;
+  e511-&gt;setInformation(information);
+  e511-&gt;vertices()[0] = optimizer_-&gt;vertex(5);
+  e511-&gt;vertices()[1] = optimizer_-&gt;vertex(11);
+  optimizer_-&gt;addEdge(e511);
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Add non-temporal edges. (3 &amp; 14)</span>
+  <span class="org-constant">g2o</span>::<span class="org-type">EdgeSE3Expmap</span>* <span class="org-variable-name">e314</span>(<span class="org-keyword">new</span> <span class="org-constant">g2o</span>::<span class="org-type">EdgeSE3Expmap</span>());
+  relative_pose = original_poses_.at(3).inverse() * original_poses_.at(14);
+  e314-&gt;setMeasurement(relative_pose);
+  A = <span class="org-constant">Eigen</span>::<span class="org-constant">MatrixXd</span>::Random(6,6).cwiseAbs();
+  information = A.transpose() * A;
+  e314-&gt;setInformation(information);
+  e314-&gt;vertices()[0] = optimizer_-&gt;vertex(3);
+  e314-&gt;vertices()[1] = optimizer_-&gt;vertex(14);
+  optimizer_-&gt;addEdge(e314);
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-c++"><span class="org-type">void</span> <span class="org-constant">PGOToyExample</span>::<span class="org-function-name">Reset</span>() {
+  <span class="org-comment-delimiter">// </span><span class="org-comment">reset all vertices and edges.</span>
+  optimizer_-&gt;clear();
+  original_poses_.clear();
+  vertex_id_ = 0;
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">set original vertices.</span>
+  SetOriginalPoses();
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">make current vertices and add vertices to optimizer.</span>
+  MakeCurrentPoseAndAddVertex();
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">add edges to optimizer.</span>
+  AddEdge();
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">optimization intialization</span>
+  optimizer_-&gt;initializeOptimization();
+  optimizer_-&gt;setVerbose(verbose_);
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-c++"><span class="org-type">int</span> <span class="org-function-name">main</span>(<span class="org-type">int</span> <span class="org-variable-name">argc</span>, <span class="org-type">char</span> **<span class="org-variable-name">argv</span>) {
+  <span class="org-constant">ros</span>::init(argc,argv,<span class="org-string">"pgo_toy_example"</span>);
+  <span class="org-constant">ros</span>::<span class="org-type">NodeHandle</span> <span class="org-variable-name">nh</span>, <span class="org-variable-name">priv_nh</span>(<span class="org-string">"~"</span>);
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Set the publishers.</span>
+  <span class="org-constant">ros</span>::<span class="org-type">Publisher</span> <span class="org-variable-name">opt_node_pub</span> = nh.advertise&lt;<span class="org-constant">visualization_msgs</span>::MarkerArray&gt;(<span class="org-string">"opt_nodes"</span>,1);
+  <span class="org-constant">ros</span>::<span class="org-type">Publisher</span> <span class="org-variable-name">opt_edge_pub</span> = nh.advertise&lt;<span class="org-constant">visualization_msgs</span>::MarkerArray&gt;(<span class="org-string">"opt_edges"</span>,1);
+  <span class="org-constant">ros</span>::<span class="org-type">Publisher</span> <span class="org-variable-name">prev_node_pub</span> = nh.advertise&lt;<span class="org-constant">visualization_msgs</span>::MarkerArray&gt;(<span class="org-string">"prev_nodes"</span>,1);
+  <span class="org-constant">ros</span>::<span class="org-type">Publisher</span> <span class="org-variable-name">prev_edge_pub</span> = nh.advertise&lt;<span class="org-constant">visualization_msgs</span>::MarkerArray&gt;(<span class="org-string">"prev_edges"</span>,1);
+  <span class="org-constant">ros</span>::<span class="org-type">Publisher</span> <span class="org-variable-name">text_pub</span> = nh.advertise&lt;<span class="org-constant">visualization_msgs</span>::MarkerArray&gt;(<span class="org-string">"texts"</span>,1);
+
+  <span class="org-type">int</span> <span class="org-variable-name">_rate</span>, <span class="org-variable-name">_iter</span>;
+  priv_nh.param(<span class="org-string">"loop_rate"</span>, _rate, 5);  <span class="org-comment-delimiter">// </span><span class="org-comment">loop rate [Hz].</span>
+  priv_nh.param(<span class="org-string">"iteration"</span>, _iter, 20); <span class="org-comment-delimiter">// </span><span class="org-comment">iteration of optimization.</span>
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Create a PGO toy example instance.</span>
+  <span class="org-type">PGOToyExample</span>* <span class="org-variable-name">toy</span> = <span class="org-keyword">new</span> <span class="org-type">PGOToyExample</span>(<span class="org-constant">true</span>);
+
+  <span class="org-keyword">while</span>(<span class="org-constant">ros</span>::ok()) {
+    <span class="org-comment-delimiter">// </span><span class="org-comment">Set the loop speed [hz].</span>
+    <span class="org-constant">ros</span>::<span class="org-type">Rate</span> <span class="org-variable-name">loop_rate</span>(_rate);
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">Reset the instance every iteration finished.</span>
+    toy-&gt;Reset();
+    <span class="org-type">int</span> <span class="org-variable-name">num_poses</span> = toy-&gt;GetOriginalPosesSize();
+    <span class="org-type">int</span> <span class="org-variable-name">count</span> = 0;
+
+    <span class="org-keyword">while</span>(count &lt; _iter) {
+      <span class="org-comment-delimiter">// </span><span class="org-comment">Set previous nodes and edges.</span>
+      <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;num_poses; i++) {
+        SetNodeForROS(toy, prev_nodes, <span class="org-string">"prev_nodes"</span>, i, Vec4(0.0, 0.0, 0.0, 0.25), <span class="org-constant">false</span>);
+      }
+      <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=1; i&lt;num_poses; i++) {
+        SetEdgeForROS(toy, prev_edges, <span class="org-string">"prev_edges"</span>, i, i-1, i, Vec4(0.0, 0.0, 0.0, 0.25), <span class="org-constant">false</span>);
+      }
+      SetEdgeForROS(toy, opt_edges, <span class="org-string">"prev_edges"</span>, 16, 5, 11, Vec4(0.0, 0.0, 0.0, 0.25), <span class="org-constant">false</span>);
+      SetEdgeForROS(toy, opt_edges, <span class="org-string">"prev_edges"</span>, 17, 3, 14, Vec4(0.0, 0.0, 0.0, 0.25), <span class="org-constant">false</span>);
+
+      <span class="org-comment-delimiter">// </span><span class="org-comment">Set optimized poses and edges.</span>
+      <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;num_poses; i++) {
+        SetNodeForROS(toy, prev_nodes, <span class="org-string">"opt_nodes"</span>, i, Vec4(0.0, 0.0, 0.0, 1.0), <span class="org-constant">true</span>);
+      }
+      <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=1; i&lt;num_poses; i++) {
+        SetEdgeForROS(toy, opt_edges, <span class="org-string">"opt_edges"</span>, i, i-1, i, Vec4(0.0, 0.0, 0.0, 1), <span class="org-constant">true</span>);
+      }
+      SetEdgeForROS(toy, opt_edges, <span class="org-string">"opt_edges"</span>, 16, 5, 11, Vec4(0.0, 0.0, 0.0, 1), <span class="org-constant">true</span>);
+      SetEdgeForROS(toy, opt_edges, <span class="org-string">"opt_edges"</span>, 17, 3, 14, Vec4(0.0, 0.0, 0.0, 1), <span class="org-constant">true</span>);
+
+      <span class="org-comment-delimiter">// </span><span class="org-comment">Set the text message marker.</span>
+      <span class="org-constant">visualization_msgs</span>::<span class="org-type">Marker</span> <span class="org-variable-name">text</span>;
+      text.header.frame_id = <span class="org-string">"world"</span>;
+      text.header.stamp = <span class="org-constant">ros</span>::Time();
+      text.ns = <span class="org-string">"text"</span>;
+      text.id = 0;
+      text.type = <span class="org-constant">visualization_msgs</span>::<span class="org-constant">Marker</span>::TEXT_VIEW_FACING;
+      text.action = <span class="org-constant">visualization_msgs</span>::<span class="org-constant">Marker</span>::ADD;
+      text.scale.z = 0.1;
+      text.color.r = 0.0; text.color.g = 0.0; text.color.b = 0.0; text.color.a = 1.0;
+      text.pose.position.y = 0.5;
+      text.pose.position.z = 1.0;
+      <span class="org-constant">std</span>::<span class="org-type">string</span> <span class="org-variable-name">comment</span> = <span class="org-string">"[PGO toy example using g2o]\n\nPose: SE3Quat\nVertex: VertexSE3Expmap\nEdge: EdgeSE3Expmap\nInformation Matrix: Random\n\nBlack: Current Estimated Poses\nGray: Previous Poses"</span>;
+      text.text = comment;
+      texts.markers.push_back(text);
+
+      <span class="org-comment-delimiter">// </span><span class="org-comment">Set the count message marker.</span>
+      <span class="org-constant">visualization_msgs</span>::<span class="org-type">Marker</span> <span class="org-variable-name">count_text</span>;
+      count_text.header.frame_id = <span class="org-string">"world"</span>;
+      count_text.header.stamp = <span class="org-constant">ros</span>::Time();
+      count_text.ns = <span class="org-string">"count_text"</span>;
+      count_text.id = 0;
+      count_text.type = <span class="org-constant">visualization_msgs</span>::<span class="org-constant">Marker</span>::TEXT_VIEW_FACING;
+      count_text.action = <span class="org-constant">visualization_msgs</span>::<span class="org-constant">Marker</span>::ADD;
+      count_text.scale.z = 0.1;
+      count_text.color.r = 0.0; count_text.color.g = 0.0; count_text.color.b = 0.0; count_text.color.a = 1.0;
+      count_text.pose.position.y = 0.5;
+      count_text.pose.position.z = 2.0;
+      <span class="org-constant">std</span>::<span class="org-type">string</span> <span class="org-variable-name">counttxt</span> = <span class="org-string">"Iteration: "</span> + <span class="org-constant">std</span>::to_string(count);
+      count_text.text = counttxt;
+      texts.markers.push_back(count_text);
+
+      <span class="org-comment-delimiter">// </span><span class="org-comment">Publish to /texts</span>
+      text_pub.publish(texts);
+
+      <span class="org-comment-delimiter">// </span><span class="org-comment">Publish to /prev_edges</span>
+      prev_edge_pub.publish(prev_edges);
+
+      <span class="org-comment-delimiter">// </span><span class="org-comment">Publish to /opt_nodes</span>
+      opt_node_pub.publish(opt_nodes);
+
+      <span class="org-comment-delimiter">// </span><span class="org-comment">Publish to /opt_edges</span>
+      opt_edge_pub.publish(opt_edges);
+
+      <span class="org-comment-delimiter">// </span><span class="org-comment">Publish to /prev_nodes</span>
+      prev_node_pub.publish(prev_nodes);
+
+      <span class="org-comment-delimiter">// </span><span class="org-comment">Control the loop speed.</span>
+      loop_rate.sleep();
+
+      <span class="org-comment-delimiter">// </span><span class="org-comment">Do pose graph optimization (one time per each loop for visualization).</span>
+      toy-&gt;GetOptimizer()-&gt;optimize(1);
+
+      <span class="org-comment-delimiter">// </span><span class="org-comment">Add plus one count.</span>
+      count += 1;
+    }
+
+    <span class="org-constant">std</span>::cout &lt;&lt; <span class="org-constant">std</span>::endl;
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">Clear pose graph.</span>
+    prev_edges.markers.clear();
+    opt_nodes.markers.clear();
+    prev_nodes.markers.clear();
+    texts.markers.clear();
+  }
+
+  <span class="org-keyword">return</span> 0;
+}
+</pre>
+</div>
+
 <p>
 보다 자세한 코드 리뷰는 <a href="https://www.facebook.com/groups/slamkr/permalink/1221930924833216/">해당 링크</a>의 자료를 참고하면 된다. 
 </p>
+</div>
 </div>
 </div>
 
