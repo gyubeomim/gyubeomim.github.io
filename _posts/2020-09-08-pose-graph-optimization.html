@@ -92,14 +92,14 @@ Pose Graph는 로봇의 포즈를 자료구조 중 하나인 그래프로 표현
 <h2 id="org0299799"><span class="section-number-2">3</span> Pose graph optimization</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-Loop Closing과 같은 특수한 상황이 발생하면 Front-end에서 에러가 누적된 모든 노드와 엣지 정보를 Back-end로 전달하고 Back-end에서는 GICP 같은 방법을 사용하여 현재의 노드들의 관측값을 업데이트 해준 후 이전 스텝의 예측값과 차이(에러)가 가장 적은 Pose Graph가 되도록 최적화하는 과정을 수행한다. 이를 단계별로 정리하면 다음과 같다.
+Loop Closing과 같은 특수한 상황이 발생하면 Front-end에서 에러가 누적된 모든 노드와 엣지 정보를 Back-end로 전달하고 Back-end에서는 Pose Graph Optimizatino을 통해 에러가 최소가 되도록 모든 노드들의 위치를 최적화하는 과정을 수행한다. 이를 단계별로 정리하면 다음과 같다.
 </p>
 
 <ul class="org-ul">
 <li>Loop Closing과 같은 특수한 상황 발생</li>
+<li>Front-end에서 GICP와 같은 방법을 통해 노드들의 관측값을 업데이트 (업데이트 전의 값들은 예측값으로 설정)</li>
 <li>Front-end에서 현재까지 에러가 누적된 모든 노드들과 엣지 정보를 Back-end로 전달</li>
-<li>Back-end에서 GICP와 같은 방법을 통해 노드들의 관측값을 업데이트 (업데이트 전의 값들은 예측값으로 설정)</li>
-<li>관측값과 예측값의 차이, 즉 에러가 최소가 되는 방향으로 에러함수를 최적화</li>
+<li>Back-end에서 관측값과 예측값의 차이, 즉 에러가 최소가 되는 방향으로 에러함수를 최적화</li>
 </ul>
 
 <p>
@@ -391,7 +391,7 @@ Loop Closing이 발생하면 Front-end에서 GICP를 통해 새로운 관측값 
 </figure>
 
 <p>
-관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정하여 이전 섹션에서 설명한 GN, LM과 같은 방법을 통해 20번씩 최적화를 수행한다. 실제 SLAM 알고리즘에서 20번 최적화는 순식간에 완료되지만 시각화를 위해 천천히 최적화하도록 코드를 작성하였다.
+Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정하여 이전 섹션에서 설명한 GN, LM과 같은 방법을 통해 20번씩 최적화를 수행한다. 실제 SLAM 알고리즘에서 20번 최적화는 순식간에 완료되지만 시각화를 위해 천천히 최적화하도록 코드를 작성하였다.
 </p>
 
 
