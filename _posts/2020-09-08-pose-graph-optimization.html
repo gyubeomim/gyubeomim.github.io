@@ -361,7 +361,7 @@ Loop Detection 알고리즘에 의해 Loop를 발견했다고 가정해보자. L
 <h2 id="org4a51cae"><span class="section-number-2">4</span> Example code</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-PGO를 테스트해 볼 수 있는 튜토리얼 예제를 github에 작성하였다. 코드는 <a href="https://github.com/edward0im/pgo_toy_example">해당 링크</a>를 통해 다운로드 및 실행 가능하다. 최적화 라이브러리로 g2o를 사용하였으며 ROS 환경에서 구동할 수 있도록 설정하였다. 보다 자세한 실행 방법은 링크 내에 설명되어 있다.
+PGO를 테스트해 볼 수 있는 예제 코드를 작성하였다. 코드는 <a href="https://github.com/edward0im/pgo_toy_example">해당 링크</a>를 통해 다운로드 및 실행 가능하다. 최적화 라이브러리로 g2o를 사용하였으며 ROS 환경에서 구동할 수 있도록 설정하였다. 보다 자세한 실행 방법은 링크 내에 설명되어 있다.
 </p>
 
 <p>
@@ -409,20 +409,20 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
 <h3 id="org33ba380"><span class="section-number-3">4.1</span> Code review</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
-<pre class="src src-c++"><span class="org-constant">PGOToyExample</span>::<span class="org-function-name">PGOToyExample</span>(<span class="org-type">bool</span> <span class="org-variable-name">verbose</span>)
+<pre class="src src-c++"><span class="org-comment-delimiter">// </span><span class="org-comment">PGOToyExample &#53364;&#47000;&#49828; &#49373;&#49457;&#51088;</span>
+<span class="org-constant">PGOToyExample</span>::<span class="org-function-name">PGOToyExample</span>(<span class="org-type">bool</span> <span class="org-variable-name">verbose</span>)
     : vertex_id_(0), verbose_(verbose)
 {
-  num_poses_ = 15; <span class="org-comment-delimiter">// </span><span class="org-comment">Set number of poses.</span>
+  num_poses_ = 15; <span class="org-comment-delimiter">// </span><span class="org-comment">Pose &#45432;&#46300;&#51032; &#44060;&#49688;&#47484; &#51076;&#51032;&#47196; 15&#44060;&#47196; &#49444;&#51221;</span>
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Set g2o solver.</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">g2o solve &#49444;&#51221; &#53076;&#46300;</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Linear Solver&#45716; Pose(6), Landmark(3)&#51032; &#47928;&#51228;&#47484; &#54400; &#46412; &#49324;&#50857;&#54616;&#45716; BlockSolver &#49444;&#51221;</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Optimizer&#45716; Levenberg-Marquardt &#48169;&#48277; &#49324;&#50857;, Lambda &#52488;&#44592;&#44050; &#49444;&#51221;</span>
   <span class="org-constant">std</span>::<span class="org-type">unique_ptr</span>&lt;<span class="org-constant">g2o</span>::<span class="org-constant">BlockSolver_6_3</span>::LinearSolverType&gt; <span class="org-variable-name">linear_solver</span>;
   linear_solver = <span class="org-constant">g2o</span>::make_unique&lt;<span class="org-constant">g2o</span>::<span class="org-type">LinearSolverDense</span>&lt;<span class="org-constant">g2o</span>::<span class="org-constant">BlockSolver_6_3</span>::PoseMatrixType&gt;&gt;();
-
-  <span class="org-comment-delimiter">// </span><span class="org-comment">use LM method to minimize nonlinear least square.</span>
   <span class="org-constant">g2o</span>::<span class="org-type">OptimizationAlgorithmLevenberg</span>* <span class="org-variable-name">solver</span> =
       <span class="org-keyword">new</span> <span class="org-constant">g2o</span>::<span class="org-type">OptimizationAlgorithmLevenberg</span>(<span class="org-constant">g2o</span>::make_unique&lt;<span class="org-constant">g2o</span>::BlockSolver_6_3&gt;(<span class="org-constant">std</span>::move(linear_solver)));
   solver-&gt;setUserLambdaInit(1);
-
   optimizer_ = <span class="org-keyword">new</span> <span class="org-constant">g2o</span>::<span class="org-type">SparseOptimizer</span>();
   optimizer_-&gt;setAlgorithm(solver);
 }
@@ -430,9 +430,12 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
 </div>
 
 <div class="org-src-container">
-<pre class="src src-c++"><span class="org-type">void</span> <span class="org-constant">PGOToyExample</span>::<span class="org-function-name">SetOriginalPoses</span>() {
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Set the original poses.</span>
+<pre class="src src-c++"><span class="org-comment-delimiter">// </span><span class="org-comment">&#45432;&#51060;&#51592;&#44032; &#52628;&#44032;&#46104;&#44592; &#51204; &#52488;&#44592; Pose &#45432;&#46300;&#46308;&#51012; &#49373;&#49457;&#54616;&#45716; &#54632;&#49688;</span>
+<span class="org-type">void</span> <span class="org-constant">PGOToyExample</span>::<span class="org-function-name">SetOriginalPoses</span>() {
   <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;num_poses_; i++){
+    <span class="org-comment-delimiter">// </span><span class="org-comment">num+poses&#51032; &#53356;&#44592;&#47564;&#53372; &#47336;&#54532;&#47484; &#46028;&#47732;&#49436; &#44033; &#45432;&#46300;&#47560;&#45796; &#47004;&#45924;&#51004;&#47196; &#45432;&#46300;&#51032; &#52488;&#44592; &#50948;&#52824;&#47484; &#44208;&#51221;&#54620;&#45796;.</span>
+    <span class="org-comment-delimiter">// </span><span class="org-comment">0&#48264; &#45432;&#46300;&#45716; (0,0,0)&#51004;&#47196; &#49444;&#51221;&#54616;&#44256; 7&#48264; &#45432;&#46300;&#44620;&#51648; &#51649;&#49440;&#51004;&#47196; &#44036;&#45796;&#51020; 8&#48264;&#45432;&#46300;&#50640;&#49436; &#50694;&#51004;&#47196; &#54620; &#48264; &#44733;&#44256; 9&#48264;&#48512;&#53552; &#47560;&#51648;&#47561; &#45432;&#46300;&#44620;&#51648;&#45716; &#45796;&#49884; &#50896;&#51216;&#51004;&#47196; &#46028;&#50500;&#50724;&#46020;&#47197; &#49444;&#51221;&#54616;&#50668; Loop Closing &#54805;&#53468;&#51032; &#45432;&#46300;&#44032; &#46104;&#46020;&#47197; &#49444;&#51221;&#54620;&#45796;.</span>
+    <span class="org-comment-delimiter">// </span><span class="org-comment">&#54924;&#51204;&#51008; &#52488;&#44592; &#45432;&#46300;&#46308;&#51032; &#44221;&#50864; Identity&#47196; &#49444;&#51221;&#54620;&#45796;.</span>
     <span class="org-type">Vec3</span> <span class="org-variable-name">trans</span>;
     <span class="org-keyword">if</span>(i==0) {
       trans = Vec3(0,0,0);
@@ -454,8 +457,9 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
     }
 
     <span class="org-type">Quaternion</span> <span class="org-variable-name">q</span>;
-    q.setIdentity(); <span class="org-comment-delimiter">// </span><span class="org-comment">Set the initial rotation to identity.</span>
+    q.setIdentity(); 
 
+    <span class="org-comment-delimiter">// </span><span class="org-comment">g2o::SE3Quat &#51088;&#47308;&#44396;&#51312;&#50640; &#52488;&#44592; pose&#46308;&#51012; &#45347;&#44256; original_poses &#48289;&#53552;&#50640; &#52628;&#44032;&#54620;&#45796;.</span>
     <span class="org-constant">g2o</span>::<span class="org-type">SE3Quat</span> <span class="org-variable-name">pose</span>;
     pose.setRotation(q);
     pose.setTranslation(trans);
@@ -467,27 +471,33 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
 </div>
 
 <div class="org-src-container">
-<pre class="src src-c++"><span class="org-type">void</span> <span class="org-constant">PGOToyExample</span>::<span class="org-function-name">MakeCurrentPoseAndAddVertex</span>() {
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Add noise in original poses and add vertex in g2o.</span>
+<pre class="src src-c++"><span class="org-comment-delimiter">// </span><span class="org-comment">&#52488;&#44592; Pose &#45432;&#46300;&#46308;&#50640; &#45432;&#51060;&#51592;&#47484; &#52628;&#44032;&#54620; &#54980; &#54644;&#45817; &#45432;&#46300;&#46308;&#51012; g2o optimizer&#50640; &#52628;&#44032;&#54616;&#45716; &#54632;&#49688;</span>
+<span class="org-type">void</span> <span class="org-constant">PGOToyExample</span>::<span class="org-function-name">MakeCurrentPoseAndAddVertex</span>() {
   <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0;i&lt;original_poses_.size();i++){
+    <span class="org-comment-delimiter">// </span><span class="org-comment">original_poses &#48289;&#53552;&#51032; &#53356;&#44592;&#47564;&#53372; &#47336;&#54532;&#47484; &#46028;&#47732;&#49436; g2o optimizer&#50640; &#52628;&#44032;&#54624; g2o::VertexSE3Expmap &#45432;&#46300;&#47484; &#49373;&#49457;&#54620;&#45796;</span>
     <span class="org-constant">g2o</span>::<span class="org-type">VertexSE3Expmap</span>* <span class="org-variable-name">vtx</span> = <span class="org-keyword">new</span> <span class="org-constant">g2o</span>::<span class="org-type">VertexSE3Expmap</span>();
     vtx-&gt;setId(vertex_id_);
 
+    <span class="org-comment-delimiter">// </span><span class="org-comment">&#52395;&#48264;&#51704; &#45432;&#46300;&#51064; &#44221;&#50864; &#54644;&#45817; &#45432;&#46300;(&#46608;&#45716; vertex)&#51032; &#54252;&#51592;&#47484; &#44256;&#51221;&#49884;&#53416;&#45796;.</span>
     <span class="org-keyword">if</span>(i==0){
       vtx-&gt;setFixed(<span class="org-constant">true</span>);
     }
 
+    <span class="org-comment-delimiter">// </span><span class="org-comment">&#50948;&#52824; &#45432;&#51060;&#51592;&#47484; &#47004;&#45924; &#44032;&#50864;&#49884;&#50504; &#49368;&#54540;&#47553;&#51004;&#47196; &#49373;&#49457;&#54620;&#45796;.</span>
+    <span class="org-comment-delimiter">// </span><span class="org-comment">&#54924;&#51204;&#50640; &#44288;&#54620; &#45432;&#51060;&#51592;&#45716; &#47004;&#45924;&#51004;&#47196; &#49373;&#49457;&#54620;&#45796;.</span>
     <span class="org-type">Vec3</span> <span class="org-variable-name">trans</span>(<span class="org-constant">Sampling</span>::Gaussian(.2),
                <span class="org-constant">Sampling</span>::Gaussian(.2),
                <span class="org-constant">Sampling</span>::Gaussian(.2));
     <span class="org-type">Quaternion</span> <span class="org-variable-name">q</span>;
     q.UnitRandom();
 
+    <span class="org-comment-delimiter">// </span><span class="org-comment">&#44592;&#51316;&#51032; original_poses&#50640; &#45432;&#51060;&#51592;&#47484; &#52628;&#44032;&#54620; &#54980; g2o optimizer&#50640; &#45432;&#46300;&#47196; &#52628;&#44032;&#54620;&#45796;</span>
+    <span class="org-comment-delimiter">// </span><span class="org-comment">&#51060; &#46412;, &#45432;&#46300;&#45716; GICP&#50640; &#51032;&#54644; &#50629;&#45936;&#51060;&#53944;&#46108; &#44288;&#52769;&#44050;&#51004;&#47196; &#44036;&#51452;&#54620;&#45796;</span>
+    <span class="org-comment-delimiter">// </span><span class="org-comment">&#50696;&#52769;&#44050;&#51008; &#50659;&#51648;&#47484; &#52628;&#44032;&#54616;&#45716; &#53076;&#46300;&#50640;&#49436; g2o optimizer&#50640; &#52628;&#44032;&#46108;&#45796;</span>
     <span class="org-constant">g2o</span>::<span class="org-type">SE3Quat</span> <span class="org-variable-name">origin</span> = original_poses_.at(i);
     <span class="org-constant">g2o</span>::<span class="org-type">SE3Quat</span> <span class="org-variable-name">noise</span>;
-    noise.setTranslation(origin.translation() + trans); <span class="org-comment-delimiter">// </span><span class="org-comment">Add noise to original poses.</span>
+    noise.setTranslation(origin.translation() + trans); 
 
-    <span class="org-comment-delimiter">// </span><span class="org-comment">Add noise pose into the g2o optimizer.</span>
     vtx-&gt;setEstimate(noise);
     optimizer_-&gt;addVertex(vtx);
     vertex_id_ += 1;
@@ -497,24 +507,21 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
 </div>
 
 <div class="org-src-container">
-<pre class="src src-c++"><span class="org-type">void</span> <span class="org-constant">PGOToyExample</span>::<span class="org-function-name">AddEdge</span>() {
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Add temporal edges.</span>
+<pre class="src src-c++"><span class="org-comment-delimiter">// </span><span class="org-comment">g2o optimizer&#50640; &#50659;&#51648;&#47484; &#52628;&#44032;&#54616;&#45716; &#54632;&#49688;</span>
+<span class="org-type">void</span> <span class="org-constant">PGOToyExample</span>::<span class="org-function-name">AddEdge</span>() {
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#49884;&#44036;&#49692;&#51004;&#47196;(temporal) &#49373;&#49457;&#46108; &#50659;&#51648;&#46308;&#51012; g2o optimizer&#50640; &#52628;&#44032;&#54620;&#45796;.</span>
   <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=1;i&lt;original_poses_.size();i++){
     <span class="org-constant">g2o</span>::<span class="org-type">EdgeSE3Expmap</span>* <span class="org-variable-name">e</span>(<span class="org-keyword">new</span> <span class="org-constant">g2o</span>::<span class="org-type">EdgeSE3Expmap</span>());
     <span class="org-constant">g2o</span>::<span class="org-type">SE3Quat</span> <span class="org-variable-name">relative_pose</span> = original_poses_.at(i-1).inverse() * original_poses_.at(i);
-
     e-&gt;setMeasurement(relative_pose);
 
-<span class="org-preprocessor">#if</span> 0
-    <span class="org-comment-delimiter">// </span><span class="org-comment">if not using the information matrix.</span>
-    <span class="org-type">MatXX</span> <span class="org-variable-name">information</span> = <span class="org-constant">Eigen</span>::<span class="org-constant">MatrixXd</span>::Identity(6,6);
-<span class="org-preprocessor">#else</span>
-    <span class="org-comment-delimiter">// </span><span class="org-comment">Use the random information matrix. Information matrix should be symmetric.</span>
+    <span class="org-comment-delimiter">// </span><span class="org-comment">Information matrix&#47484; &#47004;&#45924;&#54616;&#44172; &#49373;&#49457;&#54620; &#54980; g2o optimizer&#50640; &#52628;&#44032;&#54620;&#45796;</span>
+    <span class="org-comment-delimiter">// </span><span class="org-comment">&#47004;&#45924;&#54620; Information matrix&#51032; &#50689;&#54693;&#51004;&#47196; &#51064;&#54644; &#50640;&#47084;&#51032; &#48152;&#50689;&#50984;&#51060; &#45804;&#46972;&#51648;&#44172; &#46108;&#45796;</span>
     <span class="org-type">MatXX</span> <span class="org-variable-name">A</span> = <span class="org-constant">Eigen</span>::<span class="org-constant">MatrixXd</span>::Random(6,6).cwiseAbs();
     <span class="org-type">MatXX</span> <span class="org-variable-name">information</span> = A.transpose() * A;
-<span class="org-preprocessor">#endif</span>
-
     e-&gt;setInformation(information);
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">g2o &#45432;&#46300;&#46308;&#51012; &#49444;&#51221;&#54620; &#54980; optimizer&#50640; &#50659;&#51648;&#47484; &#52628;&#44032;&#54620;&#45796;</span>
     e-&gt;vertices()[0] = optimizer_-&gt;vertex(i-1);
     e-&gt;vertices()[1] = optimizer_-&gt;vertex(i);
 
@@ -522,7 +529,7 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
     optimizer_-&gt;addEdge(e);
   }
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Add non-temporal edges. (5 &amp; 11)</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">(5,11), (3,14)&#50752; &#44057;&#51060; &#48708;&#49692;&#52264;&#51201;&#51004;&#47196;(non-temporal) &#50672;&#44208;&#46108; Loop Closer &#50659;&#51648;&#46308;&#46020; &#50948;&#50752; &#44057;&#51008; &#48169;&#48277;&#51004;&#47196; &#52628;&#44032;&#54620;&#45796;</span>
   <span class="org-constant">g2o</span>::<span class="org-type">EdgeSE3Expmap</span>* <span class="org-variable-name">e511</span>(<span class="org-keyword">new</span> <span class="org-constant">g2o</span>::<span class="org-type">EdgeSE3Expmap</span>());
   <span class="org-constant">g2o</span>::<span class="org-type">SE3Quat</span> <span class="org-variable-name">relative_pose</span> = original_poses_.at(5).inverse() * original_poses_.at(11);
   e511-&gt;setMeasurement(relative_pose);
@@ -533,7 +540,6 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
   e511-&gt;vertices()[1] = optimizer_-&gt;vertex(11);
   optimizer_-&gt;addEdge(e511);
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Add non-temporal edges. (3 &amp; 14)</span>
   <span class="org-constant">g2o</span>::<span class="org-type">EdgeSE3Expmap</span>* <span class="org-variable-name">e314</span>(<span class="org-keyword">new</span> <span class="org-constant">g2o</span>::<span class="org-type">EdgeSE3Expmap</span>());
   relative_pose = original_poses_.at(3).inverse() * original_poses_.at(14);
   e314-&gt;setMeasurement(relative_pose);
@@ -548,22 +554,25 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
 </div>
 
 <div class="org-src-container">
-<pre class="src src-c++"><span class="org-type">void</span> <span class="org-constant">PGOToyExample</span>::<span class="org-function-name">Reset</span>() {
-  <span class="org-comment-delimiter">// </span><span class="org-comment">reset all vertices and edges.</span>
+<pre class="src src-c++"><span class="org-comment-delimiter">// </span><span class="org-comment">20&#48264;&#51032; &#52572;&#51201;&#54868;&#44032; &#45149;&#45212; &#54980; &#45796;&#49884; &#49884;&#51089;&#54616;&#44592; &#50948;&#54644; &#52488;&#44592;&#54868;&#54616;&#45716; &#54632;&#49688;</span>
+<span class="org-type">void</span> <span class="org-constant">PGOToyExample</span>::<span class="org-function-name">Reset</span>() {
+  <span class="org-comment-delimiter">// </span><span class="org-comment">g2o optimizer&#51032; &#47784;&#46304; &#45432;&#46300;&#50752; &#50659;&#51648;&#51032; &#51221;&#48372;&#47484; &#52488;&#44592;&#54868;&#54620;&#45796;</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#52488;&#44592; Pose&#46308;&#46020; &#51228;&#44144;&#54616;&#44256; vertex_id &#46608;&#54620; 0&#51004;&#47196; &#52488;&#44592;&#54868;&#54620;&#45796;</span>
   optimizer_-&gt;clear();
   original_poses_.clear();
   vertex_id_ = 0;
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">set original vertices.</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#52488;&#44592; Pose&#46308;&#51012; &#47004;&#45924;&#54616;&#44172; &#45796;&#49884; &#49373;&#49457;&#54620;&#45796;</span>
   SetOriginalPoses();
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">make current vertices and add vertices to optimizer.</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#52488;&#44592; Pose&#46308;&#50640; &#45432;&#51060;&#51592;&#47484; &#52628;&#44032;&#54620; &#54980; g2o optimizer&#50640; &#52628;&#44032;&#54620;&#45796;</span>
   MakeCurrentPoseAndAddVertex();
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">add edges to optimizer.</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">g2o optimizer&#50640; &#50659;&#51648;&#47484; &#45796;&#49884; &#52628;&#44032;&#54620;&#45796;.</span>
   AddEdge();
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">optimization intialization</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#52572;&#51201;&#54868;&#47484; &#50948;&#54644; optimizer &#49444;&#51221;&#51012; &#52488;&#44592;&#54868;&#54620;&#45796;</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#52572;&#51201;&#54868; &#44284;&#51221;&#51012; &#54532;&#47536;&#53944;&#54624;&#51648;(verbose) &#49444;&#51221;&#54620;&#45796;</span>
   optimizer_-&gt;initializeOptimization();
   optimizer_-&gt;setVerbose(verbose_);
 }
@@ -571,35 +580,42 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
 </div>
 
 <div class="org-src-container">
-<pre class="src src-c++"><span class="org-type">int</span> <span class="org-function-name">main</span>(<span class="org-type">int</span> <span class="org-variable-name">argc</span>, <span class="org-type">char</span> **<span class="org-variable-name">argv</span>) {
+<pre class="src src-c++"><span class="org-comment-delimiter">// </span><span class="org-comment">PGOToyExample &#44061;&#52404;&#47484; &#49373;&#49457;&#54620; &#54980; ROS&#47484; &#53685;&#54644; &#49884;&#44033;&#54868;&#47484; &#49688;&#54665;&#54616;&#45716; &#54632;&#49688;</span>
+<span class="org-type">int</span> <span class="org-function-name">main</span>(<span class="org-type">int</span> <span class="org-variable-name">argc</span>, <span class="org-type">char</span> **<span class="org-variable-name">argv</span>) {
+  <span class="org-comment-delimiter">// </span><span class="org-comment">ros&#51032; &#45432;&#46300; &#51060;&#47492; &#49444;&#51221; &#48143; NodeHandler &#44061;&#52404; &#49373;&#49457;</span>
   <span class="org-constant">ros</span>::init(argc,argv,<span class="org-string">"pgo_toy_example"</span>);
   <span class="org-constant">ros</span>::<span class="org-type">NodeHandle</span> <span class="org-variable-name">nh</span>, <span class="org-variable-name">priv_nh</span>(<span class="org-string">"~"</span>);
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Set the publishers.</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Visualization&#51012; &#49688;&#54665;&#54616;&#44592; &#50948;&#54620; &#45796;&#50577;&#54620; &#54140;&#48660;&#47532;&#49492;&#46308; &#49444;&#51221;(&#45432;&#46300;, &#50659;&#51648;)</span>
   <span class="org-constant">ros</span>::<span class="org-type">Publisher</span> <span class="org-variable-name">opt_node_pub</span> = nh.advertise&lt;<span class="org-constant">visualization_msgs</span>::MarkerArray&gt;(<span class="org-string">"opt_nodes"</span>,1);
   <span class="org-constant">ros</span>::<span class="org-type">Publisher</span> <span class="org-variable-name">opt_edge_pub</span> = nh.advertise&lt;<span class="org-constant">visualization_msgs</span>::MarkerArray&gt;(<span class="org-string">"opt_edges"</span>,1);
   <span class="org-constant">ros</span>::<span class="org-type">Publisher</span> <span class="org-variable-name">prev_node_pub</span> = nh.advertise&lt;<span class="org-constant">visualization_msgs</span>::MarkerArray&gt;(<span class="org-string">"prev_nodes"</span>,1);
   <span class="org-constant">ros</span>::<span class="org-type">Publisher</span> <span class="org-variable-name">prev_edge_pub</span> = nh.advertise&lt;<span class="org-constant">visualization_msgs</span>::MarkerArray&gt;(<span class="org-string">"prev_edges"</span>,1);
   <span class="org-constant">ros</span>::<span class="org-type">Publisher</span> <span class="org-variable-name">text_pub</span> = nh.advertise&lt;<span class="org-constant">visualization_msgs</span>::MarkerArray&gt;(<span class="org-string">"texts"</span>,1);
 
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Loop&#51032; &#49549;&#46020;&#47484; &#44208;&#51221;&#54616;&#45716; rate&#50752; &#52572;&#51201;&#54868; &#54943;&#49688;&#47484; &#49444;&#51221;&#54616;&#45716; iter &#48320;&#49688; &#49373;&#49457;</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#46160; &#48320;&#49688;&#45716; launch &#54028;&#51068;&#50640;&#49436; &#49444;&#51221; &#44032;&#45733;&#54616;&#46020;&#47197; param() &#54632;&#49688;&#47484; &#53685;&#54644; &#49444;&#51221;</span>
   <span class="org-type">int</span> <span class="org-variable-name">_rate</span>, <span class="org-variable-name">_iter</span>;
-  priv_nh.param(<span class="org-string">"loop_rate"</span>, _rate, 5);  <span class="org-comment-delimiter">// </span><span class="org-comment">loop rate [Hz].</span>
-  priv_nh.param(<span class="org-string">"iteration"</span>, _iter, 20); <span class="org-comment-delimiter">// </span><span class="org-comment">iteration of optimization.</span>
+  priv_nh.param(<span class="org-string">"loop_rate"</span>, _rate, 5);  
+  priv_nh.param(<span class="org-string">"iteration"</span>, _iter, 20); 
 
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Create a PGO toy example instance.</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">PGOToyExample &#44061;&#52404; &#51064;&#49828;&#53556;&#49828; &#49373;&#49457; (verbose: true)</span>
   <span class="org-type">PGOToyExample</span>* <span class="org-variable-name">toy</span> = <span class="org-keyword">new</span> <span class="org-type">PGOToyExample</span>(<span class="org-constant">true</span>);
 
   <span class="org-keyword">while</span>(<span class="org-constant">ros</span>::ok()) {
-    <span class="org-comment-delimiter">// </span><span class="org-comment">Set the loop speed [hz].</span>
+    <span class="org-comment-delimiter">// </span><span class="org-comment">&#47924;&#54620;&#47336;&#54532;&#47484; &#46028;&#47732;&#49436; &#54644;&#45817; &#47336;&#54532;&#51032; &#49549;&#46020; &#49444;&#51221;</span>
     <span class="org-constant">ros</span>::<span class="org-type">Rate</span> <span class="org-variable-name">loop_rate</span>(_rate);
 
-    <span class="org-comment-delimiter">// </span><span class="org-comment">Reset the instance every iteration finished.</span>
+    <span class="org-comment-delimiter">// </span><span class="org-comment">PGOToyExample&#51032; &#47784;&#46304; &#51221;&#48372; &#52488;&#44592;&#54868; (&#47588; Loop &#47560;&#45796; &#52488;&#44592;&#54868;&#46120;)</span>
     toy-&gt;Reset();
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">Pose &#45432;&#46300;&#51032; &#44060;&#49688;&#47484; &#45208;&#53440;&#45236;&#45716; &#48320;&#49688; &#49373;&#49457;</span>
+    <span class="org-comment-delimiter">// </span><span class="org-comment">&#52572;&#51201;&#54868; count &#48320;&#49688; &#49373;&#49457;</span>
     <span class="org-type">int</span> <span class="org-variable-name">num_poses</span> = toy-&gt;GetOriginalPosesSize();
     <span class="org-type">int</span> <span class="org-variable-name">count</span> = 0;
 
     <span class="org-keyword">while</span>(count &lt; _iter) {
-      <span class="org-comment-delimiter">// </span><span class="org-comment">Set previous nodes and edges.</span>
+      <span class="org-comment-delimiter">// </span><span class="org-comment">&#52572;&#51201;&#54868; &#48320;&#49688;&#51032; &#49345;&#54620;(iter)&#44620;&#51648; &#47336;&#54532;&#47484; &#46028;&#47732;&#49436; ROS Visualization&#51012; &#50948;&#54620; visualization_msgs::MarkerArray &#48320;&#49688; &#49373;&#49457; &#48143; PGO &#44208;&#44284; &#51200;&#51109;</span>
       <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;num_poses; i++) {
         SetNodeForROS(toy, prev_nodes, <span class="org-string">"prev_nodes"</span>, i, Vec4(0.0, 0.0, 0.0, 0.25), <span class="org-constant">false</span>);
       }
@@ -609,7 +625,6 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
       SetEdgeForROS(toy, opt_edges, <span class="org-string">"prev_edges"</span>, 16, 5, 11, Vec4(0.0, 0.0, 0.0, 0.25), <span class="org-constant">false</span>);
       SetEdgeForROS(toy, opt_edges, <span class="org-string">"prev_edges"</span>, 17, 3, 14, Vec4(0.0, 0.0, 0.0, 0.25), <span class="org-constant">false</span>);
 
-      <span class="org-comment-delimiter">// </span><span class="org-comment">Set optimized poses and edges.</span>
       <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;num_poses; i++) {
         SetNodeForROS(toy, prev_nodes, <span class="org-string">"opt_nodes"</span>, i, Vec4(0.0, 0.0, 0.0, 1.0), <span class="org-constant">true</span>);
       }
@@ -619,7 +634,6 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
       SetEdgeForROS(toy, opt_edges, <span class="org-string">"opt_edges"</span>, 16, 5, 11, Vec4(0.0, 0.0, 0.0, 1), <span class="org-constant">true</span>);
       SetEdgeForROS(toy, opt_edges, <span class="org-string">"opt_edges"</span>, 17, 3, 14, Vec4(0.0, 0.0, 0.0, 1), <span class="org-constant">true</span>);
 
-      <span class="org-comment-delimiter">// </span><span class="org-comment">Set the text message marker.</span>
       <span class="org-constant">visualization_msgs</span>::<span class="org-type">Marker</span> <span class="org-variable-name">text</span>;
       text.header.frame_id = <span class="org-string">"world"</span>;
       text.header.stamp = <span class="org-constant">ros</span>::Time();
@@ -635,7 +649,6 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
       text.text = comment;
       texts.markers.push_back(text);
 
-      <span class="org-comment-delimiter">// </span><span class="org-comment">Set the count message marker.</span>
       <span class="org-constant">visualization_msgs</span>::<span class="org-type">Marker</span> <span class="org-variable-name">count_text</span>;
       count_text.header.frame_id = <span class="org-string">"world"</span>;
       count_text.header.stamp = <span class="org-constant">ros</span>::Time();
@@ -651,34 +664,27 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
       count_text.text = counttxt;
       texts.markers.push_back(count_text);
 
-      <span class="org-comment-delimiter">// </span><span class="org-comment">Publish to /texts</span>
+      <span class="org-comment-delimiter">// </span><span class="org-comment">&#49884;&#44033;&#54868;&#47484; &#50948;&#54644; visualization_msgs::MarkerArray &#51221;&#48372;&#47484; &#54140;&#48660;&#47532;&#49884;</span>
+      <span class="org-comment-delimiter">// </span><span class="org-comment">&#54644;&#45817; &#51221;&#48372;&#45716; Rviz&#50640;&#49436; &#49453;&#49828;&#53356;&#46972;&#51060;&#48652;&#54616;&#50668; &#48380; &#49688; &#51080;&#51020;</span>
       text_pub.publish(texts);
-
-      <span class="org-comment-delimiter">// </span><span class="org-comment">Publish to /prev_edges</span>
       prev_edge_pub.publish(prev_edges);
-
-      <span class="org-comment-delimiter">// </span><span class="org-comment">Publish to /opt_nodes</span>
       opt_node_pub.publish(opt_nodes);
-
-      <span class="org-comment-delimiter">// </span><span class="org-comment">Publish to /opt_edges</span>
       opt_edge_pub.publish(opt_edges);
-
-      <span class="org-comment-delimiter">// </span><span class="org-comment">Publish to /prev_nodes</span>
       prev_node_pub.publish(prev_nodes);
 
-      <span class="org-comment-delimiter">// </span><span class="org-comment">Control the loop speed.</span>
+      <span class="org-comment-delimiter">// </span><span class="org-comment">&#54644;&#45817; &#52572;&#51201;&#54868; Loop&#51032; &#49549;&#46020;&#47484; &#49444;&#51221;&#54620;&#45796;</span>
       loop_rate.sleep();
 
-      <span class="org-comment-delimiter">// </span><span class="org-comment">Do pose graph optimization (one time per each loop for visualization).</span>
+      <span class="org-comment-delimiter">// </span><span class="org-comment">&#47588; Loop&#47560;&#45796; 1&#48264;&#50473; &#52572;&#51201;&#54868;&#47484; &#49688;&#54665;&#54616;&#47732;&#49436; &#48148;&#45072; Pose &#45432;&#46300;&#46308;&#51032; &#50948;&#52824;&#47484; &#49884;&#44033;&#54868;&#54620;&#45796;.</span>
+      <span class="org-comment-delimiter">// </span><span class="org-comment">&#49892;&#51228; SLAM&#50640;&#49436;&#45716; &#49692;&#49885;&#44036;&#50640; 10~20&#48264; &#44032;&#47049;&#51032; &#52572;&#51201;&#54868;&#47484; &#49688;&#54665;&#54616;&#51648;&#47564; &#49884;&#44033;&#54868;&#47484; &#50948;&#54644; 1&#48264;&#50473; &#52572;&#51201;&#54868;&#54616;&#46020;&#47197; &#49444;&#51221;&#54632;</span>
       toy-&gt;GetOptimizer()-&gt;optimize(1);
 
-      <span class="org-comment-delimiter">// </span><span class="org-comment">Add plus one count.</span>
+      <span class="org-comment-delimiter">// </span><span class="org-comment">count &#44050;&#51012; 1&#50473; &#51613;&#44032;&#49884;&#53412;&#47732;&#49436; &#52572;&#51201;&#54868; &#54943;&#49688; &#52852;&#50868;&#53944;</span>
       count += 1;
     }
 
+    <span class="org-comment-delimiter">// </span><span class="org-comment">20&#48264;&#51032; &#52572;&#51201;&#54868;&#44032; &#47784;&#46160; &#45149;&#45208;&#47732; visualization_msgs::MarkerArray &#51221;&#48372;&#47484; &#47784;&#46160; &#52488;&#44592;&#54868;&#54620;&#45796;</span>
     <span class="org-constant">std</span>::cout &lt;&lt; <span class="org-constant">std</span>::endl;
-
-    <span class="org-comment-delimiter">// </span><span class="org-comment">Clear pose graph.</span>
     prev_edges.markers.clear();
     opt_nodes.markers.clear();
     prev_nodes.markers.clear();
@@ -691,7 +697,7 @@ Back-end에서 관측값과 예측값의 차이를 $\mathbf{e}_{ij}$로 설정�
 </div>
 
 <p>
-보다 자세한 코드 리뷰는 <a href="https://www.facebook.com/groups/slamkr/permalink/1221930924833216/">해당 링크</a>의 자료를 참고하면 된다. 
+pdf 버전의 코드 리뷰는 <a href="https://www.facebook.com/groups/slamkr/permalink/1221930924833216/">해당 링크</a>의 자료를 참고하면 된다. 
 </p>
 </div>
 </div>
