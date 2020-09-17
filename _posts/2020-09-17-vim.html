@@ -13,13 +13,30 @@ comments: true
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org10a98f5">1. Introduction</a></li>
-<li><a href="#org5ec389e">2. My vim setup</a>
+<li><a href="#org59282d3">2. How to setup</a></li>
+<li><a href="#org8567efb">3. My vim configuration</a>
 <ul>
-<li><a href="#orgee03fdd">2.1. General Features</a></li>
-<li><a href="#org69ba9a8">2.2. Plugin Features</a></li>
+<li><a href="#orgee03fdd">3.1. General Features</a></li>
+<li><a href="#org69ba9a8">3.2. Plugin Features</a>
+<ul>
+<li><a href="#org8b94ec7">3.2.1. The-NERD-tree</a></li>
+<li><a href="#orgb3d0f6e">3.2.2. snipMate</a></li>
+<li><a href="#org8871d09">3.2.3. tComment</a></li>
+<li><a href="#orgab63fe6">3.2.4. EasyMotion</a></li>
+<li><a href="#orgcc5c9eb">3.2.5. vim-sneak</a></li>
+<li><a href="#orge416b85">3.2.6. AutoClose</a></li>
+<li><a href="#orgdc13846">3.2.7. Mark</a></li>
+<li><a href="#org1ae453b">3.2.8. tabbar</a></li>
+<li><a href="#org31959cf">3.2.9. vim-indent-guides</a></li>
+<li><a href="#org1b6bbb0">3.2.10. youcompleteme</a></li>
+<li><a href="#org473f514">3.2.11. vim-fugitive</a></li>
+<li><a href="#org5e786d2">3.2.12. vim-diminactive</a></li>
+<li><a href="#org79250d9">3.2.13. vim-cpp-enhanced-highlight</a></li>
 </ul>
 </li>
-<li><a href="#org4455905">3. Set youcompleteme plugin</a></li>
+</ul>
+</li>
+<li><a href="#org4455905">4. Set youcompleteme plugin</a></li>
 </ul>
 </div>
 </nav>
@@ -27,17 +44,71 @@ comments: true
 <div id="outline-container-org10a98f5" class="outline-2">
 <h2 id="org10a98f5"><span class="section-number-2">1</span> Introduction</h2>
 </div>
-<div id="outline-container-org5ec389e" class="outline-2">
-<h2 id="org5ec389e"><span class="section-number-2">2</span> My vim setup</h2>
+<div id="outline-container-org59282d3" class="outline-2">
+<h2 id="org59282d3"><span class="section-number-2">2</span> How to setup</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+본 포스트는 우분투 18.04 LTS 환경에서 테스트하였다. 우선 터미널을 연 다음 아래 명령어로 vim을 설치한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ sudo apt install vim
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8567efb" class="outline-2">
+<h2 id="org8567efb"><span class="section-number-2">3</span> My vim configuration</h2>
+<div class="outline-text-2" id="text-3">
 </div>
 <div id="outline-container-orgee03fdd" class="outline-3">
-<h3 id="orgee03fdd"><span class="section-number-3">2.1</span> General Features</h3>
+<h3 id="orgee03fdd"><span class="section-number-3">3.1</span> General Features</h3>
 </div>
 <div id="outline-container-org69ba9a8" class="outline-3">
-<h3 id="org69ba9a8"><span class="section-number-3">2.2</span> Plugin Features</h3>
+<h3 id="org69ba9a8"><span class="section-number-3">3.2</span> Plugin Features</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-org8b94ec7" class="outline-4">
+<h4 id="org8b94ec7"><span class="section-number-4">3.2.1</span> The-NERD-tree</h4>
+</div>
+<div id="outline-container-orgb3d0f6e" class="outline-4">
+<h4 id="orgb3d0f6e"><span class="section-number-4">3.2.2</span> snipMate</h4>
+</div>
+<div id="outline-container-org8871d09" class="outline-4">
+<h4 id="org8871d09"><span class="section-number-4">3.2.3</span> tComment</h4>
+</div>
+<div id="outline-container-orgab63fe6" class="outline-4">
+<h4 id="orgab63fe6"><span class="section-number-4">3.2.4</span> EasyMotion</h4>
+</div>
+<div id="outline-container-orgcc5c9eb" class="outline-4">
+<h4 id="orgcc5c9eb"><span class="section-number-4">3.2.5</span> vim-sneak</h4>
+</div>
+<div id="outline-container-orge416b85" class="outline-4">
+<h4 id="orge416b85"><span class="section-number-4">3.2.6</span> AutoClose</h4>
+</div>
+<div id="outline-container-orgdc13846" class="outline-4">
+<h4 id="orgdc13846"><span class="section-number-4">3.2.7</span> Mark</h4>
+</div>
+<div id="outline-container-org1ae453b" class="outline-4">
+<h4 id="org1ae453b"><span class="section-number-4">3.2.8</span> tabbar</h4>
+</div>
+<div id="outline-container-org31959cf" class="outline-4">
+<h4 id="org31959cf"><span class="section-number-4">3.2.9</span> vim-indent-guides</h4>
+</div>
+<div id="outline-container-org1b6bbb0" class="outline-4">
+<h4 id="org1b6bbb0"><span class="section-number-4">3.2.10</span> youcompleteme</h4>
+</div>
+<div id="outline-container-org473f514" class="outline-4">
+<h4 id="org473f514"><span class="section-number-4">3.2.11</span> vim-fugitive</h4>
+</div>
+<div id="outline-container-org5e786d2" class="outline-4">
+<h4 id="org5e786d2"><span class="section-number-4">3.2.12</span> vim-diminactive</h4>
+</div>
+<div id="outline-container-org79250d9" class="outline-4">
+<h4 id="org79250d9"><span class="section-number-4">3.2.13</span> vim-cpp-enhanced-highlight</h4>
+</div>
 </div>
 </div>
 <div id="outline-container-org4455905" class="outline-2">
-<h2 id="org4455905"><span class="section-number-2">3</span> Set youcompleteme plugin</h2>
+<h2 id="org4455905"><span class="section-number-2">4</span> Set youcompleteme plugin</h2>
 </div>
