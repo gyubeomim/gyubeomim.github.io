@@ -16,7 +16,32 @@ comments: true
 <li><a href="#org59282d3">2. How to setup</a></li>
 <li><a href="#org8567efb">3. My vim configuration</a>
 <ul>
-<li><a href="#orgee03fdd">3.1. General Features</a></li>
+<li><a href="#orgee03fdd">3.1. General Features</a>
+<ul>
+<li><a href="#orgb342da4">3.1.1. Original keybindings</a>
+<ul>
+<li><a href="#org7261c51">3.1.1.1. <code>a, i, A, i</code></a></li>
+<li><a href="#org1873068">3.1.1.2. <code>&lt;ESC&gt;</code></a></li>
+<li><a href="#orgb2e73c8">3.1.1.3. <code>o, O</code></a></li>
+<li><a href="#orgfe6ecb1">3.1.1.4. <code>dd, D</code></a></li>
+<li><a href="#org8bd8ce0">3.1.1.5. <code>yy</code></a></li>
+<li><a href="#org897ae97">3.1.1.6. <code>v, V, &lt;C-v&gt;</code></a></li>
+<li><a href="#org4a7d24a">3.1.1.7. <code>h, j, k, l</code></a></li>
+<li><a href="#orgbd00959">3.1.1.8. <code>gg, G</code></a></li>
+<li><a href="#org8f478f3">3.1.1.9. <code>&lt;C-u&gt;</code></a></li>
+<li><a href="#org36a0f97">3.1.1.10. <code>&lt;C-d&gt;</code></a></li>
+<li><a href="#org40bffc2">3.1.1.11. <code>&lt;C-a&gt;</code></a></li>
+</ul>
+</li>
+<li><a href="#org1d687a7">3.1.2. Custom keybindings</a>
+<ul>
+<li><a href="#orgb3abc08">3.1.2.1. <code>&lt;C-f&gt;</code></a></li>
+<li><a href="#orgc753230">3.1.2.2. <code>&lt;C-h,j,k,l&gt;</code></a></li>
+<li><a href="#orgc787464">3.1.2.3. <code>Q</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#org69ba9a8">3.2. Plugin Features</a>
 <ul>
 <li><a href="#org8b94ec7">3.2.1. The-NERD-tree</a></li>
@@ -109,9 +134,69 @@ $ mv  ~/Downloads/codedark.vim  ~/.vim/colors
 <div id="outline-container-org8567efb" class="outline-2">
 <h2 id="org8567efb"><span class="section-number-2">3</span> My vim configuration</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+해당 섹션에서는 vim의 다양한 기본 기능 및 플러그인 기능들에 대해 설명한다. 해당 키바인딩은 필자가 임의로 설정한 키바인딩이므로 원한다면 얼마든지 바꿔서 사용할 수 있다.
+</p>
 </div>
 <div id="outline-container-orgee03fdd" class="outline-3">
 <h3 id="orgee03fdd"><span class="section-number-3">3.1</span> General Features</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+기본 기능 섹션에서는 키바인딩을 임의로 바꾼 경우 Custom keybindings 섹션에 설명하였다. Orignal keybindings 섹션의 경우 vim 자체의 기본 키바인딩을 의미한다. Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt 키바인딩은 <code>&lt;A-{...}&gt;</code> 또는 <code>&lt;M-{...}&gt;</code> 과 같이 표현하였다.
+</p>
+</div>
+<div id="outline-container-orgb342da4" class="outline-4">
+<h4 id="orgb342da4"><span class="section-number-4">3.1.1</span> Original keybindings</h4>
+<div class="outline-text-4" id="text-3-1-1">
+</div>
+<div id="outline-container-org7261c51" class="outline-5">
+<h5 id="org7261c51"><span class="section-number-5">3.1.1.1</span> <code>a, i, A, i</code></h5>
+</div>
+<div id="outline-container-org1873068" class="outline-5">
+<h5 id="org1873068"><span class="section-number-5">3.1.1.2</span> <code>&lt;ESC&gt;</code></h5>
+</div>
+<div id="outline-container-orgb2e73c8" class="outline-5">
+<h5 id="orgb2e73c8"><span class="section-number-5">3.1.1.3</span> <code>o, O</code></h5>
+</div>
+<div id="outline-container-orgfe6ecb1" class="outline-5">
+<h5 id="orgfe6ecb1"><span class="section-number-5">3.1.1.4</span> <code>dd, D</code></h5>
+</div>
+<div id="outline-container-org8bd8ce0" class="outline-5">
+<h5 id="org8bd8ce0"><span class="section-number-5">3.1.1.5</span> <code>yy</code></h5>
+</div>
+<div id="outline-container-org897ae97" class="outline-5">
+<h5 id="org897ae97"><span class="section-number-5">3.1.1.6</span> <code>v, V, &lt;C-v&gt;</code></h5>
+</div>
+<div id="outline-container-org4a7d24a" class="outline-5">
+<h5 id="org4a7d24a"><span class="section-number-5">3.1.1.7</span> <code>h, j, k, l</code></h5>
+</div>
+<div id="outline-container-orgbd00959" class="outline-5">
+<h5 id="orgbd00959"><span class="section-number-5">3.1.1.8</span> <code>gg, G</code></h5>
+</div>
+<div id="outline-container-org8f478f3" class="outline-5">
+<h5 id="org8f478f3"><span class="section-number-5">3.1.1.9</span> <code>&lt;C-u&gt;</code></h5>
+</div>
+<div id="outline-container-org36a0f97" class="outline-5">
+<h5 id="org36a0f97"><span class="section-number-5">3.1.1.10</span> <code>&lt;C-d&gt;</code></h5>
+</div>
+<div id="outline-container-org40bffc2" class="outline-5">
+<h5 id="org40bffc2"><span class="section-number-5">3.1.1.11</span> <code>&lt;C-a&gt;</code></h5>
+</div>
+</div>
+<div id="outline-container-org1d687a7" class="outline-4">
+<h4 id="org1d687a7"><span class="section-number-4">3.1.2</span> Custom keybindings</h4>
+<div class="outline-text-4" id="text-3-1-2">
+</div>
+<div id="outline-container-orgb3abc08" class="outline-5">
+<h5 id="orgb3abc08"><span class="section-number-5">3.1.2.1</span> <code>&lt;C-f&gt;</code></h5>
+</div>
+<div id="outline-container-orgc753230" class="outline-5">
+<h5 id="orgc753230"><span class="section-number-5">3.1.2.2</span> <code>&lt;C-h,j,k,l&gt;</code></h5>
+</div>
+<div id="outline-container-orgc787464" class="outline-5">
+<h5 id="orgc787464"><span class="section-number-5">3.1.2.3</span> <code>Q</code></h5>
+</div>
+</div>
 </div>
 <div id="outline-container-org69ba9a8" class="outline-3">
 <h3 id="org69ba9a8"><span class="section-number-3">3.2</span> Plugin Features</h3>
