@@ -58,7 +58,7 @@ figcaption {
  change the color of bold font.
 */
 b {
-    color: #227dc3;
+    color: darkslateblue;
     font-weight: bold;
 }
 
@@ -572,6 +572,17 @@ a.pagination-item:hover {
 .theme-base-0g .sidebar-toggle,
 .theme-base-0g .related-posts li a:hover {
     color: #227dc3;
+}
+
+/* custom gray */
+.theme-base-0h .sidebar,
+.theme-base-0h .sidebar-toggle:active,
+.theme-base-0h #sidebar-checkbox:checked ~ .sidebar-toggle {
+  background-color: dimgray;
+}
+.theme-base-0h .sidebar-toggle,
+.theme-base-0h .related-posts li a:hover {
+    color: dimgray;
 }
 
 
