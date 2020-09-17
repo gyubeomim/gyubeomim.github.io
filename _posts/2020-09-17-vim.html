@@ -35,7 +35,7 @@ comments: true
 <li><a href="#orgbd00959">4.1.1.8. <code>gg, G</code></a></li>
 <li><a href="#org11c0dff">4.1.1.9. <code>u</code></a></li>
 <li><a href="#org8f478f3">4.1.1.10. <code>&lt;C-u&gt;</code></a></li>
-<li><a href="#org50e40d7">4.1.1.11. <code>&lt;C-d&gt;</code></a></li>
+<li><a href="#orga6a426b">4.1.1.11. <code>&lt;C-d&gt;</code></a></li>
 <li><a href="#org40bffc2">4.1.1.12. <code>&lt;C-a&gt;</code></a></li>
 <li><a href="#org5fca6b8">4.1.1.13. <code>/{search word}, n, N</code></a></li>
 <li><a href="#orgd14b13e">4.1.1.14. <code>"+y"</code></a></li>
@@ -50,14 +50,14 @@ comments: true
 </li>
 <li><a href="#org1d687a7">4.1.2. Custom keybindings</a>
 <ul>
-<li><a href="#orgd40edcd">4.1.2.1. <code>&lt;C-d&gt;</code></a></li>
+<li><a href="#org62bfffd">4.1.2.1. <code>&lt;C-d&gt;</code></a></li>
 <li><a href="#orgb3abc08">4.1.2.2. <code>&lt;C-f&gt;</code></a></li>
 <li><a href="#orgc753230">4.1.2.3. <code>&lt;C-h,j,k,l&gt;</code></a></li>
 <li><a href="#org6892b2f">4.1.2.4. <code>U</code></a></li>
 <li><a href="#orgc787464">4.1.2.5. <code>Q</code></a></li>
 <li><a href="#org0b82765">4.1.2.6. <code>, .</code></a></li>
 <li><a href="#org8f211f7">4.1.2.7. <code>&lt;C-p&gt;</code></a></li>
-<li><a href="#orga6a426b">4.1.2.8. <code>&lt;C-d&gt;</code></a></li>
+<li><a href="#org2ac61ff">4.1.2.8. <code>&lt;C-d&gt;</code></a></li>
 <li><a href="#orgdd7701b">4.1.2.9. <code>&lt;C-z&gt;</code></a></li>
 <li><a href="#org09b67ed">4.1.2.10. <code>&lt;leader&gt;s</code></a></li>
 <li><a href="#orgc0bb2ad">4.1.2.11. <code>&lt;C-e&gt;, &lt;A-e&gt;</code></a></li>
@@ -192,6 +192,7 @@ $ mv  ~/Downloads/codedark.vim  ~/.vim/colors
 </p>
 </div>
 </div>
+
 <div id="outline-container-org08e5df6" class="outline-2">
 <h2 id="org08e5df6"><span class="section-number-2">3</span> Settting youcompleteme plugin</h2>
 <div class="outline-text-2" id="text-3">
@@ -208,7 +209,7 @@ $ mv  ~/Downloads/codedark.vim  ~/.vim/colors
 </div>
 
 <p>
-다음으로 <code>ycm</code> 을 설치한다. <code>ycm</code> 은 다양한 언어의 자동완성을 지원하는데 해당 포스트에서는 c++/python3 개발환경에 맞게 해당 모듈들만 설치한다. Python의 경우 필자가 알고 있는 한 별도로 모듈을 설치해주지 않아도 되는 것으로 알고 있다. 따라서 c++에 해당하는 모듈만 설치해준다.
+다음으로 <code>ycm</code> 을 설치한다. <code>ycm</code> 은 다양한 언어의 자동완성을 지원하는데 해당 포스트에서는 c++/python3 개발환경에 맞게 해당 모듈들만 설치한다. 필자가 알고 있는 한 python은 별도로 모듈을 설치해주지 않아도 자동완성이 되는 것으로 알고 있다. 따라서 c++ 자동완성 모듈만 설치해준다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Install ycm (for c++)</span>
@@ -230,7 +231,7 @@ $ cp  ~/.vim/bundle/youcompleteme/third_party/ycmd/.ycm_extra_conf.py  ~/.vim/
 <h3 id="orgde05766"><span class="section-number-3">3.1</span> .ycm_extra_conf.py</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
-앞서 복사한 <code>~/.vim/.ycm_extra_conf.py</code> 파일은 <code>/usr/include, //usr/local/include</code> 폴더에서 헤더 파일을 읽은 후 시스템에 설치된 헤더들에 대해 자동완성을 수행한다. 하지만 개발자가 임의로 선언한 클래스, 멤버함수, 멤버변수에 대한 자동완성 기능은 지원하지 않는다. 임의로 선언한 함수 및 변수들의 자동완성을 수행하기 위해서는 다음과 같은 순서로 진행해야 한다. 단, 해당 기능은 cmake로 개발중인 프로젝트에 한하여 적용된다.
+앞서 복사한 <code>~/.vim/.ycm_extra_conf.py</code> 파일은 <code>/usr/include, /usr/local/include</code> 폴더에서 헤더 파일을 읽은 후 시스템에 설치된 헤더들에 대해 자동완성을 수행한다. 따라서 c++의 경우 vector, map, algorithm 같은 헤더들의 자동완성이 가능해진다. 하지만 <b>개발자가 임의로 선언한 클래스, 멤버함수, 멤버변수에 대한 자동완성 기능은 지원하지 않는다. 임의로 선언한 함수 및 변수들의 자동완성을 수행하기 위해서는 다음과 같은 순서로 진행해야 한다.</b> 단, 해당 기능은 cmake로 개발중인 프로젝트에 한하여 적용된다.
 </p>
 
 <ol class="org-ol">
@@ -238,31 +239,34 @@ $ cp  ~/.vim/bundle/youcompleteme/third_party/ycmd/.ycm_extra_conf.py  ~/.vim/
 cmake 프로젝트에서 빌드를 수행할 때 <code>-DCMAKE_EXPORT_COMPILE_COMMANDS=1</code> 옵션을 추가하여 build 폴더에 <code>compile_commands.json</code> 파일이 생성되도록 한다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ mkdir build
-
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">In cmake project, make build folder and go to the folder.</span>
+$ mkdir build
 $ cd build
 
+<span class="org-comment-delimiter"># </span><span class="org-comment">This option creates 'compile_commands.json' file.</span>
 $ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..
 
+<span class="org-comment-delimiter"># </span><span class="org-comment">Build codes.</span>
 $ make -j8
 </pre>
 </div></li>
 <li><p>
-<code>.ycm_extra_conf.py</code> 를 cmake 프로젝트의 가장 최상단에 위치시킨다.
+<code>~/.vim/.ycm_extra_conf.py</code> 파일을 cmake 프로젝트의 가장 최상단에 복사한다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ cp ~/.vim/.ycm_extra_conf.py  /path/to/cmake/project/
+<pre class="src src-sh">$ cp  ~/.vim/.ycm_extra_conf.py  /path/to/cmake/project/
 </pre>
 </div></li>
 <li><p>
-<code>.ycm_extra_conf.py</code> 의 107번 라인의 <code>compilation_database_folder</code> 변수에 <code>compile_commands.json</code> 파일이 존재하는 build 폴더의 경로를 입력한다.
+<code>.ycm_extra_conf.py</code> 의 107번 정도 라인의 <code>compilation_database_folder</code> 변수에 <code>compile_commands.json</code> 파일이 존재하는 build 폴더의 경로를 입력한다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Open .ycm_extra_conf.py</span>
 $ vim /path/to/cmake/project/.ycm_extra_conf.py
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">In the script line 107, there is compilation_database_folder = ''</span>
-<span class="org-variable-name">compilation_database_folder</span>=<span class="org-string">'/path/to/build/path'</span> <span class="org-comment-delimiter"># </span><span class="org-comment">ex) '~/cmake/project/build'</span>
+<span class="org-variable-name">compilation_database_folder</span>=<span class="org-string">'/path/to/build/path'</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">ex) compilation_database_folder='~/cmake/project/build'</span>
 </pre>
 </div></li>
 <li>cmake 프로젝트의 최상단 디렉토리에서 vim을 실행한 후 프로그래밍한다.</li>
@@ -321,8 +325,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div id="outline-container-org8f478f3" class="outline-5">
 <h5 id="org8f478f3"><span class="section-number-5">4.1.1.10</span> <code>&lt;C-u&gt;</code></h5>
 </div>
-<div id="outline-container-org50e40d7" class="outline-5">
-<h5 id="org50e40d7"><span class="section-number-5">4.1.1.11</span> <code>&lt;C-d&gt;</code></h5>
+<div id="outline-container-orga6a426b" class="outline-5">
+<h5 id="orga6a426b"><span class="section-number-5">4.1.1.11</span> <code>&lt;C-d&gt;</code></h5>
 </div>
 <div id="outline-container-org40bffc2" class="outline-5">
 <h5 id="org40bffc2"><span class="section-number-5">4.1.1.12</span> <code>&lt;C-a&gt;</code></h5>
@@ -359,8 +363,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <h4 id="org1d687a7"><span class="section-number-4">4.1.2</span> Custom keybindings</h4>
 <div class="outline-text-4" id="text-4-1-2">
 </div>
-<div id="outline-container-orgd40edcd" class="outline-5">
-<h5 id="orgd40edcd"><span class="section-number-5">4.1.2.1</span> <code>&lt;C-d&gt;</code></h5>
+<div id="outline-container-org62bfffd" class="outline-5">
+<h5 id="org62bfffd"><span class="section-number-5">4.1.2.1</span> <code>&lt;C-d&gt;</code></h5>
 </div>
 <div id="outline-container-orgb3abc08" class="outline-5">
 <h5 id="orgb3abc08"><span class="section-number-5">4.1.2.2</span> <code>&lt;C-f&gt;</code></h5>
@@ -380,8 +384,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div id="outline-container-org8f211f7" class="outline-5">
 <h5 id="org8f211f7"><span class="section-number-5">4.1.2.7</span> <code>&lt;C-p&gt;</code></h5>
 </div>
-<div id="outline-container-orga6a426b" class="outline-5">
-<h5 id="orga6a426b"><span class="section-number-5">4.1.2.8</span> <code>&lt;C-d&gt;</code></h5>
+<div id="outline-container-org2ac61ff" class="outline-5">
+<h5 id="org2ac61ff"><span class="section-number-5">4.1.2.8</span> <code>&lt;C-d&gt;</code></h5>
 </div>
 <div id="outline-container-orgdd7701b" class="outline-5">
 <h5 id="orgdd7701b"><span class="section-number-5">4.1.2.9</span> <code>&lt;C-z&gt;</code></h5>
