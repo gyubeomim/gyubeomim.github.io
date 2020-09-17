@@ -35,7 +35,7 @@ comments: true
 <li><a href="#orgbd00959">4.1.1.8. <code>gg, G</code></a></li>
 <li><a href="#org11c0dff">4.1.1.9. <code>u</code></a></li>
 <li><a href="#org8f478f3">4.1.1.10. <code>&lt;C-u&gt;</code></a></li>
-<li><a href="#orgb17e1a0">4.1.1.11. <code>&lt;C-d&gt;</code></a></li>
+<li><a href="#orgf64c467">4.1.1.11. <code>&lt;C-d&gt;</code></a></li>
 <li><a href="#org40bffc2">4.1.1.12. <code>&lt;C-a&gt;</code></a></li>
 <li><a href="#org5fca6b8">4.1.1.13. <code>/{search word}, n, N</code></a></li>
 <li><a href="#orgd14b13e">4.1.1.14. <code>"+y"</code></a></li>
@@ -50,14 +50,14 @@ comments: true
 </li>
 <li><a href="#org1d687a7">4.1.2. Custom keybindings</a>
 <ul>
-<li><a href="#org590dc9e">4.1.2.1. <code>&lt;C-d&gt;</code></a></li>
+<li><a href="#org7239aac">4.1.2.1. <code>&lt;C-d&gt;</code></a></li>
 <li><a href="#orgb3abc08">4.1.2.2. <code>&lt;C-f&gt;</code></a></li>
 <li><a href="#orgc753230">4.1.2.3. <code>&lt;C-h,j,k,l&gt;</code></a></li>
 <li><a href="#org6892b2f">4.1.2.4. <code>U</code></a></li>
 <li><a href="#orgc787464">4.1.2.5. <code>Q</code></a></li>
 <li><a href="#org0b82765">4.1.2.6. <code>, .</code></a></li>
 <li><a href="#org8f211f7">4.1.2.7. <code>&lt;C-p&gt;</code></a></li>
-<li><a href="#orgf64c467">4.1.2.8. <code>&lt;C-d&gt;</code></a></li>
+<li><a href="#orgc1fc16f">4.1.2.8. <code>&lt;C-d&gt;</code></a></li>
 <li><a href="#orgdd7701b">4.1.2.9. <code>&lt;C-z&gt;</code></a></li>
 <li><a href="#org09b67ed">4.1.2.10. <code>&lt;leader&gt;s</code></a></li>
 <li><a href="#orgc0bb2ad">4.1.2.11. <code>&lt;C-e&gt;, &lt;A-e&gt;</code></a></li>
@@ -135,6 +135,12 @@ comments: true
 <div id="outline-container-org10a98f5" class="outline-2">
 <h2 id="org10a98f5"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
+
+<figure>
+<img src="/pictures/200917/01.png" alt="01.png" align="center" width="800px">
+
+</figure>
+
 <p>
 본 포스트에서는 리눅스에서 vim 에디터를 통해 c++ 또는 python 개발환경을 구축하는 방법에 대하여 설명한다. 본 포스트의 vim의 코드 자동완성 기능은 <code>youcompleteme</code> 플러그인을 사용하였다. 포스트에서 설명하는 모든 내용들은 우분투 18.04 LTS 환경에서 테스트하였다.
 </p>
@@ -328,8 +334,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div id="outline-container-org8f478f3" class="outline-5">
 <h5 id="org8f478f3"><span class="section-number-5">4.1.1.10</span> <code>&lt;C-u&gt;</code></h5>
 </div>
-<div id="outline-container-orgb17e1a0" class="outline-5">
-<h5 id="orgb17e1a0"><span class="section-number-5">4.1.1.11</span> <code>&lt;C-d&gt;</code></h5>
+<div id="outline-container-orgf64c467" class="outline-5">
+<h5 id="orgf64c467"><span class="section-number-5">4.1.1.11</span> <code>&lt;C-d&gt;</code></h5>
 </div>
 <div id="outline-container-org40bffc2" class="outline-5">
 <h5 id="org40bffc2"><span class="section-number-5">4.1.1.12</span> <code>&lt;C-a&gt;</code></h5>
@@ -366,8 +372,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <h4 id="org1d687a7"><span class="section-number-4">4.1.2</span> Custom keybindings</h4>
 <div class="outline-text-4" id="text-4-1-2">
 </div>
-<div id="outline-container-org590dc9e" class="outline-5">
-<h5 id="org590dc9e"><span class="section-number-5">4.1.2.1</span> <code>&lt;C-d&gt;</code></h5>
+<div id="outline-container-org7239aac" class="outline-5">
+<h5 id="org7239aac"><span class="section-number-5">4.1.2.1</span> <code>&lt;C-d&gt;</code></h5>
 </div>
 <div id="outline-container-orgb3abc08" class="outline-5">
 <h5 id="orgb3abc08"><span class="section-number-5">4.1.2.2</span> <code>&lt;C-f&gt;</code></h5>
@@ -387,8 +393,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div id="outline-container-org8f211f7" class="outline-5">
 <h5 id="org8f211f7"><span class="section-number-5">4.1.2.7</span> <code>&lt;C-p&gt;</code></h5>
 </div>
-<div id="outline-container-orgf64c467" class="outline-5">
-<h5 id="orgf64c467"><span class="section-number-5">4.1.2.8</span> <code>&lt;C-d&gt;</code></h5>
+<div id="outline-container-orgc1fc16f" class="outline-5">
+<h5 id="orgc1fc16f"><span class="section-number-5">4.1.2.8</span> <code>&lt;C-d&gt;</code></h5>
 </div>
 <div id="outline-container-orgdd7701b" class="outline-5">
 <h5 id="orgdd7701b"><span class="section-number-5">4.1.2.9</span> <code>&lt;C-z&gt;</code></h5>
