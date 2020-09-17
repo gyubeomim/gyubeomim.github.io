@@ -35,7 +35,7 @@ comments: true
 <li><a href="#orgbd00959">4.1.1.8. <code>gg, G</code></a></li>
 <li><a href="#org11c0dff">4.1.1.9. <code>u</code></a></li>
 <li><a href="#org8f478f3">4.1.1.10. <code>&lt;C-u&gt;</code></a></li>
-<li><a href="#orgc332548">4.1.1.11. <code>&lt;C-d&gt;</code></a></li>
+<li><a href="#org18cc17f">4.1.1.11. <code>&lt;C-d&gt;</code></a></li>
 <li><a href="#org40bffc2">4.1.1.12. <code>&lt;C-a&gt;</code></a></li>
 <li><a href="#org5fca6b8">4.1.1.13. <code>/{search word}, n, N</code></a></li>
 <li><a href="#orgd14b13e">4.1.1.14. <code>"+y"</code></a></li>
@@ -50,14 +50,14 @@ comments: true
 </li>
 <li><a href="#org1d687a7">4.1.2. Custom keybindings</a>
 <ul>
-<li><a href="#orgbf9be5e">4.1.2.1. <code>&lt;C-d&gt;</code></a></li>
+<li><a href="#orga7003f9">4.1.2.1. <code>&lt;C-d&gt;</code></a></li>
 <li><a href="#orgb3abc08">4.1.2.2. <code>&lt;C-f&gt;</code></a></li>
 <li><a href="#orgc753230">4.1.2.3. <code>&lt;C-h,j,k,l&gt;</code></a></li>
 <li><a href="#org6892b2f">4.1.2.4. <code>U</code></a></li>
 <li><a href="#orgc787464">4.1.2.5. <code>Q</code></a></li>
 <li><a href="#org0b82765">4.1.2.6. <code>, .</code></a></li>
 <li><a href="#org8f211f7">4.1.2.7. <code>&lt;C-p&gt;</code></a></li>
-<li><a href="#org18cc17f">4.1.2.8. <code>&lt;C-d&gt;</code></a></li>
+<li><a href="#org2a0ba9f">4.1.2.8. <code>&lt;C-d&gt;</code></a></li>
 <li><a href="#orgdd7701b">4.1.2.9. <code>&lt;C-z&gt;</code></a></li>
 <li><a href="#org09b67ed">4.1.2.10. <code>&lt;leader&gt;s</code></a></li>
 <li><a href="#orgc0bb2ad">4.1.2.11. <code>&lt;C-e&gt;, &lt;A-e&gt;</code></a></li>
@@ -279,8 +279,14 @@ $ vim /path/to/cmake/project/.ycm_extra_conf.py
 </ol>
 
 <p>
-위와 같이 <b>새로운 cmake 프로젝트를 진행할 때마다 최상위 폴더에 <code>.ycm_extra_conf.py</code> 를 복사한 후 진행하면 임의로 작성한 코드에 대한 자동완성과 코드 네비게이션 기능을 사용할 수 있다.</b>
+위와 같이 <b>새로운 cmake 프로젝트를 진행할 때마다 최상위 폴더에 <code>.ycm_extra_conf.py</code> 를 복사한 후 진행하면 임의로 작성한 코드에 대한 자동완성과 코드 네비게이션 기능을 사용할 수 있다.</b> 모든 세팅이 정상적으로 완료된 경우 아래 그림과 같이 임의로 작성한 코드 및 기본 헤더 코드에 대한 자동완성 기능을 사용할 수 있다.
 </p>
+
+
+<figure>
+<img src="/pictures/200917/ycm_ac.gif" alt="ycm_ac.gif" align="center">
+
+</figure>
 </div>
 </div>
 </div>
@@ -334,8 +340,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div id="outline-container-org8f478f3" class="outline-5">
 <h5 id="org8f478f3"><span class="section-number-5">4.1.1.10</span> <code>&lt;C-u&gt;</code></h5>
 </div>
-<div id="outline-container-orgc332548" class="outline-5">
-<h5 id="orgc332548"><span class="section-number-5">4.1.1.11</span> <code>&lt;C-d&gt;</code></h5>
+<div id="outline-container-org18cc17f" class="outline-5">
+<h5 id="org18cc17f"><span class="section-number-5">4.1.1.11</span> <code>&lt;C-d&gt;</code></h5>
 </div>
 <div id="outline-container-org40bffc2" class="outline-5">
 <h5 id="org40bffc2"><span class="section-number-5">4.1.1.12</span> <code>&lt;C-a&gt;</code></h5>
@@ -372,8 +378,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <h4 id="org1d687a7"><span class="section-number-4">4.1.2</span> Custom keybindings</h4>
 <div class="outline-text-4" id="text-4-1-2">
 </div>
-<div id="outline-container-orgbf9be5e" class="outline-5">
-<h5 id="orgbf9be5e"><span class="section-number-5">4.1.2.1</span> <code>&lt;C-d&gt;</code></h5>
+<div id="outline-container-orga7003f9" class="outline-5">
+<h5 id="orga7003f9"><span class="section-number-5">4.1.2.1</span> <code>&lt;C-d&gt;</code></h5>
 </div>
 <div id="outline-container-orgb3abc08" class="outline-5">
 <h5 id="orgb3abc08"><span class="section-number-5">4.1.2.2</span> <code>&lt;C-f&gt;</code></h5>
@@ -393,8 +399,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div id="outline-container-org8f211f7" class="outline-5">
 <h5 id="org8f211f7"><span class="section-number-5">4.1.2.7</span> <code>&lt;C-p&gt;</code></h5>
 </div>
-<div id="outline-container-org18cc17f" class="outline-5">
-<h5 id="org18cc17f"><span class="section-number-5">4.1.2.8</span> <code>&lt;C-d&gt;</code></h5>
+<div id="outline-container-org2a0ba9f" class="outline-5">
+<h5 id="org2a0ba9f"><span class="section-number-5">4.1.2.8</span> <code>&lt;C-d&gt;</code></h5>
 </div>
 <div id="outline-container-orgdd7701b" class="outline-5">
 <h5 id="orgdd7701b"><span class="section-number-5">4.1.2.9</span> <code>&lt;C-z&gt;</code></h5>
