@@ -60,10 +60,8 @@ comments: true
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Make ~/.vim/bundle and colors directories.</span>
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Make ~/.vim/bundle directory.</span>
 $ makedir ~/.vim/bundle -p
-$ makedir ~/.vim/colors
-
 $ cd ~/.vim/bundle
 $ git clone https://github.com/VundleVim/Vundle.vim
 </pre>
@@ -74,15 +72,30 @@ Vundle 플러그인이 정상적으로 다운로드되었다면 다른 플러그
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">move .vimrc to home folder.</span>
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Move .vimrc to home folder.</span>
 $ mv  ~/Downloads/vimrc  ~/.vimrc
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">move codedark.vim to ~/.vim/colors folder.</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Move codedark.vim to ~/.vim/colors folder.</span>
+$ makedir ~/.vim/colors
 $ mv  ~/Downloads/codedark.vim  ~/.vim/colors
 </pre>
 </div>
+
+<p>
+다음으로 플러그인들을 설치한다. 우선 .vimrc 파일을 연다.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ vim  ~/.vimrc
+</pre>
+</div>
+
+<p>
+.vimrc 파일이 열렸다면 <b>:BundleInstall</b> 명령을 실행한다. 명령이 정상적으로 실행되면 .vimrc 파일에 등록되어 있는 여러 플러그인들이 Vundle 플러그인에 따라 순차적으로 설치된다.
+</p>
 </div>
 </div>
+
 <div id="outline-container-org8567efb" class="outline-2">
 <h2 id="org8567efb"><span class="section-number-2">3</span> My vim configuration</h2>
 <div class="outline-text-2" id="text-3">
