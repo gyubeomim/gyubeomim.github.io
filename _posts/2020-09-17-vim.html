@@ -115,10 +115,9 @@ comments: true
 </li>
 <li><a href="#orgdceeda5">4.2.10. AutoClose</a></li>
 <li><a href="#org88c5507">4.2.11. vim-indent-guides</a></li>
-<li><a href="#org0e6cf4b">4.2.12. vim-sneak</a></li>
-<li><a href="#orgb146d1b">4.2.13. vim-fugitive</a></li>
-<li><a href="#org80b9a65">4.2.14. vim-diminactive</a></li>
-<li><a href="#orgbc91492">4.2.15. vim-cpp-enhanced-highlight</a></li>
+<li><a href="#orgb146d1b">4.2.12. vim-fugitive</a></li>
+<li><a href="#org80b9a65">4.2.13. vim-diminactive</a></li>
+<li><a href="#orgbc91492">4.2.14. vim-cpp-enhanced-highlight</a></li>
 </ul>
 </li>
 </ul>
@@ -266,7 +265,7 @@ $ make -j8
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Open .ycm_extra_conf.py</span>
 $ vim /path/to/cmake/project/.ycm_extra_conf.py
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">In the script line 107, there is compilation_database_folder = ''</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">At line 107, there is compilation_database_folder variable.</span>
 <span class="org-variable-name">compilation_database_folder</span>=<span class="org-string">'/path/to/build/path'</span>
 <span class="org-comment-delimiter"># </span><span class="org-comment">ex) compilation_database_folder='~/cmake/project/build'</span>
 </pre>
@@ -278,9 +277,6 @@ $ vim /path/to/cmake/project/.ycm_extra_conf.py
 위와 같이 <b>새로운 cmake 프로젝트를 진행할 때마다 최상위 폴더에 <code>.ycm_extra_conf.py</code> 를 복사한 후 진행하면 임의로 작성한 코드에 대한 자동완성과 코드 네비게이션 기능을 사용할 수 있다.</b>
 </p>
 
-<p>
-모든 세팅이 정상적으로 완료된 경우 아래 그림과 같이 임의로 작성한 코드 및 기본 헤더 코드에 대한 자동완성 기능을 사용할 수 있다.
-</p>
 
 
 <figure>
@@ -289,7 +285,7 @@ $ vim /path/to/cmake/project/.ycm_extra_conf.py
 </figure>
 
 <p>
-그리고 다음과 같이 함수 및 변수로 이동(코드 네비게이션) 또한 가능하다.
+모든 세팅이 정상적으로 완료된 경우 위와 같이 임의로 작성한 코드 및 기본 헤더 코드에 대한 자동완성 기능을 사용할 수 있다.
 </p>
 
 
@@ -297,6 +293,10 @@ $ vim /path/to/cmake/project/.ycm_extra_conf.py
 <img src="/pictures/200917/ycm_nav.gif" alt="ycm_nav.gif" align="center">
 
 </figure>
+
+<p>
+그리고 다음과 같이 함수 및 변수로 이동(코드 네비게이션) 또한 가능하다.
+</p>
 </div>
 </div>
 </div>
@@ -305,14 +305,17 @@ $ vim /path/to/cmake/project/.ycm_extra_conf.py
 <h2 id="org26f5af4"><span class="section-number-2">4</span> My vim configuration</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-해당 섹션에서는 필자가 사용하는 vim의 다양한 기본 기능 및 플러그인 기능들에 대해 설명한다. 환경설정(.vimrc) 파일은 홈폴더에 위치시킨 후 vim을 실행하면 적용된다. 사용하는 .vimrc 파일은 <a href="/files/200917/vimrc">해당 링크</a>에서 다운로드 받을 수 있다. 해당 키바인딩은 필자가 임의로 설정한 키바인딩이므로 원한다면 얼마든지 바꿔서 사용할 수 있다. 
+해당 섹션에서는 필자가 사용하는 vim의 다양한 기본 기능 및 플러그인 기능들에 대해 설명한다. 사용하는 .vimrc 파일은 <a href="/files/200917/vimrc">해당 링크</a>에서 다운로드 받을 수 있다. 해당 키바인딩은 필자가 임의로 설정한 키바인딩이므로 원한다면 얼마든지 바꿔서 사용할 수 있다. 
 </p>
 </div>
 <div id="outline-container-org172c937" class="outline-3">
 <h3 id="org172c937"><span class="section-number-3">4.1</span> General Features</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
-기본 기능 섹션에서는 키바인딩을 임의로 바꾼 경우 Custom keybindings 섹션에 설명하였다. Orignal keybindings 섹션의 경우 vim 자체의 기본 키바인딩을 의미한다. 실제로 자주 사용하는 키바인딩 위주로 설명하였다.
+<b>Orignal keybindings</b> 섹션의 경우 vim 자체의 기본 키바인딩을 설명하였다. 키바인딩을 임의로 바꾼 경우 <b>Custom keybindings</b> 섹션에 설명하였다. vim에는 수많은 기능 및 키바인딩들이 존재하지만 이를 다 설명하지 않고 실제로 자주 사용하는 키바인딩 위주로 설명하였다.
+</p>
+
+<p>
 Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt 키바인딩은 <code>&lt;A-{...}&gt;</code> 으로 표현하였다. (NORMAL), (INSERT), (VISUAL)은 각 모드를 의미한다.
 </p>
 </div>
@@ -325,7 +328,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div class="outline-text-5" id="text-4-1-1-1">
 <p align="center">
 <img src="/pictures/200917/hjkl.gif" alt="hjkl.gif" align="center">
-(NORMAL) 커서를 상하좌우 방향으로 움직인다. 방향키 대신 사용한다.
+(NORMAL) 커서를 상하좌우 방향으로 움직인다. 일반적으로 방향키 대신 사용한다.
 </p>
 </div>
 </div>
@@ -388,7 +391,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div class="outline-text-5" id="text-4-1-1-8">
 <p align="center">
 <img src="/pictures/200917/vV.gif" alt="vV.gif" align="center">
-(NORMAL)=&gt;(VISUAL) 모드로 변경한다. VISUAL 모드는 마우스 드래그를 통해 선택을 하는것과 동일한 효과를 가지는 모드이다. v는 한 칸 단위로 VISUAL 모드를 선택할 수 있으며 V는 현재 라인 전체를 VISUAL 모드로 변경한다.
+(NORMAL)=&gt;(VISUAL) 모드로 변경한다. (VISUAL) 모드는 마우스 드래그를 통해 선택을 하는것과 동일한 효과를 가지는 모드이며 d,y,s 등 각종 키바인딩들을 응용할 수 있다. v는 한 칸 단위로 VISUAL 모드를 선택할 수 있으며 V는 현재 라인 전체를 VISUAL 모드로 변경한다.
 </p>
 </div>
 </div>
@@ -397,7 +400,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div class="outline-text-5" id="text-4-1-1-9">
 <p align="center">
 <img src="/pictures/200917/c_v.gif" alt="c_v.gif" align="center">
-(VISUAL BLOCK) 커스텀 영역을 선택할 수 있다. a,i,s,y,p 키와 응용해서 주로 사용한다.
+(VISUAL) 커스텀 영역(Visual Block)을 선택할 수 있다. a,i,s,y,p 키와 응용해서 주로 사용한다.
 </p>
 </div>
 </div>
@@ -442,7 +445,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div class="outline-text-5" id="text-4-1-1-14">
 <p align="center">
 <img src="/pictures/200917/c_u_c_d.gif" alt="c_u_c_d.gif" align="center">
-(NORMAL) 커서를 한 페이지 단위로 빠르게 이동한다.
+(NORMAL) 커서를 한 페이지 단위로 빠르게 이동한다. C-u 키를 사용하면 위로 이동하며 C-d 키를 사용하면 아래로 이동한다.
 </p>
 </div>
 </div>
@@ -514,7 +517,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div class="outline-text-5" id="text-4-1-1-22">
 <p align="center">
 <img src="/pictures/200917/vsplit.gif" alt="vsplit.gif" align="center">
-(NORMAL) 세로로 새창을 띄운다.
+(NORMAL) 세로로 창을 분할한다.
 </p>
 </div>
 </div>
@@ -523,7 +526,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div class="outline-text-5" id="text-4-1-1-23">
 <p align="center">
 <img src="/pictures/200917/split.gif" alt="split.gif" align="center">
-(NORMAL) 가로로 새창을 띄운다.
+(NORMAL) 가로로 창을 분할한다.
 </p>
 </div>
 </div>
@@ -650,7 +653,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <h4 id="org0c833ce"><span class="section-number-4">4.2.1</span> The-NERD-tree</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <p>
-현재 폴더의 파일 목록을 볼 수 있는 플러그인이다.
+현재 폴더의 파일 목록을 볼 수 있는 플러그인
 </p>
 </div>
 <div id="outline-container-org2463714" class="outline-5">
@@ -672,7 +675,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div class="outline-text-4" id="text-4-2-2">
 <p align="center">
 <img src="/pictures/200917/plug_snipmate.gif" alt="plug_snipmate.gif" align="center">
-(NORMAL) 특정 키워드를 입력 후 Tab을 누르면 미리 저장된 Snippet들이 나오는 플러그인이다.
+(NORMAL) 특정 키워드를 입력 후 Tab을 누르면 미리 저장된 Snippet들이 나오는 플러그인
 </p>
 </div>
 </div>
@@ -680,7 +683,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <h4 id="org5d0a1d7"><span class="section-number-4">4.2.3</span> tComment</h4>
 <div class="outline-text-4" id="text-4-2-3">
 <p>
-단축키를 통해 간편하게 코멘트를 적용할 수 있는 플러그인이다.
+단축키를 통해 간편하게 코멘트를 적용할 수 있는 플러그인
 </p>
 </div>
 <div id="outline-container-org483ab96" class="outline-5">
@@ -697,7 +700,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <h4 id="org3b47e52"><span class="section-number-4">4.2.4</span> EasyMotion</h4>
 <div class="outline-text-4" id="text-4-2-4">
 <p>
-코드 사이를 빠르게 네비게이션할 수 있는 플러그인이다.
+코드 사이를 빠르게 네비게이션할 수 있는 플러그인
 </p>
 </div>
 <div id="outline-container-orgea37dff" class="outline-5">
@@ -714,7 +717,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <h4 id="org8055906"><span class="section-number-4">4.2.5</span> Mark</h4>
 <div class="outline-text-4" id="text-4-2-5">
 <p>
-단어를 하이라이팅해주는 플러그인이다.
+단어를 하이라이팅해주는 플러그인
 </p>
 </div>
 <div id="outline-container-orgb8b6a4b" class="outline-5">
@@ -731,7 +734,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <h4 id="org47168aa"><span class="section-number-4">4.2.6</span> tagbar</h4>
 <div class="outline-text-4" id="text-4-2-6">
 <p>
-함수 및 변수 정보를 출력해주는 플러그인이다.
+함수 및 변수 정보를 출력해주는 플러그인
 </p>
 </div>
 <div id="outline-container-org1f8b094" class="outline-5">
@@ -753,7 +756,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div class="outline-text-4" id="text-4-2-7">
 <p align="center">
 <img src="/pictures/200917/plug_ycm_syntcheck.gif" alt="plug_ycm_syntcheck.gif" align="center">
-코드 자동완성 및 네비게이션, 구문 체크 등을 해주는 플러그인이다. 위 그림은 틀린 구문을 체크해주는 모습이다.
+코드 자동완성 및 네비게이션, 구문 체크 등을 해주는 플러그인. 위 그림은 틀린 구문을 체크해주는 모습이다.
 </p>
 </div>
 <div id="outline-container-org522b8ea" class="outline-5">
@@ -793,7 +796,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <h4 id="org3236b85"><span class="section-number-4">4.2.9</span> vim-gitgutter</h4>
 <div class="outline-text-4" id="text-4-2-9">
 <p>
-git 버전 관리에 의한 코드 변경내역을 표시해주는 플러그인이다.
+git 버전 관리에 의한 코드 변경내역을 표시해주는 플러그인
 </p>
 <p align="center">
 <img src="/pictures/200917/plug_gitgutter_intro.gif" alt="plug_gitgutter_intro.gif" align="center">
@@ -823,7 +826,7 @@ git을 통한 코드 변경내역이 감지되는 경우 표시해주는 플러�
 <h4 id="orgdceeda5"><span class="section-number-4">4.2.10</span> AutoClose</h4>
 <div class="outline-text-4" id="text-4-2-10">
 <p>
-괄호 (), {}, [] 등을 자동으로 완성시켜주는 플러그인이다.
+괄호 (), {}, [] 등을 자동으로 완성시켜주는 플러그인
 </p>
 </div>
 </div>
@@ -831,40 +834,32 @@ git을 통한 코드 변경내역이 감지되는 경우 표시해주는 플러�
 <h4 id="org88c5507"><span class="section-number-4">4.2.11</span> vim-indent-guides</h4>
 <div class="outline-text-4" id="text-4-2-11">
 <p>
-자동으로 코드의 들여쓰기를 해주는 플러그인이다.
-</p>
-</div>
-</div>
-<div id="outline-container-org0e6cf4b" class="outline-4">
-<h4 id="org0e6cf4b"><span class="section-number-4">4.2.12</span> vim-sneak</h4>
-<div class="outline-text-4" id="text-4-2-12">
-<p>
-코드를 빠르게 네비게이션할 수 있는 플러그인이다.
+자동으로 코드의 들여쓰기를 해주는 플러그인
 </p>
 </div>
 </div>
 <div id="outline-container-orgb146d1b" class="outline-4">
-<h4 id="orgb146d1b"><span class="section-number-4">4.2.13</span> vim-fugitive</h4>
-<div class="outline-text-4" id="text-4-2-13">
+<h4 id="orgb146d1b"><span class="section-number-4">4.2.12</span> vim-fugitive</h4>
+<div class="outline-text-4" id="text-4-2-12">
 <p>
-:Gdiff, :Gblame과 같이 git 명령어를 사용할 수 있는 플러그인이다.
+:Gdiff, :Gblame과 같이 git 명령어를 사용할 수 있는 플러그인
 </p>
 </div>
 </div>
 <div id="outline-container-org80b9a65" class="outline-4">
-<h4 id="org80b9a65"><span class="section-number-4">4.2.14</span> vim-diminactive</h4>
-<div class="outline-text-4" id="text-4-2-14">
+<h4 id="org80b9a65"><span class="section-number-4">4.2.13</span> vim-diminactive</h4>
+<div class="outline-text-4" id="text-4-2-13">
 <p align="center">
 <img src="/pictures/200917/c_w_c_w.gif" alt="c_w_c_w.gif" align="center">
-여러 창이 띄워져있을 때 현재 창을 하이라이팅해주는 플러그인이다.
+여러 창이 띄워져있을 때 현재 창을 하이라이팅해주는 플러그인
 </p>
 </div>
 </div>
 <div id="outline-container-orgbc91492" class="outline-4">
-<h4 id="orgbc91492"><span class="section-number-4">4.2.15</span> vim-cpp-enhanced-highlight</h4>
-<div class="outline-text-4" id="text-4-2-15">
+<h4 id="orgbc91492"><span class="section-number-4">4.2.14</span> vim-cpp-enhanced-highlight</h4>
+<div class="outline-text-4" id="text-4-2-14">
 <p>
-기본적으로 vim을 c++ 코드를 제대로 하이라이팅해주지 못한다. 코드 가독성을 위해 c++ 코드를 하이라이팅해주는 플러그인이다. 
+c++ 코드를 하이라이팅해주는 플러그인. vim에서는 기본적으로 c++ 코드를 제대로 하이라이팅해주지 못하므로 가독성을 위해 사용한다. 
 </p>
 </div>
 </div>
