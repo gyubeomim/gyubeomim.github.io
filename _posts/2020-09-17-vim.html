@@ -49,21 +49,23 @@ comments: true
 <li><a href="#org2e9810b">4.1.1.22. <code>:vsplit (:vs)</code></a></li>
 <li><a href="#org50b0ccd">4.1.1.23. <code>:split (:sp)</code></a></li>
 <li><a href="#org874c450">4.1.1.24. <code>&lt;C-w&gt;&lt;C-w&gt;, &lt;C-w&gt;ArrowKey</code></a></li>
+<li><a href="#org92f55a2">4.1.1.25. <code>&lt;C-o&gt;, &lt;C-i&gt;</code></a></li>
 </ul>
 </li>
 <li><a href="#orgc17338d">4.1.2. Custom keybindings</a>
 <ul>
-<li><a href="#org32d9fe3">4.1.2.1. <code>&lt;C-d&gt;</code></a></li>
-<li><a href="#orgf19a503">4.1.2.2. <code>&lt;C-f&gt;</code></a></li>
-<li><a href="#org8e04a46">4.1.2.3. <code>&lt;C-h,j,k,l&gt;</code></a></li>
-<li><a href="#org3e5c7a2">4.1.2.4. <code>U</code></a></li>
-<li><a href="#orgd097ed2">4.1.2.5. <code>Q</code></a></li>
-<li><a href="#orga2a5e1c">4.1.2.6. <code>, .</code></a></li>
-<li><a href="#orgdb10f55">4.1.2.7. <code>&lt;C-p&gt;</code></a></li>
-<li><a href="#orgae265e5">4.1.2.8. <code>&lt;C-z&gt;</code></a></li>
-<li><a href="#orgf6e9d52">4.1.2.9. <code>&lt;leader&gt;s</code></a></li>
-<li><a href="#orgad4ddb3">4.1.2.10. <code>&lt;C-e&gt;, &lt;A-e&gt;</code></a></li>
-<li><a href="#orgf856726">4.1.2.11. <code>&lt;C-c&gt;&lt;C-c&gt;, &lt;C-c&gt;&lt;C-v&gt;</code></a></li>
+<li><a href="#org7c14e78">4.1.2.1. <code>t</code></a></li>
+<li><a href="#org32d9fe3">4.1.2.2. <code>&lt;C-d&gt;</code></a></li>
+<li><a href="#orgf19a503">4.1.2.3. <code>&lt;C-f&gt;</code></a></li>
+<li><a href="#org8e04a46">4.1.2.4. <code>&lt;C-h,j,k,l&gt;</code></a></li>
+<li><a href="#org3e5c7a2">4.1.2.5. <code>U</code></a></li>
+<li><a href="#orgd097ed2">4.1.2.6. <code>Q</code></a></li>
+<li><a href="#orga2a5e1c">4.1.2.7. <code>, .</code></a></li>
+<li><a href="#orgdb10f55">4.1.2.8. <code>&lt;C-p&gt;</code></a></li>
+<li><a href="#orgae265e5">4.1.2.9. <code>&lt;C-z&gt;</code></a></li>
+<li><a href="#orgf6e9d52">4.1.2.10. <code>&lt;leader&gt;s</code></a></li>
+<li><a href="#orgad4ddb3">4.1.2.11. <code>&lt;C-e&gt;, &lt;A-e&gt;</code></a></li>
+<li><a href="#orgf856726">4.1.2.12. <code>&lt;C-c&gt;&lt;C-c&gt;, &lt;C-c&gt;&lt;C-v&gt;</code></a></li>
 </ul>
 </li>
 </ul>
@@ -540,14 +542,30 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 </p>
 </div>
 </div>
+<div id="outline-container-org92f55a2" class="outline-5">
+<h5 id="org92f55a2"><span class="section-number-5">4.1.1.25</span> <code>&lt;C-o&gt;, &lt;C-i&gt;</code></h5>
+<div class="outline-text-5" id="text-4-1-1-25">
+<p>
+(NORMAL) 이전에 열어놨던 여러 버퍼들로 이동한다. 예를 들어, A-&gt;B-&gt;C-&gt;D 파일 순서로 코딩을 진행하는 경우 &lt;C-o&gt; 키로 D-&gt;C-&gt;B-&gt;A 파일 순서로 네비게이션 할 수 있다. 다시 반대로 가고 싶은 경우 &lt;C-i&gt; 키를 사용하면 된다.
+</p>
+</div>
+</div>
 </div>
 <div id="outline-container-orgc17338d" class="outline-4">
 <h4 id="orgc17338d"><span class="section-number-4">4.1.2</span> Custom keybindings</h4>
 <div class="outline-text-4" id="text-4-1-2">
 </div>
-<div id="outline-container-org32d9fe3" class="outline-5">
-<h5 id="org32d9fe3"><span class="section-number-5">4.1.2.1</span> <code>&lt;C-d&gt;</code></h5>
+<div id="outline-container-org7c14e78" class="outline-5">
+<h5 id="org7c14e78"><span class="section-number-5">4.1.2.1</span> <code>t</code></h5>
 <div class="outline-text-5" id="text-4-1-2-1">
+<p>
+(NORMAL) 변수나 함수를 검색하는 경우 해당 단어가 하이라이팅되는데 이 때 t를 누르면 하이라이팅이 해제된다.
+</p>
+</div>
+</div>
+<div id="outline-container-org32d9fe3" class="outline-5">
+<h5 id="org32d9fe3"><span class="section-number-5">4.1.2.2</span> <code>&lt;C-d&gt;</code></h5>
+<div class="outline-text-5" id="text-4-1-2-2">
 <p align="center">
 <img src="/pictures/200917/custom_c_d.gif" alt="custom_c_d.gif" align="center">
 (INSERT) 현재 커서의 한 단어를 지운다. (NORMAL) 모드로 변경하지 않고 단어를 바로 지울 수 있다.
@@ -555,8 +573,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 </div>
 </div>
 <div id="outline-container-orgf19a503" class="outline-5">
-<h5 id="orgf19a503"><span class="section-number-5">4.1.2.2</span> <code>&lt;C-f&gt;</code></h5>
-<div class="outline-text-5" id="text-4-1-2-2">
+<h5 id="orgf19a503"><span class="section-number-5">4.1.2.3</span> <code>&lt;C-f&gt;</code></h5>
+<div class="outline-text-5" id="text-4-1-2-3">
 <p align="center">
 <img src="/pictures/200917/custom_c_f.gif" alt="custom_c_f.gif" align="center">
 (NORMAL) 현재 커서에서 한 칸 아래에 빈 칸을 생성한다. (INSERT) 모드로 변경하지 않고 빈 칸을 생성할 수 있다.
@@ -564,8 +582,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 </div>
 </div>
 <div id="outline-container-org8e04a46" class="outline-5">
-<h5 id="org8e04a46"><span class="section-number-5">4.1.2.3</span> <code>&lt;C-h,j,k,l&gt;</code></h5>
-<div class="outline-text-5" id="text-4-1-2-3">
+<h5 id="org8e04a46"><span class="section-number-5">4.1.2.4</span> <code>&lt;C-h,j,k,l&gt;</code></h5>
+<div class="outline-text-5" id="text-4-1-2-4">
 <p align="center">
 <img src="/pictures/200917/custom_c_hjkl.gif" alt="custom_c_hjkl.gif" align="center">
 (NORMAL) 여러 창들을 이동한다.
@@ -573,8 +591,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 </div>
 </div>
 <div id="outline-container-org3e5c7a2" class="outline-5">
-<h5 id="org3e5c7a2"><span class="section-number-5">4.1.2.4</span> <code>U</code></h5>
-<div class="outline-text-5" id="text-4-1-2-4">
+<h5 id="org3e5c7a2"><span class="section-number-5">4.1.2.5</span> <code>U</code></h5>
+<div class="outline-text-5" id="text-4-1-2-5">
 <p align="center">
 <img src="/pictures/200917/custom_U.gif" alt="custom_U.gif" align="center">
 (NORMAL) 실행취소했던 작업을 다시 원상복구한다(redo).
@@ -582,8 +600,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 </div>
 </div>
 <div id="outline-container-orgd097ed2" class="outline-5">
-<h5 id="orgd097ed2"><span class="section-number-5">4.1.2.5</span> <code>Q</code></h5>
-<div class="outline-text-5" id="text-4-1-2-5">
+<h5 id="orgd097ed2"><span class="section-number-5">4.1.2.6</span> <code>Q</code></h5>
+<div class="outline-text-5" id="text-4-1-2-6">
 <p align="center">
 <img src="/pictures/200917/custom_Q.gif" alt="custom_Q.gif" align="center">
 (NORMAL) 현재 파일을 저장하지 않고 바로 종료한다. :q! 와 동일한 명령어이다.
@@ -591,8 +609,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 </div>
 </div>
 <div id="outline-container-orga2a5e1c" class="outline-5">
-<h5 id="orga2a5e1c"><span class="section-number-5">4.1.2.6</span> <code>, .</code></h5>
-<div class="outline-text-5" id="text-4-1-2-6">
+<h5 id="orga2a5e1c"><span class="section-number-5">4.1.2.7</span> <code>, .</code></h5>
+<div class="outline-text-5" id="text-4-1-2-7">
 <p align="center">
 <img src="/pictures/200917/custom_dot_comma.gif" alt="custom_dot_comma.gif" align="center">
 (NORMAL) 빈 칸 단위로 빠르게 코드를 네비게이션한다. 원래 키바인딩은 {, } 이지만 이를 , .로 변경하였다
@@ -600,8 +618,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 </div>
 </div>
 <div id="outline-container-orgdb10f55" class="outline-5">
-<h5 id="orgdb10f55"><span class="section-number-5">4.1.2.7</span> <code>&lt;C-p&gt;</code></h5>
-<div class="outline-text-5" id="text-4-1-2-7">
+<h5 id="orgdb10f55"><span class="section-number-5">4.1.2.8</span> <code>&lt;C-p&gt;</code></h5>
+<div class="outline-text-5" id="text-4-1-2-8">
 <p align="center">
 <img src="/pictures/200917/custom_c_p.gif" alt="custom_c_p.gif" align="center">
 (NORMAL) 현재 파일의 전체 경로를 상태창에 출력한다.
@@ -609,8 +627,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 </div>
 </div>
 <div id="outline-container-orgae265e5" class="outline-5">
-<h5 id="orgae265e5"><span class="section-number-5">4.1.2.8</span> <code>&lt;C-z&gt;</code></h5>
-<div class="outline-text-5" id="text-4-1-2-8">
+<h5 id="orgae265e5"><span class="section-number-5">4.1.2.9</span> <code>&lt;C-z&gt;</code></h5>
+<div class="outline-text-5" id="text-4-1-2-9">
 <p align="center">
 <img src="/pictures/200917/custom_c_z.gif" alt="custom_c_z.gif" align="center">
 (INSERT) 모드에서 실행취소(undo)를 수행한다. (NORMAL) 모드로 넘어가지 않고 바로 실행취소할 수 있다.
@@ -618,8 +636,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 </div>
 </div>
 <div id="outline-container-orgf6e9d52" class="outline-5">
-<h5 id="orgf6e9d52"><span class="section-number-5">4.1.2.9</span> <code>&lt;leader&gt;s</code></h5>
-<div class="outline-text-5" id="text-4-1-2-9">
+<h5 id="orgf6e9d52"><span class="section-number-5">4.1.2.10</span> <code>&lt;leader&gt;s</code></h5>
+<div class="outline-text-5" id="text-4-1-2-10">
 <p align="center">
 <img src="/pictures/200917/custom_leader_s.gif" alt="custom_leader_s.gif" align="center">
 (NORMAL) 현재 커서에 있는 단어들과 동일한 단어를 일괄적으로 변경한다. %s 는 단어를 직접 입력해야 하지만 해당 명령어는 커서에 있는 단어를 자동으로 선택해준다.
@@ -627,8 +645,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 </div>
 </div>
 <div id="outline-container-orgad4ddb3" class="outline-5">
-<h5 id="orgad4ddb3"><span class="section-number-5">4.1.2.10</span> <code>&lt;C-e&gt;, &lt;A-e&gt;</code></h5>
-<div class="outline-text-5" id="text-4-1-2-10">
+<h5 id="orgad4ddb3"><span class="section-number-5">4.1.2.11</span> <code>&lt;C-e&gt;, &lt;A-e&gt;</code></h5>
+<div class="outline-text-5" id="text-4-1-2-11">
 <p align="center">
 <img src="/pictures/200917/custom_c_e_a_e.gif" alt="custom_c_e_a_e.gif" align="center">
 (NORMAL) 현재 라인의 맨 앞과 뒤로 이동한다. 이동한 후에도 (INSERT) 모드로 변경하지 않고 (NORMAL) 모드를 유지한다.
@@ -636,8 +654,8 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 </div>
 </div>
 <div id="outline-container-orgf856726" class="outline-5">
-<h5 id="orgf856726"><span class="section-number-5">4.1.2.11</span> <code>&lt;C-c&gt;&lt;C-c&gt;, &lt;C-c&gt;&lt;C-v&gt;</code></h5>
-<div class="outline-text-5" id="text-4-1-2-11">
+<h5 id="orgf856726"><span class="section-number-5">4.1.2.12</span> <code>&lt;C-c&gt;&lt;C-c&gt;, &lt;C-c&gt;&lt;C-v&gt;</code></h5>
+<div class="outline-text-5" id="text-4-1-2-12">
 <p align="center">
 <img src="/pictures/200917/custom_c_c_c_c.gif" alt="custom_c_c_c_c.gif" align="center">
 (NORMAL) 현재 창의 크기를 증가시킨다.
