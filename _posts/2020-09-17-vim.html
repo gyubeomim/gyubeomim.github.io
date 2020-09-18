@@ -1,13 +1,3 @@
---- 
-layout: post
-title: (Linux) Vim 에디터 다양한 기능 설명 및 C++/Python 개발 환경설정
-description: 
-date: 2020-09-17
-categories: [Technology]
-tag: [Linux, Editor, vim, tutorial, Windows]
-use_math: true
-comments: true
----
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -126,7 +116,16 @@ comments: true
 </ul>
 </div>
 </nav>
-
+--- 
+layout: post
+title: (Linux) Vim 에디터 다양한 기능 설명 및 C++/Python 개발 환경설정
+description: 
+date: 2020-09-17
+categories: [Technology]
+tag: [Linux, Editor, vim, tutorial, Windows]
+use_math: true
+comments: true
+---
 <div id="outline-container-orgb4f1c52" class="outline-2">
 <h2 id="orgb4f1c52"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
@@ -137,7 +136,7 @@ comments: true
 </figure>
 
 <p>
-본 포스트에서는 리눅스에서 vim 에디터를 통해 c++ 또는 python 개발환경을 구축하는 방법에 대하여 설명한다. 본 포스트의 vim의 코드 자동완성 기능은 <code>youcompleteme</code> 플러그인을 사용하였다. 포스트를 작성하는 시점(2020.09)에서 폰트는 <code>Hack</code> 를 사용하였으며 테마는 <code>codedark</code> 를 사용하였다. 포스트에서 설명하는 모든 내용들은 우분투 18.04 LTS 환경에서 테스트하였다.
+본 포스트에서는 리눅스에서 vim 에디터를 통해 c++ 또는 python 개발환경을 구축하는 방법에 대하여 설명한다. 본 포스트의 vim의 코드 자동완성 기능은 <code>youcompleteme</code> 플러그인을 사용하였다. 포스트를 작성하는 시점(2020.09)에서 폰트는 <code>Hack</code> 를 사용하였으며 테마는 <code>codedark</code> 를 사용하였다. 대부분의 내용을 c++ 코드를 통해 설명하였는데 python 코딩을 할 때도 동일한 기능들이 적용된다. 포스트에서 설명하는 모든 내용들은 우분투 18.04 LTS 환경에서 테스트하였다. 
 </p>
 </div>
 </div>
@@ -546,7 +545,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div class="outline-text-5" id="text-4-1-2-1">
 <p align="center">
 <img src="/pictures/200917/custom_c_d.gif" alt="custom_c_d.gif" align="center">
-(INSERT) 현재 커서의 한 단어를 지운다.
+(INSERT) 현재 커서의 한 단어를 지운다. (NORMAL) 모드로 변경하지 않고 단어를 바로 지울 수 있다.
 </p>
 </div>
 </div>
@@ -555,7 +554,7 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 <div class="outline-text-5" id="text-4-1-2-2">
 <p align="center">
 <img src="/pictures/200917/custom_c_f.gif" alt="custom_c_f.gif" align="center">
-(NORMAL) 현재 커서에서 한 칸 아래에 빈 칸을 생성한다.
+(NORMAL) 현재 커서에서 한 칸 아래에 빈 칸을 생성한다. (INSERT) 모드로 변경하지 않고 빈 칸을 생성할 수 있다.
 </p>
 </div>
 </div>
