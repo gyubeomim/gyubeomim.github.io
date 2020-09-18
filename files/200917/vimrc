@@ -186,14 +186,20 @@ nmap <C-N> :NERDTreeToggle<CR>
 " Tagbar
 nmap <C-T> :Tagbar<CR>            
 
-" vim-sneak keybinding
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
-
-" git gutter
-map <leader>gr <Plug>GitGutterUndoHunk<CR>
-map <leader>gn <Plug>GitGutterNextHunk<CR>
-map <leader>gp <Plug>GitGutterPrevHunk<CR>
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+	  " git gutter for macosx
+	  map <leader>gr <Plug>(GitGutterUndoHunk)<CR>
+	  map <leader>gn <Plug>(GitGutterNextHunk)<CR>
+	  map <leader>gp <Plug>(GitGutterPrevHunk)<CR>
+  else
+	  " git gutter for linux
+	  map <leader>gr <Plug>GitGutterUndoHunk<CR>
+	  map <leader>gn <Plug>GitGutterNextHunk<CR>
+	  map <leader>gp <Plug>GitGutterPrevHunk<CR>
+  endif
+endif
 
 " vim-airline buffer control.
 nnoremap <leader>q :bp<CR>
@@ -278,7 +284,6 @@ Plugin 'ctags.vim'                        " Function navigaion
 Plugin 'snipMate'                         " Snippet
 Plugin 'tComment'                         " C+_ C+_ block comment.
 Plugin 'EasyMotion'                       " \w, \b to fast navigation.
-Plugin 'justinmk/vim-sneak'               " 's' to fast navigation.
 Plugin 'AutoClose'                        " [] {} Automatric parenthesis. {} ()
 Plugin 'Mark'                             " F4, F5 to mark.
 Plugin 'majutsushi/tagbar'                " Function navigation.
