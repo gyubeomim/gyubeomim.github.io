@@ -178,8 +178,7 @@ imap <C-O> <ESC>O
 imap <C-F> <ESC>o
 
 " Hit enter in normal mode.
-map <ESC><CR> <M-CR>
-nnoremap <M-CR> i<CR><Esc>  
+nnoremap <CR> i<CR><Esc>  
 
 " Resize the window.
 nnoremap <silent> <C-C><C-C> :exe "vertical resize " . (winwidth(0) * 11/10)<CR>
