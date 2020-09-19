@@ -112,14 +112,20 @@ inoremap {<Tab> {<CR>}<C-o>O
 inoremap (<CR> (<CR>)<C-o>O
 inoremap (<Tab> (<CR>)<C-o>O
 
+" Delete key in insert mode.
+imap <C-D> <Del>
+
+" Undo in insert mode.
+imap <C-Z> <ESC>ua
+
+" Delete the previous word.
+imap <C-R> <ESC>ldbi
+
 " Print current file path.
 nmap <C-P> :Cwd<CR>
 
-" delete key in insert mode.
-imap <C-D> <Del>
-
-" undo in insert mode.
-imap <C-Z> <ESC>ua
+" Disable highlighted search word.
+nmap t :let @/=""<CR>
 
 " \s press \s on the word you want to replace
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/
