@@ -211,7 +211,7 @@ $ mv  ~/Downloads/codedark.vim  ~/.vim/colors
 <h2 id="orgce06f0c"><span class="section-number-2">3</span> youcompleteme setting</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-(<code>youcompleteme</code> 또는 <code>vim-lsp</code> 플러그인 세팅 중 하나만 세팅하여 사용하면 된다.)
+(<code>youcompleteme</code> 또는 <code>vim-lsp</code> 플러그인 세팅 중 하나만 사용하면 된다.)
 </p>
 
 <p>
@@ -321,15 +321,77 @@ $ vim /path/to/cmake/project/.ycm_extra_conf.py
 </div>
 
 
-
 <div id="outline-container-orgbbfb1e8" class="outline-2">
 <h2 id="orgbbfb1e8"><span class="section-number-2">4</span> vim-lsp setting</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-(<code>youcompleteme</code> 또는 <code>vim-lsp</code> 플러그인 세팅 중 하나만 세팅하여 사용하면 된다.)
+(<code>youcompleteme</code> 또는 <code>vim-lsp</code> 플러그인 세팅 중 하나만 사용하면 된다.)
+</p>
+
+<p>
+현재(2020.09) 기준으로 테스트해 본 결과 <code>vim-lsp</code> 는 vim 8.0, vim 8.1 버전에서 에러 구문 체크 기능이 정상적으로 작동하지 않는다. 또한 clangd-9 버전 이상을 사용해야 정상적으로 네비게이션이 가능했다.
+</p>
+
+<p>
+<b>따라서 본 포스트에서는 Ubuntu 18.04 LTS, vim 8.2, clangd-9 버전을 사용하여 진행하였다.</b> vim 8.2 버전은 <a href="https://ftp.nluug.nl/pub/vim/unix/">vim ftp 사이트</a> 에서 소스코드를 다운로드 받은 후 <a href="https://gist.github.com/stonelasley/eb947e2d16cc4d11f89c41c905f5a0d5">설치 스크립트</a>를 통해 빌드 후 사용하면 된다. clangd-9은 다음 명령을 통해 설치하면 된다.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ sudo apt install clangd-9 
+</pre>
+</div>
+
+<p>
+<code>vim-lsp</code> 는 <code>ycm</code> 과 다르게 .ycm_extra_conf.py를 사용하지 않고도 자동으로 코드 네비게이션이 적용된다. 하지만 해당 플러그인 역시 clang 컴파일러를 사용하므로 <code>compile_commands.json</code> 파일이 cmake 프로젝트의 최상단에 링크 파일로 존재해야 한다. 따라서 다음과 같이 진행한다.
+</p>
+
+<ol class="org-ol">
+<li><p>
+cmake 프로젝트에서 빌드를 수행할 때 <code>-DCMAKE_EXPORT_COMPILE_COMMANDS=1</code> 옵션을 추가하여 build 폴더에 <code>compile_commands.json</code> 파일이 생성되도록 한다. 코드를 반드시 빌드하지(make) 않아도 해당 json 파일만 생성되면 네비게이션이 된다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">In cmake project, make build folder and go to the folder.</span>
+$ mkdir build
+$ cd build
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">This option creates 'compile_commands.json' file.</span>
+$ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..
+</pre>
+</div></li>
+<li><p>
+앞서 생성한 <code>compile_commands.json</code> 파일을 프로젝트 최상단에 링크 파일로 세팅한다.
+</p>
+
+<p>
+$ cd <i>path/to/cmake/project</i>
+$ ln -s ./build/compile_commands.json ./
+#+END_SRC
+</p></li>
+<li>cmake 프로젝트의 최상단 디렉토리에서 vim을 실행한 후 프로그래밍한다.</li>
+</ol>
+
+
+<figure>
+<img src="/pictures/200917/ycm_ac.gif" alt="ycm_ac.gif" align="center">
+
+</figure>
+
+<p>
+모든 세팅이 정상적으로 완료된 경우 <code>ycm</code> 과 동일하게 임의로 작성한 코드 및 기본 헤더 코드에 대한 자동완성 기능을 사용할 수 있다. 
+</p>
+
+
+<figure>
+<img src="/pictures/200917/ycm_nav.gif" alt="ycm_nav.gif" align="center">
+
+</figure>
+
+<p>
+그리고 <code>ycm</code> 과 동일하게 함수 및 변수로 이동(코드 네비게이션) 또한 가능하다.
 </p>
 </div>
 </div>
+
 
 <div id="outline-container-org8567efb" class="outline-2">
 <h2 id="org8567efb"><span class="section-number-2">5</span> My vim configuration</h2>
