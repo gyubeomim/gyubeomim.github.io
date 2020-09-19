@@ -181,6 +181,9 @@ nmap U :redo<CR>
 " Quit without saving.
 nnoremap Q ZQ
 
+" Automatrically close the quickfix window after done using.
+autocmd FileType qf nnoremap <buffer> <Enter> <Enter>:cclose<CR>
+
 " ======================== Plugin Mapping =============================
 " mark and unmark
 map <F4> <Plug>MarkClear        
