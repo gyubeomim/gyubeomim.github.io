@@ -357,12 +357,12 @@ $ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..
 <li><p>
 앞서 생성한 <code>compile_commands.json</code> 파일을 프로젝트 최상단에 링크 파일로 세팅한다.
 </p>
-
-<p>
-$ cd <i>path/to/cmake/project</i>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Create a soft link of compile_commands.json file to the cmake project root path.</span>
+$ cd /path/to/cmake/project/
 $ ln -s ./build/compile_commands.json ./
-#+END_SRC
-</p></li>
+</pre>
+</div></li>
 <li>cmake 프로젝트의 최상단 디렉토리에서 vim을 실행한 후 프로그래밍한다.</li>
 </ol>
 
