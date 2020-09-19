@@ -47,7 +47,7 @@ set fenc=utf-8
 set fencs=ucs-bom,utf-8,cp949,latin1
 
 " font setting
-set guifont=Source\ Code\ Pro\ 11
+set guifont=Hack\ 11
 set guifontwide=Dotumche\ 11
 
 " hide toolbar, menubar
