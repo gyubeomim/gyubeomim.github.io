@@ -273,7 +273,7 @@ $ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Copy .ycm_extra_conf.py file to the root of the cmake project.</span>
 $ cp  ~/.vim/.ycm_extra_conf.py  /path/to/cmake/project/
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">At the cmake project root path.</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Create a soft link of compile_commands.json file to the cmake project root path.</span>
 $ cd /path/to/cmake/project/
 $ ln -s ./build/compile_commands.json ./
 </pre>
