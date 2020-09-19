@@ -99,6 +99,13 @@ function! Cwd(...)
 endfunction
 command! -bar Cwd call Cwd()
 
+" Quit all other windows except for the NERD-tree
+function! OnlyAndNerdtree()
+    let currentWindowID = win_getid()
+    windo if win_getid() != currentWindowID && &filetype != 'nerdtree' | close | endif
+endfunction
+command! Only call OnlyAndNerdtree()
+
 " ======================== General Mapping =============================
 " tmux-vim ABCD error fix
 imap <ESC>oA <ESC>ki
@@ -123,6 +130,9 @@ imap <C-R> <ESC>ldbi
 
 " Print current file path.
 nmap <C-P> :Cwd<CR>
+
+" Quit other windows except for the NERD-tree
+nmap <C-Q> :Only<CR>
 
 " Disable highlighted search word.
 nmap t :let @/=""<CR>
