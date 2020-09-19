@@ -338,7 +338,7 @@ $ vim /path/to/cmake/project/.ycm_extra_conf.py
 </div>
 
 <p>
-<code>vim-lsp</code> 는 <code>ycm</code> 과 다르게 .ycm_extra_conf.py를 사용하지 않고도 자동으로 코드 네비게이션이 적용된다. 하지만 해당 플러그인 역시 clang 컴파일러를 사용하므로 <code>compile_commands.json</code> 파일이 cmake 프로젝트의 최상단에 링크 파일로 존재해야 한다. 따라서 다음과 같이 진행한다.
+<code>vim-lsp</code> 는 <code>ycm</code> 과 달리 .ycm_extra_conf.py를 사용하지 않고도 <code>compile_commands.json</code> 파일이 cmake 프로젝트 최상단에 링크 파일로 존재하면 자동으로 인식된다. 따라서 다음과 같이 진행한다.
 </p>
 
 <ol class="org-ol">
