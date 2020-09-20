@@ -31,6 +31,7 @@ set showmatch              " highlight matching parenthesis
 set wildignorecase         " Ignore the case sensitive when using tab autocompletion"
 set autoread               " Automatically update the new change in the buffer.
 set cino=N-s               " c++ namespace indentation
+set cursorline             " current line highlighting
 
 set t_Co=256
 
@@ -89,6 +90,12 @@ au BufRead,BufNewFile *.ino set filetype=arduino
 
 "" Read ROS launch file.
 au BufRead,BufNewFile *.launch set filetype=xml
+
+augroup CursorLine
+        au!
+        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+        au WinLeave * setlocal nocursorline
+augroup END
 
 " theme 
 colorscheme codedark
@@ -268,17 +275,36 @@ let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
-" vim-lsp (using clangd-9)
-if executable('clangd-9')
-	augroup lsp_clangd
-		autocmd!
-		autocmd User lsp_setup call lsp#register_server({
-					\ 'name': 'clangd',
-					\ 'cmd': {server_info->['clangd-9']},
-					\ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-					\ })
-	augroup end
+" vim-lsp (using clangd)
+if has("unix")
+	let s:uname = system("uname")
+	if s:uname == "Darwin\n"
+		" macosx for clangd (6.0)
+		if executable('clangd')
+			augroup lsp_clangd
+				autocmd!
+				autocmd User lsp_setup call lsp#register_server({
+							\ 'name': 'clangd',
+							\ 'cmd': {server_info->['clangd']},
+							\ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+							\ })
+			augroup end
+		endif
+	else
+		" linux for clangd-9 
+		if executable('clangd-9')
+			augroup lsp_clangd
+				autocmd!
+				autocmd User lsp_setup call lsp#register_server({
+							\ 'name': 'clangd',
+							\ 'cmd': {server_info->['clangd-9']},
+							\ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+							\ })
+			augroup end
+		endif
+	endif
 endif
+
 let g:lsp_highlights_enabled = 1
 let g:lsp_textprop_enabled = 1
 

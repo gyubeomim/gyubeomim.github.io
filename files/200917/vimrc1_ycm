@@ -31,6 +31,7 @@ set showmatch              " highlight matching parenthesis
 set wildignorecase         " Ignore the case sensitive when using tab autocompletion"
 set autoread               " Automatically update the new change in the buffer.
 set cino=N-s               " c++ namespace indentation
+set cursorline             " current line highlighting
 
 set t_Co=256
 
@@ -89,6 +90,12 @@ au BufRead,BufNewFile *.ino set filetype=arduino
 
 "" Read ROS launch file.
 au BufRead,BufNewFile *.launch set filetype=xml
+
+augroup CursorLine
+        au!
+        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+        au WinLeave * setlocal nocursorline
+augroup END
 
 " theme 
 colorscheme codedark
