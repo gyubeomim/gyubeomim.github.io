@@ -200,6 +200,7 @@ map <F5> <Plug>MarkSet
 
 " Nerdtree 
 nmap <C-N> :NERDTreeToggle<CR> 
+nnoremap <leader>z :NERDTreeFind<CR>
 
 " Tagbar
 nmap <C-T> :Tagbar<CR>            
