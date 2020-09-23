@@ -17,13 +17,14 @@ comments: true
 <ul>
 <li><a href="#orgce06f0c">2.1. youcompleteme setting</a>
 <ul>
-<li><a href="#org3436d54">2.1.1. .ycm_extra_conf.py</a></li>
+<li><a href="#orgd58302d">2.1.1. C++</a></li>
+<li><a href="#org8ce6dea">2.1.2. Python</a></li>
 </ul>
 </li>
 <li><a href="#orgbbfb1e8">2.2. vim-lsp setting</a>
 <ul>
-<li><a href="#orgd58302d">2.2.1. C++</a></li>
-<li><a href="#org4b945dc">2.2.2. Python</a></li>
+<li><a href="#org399c7c0">2.2.1. C++</a></li>
+<li><a href="#orga6a3761">2.2.2. Python</a></li>
 </ul>
 </li>
 </ul>
@@ -253,8 +254,8 @@ $ cp  ~/.vim/bundle/youcompleteme/third_party/ycmd/.ycm_extra_conf.py  ~/.vim/
 </div>
 </div>
 
-<div id="outline-container-org3436d54" class="outline-4">
-<h4 id="org3436d54"><span class="section-number-4">2.1.1</span> .ycm_extra_conf.py</h4>
+<div id="outline-container-orgd58302d" class="outline-4">
+<h4 id="orgd58302d"><span class="section-number-4">2.1.1</span> C++</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 앞서 복사한 <code>~/.vim/.ycm_extra_conf.py</code> 파일은 <code>/usr/include, /usr/local/include</code> 폴더에서 표준헤더 파일을 읽은 후 시스템에 설치된 표준헤더들에 대해 자동완성을 수행한다. 따라서 c++의 경우 vector, map, algorithm 같은 표준헤더들의 자동완성이 가능해진다. 하지만 <b>개발자가 임의로 선언한 클래스, 멤버함수, 멤버변수에 대한 자동완성 기능은 지원하지 않는다. 임의로 선언한 함수 및 변수들의 자동완성을 수행하기 위해서는 다음과 같은 순서로 진행해야 한다. 단, 해당 기능은 cmake로 개발중인 프로젝트에 한하여 적용된다.</b>
@@ -302,7 +303,15 @@ $ vim /path/to/cmake/project/.ycm_extra_conf.py
 <p>
 위와 같이 <b>새로운 cmake 프로젝트를 생성할 때마다 최상위 폴더에 <code>.ycm_extra_conf.py</code> 를 복사한 후 위 방법과 같이 진행하면 임의로 작성한 코드에 대한 자동완성과 코드 네비게이션 기능을 사용할 수 있다.</b>
 </p>
+</div>
+</div>
 
+<div id="outline-container-org8ce6dea" class="outline-4">
+<h4 id="org8ce6dea"><span class="section-number-4">2.1.2</span> Python</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+파이썬 코드를 <code>ycm</code> 플러그인으로 네비게이션하려는 경우 C++과 달리 별도의 과정없이 파일을 열면 자동으로 코드 인식이 된다. 따라서 앞서 설명한 것처럼 <code>.ycm_extra_conf.py</code> 파일이 <code>~/.vim/.ycm_extra_conf.py</code> 경로에만 있다면 어느 경로에서도 코드 네비게이션이 가능하다. 
+</p>
 
 
 <figure>
@@ -331,14 +340,13 @@ $ vim /path/to/cmake/project/.ycm_extra_conf.py
 <div id="outline-container-orgbbfb1e8" class="outline-3">
 <h3 id="orgbbfb1e8"><span class="section-number-3">2.2</span> vim-lsp setting</h3>
 <div class="outline-text-3" id="text-2-2">
-</div>
-<div id="outline-container-orgd58302d" class="outline-4">
-<h4 id="orgd58302d"><span class="section-number-4">2.2.1</span> C++</h4>
-<div class="outline-text-4" id="text-2-2-1">
 <p>
 (<code>youcompleteme</code> 또는 <code>vim-lsp</code> 플러그인 세팅 중 하나만 사용하면 된다.)
 </p>
-
+</div>
+<div id="outline-container-org399c7c0" class="outline-4">
+<h4 id="org399c7c0"><span class="section-number-4">2.2.1</span> C++</h4>
+<div class="outline-text-4" id="text-2-2-1">
 <p>
 현재(2020.09) 기준으로 테스트해 본 결과 <code>vim-lsp</code> 는 vim 7.x, 8.0, 8.1 버전에서 에러 구문 체크 기능이 정상적으로 작동하지 않고 vim 8.2 버전에서만 정상적으로 작동했다. 또한 clangd-9 버전 이상을 사용해야 정상적으로 코드 네비게이션이 가능했다. <b>따라서 해당 섹션에서는 Ubuntu 18.04 LTS, vim 8.2, clangd-9 버전을 사용하여 진행하였다.</b> vim 8.2 버전은 <a href="https://ftp.nluug.nl/pub/vim/unix/">vim ftp 사이트</a> 에서 소스코드를 다운로드 받은 후 <a href="https://gist.github.com/stonelasley/eb947e2d16cc4d11f89c41c905f5a0d5">설치 스크립트</a>를 통해 빌드 후 사용하면 된다. clangd-9은 다음 명령을 통해 설치하면 된다.
 </p>
@@ -398,11 +406,11 @@ $ ln -s ./build/compile_commands.json ./
 </p>
 </div>
 </div>
-<div id="outline-container-org4b945dc" class="outline-4">
-<h4 id="org4b945dc"><span class="section-number-4">2.2.2</span> Python</h4>
+<div id="outline-container-orga6a3761" class="outline-4">
+<h4 id="orga6a3761"><span class="section-number-4">2.2.2</span> Python</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
-파이썬 C++과 달리 <code>compile_commands.json</code> 파일 없이도 자동완성이 지원된다. 단 이러한 기능을 사용하기 위해서는 <code>pyls</code> 라는 프로그램을 설치해야 한다.
+파이썬의 경우 C++과 달리 <code>compile_commands.json</code> 파일 없이도 자동완성이 지원된다. 단, <code>vim-lsp</code> 에서 해당 기능을 사용하기 위해서는 <code>pyls</code> 라는 프로그램을 설치해야 한다.
 </p>
 
 <p>
