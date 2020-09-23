@@ -305,6 +305,18 @@ if has("unix")
 	endif
 endif
 
+" python ($ pip install python-language-server)
+if executable('pyls')
+	augroup lsp_clangd
+		autocmd!
+		autocmd User lsp_setup call lsp#register_server({
+					\ 'name': 'pyls',
+					\ 'cmd': {server_info->['pyls']},
+					\ 'whitelist': ['python'],
+					\ })
+	augroup end
+endif
+
 let g:lsp_highlights_enabled = 1
 let g:lsp_textprop_enabled = 1
 

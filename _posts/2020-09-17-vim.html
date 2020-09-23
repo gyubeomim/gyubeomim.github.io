@@ -20,7 +20,12 @@ comments: true
 <li><a href="#org3436d54">2.1.1. .ycm_extra_conf.py</a></li>
 </ul>
 </li>
-<li><a href="#orgbbfb1e8">2.2. vim-lsp setting</a></li>
+<li><a href="#orgbbfb1e8">2.2. vim-lsp setting</a>
+<ul>
+<li><a href="#orgd58302d">2.2.1. C++</a></li>
+<li><a href="#org4b945dc">2.2.2. Python</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#org8567efb">3. My vim configuration</a>
@@ -326,6 +331,10 @@ $ vim /path/to/cmake/project/.ycm_extra_conf.py
 <div id="outline-container-orgbbfb1e8" class="outline-3">
 <h3 id="orgbbfb1e8"><span class="section-number-3">2.2</span> vim-lsp setting</h3>
 <div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-orgd58302d" class="outline-4">
+<h4 id="orgd58302d"><span class="section-number-4">2.2.1</span> C++</h4>
+<div class="outline-text-4" id="text-2-2-1">
 <p>
 (<code>youcompleteme</code> 또는 <code>vim-lsp</code> 플러그인 세팅 중 하나만 사용하면 된다.)
 </p>
@@ -387,6 +396,27 @@ $ ln -s ./build/compile_commands.json ./
 <p>
 그리고 <code>ycm</code> 과 동일하게 함수 및 변수로 이동(코드 네비게이션) 또한 가능하다.
 </p>
+</div>
+</div>
+<div id="outline-container-org4b945dc" class="outline-4">
+<h4 id="org4b945dc"><span class="section-number-4">2.2.2</span> Python</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+파이썬 C++과 달리 <code>compile_commands.json</code> 파일 없이도 자동완성이 지원된다. 단 이러한 기능을 사용하기 위해서는 <code>pyls</code> 라는 프로그램을 설치해야 한다.
+</p>
+
+<p>
+<code>pyls</code> 는 다음 명령어를 통해 쉽게 설치할 수 있다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Install pyls</span>
+$ pip install python-language-server --user
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Check pyls is installed successfully</span>
+$ pyls --help
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
