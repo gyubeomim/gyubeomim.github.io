@@ -913,15 +913,49 @@ vim 키바인딩을 사용할 수 있는 패키지. vim의 키바인딩과 동�
 <div class="outline-text-4" id="text-3-2-9">
 <p align="center">
 <img src="/pictures/200926/lspmode.gif" alt="lspmode.gif" align="center">
-코드 네비게이션(함수 이동, 에러 체크) 및 자동완성을 수행하는 패키지. 맨 처음 <code>lsp-mode</code> 를 실행하는 경우 아래와 같이 cmake 프로젝트의 최상단을 입력하라는 창이 뜬다. 제안된 경로가 맞는 경우 <code>i</code> 키를 누르면 되고 임의로 경로를 변경하고 싶은 경우 <code>I</code> 키를 눌러서 변경하면 된다.
+코드 네비게이션(함수 이동, 에러 체크) 및 자동완성을 수행하는 패키지
+</p>
+
+<p>
+맨 처음 <code>lsp-mode</code> 를 실행하는 경우 아래와 같이 cmake 프로젝트의 최상단을 입력하라는 창이 뜬다. 제안된 경로가 맞는 경우 <code>i</code> 키를 누르면 되고 임의로 경로를 변경하고 싶은 경우 <code>I</code> 키를 눌러서 변경하면 된다. 
 </p>
 
 <figure>
 <img src="/pictures/200926/lsp_mode.png" alt="lsp_mode.png" align="center">
 
 </figure>
+
+<p>
+임의로 작성한 함수 및 클래스의 자동완성을 하고자 하는 경우 cmake 프로젝트의 최상단 경로에 <code>compile_commands.json</code> 링크 파일이 존재해야 한다. 다음과 같이 진행한다.
+</p>
+
+<ol class="org-ol">
+<li><p>
+cmake 프로젝트에서 빌드를 수행할 때 <code>-DCMAKE_EXPORT_COMPILE_COMMANDS=1</code> 옵션을 추가하여 build 폴더에 <code>compile_commands.json</code> 파일이 생성되도록 한다. 코드를 반드시 빌드하지(make) 않아도 해당 json 파일만 생성되면 네비게이션이 된다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">In cmake project, make build folder and go to the folder.</span>
+$ mkdir build
+$ cd build
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">This option creates 'compile_commands.json' file.</span>
+$ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..
+</pre>
+</div></li>
+<li><p>
+앞서 생성한 <code>compile_commands.json</code> 파일을 프로젝트 최상단에 링크 파일로 세팅한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Create a soft link of compile_commands.json file to the cmake project root path.</span>
+$ cd /path/to/cmake/project/
+$ ln -s ./build/compile_commands.json ./
+</pre>
+</div></li>
+<li>emacs에서 파일을 열 때 lsp 경로를 묻는 창이 나오면 cmake 프로젝트의 최상단 디렉토리를 설정한다.</li>
+</ol>
 </div>
 </div>
+
 <div id="outline-container-orgf9fb60f" class="outline-4">
 <h4 id="orgf9fb60f"><span class="section-number-4">3.2.10</span> eldoc</h4>
 <div class="outline-text-4" id="text-3-2-10">
