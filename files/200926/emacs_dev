@@ -1761,16 +1761,14 @@ Version 2017-04-19"
             (define-key evil-normal-state-map (kbd "<SPC> x g") 'git-gutter-mode)
             (define-key evil-motion-state-map (kbd "<SPC> x g") 'git-gutter-mode)
 
-            ;; toggle minimap-mode
-            (define-key evil-normal-state-map (kbd "<SPC> x m") 'minimap-mode)
-            (define-key evil-motion-state-map (kbd "<SPC> x m") 'minimap-mode)
-
     ;;;; b binding =============================================================
             ;; bookmark
             (define-key evil-motion-state-map (kbd "<SPC> b v") 'bookmark-jump)
             (define-key evil-normal-state-map (kbd "<SPC> b v") 'bookmark-jump)
+            
             (define-key evil-motion-state-map (kbd "<SPC> b b") 'bookmark-set)
             (define-key evil-normal-state-map (kbd "<SPC> b b") 'bookmark-set)
+            
             (define-key evil-motion-state-map (kbd "<SPC> b d") 'bookmark-delete)
             (define-key evil-normal-state-map (kbd "<SPC> b d") 'bookmark-delete)
 
@@ -2235,7 +2233,7 @@ Version 2017-04-19"
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (doom-modeline centaur-tabs persist doom-themes neotree evil-surround monokai-theme zenburn-theme docker-tramp auto-indent-mode cmake-mode cmake-ide centered-cursor-mode minimap ov ox-twbs per-buffer-theme use-package smart-mode-line pomodoro tea-time image+ sr-speedbar mic-paren htmlize jedi-direx yasnippet ws-butler undo-tree smartparens rainbow-delimiters key-chord jedi highlight-indentation helm-swoop helm-projectile helm-gtags google-c-style flycheck ecb duplicate-thing dtrt-indent clean-aindent-mode anzu)))
+    (doom-modeline centaur-tabs persist doom-themes neotree evil-surround monokai-theme zenburn-theme docker-tramp auto-indent-mode cmake-mode cmake-ide centered-cursor-mode ov ox-twbs per-buffer-theme use-package smart-mode-line pomodoro tea-time image+ sr-speedbar mic-paren htmlize jedi-direx yasnippet ws-butler undo-tree smartparens rainbow-delimiters key-chord jedi highlight-indentation helm-swoop helm-projectile helm-gtags google-c-style flycheck ecb duplicate-thing dtrt-indent clean-aindent-mode anzu)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(recenter-positions (quote (middle top bottom)))
