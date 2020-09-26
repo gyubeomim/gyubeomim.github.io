@@ -75,11 +75,9 @@ comments: true
 <li><a href="#orgf447555">3.2.3. gud</a>
 <ul>
 <li><a href="#orga27ac31">3.2.3.1. <code>&lt;SPC g d&gt;</code></a></li>
-<li><a href="#orge197764">3.2.3.2. <code>&lt;SPC g s&gt;</code></a></li>
+<li><a href="#org108d796">3.2.3.2. <code>&lt;SPC g w&gt;</code></a></li>
 <li><a href="#org5142c6d">3.2.3.3. <code>&lt;SPC g b&gt;</code></a></li>
-<li><a href="#orge8fca8a">3.2.3.4. <code>&lt;SPC g f&gt;</code></a></li>
-<li><a href="#org108d796">3.2.3.5. <code>&lt;SPC g w&gt;</code></a></li>
-<li><a href="#org3aed7de">3.2.3.6. <code>&lt;SPC g n&gt;</code></a></li>
+<li><a href="#orge197764">3.2.3.4. <code>&lt;SPC g s&gt;</code></a></li>
 </ul>
 </li>
 <li><a href="#org0d16983">3.2.4. helm</a>
@@ -665,26 +663,44 @@ Scratch 버퍼로 이동한다.
 <h4 id="orgf447555"><span class="section-number-4">3.2.3</span> gud</h4>
 <div class="outline-text-4" id="text-3-2-3">
 <p>
-(emacs 기본패키지) gdb 디버깅을 수행하는 패키지
+(emacs 기본패키지) gdb 디버깅을 수행하는 패키지. gcc, g++ 컴파일 수행 시 <code>-g</code> 옵션을 추가해줘야 정상적으로 디버깅할 수 있다. 또는 cmake 프로젝트에서 <code>RelWithDebInfo</code> 또는 <code>Debug</code> 모드로 컴파일해야 정상적으로 디버깅할 수 있다.
 </p>
 </div>
 <div id="outline-container-orga27ac31" class="outline-5">
 <h5 id="orga27ac31"><span class="section-number-5">3.2.3.1</span> <code>&lt;SPC g d&gt;</code></h5>
+<div class="outline-text-5" id="text-3-2-3-1">
+<p align="center">
+<img src="/pictures/200926/gud_g_d.gif" alt="gud_g_d.gif" align="center">
+gdb를 실행한다. args 뒤에 실행파일의 경로를 입력해준다.
+</p>
 </div>
-<div id="outline-container-orge197764" class="outline-5">
-<h5 id="orge197764"><span class="section-number-5">3.2.3.2</span> <code>&lt;SPC g s&gt;</code></h5>
+</div>
+<div id="outline-container-org108d796" class="outline-5">
+<h5 id="org108d796"><span class="section-number-5">3.2.3.2</span> <code>&lt;SPC g w&gt;</code></h5>
+<div class="outline-text-5" id="text-3-2-3-2">
+<p align="center">
+<img src="/pictures/200926/gud_g_w.gif" alt="gud_g_w.gif" align="center">
+gdb의 다양한 정보를 보기 위해 창을 토글한다.
+</p>
+</div>
 </div>
 <div id="outline-container-org5142c6d" class="outline-5">
 <h5 id="org5142c6d"><span class="section-number-5">3.2.3.3</span> <code>&lt;SPC g b&gt;</code></h5>
+<div class="outline-text-5" id="text-3-2-3-3">
+<p align="center">
+<img src="/pictures/200926/gud_g_b.gif" alt="gud_g_b.gif" align="center">
+특정 라인의 브레이크포인트를 설정한다.
+</p>
 </div>
-<div id="outline-container-orge8fca8a" class="outline-5">
-<h5 id="orge8fca8a"><span class="section-number-5">3.2.3.4</span> <code>&lt;SPC g f&gt;</code></h5>
 </div>
-<div id="outline-container-org108d796" class="outline-5">
-<h5 id="org108d796"><span class="section-number-5">3.2.3.5</span> <code>&lt;SPC g w&gt;</code></h5>
+<div id="outline-container-orge197764" class="outline-5">
+<h5 id="orge197764"><span class="section-number-5">3.2.3.4</span> <code>&lt;SPC g s&gt;</code></h5>
+<div class="outline-text-5" id="text-3-2-3-4">
+<p align="center">
+<img src="/pictures/200926/gud_g_s.gif" alt="gud_g_s.gif" align="center">
+해당 코드를 실행한다.
+</p>
 </div>
-<div id="outline-container-org3aed7de" class="outline-5">
-<h5 id="org3aed7de"><span class="section-number-5">3.2.3.6</span> <code>&lt;SPC g n&gt;</code></h5>
 </div>
 </div>
 <div id="outline-container-org0d16983" class="outline-4">
