@@ -941,10 +941,10 @@ Version 2017-04-19"
     (define-key magit-diff-mode-map (kbd "C-d") 'evil-scroll-down)
 
     ;;;; m binding =============================================================
-    (define-key magit-status-mode-map   (kbd "<SPC> m 1") 'multi-term)
-    (define-key magit-diff-mode-map     (kbd "<SPC> m 1") 'multi-term)
-    (define-key magit-revision-mode-map (kbd "<SPC> m 1") 'multi-term)
-    (define-key magit-process-mode-map  (kbd "<SPC> m 1") 'multi-term)
+    (define-key magit-status-mode-map   (kbd "<SPC> m m") 'multi-term)
+    (define-key magit-diff-mode-map     (kbd "<SPC> m m") 'multi-term)
+    (define-key magit-revision-mode-map (kbd "<SPC> m m") 'multi-term)
+    (define-key magit-process-mode-map  (kbd "<SPC> m m") 'multi-term)
 
     (define-key magit-status-mode-map   (kbd "<SPC> m t") 'my-multi-term)
     (define-key magit-diff-mode-map     (kbd "<SPC> m t") 'my-multi-term)
@@ -1613,8 +1613,8 @@ Version 2017-04-19"
             ;; evvv
 
     ;;;; m binding =============================================================
-            (define-key evil-normal-state-map (kbd "<SPC> m 1") 'multi-term)
-            (define-key evil-motion-state-map (kbd "<SPC> m 1") 'multi-term)
+            (define-key evil-normal-state-map (kbd "<SPC> m m") 'multi-term)
+            (define-key evil-motion-state-map (kbd "<SPC> m m") 'multi-term)
 
             (define-key evil-normal-state-map (kbd "<SPC> m t") 'my-multi-term)
             (define-key evil-motion-state-map (kbd "<SPC> m t") 'my-multi-term)
@@ -1712,18 +1712,14 @@ Version 2017-04-19"
 
     ;;;; p binding =============================================================
             ;; add current project to projectile project.
-            (define-key evil-normal-state-map (kbd "<SPC> p 1") 'add-current-project-to-projectile)
-            (define-key evil-motion-state-map (kbd "<SPC> p 1") 'add-current-project-to-projectile)
+            (define-key evil-normal-state-map (kbd "<SPC> p p") 'add-current-project-to-projectile)
+            (define-key evil-motion-state-map (kbd "<SPC> p p") 'add-current-project-to-projectile)
 
-            (define-key evil-normal-state-map (kbd "<SPC> p 2") 'projectile-remove-known-project)
-            (define-key evil-motion-state-map (kbd "<SPC> p 2") 'projectile-remove-known-project)
+            (define-key evil-normal-state-map (kbd "<SPC> p r") 'projectile-remove-known-project)
+            (define-key evil-motion-state-map (kbd "<SPC> p r") 'projectile-remove-known-project)
 
-            (define-key evil-normal-state-map (kbd "<SPC> p 3") 'projectile-add-known-project)
-            (define-key evil-motion-state-map (kbd "<SPC> p 3") 'projectile-add-known-project)
-
-            ;; find file.
-            (define-key evil-normal-state-map (kbd "<SPC> p f") 'helm-find)
-            (define-key evil-motion-state-map (kbd "<SPC> p f") 'helm-find)
+            (define-key evil-normal-state-map (kbd "<SPC> p a") 'projectile-add-known-project)
+            (define-key evil-motion-state-map (kbd "<SPC> p a") 'projectile-add-known-project)
 
             ;; find directory.
             (define-key evil-normal-state-map (kbd "<SPC> p d") 'helm-projectile-find-dir)
