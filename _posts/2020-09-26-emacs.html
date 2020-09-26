@@ -1,0 +1,322 @@
+--- 
+layout: post
+title: (Linux) Emacs 에디터 다양한 기능 설명 및 C++ 개발 환경설정
+description: 
+date: 2020-09-26
+categories: [Technology]
+tag: [Linux, Editor, emacs, tutorial, c++, python]
+use_math: true
+comments: true
+---
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgaeff015">1. Introduction</a></li>
+<li><a href="#org4a23909">2. How to setup</a></li>
+<li><a href="#org52b17ca">3. My emacs configuration</a>
+<ul>
+<li><a href="#org108bebe">3.1. General Features</a>
+<ul>
+<li><a href="#orgd872b6c">3.1.1. General keybindings</a></li>
+<li><a href="#org3e3e916">3.1.2. Space keybindings</a></li>
+</ul>
+</li>
+<li><a href="#orgfb42b94">3.2. Package Features</a>
+<ul>
+<li><a href="#org0d16983">3.2.1. helm</a></li>
+<li><a href="#org3713a80">3.2.2. projectile</a></li>
+<li><a href="#org0a6414f">3.2.3. helm-projectile</a></li>
+<li><a href="#org33041d9">3.2.4. magit</a></li>
+<li><a href="#org472a10c">3.2.5. evil</a></li>
+<li><a href="#org1a2bbed">3.2.6. evil-surround</a></li>
+<li><a href="#org6102548">3.2.7. yasnippet</a></li>
+<li><a href="#org01403a8">3.2.8. lsp-mode</a></li>
+<li><a href="#orga4b57c4">3.2.9. lsp-ui</a></li>
+<li><a href="#org7c75bef">3.2.10. eldoc</a></li>
+<li><a href="#org5e8f63f">3.2.11. all-the-icons</a></li>
+<li><a href="#org01e6f43">3.2.12. doom-modeline</a></li>
+<li><a href="#org12590f1">3.2.13. flycheck</a></li>
+<li><a href="#orgd185014">3.2.14. neotree</a></li>
+<li><a href="#orgdf4238a">3.2.15. eyebrowse</a></li>
+<li><a href="#orgd50ec53">3.2.16. git-gutter</a></li>
+<li><a href="#orgce4d8e5">3.2.17. centaur-tabs</a></li>
+<li><a href="#orgdcf2e92">3.2.18. which-key</a></li>
+<li><a href="#orgd2259ff">3.2.19. which-func</a></li>
+<li><a href="#org1df4fdb">3.2.20. multi-term</a></li>
+<li><a href="#org5e2593b">3.2.21. iedit</a></li>
+<li><a href="#orgf3ceab5">3.2.22. wgrep</a></li>
+<li><a href="#org726559d">3.2.23. avy</a></li>
+<li><a href="#orgf441a04">3.2.24. ecb</a></li>
+<li><a href="#org82a1090">3.2.25. highlight-symbol</a></li>
+<li><a href="#orgf5cfd41">3.2.26. highlight-indentation</a></li>
+<li><a href="#org01b5f6e">3.2.27. google-c-style</a></li>
+<li><a href="#orgfa99380">3.2.28. undo-tree</a></li>
+<li><a href="#orgcf8f672">3.2.29. mic-paren</a></li>
+<li><a href="#org1b3300d">3.2.30. ws-butler</a></li>
+<li><a href="#org2574b14">3.2.31. hide-comnt</a></li>
+<li><a href="#orga11f598">3.2.32. smartparens</a></li>
+<li><a href="#org8004667">3.2.33. auto-complete</a></li>
+<li><a href="#org4f95b8e">3.2.34. dtrt-indent</a></li>
+<li><a href="#orgdbe0ee4">3.2.35. duplicate-thing</a></li>
+<li><a href="#org21e32b4">3.2.36. jedi</a></li>
+<li><a href="#orgaea7fcb">3.2.37. elpy</a></li>
+<li><a href="#orge765789">3.2.38. cmake-ide</a></li>
+<li><a href="#orgc4fe174">3.2.39. cmake-mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgbd15200">4. References</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-orgaeff015" class="outline-2">
+<h2 id="orgaeff015"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+
+<figure>
+<img src="/pictures/200920/01.png" alt="01.png" align="center">
+
+</figure>
+
+<p>
+본 포스트에서는 리눅스에서 emacs 에디터를 통해 C++ 개발환경을 구축하는 방법에 대하여 설명한다. emacs는 40년이 넘는 오랜 역사를 가지고 있는 에디터이므로 매우 다양한 코드 네비게이션 방법들이 존재하지만 본 포스트에서는 <code>lsp-mode</code> 를 사용하여 코드 네비게이션하는 방법에 대해 설명한다.
+</p>
+
+<p>
+emacs는 매우 복잡하고 많은 키바인딩으로 유명하다. 이러한 복잡한 키바인딩을 단순화시켜서 편하게 사용하기 위해 필자는 <code>evil</code> 모드를 설치하여 vim 키바인딩을 사용하였으며 대부분의 키바인딩을 <code>Space</code> 키 기반으로 변경하여 손에 부담이 덜 가도록 설정하였다. <code>spacemacs</code> 같이 이미 많은 사람들이 사용하는 <code>Space</code> 키 기반의 emacs가 존재하지만 <code>use-package</code> 기반의 환경설정을 사용할 수 없어서 필자만의 커스텀 <code>Space</code> 키바인딩을 사용하였다.
+</p>
+
+<p>
+emacs는 C++ 에디터 외에도 <code>org-mode</code>, <code>latex-mode</code> 등과 같은 강력한 패키지들을 사용하여 일정 관리 및 논문 작성, 블로그 포스팅 등 여러 기능들을 사용할 수 있으나 본 포스트에서는 C++ 개발환경설정에 초점을 맞춘다. 그리고 emacs는 GUI, CLI 모두를 지원하지만 본 포스트에서는 GUI 환경에 대해서만 설명한다.
+</p>
+
+<p>
+포스트를 작성하는 시점(2020.09)을 기준으로 emacs 에디터의 버전은 <code>emacs 26.3</code> 을 사용하였으며 폰트는 <code>Hack</code> 을 사용하였고 테마는 <code>doom-dark+</code> 테마를 사용하였다. 포스트에서 설명하는 모든 내용들은 우분투 18.04 LTS 환경에서 테스트하였다. 설정 파일은 다음 링크에서 다운받을 수 있다. <a href="/files/200926/emacs">emacs</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4a23909" class="outline-2">
+<h2 id="org4a23909"><span class="section-number-2">2</span> How to setup</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<code>sudo apt install emacs</code> 를 통해 emacs를 설치하는 경우 일반적으로 26.3 버전이 아닌 다른 버전의 emacs가 설치될 것이다. 필자는 26.3 보다 낮은 버전에서 패키지를 설치할 때 TLS 에러 때문에 설치를 못했던 경험이 있어서 되도록이면 소스코드를 통해 빌드하는 방법을 추천한다. 물론 <code>apt</code> 를 통해 설치해도 최신 버전의 emacs가 설치되므로 큰 문제는 발생하지 않을 것이다.
+</p>
+
+<p>
+필자의 설치 방법을 소개한다. 우선 Documents 디렉토리로 이동한다.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ cd ~/Documents
+</pre>
+</div>
+
+<p>
+다음으로 아래 명령을 통해 설치 스크립트를 다운로드한다. 또는 <a href="https://github.com/edward0im/lockdpwn/blob/master/shell_scripts/install_emacs.sh">해당 링크</a> 에서 스크립트를 Documents 폴더로 복사한다.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ wget https://raw.githubusercontent.com/edward0im/lockdpwn/master/shell_scripts/install_emacs.sh
+</pre>
+</div>
+
+<p>
+해당 스크립트를 열어서 <code>readonly version</code> 변수가 26.3 으로 되어 있는지 확인한다. 다음으로 해당 스크립트에 실행 권한을 준 후 실행하여 emacs 26.3을 설치한다.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ chmod 755 ./install_emacs.sh
+$ ./install_emacs.sh
+</pre>
+</div>
+
+<p>
+다음으로 <a href="/files/200926/emacs">emacs</a> 환경설정 파일을 다운로드 받아서 홈폴더로 이동시킨다. 이 때, emacs 파일 이름 앞에 점(.)을 추가해야 정상적으로 emacs에서 인식한다.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Move .emacs to home folder.</span>
+$ mv  ~/Downloads/emacs  ~/.emacs
+</pre>
+</div>
+
+<p>
+그리고 다음 경로로 이동하여 emacs를 실행한다. emacs를 실행하면 .emacs 파일에서 패키지 목록을 읽어서 패키지들을 자동으로 설치한다. 이 때, TLS 관련 질문이 나오면 <code>always</code> 를 선택하여 모든 패키지들을 설치한다.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ cd ~/Documents/emacs-26.3/src/
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Run emacs 26.3</span>
+$ ./emacs
+</pre>
+</div>
+
+<p>
+여기까지 완료되었으면 모든 emacs 기능들이 정상적으로 설치되었다.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org52b17ca" class="outline-2">
+<h2 id="org52b17ca"><span class="section-number-2">3</span> My emacs configuration</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+해당 섹션에서는 필자가 사용하는 emacs의 다양한 기본 기능 및 플러그인 기능들에 대해 설명한다. 사용하는 .emacs 파일은 (To be added) 에서 다운로드 받을 수 있다. 해당 키바인딩은 필자가 임의로 설정한 키바인딩이므로 원한다면 얼마든지 바꿔서 사용할 수 있다. 
+</p>
+</div>
+<div id="outline-container-org108bebe" class="outline-3">
+<h3 id="org108bebe"><span class="section-number-3">3.1</span> General Features</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+<b>Orignal keybindings</b> 섹션의 경우 vim 자체의 기본 키바인딩을 설명하였다. 키바인딩을 임의로 바꾼 경우 <b>Custom keybindings</b> 섹션에 설명하였다. vim에는 수많은 기능 및 키바인딩들이 존재하지만 이를 다 설명하지 않고 실제로 자주 사용하는 키바인딩 위주로 설명하였다.
+</p>
+
+<p>
+Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt 키바인딩은 <code>&lt;A-{...}&gt;</code> 으로 표현하였다. 
+</p>
+</div>
+<div id="outline-container-orgd872b6c" class="outline-4">
+<h4 id="orgd872b6c"><span class="section-number-4">3.1.1</span> General keybindings</h4>
+</div>
+<div id="outline-container-org3e3e916" class="outline-4">
+<h4 id="org3e3e916"><span class="section-number-4">3.1.2</span> Space keybindings</h4>
+</div>
+</div>
+<div id="outline-container-orgfb42b94" class="outline-3">
+<h3 id="orgfb42b94"><span class="section-number-3">3.2</span> Package Features</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-org0d16983" class="outline-4">
+<h4 id="org0d16983"><span class="section-number-4">3.2.1</span> helm</h4>
+</div>
+<div id="outline-container-org3713a80" class="outline-4">
+<h4 id="org3713a80"><span class="section-number-4">3.2.2</span> projectile</h4>
+</div>
+<div id="outline-container-org0a6414f" class="outline-4">
+<h4 id="org0a6414f"><span class="section-number-4">3.2.3</span> helm-projectile</h4>
+</div>
+<div id="outline-container-org33041d9" class="outline-4">
+<h4 id="org33041d9"><span class="section-number-4">3.2.4</span> magit</h4>
+</div>
+<div id="outline-container-org472a10c" class="outline-4">
+<h4 id="org472a10c"><span class="section-number-4">3.2.5</span> evil</h4>
+</div>
+<div id="outline-container-org1a2bbed" class="outline-4">
+<h4 id="org1a2bbed"><span class="section-number-4">3.2.6</span> evil-surround</h4>
+</div>
+<div id="outline-container-org6102548" class="outline-4">
+<h4 id="org6102548"><span class="section-number-4">3.2.7</span> yasnippet</h4>
+</div>
+<div id="outline-container-org01403a8" class="outline-4">
+<h4 id="org01403a8"><span class="section-number-4">3.2.8</span> lsp-mode</h4>
+</div>
+<div id="outline-container-orga4b57c4" class="outline-4">
+<h4 id="orga4b57c4"><span class="section-number-4">3.2.9</span> lsp-ui</h4>
+</div>
+<div id="outline-container-org7c75bef" class="outline-4">
+<h4 id="org7c75bef"><span class="section-number-4">3.2.10</span> eldoc</h4>
+</div>
+<div id="outline-container-org5e8f63f" class="outline-4">
+<h4 id="org5e8f63f"><span class="section-number-4">3.2.11</span> all-the-icons</h4>
+</div>
+<div id="outline-container-org01e6f43" class="outline-4">
+<h4 id="org01e6f43"><span class="section-number-4">3.2.12</span> doom-modeline</h4>
+</div>
+<div id="outline-container-org12590f1" class="outline-4">
+<h4 id="org12590f1"><span class="section-number-4">3.2.13</span> flycheck</h4>
+</div>
+<div id="outline-container-orgd185014" class="outline-4">
+<h4 id="orgd185014"><span class="section-number-4">3.2.14</span> neotree</h4>
+</div>
+<div id="outline-container-orgdf4238a" class="outline-4">
+<h4 id="orgdf4238a"><span class="section-number-4">3.2.15</span> eyebrowse</h4>
+</div>
+<div id="outline-container-orgd50ec53" class="outline-4">
+<h4 id="orgd50ec53"><span class="section-number-4">3.2.16</span> git-gutter</h4>
+</div>
+<div id="outline-container-orgce4d8e5" class="outline-4">
+<h4 id="orgce4d8e5"><span class="section-number-4">3.2.17</span> centaur-tabs</h4>
+</div>
+<div id="outline-container-orgdcf2e92" class="outline-4">
+<h4 id="orgdcf2e92"><span class="section-number-4">3.2.18</span> which-key</h4>
+</div>
+<div id="outline-container-orgd2259ff" class="outline-4">
+<h4 id="orgd2259ff"><span class="section-number-4">3.2.19</span> which-func</h4>
+</div>
+<div id="outline-container-org1df4fdb" class="outline-4">
+<h4 id="org1df4fdb"><span class="section-number-4">3.2.20</span> multi-term</h4>
+</div>
+<div id="outline-container-org5e2593b" class="outline-4">
+<h4 id="org5e2593b"><span class="section-number-4">3.2.21</span> iedit</h4>
+</div>
+<div id="outline-container-orgf3ceab5" class="outline-4">
+<h4 id="orgf3ceab5"><span class="section-number-4">3.2.22</span> wgrep</h4>
+</div>
+<div id="outline-container-org726559d" class="outline-4">
+<h4 id="org726559d"><span class="section-number-4">3.2.23</span> avy</h4>
+</div>
+<div id="outline-container-orgf441a04" class="outline-4">
+<h4 id="orgf441a04"><span class="section-number-4">3.2.24</span> ecb</h4>
+</div>
+<div id="outline-container-org82a1090" class="outline-4">
+<h4 id="org82a1090"><span class="section-number-4">3.2.25</span> highlight-symbol</h4>
+</div>
+<div id="outline-container-orgf5cfd41" class="outline-4">
+<h4 id="orgf5cfd41"><span class="section-number-4">3.2.26</span> highlight-indentation</h4>
+</div>
+<div id="outline-container-org01b5f6e" class="outline-4">
+<h4 id="org01b5f6e"><span class="section-number-4">3.2.27</span> google-c-style</h4>
+</div>
+<div id="outline-container-orgfa99380" class="outline-4">
+<h4 id="orgfa99380"><span class="section-number-4">3.2.28</span> undo-tree</h4>
+</div>
+<div id="outline-container-orgcf8f672" class="outline-4">
+<h4 id="orgcf8f672"><span class="section-number-4">3.2.29</span> mic-paren</h4>
+</div>
+<div id="outline-container-org1b3300d" class="outline-4">
+<h4 id="org1b3300d"><span class="section-number-4">3.2.30</span> ws-butler</h4>
+</div>
+<div id="outline-container-org2574b14" class="outline-4">
+<h4 id="org2574b14"><span class="section-number-4">3.2.31</span> hide-comnt</h4>
+</div>
+<div id="outline-container-orga11f598" class="outline-4">
+<h4 id="orga11f598"><span class="section-number-4">3.2.32</span> smartparens</h4>
+</div>
+<div id="outline-container-org8004667" class="outline-4">
+<h4 id="org8004667"><span class="section-number-4">3.2.33</span> auto-complete</h4>
+</div>
+<div id="outline-container-org4f95b8e" class="outline-4">
+<h4 id="org4f95b8e"><span class="section-number-4">3.2.34</span> dtrt-indent</h4>
+</div>
+<div id="outline-container-orgdbe0ee4" class="outline-4">
+<h4 id="orgdbe0ee4"><span class="section-number-4">3.2.35</span> duplicate-thing</h4>
+</div>
+<div id="outline-container-org21e32b4" class="outline-4">
+<h4 id="org21e32b4"><span class="section-number-4">3.2.36</span> jedi</h4>
+</div>
+<div id="outline-container-orgaea7fcb" class="outline-4">
+<h4 id="orgaea7fcb"><span class="section-number-4">3.2.37</span> elpy</h4>
+</div>
+<div id="outline-container-orge765789" class="outline-4">
+<h4 id="orge765789"><span class="section-number-4">3.2.38</span> cmake-ide</h4>
+</div>
+<div id="outline-container-orgc4fe174" class="outline-4">
+<h4 id="orgc4fe174"><span class="section-number-4">3.2.39</span> cmake-mode</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbd15200" class="outline-2">
+<h2 id="orgbd15200"><span class="section-number-2">4</span> References</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li><a href="https://blog.naver.com/gyurse/221231219845">Naver blog 포스트</a></li>
+</ol>
+</div>
+</div>
