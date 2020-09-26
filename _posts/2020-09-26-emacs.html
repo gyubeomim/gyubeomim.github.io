@@ -117,7 +117,8 @@ comments: true
 <li><a href="#orga42d25c">3.2.8. yasnippet</a></li>
 <li><a href="#orgcdfb48e">3.2.9. lsp-mode</a>
 <ul>
-<li><a href="#org72c3e7b">3.2.9.1. How to use</a></li>
+<li><a href="#org518dc52">3.2.9.1. C++</a></li>
+<li><a href="#org154bb5d">3.2.9.2. Python</a></li>
 </ul>
 </li>
 <li><a href="#orgf9fb60f">3.2.10. eldoc</a></li>
@@ -203,8 +204,7 @@ comments: true
 <li><a href="#org6bb66ba">3.2.27. mic-paren</a></li>
 <li><a href="#org9237ede">3.2.28. smartparens</a></li>
 <li><a href="#org88afe89">3.2.29. google-c-style</a></li>
-<li><a href="#org9d3f876">3.2.30. jedi</a></li>
-<li><a href="#org8ce1dcc">3.2.31. doom-modeline</a></li>
+<li><a href="#org8ce1dcc">3.2.30. doom-modeline</a></li>
 </ul>
 </li>
 </ul>
@@ -920,8 +920,8 @@ vim 키바인딩을 사용할 수 있는 패키지. vim의 키바인딩과 동�
 코드 네비게이션(함수 이동, 에러 체크) 및 자동완성을 수행하는 패키지
 </p>
 </div>
-<div id="outline-container-org72c3e7b" class="outline-5">
-<h5 id="org72c3e7b"><span class="section-number-5">3.2.9.1</span> How to use</h5>
+<div id="outline-container-org518dc52" class="outline-5">
+<h5 id="org518dc52"><span class="section-number-5">3.2.9.1</span> C++</h5>
 <div class="outline-text-5" id="text-3-2-9-1">
 <p>
 맨 처음 <code>lsp-mode</code> 를 실행하는 경우 아래와 같이 cmake 프로젝트의 최상단을 입력하라는 창이 뜬다. 제안된 경로가 맞는 경우 <code>i</code> 키를 누르면 되고 임의로 경로를 변경하고 싶은 경우 <code>I</code> 키를 눌러서 변경하면 된다. 
@@ -962,8 +962,16 @@ $ ln -s ./build/compile_commands.json ./
 </ol>
 </div>
 </div>
+<div id="outline-container-org154bb5d" class="outline-5">
+<h5 id="org154bb5d"><span class="section-number-5">3.2.9.2</span> Python</h5>
+<div class="outline-text-5" id="text-3-2-9-2">
+<p align="center">
+<img src="/pictures/200926/lspmode_python.gif" alt="lspmode_python.gif" align="center">
+파이썬의 경우 <code>compile_commands.json</code> 파일없이도 정상적으로 코드 네비게이션 및 자동완성이 가능하다.
+</p>
 </div>
-
+</div>
+</div>
 <div id="outline-container-orgf9fb60f" class="outline-4">
 <h4 id="orgf9fb60f"><span class="section-number-4">3.2.10</span> eldoc</h4>
 <div class="outline-text-4" id="text-3-2-10">
@@ -1317,17 +1325,9 @@ ecb 모드를 토글한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org9d3f876" class="outline-4">
-<h4 id="org9d3f876"><span class="section-number-4">3.2.30</span> jedi</h4>
-<div class="outline-text-4" id="text-3-2-30">
-<p>
-Python 코드 네비게이션 패키지
-</p>
-</div>
-</div>
 <div id="outline-container-org8ce1dcc" class="outline-4">
-<h4 id="org8ce1dcc"><span class="section-number-4">3.2.31</span> doom-modeline</h4>
-<div class="outline-text-4" id="text-3-2-31">
+<h4 id="org8ce1dcc"><span class="section-number-4">3.2.30</span> doom-modeline</h4>
+<div class="outline-text-4" id="text-3-2-30">
 <p>
 doom 테마의 modeline을 사용할 수 있는 패키지. 하단의 보라색 라인을 modeline이라고 하는데 여기에 표시되는 정보들을 설정할 수 있다. 색상은 테마를 변경하면 같이 변경된다.
 </p>
