@@ -967,7 +967,18 @@ $ ln -s ./build/compile_commands.json ./
 <div class="outline-text-5" id="text-3-2-9-2">
 <p align="center">
 <img src="/pictures/200926/lspmode_python.gif" alt="lspmode_python.gif" align="center">
-파이썬의 경우 <code>compile_commands.json</code> 파일없이도 정상적으로 코드 네비게이션 및 자동완성이 가능하다.
+파이썬의 경우 <code>pyls</code> 프로그램을 설치해야 코드 자동완성 및 네비게이션이 가능하다. <code>pyls</code> 는 다음 명령어를 통해 쉽게 설치할 수 있다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Install pyls</span>
+$ pip install python-language-server --user
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Check pyls is installed successfully</span>
+$ pyls --help
+</pre>
+</div>
+<p>
+<code>pyls</code> 가 정상적으로 설치되었다면 이후에는 <code>compile_commands.json</code> 파일없이도 정상적으로 코드 네비게이션 및 자동완성이 가능하다.
 </p>
 </div>
 </div>
