@@ -980,6 +980,15 @@ Version 2017-04-19"
     (define-key magit-process-mode-map  (kbd "<SPC> c y") 'flycheck-mode)
 
 
+    ;;;; z binding =============================================================
+    ;; minimize emacs
+    (define-key magit-process-mode-map     (kbd "<SPC> z m") 'suspend-frame)
+    (define-key magit-log-mode-map         (kbd "<SPC> z m") 'suspend-frame)
+    (define-key magit-diff-mode-map        (kbd "<SPC> z m") 'suspend-frame)
+    (define-key magit-status-mode-map      (kbd "<SPC> z m") 'suspend-frame)
+    (define-key magit-unstaged-section-map (kbd "<SPC> z m") 'suspend-frame)
+    (define-key magit-branch-section-map   (kbd "<SPC> z m") 'suspend-frame)
+
     ;; split window
     (define-key magit-status-mode-map   (kbd "<SPC> \\") 'split-window-right)
     (define-key magit-diff-mode-map     (kbd "<SPC> \\") 'split-window-right)
@@ -1004,13 +1013,6 @@ Version 2017-04-19"
     (define-key magit-revision-mode-map (kbd "<SPC> f") 'helm-for-files)
     (define-key magit-process-mode-map  (kbd "<SPC> f") 'helm-for-files)
 
-    ;; minimize emacs
-    (define-key magit-process-mode-map     (kbd "<SPC> x") 'suspend-frame)
-    (define-key magit-log-mode-map         (kbd "<SPC> x") 'suspend-frame)
-    (define-key magit-diff-mode-map        (kbd "<SPC> x") 'suspend-frame)
-    (define-key magit-status-mode-map      (kbd "<SPC> x") 'suspend-frame)
-    (define-key magit-unstaged-section-map (kbd "<SPC> x") 'suspend-frame)
-    (define-key magit-branch-section-map   (kbd "<SPC> x") 'suspend-frame)
 
     ;; projectile switch
     (define-key magit-process-mode-map     (kbd "<SPC> ,") 'helm-projectile-switch-project)
@@ -2068,7 +2070,9 @@ Version 2017-04-19"
 ;; add new line above.
 (global-set-key (kbd "C-o") 'newline-without-break-of-line-upper)
 
+;; Move beginning or end of the line.
 (global-set-key (kbd "C-e") 'move-end-of-line)
+(global-set-key (kbd "M-e") 'move-beginning-of-line)
 
 ;; make new frame or delete frame.
 (global-set-key (kbd "C-n") 'make-frame-command)
@@ -2078,7 +2082,6 @@ Version 2017-04-19"
 (global-set-key (kbd "C-c =") 'set-custom-fontsize)
 (global-set-key (kbd "C-=") 'zoom-frame)
 (global-set-key (kbd "C--") 'zoom-frame-out)
-
 
 ;; change upper & lower case.
 (global-set-key (kbd "M-u") 'xah-toggle-letter-case)
@@ -2108,12 +2111,6 @@ Version 2017-04-19"
 
 ;; quit current window.
 (global-set-key (kbd "M-q") 'delete-window)
-
-;; kill current line.
-(global-set-key (kbd "C-k") 'kill-whole-line)
-
-;; kill left region.
-(global-set-key (kbd "C-S-k") 'kill-visual-line)
 
 ;; go to end of parenthesis.
 (global-set-key (kbd "C-]") 'match-paren)
@@ -2160,8 +2157,6 @@ Version 2017-04-19"
 
 ;; backward paragraph 
 (global-set-key (kbd "M-r") 'backward-paragraph)
-
-(global-set-key (kbd "M-e") 'move-beginning-of-line)
 
 ;; VARIABLE CUSTOMIZING========================================================================
 (custom-set-variables
