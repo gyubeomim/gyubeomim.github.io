@@ -24,13 +24,13 @@ comments: true
 <li><a href="#org445b2cd">3.1.1.2. <code>&lt;C f&gt;: newline-without-break-of-line</code></a></li>
 <li><a href="#orgec04a9a">3.1.1.3. <code>&lt;C ]&gt;: match-paren</code></a></li>
 <li><a href="#orga9f7121">3.1.1.4. <code>&lt;A w&gt;: kill-whitespace</code></a></li>
-<li><a href="#org100b032">3.1.1.5. <code>&lt;A Enter&gt;: open-line</code></a></li>
-<li><a href="#org9646510">3.1.1.6. <code>&lt;C e&gt;, &lt;A e&gt;: move-end-of-line, move-beginning-of-line</code></a></li>
-<li><a href="#orgece520d">3.1.1.7. <code>&lt;C n&gt;, &lt;C S n&gt; : make-frame-command, delete-frame</code></a></li>
-<li><a href="#org3d9a21b">3.1.1.8. <code>&lt;C -&gt;, &lt;C =&gt;: zoom-frame-out, zoom-frame-in</code></a></li>
-<li><a href="#orgbc7a4fe">3.1.1.9. <code>&lt;A '&gt;, &lt;A ;&gt;: comment-dwim, select-current-line-and-comment</code></a></li>
-<li><a href="#org7436d2e">3.1.1.10. <code>&lt;A h,j,k,l&gt;: next-multiframe-window, previous-multiframe-window</code></a></li>
-<li><a href="#orgd1a0d11">3.1.1.11. <code>&lt;A u&gt;: xah-toggle-letter-case</code></a></li>
+<li><a href="#orgd1a0d11">3.1.1.5. <code>&lt;A u&gt;: xah-toggle-letter-case</code></a></li>
+<li><a href="#org100b032">3.1.1.6. <code>&lt;A Enter&gt;: open-line</code></a></li>
+<li><a href="#org9646510">3.1.1.7. <code>&lt;C e&gt;, &lt;A e&gt;: move-end-of-line, move-beginning-of-line</code></a></li>
+<li><a href="#orgece520d">3.1.1.8. <code>&lt;C n&gt;, &lt;C S n&gt; : make-frame-command, delete-frame</code></a></li>
+<li><a href="#org3d9a21b">3.1.1.9. <code>&lt;C -&gt;, &lt;C =&gt;: zoom-frame-out, zoom-frame-in</code></a></li>
+<li><a href="#orgbc7a4fe">3.1.1.10. <code>&lt;A '&gt;, &lt;A ;&gt;: comment-dwim, select-current-line-and-comment</code></a></li>
+<li><a href="#org7436d2e">3.1.1.11. <code>&lt;A h,j,k,l&gt;: next-multiframe-window, previous-multiframe-window</code></a></li>
 <li><a href="#org5acd523">3.1.1.12. <code>&lt;C q&gt;, &lt;A q&gt;: delete-other-windows, delete-window</code></a></li>
 </ul>
 </li>
@@ -375,9 +375,18 @@ Control 키바인딩은 <code>&lt;C {...}&gt;</code> 과 같이 표현하고 Alt
 </p>
 </div>
 </div>
-<div id="outline-container-org100b032" class="outline-5">
-<h5 id="org100b032"><span class="section-number-5">3.1.1.5</span> <code>&lt;A Enter&gt;: open-line</code></h5>
+<div id="outline-container-orgd1a0d11" class="outline-5">
+<h5 id="orgd1a0d11"><span class="section-number-5">3.1.1.5</span> <code>&lt;A u&gt;: xah-toggle-letter-case</code></h5>
 <div class="outline-text-5" id="text-3-1-1-5">
+<p align="center">
+<img src="/pictures/200926/a_u.gif" alt="a_u.gif" align="center">
+커서 위 단어의 대소문자를 변경한다. A-u를 반복해서 누르면 모두 소문자, 맨 앞글자만 대문자, 모두 대문자 순서로 변경된다.
+</p>
+</div>
+</div>
+<div id="outline-container-org100b032" class="outline-5">
+<h5 id="org100b032"><span class="section-number-5">3.1.1.6</span> <code>&lt;A Enter&gt;: open-line</code></h5>
+<div class="outline-text-5" id="text-3-1-1-6">
 <p align="center">
 <img src="/pictures/200926/a_enter.gif" alt="a_enter.gif" align="center">
 현재 커서를 기준으로 새로운 라인을 만든다.
@@ -385,8 +394,8 @@ Control 키바인딩은 <code>&lt;C {...}&gt;</code> 과 같이 표현하고 Alt
 </div>
 </div>
 <div id="outline-container-org9646510" class="outline-5">
-<h5 id="org9646510"><span class="section-number-5">3.1.1.6</span> <code>&lt;C e&gt;, &lt;A e&gt;: move-end-of-line, move-beginning-of-line</code></h5>
-<div class="outline-text-5" id="text-3-1-1-6">
+<h5 id="org9646510"><span class="section-number-5">3.1.1.7</span> <code>&lt;C e&gt;, &lt;A e&gt;: move-end-of-line, move-beginning-of-line</code></h5>
+<div class="outline-text-5" id="text-3-1-1-7">
 <p align="center">
 <img src="/pictures/200926/c_e_a_e.gif" alt="c_e_a_e.gif" align="center">
 현재 라인의 맨 끝과 맨 처음으로 이동한다.
@@ -394,8 +403,8 @@ Control 키바인딩은 <code>&lt;C {...}&gt;</code> 과 같이 표현하고 Alt
 </div>
 </div>
 <div id="outline-container-orgece520d" class="outline-5">
-<h5 id="orgece520d"><span class="section-number-5">3.1.1.7</span> <code>&lt;C n&gt;, &lt;C S n&gt; : make-frame-command, delete-frame</code></h5>
-<div class="outline-text-5" id="text-3-1-1-7">
+<h5 id="orgece520d"><span class="section-number-5">3.1.1.8</span> <code>&lt;C n&gt;, &lt;C S n&gt; : make-frame-command, delete-frame</code></h5>
+<div class="outline-text-5" id="text-3-1-1-8">
 <p align="center">
 <img src="/pictures/200926/c_n_c_s_n.gif" alt="c_n_c_s_n.gif" align="center">
 새로운 emacs 창을 열거나 닫는다. C-n으로 새로운 창을 열고 C-S-n으로 닫는다.
@@ -403,8 +412,8 @@ Control 키바인딩은 <code>&lt;C {...}&gt;</code> 과 같이 표현하고 Alt
 </div>
 </div>
 <div id="outline-container-org3d9a21b" class="outline-5">
-<h5 id="org3d9a21b"><span class="section-number-5">3.1.1.8</span> <code>&lt;C -&gt;, &lt;C =&gt;: zoom-frame-out, zoom-frame-in</code></h5>
-<div class="outline-text-5" id="text-3-1-1-8">
+<h5 id="org3d9a21b"><span class="section-number-5">3.1.1.9</span> <code>&lt;C -&gt;, &lt;C =&gt;: zoom-frame-out, zoom-frame-in</code></h5>
+<div class="outline-text-5" id="text-3-1-1-9">
 <p align="center">
 <img src="/pictures/200926/c_dash_c_equal.gif" alt="c_dash_c_equal.gif" align="center">
 폰트의 크기를 키우거나 줄인다.
@@ -412,8 +421,8 @@ Control 키바인딩은 <code>&lt;C {...}&gt;</code> 과 같이 표현하고 Alt
 </div>
 </div>
 <div id="outline-container-orgbc7a4fe" class="outline-5">
-<h5 id="orgbc7a4fe"><span class="section-number-5">3.1.1.9</span> <code>&lt;A '&gt;, &lt;A ;&gt;: comment-dwim, select-current-line-and-comment</code></h5>
-<div class="outline-text-5" id="text-3-1-1-9">
+<h5 id="orgbc7a4fe"><span class="section-number-5">3.1.1.10</span> <code>&lt;A '&gt;, &lt;A ;&gt;: comment-dwim, select-current-line-and-comment</code></h5>
+<div class="outline-text-5" id="text-3-1-1-10">
 <p align="center">
 <img src="/pictures/200926/a_comment.gif" alt="a_comment.gif" align="center">
 A-'로 현재 커서에 주석을 추가하며 Visual Block 모드에서 A-;를 통해 여러줄을 주석 처리한다.
@@ -421,20 +430,11 @@ A-'로 현재 커서에 주석을 추가하며 Visual Block 모드에서 A-;를 
 </div>
 </div>
 <div id="outline-container-org7436d2e" class="outline-5">
-<h5 id="org7436d2e"><span class="section-number-5">3.1.1.10</span> <code>&lt;A h,j,k,l&gt;: next-multiframe-window, previous-multiframe-window</code></h5>
-<div class="outline-text-5" id="text-3-1-1-10">
+<h5 id="org7436d2e"><span class="section-number-5">3.1.1.11</span> <code>&lt;A h,j,k,l&gt;: next-multiframe-window, previous-multiframe-window</code></h5>
+<div class="outline-text-5" id="text-3-1-1-11">
 <p align="center">
 <img src="/pictures/200926/a_hjkl.gif" alt="a_hjkl.gif" align="center">
 분할된 여러 창들을 네비게이션한다. Alt + 방향키를 통해서도 이동할 수 있다.
-</p>
-</div>
-</div>
-<div id="outline-container-orgd1a0d11" class="outline-5">
-<h5 id="orgd1a0d11"><span class="section-number-5">3.1.1.11</span> <code>&lt;A u&gt;: xah-toggle-letter-case</code></h5>
-<div class="outline-text-5" id="text-3-1-1-11">
-<p align="center">
-<img src="/pictures/200926/a_u.gif" alt="a_u.gif" align="center">
-커서 위 단어의 대소문자를 변경한다. A-u를 반복해서 누르면 모두 소문자, 맨 앞글자만 대문자, 모두 대문자 순서로 변경된다.
 </p>
 </div>
 </div>
