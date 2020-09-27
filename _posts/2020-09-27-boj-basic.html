@@ -4,7 +4,7 @@ title: (BOJ) 백준 C++ 기초난이도 문제풀이
 description: 
 date: 2020-09-27
 categories: [Technology]
-tag: [Codidng, Problem Solving, BOJ, C++]
+tag: [Coding, Problem Solving, BOJ, C++]
 use_math: true
 comments: true
 ---
@@ -34,7 +34,7 @@ comments: true
 </li>
 <li><a href="#org4fe59cc">5. Dynamic Programming</a>
 <ul>
-<li><a href="#org502fb2">5.1. 1463 1로 만들기</a></li>
+<li><a href="#org50d2fb2">5.1. 1463 1로 만들기</a></li>
 </ul>
 </li>
 </ul>
@@ -45,7 +45,7 @@ comments: true
 <h2 id="org24b571b"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-본 포스트에서는 백준 기초 난이도 문제들을 풀이한다. 모든 문제들은 검색창에 <code>boj.kr/{#}</code> 를 입력하여 검색할 수 있다. 이 때, # 부문에 문제 번호를 입력하면 된다. ex) boj.kr/2751
+본 포스트에서는 백준 기초 난이도 문제들을 풀이한다. 모든 문제들은 검색창에 <code>boj.kr/{#}</code> 를 입력하여 검색할 수 있다. 이 때, # 부문에 문제 번호를 입력하면 된다. ex) boj.kr/2751 
 </p>
 
 <p>
@@ -547,6 +547,43 @@ cin.tie(0);
   <span class="org-keyword">return</span> 0;
 }
 
+</pre>
+</div>
+</p>
+</details>
+<p>
+<a href="http://boj.kr/11726">** 11726 2xn 타일링</a>
+</p>
+<details>
+<summary>more...</summary>
+<p>
+<div class="org-src-container">
+<pre class="src src-c++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;bits/stdc++.h&gt;</span>
+
+<span class="org-keyword">using</span> <span class="org-keyword">namespace</span> <span class="org-constant">std</span>;
+
+<span class="org-type">int</span> <span class="org-variable-name">D</span>[1001]= {0,1,2};
+
+<span class="org-type">int</span> <span class="org-function-name">main</span>(<span class="org-type">int</span> <span class="org-variable-name">argc</span>, <span class="org-type">char</span> **<span class="org-variable-name">argv</span>){
+  <span class="org-constant">ios_base</span>::sync_with_stdio(<span class="org-constant">false</span>);
+  cin.tie(0);
+
+  <span class="org-type">int</span> <span class="org-variable-name">N</span>;
+  cin &gt;&gt; N;
+
+  D[0] = 0;
+  D[1] = 1;
+  D[2] = 2;
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">D[i] = D[i-1] + D[i-2] &#49885;&#51012; &#53076;&#46300;&#47196; &#44396;&#54788;&#54620;&#45796;. &#47928;&#51228;&#51032; &#51312;&#44148;&#50640; &#47582;&#44172; 10007&#47196; &#45208;&#45572;&#45716; &#53076;&#46300; &#46608;&#54620; &#51201;&#50857;&#54620;&#45796;.</span>
+  <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=3; i&lt;=N; i++) {
+    D[i] = (D[i-1]%10007 + D[i-2]%10007) % 10007;
+  }
+
+  cout &lt;&lt; D[N] &lt;&lt; <span class="org-string">'\n'</span>;
+
+  <span class="org-keyword">return</span> 0;
+}
 </pre>
 </div>
 </p>
