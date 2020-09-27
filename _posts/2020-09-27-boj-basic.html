@@ -19,6 +19,7 @@ comments: true
 <li><a href="#org3adab99">2.2. 11650 좌표 정렬하기</a></li>
 <li><a href="#org272d362">2.3. 11651 좌표 정렬하기2</a></li>
 <li><a href="#orgdc30c44">2.4. 10814 나이순 정렬</a></li>
+<li><a href="#orgaf1372b">2.5. 10825 국영수</a></li>
 </ul>
 </li>
 <li><a href="#org780582d">3. Graph (DFS, BFS)</a>
@@ -269,6 +270,70 @@ cin.tie(0);
 </div>
 </p>
 </details>
+</div>
+</div>
+<div id="outline-container-orgaf1372b" class="outline-3">
+<h3 id="orgaf1372b"><span class="section-number-3">2.5</span> <a href="http://boj.kr/10825">10825 국영수</a></h3>
+<div class="outline-text-3" id="text-2-5">
+<div class="org-src-container">
+<pre class="src src-c++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;bits/stdc++.h&gt;</span>
+
+<span class="org-keyword">using</span> <span class="org-keyword">namespace</span> <span class="org-constant">std</span>;
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">&#54617;&#49373;&#51032; &#44396;&#51312;&#52404; &#49440;&#50616;</span>
+<span class="org-keyword">typedef</span> <span class="org-keyword">struct</span> <span class="org-type">_Student</span> {
+  <span class="org-type">string</span> <span class="org-variable-name">name</span>;
+  <span class="org-type">int</span> <span class="org-variable-name">kor</span>, <span class="org-variable-name">eng</span>, <span class="org-variable-name">math</span>;
+} <span class="org-type">Student</span>;
+
+<span class="org-type">int</span> <span class="org-function-name">main</span>(<span class="org-type">int</span> <span class="org-variable-name">argc</span>, <span class="org-type">char</span> **<span class="org-variable-name">argv</span>){
+  <span class="org-constant">ios_base</span>::sync_with_stdio(<span class="org-constant">false</span>);
+  cin.tie(0);
+
+  <span class="org-type">int</span> <span class="org-variable-name">N</span>; 
+  cin &gt;&gt; N;
+
+  <span class="org-type">vector</span>&lt;<span class="org-type">Student</span>&gt; <span class="org-variable-name">students</span>;
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#44033; &#54596;&#46300;&#47484; &#51077;&#47141;&#51004;&#47196; &#48155;&#51008; &#45796;&#51020; &#48289;&#53552;&#50640; &#45347;&#45716;&#45796;</span>
+  <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;N; i++) {
+    <span class="org-type">string</span> <span class="org-variable-name">name</span>;
+    <span class="org-type">int</span> <span class="org-variable-name">kor</span>, <span class="org-variable-name">eng</span>, <span class="org-variable-name">math</span>;
+
+    cin &gt;&gt; name &gt;&gt; kor &gt;&gt; eng &gt;&gt; math;
+    <span class="org-type">Student</span> <span class="org-variable-name">s</span>;
+    s.name = name;
+    s.kor = kor;
+    s.eng = eng;
+    s.math = math;
+
+    students.push_back(s);
+  }
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#47928;&#51228;&#50640;&#49436; &#50836;&#44396;&#54616;&#45716; &#49692;&#49436;&#45824;&#47196; &#48708;&#44368;&#54632;&#49688;&#47484; &#51089;&#49457;&#54620;&#45796;</span>
+  sort(students.begin(), students.end(), [](<span class="org-keyword">const</span> <span class="org-type">Student</span> &amp;<span class="org-variable-name">a</span>,   <span class="org-keyword">const</span> <span class="org-type">Student</span> &amp;<span class="org-variable-name">b</span>) {
+                                           <span class="org-keyword">if</span>(a.kor != b.kor) {
+                                             <span class="org-keyword">return</span> a.kor &gt; b.kor;
+                                           }
+                                           <span class="org-keyword">else</span> <span class="org-keyword">if</span>(a.eng != b.eng) {
+                                             <span class="org-keyword">return</span> a.eng &lt; b.eng;
+                                           }
+                                           <span class="org-keyword">else</span> <span class="org-keyword">if</span>(a.math != b.math) {
+                                             <span class="org-keyword">return</span> a.math &gt; b.math;
+                                           }
+                                           <span class="org-keyword">else</span> {
+                                             <span class="org-keyword">return</span> a.name &lt; b.name;
+                                           }
+                                         });
+
+  <span class="org-keyword">for</span>(<span class="org-keyword">auto</span> <span class="org-variable-name">it</span> : students) {
+    cout &lt;&lt; it.name &lt;&lt; <span class="org-string">'\n'</span>;
+  }
+
+  <span class="org-keyword">return</span> 0;
+}
+</pre>
+</div>
 </div>
 </div>
 </div>
