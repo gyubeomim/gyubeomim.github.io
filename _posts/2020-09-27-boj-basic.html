@@ -593,12 +593,14 @@ cin.tie(0);
   <span class="org-type">int</span> <span class="org-variable-name">curr</span> = v[0];
 
   <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=1; i&lt;N; i++) {
+    <span class="org-comment-delimiter">// </span><span class="org-comment">&#44277;&#50976;&#44592; &#49324;&#51060;&#51032; &#44144;&#47532;&#44032; &#44077;(mid)&#48372;&#45796; &#53360; &#44221;&#50864;</span>
     <span class="org-keyword">if</span>(v[i] - curr &gt;= mid) {
-      count++;
+      count++;          <span class="org-comment-delimiter">// </span><span class="org-comment">&#44277;&#50976;&#44592; 1&#44060;&#47484; &#49444;&#52824;&#54624; &#49688; &#51080;&#45796;.</span>
       curr = v[i];
     }
   }
 
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#44277;&#50976;&#44592;&#44032; &#50896;&#54616;&#45716; &#44060;&#49688; &#51060;&#49345; &#49444;&#52824;&#46104;&#47732; true&#47484; &#48152;&#54872;&#54620;&#45796;</span>
   <span class="org-keyword">if</span>(count &gt;= C) {
     <span class="org-keyword">return</span> <span class="org-constant">true</span>;
   }
