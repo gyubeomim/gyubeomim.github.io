@@ -4,10 +4,7 @@ title: (BOJ) 백준 C++ 기초난이도 문제풀이
 description: 
 date: 2020-09-27
 categories: [Technology]
-tag: [Coding, Problem Solving, BOJ, C++]
-use_math: true
-comments: true
----
+tag: [Codi
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -30,6 +27,15 @@ comments: true
 <li><a href="#org7cbcc45">4. Binary Search</a>
 <ul>
 <li><a href="#org38894dc">4.1. 2085 나무 자르기</a></li>
+</ul>
+</li>
+<li><a href="#org4fe59cc">5. Dynamic Programming</a>
+<ul>
+<li><a href="#org50dng, Problem Solving, BOJ, C++]
+use_math: true
+comments: true
+---
+2fb2">5.1. 1463 1로 만들기</a></li>
 </ul>
 </li>
 </ul>
@@ -433,6 +439,9 @@ cin.tie(0);
 <div id="outline-container-org38894dc" class="outline-3">
 <h3 id="org38894dc"><span class="section-number-3">4.1</span> <a href="http://boj.kr/2085">2085 나무 자르기</a></h3>
 <div class="outline-text-3" id="text-4-1">
+<details>
+<summary>more...</summary>
+<p>
 <div class="org-src-container">
 <pre class="src src-c++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;bits/stdc++.h&gt;</span>
 
@@ -448,6 +457,7 @@ cin.tie(0);
   <span class="org-type">int</span> <span class="org-variable-name">N</span>, <span class="org-variable-name">M</span>;
   cin&gt;&gt;N&gt;&gt;M;
 
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#45208;&#47924;&#51032; &#53356;&#44592;&#47484; &#51077;&#47141;&#54620;&#45796;.</span>
   <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;N; i++) {
     <span class="org-type">int</span> <span class="org-variable-name">tree</span>;
     cin &gt;&gt; tree;
@@ -463,6 +473,7 @@ cin.tie(0);
     mid = (lo+hi) &gt;&gt; 1;
 
     <span class="org-type">ll</span> <span class="org-variable-name">result</span>=0;
+
     <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;trees.size(); i++) {
       <span class="org-type">int</span> <span class="org-variable-name">cut</span> = trees[i] - mid;
       <span class="org-keyword">if</span>(cut &gt; 0) {
@@ -486,6 +497,61 @@ cin.tie(0);
 }
 </pre>
 </div>
+</p>
+</details>
+</div>
+</div>
+</div>
+<div id="outline-container-org4fe59cc" class="outline-2">
+<h2 id="org4fe59cc"><span class="section-number-2">5</span> Dynamic Programming</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org50d2fb2" class="outline-3">
+<h3 id="org50d2fb2"><span class="section-number-3">5.1</span> <a href="http://boj.kr/1463">1463 1로 만들기</a></h3>
+<div class="outline-text-3" id="text-5-1">
+<details>
+<summary>more...</summary>
+<p>
+<div class="org-src-container">
+<pre class="src src-c++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;bits/stdc++.h&gt;</span>
+
+<span class="org-keyword">using</span> <span class="org-keyword">namespace</span> <span class="org-constant">std</span>;
+
+<span class="org-type">int</span> <span class="org-variable-name">D</span>[1000001];
+
+
+<span class="org-type">int</span> <span class="org-function-name">main</span>(<span class="org-type">int</span> <span class="org-variable-name">argc</span>, <span class="org-type">char</span> **<span class="org-variable-name">argv</span>){
+  <span class="org-constant">ios_base</span>::sync_with_stdio(<span class="org-constant">false</span>);
+  cin.tie(0);
+
+  <span class="org-type">int</span> <span class="org-variable-name">N</span>;
+  cin &gt;&gt; N;
+
+  D[0] = 0;
+  D[1] = 0;
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">D[N] = min(D[N-1], D[N/2], D[N/3]) + 1</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#50948; &#49688;&#49885;&#51012; &#53076;&#46300;&#47196; &#44396;&#54788;&#54620;&#45796;</span>
+  <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=2; i&lt;=N; i++) {
+    D[i] = D[i-1] + 1;
+
+    <span class="org-keyword">if</span>(i%2 == 0) {
+      D[i] = min(D[i], D[i/2] + 1);
+    }
+    <span class="org-keyword">if</span>(i%3 == 0) {
+      D[i] = min(D[i], D[i/3] + 1);
+    }
+  }
+
+  cout &lt;&lt; D[N] &lt;&lt; <span class="org-string">'\n'</span>;
+
+  <span class="org-keyword">return</span> 0;
+}
+
+</pre>
+</div>
+</p>
+</details>
 </div>
 </div>
 </div>
