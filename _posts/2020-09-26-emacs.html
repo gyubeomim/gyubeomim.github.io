@@ -12,214 +12,214 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgaeff015">1. Introduction</a></li>
-<li><a href="#org4a23909">2. How to setup</a>
+<li><a href="#orgdaedf49">1. Introduction</a></li>
+<li><a href="#orgd3862bc">2. How to setup</a>
 <ul>
-<li><a href="#orgfa66884">2.1. lsp-mode</a>
+<li><a href="#org35badfd">2.1. lsp-mode</a>
 <ul>
-<li><a href="#org518dc52">2.1.1. C++</a></li>
-<li><a href="#org154bb5d">2.1.2. Python</a></li>
+<li><a href="#org98fbc18">2.1.1. C++</a></li>
+<li><a href="#org1f5e392">2.1.2. Python</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org8f67e3a">3. My emacs configuration</a>
+<li><a href="#org8305d9e">3. My emacs configuration</a>
 <ul>
-<li><a href="#org1bd42d8">3.1. General Features</a>
+<li><a href="#org44ee228">3.1. General Features</a>
 <ul>
-<li><a href="#org4b754df">3.1.1. Custom keybindings</a>
+<li><a href="#orgb8ab349">3.1.1. Custom keybindings</a>
 <ul>
-<li><a href="#org968dfde">3.1.1.1. <code>&lt;, .&gt;: forward-paragraph, backward-paragraph</code></a></li>
-<li><a href="#org445b2cd">3.1.1.2. <code>&lt;C f&gt;: newline-without-break-of-line</code></a></li>
-<li><a href="#orgec04a9a">3.1.1.3. <code>&lt;C ]&gt;: match-paren</code></a></li>
-<li><a href="#orga9f7121">3.1.1.4. <code>&lt;A w&gt;: kill-whitespace</code></a></li>
-<li><a href="#orgd1a0d11">3.1.1.5. <code>&lt;A u&gt;: xah-toggle-letter-case</code></a></li>
-<li><a href="#org100b032">3.1.1.6. <code>&lt;A Enter&gt;: open-line</code></a></li>
-<li><a href="#org9646510">3.1.1.7. <code>&lt;C e&gt;, &lt;A e&gt;: move-end-of-line, move-beginning-of-line</code></a></li>
-<li><a href="#orgece520d">3.1.1.8. <code>&lt;C n&gt;, &lt;C S n&gt; : make-frame-command, delete-frame</code></a></li>
-<li><a href="#org3d9a21b">3.1.1.9. <code>&lt;C -&gt;, &lt;C =&gt;: zoom-frame-out, zoom-frame-in</code></a></li>
-<li><a href="#orgbc7a4fe">3.1.1.10. <code>&lt;A '&gt;, &lt;A ;&gt;: comment-dwim, select-current-line-and-comment</code></a></li>
-<li><a href="#org7436d2e">3.1.1.11. <code>&lt;A h,j,k,l&gt;: next-multiframe-window, previous-multiframe-window</code></a></li>
-<li><a href="#org5acd523">3.1.1.12. <code>&lt;C q&gt;, &lt;A q&gt;: delete-other-windows, delete-window</code></a></li>
+<li><a href="#org73ecb43">3.1.1.1. <code>&lt;, .&gt;: forward-paragraph, backward-paragraph</code></a></li>
+<li><a href="#org5916f28">3.1.1.2. <code>&lt;C f&gt;: newline-without-break-of-line</code></a></li>
+<li><a href="#orgd33b661">3.1.1.3. <code>&lt;C ]&gt;: match-paren</code></a></li>
+<li><a href="#orgf769103">3.1.1.4. <code>&lt;A w&gt;: kill-whitespace</code></a></li>
+<li><a href="#org739fe39">3.1.1.5. <code>&lt;A u&gt;: xah-toggle-letter-case</code></a></li>
+<li><a href="#org3901382">3.1.1.6. <code>&lt;A Enter&gt;: open-line</code></a></li>
+<li><a href="#org4d65a44">3.1.1.7. <code>&lt;C e&gt;, &lt;A e&gt;: move-end-of-line, move-beginning-of-line</code></a></li>
+<li><a href="#orgff213b8">3.1.1.8. <code>&lt;C n&gt;, &lt;C S n&gt; : make-frame-command, delete-frame</code></a></li>
+<li><a href="#org877fbf0">3.1.1.9. <code>&lt;C -&gt;, &lt;C =&gt;: zoom-frame-out, zoom-frame-in</code></a></li>
+<li><a href="#orgb8e90e5">3.1.1.10. <code>&lt;A '&gt;, &lt;A ;&gt;: comment-dwim, select-current-line-and-comment</code></a></li>
+<li><a href="#org8140824">3.1.1.11. <code>&lt;A h,j,k,l&gt;: next-multiframe-window, previous-multiframe-window</code></a></li>
+<li><a href="#org664566d">3.1.1.12. <code>&lt;C q&gt;, &lt;A q&gt;: delete-other-windows, delete-window</code></a></li>
 </ul>
 </li>
-<li><a href="#org99b0636">3.1.2. Space keybindings</a>
+<li><a href="#org3d7f726">3.1.2. Space keybindings</a>
 <ul>
-<li><a href="#org524976c">3.1.2.1. <code>&lt;SPC b b&gt;: bookmark-set</code></a></li>
-<li><a href="#org230391e">3.1.2.2. <code>&lt;SPC b v&gt;: bookmark-jump</code></a></li>
-<li><a href="#orgdff1229">3.1.2.3. <code>&lt;SPC b d&gt;: bookmark-delete</code></a></li>
-<li><a href="#org3dba21e">3.1.2.4. <code>&lt;SPC c k&gt;: my-kill-this-buffer</code></a></li>
-<li><a href="#org99daa78">3.1.2.5. <code>&lt;SPC c p&gt;: pwd</code></a></li>
-<li><a href="#org315e54d">3.1.2.6. <code>&lt;SPC c g&gt;: grep-find</code></a></li>
-<li><a href="#org460c848">3.1.2.7. <code>&lt;SPC z m&gt;: suspend-frame</code></a></li>
-<li><a href="#org10279b6">3.1.2.8. <code>&lt;SPC z f&gt;: toggle-frame-fullscreen</code></a></li>
-<li><a href="#org18e236d">3.1.2.9. <code>&lt;SPC s&gt;: create-scratch-buffer</code></a></li>
-<li><a href="#org768c063">3.1.2.10. <code>&lt;SPC -&gt;, &lt;SPC \&gt;: split-window-vertically, split-window-horizontally</code></a></li>
-<li><a href="#orgf1f3a5f">3.1.2.11. <code>&lt;SPC ]&gt;: window-split-toggle</code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgfb00cfb">3.2. Package Features</a>
-<ul>
-<li><a href="#org22e6e39">3.2.1. evil</a>
-<ul>
-<li><a href="#org21a980c">3.2.1.1. <code>&lt;SAME WITH VIM KEYBINDING&gt;</code></a></li>
-</ul>
-</li>
-<li><a href="#orgb5dc42e">3.2.2. lsp-mode</a></li>
-<li><a href="#orgfe02c2d">3.2.3. magit</a>
-<ul>
-<li><a href="#org7fe480e">3.2.3.1. <code>&lt;SPC m \&gt;: magit-status</code></a></li>
-<li><a href="#org7f8b26c">3.2.3.2. <code>&lt;SPC m e&gt;: magit-ediff-dwim</code></a></li>
-<li><a href="#org50a1569">3.2.3.3. <code>&lt;SPC m d&gt;: magit-diff-dwim</code></a></li>
-<li><a href="#orga9a90c7">3.2.3.4. <code>&lt;SPC m l&gt;: magit-log-buffer-file</code></a></li>
-<li><a href="#org3af02b4">3.2.3.5. <code>&lt;SPC m f&gt;: magit-find-file</code></a></li>
-<li><a href="#org3516f43">3.2.3.6. <code>&lt;Tab&gt;: magit-section-toggle</code></a></li>
-<li><a href="#orgaa5b7fa">3.2.3.7. <code>&lt;s, u&gt;: magit-statge-file, magit-unstage-file</code></a></li>
-<li><a href="#org43707c8">3.2.3.8. <code>&lt;d d&gt;: magit-diff</code></a></li>
-<li><a href="#orgbfb7718">3.2.3.9. <code>&lt;c c&gt;: magit-commit</code></a></li>
-<li><a href="#org0e334f7">3.2.3.10. <code>&lt;F u&gt;, &lt;P u&gt;: magit-pull, magit-push</code></a></li>
-</ul>
-</li>
-<li><a href="#org616919a">3.2.4. git-gutter</a>
-<ul>
-<li><a href="#org3a0c73d">3.2.4.1. <code>&lt;SPC m n,p,r&gt;: git-gutter:next(prev)-hunk, git-gutter:revert-hunk</code></a></li>
-</ul>
-</li>
-<li><a href="#org48fd7a6">3.2.5. helm</a>
-<ul>
-<li><a href="#org14c5643">3.2.5.1. <code>&lt;SPC f&gt;: helm-for-files</code></a></li>
-<li><a href="#orgae188bd">3.2.5.2. <code>&lt;SPC w&gt;: helm-find-files</code></a></li>
-<li><a href="#org10d2a54">3.2.5.3. <code>&lt;SPC a&gt;: helm-semantic</code></a></li>
-<li><a href="#orgecbdc3e">3.2.5.4. <code>&lt;A x&gt;: helm-M-x</code></a></li>
-</ul>
-</li>
-<li><a href="#org9708e6b">3.2.6. projectile</a>
-<ul>
-<li><a href="#org081e6d7">3.2.6.1. <code>&lt;SPC ,&gt;: helm-projectile-switch-project</code></a></li>
-<li><a href="#org4b2ae22">3.2.6.2. <code>&lt;SPC p p&gt;: add-current-project-to-projectile</code></a></li>
-<li><a href="#org7549914">3.2.6.3. <code>&lt;SPC p r&gt;: projectile-remove-known-project</code></a></li>
-</ul>
-</li>
-<li><a href="#orga42d25c">3.2.7. yasnippet</a></li>
-<li><a href="#org2271ad6">3.2.8. dired</a>
-<ul>
-<li><a href="#orgf6284d7">3.2.8.1. <code>&lt;SPC d&gt;: open-dired-mode</code></a></li>
-<li><a href="#org079dbc2">3.2.8.2. <code>&lt;d&gt;: dired-flag-file-deletion</code></a></li>
-<li><a href="#org4d4f452">3.2.8.3. <code>&lt;m, u, U&gt;: dired-mark, dired-unmark, dired-unmark-all-marks</code></a></li>
-<li><a href="#org3774841">3.2.8.4. <code>&lt;X&gt;: dired-do-flagged-delete</code></a></li>
-<li><a href="#orgce6ba78">3.2.8.5. <code>&lt;a&gt;: goto-parent-directory</code></a></li>
-<li><a href="#org911a700">3.2.8.6. <code>&lt;g&gt;: revert-buffer</code></a></li>
-<li><a href="#org2d9fbd2">3.2.8.7. <code>&lt;C&gt;: dired-do-copy</code></a></li>
-<li><a href="#org1de20f6">3.2.8.8. <code>&lt;R&gt;: dired-do-rename</code></a></li>
-<li><a href="#org3733edb">3.2.8.9. <code>&lt;+&gt;: dired-create-directory</code></a></li>
-</ul>
-</li>
-<li><a href="#orgf9fb60f">3.2.9. eldoc</a></li>
-<li><a href="#org7e7bb74">3.2.10. flycheck</a></li>
-<li><a href="#org7bbfddd">3.2.11. gud</a>
-<ul>
-<li><a href="#org0d33ddd">3.2.11.1. <code>&lt;SPC g d&gt;: gdb</code></a></li>
-<li><a href="#org4a6c7cd">3.2.11.2. <code>&lt;SPC g w&gt;: gdb-many-windows</code></a></li>
-<li><a href="#org0315cdd">3.2.11.3. <code>&lt;SPC g b&gt;: gud-break</code></a></li>
-<li><a href="#org58ff9e8">3.2.11.4. <code>&lt;SPC g s&gt;: gud-run</code></a></li>
-</ul>
-</li>
-<li><a href="#org8287448">3.2.12. neotree</a>
-<ul>
-<li><a href="#org78f39ba">3.2.12.1. <code>&lt;SPC n n&gt;: neotree-toggle</code></a></li>
-<li><a href="#orgf4adabd">3.2.12.2. <code>&lt;SPC n a&gt;, &lt;SPC n r&gt;: neotree-go-to-upper-directory, neotree-refresh</code></a></li>
-</ul>
-</li>
-<li><a href="#org9f72b5e">3.2.13. eyebrowse</a>
-<ul>
-<li><a href="#orgaeddeb2">3.2.13.1. <code>&lt;SPC 0,1,2,3&gt;, &lt;SPC c "&gt;: eyebrowse-switch-to-window-config-#, eyebrowse-close-window-config</code></a></li>
-</ul>
-</li>
-<li><a href="#orgd902429">3.2.14. smerge</a>
-<ul>
-<li><a href="#org160dc49">3.2.14.1. <code>&lt;C c n,p&gt;, &lt;C c a,b&gt;: smerge-next(previous), smerge-keep-mine(other)</code></a></li>
-</ul>
-</li>
-<li><a href="#org30493ff">3.2.15. centaur-tabs</a>
-<ul>
-<li><a href="#org0e9bd34">3.2.15.1. <code>&lt;SPC c t&gt;: centaur-tabs-mode</code></a></li>
-<li><a href="#orge5623cf">3.2.15.2. <code>&lt;J, K&gt;</code>, <code>&lt;SPC c Left, Right&gt;: centaur-tabs-forward(backward)-tab, centaur-tabs-move-current-tab-to-left(right)</code></a></li>
-<li><a href="#orgd6e40fd">3.2.15.3. <code>&lt;C w&gt;: centaur-tabs--kill-this-buffer-dont-ask</code></a></li>
-</ul>
-</li>
-<li><a href="#orga282bcc">3.2.16. which-key</a>
-<ul>
-<li><a href="#org2b56301">3.2.16.1. <code>&lt;SPC x k&gt;: which-key-mode</code></a></li>
-</ul>
-</li>
-<li><a href="#org98991c7">3.2.17. which-func</a></li>
-<li><a href="#org6ed0e27">3.2.18. multi-term</a>
-<ul>
-<li><a href="#org515c782">3.2.18.1. <code>&lt;SPC m m&gt;: multi-term</code></a></li>
-<li><a href="#org116b463">3.2.18.2. <code>&lt;SPC m t&gt;: my-multi-term</code></a></li>
-</ul>
-</li>
-<li><a href="#orgadf01d7">3.2.19. iedit</a>
-<ul>
-<li><a href="#org4830c31">3.2.19.1. <code>&lt;A [&gt;: iedit-mode</code></a></li>
-<li><a href="#orgf7edb67">3.2.19.2. <code>&lt;Tab, ESC&gt;: iedit-next-occurence, iedit-toggle-selection</code></a></li>
-</ul>
-</li>
-<li><a href="#org50632ba">3.2.20. wgrep</a>
-<ul>
-<li><a href="#org47a3193">3.2.20.1. <code>&lt;C c C p&gt;, &lt;C x C s&gt;: wgrep-change-to-wgrep-mode, wgrep-finish-edit</code></a></li>
-</ul>
-</li>
-<li><a href="#org14e4bdb">3.2.21. avy</a>
-<ul>
-<li><a href="#orgd286b2c">3.2.21.1. <code>&lt;SPC `&gt;: evil-avy-goto-word-0</code></a></li>
-</ul>
-</li>
-<li><a href="#orgd943e3f">3.2.22. ecb</a>
-<ul>
-<li><a href="#org61bac62">3.2.22.1. <code>&lt;SPC c e&gt;: ech-minor-mode</code></a></li>
-</ul>
-</li>
-<li><a href="#orgf359f8d">3.2.23. highlight-symbol</a>
-<ul>
-<li><a href="#org79e3c7d">3.2.23.1. <code>&lt;SPC c m,n&gt;: highlight-symbol, highlight-symbol-remove-all</code></a></li>
-<li><a href="#orgab4b6b9">3.2.23.2. <code>&lt;[, ]&gt;: highlight-symbol-next(prev)</code></a></li>
-</ul>
-</li>
-<li><a href="#orge03b093">3.2.24. hideshow</a>
-<ul>
-<li><a href="#orge2b2dbe">3.2.24.1. <code>&lt;A g&gt;: hs-toggle-hiding</code></a></li>
-<li><a href="#orge8ad045">3.2.24.2. <code>&lt;SPC x l,s&gt;: hs-hide-level, hs-show-all</code></a></li>
-</ul>
-</li>
-<li><a href="#orgaa77d88">3.2.25. undo-tree</a>
-<ul>
-<li><a href="#orgc0267d5">3.2.25.1. <code>&lt;SPC c z&gt;: undo-tree-visualize</code></a></li>
-<li><a href="#org16d0e2e">3.2.25.2. <code>&lt;U&gt;: undo-tree-redo</code></a></li>
-</ul>
-</li>
-<li><a href="#org563b720">3.2.26. highlight-indentation</a>
-<ul>
-<li><a href="#orgc3dc6e7">3.2.26.1. <code>&lt;C S l&gt;: highlight-indentation-mode</code></a></li>
-</ul>
-</li>
-<li><a href="#org6bb66ba">3.2.27. mic-paren</a></li>
-<li><a href="#org9237ede">3.2.28. smartparens</a></li>
-<li><a href="#org88afe89">3.2.29. google-c-style</a></li>
-<li><a href="#org8ce1dcc">3.2.30. doom-modeline</a></li>
+<li><a href="#org49a37a1">3.1.2.1. <code>&lt;SPC b b&gt;: bookmark-set</code></a></li>
+<li><a href="#org8362c4f">3.1.2.2. <code>&lt;SPC b v&gt;: bookmark-jump</code></a></li>
+<li><a href="#orgdb2952d">3.1.2.3. <code>&lt;SPC b d&gt;: bookmark-delete</code></a></li>
+<li><a href="#org16f2d69">3.1.2.4. <code>&lt;SPC c k&gt;: my-kill-this-buffer</code></a></li>
+<li><a href="#orgbfa3db0">3.1.2.5. <code>&lt;SPC c p&gt;: pwd</code></a></li>
+<li><a href="#orge78bc51">3.1.2.6. <code>&lt;SPC c g&gt;: grep-find</code></a></li>
+<li><a href="#org5d83e52">3.1.2.7. <code>&lt;SPC z m&gt;: suspend-frame</code></a></li>
+<li><a href="#orgc8a40f9">3.1.2.8. <code>&lt;SPC z f&gt;: toggle-frame-fullscreen</code></a></li>
+<li><a href="#orgb54749d">3.1.2.9. <code>&lt;SPC s&gt;: create-scratch-buffer</code></a></li>
+<li><a href="#orgba2c0b6">3.1.2.10. <code>&lt;SPC -&gt;, &lt;SPC \&gt;: split-window-vertically, split-window-horizontally</code></a></li>
+<li><a href="#org15a45b7">3.1.2.11. <code>&lt;SPC ]&gt;: window-split-toggle</code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org08eb920">4. References</a></li>
+<li><a href="#org3dc57b9">3.2. Package Features</a>
+<ul>
+<li><a href="#org2485a59">3.2.1. evil</a>
+<ul>
+<li><a href="#orgce73160">3.2.1.1. <code>&lt;SAME WITH VIM KEYBINDING&gt;</code></a></li>
+</ul>
+</li>
+<li><a href="#org301583f">3.2.2. lsp-mode</a></li>
+<li><a href="#org93fb8e8">3.2.3. magit</a>
+<ul>
+<li><a href="#orga845edf">3.2.3.1. <code>&lt;SPC m \&gt;: magit-status</code></a></li>
+<li><a href="#org02460ef">3.2.3.2. <code>&lt;SPC m e&gt;: magit-ediff-dwim</code></a></li>
+<li><a href="#orge09e61c">3.2.3.3. <code>&lt;SPC m d&gt;: magit-diff-dwim</code></a></li>
+<li><a href="#orgaf03097">3.2.3.4. <code>&lt;SPC m l&gt;: magit-log-buffer-file</code></a></li>
+<li><a href="#orga462c75">3.2.3.5. <code>&lt;SPC m f&gt;: magit-find-file</code></a></li>
+<li><a href="#org735fc51">3.2.3.6. <code>&lt;Tab&gt;: magit-section-toggle</code></a></li>
+<li><a href="#org4893207">3.2.3.7. <code>&lt;s, u&gt;: magit-statge-file, magit-unstage-file</code></a></li>
+<li><a href="#org18eb65e">3.2.3.8. <code>&lt;d d&gt;: magit-diff</code></a></li>
+<li><a href="#orgffa8e8a">3.2.3.9. <code>&lt;c c&gt;: magit-commit</code></a></li>
+<li><a href="#orgdefdc75">3.2.3.10. <code>&lt;F u&gt;, &lt;P u&gt;: magit-pull, magit-push</code></a></li>
+</ul>
+</li>
+<li><a href="#org706ba1e">3.2.4. git-gutter</a>
+<ul>
+<li><a href="#org1a09f54">3.2.4.1. <code>&lt;SPC m n,p,r&gt;: git-gutter:next(prev)-hunk, git-gutter:revert-hunk</code></a></li>
+</ul>
+</li>
+<li><a href="#org8879d2d">3.2.5. helm</a>
+<ul>
+<li><a href="#org56452de">3.2.5.1. <code>&lt;SPC f&gt;: helm-for-files</code></a></li>
+<li><a href="#org01878df">3.2.5.2. <code>&lt;SPC w&gt;: helm-find-files</code></a></li>
+<li><a href="#org03c3ad9">3.2.5.3. <code>&lt;SPC a&gt;: helm-semantic</code></a></li>
+<li><a href="#org3e14d37">3.2.5.4. <code>&lt;A x&gt;: helm-M-x</code></a></li>
+</ul>
+</li>
+<li><a href="#orgf42ad1a">3.2.6. projectile</a>
+<ul>
+<li><a href="#org0b6244d">3.2.6.1. <code>&lt;SPC ,&gt;: helm-projectile-switch-project</code></a></li>
+<li><a href="#org159e42e">3.2.6.2. <code>&lt;SPC p p&gt;: add-current-project-to-projectile</code></a></li>
+<li><a href="#orge1a464a">3.2.6.3. <code>&lt;SPC p r&gt;: projectile-remove-known-project</code></a></li>
+</ul>
+</li>
+<li><a href="#org6bf9414">3.2.7. yasnippet</a></li>
+<li><a href="#org10861c0">3.2.8. dired</a>
+<ul>
+<li><a href="#orga581247">3.2.8.1. <code>&lt;SPC d&gt;: open-dired-mode</code></a></li>
+<li><a href="#org13c985e">3.2.8.2. <code>&lt;d&gt;: dired-flag-file-deletion</code></a></li>
+<li><a href="#org82cccb6">3.2.8.3. <code>&lt;m, u, U&gt;: dired-mark, dired-unmark, dired-unmark-all-marks</code></a></li>
+<li><a href="#org1c030cb">3.2.8.4. <code>&lt;X&gt;: dired-do-flagged-delete</code></a></li>
+<li><a href="#org3edbfae">3.2.8.5. <code>&lt;a&gt;: goto-parent-directory</code></a></li>
+<li><a href="#org7c46262">3.2.8.6. <code>&lt;g&gt;: revert-buffer</code></a></li>
+<li><a href="#org3753291">3.2.8.7. <code>&lt;C&gt;: dired-do-copy</code></a></li>
+<li><a href="#orgb3eab69">3.2.8.8. <code>&lt;R&gt;: dired-do-rename</code></a></li>
+<li><a href="#org213c22b">3.2.8.9. <code>&lt;+&gt;: dired-create-directory</code></a></li>
+</ul>
+</li>
+<li><a href="#org8dddbc5">3.2.9. eldoc</a></li>
+<li><a href="#org546c8ce">3.2.10. flycheck</a></li>
+<li><a href="#org049c93a">3.2.11. gud</a>
+<ul>
+<li><a href="#org862dd8e">3.2.11.1. <code>&lt;SPC g d&gt;: gdb</code></a></li>
+<li><a href="#org72bd55b">3.2.11.2. <code>&lt;SPC g w&gt;: gdb-many-windows</code></a></li>
+<li><a href="#orgdd1fbca">3.2.11.3. <code>&lt;SPC g b&gt;: gud-break</code></a></li>
+<li><a href="#org62631c3">3.2.11.4. <code>&lt;SPC g s&gt;: gud-run</code></a></li>
+</ul>
+</li>
+<li><a href="#org3106f0e">3.2.12. neotree</a>
+<ul>
+<li><a href="#org7823f32">3.2.12.1. <code>&lt;SPC n n&gt;: neotree-toggle</code></a></li>
+<li><a href="#orgd7ebbca">3.2.12.2. <code>&lt;SPC n a&gt;, &lt;SPC n r&gt;: neotree-go-to-upper-directory, neotree-refresh</code></a></li>
+</ul>
+</li>
+<li><a href="#orgafbe7a1">3.2.13. eyebrowse</a>
+<ul>
+<li><a href="#org30f89b5">3.2.13.1. <code>&lt;SPC 0,1,2,3&gt;, &lt;SPC c "&gt;: eyebrowse-switch-to-window-config-#, eyebrowse-close-window-config</code></a></li>
+</ul>
+</li>
+<li><a href="#org7562619">3.2.14. smerge</a>
+<ul>
+<li><a href="#orgb90de94">3.2.14.1. <code>&lt;C c n,p&gt;, &lt;C c a,b&gt;: smerge-next(previous), smerge-keep-mine(other)</code></a></li>
+</ul>
+</li>
+<li><a href="#org4644f63">3.2.15. centaur-tabs</a>
+<ul>
+<li><a href="#orge77fc5c">3.2.15.1. <code>&lt;SPC c t&gt;: centaur-tabs-mode</code></a></li>
+<li><a href="#org670dcee">3.2.15.2. <code>&lt;J, K&gt;</code>, <code>&lt;SPC c Left, Right&gt;: centaur-tabs-forward(backward)-tab, centaur-tabs-move-current-tab-to-left(right)</code></a></li>
+<li><a href="#org47f0dd2">3.2.15.3. <code>&lt;C w&gt;: centaur-tabs--kill-this-buffer-dont-ask</code></a></li>
+</ul>
+</li>
+<li><a href="#org5f8c3d6">3.2.16. which-key</a>
+<ul>
+<li><a href="#org2868b09">3.2.16.1. <code>&lt;SPC x k&gt;: which-key-mode</code></a></li>
+</ul>
+</li>
+<li><a href="#org87eef2e">3.2.17. which-func</a></li>
+<li><a href="#org1928294">3.2.18. multi-term</a>
+<ul>
+<li><a href="#orge2516f2">3.2.18.1. <code>&lt;SPC m m&gt;: multi-term</code></a></li>
+<li><a href="#org6bb6d01">3.2.18.2. <code>&lt;SPC m t&gt;: my-multi-term</code></a></li>
+</ul>
+</li>
+<li><a href="#org8d5f281">3.2.19. iedit</a>
+<ul>
+<li><a href="#org3e90470">3.2.19.1. <code>&lt;A [&gt;: iedit-mode</code></a></li>
+<li><a href="#org7d5353c">3.2.19.2. <code>&lt;Tab, ESC&gt;: iedit-next-occurence, iedit-toggle-selection</code></a></li>
+</ul>
+</li>
+<li><a href="#org19bd6be">3.2.20. wgrep</a>
+<ul>
+<li><a href="#org7bf2aa6">3.2.20.1. <code>&lt;C c C p&gt;, &lt;C x C s&gt;: wgrep-change-to-wgrep-mode, wgrep-finish-edit</code></a></li>
+</ul>
+</li>
+<li><a href="#org72ab92f">3.2.21. avy</a>
+<ul>
+<li><a href="#orgec3d2d2">3.2.21.1. <code>&lt;SPC `&gt;: evil-avy-goto-word-0</code></a></li>
+</ul>
+</li>
+<li><a href="#orgaa29e1e">3.2.22. ecb</a>
+<ul>
+<li><a href="#org591fa5c">3.2.22.1. <code>&lt;SPC c e&gt;: ech-minor-mode</code></a></li>
+</ul>
+</li>
+<li><a href="#org2ddaeaa">3.2.23. highlight-symbol</a>
+<ul>
+<li><a href="#orgcb6ec10">3.2.23.1. <code>&lt;SPC c m,n&gt;: highlight-symbol, highlight-symbol-remove-all</code></a></li>
+<li><a href="#org8e02db8">3.2.23.2. <code>&lt;[, ]&gt;: highlight-symbol-next(prev)</code></a></li>
+</ul>
+</li>
+<li><a href="#org7149f10">3.2.24. hideshow</a>
+<ul>
+<li><a href="#org9029971">3.2.24.1. <code>&lt;A g&gt;: hs-toggle-hiding</code></a></li>
+<li><a href="#orgba49ed9">3.2.24.2. <code>&lt;SPC x l,s&gt;: hs-hide-level, hs-show-all</code></a></li>
+</ul>
+</li>
+<li><a href="#orgd461b04">3.2.25. undo-tree</a>
+<ul>
+<li><a href="#orgef2c848">3.2.25.1. <code>&lt;SPC c z&gt;: undo-tree-visualize</code></a></li>
+<li><a href="#orgbae6a9b">3.2.25.2. <code>&lt;U&gt;: undo-tree-redo</code></a></li>
+</ul>
+</li>
+<li><a href="#org5e34f27">3.2.26. highlight-indentation</a>
+<ul>
+<li><a href="#org043b5a5">3.2.26.1. <code>&lt;C S l&gt;: highlight-indentation-mode</code></a></li>
+</ul>
+</li>
+<li><a href="#org962084a">3.2.27. mic-paren</a></li>
+<li><a href="#org36bff84">3.2.28. smartparens</a></li>
+<li><a href="#orge5181eb">3.2.29. google-c-style</a></li>
+<li><a href="#orgaa60be2">3.2.30. doom-modeline</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4b327ff">4. References</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgaeff015" class="outline-2">
-<h2 id="orgaeff015"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-orgdaedf49" class="outline-2">
+<h2 id="orgdaedf49"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 
 <figure>
@@ -245,15 +245,15 @@ emacs는 C++ 에디터 외에도 <code>org-mode</code>, <code>latex-mode</code> 
 </div>
 </div>
 
-<div id="outline-container-org4a23909" class="outline-2">
-<h2 id="org4a23909"><span class="section-number-2">2</span> How to setup</h2>
+<div id="outline-container-orgd3862bc" class="outline-2">
+<h2 id="orgd3862bc"><span class="section-number-2">2</span> How to setup</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <code>sudo apt install emacs</code> 를 통해 emacs를 설치하는 경우 일반적으로 26.3 버전이 아닌 다른 버전의 emacs가 설치될 것이다. 필자는 26.3 보다 낮은 버전에서 패키지를 설치할 때 TLS 에러 때문에 설치를 못했던 경험이 있어서 되도록이면 소스코드를 통해 빌드하는 방법을 추천한다. 
 </p>
 
 <p>
-본 포스트에서는 필자의 설치 방법을 소개한다. 우선 Documents 디렉토리로 이동한다.
+본 포스트에서는 필자의 설치 방법을 소개한다. 우선 Documents 디렉토리로 이동한다. 
 </p>
 
 <div class="org-src-container">
@@ -315,25 +315,21 @@ $ ./emacs
 여기까지 완료되었으면 <code>lsp-mode</code> 를 제외하고 모든 emacs 기능들이 정상적으로 설치되었다.
 </p>
 </div>
-<div id="outline-container-orgfa66884" class="outline-3">
-<h3 id="orgfa66884"><span class="section-number-3">2.1</span> lsp-mode</h3>
+<div id="outline-container-org35badfd" class="outline-3">
+<h3 id="org35badfd"><span class="section-number-3">2.1</span> lsp-mode</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-<code>lsp-mode</code> 는 emacs의 코드 네비게이션(함수 이동, 에러 체크) 및 자동완성을 수행하는 패키지이다.
-</p>
-</div>
-<div id="outline-container-org518dc52" class="outline-4">
-<h4 id="org518dc52"><span class="section-number-4">2.1.1</span> C++</h4>
-<div class="outline-text-4" id="text-2-1-1">
-<p>
-맨 처음 <code>lsp-mode</code> 를 실행하는 경우 아래와 같이 cmake 프로젝트의 최상단을 입력하라는 창이 뜬다. 제안된 경로가 맞는 경우 <code>i</code> 키를 누르면 되고 임의로 경로를 변경하고 싶은 경우 <code>I</code> 키를 눌러서 변경하면 된다. 
+<code>lsp-mode</code> 는 emacs의 코드 네비게이션(함수 이동, 에러 체크) 및 자동완성을 수행하는 패키지이다. 맨 처음 <code>lsp-mode</code> 를 실행하는 경우 아래와 같이 cmake 프로젝트의 최상단을 입력하라는 창이 뜬다. 제안된 경로가 맞는 경우 <code>i</code> 키를 누르면 되고 임의로 경로를 변경하고 싶은 경우 <code>I</code> 키를 눌러서 변경하면 된다. 
 </p>
 
 <figure>
 <img src="/pictures/200926/lsp_mode.png" alt="lsp_mode.png" align="center">
 
 </figure>
-
+</div>
+<div id="outline-container-org98fbc18" class="outline-4">
+<h4 id="org98fbc18"><span class="section-number-4">2.1.1</span> C++</h4>
+<div class="outline-text-4" id="text-2-1-1">
 <p>
 <code>lsp-mode</code> 는 clangd-9 버전에서 정상적으로 작동한다. clangd-9는 다음 명령을 통해 설치할 수 있다.
 </p>
@@ -385,8 +381,8 @@ $ ln -s ./build/compile_commands.json ./
 </div>
 </div>
 
-<div id="outline-container-org154bb5d" class="outline-4">
-<h4 id="org154bb5d"><span class="section-number-4">2.1.2</span> Python</h4>
+<div id="outline-container-org1f5e392" class="outline-4">
+<h4 id="org1f5e392"><span class="section-number-4">2.1.2</span> Python</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 파이썬의 경우 <code>pyls</code> 프로그램을 설치해야 코드 자동완성 및 네비게이션이 가능하다. <code>pyls</code> 는 다음 명령어를 통해 쉽게 설치할 수 있다.
@@ -408,15 +404,15 @@ $ pyls --help
 </div>
 </div>
 </div>
-<div id="outline-container-org8f67e3a" class="outline-2">
-<h2 id="org8f67e3a"><span class="section-number-2">3</span> My emacs configuration</h2>
+<div id="outline-container-org8305d9e" class="outline-2">
+<h2 id="org8305d9e"><span class="section-number-2">3</span> My emacs configuration</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 해당 섹션에서는 필자가 사용하는 emacs의 다양한 기본 기능 및 플러그인 기능들에 대해 설명한다. 사용하는 .emacs 파일은 <a href="/files/200926/emacs_dev">emacs(dev)</a> 에서 다운로드 받을 수 있다. 해당 키바인딩은 필자가 임의로 설정한 키바인딩이므로 원한다면 얼마든지 바꿔서 사용할 수 있다. 
 </p>
 </div>
-<div id="outline-container-org1bd42d8" class="outline-3">
-<h3 id="org1bd42d8"><span class="section-number-3">3.1</span> General Features</h3>
+<div id="outline-container-org44ee228" class="outline-3">
+<h3 id="org44ee228"><span class="section-number-3">3.1</span> General Features</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 <b>emacs는 기본 키바인딩들이 대부분 Control로 시작하여 왼쪽 새끼손가락에 무리가 많이 가기 때문에 기본 키바인딩을 거의 대부분 Space 키부터 시작하도록 변경하였다.</b> <b>Custom keybindings</b> 섹션의 경우 emacs 자체의 기본 키바인딩을 변경한 필자의 키바인딩에 대해 설명하였다. emacs에는 수많은 기능 및 키바인딩들이 존재하지만 이를 다 설명하지 않고 실제로 자주 사용하는 키바인딩 위주로 설명하였다.
@@ -426,15 +422,15 @@ $ pyls --help
 Control 키바인딩은 <code>&lt;C {...}&gt;</code> 과 같이 표현하고 Alt 키바인딩은 <code>&lt;A {...}&gt;</code> 으로 표현하였다. 그리고 Space 키바인딩은 <code>&lt;SPC {...}&gt;</code> 로 표현하였으며 Shift 키바인딩은 <code>&lt;S {...}&gt;</code> 로 표현하였다.
 </p>
 </div>
-<div id="outline-container-org4b754df" class="outline-4">
-<h4 id="org4b754df"><span class="section-number-4">3.1.1</span> Custom keybindings</h4>
+<div id="outline-container-orgb8ab349" class="outline-4">
+<h4 id="orgb8ab349"><span class="section-number-4">3.1.1</span> Custom keybindings</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 기본 키바인딩은 <code>evil</code> 모드를 사용하여 대부분 키바인딩이 vim 키바인딩과 동일하다. 해당 섹션에서는 vim의 기본 키바인딩과 동일하지 않은 키바인딩들을 설명한다.
 </p>
 </div>
-<div id="outline-container-org968dfde" class="outline-5">
-<h5 id="org968dfde"><span class="section-number-5">3.1.1.1</span> <code>&lt;, .&gt;: forward-paragraph, backward-paragraph</code></h5>
+<div id="outline-container-org73ecb43" class="outline-5">
+<h5 id="org73ecb43"><span class="section-number-5">3.1.1.1</span> <code>&lt;, .&gt;: forward-paragraph, backward-paragraph</code></h5>
 <div class="outline-text-5" id="text-3-1-1-1">
 <p align="center">
 <img src="/pictures/200926/dot_comma.gif" alt="dot_comma.gif" align="center">
@@ -442,8 +438,8 @@ Control 키바인딩은 <code>&lt;C {...}&gt;</code> 과 같이 표현하고 Alt
 </p>
 </div>
 </div>
-<div id="outline-container-org445b2cd" class="outline-5">
-<h5 id="org445b2cd"><span class="section-number-5">3.1.1.2</span> <code>&lt;C f&gt;: newline-without-break-of-line</code></h5>
+<div id="outline-container-org5916f28" class="outline-5">
+<h5 id="org5916f28"><span class="section-number-5">3.1.1.2</span> <code>&lt;C f&gt;: newline-without-break-of-line</code></h5>
 <div class="outline-text-5" id="text-3-1-1-2">
 <p align="center">
 <img src="/pictures/200926/c_f.gif" alt="c_f.gif" align="center">
@@ -451,8 +447,8 @@ Control 키바인딩은 <code>&lt;C {...}&gt;</code> 과 같이 표현하고 Alt
 </p>
 </div>
 </div>
-<div id="outline-container-orgec04a9a" class="outline-5">
-<h5 id="orgec04a9a"><span class="section-number-5">3.1.1.3</span> <code>&lt;C ]&gt;: match-paren</code></h5>
+<div id="outline-container-orgd33b661" class="outline-5">
+<h5 id="orgd33b661"><span class="section-number-5">3.1.1.3</span> <code>&lt;C ]&gt;: match-paren</code></h5>
 <div class="outline-text-5" id="text-3-1-1-3">
 <p align="center">
 <img src="/pictures/200926/c_parenthesis.gif" alt="c_parenthesis.gif" align="center">
@@ -460,8 +456,8 @@ Control 키바인딩은 <code>&lt;C {...}&gt;</code> 과 같이 표현하고 Alt
 </p>
 </div>
 </div>
-<div id="outline-container-orga9f7121" class="outline-5">
-<h5 id="orga9f7121"><span class="section-number-5">3.1.1.4</span> <code>&lt;A w&gt;: kill-whitespace</code></h5>
+<div id="outline-container-orgf769103" class="outline-5">
+<h5 id="orgf769103"><span class="section-number-5">3.1.1.4</span> <code>&lt;A w&gt;: kill-whitespace</code></h5>
 <div class="outline-text-5" id="text-3-1-1-4">
 <p align="center">
 <img src="/pictures/200926/a_w.gif" alt="a_w.gif" align="center">
@@ -469,8 +465,8 @@ Control 키바인딩은 <code>&lt;C {...}&gt;</code> 과 같이 표현하고 Alt
 </p>
 </div>
 </div>
-<div id="outline-container-orgd1a0d11" class="outline-5">
-<h5 id="orgd1a0d11"><span class="section-number-5">3.1.1.5</span> <code>&lt;A u&gt;: xah-toggle-letter-case</code></h5>
+<div id="outline-container-org739fe39" class="outline-5">
+<h5 id="org739fe39"><span class="section-number-5">3.1.1.5</span> <code>&lt;A u&gt;: xah-toggle-letter-case</code></h5>
 <div class="outline-text-5" id="text-3-1-1-5">
 <p align="center">
 <img src="/pictures/200926/a_u.gif" alt="a_u.gif" align="center">
@@ -478,8 +474,8 @@ Control 키바인딩은 <code>&lt;C {...}&gt;</code> 과 같이 표현하고 Alt
 </p>
 </div>
 </div>
-<div id="outline-container-org100b032" class="outline-5">
-<h5 id="org100b032"><span class="section-number-5">3.1.1.6</span> <code>&lt;A Enter&gt;: open-line</code></h5>
+<div id="outline-container-org3901382" class="outline-5">
+<h5 id="org3901382"><span class="section-number-5">3.1.1.6</span> <code>&lt;A Enter&gt;: open-line</code></h5>
 <div class="outline-text-5" id="text-3-1-1-6">
 <p align="center">
 <img src="/pictures/200926/a_enter.gif" alt="a_enter.gif" align="center">
@@ -487,8 +483,8 @@ Control 키바인딩은 <code>&lt;C {...}&gt;</code> 과 같이 표현하고 Alt
 </p>
 </div>
 </div>
-<div id="outline-container-org9646510" class="outline-5">
-<h5 id="org9646510"><span class="section-number-5">3.1.1.7</span> <code>&lt;C e&gt;, &lt;A e&gt;: move-end-of-line, move-beginning-of-line</code></h5>
+<div id="outline-container-org4d65a44" class="outline-5">
+<h5 id="org4d65a44"><span class="section-number-5">3.1.1.7</span> <code>&lt;C e&gt;, &lt;A e&gt;: move-end-of-line, move-beginning-of-line</code></h5>
 <div class="outline-text-5" id="text-3-1-1-7">
 <p align="center">
 <img src="/pictures/200926/c_e_a_e.gif" alt="c_e_a_e.gif" align="center">
@@ -496,8 +492,8 @@ Control 키바인딩은 <code>&lt;C {...}&gt;</code> 과 같이 표현하고 Alt
 </p>
 </div>
 </div>
-<div id="outline-container-orgece520d" class="outline-5">
-<h5 id="orgece520d"><span class="section-number-5">3.1.1.8</span> <code>&lt;C n&gt;, &lt;C S n&gt; : make-frame-command, delete-frame</code></h5>
+<div id="outline-container-orgff213b8" class="outline-5">
+<h5 id="orgff213b8"><span class="section-number-5">3.1.1.8</span> <code>&lt;C n&gt;, &lt;C S n&gt; : make-frame-command, delete-frame</code></h5>
 <div class="outline-text-5" id="text-3-1-1-8">
 <p align="center">
 <img src="/pictures/200926/c_n_c_s_n.gif" alt="c_n_c_s_n.gif" align="center">
@@ -505,8 +501,8 @@ Control 키바인딩은 <code>&lt;C {...}&gt;</code> 과 같이 표현하고 Alt
 </p>
 </div>
 </div>
-<div id="outline-container-org3d9a21b" class="outline-5">
-<h5 id="org3d9a21b"><span class="section-number-5">3.1.1.9</span> <code>&lt;C -&gt;, &lt;C =&gt;: zoom-frame-out, zoom-frame-in</code></h5>
+<div id="outline-container-org877fbf0" class="outline-5">
+<h5 id="org877fbf0"><span class="section-number-5">3.1.1.9</span> <code>&lt;C -&gt;, &lt;C =&gt;: zoom-frame-out, zoom-frame-in</code></h5>
 <div class="outline-text-5" id="text-3-1-1-9">
 <p align="center">
 <img src="/pictures/200926/c_dash_c_equal.gif" alt="c_dash_c_equal.gif" align="center">
@@ -514,8 +510,8 @@ Control 키바인딩은 <code>&lt;C {...}&gt;</code> 과 같이 표현하고 Alt
 </p>
 </div>
 </div>
-<div id="outline-container-orgbc7a4fe" class="outline-5">
-<h5 id="orgbc7a4fe"><span class="section-number-5">3.1.1.10</span> <code>&lt;A '&gt;, &lt;A ;&gt;: comment-dwim, select-current-line-and-comment</code></h5>
+<div id="outline-container-orgb8e90e5" class="outline-5">
+<h5 id="orgb8e90e5"><span class="section-number-5">3.1.1.10</span> <code>&lt;A '&gt;, &lt;A ;&gt;: comment-dwim, select-current-line-and-comment</code></h5>
 <div class="outline-text-5" id="text-3-1-1-10">
 <p align="center">
 <img src="/pictures/200926/a_comment.gif" alt="a_comment.gif" align="center">
@@ -523,8 +519,8 @@ A-'로 현재 커서에 주석을 추가하며 Visual Block 모드에서 A-;를 
 </p>
 </div>
 </div>
-<div id="outline-container-org7436d2e" class="outline-5">
-<h5 id="org7436d2e"><span class="section-number-5">3.1.1.11</span> <code>&lt;A h,j,k,l&gt;: next-multiframe-window, previous-multiframe-window</code></h5>
+<div id="outline-container-org8140824" class="outline-5">
+<h5 id="org8140824"><span class="section-number-5">3.1.1.11</span> <code>&lt;A h,j,k,l&gt;: next-multiframe-window, previous-multiframe-window</code></h5>
 <div class="outline-text-5" id="text-3-1-1-11">
 <p align="center">
 <img src="/pictures/200926/a_hjkl.gif" alt="a_hjkl.gif" align="center">
@@ -532,8 +528,8 @@ A-'로 현재 커서에 주석을 추가하며 Visual Block 모드에서 A-;를 
 </p>
 </div>
 </div>
-<div id="outline-container-org5acd523" class="outline-5">
-<h5 id="org5acd523"><span class="section-number-5">3.1.1.12</span> <code>&lt;C q&gt;, &lt;A q&gt;: delete-other-windows, delete-window</code></h5>
+<div id="outline-container-org664566d" class="outline-5">
+<h5 id="org664566d"><span class="section-number-5">3.1.1.12</span> <code>&lt;C q&gt;, &lt;A q&gt;: delete-other-windows, delete-window</code></h5>
 <div class="outline-text-5" id="text-3-1-1-12">
 <p align="center">
 <img src="/pictures/200926/c_q_a_q.gif" alt="c_q_a_q.gif" align="center">
@@ -542,12 +538,12 @@ C-q는 현재 커서가 놓인 창을 제외하고 나머지 창들을 전부 �
 </div>
 </div>
 </div>
-<div id="outline-container-org99b0636" class="outline-4">
-<h4 id="org99b0636"><span class="section-number-4">3.1.2</span> Space keybindings</h4>
+<div id="outline-container-org3d7f726" class="outline-4">
+<h4 id="org3d7f726"><span class="section-number-4">3.1.2</span> Space keybindings</h4>
 <div class="outline-text-4" id="text-3-1-2">
 </div>
-<div id="outline-container-org524976c" class="outline-5">
-<h5 id="org524976c"><span class="section-number-5">3.1.2.1</span> <code>&lt;SPC b b&gt;: bookmark-set</code></h5>
+<div id="outline-container-org49a37a1" class="outline-5">
+<h5 id="org49a37a1"><span class="section-number-5">3.1.2.1</span> <code>&lt;SPC b b&gt;: bookmark-set</code></h5>
 <div class="outline-text-5" id="text-3-1-2-1">
 <p align="center">
 <img src="/pictures/200926/spc_b_b.gif" alt="spc_b_b.gif" align="center">
@@ -555,8 +551,8 @@ C-q는 현재 커서가 놓인 창을 제외하고 나머지 창들을 전부 �
 </p>
 </div>
 </div>
-<div id="outline-container-org230391e" class="outline-5">
-<h5 id="org230391e"><span class="section-number-5">3.1.2.2</span> <code>&lt;SPC b v&gt;: bookmark-jump</code></h5>
+<div id="outline-container-org8362c4f" class="outline-5">
+<h5 id="org8362c4f"><span class="section-number-5">3.1.2.2</span> <code>&lt;SPC b v&gt;: bookmark-jump</code></h5>
 <div class="outline-text-5" id="text-3-1-2-2">
 <p align="center">
 <img src="/pictures/200926/spc_b_v.gif" alt="spc_b_v.gif" align="center">
@@ -564,8 +560,8 @@ C-q는 현재 커서가 놓인 창을 제외하고 나머지 창들을 전부 �
 </p>
 </div>
 </div>
-<div id="outline-container-orgdff1229" class="outline-5">
-<h5 id="orgdff1229"><span class="section-number-5">3.1.2.3</span> <code>&lt;SPC b d&gt;: bookmark-delete</code></h5>
+<div id="outline-container-orgdb2952d" class="outline-5">
+<h5 id="orgdb2952d"><span class="section-number-5">3.1.2.3</span> <code>&lt;SPC b d&gt;: bookmark-delete</code></h5>
 <div class="outline-text-5" id="text-3-1-2-3">
 <p align="center">
 <img src="/pictures/200926/spc_b_d.gif" alt="spc_b_d.gif" align="center">
@@ -573,8 +569,8 @@ C-q는 현재 커서가 놓인 창을 제외하고 나머지 창들을 전부 �
 </p>
 </div>
 </div>
-<div id="outline-container-org3dba21e" class="outline-5">
-<h5 id="org3dba21e"><span class="section-number-5">3.1.2.4</span> <code>&lt;SPC c k&gt;: my-kill-this-buffer</code></h5>
+<div id="outline-container-org16f2d69" class="outline-5">
+<h5 id="org16f2d69"><span class="section-number-5">3.1.2.4</span> <code>&lt;SPC c k&gt;: my-kill-this-buffer</code></h5>
 <div class="outline-text-5" id="text-3-1-2-4">
 <p align="center">
 <img src="/pictures/200926/spc_c_k.gif" alt="spc_c_k.gif" align="center">
@@ -582,8 +578,8 @@ C-q는 현재 커서가 놓인 창을 제외하고 나머지 창들을 전부 �
 </p>
 </div>
 </div>
-<div id="outline-container-org99daa78" class="outline-5">
-<h5 id="org99daa78"><span class="section-number-5">3.1.2.5</span> <code>&lt;SPC c p&gt;: pwd</code></h5>
+<div id="outline-container-orgbfa3db0" class="outline-5">
+<h5 id="orgbfa3db0"><span class="section-number-5">3.1.2.5</span> <code>&lt;SPC c p&gt;: pwd</code></h5>
 <div class="outline-text-5" id="text-3-1-2-5">
 <p align="center">
 <img src="/pictures/200926/spc_c_p.gif" alt="spc_c_p.gif" align="center">
@@ -591,8 +587,8 @@ C-q는 현재 커서가 놓인 창을 제외하고 나머지 창들을 전부 �
 </p>
 </div>
 </div>
-<div id="outline-container-org315e54d" class="outline-5">
-<h5 id="org315e54d"><span class="section-number-5">3.1.2.6</span> <code>&lt;SPC c g&gt;: grep-find</code></h5>
+<div id="outline-container-orge78bc51" class="outline-5">
+<h5 id="orge78bc51"><span class="section-number-5">3.1.2.6</span> <code>&lt;SPC c g&gt;: grep-find</code></h5>
 <div class="outline-text-5" id="text-3-1-2-6">
 <p align="center">
 <img src="/pictures/200926/spc_c_g.gif" alt="spc_c_g.gif" align="center">
@@ -600,8 +596,8 @@ C-q는 현재 커서가 놓인 창을 제외하고 나머지 창들을 전부 �
 </p>
 </div>
 </div>
-<div id="outline-container-org460c848" class="outline-5">
-<h5 id="org460c848"><span class="section-number-5">3.1.2.7</span> <code>&lt;SPC z m&gt;: suspend-frame</code></h5>
+<div id="outline-container-org5d83e52" class="outline-5">
+<h5 id="org5d83e52"><span class="section-number-5">3.1.2.7</span> <code>&lt;SPC z m&gt;: suspend-frame</code></h5>
 <div class="outline-text-5" id="text-3-1-2-7">
 <p align="center">
 <img src="/pictures/200926/spc_z_m.gif" alt="spc_z_m.gif" align="center">
@@ -609,8 +605,8 @@ emacs 창을 최소화한다
 </p>
 </div>
 </div>
-<div id="outline-container-org10279b6" class="outline-5">
-<h5 id="org10279b6"><span class="section-number-5">3.1.2.8</span> <code>&lt;SPC z f&gt;: toggle-frame-fullscreen</code></h5>
+<div id="outline-container-orgc8a40f9" class="outline-5">
+<h5 id="orgc8a40f9"><span class="section-number-5">3.1.2.8</span> <code>&lt;SPC z f&gt;: toggle-frame-fullscreen</code></h5>
 <div class="outline-text-5" id="text-3-1-2-8">
 <p align="center">
 <img src="/pictures/200926/spc_z_f.gif" alt="spc_z_f.gif" align="center">
@@ -618,8 +614,8 @@ emacs 창을 최대화한다
 </p>
 </div>
 </div>
-<div id="outline-container-org18e236d" class="outline-5">
-<h5 id="org18e236d"><span class="section-number-5">3.1.2.9</span> <code>&lt;SPC s&gt;: create-scratch-buffer</code></h5>
+<div id="outline-container-orgb54749d" class="outline-5">
+<h5 id="orgb54749d"><span class="section-number-5">3.1.2.9</span> <code>&lt;SPC s&gt;: create-scratch-buffer</code></h5>
 <div class="outline-text-5" id="text-3-1-2-9">
 <p align="center">
 <img src="/pictures/200926/spc_s.gif" alt="spc_s.gif" align="center">
@@ -627,8 +623,8 @@ Scratch 버퍼로 이동한다. Scratch 버퍼는 emacs가 시작하면 가장 �
 </p>
 </div>
 </div>
-<div id="outline-container-org768c063" class="outline-5">
-<h5 id="org768c063"><span class="section-number-5">3.1.2.10</span> <code>&lt;SPC -&gt;, &lt;SPC \&gt;: split-window-vertically, split-window-horizontally</code></h5>
+<div id="outline-container-orgba2c0b6" class="outline-5">
+<h5 id="orgba2c0b6"><span class="section-number-5">3.1.2.10</span> <code>&lt;SPC -&gt;, &lt;SPC \&gt;: split-window-vertically, split-window-horizontally</code></h5>
 <div class="outline-text-5" id="text-3-1-2-10">
 <p align="center">
 <img src="/pictures/200926/spc_split_window.gif" alt="spc_split_window.gif" align="center">
@@ -636,8 +632,8 @@ Scratch 버퍼로 이동한다. Scratch 버퍼는 emacs가 시작하면 가장 �
 </p>
 </div>
 </div>
-<div id="outline-container-orgf1f3a5f" class="outline-5">
-<h5 id="orgf1f3a5f"><span class="section-number-5">3.1.2.11</span> <code>&lt;SPC ]&gt;: window-split-toggle</code></h5>
+<div id="outline-container-org15a45b7" class="outline-5">
+<h5 id="org15a45b7"><span class="section-number-5">3.1.2.11</span> <code>&lt;SPC ]&gt;: window-split-toggle</code></h5>
 <div class="outline-text-5" id="text-3-1-2-11">
 <p align="center">
 <img src="/pictures/200926/spc_toggle_split_window.gif" alt="spc_toggle_split_window.gif" align="center">
@@ -647,23 +643,23 @@ Scratch 버퍼로 이동한다. Scratch 버퍼는 emacs가 시작하면 가장 �
 </div>
 </div>
 </div>
-<div id="outline-container-orgfb00cfb" class="outline-3">
-<h3 id="orgfb00cfb"><span class="section-number-3">3.2</span> Package Features</h3>
+<div id="outline-container-org3dc57b9" class="outline-3">
+<h3 id="org3dc57b9"><span class="section-number-3">3.2</span> Package Features</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
-<div id="outline-container-org22e6e39" class="outline-4">
-<h4 id="org22e6e39"><span class="section-number-4">3.2.1</span> evil</h4>
+<div id="outline-container-org2485a59" class="outline-4">
+<h4 id="org2485a59"><span class="section-number-4">3.2.1</span> evil</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 vim 키바인딩을 사용할 수 있는 패키지. vim의 키바인딩과 동일하다.
 </p>
 </div>
-<div id="outline-container-org21a980c" class="outline-5">
-<h5 id="org21a980c"><span class="section-number-5">3.2.1.1</span> <code>&lt;SAME WITH VIM KEYBINDING&gt;</code></h5>
+<div id="outline-container-orgce73160" class="outline-5">
+<h5 id="orgce73160"><span class="section-number-5">3.2.1.1</span> <code>&lt;SAME WITH VIM KEYBINDING&gt;</code></h5>
 </div>
 </div>
-<div id="outline-container-orgb5dc42e" class="outline-4">
-<h4 id="orgb5dc42e"><span class="section-number-4">3.2.2</span> lsp-mode</h4>
+<div id="outline-container-org301583f" class="outline-4">
+<h4 id="org301583f"><span class="section-number-4">3.2.2</span> lsp-mode</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <p align="center">
 <img src="/pictures/200926/lspmode.gif" alt="lspmode.gif" align="center">
@@ -671,15 +667,15 @@ vim 키바인딩을 사용할 수 있는 패키지. vim의 키바인딩과 동�
 </p>
 </div>
 </div>
-<div id="outline-container-orgfe02c2d" class="outline-4">
-<h4 id="orgfe02c2d"><span class="section-number-4">3.2.3</span> magit</h4>
+<div id="outline-container-org93fb8e8" class="outline-4">
+<h4 id="org93fb8e8"><span class="section-number-4">3.2.3</span> magit</h4>
 <div class="outline-text-4" id="text-3-2-3">
 <p>
 git 관련 명령을 수행할 수 있는 패키지
 </p>
 </div>
-<div id="outline-container-org7fe480e" class="outline-5">
-<h5 id="org7fe480e"><span class="section-number-5">3.2.3.1</span> <code>&lt;SPC m \&gt;: magit-status</code></h5>
+<div id="outline-container-orga845edf" class="outline-5">
+<h5 id="orga845edf"><span class="section-number-5">3.2.3.1</span> <code>&lt;SPC m \&gt;: magit-status</code></h5>
 <div class="outline-text-5" id="text-3-2-3-1">
 <p align="center">
 <img src="/pictures/200926/magit.gif" alt="magit.gif" align="center">
@@ -687,8 +683,8 @@ magit 관리 상태창을 연다.
 </p>
 </div>
 </div>
-<div id="outline-container-org7f8b26c" class="outline-5">
-<h5 id="org7f8b26c"><span class="section-number-5">3.2.3.2</span> <code>&lt;SPC m e&gt;: magit-ediff-dwim</code></h5>
+<div id="outline-container-org02460ef" class="outline-5">
+<h5 id="org02460ef"><span class="section-number-5">3.2.3.2</span> <code>&lt;SPC m e&gt;: magit-ediff-dwim</code></h5>
 <div class="outline-text-5" id="text-3-2-3-2">
 <p align="center">
 <img src="/pictures/200926/magit_spc_m_e.gif" alt="magit_spc_m_e.gif" align="center">
@@ -696,8 +692,8 @@ ediff를 수행한다. 현재 파일(A)과 다른 파일(B)를 비교할 수 있
 </p>
 </div>
 </div>
-<div id="outline-container-org50a1569" class="outline-5">
-<h5 id="org50a1569"><span class="section-number-5">3.2.3.3</span> <code>&lt;SPC m d&gt;: magit-diff-dwim</code></h5>
+<div id="outline-container-orge09e61c" class="outline-5">
+<h5 id="orge09e61c"><span class="section-number-5">3.2.3.3</span> <code>&lt;SPC m d&gt;: magit-diff-dwim</code></h5>
 <div class="outline-text-5" id="text-3-2-3-3">
 <p align="center">
 <img src="/pictures/200926/magit_spc_m_d.gif" alt="magit_spc_m_d.gif" align="center">
@@ -705,8 +701,8 @@ diff를 수행한다. 현재 파일(A)과 다른 파일(B)를 비교할 수 있�
 </p>
 </div>
 </div>
-<div id="outline-container-orga9a90c7" class="outline-5">
-<h5 id="orga9a90c7"><span class="section-number-5">3.2.3.4</span> <code>&lt;SPC m l&gt;: magit-log-buffer-file</code></h5>
+<div id="outline-container-orgaf03097" class="outline-5">
+<h5 id="orgaf03097"><span class="section-number-5">3.2.3.4</span> <code>&lt;SPC m l&gt;: magit-log-buffer-file</code></h5>
 <div class="outline-text-5" id="text-3-2-3-4">
 <p align="center">
 <img src="/pictures/200926/magit_spc_m_l.gif" alt="magit_spc_m_l.gif" align="center">
@@ -714,8 +710,8 @@ diff를 수행한다. 현재 파일(A)과 다른 파일(B)를 비교할 수 있�
 </p>
 </div>
 </div>
-<div id="outline-container-org3af02b4" class="outline-5">
-<h5 id="org3af02b4"><span class="section-number-5">3.2.3.5</span> <code>&lt;SPC m f&gt;: magit-find-file</code></h5>
+<div id="outline-container-orga462c75" class="outline-5">
+<h5 id="orga462c75"><span class="section-number-5">3.2.3.5</span> <code>&lt;SPC m f&gt;: magit-find-file</code></h5>
 <div class="outline-text-5" id="text-3-2-3-5">
 <p align="center">
 <img src="/pictures/200926/magit_spc_m_f.gif" alt="magit_spc_m_f.gif" align="center">
@@ -723,8 +719,8 @@ diff를 수행한다. 현재 파일(A)과 다른 파일(B)를 비교할 수 있�
 </p>
 </div>
 </div>
-<div id="outline-container-org3516f43" class="outline-5">
-<h5 id="org3516f43"><span class="section-number-5">3.2.3.6</span> <code>&lt;Tab&gt;: magit-section-toggle</code></h5>
+<div id="outline-container-org735fc51" class="outline-5">
+<h5 id="org735fc51"><span class="section-number-5">3.2.3.6</span> <code>&lt;Tab&gt;: magit-section-toggle</code></h5>
 <div class="outline-text-5" id="text-3-2-3-6">
 <p align="center">
 <img src="/pictures/200926/magit_tab.gif" alt="magit_tab.gif" align="center">
@@ -732,8 +728,8 @@ diff를 수행한다. 현재 파일(A)과 다른 파일(B)를 비교할 수 있�
 </p>
 </div>
 </div>
-<div id="outline-container-orgaa5b7fa" class="outline-5">
-<h5 id="orgaa5b7fa"><span class="section-number-5">3.2.3.7</span> <code>&lt;s, u&gt;: magit-statge-file, magit-unstage-file</code></h5>
+<div id="outline-container-org4893207" class="outline-5">
+<h5 id="org4893207"><span class="section-number-5">3.2.3.7</span> <code>&lt;s, u&gt;: magit-statge-file, magit-unstage-file</code></h5>
 <div class="outline-text-5" id="text-3-2-3-7">
 <p align="center">
 <img src="/pictures/200926/magit_s_u.gif" alt="magit_s_u.gif" align="center">
@@ -741,8 +737,8 @@ diff를 수행한다. 현재 파일(A)과 다른 파일(B)를 비교할 수 있�
 </p>
 </div>
 </div>
-<div id="outline-container-org43707c8" class="outline-5">
-<h5 id="org43707c8"><span class="section-number-5">3.2.3.8</span> <code>&lt;d d&gt;: magit-diff</code></h5>
+<div id="outline-container-org18eb65e" class="outline-5">
+<h5 id="org18eb65e"><span class="section-number-5">3.2.3.8</span> <code>&lt;d d&gt;: magit-diff</code></h5>
 <div class="outline-text-5" id="text-3-2-3-8">
 <p align="center">
 <img src="/pictures/200926/magit_d_d.gif" alt="magit_d_d.gif" align="center">
@@ -750,8 +746,8 @@ diff를 수행한다. 현재 파일(A)과 다른 파일(B)를 비교할 수 있�
 </p>
 </div>
 </div>
-<div id="outline-container-orgbfb7718" class="outline-5">
-<h5 id="orgbfb7718"><span class="section-number-5">3.2.3.9</span> <code>&lt;c c&gt;: magit-commit</code></h5>
+<div id="outline-container-orgffa8e8a" class="outline-5">
+<h5 id="orgffa8e8a"><span class="section-number-5">3.2.3.9</span> <code>&lt;c c&gt;: magit-commit</code></h5>
 <div class="outline-text-5" id="text-3-2-3-9">
 <p align="center">
 <img src="/pictures/200926/magit_c_c.gif" alt="magit_c_c.gif" align="center">
@@ -759,8 +755,8 @@ Stage된 파일들을 Commit한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org0e334f7" class="outline-5">
-<h5 id="org0e334f7"><span class="section-number-5">3.2.3.10</span> <code>&lt;F u&gt;, &lt;P u&gt;: magit-pull, magit-push</code></h5>
+<div id="outline-container-orgdefdc75" class="outline-5">
+<h5 id="orgdefdc75"><span class="section-number-5">3.2.3.10</span> <code>&lt;F u&gt;, &lt;P u&gt;: magit-pull, magit-push</code></h5>
 <div class="outline-text-5" id="text-3-2-3-10">
 <p>
 F-u로 pull 명령을 사용하고 P-u로 push 명령을 사용한다.
@@ -768,16 +764,16 @@ F-u로 pull 명령을 사용하고 P-u로 push 명령을 사용한다.
 </div>
 </div>
 </div>
-<div id="outline-container-org616919a" class="outline-4">
-<h4 id="org616919a"><span class="section-number-4">3.2.4</span> git-gutter</h4>
+<div id="outline-container-org706ba1e" class="outline-4">
+<h4 id="org706ba1e"><span class="section-number-4">3.2.4</span> git-gutter</h4>
 <div class="outline-text-4" id="text-3-2-4">
 <p align="center">
 <img src="/pictures/200926/gitgutter.gif" alt="gitgutter.gif" align="center">
 git 프로젝트의 경우 코드의 추가/변경/삭제 내역을 줄번호 옆에 표시해주는 패키지
 </p>
 </div>
-<div id="outline-container-org3a0c73d" class="outline-5">
-<h5 id="org3a0c73d"><span class="section-number-5">3.2.4.1</span> <code>&lt;SPC m n,p,r&gt;: git-gutter:next(prev)-hunk, git-gutter:revert-hunk</code></h5>
+<div id="outline-container-org1a09f54" class="outline-5">
+<h5 id="org1a09f54"><span class="section-number-5">3.2.4.1</span> <code>&lt;SPC m n,p,r&gt;: git-gutter:next(prev)-hunk, git-gutter:revert-hunk</code></h5>
 <div class="outline-text-5" id="text-3-2-4-1">
 <p align="center">
 <img src="/pictures/200926/gitgutter_m_n_p_hunk.gif" alt="gitgutter_m_n_p_hunk.gif" align="center">
@@ -786,15 +782,15 @@ SPC-m-n,p 키로 변경된 내역을 빠르게 네비게이션한다. SPC-n-r �
 </div>
 </div>
 </div>
-<div id="outline-container-org48fd7a6" class="outline-4">
-<h4 id="org48fd7a6"><span class="section-number-4">3.2.5</span> helm</h4>
+<div id="outline-container-org8879d2d" class="outline-4">
+<h4 id="org8879d2d"><span class="section-number-4">3.2.5</span> helm</h4>
 <div class="outline-text-4" id="text-3-2-5">
 <p>
 emacs 전용 GUI 패키지. 주로 버퍼창을 쉽게 네비게이션하는데 사용한다.
 </p>
 </div>
-<div id="outline-container-org14c5643" class="outline-5">
-<h5 id="org14c5643"><span class="section-number-5">3.2.5.1</span> <code>&lt;SPC f&gt;: helm-for-files</code></h5>
+<div id="outline-container-org56452de" class="outline-5">
+<h5 id="org56452de"><span class="section-number-5">3.2.5.1</span> <code>&lt;SPC f&gt;: helm-for-files</code></h5>
 <div class="outline-text-5" id="text-3-2-5-1">
 <p align="center">
 <img src="/pictures/200926/helm_spc_f.gif" alt="helm_spc_f.gif" align="center">
@@ -802,8 +798,8 @@ emacs 전용 GUI 패키지. 주로 버퍼창을 쉽게 네비게이션하는데 
 </p>
 </div>
 </div>
-<div id="outline-container-orgae188bd" class="outline-5">
-<h5 id="orgae188bd"><span class="section-number-5">3.2.5.2</span> <code>&lt;SPC w&gt;: helm-find-files</code></h5>
+<div id="outline-container-org01878df" class="outline-5">
+<h5 id="org01878df"><span class="section-number-5">3.2.5.2</span> <code>&lt;SPC w&gt;: helm-find-files</code></h5>
 <div class="outline-text-5" id="text-3-2-5-2">
 <p align="center">
 <img src="/pictures/200926/helm_spc_w.gif" alt="helm_spc_w.gif" align="center">
@@ -811,8 +807,8 @@ emacs 전용 GUI 패키지. 주로 버퍼창을 쉽게 네비게이션하는데 
 </p>
 </div>
 </div>
-<div id="outline-container-org10d2a54" class="outline-5">
-<h5 id="org10d2a54"><span class="section-number-5">3.2.5.3</span> <code>&lt;SPC a&gt;: helm-semantic</code></h5>
+<div id="outline-container-org03c3ad9" class="outline-5">
+<h5 id="org03c3ad9"><span class="section-number-5">3.2.5.3</span> <code>&lt;SPC a&gt;: helm-semantic</code></h5>
 <div class="outline-text-5" id="text-3-2-5-3">
 <p align="center">
 <img src="/pictures/200926/helm_spc_a.gif" alt="helm_spc_a.gif" align="center">
@@ -820,8 +816,8 @@ emacs 전용 GUI 패키지. 주로 버퍼창을 쉽게 네비게이션하는데 
 </p>
 </div>
 </div>
-<div id="outline-container-orgecbdc3e" class="outline-5">
-<h5 id="orgecbdc3e"><span class="section-number-5">3.2.5.4</span> <code>&lt;A x&gt;: helm-M-x</code></h5>
+<div id="outline-container-org3e14d37" class="outline-5">
+<h5 id="org3e14d37"><span class="section-number-5">3.2.5.4</span> <code>&lt;A x&gt;: helm-M-x</code></h5>
 <div class="outline-text-5" id="text-3-2-5-4">
 <p align="center">
 <img src="/pictures/200926/helm_a_x.gif" alt="helm_a_x.gif" align="center">
@@ -830,15 +826,15 @@ emacs의 다양한 명령들의 목록을 표시한다.
 </div>
 </div>
 </div>
-<div id="outline-container-org9708e6b" class="outline-4">
-<h4 id="org9708e6b"><span class="section-number-4">3.2.6</span> projectile</h4>
+<div id="outline-container-orgf42ad1a" class="outline-4">
+<h4 id="orgf42ad1a"><span class="section-number-4">3.2.6</span> projectile</h4>
 <div class="outline-text-4" id="text-3-2-6">
 <p>
 프로젝트를 관리해주는 패키지. cmake를 통해 관리되는 프로젝트들은 자동으로 인식된다. 임의의 프로젝트를 등록하고 싶은 경우 최상단 경로에 .projectile 이름의 빈파일을 생성하면 projectile에서 자동으로 인식하여 프로젝트에 추가한다.
 </p>
 </div>
-<div id="outline-container-org081e6d7" class="outline-5">
-<h5 id="org081e6d7"><span class="section-number-5">3.2.6.1</span> <code>&lt;SPC ,&gt;: helm-projectile-switch-project</code></h5>
+<div id="outline-container-org0b6244d" class="outline-5">
+<h5 id="org0b6244d"><span class="section-number-5">3.2.6.1</span> <code>&lt;SPC ,&gt;: helm-projectile-switch-project</code></h5>
 <div class="outline-text-5" id="text-3-2-6-1">
 <p align="center">
 <img src="/pictures/200926/projectile_spc_comma.gif" alt="projectile_spc_comma.gif" align="center">
@@ -846,8 +842,8 @@ emacs의 다양한 명령들의 목록을 표시한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org4b2ae22" class="outline-5">
-<h5 id="org4b2ae22"><span class="section-number-5">3.2.6.2</span> <code>&lt;SPC p p&gt;: add-current-project-to-projectile</code></h5>
+<div id="outline-container-org159e42e" class="outline-5">
+<h5 id="org159e42e"><span class="section-number-5">3.2.6.2</span> <code>&lt;SPC p p&gt;: add-current-project-to-projectile</code></h5>
 <div class="outline-text-5" id="text-3-2-6-2">
 <p align="center">
 <img src="/pictures/200926/projectile_spc_p_p.gif" alt="projectile_spc_p_p.gif" align="center">
@@ -855,8 +851,8 @@ emacs의 다양한 명령들의 목록을 표시한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org7549914" class="outline-5">
-<h5 id="org7549914"><span class="section-number-5">3.2.6.3</span> <code>&lt;SPC p r&gt;: projectile-remove-known-project</code></h5>
+<div id="outline-container-orge1a464a" class="outline-5">
+<h5 id="orge1a464a"><span class="section-number-5">3.2.6.3</span> <code>&lt;SPC p r&gt;: projectile-remove-known-project</code></h5>
 <div class="outline-text-5" id="text-3-2-6-3">
 <p align="center">
 <img src="/pictures/200926/projectile_spc_p_r.gif" alt="projectile_spc_p_r.gif" align="center">
@@ -865,8 +861,8 @@ emacs의 다양한 명령들의 목록을 표시한다.
 </div>
 </div>
 </div>
-<div id="outline-container-orga42d25c" class="outline-4">
-<h4 id="orga42d25c"><span class="section-number-4">3.2.7</span> yasnippet</h4>
+<div id="outline-container-org6bf9414" class="outline-4">
+<h4 id="org6bf9414"><span class="section-number-4">3.2.7</span> yasnippet</h4>
 <div class="outline-text-4" id="text-3-2-7">
 <p align="center">
 <img src="/pictures/200926/yasnippet.gif" alt="yasnippet.gif" align="center">
@@ -874,15 +870,15 @@ emacs의 다양한 명령들의 목록을 표시한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org2271ad6" class="outline-4">
-<h4 id="org2271ad6"><span class="section-number-4">3.2.8</span> dired</h4>
+<div id="outline-container-org10861c0" class="outline-4">
+<h4 id="org10861c0"><span class="section-number-4">3.2.8</span> dired</h4>
 <div class="outline-text-4" id="text-3-2-8">
 <p>
 (emace 기본패키지) 디렉토리 탐색 패키지
 </p>
 </div>
-<div id="outline-container-orgf6284d7" class="outline-5">
-<h5 id="orgf6284d7"><span class="section-number-5">3.2.8.1</span> <code>&lt;SPC d&gt;: open-dired-mode</code></h5>
+<div id="outline-container-orga581247" class="outline-5">
+<h5 id="orga581247"><span class="section-number-5">3.2.8.1</span> <code>&lt;SPC d&gt;: open-dired-mode</code></h5>
 <div class="outline-text-5" id="text-3-2-8-1">
 <p align="center">
 <img src="/pictures/200926/dired_spc_d.gif" alt="dired_spc_d.gif" align="center">
@@ -890,8 +886,8 @@ emacs의 다양한 명령들의 목록을 표시한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org079dbc2" class="outline-5">
-<h5 id="org079dbc2"><span class="section-number-5">3.2.8.2</span> <code>&lt;d&gt;: dired-flag-file-deletion</code></h5>
+<div id="outline-container-org13c985e" class="outline-5">
+<h5 id="org13c985e"><span class="section-number-5">3.2.8.2</span> <code>&lt;d&gt;: dired-flag-file-deletion</code></h5>
 <div class="outline-text-5" id="text-3-2-8-2">
 <p align="center">
 <img src="/pictures/200926/dired_d_X.gif" alt="dired_d_X.gif" align="center">
@@ -899,8 +895,8 @@ emacs의 다양한 명령들의 목록을 표시한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org4d4f452" class="outline-5">
-<h5 id="org4d4f452"><span class="section-number-5">3.2.8.3</span> <code>&lt;m, u, U&gt;: dired-mark, dired-unmark, dired-unmark-all-marks</code></h5>
+<div id="outline-container-org82cccb6" class="outline-5">
+<h5 id="org82cccb6"><span class="section-number-5">3.2.8.3</span> <code>&lt;m, u, U&gt;: dired-mark, dired-unmark, dired-unmark-all-marks</code></h5>
 <div class="outline-text-5" id="text-3-2-8-3">
 <p align="center">
 <img src="/pictures/200926/dired_m_u_U.gif" alt="dired_m_u_U.gif" align="center">
@@ -908,8 +904,8 @@ emacs의 다양한 명령들의 목록을 표시한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org3774841" class="outline-5">
-<h5 id="org3774841"><span class="section-number-5">3.2.8.4</span> <code>&lt;X&gt;: dired-do-flagged-delete</code></h5>
+<div id="outline-container-org1c030cb" class="outline-5">
+<h5 id="org1c030cb"><span class="section-number-5">3.2.8.4</span> <code>&lt;X&gt;: dired-do-flagged-delete</code></h5>
 <div class="outline-text-5" id="text-3-2-8-4">
 <p align="center">
 <img src="/pictures/200926/dired_X.gif" alt="dired_X.gif" align="center">
@@ -917,8 +913,8 @@ emacs의 다양한 명령들의 목록을 표시한다.
 </p>
 </div>
 </div>
-<div id="outline-container-orgce6ba78" class="outline-5">
-<h5 id="orgce6ba78"><span class="section-number-5">3.2.8.5</span> <code>&lt;a&gt;: goto-parent-directory</code></h5>
+<div id="outline-container-org3edbfae" class="outline-5">
+<h5 id="org3edbfae"><span class="section-number-5">3.2.8.5</span> <code>&lt;a&gt;: goto-parent-directory</code></h5>
 <div class="outline-text-5" id="text-3-2-8-5">
 <p align="center">
 <img src="/pictures/200926/dired_a.gif" alt="dired_a.gif" align="center">
@@ -926,8 +922,8 @@ emacs의 다양한 명령들의 목록을 표시한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org911a700" class="outline-5">
-<h5 id="org911a700"><span class="section-number-5">3.2.8.6</span> <code>&lt;g&gt;: revert-buffer</code></h5>
+<div id="outline-container-org7c46262" class="outline-5">
+<h5 id="org7c46262"><span class="section-number-5">3.2.8.6</span> <code>&lt;g&gt;: revert-buffer</code></h5>
 <div class="outline-text-5" id="text-3-2-8-6">
 <p align="center">
 <img src="/pictures/200926/dired_g.gif" alt="dired_g.gif" align="center">
@@ -935,8 +931,8 @@ emacs의 다양한 명령들의 목록을 표시한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org2d9fbd2" class="outline-5">
-<h5 id="org2d9fbd2"><span class="section-number-5">3.2.8.7</span> <code>&lt;C&gt;: dired-do-copy</code></h5>
+<div id="outline-container-org3753291" class="outline-5">
+<h5 id="org3753291"><span class="section-number-5">3.2.8.7</span> <code>&lt;C&gt;: dired-do-copy</code></h5>
 <div class="outline-text-5" id="text-3-2-8-7">
 <p align="center">
 <img src="/pictures/200926/dired_C.gif" alt="dired_C.gif" align="center">
@@ -944,8 +940,8 @@ emacs의 다양한 명령들의 목록을 표시한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org1de20f6" class="outline-5">
-<h5 id="org1de20f6"><span class="section-number-5">3.2.8.8</span> <code>&lt;R&gt;: dired-do-rename</code></h5>
+<div id="outline-container-orgb3eab69" class="outline-5">
+<h5 id="orgb3eab69"><span class="section-number-5">3.2.8.8</span> <code>&lt;R&gt;: dired-do-rename</code></h5>
 <div class="outline-text-5" id="text-3-2-8-8">
 <p align="center">
 <img src="/pictures/200926/dired_R.gif" alt="dired_R.gif" align="center">
@@ -953,8 +949,8 @@ emacs의 다양한 명령들의 목록을 표시한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org3733edb" class="outline-5">
-<h5 id="org3733edb"><span class="section-number-5">3.2.8.9</span> <code>&lt;+&gt;: dired-create-directory</code></h5>
+<div id="outline-container-org213c22b" class="outline-5">
+<h5 id="org213c22b"><span class="section-number-5">3.2.8.9</span> <code>&lt;+&gt;: dired-create-directory</code></h5>
 <div class="outline-text-5" id="text-3-2-8-9">
 <p align="center">
 <img src="/pictures/200926/dired_mkdir.gif" alt="dired_mkdir.gif" align="center">
@@ -963,8 +959,8 @@ emacs의 다양한 명령들의 목록을 표시한다.
 </div>
 </div>
 </div>
-<div id="outline-container-orgf9fb60f" class="outline-4">
-<h4 id="orgf9fb60f"><span class="section-number-4">3.2.9</span> eldoc</h4>
+<div id="outline-container-org8dddbc5" class="outline-4">
+<h4 id="org8dddbc5"><span class="section-number-4">3.2.9</span> eldoc</h4>
 <div class="outline-text-4" id="text-3-2-9">
 <p align="center">
 <img src="/pictures/200926/eldoc.gif" alt="eldoc.gif" align="center">
@@ -972,8 +968,8 @@ emacs 하단 상태창에 커서 위의 있는 함수 또는 변수의 정보를
 </p>
 </div>
 </div>
-<div id="outline-container-org7e7bb74" class="outline-4">
-<h4 id="org7e7bb74"><span class="section-number-4">3.2.10</span> flycheck</h4>
+<div id="outline-container-org546c8ce" class="outline-4">
+<h4 id="org546c8ce"><span class="section-number-4">3.2.10</span> flycheck</h4>
 <div class="outline-text-4" id="text-3-2-10">
 <p align="center">
 <img src="/pictures/200926/flycheck.gif" alt="flycheck.gif" align="center">
@@ -981,15 +977,15 @@ emacs 하단 상태창에 커서 위의 있는 함수 또는 변수의 정보를
 </p>
 </div>
 </div>
-<div id="outline-container-org7bbfddd" class="outline-4">
-<h4 id="org7bbfddd"><span class="section-number-4">3.2.11</span> gud</h4>
+<div id="outline-container-org049c93a" class="outline-4">
+<h4 id="org049c93a"><span class="section-number-4">3.2.11</span> gud</h4>
 <div class="outline-text-4" id="text-3-2-11">
 <p>
 (emacs 기본패키지) gdb 디버깅을 수행하는 패키지. gcc, g++ 컴파일 수행 시 <code>-g</code> 옵션을 추가해줘야 정상적으로 디버깅할 수 있다. 또는 cmake 프로젝트에서 <code>RelWithDebInfo</code> 또는 <code>Debug</code> 모드로 컴파일해야 정상적으로 디버깅할 수 있다.
 </p>
 </div>
-<div id="outline-container-org0d33ddd" class="outline-5">
-<h5 id="org0d33ddd"><span class="section-number-5">3.2.11.1</span> <code>&lt;SPC g d&gt;: gdb</code></h5>
+<div id="outline-container-org862dd8e" class="outline-5">
+<h5 id="org862dd8e"><span class="section-number-5">3.2.11.1</span> <code>&lt;SPC g d&gt;: gdb</code></h5>
 <div class="outline-text-5" id="text-3-2-11-1">
 <p align="center">
 <img src="/pictures/200926/gud_spc_g_d.gif" alt="gud_spc_g_d.gif" align="center">
@@ -997,8 +993,8 @@ gdb를 실행한다. args 뒤에 실행파일의 경로를 입력해준다.
 </p>
 </div>
 </div>
-<div id="outline-container-org4a6c7cd" class="outline-5">
-<h5 id="org4a6c7cd"><span class="section-number-5">3.2.11.2</span> <code>&lt;SPC g w&gt;: gdb-many-windows</code></h5>
+<div id="outline-container-org72bd55b" class="outline-5">
+<h5 id="org72bd55b"><span class="section-number-5">3.2.11.2</span> <code>&lt;SPC g w&gt;: gdb-many-windows</code></h5>
 <div class="outline-text-5" id="text-3-2-11-2">
 <p align="center">
 <img src="/pictures/200926/gud_spc_g_w.gif" alt="gud_spc_g_w.gif" align="center">
@@ -1006,8 +1002,8 @@ gdb의 다양한 정보를 보기 위해 창을 토글한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org0315cdd" class="outline-5">
-<h5 id="org0315cdd"><span class="section-number-5">3.2.11.3</span> <code>&lt;SPC g b&gt;: gud-break</code></h5>
+<div id="outline-container-orgdd1fbca" class="outline-5">
+<h5 id="orgdd1fbca"><span class="section-number-5">3.2.11.3</span> <code>&lt;SPC g b&gt;: gud-break</code></h5>
 <div class="outline-text-5" id="text-3-2-11-3">
 <p align="center">
 <img src="/pictures/200926/gud_spc_g_b.gif" alt="gud_spc_g_b.gif" align="center">
@@ -1015,8 +1011,8 @@ gdb의 다양한 정보를 보기 위해 창을 토글한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org58ff9e8" class="outline-5">
-<h5 id="org58ff9e8"><span class="section-number-5">3.2.11.4</span> <code>&lt;SPC g s&gt;: gud-run</code></h5>
+<div id="outline-container-org62631c3" class="outline-5">
+<h5 id="org62631c3"><span class="section-number-5">3.2.11.4</span> <code>&lt;SPC g s&gt;: gud-run</code></h5>
 <div class="outline-text-5" id="text-3-2-11-4">
 <p align="center">
 <img src="/pictures/200926/gud_spc_g_s.gif" alt="gud_spc_g_s.gif" align="center">
@@ -1025,15 +1021,15 @@ gdb의 다양한 정보를 보기 위해 창을 토글한다.
 </div>
 </div>
 </div>
-<div id="outline-container-org8287448" class="outline-4">
-<h4 id="org8287448"><span class="section-number-4">3.2.12</span> neotree</h4>
+<div id="outline-container-org3106f0e" class="outline-4">
+<h4 id="org3106f0e"><span class="section-number-4">3.2.12</span> neotree</h4>
 <div class="outline-text-4" id="text-3-2-12">
 <p>
 vim의 NerdTree와 같이 현재 파일의 디렉토리 구조를 볼 수 있는 패키지
 </p>
 </div>
-<div id="outline-container-org78f39ba" class="outline-5">
-<h5 id="org78f39ba"><span class="section-number-5">3.2.12.1</span> <code>&lt;SPC n n&gt;: neotree-toggle</code></h5>
+<div id="outline-container-org7823f32" class="outline-5">
+<h5 id="org7823f32"><span class="section-number-5">3.2.12.1</span> <code>&lt;SPC n n&gt;: neotree-toggle</code></h5>
 <div class="outline-text-5" id="text-3-2-12-1">
 <p align="center">
 <img src="/pictures/200926/neotree_n_n.gif" alt="neotree_n_n.gif" align="center">
@@ -1041,8 +1037,8 @@ neotree 모드를 토글한다.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf4adabd" class="outline-5">
-<h5 id="orgf4adabd"><span class="section-number-5">3.2.12.2</span> <code>&lt;SPC n a&gt;, &lt;SPC n r&gt;: neotree-go-to-upper-directory, neotree-refresh</code></h5>
+<div id="outline-container-orgd7ebbca" class="outline-5">
+<h5 id="orgd7ebbca"><span class="section-number-5">3.2.12.2</span> <code>&lt;SPC n a&gt;, &lt;SPC n r&gt;: neotree-go-to-upper-directory, neotree-refresh</code></h5>
 <div class="outline-text-5" id="text-3-2-12-2">
 <p align="center">
 <img src="/pictures/200926/neotree_n_a_n_r.gif" alt="neotree_n_a_n_r.gif" align="center">
@@ -1051,15 +1047,15 @@ SPC-n-a로 부모 디렉토리로 이동하며 SPC-n-r로 현재 파일의 위�
 </div>
 </div>
 </div>
-<div id="outline-container-org9f72b5e" class="outline-4">
-<h4 id="org9f72b5e"><span class="section-number-4">3.2.13</span> eyebrowse</h4>
+<div id="outline-container-orgafbe7a1" class="outline-4">
+<h4 id="orgafbe7a1"><span class="section-number-4">3.2.13</span> eyebrowse</h4>
 <div class="outline-text-4" id="text-3-2-13">
 <p>
 하나의 emacs 창에서 여러 workspace를 사용하여 여러 코드들을 편집할 수 있는 패키지
 </p>
 </div>
-<div id="outline-container-orgaeddeb2" class="outline-5">
-<h5 id="orgaeddeb2"><span class="section-number-5">3.2.13.1</span> <code>&lt;SPC 0,1,2,3&gt;, &lt;SPC c "&gt;: eyebrowse-switch-to-window-config-#, eyebrowse-close-window-config</code></h5>
+<div id="outline-container-org30f89b5" class="outline-5">
+<h5 id="org30f89b5"><span class="section-number-5">3.2.13.1</span> <code>&lt;SPC 0,1,2,3&gt;, &lt;SPC c "&gt;: eyebrowse-switch-to-window-config-#, eyebrowse-close-window-config</code></h5>
 <div class="outline-text-5" id="text-3-2-13-1">
 <p align="center">
 <img src="/pictures/200926/eyebrowse_spc_0123_close.gif" alt="eyebrowse_spc_0123_close.gif" align="center">
@@ -1068,12 +1064,12 @@ SPC-#를 통해 특정 워크스페이스를 만들 수 있다. 화면의 좌측
 </div>
 </div>
 </div>
-<div id="outline-container-orgd902429" class="outline-4">
-<h4 id="orgd902429"><span class="section-number-4">3.2.14</span> smerge</h4>
+<div id="outline-container-org7562619" class="outline-4">
+<h4 id="org7562619"><span class="section-number-4">3.2.14</span> smerge</h4>
 <div class="outline-text-4" id="text-3-2-14">
 </div>
-<div id="outline-container-org160dc49" class="outline-5">
-<h5 id="org160dc49"><span class="section-number-5">3.2.14.1</span> <code>&lt;C c n,p&gt;, &lt;C c a,b&gt;: smerge-next(previous), smerge-keep-mine(other)</code></h5>
+<div id="outline-container-orgb90de94" class="outline-5">
+<h5 id="orgb90de94"><span class="section-number-5">3.2.14.1</span> <code>&lt;C c n,p&gt;, &lt;C c a,b&gt;: smerge-next(previous), smerge-keep-mine(other)</code></h5>
 <div class="outline-text-5" id="text-3-2-14-1">
 <p align="center">
 <img src="/pictures/200926/smerge_c_c_n_p_a_b.gif" alt="smerge_c_c_n_p_a_b.gif" align="center">
@@ -1082,15 +1078,15 @@ Merge Conflict가 발생한 경우 C-c-n,p 키를 통해 빠르게 네비게이�
 </div>
 </div>
 </div>
-<div id="outline-container-org30493ff" class="outline-4">
-<h4 id="org30493ff"><span class="section-number-4">3.2.15</span> centaur-tabs</h4>
+<div id="outline-container-org4644f63" class="outline-4">
+<h4 id="org4644f63"><span class="section-number-4">3.2.15</span> centaur-tabs</h4>
 <div class="outline-text-4" id="text-3-2-15">
 <p>
 emacs 상단의 Tab 기능을 사용할 수 있는 패키지
 </p>
 </div>
-<div id="outline-container-org0e9bd34" class="outline-5">
-<h5 id="org0e9bd34"><span class="section-number-5">3.2.15.1</span> <code>&lt;SPC c t&gt;: centaur-tabs-mode</code></h5>
+<div id="outline-container-orge77fc5c" class="outline-5">
+<h5 id="orge77fc5c"><span class="section-number-5">3.2.15.1</span> <code>&lt;SPC c t&gt;: centaur-tabs-mode</code></h5>
 <div class="outline-text-5" id="text-3-2-15-1">
 <p align="center">
 <img src="/pictures/200926/centaurtabs_spc_c_t.gif" alt="centaurtabs_spc_c_t.gif" align="center">
@@ -1098,8 +1094,8 @@ centaur-tabs 모드를 토글한다.
 </p>
 </div>
 </div>
-<div id="outline-container-orge5623cf" class="outline-5">
-<h5 id="orge5623cf"><span class="section-number-5">3.2.15.2</span> <code>&lt;J, K&gt;</code>, <code>&lt;SPC c Left, Right&gt;: centaur-tabs-forward(backward)-tab, centaur-tabs-move-current-tab-to-left(right)</code></h5>
+<div id="outline-container-org670dcee" class="outline-5">
+<h5 id="org670dcee"><span class="section-number-5">3.2.15.2</span> <code>&lt;J, K&gt;</code>, <code>&lt;SPC c Left, Right&gt;: centaur-tabs-forward(backward)-tab, centaur-tabs-move-current-tab-to-left(right)</code></h5>
 <div class="outline-text-5" id="text-3-2-15-2">
 <p align="center">
 <img src="/pictures/200926/centaurtabs_J_K_spc_c_arrow.gif" alt="centaurtabs_J_K_spc_c_arrow.gif" align="center">
@@ -1107,8 +1103,8 @@ J,K 키로 탭을 네비게이션할 수 있으며 SPC-c-방향키로 탭의 위
 </p>
 </div>
 </div>
-<div id="outline-container-orgd6e40fd" class="outline-5">
-<h5 id="orgd6e40fd"><span class="section-number-5">3.2.15.3</span> <code>&lt;C w&gt;: centaur-tabs--kill-this-buffer-dont-ask</code></h5>
+<div id="outline-container-org47f0dd2" class="outline-5">
+<h5 id="org47f0dd2"><span class="section-number-5">3.2.15.3</span> <code>&lt;C w&gt;: centaur-tabs--kill-this-buffer-dont-ask</code></h5>
 <div class="outline-text-5" id="text-3-2-15-3">
 <p align="center">
 <img src="/pictures/200926/centaurtabs_c_w.gif" alt="centaurtabs_c_w.gif" align="center">
@@ -1117,16 +1113,16 @@ J,K 키로 탭을 네비게이션할 수 있으며 SPC-c-방향키로 탭의 위
 </div>
 </div>
 </div>
-<div id="outline-container-orga282bcc" class="outline-4">
-<h4 id="orga282bcc"><span class="section-number-4">3.2.16</span> which-key</h4>
+<div id="outline-container-org5f8c3d6" class="outline-4">
+<h4 id="org5f8c3d6"><span class="section-number-4">3.2.16</span> which-key</h4>
 <div class="outline-text-4" id="text-3-2-16">
 <p align="center">
 <img src="/pictures/200926/whichkey.gif" alt="whichkey.gif" align="center">
 특정 키바인딩을 입력 중인 경우 사용 가능한 키바인딩을 팝업창으로 보여주는 패키지
 </p>
 </div>
-<div id="outline-container-org2b56301" class="outline-5">
-<h5 id="org2b56301"><span class="section-number-5">3.2.16.1</span> <code>&lt;SPC x k&gt;: which-key-mode</code></h5>
+<div id="outline-container-org2868b09" class="outline-5">
+<h5 id="org2868b09"><span class="section-number-5">3.2.16.1</span> <code>&lt;SPC x k&gt;: which-key-mode</code></h5>
 <div class="outline-text-5" id="text-3-2-16-1">
 <p align="center">
 <img src="/pictures/200926/whichkey2.gif" alt="whichkey2.gif" align="center">
@@ -1135,8 +1131,8 @@ which-key 모드를 토글한다.
 </div>
 </div>
 </div>
-<div id="outline-container-org98991c7" class="outline-4">
-<h4 id="org98991c7"><span class="section-number-4">3.2.17</span> which-func</h4>
+<div id="outline-container-org87eef2e" class="outline-4">
+<h4 id="org87eef2e"><span class="section-number-4">3.2.17</span> which-func</h4>
 <div class="outline-text-4" id="text-3-2-17">
 <p align="center">
 <img src="/pictures/200926/whichfunc.gif" alt="whichfunc.gif" align="center">
@@ -1144,15 +1140,15 @@ which-key 모드를 토글한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org6ed0e27" class="outline-4">
-<h4 id="org6ed0e27"><span class="section-number-4">3.2.18</span> multi-term</h4>
+<div id="outline-container-org1928294" class="outline-4">
+<h4 id="org1928294"><span class="section-number-4">3.2.18</span> multi-term</h4>
 <div class="outline-text-4" id="text-3-2-18">
 <p>
 emacs 내에서 터미널(bash, zsh)를 사용할 수 있는 패키지
 </p>
 </div>
-<div id="outline-container-org515c782" class="outline-5">
-<h5 id="org515c782"><span class="section-number-5">3.2.18.1</span> <code>&lt;SPC m m&gt;: multi-term</code></h5>
+<div id="outline-container-orge2516f2" class="outline-5">
+<h5 id="orge2516f2"><span class="section-number-5">3.2.18.1</span> <code>&lt;SPC m m&gt;: multi-term</code></h5>
 <div class="outline-text-5" id="text-3-2-18-1">
 <p align="center">
 <img src="/pictures/200926/multiterm_spc_m_m.gif" alt="multiterm_spc_m_m.gif" align="center">
@@ -1160,8 +1156,8 @@ emacs 내에서 터미널(bash, zsh)를 사용할 수 있는 패키지
 </p>
 </div>
 </div>
-<div id="outline-container-org116b463" class="outline-5">
-<h5 id="org116b463"><span class="section-number-5">3.2.18.2</span> <code>&lt;SPC m t&gt;: my-multi-term</code></h5>
+<div id="outline-container-org6bb6d01" class="outline-5">
+<h5 id="org6bb6d01"><span class="section-number-5">3.2.18.2</span> <code>&lt;SPC m t&gt;: my-multi-term</code></h5>
 <div class="outline-text-5" id="text-3-2-18-2">
 <p align="center">
 <img src="/pictures/200926/multiterm_spc_m_t.gif" alt="multiterm_spc_m_t.gif" align="center">
@@ -1170,15 +1166,15 @@ emacs 내에서 터미널(bash, zsh)를 사용할 수 있는 패키지
 </div>
 </div>
 </div>
-<div id="outline-container-orgadf01d7" class="outline-4">
-<h4 id="orgadf01d7"><span class="section-number-4">3.2.19</span> iedit</h4>
+<div id="outline-container-org8d5f281" class="outline-4">
+<h4 id="org8d5f281"><span class="section-number-4">3.2.19</span> iedit</h4>
 <div class="outline-text-4" id="text-3-2-19">
 <p>
 특정 단어를 코드 전체에 걸쳐서 일괄적으로 변경할 수 있는 패키지
 </p>
 </div>
-<div id="outline-container-org4830c31" class="outline-5">
-<h5 id="org4830c31"><span class="section-number-5">3.2.19.1</span> <code>&lt;A [&gt;: iedit-mode</code></h5>
+<div id="outline-container-org3e90470" class="outline-5">
+<h5 id="org3e90470"><span class="section-number-5">3.2.19.1</span> <code>&lt;A [&gt;: iedit-mode</code></h5>
 <div class="outline-text-5" id="text-3-2-19-1">
 <p align="center">
 <img src="/pictures/200926/iedit_a_parenthesis.gif" alt="iedit_a_parenthesis.gif" align="center">
@@ -1186,8 +1182,8 @@ emacs 내에서 터미널(bash, zsh)를 사용할 수 있는 패키지
 </p>
 </div>
 </div>
-<div id="outline-container-orgf7edb67" class="outline-5">
-<h5 id="orgf7edb67"><span class="section-number-5">3.2.19.2</span> <code>&lt;Tab, ESC&gt;: iedit-next-occurence, iedit-toggle-selection</code></h5>
+<div id="outline-container-org7d5353c" class="outline-5">
+<h5 id="org7d5353c"><span class="section-number-5">3.2.19.2</span> <code>&lt;Tab, ESC&gt;: iedit-next-occurence, iedit-toggle-selection</code></h5>
 <div class="outline-text-5" id="text-3-2-19-2">
 <p align="center">
 <img src="/pictures/200926/iedit_tab_esc.gif" alt="iedit_tab_esc.gif" align="center">
@@ -1196,15 +1192,15 @@ Tab으로 같은 단어들을 네비게이션할 수 있으며 ESC 키를 통해
 </div>
 </div>
 </div>
-<div id="outline-container-org50632ba" class="outline-4">
-<h4 id="org50632ba"><span class="section-number-4">3.2.20</span> wgrep</h4>
+<div id="outline-container-org19bd6be" class="outline-4">
+<h4 id="org19bd6be"><span class="section-number-4">3.2.20</span> wgrep</h4>
 <div class="outline-text-4" id="text-3-2-20">
 <p>
 grep 명령어를 통해 동일한 단어를 검색한 경우 이를 일괄적으로 수정할 수 있는 패키지
 </p>
 </div>
-<div id="outline-container-org47a3193" class="outline-5">
-<h5 id="org47a3193"><span class="section-number-5">3.2.20.1</span> <code>&lt;C c C p&gt;, &lt;C x C s&gt;: wgrep-change-to-wgrep-mode, wgrep-finish-edit</code></h5>
+<div id="outline-container-org7bf2aa6" class="outline-5">
+<h5 id="org7bf2aa6"><span class="section-number-5">3.2.20.1</span> <code>&lt;C c C p&gt;, &lt;C x C s&gt;: wgrep-change-to-wgrep-mode, wgrep-finish-edit</code></h5>
 <div class="outline-text-5" id="text-3-2-20-1">
 <p align="center">
 <img src="/pictures/200926/wgrep.gif" alt="wgrep.gif" align="center">
@@ -1213,15 +1209,15 @@ grep 모드에서 C-c C-p키를 통해 wgrep 모드를 실행한다. wgrep 모�
 </div>
 </div>
 </div>
-<div id="outline-container-org14e4bdb" class="outline-4">
-<h4 id="org14e4bdb"><span class="section-number-4">3.2.21</span> avy</h4>
+<div id="outline-container-org72ab92f" class="outline-4">
+<h4 id="org72ab92f"><span class="section-number-4">3.2.21</span> avy</h4>
 <div class="outline-text-4" id="text-3-2-21">
 <p>
 코드 간 빠른 네비게이션 기능을 수행할 수 있는 패키지
 </p>
 </div>
-<div id="outline-container-orgd286b2c" class="outline-5">
-<h5 id="orgd286b2c"><span class="section-number-5">3.2.21.1</span> <code>&lt;SPC `&gt;: evil-avy-goto-word-0</code></h5>
+<div id="outline-container-orgec3d2d2" class="outline-5">
+<h5 id="orgec3d2d2"><span class="section-number-5">3.2.21.1</span> <code>&lt;SPC `&gt;: evil-avy-goto-word-0</code></h5>
 <div class="outline-text-5" id="text-3-2-21-1">
 <p align="center">
 <img src="/pictures/200926/avy_a_vectic.gif" alt="avy_a_vectic.gif" align="center">
@@ -1230,15 +1226,15 @@ grep 모드에서 C-c C-p키를 통해 wgrep 모드를 실행한다. wgrep 모�
 </div>
 </div>
 </div>
-<div id="outline-container-orgd943e3f" class="outline-4">
-<h4 id="orgd943e3f"><span class="section-number-4">3.2.22</span> ecb</h4>
+<div id="outline-container-orgaa29e1e" class="outline-4">
+<h4 id="orgaa29e1e"><span class="section-number-4">3.2.22</span> ecb</h4>
 <div class="outline-text-4" id="text-3-2-22">
 <p>
 코딩에 필요한 현재 디렉토리, 현재 파일, 함수 또는 클래스 정보를 표시해주는 GUI 패키지
 </p>
 </div>
-<div id="outline-container-org61bac62" class="outline-5">
-<h5 id="org61bac62"><span class="section-number-5">3.2.22.1</span> <code>&lt;SPC c e&gt;: ech-minor-mode</code></h5>
+<div id="outline-container-org591fa5c" class="outline-5">
+<h5 id="org591fa5c"><span class="section-number-5">3.2.22.1</span> <code>&lt;SPC c e&gt;: ech-minor-mode</code></h5>
 <div class="outline-text-5" id="text-3-2-22-1">
 <p align="center">
 <img src="/pictures/200926/ecb_spc_c_e.gif" alt="ecb_spc_c_e.gif" align="center">
@@ -1247,15 +1243,15 @@ ecb 모드를 토글한다.
 </div>
 </div>
 </div>
-<div id="outline-container-orgf359f8d" class="outline-4">
-<h4 id="orgf359f8d"><span class="section-number-4">3.2.23</span> highlight-symbol</h4>
+<div id="outline-container-org2ddaeaa" class="outline-4">
+<h4 id="org2ddaeaa"><span class="section-number-4">3.2.23</span> highlight-symbol</h4>
 <div class="outline-text-4" id="text-3-2-23">
 <p>
 특정 코드를 하이라이팅하는 기능, 같은 단어를 빠르게 네비게이션하는 기능을 제공하는 패키지
 </p>
 </div>
-<div id="outline-container-org79e3c7d" class="outline-5">
-<h5 id="org79e3c7d"><span class="section-number-5">3.2.23.1</span> <code>&lt;SPC c m,n&gt;: highlight-symbol, highlight-symbol-remove-all</code></h5>
+<div id="outline-container-orgcb6ec10" class="outline-5">
+<h5 id="orgcb6ec10"><span class="section-number-5">3.2.23.1</span> <code>&lt;SPC c m,n&gt;: highlight-symbol, highlight-symbol-remove-all</code></h5>
 <div class="outline-text-5" id="text-3-2-23-1">
 <p align="center">
 <img src="/pictures/200926/highlightsymbol_spc_c_m_n.gif" alt="highlightsymbol_spc_c_m_n.gif" align="center">
@@ -1263,8 +1259,8 @@ ecb 모드를 토글한다.
 </p>
 </div>
 </div>
-<div id="outline-container-orgab4b6b9" class="outline-5">
-<h5 id="orgab4b6b9"><span class="section-number-5">3.2.23.2</span> <code>&lt;[, ]&gt;: highlight-symbol-next(prev)</code></h5>
+<div id="outline-container-org8e02db8" class="outline-5">
+<h5 id="org8e02db8"><span class="section-number-5">3.2.23.2</span> <code>&lt;[, ]&gt;: highlight-symbol-next(prev)</code></h5>
 <div class="outline-text-5" id="text-3-2-23-2">
 <p align="center">
 <img src="/pictures/200926/highlightsymbol_parenthesis.gif" alt="highlightsymbol_parenthesis.gif" align="center">
@@ -1273,15 +1269,15 @@ ecb 모드를 토글한다.
 </div>
 </div>
 </div>
-<div id="outline-container-orge03b093" class="outline-4">
-<h4 id="orge03b093"><span class="section-number-4">3.2.24</span> hideshow</h4>
+<div id="outline-container-org7149f10" class="outline-4">
+<h4 id="org7149f10"><span class="section-number-4">3.2.24</span> hideshow</h4>
 <div class="outline-text-4" id="text-3-2-24">
 <p>
 (emacs 기본패키지) 긴 코드를 접고 펼치는 패키지
 </p>
 </div>
-<div id="outline-container-orge2b2dbe" class="outline-5">
-<h5 id="orge2b2dbe"><span class="section-number-5">3.2.24.1</span> <code>&lt;A g&gt;: hs-toggle-hiding</code></h5>
+<div id="outline-container-org9029971" class="outline-5">
+<h5 id="org9029971"><span class="section-number-5">3.2.24.1</span> <code>&lt;A g&gt;: hs-toggle-hiding</code></h5>
 <div class="outline-text-5" id="text-3-2-24-1">
 <p align="center">
 <img src="/pictures/200926/hideshow_a_g.gif" alt="hideshow_a_g.gif" align="center">
@@ -1289,8 +1285,8 @@ ecb 모드를 토글한다.
 </p>
 </div>
 </div>
-<div id="outline-container-orge8ad045" class="outline-5">
-<h5 id="orge8ad045"><span class="section-number-5">3.2.24.2</span> <code>&lt;SPC x l,s&gt;: hs-hide-level, hs-show-all</code></h5>
+<div id="outline-container-orgba49ed9" class="outline-5">
+<h5 id="orgba49ed9"><span class="section-number-5">3.2.24.2</span> <code>&lt;SPC x l,s&gt;: hs-hide-level, hs-show-all</code></h5>
 <div class="outline-text-5" id="text-3-2-24-2">
 <p align="center">
 <img src="/pictures/200926/hideshow_spc_x_l_s.gif" alt="hideshow_spc_x_l_s.gif" align="center">
@@ -1299,15 +1295,15 @@ ecb 모드를 토글한다.
 </div>
 </div>
 </div>
-<div id="outline-container-orgaa77d88" class="outline-4">
-<h4 id="orgaa77d88"><span class="section-number-4">3.2.25</span> undo-tree</h4>
+<div id="outline-container-orgd461b04" class="outline-4">
+<h4 id="orgd461b04"><span class="section-number-4">3.2.25</span> undo-tree</h4>
 <div class="outline-text-4" id="text-3-2-25">
 <p>
 코드의 작업취소(undo), 복구(redo)를 수행해주는 패키지. 시각적으로 변경 정보를 한 눈에 볼 수 있는 visual undo-tree 기능도 제공한다.
 </p>
 </div>
-<div id="outline-container-orgc0267d5" class="outline-5">
-<h5 id="orgc0267d5"><span class="section-number-5">3.2.25.1</span> <code>&lt;SPC c z&gt;: undo-tree-visualize</code></h5>
+<div id="outline-container-orgef2c848" class="outline-5">
+<h5 id="orgef2c848"><span class="section-number-5">3.2.25.1</span> <code>&lt;SPC c z&gt;: undo-tree-visualize</code></h5>
 <div class="outline-text-5" id="text-3-2-25-1">
 <p align="center">
 <img src="/pictures/200926/undotree_spc_c_z.gif" alt="undotree_spc_c_z.gif" align="center">
@@ -1315,8 +1311,8 @@ ecb 모드를 토글한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org16d0e2e" class="outline-5">
-<h5 id="org16d0e2e"><span class="section-number-5">3.2.25.2</span> <code>&lt;U&gt;: undo-tree-redo</code></h5>
+<div id="outline-container-orgbae6a9b" class="outline-5">
+<h5 id="orgbae6a9b"><span class="section-number-5">3.2.25.2</span> <code>&lt;U&gt;: undo-tree-redo</code></h5>
 <div class="outline-text-5" id="text-3-2-25-2">
 <p align="center">
 <img src="/pictures/200926/undotree_U.gif" alt="undotree_U.gif" align="center">
@@ -1325,15 +1321,15 @@ ecb 모드를 토글한다.
 </div>
 </div>
 </div>
-<div id="outline-container-org563b720" class="outline-4">
-<h4 id="org563b720"><span class="section-number-4">3.2.26</span> highlight-indentation</h4>
+<div id="outline-container-org5e34f27" class="outline-4">
+<h4 id="org5e34f27"><span class="section-number-4">3.2.26</span> highlight-indentation</h4>
 <div class="outline-text-4" id="text-3-2-26">
 <p>
 코드 들여쓰기를 시각적으로 표현해주는 패키지
 </p>
 </div>
-<div id="outline-container-orgc3dc6e7" class="outline-5">
-<h5 id="orgc3dc6e7"><span class="section-number-5">3.2.26.1</span> <code>&lt;C S l&gt;: highlight-indentation-mode</code></h5>
+<div id="outline-container-org043b5a5" class="outline-5">
+<h5 id="org043b5a5"><span class="section-number-5">3.2.26.1</span> <code>&lt;C S l&gt;: highlight-indentation-mode</code></h5>
 <div class="outline-text-5" id="text-3-2-26-1">
 <p align="center">
 <img src="/pictures/200926/highlightindentation.gif" alt="highlightindentation.gif" align="center">
@@ -1342,8 +1338,8 @@ ecb 모드를 토글한다.
 </div>
 </div>
 </div>
-<div id="outline-container-org6bb66ba" class="outline-4">
-<h4 id="org6bb66ba"><span class="section-number-4">3.2.27</span> mic-paren</h4>
+<div id="outline-container-org962084a" class="outline-4">
+<h4 id="org962084a"><span class="section-number-4">3.2.27</span> mic-paren</h4>
 <div class="outline-text-4" id="text-3-2-27">
 <p align="center">
 <img src="/pictures/200926/micparen.gif" alt="micparen.gif" align="center">
@@ -1351,8 +1347,8 @@ ecb 모드를 토글한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org9237ede" class="outline-4">
-<h4 id="org9237ede"><span class="section-number-4">3.2.28</span> smartparens</h4>
+<div id="outline-container-org36bff84" class="outline-4">
+<h4 id="org36bff84"><span class="section-number-4">3.2.28</span> smartparens</h4>
 <div class="outline-text-4" id="text-3-2-28">
 <p align="center">
 <img src="/pictures/200926/smartparen.gif" alt="smartparen.gif" align="center">
@@ -1360,16 +1356,16 @@ ecb 모드를 토글한다.
 </p>
 </div>
 </div>
-<div id="outline-container-org88afe89" class="outline-4">
-<h4 id="org88afe89"><span class="section-number-4">3.2.29</span> google-c-style</h4>
+<div id="outline-container-orge5181eb" class="outline-4">
+<h4 id="orge5181eb"><span class="section-number-4">3.2.29</span> google-c-style</h4>
 <div class="outline-text-4" id="text-3-2-29">
 <p>
 구글의 C 코딩 스타일 들여쓰기를 적용해주는 패키지
 </p>
 </div>
 </div>
-<div id="outline-container-org8ce1dcc" class="outline-4">
-<h4 id="org8ce1dcc"><span class="section-number-4">3.2.30</span> doom-modeline</h4>
+<div id="outline-container-orgaa60be2" class="outline-4">
+<h4 id="orgaa60be2"><span class="section-number-4">3.2.30</span> doom-modeline</h4>
 <div class="outline-text-4" id="text-3-2-30">
 <p>
 doom 테마의 modeline을 사용할 수 있는 패키지. 하단의 보라색 라인을 modeline이라고 하는데 여기에 표시되는 정보들을 설정할 수 있다. 색상은 테마를 변경하면 같이 변경된다.
@@ -1379,8 +1375,8 @@ doom 테마의 modeline을 사용할 수 있는 패키지. 하단의 보라색 �
 </div>
 </div>
 
-<div id="outline-container-org08eb920" class="outline-2">
-<h2 id="org08eb920"><span class="section-number-2">4</span> References</h2>
+<div id="outline-container-org4b327ff" class="outline-2">
+<h2 id="org4b327ff"><span class="section-number-2">4</span> References</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li><a href="https://blog.naver.com/gyurse/221231219845">Naver blog 포스트</a></li>
