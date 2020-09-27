@@ -133,10 +133,8 @@ cin.tie(0);
   }
 
   <span class="org-comment-delimiter">// </span><span class="org-comment">&#51340;&#54364;&#47484; &#51221;&#47148;&#54620;&#45796;. &#51060; &#46412;, lambda &#54632;&#49688;&#47484; &#49324;&#50857;&#54616;&#50668; &#51221;&#47148;&#54620;&#45796;.</span>
-  sort(coords.begin(), coords.end(), [](
-      <span class="org-keyword">const</span> <span class="org-type">pair</span>&lt;<span class="org-type">int</span>,<span class="org-type">int</span>&gt; &amp;<span class="org-variable-name">a</span>,
-      <span class="org-keyword">const</span> <span class="org-type">pair</span>&lt;<span class="org-type">int</span>,<span class="org-type">int</span>&gt; &amp;<span class="org-variable-name">b</span>) 
-                                     {
+  sort(coords.begin(), coords.end(), [](<span class="org-keyword">const</span> <span class="org-type">pair</span>&lt;<span class="org-type">int</span>,<span class="org-type">int</span>&gt; &amp;<span class="org-variable-name">a</span>,
+                                        <span class="org-keyword">const</span> <span class="org-type">pair</span>&lt;<span class="org-type">int</span>,<span class="org-type">int</span>&gt; &amp;<span class="org-variable-name">b</span>) {
                                        <span class="org-keyword">if</span>(a.first != b.first) {
                                          <span class="org-keyword">return</span> a.first &lt; b.first;
                                        }
@@ -189,10 +187,8 @@ cin.tie(0);
   }
 
   <span class="org-comment-delimiter">// </span><span class="org-comment">&#51340;&#54364;&#47484; &#51221;&#47148;&#54620;&#45796;. &#51060; &#46412;, lambda &#54632;&#49688;&#47484; &#49324;&#50857;&#54616;&#50668; &#51221;&#47148;&#54620;&#45796;.</span>
-  sort(coords.begin(), coords.end(), [](
-      <span class="org-keyword">const</span> <span class="org-type">pair</span>&lt;<span class="org-type">int</span>,<span class="org-type">int</span>&gt; &amp;<span class="org-variable-name">a</span>,
-      <span class="org-keyword">const</span> <span class="org-type">pair</span>&lt;<span class="org-type">int</span>,<span class="org-type">int</span>&gt; &amp;<span class="org-variable-name">b</span>) 
-                                     {
+  sort(coords.begin(), coords.end(), [](<span class="org-keyword">const</span> <span class="org-type">pair</span>&lt;<span class="org-type">int</span>,<span class="org-type">int</span>&gt; &amp;<span class="org-variable-name">a</span>,
+                                        <span class="org-keyword">const</span> <span class="org-type">pair</span>&lt;<span class="org-type">int</span>,<span class="org-type">int</span>&gt; &amp;<span class="org-variable-name">b</span>) {
                                        <span class="org-keyword">if</span>(a.second != b.second) {
                                          <span class="org-keyword">return</span> a.second &lt; b.second;
                                        }
@@ -244,10 +240,8 @@ cin.tie(0);
   }
 
   <span class="org-comment-delimiter">// </span><span class="org-comment">&#47716;&#48260;&#47484; &#51221;&#47148;&#54620;&#45796;. &#51060; &#46412;, stable_sort&#54632;&#49688;&#47484; &#49324;&#50857;&#54616;&#47732; &#48320;&#44221;&#46104;&#51648; &#50506;&#45716; &#54637;&#47785;&#46308;&#51008; &#50880;&#51649;&#51060;&#51648; &#50506;&#45716;&#45796;.</span>
-  stable_sort(members.begin(), members.end(), [](
-      <span class="org-keyword">const</span> <span class="org-type">pair</span>&lt;<span class="org-type">int</span>,<span class="org-type">string</span>&gt; &amp;<span class="org-variable-name">a</span>,
-      <span class="org-keyword">const</span> <span class="org-type">pair</span>&lt;<span class="org-type">int</span>, <span class="org-type">string</span>&gt; &amp;<span class="org-variable-name">b</span>)
-                                              {
+  stable_sort(members.begin(), members.end(), [](<span class="org-keyword">const</span> <span class="org-type">pair</span>&lt;<span class="org-type">int</span>,<span class="org-type">string</span>&gt; &amp;<span class="org-variable-name">a</span>,
+                                                 <span class="org-keyword">const</span> <span class="org-type">pair</span>&lt;<span class="org-type">int</span>, <span class="org-type">string</span>&gt; &amp;<span class="org-variable-name">b</span>) {
                                                 <span class="org-keyword">return</span> a.first &lt; b.first;
                                               });
 
