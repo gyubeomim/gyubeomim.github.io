@@ -1,7 +1,7 @@
 --- 
 layout: post
-title: (BOJ) 백준 C++ 기초 난이도 문제풀이 
-description: 
+title: (BOJ) 백준 C++ 기초난이도 문제풀이 
+description:
 date: 2020-09-27
 categories: [Technology]
 tag: [Coding, Problem Solving, BOJ, C++]
@@ -13,12 +13,17 @@ comments: true
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org24b571b">1. Introduction</a></li>
-<li><a href="#org68d26b3">2. Problems</a>
+<li><a href="#org3aa0eee">2. Basic</a>
 <ul>
 <li><a href="#org8b94d2b">2.1. 2751 수 정렬하기2</a></li>
 <li><a href="#org71ea21d">2.2. 11650 좌표 정렬하기</a></li>
 <li><a href="#org32c45c0">2.3. 11651 좌표 정렬하기2</a></li>
 <li><a href="#orgca05798">2.4. 10814 나이순 정렬</a></li>
+</ul>
+</li>
+<li><a href="#org780582d">3. Graph (DFS, BFS)</a>
+<ul>
+<li><a href="#org81fcfa0">3.1. 1260 DFS와 BFS</a></li>
 </ul>
 </li>
 </ul>
@@ -29,7 +34,7 @@ comments: true
 <h2 id="org24b571b"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-본 포스트에서는 백준 기초 난이도 문제들을 풀이한다. 모든 문제들은 검색창에 <code>boj.kr/{#}</code> 를 입력하여 검색할 수 있다. 이 때, # 부문에 문제 번호를 입력하면 된다.
+본 포스트에서는 백준 기초 난이도 문제들을 풀이한다. 모든 문제들은 검색창에 <code>boj.kr/{#}</code> 를 입력하여 검색할 수 있다. 이 때, # 부문에 문제 번호를 입력하면 된다. ex) boj.kr/2751
 </p>
 
 <p>
@@ -47,8 +52,8 @@ cin.tie(0);
 </p>
 </div>
 </div>
-<div id="outline-container-org68d26b3" class="outline-2">
-<h2 id="org68d26b3"><span class="section-number-2">2</span> Problems</h2>
+<div id="outline-container-org3aa0eee" class="outline-2">
+<h2 id="org3aa0eee"><span class="section-number-2">2</span> Basic</h2>
 <div class="outline-text-2" id="text-2">
 </div>
 <div id="outline-container-org8b94d2b" class="outline-3">
@@ -253,6 +258,101 @@ cin.tie(0);
         <span class="org-keyword">return</span> 0;
 }
 
+</pre>
+</div>
+</p>
+</details>
+</div>
+</div>
+</div>
+<div id="outline-container-org780582d" class="outline-2">
+<h2 id="org780582d"><span class="section-number-2">3</span> Graph (DFS, BFS)</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org81fcfa0" class="outline-3">
+<h3 id="org81fcfa0"><span class="section-number-3">3.1</span> 1260 DFS와 BFS</h3>
+<div class="outline-text-3" id="text-3-1">
+<details>
+<summary>more...</summary>
+<p>
+<div class="org-src-container">
+<pre class="src src-c++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;bits/stdc++.h&gt;</span>
+
+<span class="org-keyword">using</span> <span class="org-keyword">namespace</span> <span class="org-constant">std</span>;
+
+<span class="org-type">vector</span>&lt;<span class="org-type">vector</span>&lt;<span class="org-type">int</span>&gt;&gt; <span class="org-variable-name">vec</span>;
+<span class="org-type">queue</span>&lt;<span class="org-type">int</span>&gt; <span class="org-variable-name">q</span>;
+<span class="org-type">int</span> <span class="org-variable-name">check</span>[1001];
+
+<span class="org-type">void</span> <span class="org-function-name">dfs</span>(<span class="org-type">int</span> <span class="org-variable-name">now</span>) {
+        check[now] = 1;
+
+        cout &lt;&lt; now &lt;&lt; <span class="org-string">' '</span>;
+
+        <span class="org-comment-delimiter">// </span><span class="org-comment">&#51116;&#44480;&#51201;&#51004;&#47196; &#44536;&#47000;&#54532;&#47484; &#53456;&#49353;&#54620;&#45796;.</span>
+        <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;vec[now].size(); i++) {
+                <span class="org-type">int</span> <span class="org-variable-name">next</span> = vec[now][i];
+                <span class="org-keyword">if</span>(check[next]==0) {
+                        dfs(next);
+                }
+        }
+}
+
+<span class="org-type">void</span> <span class="org-function-name">bfs</span>(<span class="org-type">int</span> <span class="org-variable-name">now</span>) {
+        q.push(now);
+        check[now] = 1;
+
+        <span class="org-comment-delimiter">// </span><span class="org-comment">queue&#44032; &#48716; &#46412;&#44620;&#51648; &#44536;&#47000;&#54532;&#47484; &#53456;&#49353;&#54620;&#45796;.</span>
+        <span class="org-keyword">while</span>(<span class="org-negation-char">!</span>q.empty()) {
+                now = q.front();
+                q.pop();
+
+                cout &lt;&lt; now &lt;&lt; <span class="org-string">' '</span>;
+
+                <span class="org-comment-delimiter">// </span><span class="org-comment">&#54788;&#51116; &#50948;&#52824;&#50640;&#49436; &#44040; &#49688; &#51080;&#45716; &#47784;&#46304; &#44275;&#51012; queue&#50640; &#45812;&#45716;&#45796;.</span>
+                <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;vec[now].size(); i++) {
+                        <span class="org-type">int</span> <span class="org-variable-name">next</span> = vec[now][i];
+
+                        <span class="org-keyword">if</span>(check[next] == 0) {
+                                q.push(next);
+                                check[next] = 1;
+                        }
+                }
+        }
+}
+
+<span class="org-type">int</span> <span class="org-function-name">main</span>(<span class="org-type">int</span> <span class="org-variable-name">argc</span>, <span class="org-type">char</span> **<span class="org-variable-name">argv</span>){
+        <span class="org-constant">ios_base</span>::sync_with_stdio(<span class="org-constant">false</span>);
+        cin.tie(0);
+
+        <span class="org-type">int</span> <span class="org-variable-name">N</span>,<span class="org-variable-name">M</span>,<span class="org-variable-name">V</span>;
+        cin &gt;&gt;N&gt;&gt;M&gt;&gt;V;
+
+        vec.resize(N+1);
+
+        <span class="org-comment-delimiter">// </span><span class="org-comment">&#44536;&#47000;&#54532;&#50640; &#45936;&#51060;&#53552;&#47484; &#45347;&#45716;&#45796;.</span>
+        <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;M; i++) {
+                <span class="org-type">int</span> <span class="org-variable-name">a</span>,<span class="org-variable-name">b</span>;
+                cin&gt;&gt;a&gt;&gt;b;
+                vec[a].push_back(b);
+                vec[b].push_back(a);
+        }
+
+        <span class="org-comment-delimiter">// </span><span class="org-comment">&#47928;&#51228;&#50640;&#49436; &#48169;&#47928;&#54624; &#49688; &#51080;&#45716; &#51221;&#51216;&#51060; &#50668;&#47084;&#44060;&#51068; &#44221;&#50864; &#51221;&#51216;&#48264;&#54840;&#44032; &#51089;&#51008; &#44163;&#48512;&#53552; &#48169;&#47928;&#54616;&#44592; &#50948;&#54644; &#51221;&#47148;&#54644;&#51456;&#45796;.</span>
+        <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=1; i&lt;=N; i++) {
+                sort(vec[i].begin(), vec[i].end());
+        }
+
+        dfs(V);
+        cout &lt;&lt; <span class="org-string">'\n'</span>;
+
+        <span class="org-comment-delimiter">// </span><span class="org-comment">&#48169;&#47928; &#51221;&#48372; &#52488;&#44592;&#54868;</span>
+        memset(check,0,<span class="org-keyword">sizeof</span>(check));
+
+        bfs(V);
+
+        <span class="org-keyword">return</span> 0;
+}
 </pre>
 </div>
 </p>
