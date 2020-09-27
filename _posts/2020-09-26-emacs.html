@@ -15,7 +15,7 @@ comments: true
 <li><a href="#orgaeff015">1. Introduction</a></li>
 <li><a href="#org4a23909">2. How to setup</a>
 <ul>
-<li><a href="#orgcdfb48e">2.1. lsp-mode</a>
+<li><a href="#orgfa66884">2.1. lsp-mode</a>
 <ul>
 <li><a href="#org518dc52">2.1.1. C++</a></li>
 <li><a href="#org154bb5d">2.1.2. Python</a></li>
@@ -67,7 +67,7 @@ comments: true
 <li><a href="#org21a980c">3.2.1.1. <code>&lt;SAME WITH VIM KEYBINDING&gt;</code></a></li>
 </ul>
 </li>
-<li><a href="#orgfa66884">3.2.2. lsp-mode</a></li>
+<li><a href="#orgb5dc42e">3.2.2. lsp-mode</a></li>
 <li><a href="#orgfe02c2d">3.2.3. magit</a>
 <ul>
 <li><a href="#org7fe480e">3.2.3.1. <code>&lt;SPC m \&gt;: magit-status</code></a></li>
@@ -315,8 +315,8 @@ $ ./emacs
 여기까지 완료되었으면 <code>lsp-mode</code> 를 제외하고 모든 emacs 기능들이 정상적으로 설치되었다.
 </p>
 </div>
-<div id="outline-container-orgcdfb48e" class="outline-3">
-<h3 id="orgcdfb48e"><span class="section-number-3">2.1</span> lsp-mode</h3>
+<div id="outline-container-orgfa66884" class="outline-3">
+<h3 id="orgfa66884"><span class="section-number-3">2.1</span> lsp-mode</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 <code>lsp-mode</code> 는 emacs의 코드 네비게이션(함수 이동, 에러 체크) 및 자동완성을 수행하는 패키지이다.
@@ -372,13 +372,23 @@ $ ln -s ./build/compile_commands.json ./
 </div></li>
 <li>emacs에서 파일을 열 때 lsp 경로를 묻는 창이 나오면 cmake 프로젝트의 최상단 디렉토리를 설정한다.</li>
 </ol>
+
+
+<figure>
+<img src="/pictures/200926/lspmode.gif" alt="lspmode.gif" align="center">
+
+</figure>
+
+<p>
+모든 설정이 완료되면 <b>임의로 작성한 클래스와 함수에 대해서도 위와 같이 코드의 자동완성 및 네비게이션 기능을 사용할 수 있다.</b>
+</p>
 </div>
 </div>
+
 <div id="outline-container-org154bb5d" class="outline-4">
 <h4 id="org154bb5d"><span class="section-number-4">2.1.2</span> Python</h4>
 <div class="outline-text-4" id="text-2-1-2">
-<p align="center">
-<img src="/pictures/200926/lspmode_python.gif" alt="lspmode_python.gif" align="center">
+<p>
 파이썬의 경우 <code>pyls</code> 프로그램을 설치해야 코드 자동완성 및 네비게이션이 가능하다. <code>pyls</code> 는 다음 명령어를 통해 쉽게 설치할 수 있다.
 </p>
 <div class="org-src-container">
@@ -389,7 +399,9 @@ $ pip install python-language-server --user
 $ pyls --help
 </pre>
 </div>
-<p>
+
+<p align="center">
+<img src="/pictures/200926/lspmode_python.gif" alt="lspmode_python.gif" align="center">
 <code>pyls</code> 가 정상적으로 설치되었다면 이후에는 <code>compile_commands.json</code> 파일없이도 정상적으로 코드 네비게이션 및 자동완성이 가능하다.
 </p>
 </div>
@@ -650,8 +662,8 @@ vim 키바인딩을 사용할 수 있는 패키지. vim의 키바인딩과 동�
 <h5 id="org21a980c"><span class="section-number-5">3.2.1.1</span> <code>&lt;SAME WITH VIM KEYBINDING&gt;</code></h5>
 </div>
 </div>
-<div id="outline-container-orgfa66884" class="outline-4">
-<h4 id="orgfa66884"><span class="section-number-4">3.2.2</span> lsp-mode</h4>
+<div id="outline-container-orgb5dc42e" class="outline-4">
+<h4 id="orgb5dc42e"><span class="section-number-4">3.2.2</span> lsp-mode</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <p align="center">
 <img src="/pictures/200926/lspmode.gif" alt="lspmode.gif" align="center">
