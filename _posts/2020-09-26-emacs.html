@@ -13,7 +13,16 @@ comments: true
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgaeff015">1. Introduction</a></li>
-<li><a href="#org4a23909">2. How to setup</a></li>
+<li><a href="#org4a23909">2. How to setup</a>
+<ul>
+<li><a href="#orgcdfb48e">2.1. lsp-mode</a>
+<ul>
+<li><a href="#org518dc52">2.1.1. C++</a></li>
+<li><a href="#org154bb5d">2.1.2. Python</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#org8f67e3a">3. My emacs configuration</a>
 <ul>
 <li><a href="#org1bd42d8">3.1. General Features</a>
@@ -58,12 +67,7 @@ comments: true
 <li><a href="#org21a980c">3.2.1.1. <code>&lt;SAME WITH VIM KEYBINDING&gt;</code></a></li>
 </ul>
 </li>
-<li><a href="#orgcdfb48e">3.2.2. lsp-mode</a>
-<ul>
-<li><a href="#org518dc52">3.2.2.1. C++</a></li>
-<li><a href="#org154bb5d">3.2.2.2. Python</a></li>
-</ul>
-</li>
+<li><a href="#orgfa66884">3.2.2. lsp-mode</a></li>
 <li><a href="#orgfe02c2d">3.2.3. magit</a>
 <ul>
 <li><a href="#org7fe480e">3.2.3.1. <code>&lt;SPC m \&gt;: magit-status</code></a></li>
@@ -308,12 +312,90 @@ $ ./emacs
 </figure>
 
 <p>
-여기까지 완료되었으면 모든 emacs 기능들이 정상적으로 설치되었다.
+여기까지 완료되었으면 <code>lsp-mode</code> 를 제외하고 모든 emacs 기능들이 정상적으로 설치되었다.
+</p>
+</div>
+<div id="outline-container-orgcdfb48e" class="outline-3">
+<h3 id="orgcdfb48e"><span class="section-number-3">2.1</span> lsp-mode</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+<code>lsp-mode</code> 는 emacs의 코드 네비게이션(함수 이동, 에러 체크) 및 자동완성을 수행하는 패키지이다.
+</p>
+</div>
+<div id="outline-container-org518dc52" class="outline-4">
+<h4 id="org518dc52"><span class="section-number-4">2.1.1</span> C++</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+맨 처음 <code>lsp-mode</code> 를 실행하는 경우 아래와 같이 cmake 프로젝트의 최상단을 입력하라는 창이 뜬다. 제안된 경로가 맞는 경우 <code>i</code> 키를 누르면 되고 임의로 경로를 변경하고 싶은 경우 <code>I</code> 키를 눌러서 변경하면 된다. 
+</p>
+
+<figure>
+<img src="/pictures/200926/lsp_mode.png" alt="lsp_mode.png" align="center">
+
+</figure>
+
+<p>
+<code>lsp-mode</code> 는 clangd-9 버전에서 정상적으로 작동한다. clangd-9는 다음 명령을 통해 설치할 수 있다.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Install clangd-9.</span>
+$ sudo apt install clangd-9
+</pre>
+</div>
+
+<p>
+<b>임의로 작성한 함수 및 클래스의 자동완성을 하고자 하는 경우 cmake 프로젝트의 최상단 경로에 <code>compile_commands.json</code> 링크 파일이 존재해야 한다.</b> 다음과 같이 진행한다.
+</p>
+
+<ol class="org-ol">
+<li><p>
+cmake 프로젝트에서 빌드를 수행할 때 <code>-DCMAKE_EXPORT_COMPILE_COMMANDS=1</code> 옵션을 추가하여 build 폴더에 <code>compile_commands.json</code> 파일이 생성되도록 한다. 코드를 반드시 빌드하지(make) 않아도 해당 json 파일만 생성되면 네비게이션이 된다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">In cmake project, make build folder and go to the folder.</span>
+$ mkdir build
+$ cd build
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">This option creates 'compile_commands.json' file.</span>
+$ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..
+</pre>
+</div></li>
+<li><p>
+앞서 생성한 <code>compile_commands.json</code> 파일을 프로젝트 최상단에 링크 파일로 세팅한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Create a soft link of compile_commands.json file to the cmake project root path.</span>
+$ cd /path/to/cmake/project/
+$ ln -s ./build/compile_commands.json ./
+</pre>
+</div></li>
+<li>emacs에서 파일을 열 때 lsp 경로를 묻는 창이 나오면 cmake 프로젝트의 최상단 디렉토리를 설정한다.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org154bb5d" class="outline-4">
+<h4 id="org154bb5d"><span class="section-number-4">2.1.2</span> Python</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p align="center">
+<img src="/pictures/200926/lspmode_python.gif" alt="lspmode_python.gif" align="center">
+파이썬의 경우 <code>pyls</code> 프로그램을 설치해야 코드 자동완성 및 네비게이션이 가능하다. <code>pyls</code> 는 다음 명령어를 통해 쉽게 설치할 수 있다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Install pyls</span>
+$ pip install python-language-server --user
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Check pyls is installed successfully</span>
+$ pyls --help
+</pre>
+</div>
+<p>
+<code>pyls</code> 가 정상적으로 설치되었다면 이후에는 <code>compile_commands.json</code> 파일없이도 정상적으로 코드 네비게이션 및 자동완성이 가능하다.
 </p>
 </div>
 </div>
-
-
+</div>
+</div>
 <div id="outline-container-org8f67e3a" class="outline-2">
 <h2 id="org8f67e3a"><span class="section-number-2">3</span> My emacs configuration</h2>
 <div class="outline-text-2" id="text-3">
@@ -568,85 +650,13 @@ vim 키바인딩을 사용할 수 있는 패키지. vim의 키바인딩과 동�
 <h5 id="org21a980c"><span class="section-number-5">3.2.1.1</span> <code>&lt;SAME WITH VIM KEYBINDING&gt;</code></h5>
 </div>
 </div>
-<div id="outline-container-orgcdfb48e" class="outline-4">
-<h4 id="orgcdfb48e"><span class="section-number-4">3.2.2</span> lsp-mode</h4>
+<div id="outline-container-orgfa66884" class="outline-4">
+<h4 id="orgfa66884"><span class="section-number-4">3.2.2</span> lsp-mode</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <p align="center">
 <img src="/pictures/200926/lspmode.gif" alt="lspmode.gif" align="center">
 코드 네비게이션(함수 이동, 에러 체크) 및 자동완성을 수행하는 패키지
 </p>
-</div>
-<div id="outline-container-org518dc52" class="outline-5">
-<h5 id="org518dc52"><span class="section-number-5">3.2.2.1</span> C++</h5>
-<div class="outline-text-5" id="text-3-2-2-1">
-<p>
-맨 처음 <code>lsp-mode</code> 를 실행하는 경우 아래와 같이 cmake 프로젝트의 최상단을 입력하라는 창이 뜬다. 제안된 경로가 맞는 경우 <code>i</code> 키를 누르면 되고 임의로 경로를 변경하고 싶은 경우 <code>I</code> 키를 눌러서 변경하면 된다. 
-</p>
-
-<figure>
-<img src="/pictures/200926/lsp_mode.png" alt="lsp_mode.png" align="center">
-
-</figure>
-
-<p>
-<code>lsp-mode</code> 는 clangd-9 버전에서 정상적으로 작동한다. clangd-9는 다음 명령을 통해 설치할 수 있다.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Install clangd-9.</span>
-$ sudo apt install clangd-9
-</pre>
-</div>
-
-<p>
-<b>임의로 작성한 함수 및 클래스의 자동완성을 하고자 하는 경우 cmake 프로젝트의 최상단 경로에 <code>compile_commands.json</code> 링크 파일이 존재해야 한다.</b> 다음과 같이 진행한다.
-</p>
-
-<ol class="org-ol">
-<li><p>
-cmake 프로젝트에서 빌드를 수행할 때 <code>-DCMAKE_EXPORT_COMPILE_COMMANDS=1</code> 옵션을 추가하여 build 폴더에 <code>compile_commands.json</code> 파일이 생성되도록 한다. 코드를 반드시 빌드하지(make) 않아도 해당 json 파일만 생성되면 네비게이션이 된다.
-</p>
-<div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">In cmake project, make build folder and go to the folder.</span>
-$ mkdir build
-$ cd build
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">This option creates 'compile_commands.json' file.</span>
-$ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..
-</pre>
-</div></li>
-<li><p>
-앞서 생성한 <code>compile_commands.json</code> 파일을 프로젝트 최상단에 링크 파일로 세팅한다.
-</p>
-<div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Create a soft link of compile_commands.json file to the cmake project root path.</span>
-$ cd /path/to/cmake/project/
-$ ln -s ./build/compile_commands.json ./
-</pre>
-</div></li>
-<li>emacs에서 파일을 열 때 lsp 경로를 묻는 창이 나오면 cmake 프로젝트의 최상단 디렉토리를 설정한다.</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org154bb5d" class="outline-5">
-<h5 id="org154bb5d"><span class="section-number-5">3.2.2.2</span> Python</h5>
-<div class="outline-text-5" id="text-3-2-2-2">
-<p align="center">
-<img src="/pictures/200926/lspmode_python.gif" alt="lspmode_python.gif" align="center">
-파이썬의 경우 <code>pyls</code> 프로그램을 설치해야 코드 자동완성 및 네비게이션이 가능하다. <code>pyls</code> 는 다음 명령어를 통해 쉽게 설치할 수 있다.
-</p>
-<div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Install pyls</span>
-$ pip install python-language-server --user
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">Check pyls is installed successfully</span>
-$ pyls --help
-</pre>
-</div>
-<p>
-<code>pyls</code> 가 정상적으로 설치되었다면 이후에는 <code>compile_commands.json</code> 파일없이도 정상적으로 코드 네비게이션 및 자동완성이 가능하다.
-</p>
-</div>
 </div>
 </div>
 <div id="outline-container-orgfe02c2d" class="outline-4">
