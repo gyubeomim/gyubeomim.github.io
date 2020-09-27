@@ -26,6 +26,7 @@ comments: true
 <ul>
 <li><a href="#org3cf74ab">3.1. 1260 DFS와 BFS</a></li>
 <li><a href="#orgb4f714b">3.2. 11724 연결 요소의 개수</a></li>
+<li><a href="#org92f6770">3.3. 2178 미로 탐색</a></li>
 </ul>
 </li>
 <li><a href="#org7cbcc45">4. Binary Search</a>
@@ -494,6 +495,84 @@ cin.tie(0);
   }
 
   cout &lt;&lt; count &lt;&lt; <span class="org-string">'\n'</span>;
+
+  <span class="org-keyword">return</span> 0;
+}
+</pre>
+</div>
+</p>
+</details>
+</div>
+</div>
+<div id="outline-container-org92f6770" class="outline-3">
+<h3 id="org92f6770"><span class="section-number-3">3.3</span> 2178 미로 탐색</h3>
+<div class="outline-text-3" id="text-3-3">
+<details>
+<summary>more...</summary>
+<p>
+<div class="org-src-container">
+<pre class="src src-c++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;bits/stdc++.h&gt;</span>
+
+<span class="org-keyword">using</span> <span class="org-keyword">namespace</span> <span class="org-constant">std</span>;
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">&#49345;&#54616;&#51340;&#50864; &#51060;&#46041; &#48320;&#49688; &#49444;&#51221;</span>
+<span class="org-keyword">const</span> <span class="org-type">int</span> <span class="org-variable-name">roff</span>[4] = {-1,1,0,0};
+<span class="org-keyword">const</span> <span class="org-type">int</span> <span class="org-variable-name">coff</span>[4] = {0,0,-1,1};
+
+<span class="org-type">int</span> <span class="org-function-name">main</span>(<span class="org-type">int</span> <span class="org-variable-name">argc</span>, <span class="org-type">char</span> **<span class="org-variable-name">argv</span>){
+  <span class="org-type">int</span> <span class="org-variable-name">R</span>, <span class="org-variable-name">C</span>;
+  cin &gt;&gt; R &gt;&gt; C;
+
+  <span class="org-type">int</span> <span class="org-variable-name">world</span>[100][100];
+  <span class="org-type">int</span> <span class="org-variable-name">visited</span>[100][100];
+  memset(world, 0, <span class="org-keyword">sizeof</span>(world));
+  memset(visited, 0, <span class="org-keyword">sizeof</span>(visited));
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#47605;&#51012; &#51077;&#47141;&#48155;&#45716;&#45796;</span>
+  <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">r</span>=0; r&lt;R; r++) {
+    <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">c</span>=0; c&lt;C; c++) {
+      scanf(<span class="org-string">"%1d"</span>, &amp;world[r][c]);
+    }
+  }
+
+  visited[0][0] = 1;
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#49884;&#51089; &#51648;&#51216;(0,0)&#51012; &#53328;&#50640; &#45812;&#45716;&#45796;</span>
+  <span class="org-type">queue</span>&lt;<span class="org-type">int</span>&gt; <span class="org-variable-name">Q</span>;
+  Q.push(0);
+
+  <span class="org-type">int</span> <span class="org-variable-name">ans</span>=1;
+
+  <span class="org-keyword">while</span>(<span class="org-constant">true</span>) {
+    <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;Q.size(); i++) {
+      <span class="org-type">int</span> <span class="org-variable-name">r</span> = Q.front() / 100;
+      <span class="org-type">int</span> <span class="org-variable-name">c</span> = Q.front() % 100;
+      Q.pop();
+
+      <span class="org-comment-delimiter">// </span><span class="org-comment">&#53328;&#50640; &#45812;&#44596; r,c&#44032; &#47605;&#51032; &#47560;&#51648;&#47561;&#50640; &#46020;&#45804;&#54616;&#47732; &#54532;&#47196;&#44536;&#47016;&#51012; &#51333;&#47308;&#54620;&#45796;</span>
+      <span class="org-keyword">if</span>(r == R-1 &amp;&amp; c == C-1) {
+        cout &lt;&lt; ans &lt;&lt; <span class="org-string">'\n'</span>;
+        <span class="org-keyword">return</span> 0;
+      }
+
+      <span class="org-comment-delimiter">// </span><span class="org-comment">&#49345;&#54616;&#51340;&#50864; &#50880;&#51649;&#51060;&#47732;&#49436; &#51060;&#46041;&#44032;&#45733;&#54620; &#44275;&#51060; &#51080;&#51004;&#47732; &#53328;&#50640; &#45812;&#45716;&#45796;. &#51060; &#46412; &#54644;&#49884;&#47484; &#49324;&#50857;&#54616;&#50668; &#45812;&#45716;&#45796;.</span>
+      <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">d</span>=0; d&lt;4; d++) {
+        <span class="org-type">int</span> <span class="org-variable-name">nr</span> = r + roff[d];
+        <span class="org-type">int</span> <span class="org-variable-name">nc</span> = c + coff[d];
+
+        <span class="org-comment-delimiter">// </span><span class="org-comment">&#47605; &#48150;&#51012; &#48279;&#50612;&#45212; &#44221;&#50864;</span>
+        <span class="org-keyword">if</span>(nr&lt;0 || nr &gt;= R || nc&lt;0 || nc &gt;= C) <span class="org-keyword">continue</span>;
+        <span class="org-comment-delimiter">// </span><span class="org-comment">&#47605; &#50948;&#52824;&#44032; 0&#51064; &#44221;&#50864;</span>
+        <span class="org-keyword">if</span>(world[nr][nc]==0) <span class="org-keyword">continue</span>;
+        <span class="org-comment-delimiter">// </span><span class="org-comment">&#51060;&#48120; &#48169;&#47928;&#54620; &#44275;&#51064; &#44221;&#50864; &#49828;&#53429;</span>
+        <span class="org-keyword">if</span>(visited[nr][nc]) <span class="org-keyword">continue</span>;
+
+        visited[nr][nc] = 1;
+        Q.push(nr*100 + nc);
+      }
+    }
+    ans++;
+  }
 
   <span class="org-keyword">return</span> 0;
 }
