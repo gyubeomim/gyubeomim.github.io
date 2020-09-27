@@ -24,6 +24,7 @@ comments: true
 <li><a href="#org780582d">3. Graph (DFS, BFS)</a>
 <ul>
 <li><a href="#org3cf74ab">3.1. 1260 DFS와 BFS</a></li>
+<li><a href="#orgb4f714b">3.2. 11724 연결 요소의 개수</a></li>
 </ul>
 </li>
 </ul>
@@ -350,6 +351,72 @@ cin.tie(0);
         memset(check,0,<span class="org-keyword">sizeof</span>(check));
 
         bfs(V);
+
+        <span class="org-keyword">return</span> 0;
+}
+</pre>
+</div>
+</p>
+</details>
+</div>
+</div>
+<div id="outline-container-orgb4f714b" class="outline-3">
+<h3 id="orgb4f714b"><span class="section-number-3">3.2</span> <a href="http://boj.kr/11724">11724 연결 요소의 개수</a></h3>
+<div class="outline-text-3" id="text-3-2">
+<details>
+<summary>more...</summary>
+<p>
+<div class="org-src-container">
+<pre class="src src-c++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;bits/stdc++.h&gt;</span>
+
+<span class="org-keyword">using</span> <span class="org-keyword">namespace</span> <span class="org-constant">std</span>;
+
+<span class="org-type">bool</span> <span class="org-variable-name">check</span>[1001];
+<span class="org-type">vector</span>&lt;<span class="org-type">vector</span>&lt;<span class="org-type">int</span>&gt;&gt; <span class="org-variable-name">graph</span>;
+
+<span class="org-type">void</span> <span class="org-function-name">dfs</span>(<span class="org-type">int</span> <span class="org-variable-name">now</span>) {
+        <span class="org-keyword">if</span>(check[now]) <span class="org-keyword">return</span>;
+
+        <span class="org-comment-delimiter">// </span><span class="org-comment">DFS&#47484; &#49688;&#54665;&#54616;&#47732;&#49436; &#48169;&#47928;&#54616;&#45716; &#45432;&#46300;&#50640; &#48169;&#47928; &#54364;&#49884;&#47484; &#44592;&#47197;&#54620;&#45796;.</span>
+        check[now] = 1;
+
+        <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;graph[now].size(); i++) {
+                <span class="org-type">int</span> <span class="org-variable-name">next</span> = graph[now][i];
+                <span class="org-keyword">if</span>(<span class="org-negation-char">!</span>check[next]) {
+                        dfs(next);
+                }
+        }
+}
+
+<span class="org-type">int</span> <span class="org-function-name">main</span>(<span class="org-type">int</span> <span class="org-variable-name">argc</span>, <span class="org-type">char</span> **<span class="org-variable-name">argv</span>){
+        <span class="org-constant">ios_base</span>::sync_with_stdio(<span class="org-constant">false</span>);
+        cin.tie(0);
+
+        <span class="org-type">int</span> <span class="org-variable-name">N</span>,<span class="org-variable-name">M</span>;
+        cin&gt;&gt;N&gt;&gt;M;
+
+        graph.resize(N+1);
+
+        <span class="org-comment-delimiter">// </span><span class="org-comment">&#44536;&#47000;&#54532;&#50640; &#45936;&#51060;&#53552;&#47484; &#51077;&#47141;&#54620;&#45796;.</span>
+        <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0;i&lt;M;i++) {
+                <span class="org-type">int</span> <span class="org-variable-name">u</span>,<span class="org-variable-name">v</span>;
+                cin &gt;&gt; u &gt;&gt; v;
+                graph[u].push_back(v);
+                graph[v].push_back(u);
+        }
+
+        <span class="org-type">int</span> <span class="org-variable-name">count</span>=0;
+
+        <span class="org-comment-delimiter">// </span><span class="org-comment">&#47784;&#46304; &#45432;&#46300;&#50640; &#45824;&#54644; DFS&#47484; &#49688;&#54665;&#54620;&#45796;. &#54620; &#48264;&#51032; &#47336;&#54532;&#44032; &#45149;&#45228;&#51020;&#50640;&#46020; check[i]==0&#51064; &#44275;&#51060; &#51316;&#51116;&#54616;&#47732; &#50672;&#44208;&#46104;&#50612; &#51080;&#51648; &#50506;&#45796;&#45716; &#46907;&#51060;&#48064;&#47196; &#52852;&#50868;&#53944;&#47484; &#51613;&#44032;&#49884;&#53416;&#45796;.</span>
+        <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=1; i&lt;=N; i++) {
+                <span class="org-keyword">if</span>(check[i]==0) {
+                count++;
+                }
+
+                dfs(i);
+        }
+
+        cout &lt;&lt; count &lt;&lt; <span class="org-string">'\n'</span>;
 
         <span class="org-keyword">return</span> 0;
 }
