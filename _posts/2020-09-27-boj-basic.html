@@ -31,6 +31,7 @@ comments: true
 <li><a href="#org7cbcc45">4. Binary Search</a>
 <ul>
 <li><a href="#org38894dc">4.1. 2085 나무 자르기</a></li>
+<li><a href="#orgf04138b">4.2. 2110 공유기 설치</a></li>
 </ul>
 </li>
 <li><a href="#org4fe59cc">5. Dynamic Programming</a>
@@ -563,6 +564,82 @@ cin.tie(0);
 
   cout &lt;&lt; lo - 1 &lt;&lt; <span class="org-string">'\n'</span>;
 
+
+  <span class="org-keyword">return</span> 0;
+}
+</pre>
+</div>
+</p>
+</details>
+</div>
+</div>
+<div id="outline-container-orgf04138b" class="outline-3">
+<h3 id="orgf04138b"><span class="section-number-3">4.2</span> <a href="http://boj.kr/2110">2110 공유기 설치</a></h3>
+<div class="outline-text-3" id="text-4-2">
+<details>
+<summary>more...</summary>
+<p>
+<div class="org-src-container">
+<pre class="src src-c++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;bits/stdc++.h&gt;</span>
+
+<span class="org-keyword">using</span> <span class="org-keyword">namespace</span> <span class="org-constant">std</span>;
+
+<span class="org-type">int</span> <span class="org-variable-name">N</span>,<span class="org-variable-name">C</span>;
+<span class="org-type">vector</span>&lt;<span class="org-type">int</span>&gt; <span class="org-variable-name">v</span>;
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">&#54788;&#51116; &#44077;(mid) &#53356;&#44592;&#47196; &#44277;&#50976;&#44592;&#47484; &#50896;&#54616;&#45716; &#47564;&#53372;(C) &#49444;&#52824;&#54624; &#49688; &#51080;&#45716;&#51648; &#54869;&#51064;&#54616;&#45716; &#54632;&#49688;</span>
+<span class="org-type">bool</span> <span class="org-function-name">Solve</span>(<span class="org-type">int</span> <span class="org-variable-name">mid</span>) {
+  <span class="org-type">int</span> <span class="org-variable-name">count</span>=1;
+  <span class="org-type">int</span> <span class="org-variable-name">curr</span> = v[0];
+
+  <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=1; i&lt;N; i++) {
+    <span class="org-keyword">if</span>(v[i] - curr &gt;= mid) {
+      count++;
+      curr = v[i];
+    }
+  }
+
+  <span class="org-keyword">if</span>(count &gt;= C) {
+    <span class="org-keyword">return</span> <span class="org-constant">true</span>;
+  }
+
+  <span class="org-keyword">return</span> <span class="org-constant">false</span>;
+}
+
+<span class="org-type">int</span> <span class="org-function-name">main</span>(<span class="org-type">int</span> <span class="org-variable-name">argc</span>, <span class="org-type">char</span> **<span class="org-variable-name">argv</span>){
+  <span class="org-constant">ios_base</span>::sync_with_stdio(<span class="org-constant">false</span>);
+  cin.tie(0);
+
+  cin&gt;&gt;N&gt;&gt;C;
+
+  <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;N; i++) {
+    <span class="org-type">int</span> <span class="org-variable-name">num</span>;
+    cin &gt;&gt; num;
+    v.push_back(num);
+  }
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#44277;&#50976;&#44592; &#51340;&#54364;&#47484; &#51221;&#47148;&#54620;&#45796;</span>
+  sort(v.begin(), v.end());
+
+  <span class="org-type">int</span> <span class="org-variable-name">left</span> = 1;
+  <span class="org-type">int</span> <span class="org-variable-name">right</span> = v[v.size()-1] - v[0];
+  <span class="org-type">int</span> <span class="org-variable-name">ans</span>=0;
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#44277;&#50976;&#44592; &#44036; &#44077;&#51012; mid&#47196; &#49444;&#51221;&#54616;&#50668; &#51060;&#48516;&#53456;&#49353;&#51004;&#47196; &#47928;&#51228;&#47484; &#54396;&#45796;</span>
+  <span class="org-keyword">while</span>(left &lt;= right) {
+    <span class="org-type">int</span> <span class="org-variable-name">mid</span> = (left + right) / 2;
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">&#54788;&#51116; &#44077;(mid) &#53356;&#44592;&#47196; &#44277;&#50976;&#44592;&#47484; &#50896;&#54616;&#45716; &#44060;&#49688;(C) &#51060;&#49345; &#49444;&#52824;&#54624; &#49688; &#51080;&#45716; &#44221;&#50864;</span>
+    <span class="org-keyword">if</span>(Solve(mid)) {
+      ans = max(ans, mid);
+      left = mid + 1;
+    }
+    <span class="org-keyword">else</span> { <span class="org-comment-delimiter">// </span><span class="org-comment">&#50630;&#45716; &#44221;&#50864;</span>
+      right = mid-1;
+    }
+  }
+
+  cout &lt;&lt; ans &lt;&lt; <span class="org-string">'\n'</span>;
 
   <span class="org-keyword">return</span> 0;
 }
