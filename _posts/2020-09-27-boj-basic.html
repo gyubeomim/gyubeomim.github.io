@@ -27,6 +27,11 @@ comments: true
 <li><a href="#orgb4f714b">3.2. 11724 연결 요소의 개수</a></li>
 </ul>
 </li>
+<li><a href="#org7cbcc45">4. Binary Search</a>
+<ul>
+<li><a href="#org38894dc">4.1. 2085 나무 자르기</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </nav>
@@ -418,6 +423,69 @@ cin.tie(0);
 </div>
 </p>
 </details>
+</div>
+</div>
+</div>
+<div id="outline-container-org7cbcc45" class="outline-2">
+<h2 id="org7cbcc45"><span class="section-number-2">4</span> Binary Search</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org38894dc" class="outline-3">
+<h3 id="org38894dc"><span class="section-number-3">4.1</span> <a href="http://boj.kr/2085">2085 나무 자르기</a></h3>
+<div class="outline-text-3" id="text-4-1">
+<div class="org-src-container">
+<pre class="src src-c++"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;bits/stdc++.h&gt;</span>
+
+<span class="org-keyword">using</span> <span class="org-keyword">namespace</span> <span class="org-constant">std</span>;
+<span class="org-keyword">typedef</span> <span class="org-type">long</span> <span class="org-type">long</span> <span class="org-type">ll</span>;
+
+<span class="org-type">vector</span>&lt;<span class="org-type">int</span>&gt; <span class="org-variable-name">trees</span>;
+
+<span class="org-type">int</span> <span class="org-function-name">main</span>(<span class="org-type">int</span> <span class="org-variable-name">argc</span>, <span class="org-type">char</span> **<span class="org-variable-name">argv</span>){
+  <span class="org-constant">ios_base</span>::sync_with_stdio(<span class="org-constant">false</span>);
+  cin.tie(0);
+
+  <span class="org-type">int</span> <span class="org-variable-name">N</span>, <span class="org-variable-name">M</span>;
+  cin&gt;&gt;N&gt;&gt;M;
+
+  <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;N; i++) {
+    <span class="org-type">int</span> <span class="org-variable-name">tree</span>;
+    cin &gt;&gt; tree;
+    trees.push_back(tree);
+  }
+
+  <span class="org-type">ll</span> <span class="org-variable-name">lo</span>=0;
+  <span class="org-type">ll</span> <span class="org-variable-name">hi</span>=1000000000;
+  <span class="org-type">ll</span> <span class="org-variable-name">mid</span>;
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">&#47336;&#54532;&#47484; &#46028;&#47732;&#49436; &#51060;&#48516;&#53456;&#49353; </span>
+  <span class="org-keyword">while</span>(lo &lt; hi) {
+    mid = (lo+hi) &gt;&gt; 1;
+
+    <span class="org-type">ll</span> <span class="org-variable-name">result</span>=0;
+    <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;trees.size(); i++) {
+      <span class="org-type">int</span> <span class="org-variable-name">cut</span> = trees[i] - mid;
+      <span class="org-keyword">if</span>(cut &gt; 0) {
+        result += cut;  <span class="org-comment-delimiter">// </span><span class="org-comment">&#51096;&#47536; &#44050;&#51060; &#50577;&#49688;&#51068; &#44221;&#50864;&#50640;&#47564; result&#50640; &#51200;&#51109;&#54620;&#45796;.</span>
+      }
+    }
+
+    <span class="org-keyword">if</span> (result &gt;= M) {
+      lo = mid + 1;
+    }
+    <span class="org-keyword">else</span> {
+      hi = mid;
+    }
+
+  }
+
+  cout &lt;&lt; lo - 1 &lt;&lt; <span class="org-string">'\n'</span>;
+
+
+  <span class="org-keyword">return</span> 0;
+}
+</pre>
+</div>
 </div>
 </div>
 </div>
