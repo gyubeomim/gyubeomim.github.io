@@ -1996,12 +1996,31 @@ Version 2017-04-19"
   :config (progn
             (setq lsp-prefer-flymake nil)
             
+            ;; C++
             ;; $ sudo apt install clangd-9
-            (setq lsp-clangd-executable "clangd-9")
-            (setq lsp-clients-clangd-executable "clangd-9")
-            
-            (setq lsp-clients-clangd-args (list "--query-driver=/usr/bin/clang*9*"))
+            (if (eq system-type 'darwin)
+                (progn
+                  ;; Mac
+                  (setq lsp-clangd-executable "clangd")
+                  (setq lsp-clients-clangd-executable "clangd")
+                  )
+              (progn
+                ;; Linux
+                (setq lsp-clangd-executable "clangd-9")
+                (setq lsp-clients-clangd-executable "clangd-9")
+                (setq lsp-clients-clangd-args (list "--query-driver=/usr/bin/clang*9*"))
+                )
+              )
                   
+            ;; Python
+            ;; $ pip install python-language-server --user
+            ;; $ pyls --version
+            (lsp-register-custom-settings
+             '(("pyls.plugins.pyls_mypy.enabled" t t)
+               ("pyls.plugins.pyls_mypy.live_mode" nil t)
+               ("pyls.plugins.pyls_black.enabled" t t)
+               ("pyls.plugins.pyls_isort.enabled" t t)))
+            
             ;; disable timer error
             (setq lsp-enable-links nil)
             
