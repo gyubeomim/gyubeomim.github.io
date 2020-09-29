@@ -1,0 +1,187 @@
+--- 
+layout: post
+title: (Linux) tmux 다중 터미널 프로그램 다양한 기능 설명 
+description: 
+date: 2020-09-29
+categories: [Technology]
+tag: [Linux, tmux, gnome-terminal, terminal]
+use_math: true
+comments: true
+---
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org98ea170">1. Introduction</a></li>
+<li><a href="#orgd3b001a">2. How to setup</a>
+<ul>
+<li><a href="#org8dd1599">2.1. Powerline font setup</a></li>
+<li><a href="#orgf24a167">2.2. Alias setup</a></li>
+</ul>
+</li>
+<li><a href="#org17a9b4e">3. My tmux configuration</a>
+<ul>
+<li><a href="#orgef5a13c">3.1. General features</a>
+<ul>
+<li><a href="#org1748b67">3.1.1. tmux keybindings</a></li>
+<li><a href="#org6cb1043">3.1.2. alias keybindings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org566c2f3">4. References</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org98ea170" class="outline-2">
+<h2 id="org98ea170"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+
+<figure>
+<img src="/pictures/200917/01.png" alt="01.png" align="center">
+
+</figure>
+
+<p>
+본 포스트에서는 리눅스에서 여러 터미널을 동시에 띄워놓은 상태로 코딩할 수 있는 tmux 프로그램의사용법에 대해 설명한다. 또한 원격에서 리눅스로 ssh 접속을 한 상태로 작업을 할 때, tmux를 사용하면 접속이 끊어지더라도 백그라운드에서 원하는 작업을 계속 실행할 수 있다. 포스트에서 설명하는 모든 내용들은 우분투 18.04 LTS 환경에서 테스트하였다.
+</p>
+
+<p>
+tmux의 환경설정 파일은 <a href="/files/200929/tmux.conf">tmux.conf</a>에서 다운로드받을 수 있다. 추가적으로 터미널 하단의 상태창에 화살표(&lt;, &gt;)와 같은 시각적 효과를 주기 위해 Powerline이라는 폰트를 사용하였다. 다음 섹션에서 <code>Powerline</code> 폰트 설치법까지 같이 설명한다. 만약 <code>Powerline</code> 폰트를 설치하고 싶지 않은 경우 .tmux.conf 파일에서 <code>Powerline</code> 으로 검색한 후 관련 코드를 전부 지워주면 된다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd3b001a" class="outline-2">
+<h2 id="orgd3b001a"><span class="section-number-2">2</span> How to setup</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+터미널을 연 다음 아래 명령어로 tmux을 설치한다. 
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Install tmux</span>
+  $ sudo apt install tmux
+</pre>
+</div>
+
+<p>
+다음으로 <a href="/files/200929/tmux.conf">tmux.conf</a> 링크에서 tmux 환경설정 파일을 받은 후 홈폴더로 이동시킨다. 이 때, 환경설정 파일의 이름 앞에 점(.)이 들어가야 정상적으로 tmux에서 인식한다.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Move .tmux.conf file to home folder.</span>
+  $ mv  ~/Downloads/tmux.conf  ~/.tmux.conf
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org8dd1599" class="outline-3">
+<h3 id="org8dd1599"><span class="section-number-3">2.1</span> Powerline font setup</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+해당 섹션에서는 tmux 하단의 상태창에 화살표 효과(&lt;, &gt;)를 나타내기 위해 <code>Powerline</code> 폰트를 설치하는 방법에 대해 설명한다. 만약 <code>Powerline</code> 폰트를 설치하고 싶지 않은 경우 .tmux.conf의 약 95번 라인부터 끝까지 <code>Powerline</code> 과 관련된 코드를 지우면 된다.
+</p>
+
+<p>
+<code>Powerline</code> 폰트를 설치하기 위해 우선 fonts 레포를 다운로드받는다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Clone fonts repository.</span>
+$ git clone https://github.com/powerline/fonts
+
+</pre>
+</div>
+
+<p>
+다음으로 fonts 폴더로 이동한 후 <code>install.sh</code> 스크립트를 실행시켜주면 설치된다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Change directory to fonts directory.</span>
+$ cd fonts/
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Install fonts.</span>
+$ ./install.sh
+</pre>
+</div>
+
+<p>
+정상적으로 설치되었다면 터미널을 연 다음 Edit =&gt; Preference 창을 연 후 폰트를 Powerline 이름이 들어간 폰트로 변경한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf24a167" class="outline-3">
+<h3 id="orgf24a167"><span class="section-number-3">2.2</span> Alias setup</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+해당 섹션에서는 필자가 tmux를 빠르게 사용하기 위해 .bashrc에 등록한 단축 명령어들을 소개한다. 아래 명령어들은 일일히 터미널에 타이밍해줘도 되지만 alias해서 사용하는 경우 더욱 빠르게 tmux를 사용할 수 있다. 해당 코드들은 ~/.bashrc 파일 맨 끝 부분에 붙여넣기하면 된다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">tmux function for attaching, switching, creating in one command.</span>
+<span class="org-keyword">function</span> <span class="org-function-name">t</span>() {
+        <span class="org-keyword">if</span> [ -z <span class="org-string">"$1"</span> ]; <span class="org-keyword">then</span>
+                tmux
+        <span class="org-keyword">elif</span> [ -z ${<span class="org-variable-name">TMUX</span>} ]; <span class="org-keyword">then</span>
+                tmux attach -t $<span class="org-variable-name">1</span>
+        <span class="org-keyword">else</span> 
+                tmux switch -t $<span class="org-variable-name">1</span>
+        <span class="org-keyword">fi</span>
+}
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">tmux </span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">tmux</span>=<span class="org-string">'TERM=xterm-256color tmux -2 -u'</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">tl</span>=<span class="org-string">'tmux ls'</span>                    <span class="org-comment-delimiter"># </span><span class="org-comment">session list</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">td</span>=<span class="org-string">'tmux detach'</span>                <span class="org-comment-delimiter"># </span><span class="org-comment">detatch session</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">tk</span>=<span class="org-string">'tmux kill-session -t '</span>      <span class="org-comment-delimiter"># </span><span class="org-comment">kill session</span>
+<span class="org-builtin">alias</span> <span class="org-variable-name">t4</span>=<span class="org-string">'tmux -u new-session -d    </span>
+<span class="org-string">tmux split-window -v</span>
+<span class="org-string">tmux split-window -h</span>
+<span class="org-string">tmux select-pane -U</span>
+<span class="org-string">tmux split-window -h</span>
+<span class="org-string">tmux select-pane -L</span>
+<span class="org-string">tmux attach-session -d'</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Copy above code to ~/.bashrc and exit.</span>
+$ vim ~/.bashrc
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Apply the change of .bashrc</span>
+$ source ~/.bashrc
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org17a9b4e" class="outline-2">
+<h2 id="org17a9b4e"><span class="section-number-2">3</span> My tmux configuration</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+해당 섹션에서는 필자가 사용하는 tmux의 다양한 기능들에 대해 설명한다. 사용하는 .tmux.conf 파일은 <a href="/files/200929/tmux.conf">tmux.conf</a> 에서 다운로드 받을 수 있다. 해당 키바인딩은 필자가 임의로 설정한 키바인딩이므로 원한다면 얼마든지 바꿔서 사용할 수 있다. 
+</p>
+</div>
+<div id="outline-container-orgef5a13c" class="outline-3">
+<h3 id="orgef5a13c"><span class="section-number-3">3.1</span> General features</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+tmux에는 수많은 기능 및 키바인딩들이 존재하지만 이를 다 설명하지 않고 실제로 자주 사용하는 키바인딩 위주로 설명하였다.
+</p>
+
+<p>
+Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt 키바인딩은 <code>&lt;A-{...}&gt;</code> 으로 표현하였다.
+</p>
+</div>
+<div id="outline-container-org1748b67" class="outline-4">
+<h4 id="org1748b67"><span class="section-number-4">3.1.1</span> tmux keybindings</h4>
+</div>
+<div id="outline-container-org6cb1043" class="outline-4">
+<h4 id="org6cb1043"><span class="section-number-4">3.1.2</span> alias keybindings</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org566c2f3" class="outline-2">
+<h2 id="org566c2f3"><span class="section-number-2">4</span> References</h2>
+</div>
