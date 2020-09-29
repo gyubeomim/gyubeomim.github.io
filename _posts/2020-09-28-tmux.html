@@ -52,14 +52,15 @@ comments: true
 </p>
 
 <ul class="org-ul">
-<li>한 프로그램에 여러 개의 터미널을 동시에 띄워놓은 상태로 빠르게 네비게이션하면서 코딩이 가능하다.</li>
-<li>터미널 작업 도중 detatch하면 백그라운드에서 계속 프로그램이 실행되고 있기 때문에 내가 했던 작업 환경을 나중에 원할 때 attatch해서 그대로 사용할 수 있다.</li>
-<li>원격에서 리눅스로 ssh 접속을 한 상태로 작업을 할 때, tmux를 사용하면 접속이 끊어지더라도 백그라운드에서 원하는 작업을 계속 실행할 수 있다.</li>
+<li>한 프로그램에 여러 개의 터미널을 동시에 띄워놓은 상태로 빠르게 네비게이션하면서 코딩이 가능하다</li>
+<li>터미널 작업 도중 detatch하면 백그라운드에서 계속 프로그램이 실행되고 있기 때문에 내가 했던 작업 환경을 나중에 원할 때 attatch해서 그대로 사용할 수 있다</li>
+<li>원격에서 리눅스로 ssh 접속을 한 상태로 작업을 할 때, tmux를 사용하면 접속이 끊어지더라도 백그라운드에서 원하는 작업을 계속 실행할 수 있다</li>
+<li>원격에서 작업한 tmux 세션을 로컬에서도 접속할 수 있고 반대도 가능하다</li>
 </ul>
 
 
 <p>
-tmux의 환경설정 파일은 <a href="/files/200929/tmux.conf">tmux.conf</a>에서 다운로드받을 수 있다. 추가적으로 터미널 하단의 상태창에 화살표(&lt;, &gt;)와 같은 시각적 효과를 주기 위해 <code>Powerline</code> 이라는 폰트를 사용하였다. 다음 섹션에서 <code>Powerline</code> 폰트 설치법까지 같이 설명한다. 만약 <code>Powerline</code> 폰트를 설치하고 싶지 않은 경우 .tmux.conf 파일에서 <code>Powerline</code> 으로 검색한 후 관련 코드를 전부 지워주면 된다.
+tmux의 환경설정 파일은 <a href="/files/200929/tmux_conf">tmux.conf</a>에서 다운로드받을 수 있다. 추가적으로 터미널 하단의 상태창에 화살표(&lt;, &gt;)와 같은 시각적 효과를 주기 위해 <code>Powerline</code> 이라는 폰트를 사용하였다. 다음 섹션에서 <code>Powerline</code> 폰트 설치법까지 같이 설명한다.
 </p>
 </div>
 </div>
@@ -77,12 +78,12 @@ tmux의 환경설정 파일은 <a href="/files/200929/tmux.conf">tmux.conf</a>�
 </div>
 
 <p>
-다음으로 <a href="/files/200929/tmux.conf">tmux.conf</a> 링크에서 tmux 환경설정 파일을 받은 후 홈폴더로 이동시킨다. 이 때, 환경설정 파일의 이름 앞에 점(.)이 들어가야 정상적으로 tmux에서 인식한다.
+다음으로 <a href="/files/200929/tmux_conf">tmux.conf</a> 링크에서 tmux 환경설정 파일을 받은 후 홈폴더로 이동시킨다. 이 때, 환경설정 파일의 이름 앞에 점(.)이 들어가야 정상적으로 tmux에서 인식한다.
 </p>
 
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Move .tmux.conf file to home folder.</span>
-  $ mv  ~/Downloads/tmux.conf  ~/.tmux.conf
+  $ mv  ~/Downloads/tmux_conf  ~/.tmux.conf
 </pre>
 </div>
 </div>
@@ -171,7 +172,7 @@ $ source ~/.bashrc
 <h2 id="org7a29565"><span class="section-number-2">3</span> My tmux configuration</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-해당 섹션에서는 필자가 사용하는 tmux의 다양한 기능들에 대해 설명한다. 사용하는 .tmux.conf 파일은 <a href="/files/200929/tmux.conf">tmux.conf</a> 에서 다운로드 받을 수 있다. 해당 키바인딩은 필자가 임의로 설정한 키바인딩이므로 원한다면 얼마든지 바꿔서 사용할 수 있다. 
+해당 섹션에서는 필자가 사용하는 tmux의 다양한 기능들에 대해 설명한다. 사용하는 .tmux.conf 파일은 <a href="/files/200929/tmux_conf">tmux.conf</a> 에서 다운로드 받을 수 있다. 해당 키바인딩은 필자가 임의로 설정한 키바인딩이므로 원한다면 얼마든지 바꿔서 사용할 수 있다. 
 </p>
 </div>
 <div id="outline-container-org1b0b88e" class="outline-3">
