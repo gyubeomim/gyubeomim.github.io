@@ -4,7 +4,7 @@ title: (Robotics) Euler Angle 개념 정리
 description: 
 date: 2019-11-12
 categories: [Engineering]
-tag: [Robotics, SLAM, Transformation, Geometry, Spatial Description]
+tag: [Robotics, Euler Angle]
 use_math: true
 comments: true
 ---
@@ -12,14 +12,14 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org74b1ee7">1. Introduction</a></li>
-<li><a href="#orgf56fa5f">2. Euler Angle vs Fixed Angle</a></li>
-<li><a href="#org8d9510a">3. Representation of Euler Angle</a></li>
-<li><a href="#org2c81a56">4. Euler Angle to Rotation Matrix</a></li>
-<li><a href="#orgc50cfc7">5. Limitation</a>
+<li><a href="#org3e5b787">1. Introduction</a></li>
+<li><a href="#org3de4f5e">2. Euler Angle vs Fixed Angle</a></li>
+<li><a href="#org16072ba">3. Representation of Euler Angle</a></li>
+<li><a href="#orgb03eb10">4. Euler Angle to Rotation Matrix</a></li>
+<li><a href="#org8b6b35f">5. Limitation</a>
 <ul>
-<li><a href="#org3ee93f9">5.1. Gimbal Lock</a></li>
-<li><a href="#orgb0c7a41">5.2. Interpolation</a></li>
+<li><a href="#orgc07dd96">5.1. Gimbal Lock</a></li>
+<li><a href="#org66f6af1">5.2. Interpolation</a></li>
 </ul>
 </li>
 </ul>
@@ -29,8 +29,8 @@ comments: true
 <p>
 이전 포스트: <a href="../../../../2019/11/02/rigid-body-transformation">Rigid Body Transformation (강체 변환)</a>
 </p>
-<div id="outline-container-org74b1ee7" class="outline-2">
-<h2 id="org74b1ee7"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org3e5b787" class="outline-2">
+<h2 id="org3e5b787"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 해당 포스트에서는 오일러 각도 (Euler Angle) 표현법에 대해 다룬다. 오일러 각은 3차원 물체의 방향(orientation)을 3개의 서로 수직인 X,Y,Z축 각도로 표현하는 방법 중 하나이다.
@@ -38,8 +38,8 @@ comments: true
 <hr>
 </div>
 </div>
-<div id="outline-container-orgf56fa5f" class="outline-2">
-<h2 id="orgf56fa5f"><span class="section-number-2">2</span> Euler Angle vs Fixed Angle</h2>
+<div id="outline-container-org3de4f5e" class="outline-2">
+<h2 id="org3de4f5e"><span class="section-number-2">2</span> Euler Angle vs Fixed Angle</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 3개의 각도로 물체의 방향을 표현할 때 크게 고정 각도(fixed angle)표현법과 오일러 각도(euler angle) 표현법이 있는데 <b>오일러 각도는 회전한 축을 기준으로 다음 회전을 한다는 점</b> 이 고정 각도 표현법과 다르다. 아래 그림과 같이 $Z,Y$축을 순차적으로 돌리는 경우를 생각해보자. 오일러 각도는 회전한 축을 기준으로 다음 회전이 적용된다.
@@ -52,8 +52,8 @@ comments: true
 <hr>
 </div>
 </div>
-<div id="outline-container-org8d9510a" class="outline-2">
-<h2 id="org8d9510a"><span class="section-number-2">3</span> Representation of Euler Angle</h2>
+<div id="outline-container-org16072ba" class="outline-2">
+<h2 id="org16072ba"><span class="section-number-2">3</span> Representation of Euler Angle</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 예를 들어, 오일러 각도가 $x,y,z$축 순서로 $(\gamma, \beta, \alpha)$라고 하면 이는 우선 $x$축으로 $\gamma$만큼 회전한 다음, 회전한 축 $(x^{'},y^{'},z^{'})$의 $y^{'}$축을 기준으로 $\beta$만큼 회전한다. 그리고 마지막으로 회전한 축 $(x^{''},y^{''},z^{''})$의 $z^{''}$축을 기준으로 $\alpha$만큼 회전한다. 오일러 각도는 회전 순서에 따라 XYZ,ZXY,ZXZ,XYX,YXY,YZY,ZYZ,ZXZ,XZY,YXZ,YZX,ZYX와 같이 12개의 서로 다른 표현법이 존재하며 ZYX의 경우 아래 그림과 같다.
@@ -77,8 +77,8 @@ comments: true
 <hr>
 </div>
 </div>
-<div id="outline-container-org2c81a56" class="outline-2">
-<h2 id="org2c81a56"><span class="section-number-2">4</span> Euler Angle to Rotation Matrix</h2>
+<div id="outline-container-orgb03eb10" class="outline-2">
+<h2 id="orgb03eb10"><span class="section-number-2">4</span> Euler Angle to Rotation Matrix</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 모든 오일러 각도는 회전행렬로 변환이 가능하다. 아래 그림과 같이 $\hat{x}, \hat{y}, \hat{z}$축을 기준으로 frame을 각각 $\gamma, \beta, \alpha$만큼 회전시킬 때 회전행렬은 다음과 같다.
@@ -119,23 +119,23 @@ comments: true
 <hr>
 </div>
 </div>
-<div id="outline-container-orgc50cfc7" class="outline-2">
-<h2 id="orgc50cfc7"><span class="section-number-2">5</span> Limitation</h2>
+<div id="outline-container-org8b6b35f" class="outline-2">
+<h2 id="org8b6b35f"><span class="section-number-2">5</span> Limitation</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 오일러 각도는 3차원 상의 물체의 방향(orientation)을 3개의 파라미터만으로 간결하게 표현할 수 있다는 점과 대략적인 방향에 대한 직관적인 정보를 준다는 점에서 좋지만 다음과 같은 한계점들을 가지고 있다.
 </p>
 </div>
-<div id="outline-container-org3ee93f9" class="outline-3">
-<h3 id="org3ee93f9"><span class="section-number-3">5.1</span> Gimbal Lock</h3>
+<div id="outline-container-orgc07dd96" class="outline-3">
+<h3 id="orgc07dd96"><span class="section-number-3">5.1</span> Gimbal Lock</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 오일러 각도 표현 법은 짐벌락이라는 치명적인 문제점을 가지고 있다. 오일러 각도로 물체를 표현할 때 <b>같은 방향으로 두 회전 축이 겹치는 경우 해당 2개의 축이 더이상 분리되지 않는 고정 상태</b> 가 되는데 이를 짐벌락이라고 한다. 따라서 3개의 자유도 중 1개의 자유도를 잃어버리게 되므로 다양한 방향 표현이 불가능해진다. <a href="https://www.youtube.com/watch?v=zc8b2Jo7mno">짐벌락 유튜브</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orgb0c7a41" class="outline-3">
-<h3 id="orgb0c7a41"><span class="section-number-3">5.2</span> Interpolation</h3>
+<div id="outline-container-org66f6af1" class="outline-3">
+<h3 id="org66f6af1"><span class="section-number-3">5.2</span> Interpolation</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 오릴러 각도 표현법은 고정 각도 표현법과 다르게 <b>3축에 대해 회전이 종속적이므로 2개의 오일러 각도 사이를 보간할 때에도 문제</b> 가 발생한다. 이는 컴퓨터로 구현할 때 문제가 된다. 따라서 물체의 방향(orientation)을 표현할 때는 오일러 각도를 종종 사용하지만 물체의 회전(rotation)을 표현할 때는 오일러 각도를 거의 사용하지 않는다.
