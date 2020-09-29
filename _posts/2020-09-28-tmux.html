@@ -23,8 +23,29 @@ comments: true
 <ul>
 <li><a href="#org1b0b88e">3.1. General features</a>
 <ul>
-<li><a href="#orgebbc899">3.1.1. tmux keybindings</a></li>
-<li><a href="#org547121b">3.1.2. alias keybindings</a></li>
+<li><a href="#orgebbc899">3.1.1. tmux keybindings</a>
+<ul>
+<li><a href="#org148de5d">3.1.1.1. <code>&lt;C-a&gt; \</code></a></li>
+<li><a href="#org82523c9">3.1.1.2. <code>&lt;C-a&gt; -</code></a></li>
+<li><a href="#orgd01377a">3.1.1.3. <code>&lt;C-a&gt; a</code></a></li>
+<li><a href="#org8d8852f">3.1.1.4. <code>&lt;C-a&gt; r</code></a></li>
+<li><a href="#org9fe4522">3.1.1.5. <code>&lt;C-a&gt; #</code></a></li>
+<li><a href="#orgac635a7">3.1.1.6. <code>&lt;C-a&gt; h,j,k,l</code></a></li>
+<li><a href="#org1f84028">3.1.1.7. <code>&lt;A-Left,Right,Up,Down&gt;</code></a></li>
+<li><a href="#org8d8740a">3.1.1.8. <code>&lt;S-Left,Right&gt;</code></a></li>
+<li><a href="#org4161076">3.1.1.9. <code>&lt;C-S-Left,Right&gt;</code></a></li>
+<li><a href="#orgd31e2cc">3.1.1.10. <code>&lt;M-S-Up,Down&gt;</code></a></li>
+</ul>
+</li>
+<li><a href="#org547121b">3.1.2. alias keybindings</a>
+<ul>
+<li><a href="#orgc4073e9">3.1.2.1. <code>t</code></a></li>
+<li><a href="#org42eb8cb">3.1.2.2. <code>tl</code></a></li>
+<li><a href="#orgab3de4d">3.1.2.3. <code>td</code></a></li>
+<li><a href="#orgf6ac3ce">3.1.2.4. <code>tk</code></a></li>
+<li><a href="#orga1de41d">3.1.2.5. <code>t4</code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -130,18 +151,7 @@ $ ./install.sh
 해당 섹션에서는 필자가 tmux를 빠르게 사용하기 위해 .bashrc에 등록한 단축 명령어들을 소개한다. 아래 명령어들은 일일히 터미널에 타이밍해줘도 되지만 alias해서 사용하는 경우 더욱 빠르게 tmux를 사용할 수 있다. 해당 코드들은 ~/.bashrc 파일 맨 끝 부분에 붙여넣기하면 된다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">tmux function for attaching, switching, creating in one command.</span>
-<span class="org-keyword">function</span> <span class="org-function-name">t</span>() {
-        <span class="org-keyword">if</span> [ -z <span class="org-string">"$1"</span> ]; <span class="org-keyword">then</span>
-                tmux
-        <span class="org-keyword">elif</span> [ -z ${<span class="org-variable-name">TMUX</span>} ]; <span class="org-keyword">then</span>
-                tmux attach -t $<span class="org-variable-name">1</span>
-        <span class="org-keyword">else</span> 
-                tmux switch -t $<span class="org-variable-name">1</span>
-        <span class="org-keyword">fi</span>
-}
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">tmux </span>
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">tmux </span>
 <span class="org-builtin">alias</span> <span class="org-variable-name">tmux</span>=<span class="org-string">'TERM=xterm-256color tmux -2 -u'</span>
 <span class="org-builtin">alias</span> <span class="org-variable-name">tl</span>=<span class="org-string">'tmux ls'</span>                    <span class="org-comment-delimiter"># </span><span class="org-comment">session list</span>
 <span class="org-builtin">alias</span> <span class="org-variable-name">td</span>=<span class="org-string">'tmux detach'</span>                <span class="org-comment-delimiter"># </span><span class="org-comment">detatch session</span>
@@ -153,6 +163,18 @@ $ ./install.sh
 <span class="org-string">tmux split-window -h</span>
 <span class="org-string">tmux select-pane -L</span>
 <span class="org-string">tmux attach-session -d'</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">tmux function for attaching, switching, creating in one command.</span>
+<span class="org-keyword">function</span> <span class="org-function-name">t</span>() {
+        <span class="org-keyword">if</span> [ -z <span class="org-string">"$1"</span> ]; <span class="org-keyword">then</span>
+                tmux
+        <span class="org-keyword">elif</span> [ -z ${<span class="org-variable-name">TMUX</span>} ]; <span class="org-keyword">then</span>
+                tmux attach -t $<span class="org-variable-name">1</span>
+        <span class="org-keyword">else</span> 
+                tmux switch -t $<span class="org-variable-name">1</span>
+        <span class="org-keyword">fi</span>
+}
+
 </pre>
 </div>
 
@@ -179,18 +201,67 @@ $ source ~/.bashrc
 <h3 id="org1b0b88e"><span class="section-number-3">3.1</span> General features</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
-tmux의 명령을 사용하기 위해서는 Prefix키를 먼저 입력 후 명령어를 입력해야 하는데 해당 포스트에서는 Prefix 단축키를 <code>&lt;C-b&gt;</code> 에서 <code>&lt;C-a&gt;</code> 로 변경하였다. 즉, tmux 명령어는 <code>&lt;C-a&gt; &lt;...&gt;</code> 와 같이 실행할 수 있다. tmux에는 수많은 기능 및 키바인딩들이 존재하지만 이를 다 설명하지 않고 실제로 자주 사용하는 키바인딩 위주로 설명하였다.
+tmux의 명령을 사용하기 위해서는 Prefix키를 먼저 입력 후 명령어를 입력해야 하는데 <b>해당 포스트에서는 Prefix 단축키를 <code>&lt;C-b&gt;</code> 에서 <code>&lt;C-a&gt;</code> 로 변경하였다.</b> 즉, 대부분의 tmux 명령어는 <code>&lt;C-a&gt; &lt;...&gt;</code> 와 같이 실행할 수 있다. tmux에는 수많은 기능 및 키바인딩들이 존재하지만 이를 다 설명하지 않고 실제로 자주 사용하는 키바인딩 위주로 설명하였다.
 </p>
 
 <p>
-Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt 키바인딩은 <code>&lt;A-{...}&gt;</code> 으로 표현하였다.
+Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt 키바인딩은 <code>&lt;A-{...}&gt;</code> 으로 표현하였다. Shift 키바인딩은 <code>&lt;S-{...}&gt;</code> 로 표현하였다.
 </p>
 </div>
 <div id="outline-container-orgebbc899" class="outline-4">
 <h4 id="orgebbc899"><span class="section-number-4">3.1.1</span> tmux keybindings</h4>
+<div class="outline-text-4" id="text-3-1-1">
+</div>
+<div id="outline-container-org148de5d" class="outline-5">
+<h5 id="org148de5d"><span class="section-number-5">3.1.1.1</span> <code>&lt;C-a&gt; \</code></h5>
+</div>
+<div id="outline-container-org82523c9" class="outline-5">
+<h5 id="org82523c9"><span class="section-number-5">3.1.1.2</span> <code>&lt;C-a&gt; -</code></h5>
+</div>
+<div id="outline-container-orgd01377a" class="outline-5">
+<h5 id="orgd01377a"><span class="section-number-5">3.1.1.3</span> <code>&lt;C-a&gt; a</code></h5>
+</div>
+<div id="outline-container-org8d8852f" class="outline-5">
+<h5 id="org8d8852f"><span class="section-number-5">3.1.1.4</span> <code>&lt;C-a&gt; r</code></h5>
+</div>
+<div id="outline-container-org9fe4522" class="outline-5">
+<h5 id="org9fe4522"><span class="section-number-5">3.1.1.5</span> <code>&lt;C-a&gt; #</code></h5>
+</div>
+<div id="outline-container-orgac635a7" class="outline-5">
+<h5 id="orgac635a7"><span class="section-number-5">3.1.1.6</span> <code>&lt;C-a&gt; h,j,k,l</code></h5>
+</div>
+<div id="outline-container-org1f84028" class="outline-5">
+<h5 id="org1f84028"><span class="section-number-5">3.1.1.7</span> <code>&lt;A-Left,Right,Up,Down&gt;</code></h5>
+</div>
+<div id="outline-container-org8d8740a" class="outline-5">
+<h5 id="org8d8740a"><span class="section-number-5">3.1.1.8</span> <code>&lt;S-Left,Right&gt;</code></h5>
+</div>
+<div id="outline-container-org4161076" class="outline-5">
+<h5 id="org4161076"><span class="section-number-5">3.1.1.9</span> <code>&lt;C-S-Left,Right&gt;</code></h5>
+</div>
+<div id="outline-container-orgd31e2cc" class="outline-5">
+<h5 id="orgd31e2cc"><span class="section-number-5">3.1.1.10</span> <code>&lt;M-S-Up,Down&gt;</code></h5>
+</div>
 </div>
 <div id="outline-container-org547121b" class="outline-4">
 <h4 id="org547121b"><span class="section-number-4">3.1.2</span> alias keybindings</h4>
+<div class="outline-text-4" id="text-3-1-2">
+</div>
+<div id="outline-container-orgc4073e9" class="outline-5">
+<h5 id="orgc4073e9"><span class="section-number-5">3.1.2.1</span> <code>t</code></h5>
+</div>
+<div id="outline-container-org42eb8cb" class="outline-5">
+<h5 id="org42eb8cb"><span class="section-number-5">3.1.2.2</span> <code>tl</code></h5>
+</div>
+<div id="outline-container-orgab3de4d" class="outline-5">
+<h5 id="orgab3de4d"><span class="section-number-5">3.1.2.3</span> <code>td</code></h5>
+</div>
+<div id="outline-container-orgf6ac3ce" class="outline-5">
+<h5 id="orgf6ac3ce"><span class="section-number-5">3.1.2.4</span> <code>tk</code></h5>
+</div>
+<div id="outline-container-orga1de41d" class="outline-5">
+<h5 id="orga1de41d"><span class="section-number-5">3.1.2.5</span> <code>t4</code></h5>
+</div>
 </div>
 </div>
 </div>
