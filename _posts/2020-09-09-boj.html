@@ -2,7 +2,7 @@
 layout: post
 title: (BOJ) 백준 C++ 기초난이도 문제풀이 
 description: 
-date: 2020-09-29
+date: 2020-09-09
 categories: [Technology]
 tag: [Coding, Problem Solving, BOJ, C++]
 use_math: true
@@ -12,46 +12,46 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8de6eef">1. Introduction</a></li>
-<li><a href="#orgd56ec50">2. Basic</a>
+<li><a href="#org5a839e5">1. Introduction</a></li>
+<li><a href="#org16ce0fb">2. Basic</a>
 <ul>
-<li><a href="#org5f8a931">2.1. 2751 수 정렬하기2</a></li>
-<li><a href="#orgcf8594c">2.2. 10989 수 정렬하기3</a></li>
-<li><a href="#org05e4945">2.3. 11650 좌표 정렬하기</a></li>
-<li><a href="#org6e38d83">2.4. 11651 좌표 정렬하기2</a></li>
-<li><a href="#orgfb52ec4">2.5. 10814 나이순 정렬</a></li>
-<li><a href="#org87e63d9">2.6. 10825 국영수</a></li>
-<li><a href="#orgdc9d247">2.7. 2004 조합 0의 개수</a></li>
+<li><a href="#orgd3aa154">2.1. 2751 수 정렬하기2</a></li>
+<li><a href="#orgfc08538">2.2. 10989 수 정렬하기3</a></li>
+<li><a href="#orgc79ab61">2.3. 11650 좌표 정렬하기</a></li>
+<li><a href="#org911597e">2.4. 11651 좌표 정렬하기2</a></li>
+<li><a href="#org198e09a">2.5. 10814 나이순 정렬</a></li>
+<li><a href="#orgc09edca">2.6. 10825 국영수</a></li>
+<li><a href="#org5f33891">2.7. 2004 조합 0의 개수</a></li>
 </ul>
 </li>
-<li><a href="#orgc762449">3. Graph (DFS, BFS)</a>
+<li><a href="#orge33fa4e">3. Graph (DFS, BFS)</a>
 <ul>
-<li><a href="#orgb1505aa">3.1. 1260 DFS와 BFS</a></li>
-<li><a href="#orgaee77b1">3.2. 11724 연결 요소의 개수</a></li>
-<li><a href="#orgf71275b">3.3. 2178 미로 탐색</a></li>
-<li><a href="#org19c8086">3.4. 1707 이분 그래프</a></li>
+<li><a href="#org062b540">3.1. 1260 DFS와 BFS</a></li>
+<li><a href="#org1dcea99">3.2. 11724 연결 요소의 개수</a></li>
+<li><a href="#org1389399">3.3. 2178 미로 탐색</a></li>
+<li><a href="#org540f7f5">3.4. 1707 이분 그래프</a></li>
 </ul>
 </li>
-<li><a href="#orgcfa352b">4. Binary Search</a>
+<li><a href="#org8062692">4. Binary Search</a>
 <ul>
-<li><a href="#org9b30c31">4.1. 2085 나무 자르기</a></li>
-<li><a href="#org5d87206">4.2. 2110 공유기 설치</a></li>
+<li><a href="#orga7de903">4.1. 2085 나무 자르기</a></li>
+<li><a href="#orga8f1380">4.2. 2110 공유기 설치</a></li>
 </ul>
 </li>
-<li><a href="#org4510962">5. Dynamic Programming</a>
+<li><a href="#org9949299">5. Dynamic Programming</a>
 <ul>
-<li><a href="#org29e44bb">5.1. 1463 1로 만들기</a></li>
-<li><a href="#org45978f0">5.2. 11726 2xn 타일링</a></li>
-<li><a href="#orgff5354d">5.3. 11727 2xn 타일링 2</a></li>
+<li><a href="#org5f82b10">5.1. 1463 1로 만들기</a></li>
+<li><a href="#org5a3ef42">5.2. 11726 2xn 타일링</a></li>
+<li><a href="#org6e4f3ea">5.3. 11727 2xn 타일링 2</a></li>
 </ul>
 </li>
-<li><a href="#org5e277f0">6. References</a></li>
+<li><a href="#orgf8d4793">6. References</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org8de6eef" class="outline-2">
-<h2 id="org8de6eef"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org5a839e5" class="outline-2">
+<h2 id="org5a839e5"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 본 포스트에서는 백준 기초 난이도 문제들을 풀이한다. 모든 문제들은 검색창에 <code>boj.kr/{#}</code> 를 입력하여 검색할 수 있다. 이 때, # 부문에 문제 번호를 입력하면 된다. ex) boj.kr/2751 
@@ -72,12 +72,12 @@ cin.tie(0);
 </p>
 </div>
 </div>
-<div id="outline-container-orgd56ec50" class="outline-2">
-<h2 id="orgd56ec50"><span class="section-number-2">2</span> Basic</h2>
+<div id="outline-container-org16ce0fb" class="outline-2">
+<h2 id="org16ce0fb"><span class="section-number-2">2</span> Basic</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org5f8a931" class="outline-3">
-<h3 id="org5f8a931"><span class="section-number-3">2.1</span> <a href="http://boj.kr/2751">2751 수 정렬하기2</a></h3>
+<div id="outline-container-orgd3aa154" class="outline-3">
+<h3 id="orgd3aa154"><span class="section-number-3">2.1</span> <a href="http://boj.kr/2751">2751 수 정렬하기2</a></h3>
 <div class="outline-text-3" id="text-2-1">
 <details>
 <summary>more...</summary>
@@ -122,8 +122,8 @@ cin.tie(0);
 </details>
 </div>
 </div>
-<div id="outline-container-orgcf8594c" class="outline-3">
-<h3 id="orgcf8594c"><span class="section-number-3">2.2</span> <a href="http://boj.kr/10989">10989 수 정렬하기3</a></h3>
+<div id="outline-container-orgfc08538" class="outline-3">
+<h3 id="orgfc08538"><span class="section-number-3">2.2</span> <a href="http://boj.kr/10989">10989 수 정렬하기3</a></h3>
 <div class="outline-text-3" id="text-2-2">
 <details>
 <summary>more...</summary>
@@ -165,8 +165,8 @@ cin.tie(0);
 </details>
 </div>
 </div>
-<div id="outline-container-org05e4945" class="outline-3">
-<h3 id="org05e4945"><span class="section-number-3">2.3</span> <a href="http://boj.kr/11650">11650 좌표 정렬하기</a></h3>
+<div id="outline-container-orgc79ab61" class="outline-3">
+<h3 id="orgc79ab61"><span class="section-number-3">2.3</span> <a href="http://boj.kr/11650">11650 좌표 정렬하기</a></h3>
 <div class="outline-text-3" id="text-2-3">
 <details>
 <summary>more...</summary>
@@ -219,8 +219,8 @@ cin.tie(0);
 </details>
 </div>
 </div>
-<div id="outline-container-org6e38d83" class="outline-3">
-<h3 id="org6e38d83"><span class="section-number-3">2.4</span> <a href="http://boj.kr/11651">11651 좌표 정렬하기2</a></h3>
+<div id="outline-container-org911597e" class="outline-3">
+<h3 id="org911597e"><span class="section-number-3">2.4</span> <a href="http://boj.kr/11651">11651 좌표 정렬하기2</a></h3>
 <div class="outline-text-3" id="text-2-4">
 <details>
 <summary>more...</summary>
@@ -273,8 +273,8 @@ cin.tie(0);
 </details>
 </div>
 </div>
-<div id="outline-container-orgfb52ec4" class="outline-3">
-<h3 id="orgfb52ec4"><span class="section-number-3">2.5</span> <a href="http://boj.kr/10814">10814 나이순 정렬</a></h3>
+<div id="outline-container-org198e09a" class="outline-3">
+<h3 id="org198e09a"><span class="section-number-3">2.5</span> <a href="http://boj.kr/10814">10814 나이순 정렬</a></h3>
 <div class="outline-text-3" id="text-2-5">
 <details>
 <summary>more...</summary>
@@ -321,8 +321,8 @@ cin.tie(0);
 </details>
 </div>
 </div>
-<div id="outline-container-org87e63d9" class="outline-3">
-<h3 id="org87e63d9"><span class="section-number-3">2.6</span> <a href="http://boj.kr/10825">10825 국영수</a></h3>
+<div id="outline-container-orgc09edca" class="outline-3">
+<h3 id="orgc09edca"><span class="section-number-3">2.6</span> <a href="http://boj.kr/10825">10825 국영수</a></h3>
 <div class="outline-text-3" id="text-2-6">
 <details>
 <summary>more...</summary>
@@ -390,8 +390,8 @@ cin.tie(0);
 </details>
 </div>
 </div>
-<div id="outline-container-orgdc9d247" class="outline-3">
-<h3 id="orgdc9d247"><span class="section-number-3">2.7</span> <a href="http://boj.kr/2004">2004 조합 0의 개수</a></h3>
+<div id="outline-container-org5f33891" class="outline-3">
+<h3 id="org5f33891"><span class="section-number-3">2.7</span> <a href="http://boj.kr/2004">2004 조합 0의 개수</a></h3>
 <div class="outline-text-3" id="text-2-7">
 <details>
 <summary>more...</summary>
@@ -439,12 +439,12 @@ cin.tie(0);
 </div>
 </div>
 </div>
-<div id="outline-container-orgc762449" class="outline-2">
-<h2 id="orgc762449"><span class="section-number-2">3</span> Graph (DFS, BFS)</h2>
+<div id="outline-container-orge33fa4e" class="outline-2">
+<h2 id="orge33fa4e"><span class="section-number-2">3</span> Graph (DFS, BFS)</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgb1505aa" class="outline-3">
-<h3 id="orgb1505aa"><span class="section-number-3">3.1</span> <a href="http://boj.kr/1260">1260 DFS와 BFS</a></h3>
+<div id="outline-container-org062b540" class="outline-3">
+<h3 id="org062b540"><span class="section-number-3">3.1</span> <a href="http://boj.kr/1260">1260 DFS와 BFS</a></h3>
 <div class="outline-text-3" id="text-3-1">
 <details>
 <summary>more...</summary>
@@ -533,8 +533,8 @@ cin.tie(0);
 </details>
 </div>
 </div>
-<div id="outline-container-orgaee77b1" class="outline-3">
-<h3 id="orgaee77b1"><span class="section-number-3">3.2</span> <a href="http://boj.kr/11724">11724 연결 요소의 개수</a></h3>
+<div id="outline-container-org1dcea99" class="outline-3">
+<h3 id="org1dcea99"><span class="section-number-3">3.2</span> <a href="http://boj.kr/11724">11724 연결 요소의 개수</a></h3>
 <div class="outline-text-3" id="text-3-2">
 <details>
 <summary>more...</summary>
@@ -599,8 +599,8 @@ cin.tie(0);
 </details>
 </div>
 </div>
-<div id="outline-container-orgf71275b" class="outline-3">
-<h3 id="orgf71275b"><span class="section-number-3">3.3</span> <a href="http://boj.kr/2178">2178 미로 탐색</a></h3>
+<div id="outline-container-org1389399" class="outline-3">
+<h3 id="org1389399"><span class="section-number-3">3.3</span> <a href="http://boj.kr/2178">2178 미로 탐색</a></h3>
 <div class="outline-text-3" id="text-3-3">
 <details>
 <summary>more...</summary>
@@ -677,8 +677,8 @@ cin.tie(0);
 </details>
 </div>
 </div>
-<div id="outline-container-org19c8086" class="outline-3">
-<h3 id="org19c8086"><span class="section-number-3">3.4</span> <a href="http://boj.kr/1707">1707 이분 그래프</a></h3>
+<div id="outline-container-org540f7f5" class="outline-3">
+<h3 id="org540f7f5"><span class="section-number-3">3.4</span> <a href="http://boj.kr/1707">1707 이분 그래프</a></h3>
 <div class="outline-text-3" id="text-3-4">
 <details>
 <summary>more...</summary>
@@ -764,12 +764,12 @@ cin.tie(0);
 </div>
 </div>
 </div>
-<div id="outline-container-orgcfa352b" class="outline-2">
-<h2 id="orgcfa352b"><span class="section-number-2">4</span> Binary Search</h2>
+<div id="outline-container-org8062692" class="outline-2">
+<h2 id="org8062692"><span class="section-number-2">4</span> Binary Search</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org9b30c31" class="outline-3">
-<h3 id="org9b30c31"><span class="section-number-3">4.1</span> <a href="http://boj.kr/2085">2085 나무 자르기</a></h3>
+<div id="outline-container-orga7de903" class="outline-3">
+<h3 id="orga7de903"><span class="section-number-3">4.1</span> <a href="http://boj.kr/2085">2085 나무 자르기</a></h3>
 <div class="outline-text-3" id="text-4-1">
 <details>
 <summary>more...</summary>
@@ -833,8 +833,8 @@ cin.tie(0);
 </details>
 </div>
 </div>
-<div id="outline-container-org5d87206" class="outline-3">
-<h3 id="org5d87206"><span class="section-number-3">4.2</span> <a href="http://boj.kr/2110">2110 공유기 설치</a></h3>
+<div id="outline-container-orga8f1380" class="outline-3">
+<h3 id="orga8f1380"><span class="section-number-3">4.2</span> <a href="http://boj.kr/2110">2110 공유기 설치</a></h3>
 <div class="outline-text-3" id="text-4-2">
 <details>
 <summary>more...</summary>
@@ -912,12 +912,12 @@ cin.tie(0);
 </div>
 </div>
 </div>
-<div id="outline-container-org4510962" class="outline-2">
-<h2 id="org4510962"><span class="section-number-2">5</span> Dynamic Programming</h2>
+<div id="outline-container-org9949299" class="outline-2">
+<h2 id="org9949299"><span class="section-number-2">5</span> Dynamic Programming</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org29e44bb" class="outline-3">
-<h3 id="org29e44bb"><span class="section-number-3">5.1</span> <a href="http://boj.kr/1463">1463 1로 만들기</a></h3>
+<div id="outline-container-org5f82b10" class="outline-3">
+<h3 id="org5f82b10"><span class="section-number-3">5.1</span> <a href="http://boj.kr/1463">1463 1로 만들기</a></h3>
 <div class="outline-text-3" id="text-5-1">
 <details>
 <summary>more...</summary>
@@ -964,8 +964,8 @@ cin.tie(0);
 </details>
 </div>
 </div>
-<div id="outline-container-org45978f0" class="outline-3">
-<h3 id="org45978f0"><span class="section-number-3">5.2</span> <a href="http://boj.kr/11726">11726 2xn 타일링</a></h3>
+<div id="outline-container-org5a3ef42" class="outline-3">
+<h3 id="org5a3ef42"><span class="section-number-3">5.2</span> <a href="http://boj.kr/11726">11726 2xn 타일링</a></h3>
 <div class="outline-text-3" id="text-5-2">
 <details>
 <summary>more...</summary>
@@ -1003,8 +1003,8 @@ cin.tie(0);
 </details>
 </div>
 </div>
-<div id="outline-container-orgff5354d" class="outline-3">
-<h3 id="orgff5354d"><span class="section-number-3">5.3</span> <a href="http://boj.kr/11727">11727 2xn 타일링 2</a></h3>
+<div id="outline-container-org6e4f3ea" class="outline-3">
+<h3 id="org6e4f3ea"><span class="section-number-3">5.3</span> <a href="http://boj.kr/11727">11727 2xn 타일링 2</a></h3>
 <div class="outline-text-3" id="text-5-3">
 <details>
 <summary>more...</summary>
@@ -1042,8 +1042,8 @@ cin.tie(0);
 </div>
 </div>
 </div>
-<div id="outline-container-org5e277f0" class="outline-2">
-<h2 id="org5e277f0"><span class="section-number-2">6</span> References</h2>
+<div id="outline-container-orgf8d4793" class="outline-2">
+<h2 id="orgf8d4793"><span class="section-number-2">6</span> References</h2>
 <div class="outline-text-2" id="text-6">
 <ol class="org-ol">
 <li><a href="https://acmicpc.net">백준 온라인저지</a></li>
