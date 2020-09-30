@@ -48,7 +48,7 @@ comments: true
 <h2 id="org24b4389"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-본 포스트에서는 cmake의 사용법 및 다양한 옵션들에 대해 설명한다. cmake는 리눅스, 윈도우, 맥 등 운영체제에 관계없이 하나의 코드만으로 실행 파일을 생성해주는 크로스 컴파일러 프로그램이다. 처음에 익숙해지기까지 알아야 될 정보들이 많지만 한 번 익숙해진다면 운영체제에 독립적으로 개발할 수 있기 때문에 매우 편리하고 효율적으로 작업할 수 있다. 포스트에서 설명하는 모든 내용들은 우분투 18.04 LTS 환경에서 테스트하였다.
+본 포스트에서는 cmake의 사용법 및 다양한 옵션들에 대해 설명한다. cmake는 리눅스, 윈도우, 맥 등 운영체제에 관계없이 하나의 코드만으로 실행 파일을 생성해주는 크로스 컴파일러 프로그램이다. 처음에 익숙해지기까지 알아야 될 정보들이 많지만 한 번 익숙해진다면 운영체제에 독립적으로 개발할 수 있기 때문에 매우 편리하고 효율적으로 작업할 수 있다. 본 포스트에서는 리눅스 터미널에서 cmake를 사용하는 방법에 대하여 설명한다. 포스트에서 설명하는 모든 내용들은 우분투 18.04 LTS 환경에서 테스트하였다.
 </p>
 </div>
 </div>
@@ -73,7 +73,11 @@ $ cmake --version
 <h2 id="org60c2bd3"><span class="section-number-2">3</span> CMakeLists.txt explaination</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-해당 섹션에서는 cmake의 명령어와 변수의 의미에 대해 설명한다. cmake는 <code>CMakeLists.txt</code> 라는 파일에 cmake 관련 문법에 맞춰서 코드를 작성한 후 cmake 명령을 통해 인식하는 방법으로 주로 사용한다. 간단한 프로젝트의 경우, 프로젝트 최상단 디렉토리에 <code>CMakeLists.txt</code> 파일 하나를 작성하는 방법이 있고 큰 프로젝트의 경우 디렉토리 별로 각각의 <code>CMakeLists.txt</code> 파일을 작성하는 방법이 있다. 예를 들어, ROS의 catkin_ws는 src 디렉토리에 <code>CMakeLists.txt</code> 파일이 존재하고 각각 ROS 패키지별로 <code>CMakeLists.txt</code> 파일이 존재하는 큰 프로젝트의 예시이다. 
+해당 섹션에서는 cmake의 명령어와 변수의 의미에 대해 설명한다. 일반적으로 cmake는 <code>CMakeLists.txt</code> 라는 파일에 cmake 관련 문법에 맞춰서 코드를 작성한 후 터미널에서 <code>cmake</code> 명령을 통해 인식하는 방법으로 주로 사용한다.
+</p>
+
+<p>
+간단한 프로젝트의 경우, 프로젝트 최상단 디렉토리에 <code>CMakeLists.txt</code> 파일 하나를 작성하는 방법이 있고 큰 프로젝트의 경우 디렉토리 별로 각각의 <code>CMakeLists.txt</code> 파일을 작성하는 방법이 있다. 예를 들어, ROS의 catkin_ws는 src 디렉토리에 <code>CMakeLists.txt</code> 파일이 존재하고 각각 ROS 패키지별로 <code>CMakeLists.txt</code> 파일이 존재하는 큰 프로젝트의 예시 중 하나이다. 
 </p>
 </div>
 <div id="outline-container-org8f02a69" class="outline-3">
@@ -111,7 +115,16 @@ $ cmake --version
 <h4 id="orgbb48a68"><span class="section-number-4">3.1.4</span> <code>find_package()</code></h4>
 <div class="outline-text-4" id="text-3-1-4">
 <p>
-특정 라이브러리의 경로를 찾는다. 일반적으로 <code>find_package({package_name})</code> 과 같이 사용한다. 정상적으로 라이브러리를 찾는 경우 <code>${..._INCLUDE_DIRS}, ${..._LIBS}, ${..._LIBRARY}</code> 와 같은 변수에 특정 라이브러리의 경로가 저장된다.
+특정 라이브러리의 경로를 찾는다. 일반적으로 <code>find_package({package_name})</code> 과 같이 사용한다.
+</p>
+<ul class="org-ul">
+<li><code>find_package({package_name} 3.4)</code> : 특정 라이브러리의 특정 버전을 찾는다.</li>
+<li><code>find_package({package_name} REQUIRED)</code> : 해당 라이브러리를 찾지 못하면 에러를 출력하며 cmake를 종료한다.</li>
+<li><code>find_package({package_name} COMPONENTS {aaa} {bbb})</code> : 해당 라이브러리의 모든 기능들을 불러오지 않고 특정 컴포넌트들만 불러온다.</li>
+</ul>
+
+<p>
+정상적으로 라이브러리를 찾는 경우 <code>${..._INCLUDE_DIRS}, ${..._LIBS}, ${..._LIBRARY}</code> 와 같은 변수에 특정 라이브러리의 경로가 저장된다.
 </p>
 
 <p>
