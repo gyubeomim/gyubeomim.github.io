@@ -45,13 +45,14 @@ comments: true
 <li><a href="#orge91e4a2">3.2.8. <code>n</code> (next)</a></li>
 <li><a href="#org002a883">3.2.9. <code>s</code> (step)</a></li>
 <li><a href="#org76eb692">3.2.10. <code>c</code> (continue)</a></li>
-<li><a href="#orgcfd2859">3.2.11. <code>f</code> (file)</a></li>
-<li><a href="#org3b7e965">3.2.12. <code>l</code> (list)</a></li>
-<li><a href="#org272a853">3.2.13. <code>finish</code></a></li>
-<li><a href="#org13bffcb">3.2.14. <code>cond</code> (condition)</a></li>
-<li><a href="#org4e883d4">3.2.15. <code>&lt;C-x&gt; a</code></a></li>
-<li><a href="#org52f8127">3.2.16. <code>&lt;C-l&gt;</code></a></li>
-<li><a href="#org7b58043">3.2.17. <code>&lt;C-p,n&gt;</code></a></li>
+<li><a href="#org2d20f34">3.2.11. <code>q</code> (quit)</a></li>
+<li><a href="#orgcfd2859">3.2.12. <code>f</code> (file)</a></li>
+<li><a href="#org3b7e965">3.2.13. <code>l</code> (list)</a></li>
+<li><a href="#org272a853">3.2.14. <code>finish</code></a></li>
+<li><a href="#org13bffcb">3.2.15. <code>cond</code> (condition)</a></li>
+<li><a href="#org4e883d4">3.2.16. <code>&lt;C-x&gt; a</code></a></li>
+<li><a href="#org52f8127">3.2.17. <code>&lt;C-l&gt;</code></a></li>
+<li><a href="#org7b58043">3.2.18. <code>&lt;C-p,n&gt;</code></a></li>
 </ul>
 </li>
 </ul>
@@ -181,7 +182,7 @@ $ ./run_mvg_example.sh d 2
 <h2 id="org27c2e1b"><span class="section-number-2">3</span> Mostly used features</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-gdb에는 매우 많은 명령어들이 존재하지만 본 포스트에서는 필자가 주로 사용하는 명령어들만 설명한다. Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하였다.
+gdb에는 매우 많은 명령어들이 존재하지만 해당 섹션에서는 필자가 주로 사용하는 명령어들만 설명한다. Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하였다.
 </p>
 </div>
 <div id="outline-container-org001bbf3" class="outline-3">
@@ -194,7 +195,8 @@ gdb에는 매우 많은 명령어들이 존재하지만 본 포스트에서는 �
 <div id="outline-container-orgd3d70e8" class="outline-4">
 <h4 id="orgd3d70e8"><span class="section-number-4">3.1.1</span> <code>-q</code></h4>
 <div class="outline-text-4" id="text-3-1-1">
-<p>
+<p align="center">
+<img src="/pictures/200930/gdb_q.gif" alt="gdb_q.gif" align="center">
 gdb를 시작할 때 나오는 메세지를 출력하지 않는 옵션
 </p>
 </div>
@@ -202,7 +204,8 @@ gdb를 시작할 때 나오는 메세지를 출력하지 않는 옵션
 <div id="outline-container-orgda71932" class="outline-4">
 <h4 id="orgda71932"><span class="section-number-4">3.1.2</span> <code>-tui</code></h4>
 <div class="outline-text-4" id="text-3-1-2">
-<p>
+<p align="center">
+<img src="/pictures/200930/gdb_tui.gif" alt="gdb_tui.gif" align="center">
 현재 디버깅 중인 코드 화면을 보여주는 옵션. <code>&lt;C-x&gt; a</code> 키를 통해 토글할 수 있다.
 </p>
 </div>
@@ -210,7 +213,8 @@ gdb를 시작할 때 나오는 메세지를 출력하지 않는 옵션
 <div id="outline-container-orge637005" class="outline-4">
 <h4 id="orge637005"><span class="section-number-4">3.1.3</span> <code>--ex</code></h4>
 <div class="outline-text-4" id="text-3-1-3">
-<p>
+<p align="center">
+<img src="/pictures/200930/gdb_ex.gif" alt="gdb_ex.gif" align="center">
 &#x2013;ex "b test.cc::121" 과 같이 gdb가 시작할 때 동시에 실행할 명령어를 입력하는 옵션
 </p>
 </div>
@@ -218,7 +222,8 @@ gdb를 시작할 때 나오는 메세지를 출력하지 않는 옵션
 <div id="outline-container-orgf6bdda3" class="outline-4">
 <h4 id="orgf6bdda3"><span class="section-number-4">3.1.4</span> <code>--args</code></h4>
 <div class="outline-text-4" id="text-3-1-4">
-<p>
+<p align="center">
+<img src="/pictures/200930/gdb_args.gif" alt="gdb_args.gif" align="center">
 디버깅하는 프로그램의 파라미터를 입력하는 옵션
 </p>
 </div>
@@ -326,12 +331,20 @@ copmute_projection_matrix.cc 30번줄에 breakpoint를 설정한다</li>
 </p>
 </div>
 </div>
+<div id="outline-container-org2d20f34" class="outline-4">
+<h4 id="org2d20f34"><span class="section-number-4">3.2.11</span> <code>q</code> (quit)</h4>
+<div class="outline-text-4" id="text-3-2-11">
+<p>
+gdb를 종료한다
+</p>
+</div>
+</div>
 <div id="outline-container-orgcfd2859" class="outline-4">
-<h4 id="orgcfd2859"><span class="section-number-4">3.2.11</span> <code>f</code> (file)</h4>
+<h4 id="orgcfd2859"><span class="section-number-4">3.2.12</span> <code>f</code> (file)</h4>
 </div>
 <div id="outline-container-org3b7e965" class="outline-4">
-<h4 id="org3b7e965"><span class="section-number-4">3.2.12</span> <code>l</code> (list)</h4>
-<div class="outline-text-4" id="text-3-2-12">
+<h4 id="org3b7e965"><span class="section-number-4">3.2.13</span> <code>l</code> (list)</h4>
+<div class="outline-text-4" id="text-3-2-13">
 <ul class="org-ul">
 <li><code>l 10</code></li>
 <li><code>l thisIsFunction()</code></li>
@@ -339,18 +352,18 @@ copmute_projection_matrix.cc 30번줄에 breakpoint를 설정한다</li>
 </div>
 </div>
 <div id="outline-container-org272a853" class="outline-4">
-<h4 id="org272a853"><span class="section-number-4">3.2.13</span> <code>finish</code></h4>
+<h4 id="org272a853"><span class="section-number-4">3.2.14</span> <code>finish</code></h4>
 </div>
 <div id="outline-container-org13bffcb" class="outline-4">
-<h4 id="org13bffcb"><span class="section-number-4">3.2.14</span> <code>cond</code> (condition)</h4>
-<div class="outline-text-4" id="text-3-2-14">
+<h4 id="org13bffcb"><span class="section-number-4">3.2.15</span> <code>cond</code> (condition)</h4>
+<div class="outline-text-4" id="text-3-2-15">
 <p>
 breakpoint의 조건을 설정한다
 </p>
 <ul class="org-ul">
 <li><p>
-<code>cond 8 i = 456</code>
-i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가능하다.
+<code>cond 1 i = 456</code>
+i가 456이 될 때 1번 bp에서 멈추도록 지정한다. ignore 8 455도 가능하다.
 </p>
 <div class="org-src-container">
 <pre class="src src-c++"><span class="org-type">int</span> <span class="org-variable-name">i</span>=0;
@@ -360,29 +373,29 @@ i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가
 }
 </pre>
 </div></li>
-<li><code>cond 8 foo(i) &gt; bar(rand())</code> : 8번 breakpoint를 foo(i) &gt; bar(rand())를 만족할 때만 실행하도록 설정</li>
+<li><code>cond 1 foo(i) &gt; bar(rand())</code> : 1번 breakpoint를 foo(i) &gt; bar(rand())를 만족할 때만 실행하도록 설정</li>
 </ul>
 </div>
 </div>
 <div id="outline-container-org4e883d4" class="outline-4">
-<h4 id="org4e883d4"><span class="section-number-4">3.2.15</span> <code>&lt;C-x&gt; a</code></h4>
-<div class="outline-text-4" id="text-3-2-15">
+<h4 id="org4e883d4"><span class="section-number-4">3.2.16</span> <code>&lt;C-x&gt; a</code></h4>
+<div class="outline-text-4" id="text-3-2-16">
 <p>
 현재 디버깅 중인 코드 화면 표시로써 <code>-tui</code> 옵션과 동일하다. 해당 키를 한 번 더 입력하면 토글된다.
 </p>
 </div>
 </div>
 <div id="outline-container-org52f8127" class="outline-4">
-<h4 id="org52f8127"><span class="section-number-4">3.2.16</span> <code>&lt;C-l&gt;</code></h4>
-<div class="outline-text-4" id="text-3-2-16">
+<h4 id="org52f8127"><span class="section-number-4">3.2.17</span> <code>&lt;C-l&gt;</code></h4>
+<div class="outline-text-4" id="text-3-2-17">
 <p>
 터미널을 새로고침한다. <code>&lt;C-x&gt; a</code> 키를 통해 디버깅하는 경우 간혹 터미널의 그래픽이 깨지는 경우가 발생하는데 이 때 <code>&lt;C-l&gt;</code> 을 사용하면 그래픽이 다시 원상복구된다.
 </p>
 </div>
 </div>
 <div id="outline-container-org7b58043" class="outline-4">
-<h4 id="org7b58043"><span class="section-number-4">3.2.17</span> <code>&lt;C-p,n&gt;</code></h4>
-<div class="outline-text-4" id="text-3-2-17">
+<h4 id="org7b58043"><span class="section-number-4">3.2.18</span> <code>&lt;C-p,n&gt;</code></h4>
+<div class="outline-text-4" id="text-3-2-18">
 <p>
 이전 명령어들을 네비게이션한다. <code>&lt;C-p&gt;</code> 를 통해 이전 명령어를 탐색할 수 있고 <code>&lt;C-n&gt;</code> 을 통해 다음 명령어를 탐색할 수 있다. 
 </p>
