@@ -31,10 +31,12 @@ comments: true
 <li><a href="#org9fe4522">3.1.1.4. <code>&lt;C-a&gt; #</code></a></li>
 <li><a href="#orgac635a7">3.1.1.5. <code>&lt;C-a&gt; h,j,k,l</code></a></li>
 <li><a href="#org0687b58">3.1.1.6. <code>&lt;C-a&gt; Up, Mouse Scroll Up</code></a></li>
-<li><a href="#org1f84028">3.1.1.7. <code>&lt;A-Left,Right,Up,Down&gt;</code></a></li>
-<li><a href="#org8d8740a">3.1.1.8. <code>&lt;S-Left,Right&gt;</code></a></li>
-<li><a href="#org4161076">3.1.1.9. <code>&lt;C-S-Left,Right&gt;</code></a></li>
-<li><a href="#orgd31e2cc">3.1.1.10. <code>&lt;M-S-Up,Down&gt;</code></a></li>
+<li><a href="#orge54d665">3.1.1.7. copy-mode: <code>/{search word}</code></a></li>
+<li><a href="#org3a2a164">3.1.1.8. copy-mode: <code>v,V,y,Y</code></a></li>
+<li><a href="#org1f84028">3.1.1.9. <code>&lt;A-Left,Right,Up,Down&gt;</code></a></li>
+<li><a href="#org8d8740a">3.1.1.10. <code>&lt;S-Left,Right&gt;</code></a></li>
+<li><a href="#org4161076">3.1.1.11. <code>&lt;C-S-Left,Right&gt;</code></a></li>
+<li><a href="#orgd31e2cc">3.1.1.12. <code>&lt;M-S-Up,Down&gt;</code></a></li>
 </ul>
 </li>
 <li><a href="#org547121b">3.1.2. alias keybindings</a>
@@ -271,19 +273,19 @@ Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하고 Alt
 Copy mode로 변경한다. Copy mode에서는 커서 스크롤이 가능해지며 vim 키바인딩을 지원한다. 아래는 필자가 주로 사용하는 copy mode에서 주요한 단축키 2개를 소개한다.
 </p>
 </div>
-<ol class="org-ol">
-<li><a id="org9fa64b6"></a>Copy mode in tmux<br>
-<ol class="org-ol">
-<li><a id="org999d443"></a><code>/{search word}</code><br>
-<div class="outline-text-7" id="text-3-1-1-6-1-1">
+</div>
+<div id="outline-container-orge54d665" class="outline-5">
+<h5 id="orge54d665"><span class="section-number-5">3.1.1.7</span> copy-mode: <code>/{search word}</code></h5>
+<div class="outline-text-5" id="text-3-1-1-7">
 <p align="center">
 <img src="/pictures/200929/c_a_up_find.gif" alt="c_a_up_find.gif" align="center">
 vim과 같이 특정 단어를 검색할 수 있다. 터미널에 결과를 출력하는 프로그램의 경우 스크롤이 지나가서 원하는 단어를 찾기 어려운 경우가 발생하는데 이 때 vim과 같이 단어를 검색하여 빠르게 네비게이션할 수 있다.
 </p>
 </div>
-</li>
-<li><a id="orgf09368f"></a><code>v,V,y,Y</code><br>
-<div class="outline-text-7" id="text-3-1-1-6-1-2">
+</div>
+<div id="outline-container-org3a2a164" class="outline-5">
+<h5 id="org3a2a164"><span class="section-number-5">3.1.1.8</span> copy-mode: <code>v,V,y,Y</code></h5>
+<div class="outline-text-5" id="text-3-1-1-8">
 <p align="center">
 <img src="/pictures/200929/c_a_up_copy.gif" alt="c_a_up_copy.gif" align="center">
 <code>v,V</code> 를 통해 vim과 동일하게 Visual 모드로 전환하여 드래그하듯이 영역 선택이 가능해지며 <code>y,Y</code> 를 통해 특정 단어를 복사할 수 있다. 단, 여기서 복사를 수행하려면 약간의 과정이 필요하다.
@@ -309,15 +311,11 @@ $ xclip -version
 </pre>
 </div>
 </div>
-</li>
-</ol>
-</li>
-</ol>
 </div>
 
 <div id="outline-container-org1f84028" class="outline-5">
-<h5 id="org1f84028"><span class="section-number-5">3.1.1.7</span> <code>&lt;A-Left,Right,Up,Down&gt;</code></h5>
-<div class="outline-text-5" id="text-3-1-1-7">
+<h5 id="org1f84028"><span class="section-number-5">3.1.1.9</span> <code>&lt;A-Left,Right,Up,Down&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-1-9">
 <p align="center">
 <img src="/pictures/200929/a_arrowkey.gif" alt="a_arrowkey.gif" align="center">
 현재 윈도우의 Pane들을 네비게이션한다.
@@ -325,8 +323,8 @@ $ xclip -version
 </div>
 </div>
 <div id="outline-container-org8d8740a" class="outline-5">
-<h5 id="org8d8740a"><span class="section-number-5">3.1.1.8</span> <code>&lt;S-Left,Right&gt;</code></h5>
-<div class="outline-text-5" id="text-3-1-1-8">
+<h5 id="org8d8740a"><span class="section-number-5">3.1.1.10</span> <code>&lt;S-Left,Right&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-1-10">
 <p align="center">
 <img src="/pictures/200929/s_arrowkey.gif" alt="s_arrowkey.gif" align="center">
 현재 세션의 윈도우들을 네비게이션한다.
@@ -334,8 +332,8 @@ $ xclip -version
 </div>
 </div>
 <div id="outline-container-org4161076" class="outline-5">
-<h5 id="org4161076"><span class="section-number-5">3.1.1.9</span> <code>&lt;C-S-Left,Right&gt;</code></h5>
-<div class="outline-text-5" id="text-3-1-1-9">
+<h5 id="org4161076"><span class="section-number-5">3.1.1.11</span> <code>&lt;C-S-Left,Right&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-1-11">
 <p align="center">
 <img src="/pictures/200929/c_s_arrowkey.gif" alt="c_s_arrowkey.gif" align="center">
 현재 윈도우의 위치를 변경한다. 위치 뿐만 아니라 윈도우 번호 또한 같이 변경된다.
@@ -343,8 +341,8 @@ $ xclip -version
 </div>
 </div>
 <div id="outline-container-orgd31e2cc" class="outline-5">
-<h5 id="orgd31e2cc"><span class="section-number-5">3.1.1.10</span> <code>&lt;M-S-Up,Down&gt;</code></h5>
-<div class="outline-text-5" id="text-3-1-1-10">
+<h5 id="orgd31e2cc"><span class="section-number-5">3.1.1.12</span> <code>&lt;M-S-Up,Down&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-1-12">
 <p align="center">
 <img src="/pictures/200929/a_s_arrowkey.gif" alt="a_s_arrowkey.gif" align="center">
 현재 Pane의 위치를 변경한다.
