@@ -86,13 +86,13 @@ cmake의 명령어는 대소문자를 구분하지 않는다. 따라서 <code>ME
 </p>
 
 <p>
-설명에 앞서서 간단한 <code>CMakeLists.txt</code> 파일의 예시를 소개한다.
+자세한 설명에 앞서서 실제로 사용 중인 간단한 <code>CMakeLists.txt</code> 파일의 예시를 소개한다. 다음 섹션을 보고 난 후 다시 해당 파일을 보면 해석할 수 있을 것이다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-function-name">cmake_minimum_required</span>(VERSION 3.0)
 <span class="org-function-name">project</span>(opencv_test)
 
-<span class="org-builtin">set</span>(CMAKE_CXX_FLAGS ${<span class="org-variable-name">CMAKE_CXX_FLAGS</span>} <span class="org-string">"-std=c++11"</span>)
+<span class="org-builtin">set</span>(CMAKE_CXX_FLAGS ${<span class="org-variable-name">CMAKE_CXX_FLAGS</span>} <span class="org-string">"-std=c++11 -O3"</span>)
 
 <span class="org-function-name">find_package</span>(OpenCV 3.4 REQUIRED)
 <span class="org-function-name">find_package</span>(Eigen3 REQUIRED)
@@ -102,12 +102,13 @@ cmake의 명령어는 대소문자를 구분하지 않는다. 따라서 <code>ME
     ${<span class="org-variable-name">EIGEN3_INCLUDE_DIRS</span>}
 )
 
-<span class="org-comment-delimiter">#</span><span class="org-comment">----------------------------------------------</span>
-<span class="org-function-name">add_executable</span>(stereo_rectify_test
-               src/stereo_rectify_test.cpp
+<span class="org-comment-delimiter"># </span><span class="org-comment">Make binary.</span>
+<span class="org-function-name">add_executable</span>(output
+               src/stereo_rectify.cpp
               )
-<span class="org-function-name">target_link_libraries</span>(stereo_rectify_test
+<span class="org-function-name">target_link_libraries</span>(output
                       ${<span class="org-variable-name">OpenCV_LIBS</span>}
+                      ${<span class="org-variable-name">EIGEN3_LIBS</span>}
                      )
 </pre>
 </div>
