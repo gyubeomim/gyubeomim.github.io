@@ -77,7 +77,11 @@ $ cmake --version
 </p>
 
 <p>
-간단한 프로젝트의 경우, 프로젝트 최상단 디렉토리에 <code>CMakeLists.txt</code> 파일 하나를 작성하는 방법이 있고 큰 프로젝트의 경우 디렉토리 별로 각각의 <code>CMakeLists.txt</code> 파일을 작성하는 방법이 있다. 예를 들어, ROS의 catkin_ws는 src 디렉토리에 <code>CMakeLists.txt</code> 파일이 존재하고 각각 ROS 패키지별로 <code>CMakeLists.txt</code> 파일이 존재하는 큰 프로젝트의 예시 중 하나이다. 
+간단한 프로젝트의 경우, 프로젝트 최상단 디렉토리에 <code>CMakeLists.txt</code> 파일 하나를 작성하는 방법이 있고 큰 프로젝트의 경우 디렉토리 별로 각각의 <code>CMakeLists.txt</code> 파일을 작성하는 방법이 있다. 예를 들어, ROS의 catkin_ws는 src 디렉토리에 <code>CMakeLists.txt</code> 파일이 존재하고 각각 ROS 패키지별로 <code>CMakeLists.txt</code> 파일이 존재하는 큰 프로젝트의 예시 중 하나이다.
+</p>
+
+<p>
+cmake의 명령어는 대소문자를 구분하지 않는다. 따라서 <code>MESSAGE(), message()</code> 모두 동일한 명령어를 의미한다. 본 포스트에서는 모든 명령어를 소문자로 표기하였다. cmake에서는 전용으로 사용할 수 있는 변수들이 있는데 일반적으로 <code>${...}</code> 과 같이 표기한다. 변수는 일반적으로 미리 예약된 변수들이 있으며 <code>${CMAKE_...}</code> 로 시작한다. 또한 유저가 직접 변수를 설정할 수 있다.
 </p>
 </div>
 <div id="outline-container-org8f02a69" class="outline-3">
