@@ -4,7 +4,7 @@ title: (Linux) gdb 디버거 사용법 및 다양한 기능 설명
 description: 
 date: 2020-09-29
 categories: [Technology]
-tag: [Linux, gdb]
+tag: [Linux, gdb, C++]
 use_math: true
 comments: true
 ---
@@ -26,7 +26,7 @@ comments: true
 <li><a href="#org5c59954">2.2. Various keybindings</a>
 <ul>
 <li><a href="#org6dc6451">2.2.1. <code>t</code> (thread)</a></li>
-<li><a href="#org185953e">2.2.2. <code>bt</code> (back trace)</a></li>
+<li><a href="#orga778aa1">2.2.2. <code>bt</code> (backtrace)</a></li>
 <li><a href="#org8aaf641">2.2.3. <code>i</code> (info)</a></li>
 <li><a href="#orgcfd2859">2.2.4. <code>f</code> (file)</a></li>
 <li><a href="#org9409c83">2.2.5. <code>p</code> (print)</a></li>
@@ -50,6 +50,7 @@ comments: true
 </li>
 </ul>
 </li>
+<li><a href="#org01b7e32">3. References</a></li>
 </ul>
 </div>
 </nav>
@@ -64,10 +65,11 @@ comments: true
 </figure>
 
 <p>
-본 포스트에서는 리눅스에서 사용하는 C/C++ 전용 디버거 gdb의 사용법 및 다양한 기능에 대해 설명한다. gdb에는 다양한 기능들이 많지만 본 포스트에서는 필자가 주로 사용하는 옵션들에 대해서만 설명한다.
+본 포스트에서는 리눅스에서 사용하는 C/C++ 전용 디버거 gdb의 사용법 및 다양한 기능에 대해 설명한다. gdb에는 다양한 기능들이 많지만 본 포스트에서는 필자가 주로 사용하는 옵션들에 대해서만 설명한다. 포스트에서 설명하는 모든 내용들은 우분투 18.04 LTS 환경에서 테스트하였다. 
 </p>
 </div>
 </div>
+
 <div id="outline-container-org27c2e1b" class="outline-2">
 <h2 id="org27c2e1b"><span class="section-number-2">2</span> Mostly used features</h2>
 <div class="outline-text-2" id="text-2">
@@ -121,8 +123,8 @@ gdb를 시작할 때 나오는 intro message들을 출력하지 않는 옵션.
 </p>
 </div>
 </div>
-<div id="outline-container-org185953e" class="outline-4">
-<h4 id="org185953e"><span class="section-number-4">2.2.2</span> <code>bt</code> (back trace)</h4>
+<div id="outline-container-orga778aa1" class="outline-4">
+<h4 id="orga778aa1"><span class="section-number-4">2.2.2</span> <code>bt</code> (backtrace)</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 함수의 호출 스택 정보를 표시한다.
@@ -249,5 +251,13 @@ i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가
 <div id="outline-container-org6c5cd04" class="outline-4">
 <h4 id="org6c5cd04"><span class="section-number-4">2.3.1</span> <code>set listsize &lt;number&gt;</code></h4>
 </div>
+</div>
+</div>
+<div id="outline-container-org01b7e32" class="outline-2">
+<h2 id="org01b7e32"><span class="section-number-2">3</span> References</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li><a href="http://egloos.zum.com/psyoblade/v/2653919">gdb를 통한 디버깅 따라하기 - psyoblade Blog</a></li>
+</ol>
 </div>
 </div>
