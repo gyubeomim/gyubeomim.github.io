@@ -13,13 +13,17 @@ comments: true
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org2bb1bd9">1. Introduction</a></li>
-<li><a href="#org08123b7">2. How to debug code</a></li>
+<li><a href="#org08123b7">2. How to debug code</a>
+<ul>
+<li><a href="#org0679246">2.1. Debugging with shell script</a></li>
+</ul>
+</li>
 <li><a href="#org27c2e1b">3. Mostly used features</a>
 <ul>
 <li><a href="#org001bbf3">3.1. Run command option</a>
 <ul>
-<li><a href="#orgda71932">3.1.1. <code>-tui</code></a></li>
-<li><a href="#orgd3d70e8">3.1.2. <code>-q</code></a></li>
+<li><a href="#orgd3d70e8">3.1.1. <code>-q</code></a></li>
+<li><a href="#orgda71932">3.1.2. <code>-tui</code></a></li>
 <li><a href="#orge637005">3.1.3. <code>--ex</code></a></li>
 <li><a href="#orgf6bdda3">3.1.4. <code>--args</code></a></li>
 </ul>
@@ -110,6 +114,55 @@ $ make
 </pre>
 </div>
 </div>
+
+<div id="outline-container-org0679246" class="outline-3">
+<h3 id="org0679246"><span class="section-number-3">2.1</span> Debugging with shell script</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+필자는 코드를 디버깅할 때 gdb의 수많은 옵션들을 일일히 타이핑하지 않고 별도의 bash 스크립트를 작성하여 이를 실행하는 것으로 대체한다. <b>Bash 스크립트를 사용하면 디버깅할 때마다 터미널에 긴 명령어를 입력하지 않고도 빠르고 편리하게 코드를 디버깅할 수 있다.</b> 아래는 필자가 사용하는 bash 스크립트의 예시이다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-variable-name">MVG_EXAMPLE</span>=~/gitrepo/starlaw/cmake_projects/mvg_example
+
+<span class="org-keyword">case</span> $<span class="org-variable-name">1</span><span class="org-keyword"> in</span>
+    r)  <span class="org-comment-delimiter"># </span><span class="org-comment">Release </span>
+        <span class="org-builtin">cd</span> ${<span class="org-variable-name">MVG_EXAMPLE</span>}/build
+        cmake -DCMAKE_BUILD_TYPE=Release ..
+        make -j
+        ;;
+    rd) <span class="org-comment-delimiter"># </span><span class="org-comment">RelWithDebInfo</span>
+        <span class="org-builtin">cd</span> ${<span class="org-variable-name">MVG_EXAMPLE</span>}/reldebug
+        cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+        make -j
+        ;;
+    d) <span class="org-comment-delimiter"># </span><span class="org-comment">Debug</span>
+        <span class="org-builtin">cd</span> ${<span class="org-variable-name">MVG_EXAMPLE</span>}/debug
+        cmake -DCMAKE_BUILD_TYPE=Debug ..
+        make -j
+        <span class="org-keyword">case</span> $<span class="org-variable-name">2</span><span class="org-keyword"> in</span>
+            1)
+                gdb -q --ex=<span class="org-string">"r"</span> -args ./compute_projection_matrix
+                ;;
+            2)
+                gdb -q --ex=<span class="org-string">"b compute_projection_matrix.cc:87"</span> --ex=<span class="org-string">"r"</span> -args ./compute_projection_matrix
+                ;;
+        <span class="org-keyword">esac</span>
+        ;;
+<span class="org-keyword">esac</span>
+</pre>
+</div>
+
+<p>
+위 스크립트의 이름이 <code>run_mvg_example.sh</code> 인 경우 이를 디버깅하기 위해서 다음과 같이 실행한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ ./run_mvg_example.sh d 1
+<span class="org-comment-delimiter"># </span><span class="org-comment">or </span>
+$ ./run_mvg_example.sh d 2
+</pre>
+</div>
+</div>
+</div>
 </div>
 
 <div id="outline-container-org27c2e1b" class="outline-2">
@@ -120,19 +173,19 @@ $ make
 <h3 id="org001bbf3"><span class="section-number-3">3.1</span> Run command option</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-orgda71932" class="outline-4">
-<h4 id="orgda71932"><span class="section-number-4">3.1.1</span> <code>-tui</code></h4>
+<div id="outline-container-orgd3d70e8" class="outline-4">
+<h4 id="orgd3d70e8"><span class="section-number-4">3.1.1</span> <code>-q</code></h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
-현재 디버깅 중인 코드 화면을 보여주는 옵션.
+gdb를 시작할 때 나오는 메세지를 출력하지 않는 옵션
 </p>
 </div>
 </div>
-<div id="outline-container-orgd3d70e8" class="outline-4">
-<h4 id="orgd3d70e8"><span class="section-number-4">3.1.2</span> <code>-q</code></h4>
+<div id="outline-container-orgda71932" class="outline-4">
+<h4 id="orgda71932"><span class="section-number-4">3.1.2</span> <code>-tui</code></h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p>
-gdb를 시작할 때 나오는 intro message들을 출력하지 않는 옵션.
+현재 디버깅 중인 코드 화면을 보여주는 옵션
 </p>
 </div>
 </div>
@@ -140,7 +193,7 @@ gdb를 시작할 때 나오는 intro message들을 출력하지 않는 옵션.
 <h4 id="orge637005"><span class="section-number-4">3.1.3</span> <code>--ex</code></h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
-&#x2013;ex "b test.cc::121" 과 같이 gdb를 시작하자마자 같이 실행할 명령어를 입력하는 옵션.
+&#x2013;ex "b test.cc::121" 과 같이 gdb가 시작할 때 동시에 실행할 명령어를 입력하는 옵션
 </p>
 </div>
 </div>
@@ -148,7 +201,7 @@ gdb를 시작할 때 나오는 intro message들을 출력하지 않는 옵션.
 <h4 id="orgf6bdda3"><span class="section-number-4">3.1.4</span> <code>--args</code></h4>
 <div class="outline-text-4" id="text-3-1-4">
 <p>
-디버깅하는 프로그램의 파라미터를 같이 입력하는 옵션.
+디버깅하는 프로그램의 파라미터를 입력하는 옵션
 </p>
 </div>
 </div>
@@ -161,7 +214,7 @@ gdb를 시작할 때 나오는 intro message들을 출력하지 않는 옵션.
 <h4 id="org6dc6451"><span class="section-number-4">3.2.1</span> <code>t</code> (thread)</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
-현재 실행 중인 스레드의 정보를 표시한다.
+현재 실행 중인 스레드의 정보를 표시
 </p>
 </div>
 </div>
@@ -169,7 +222,7 @@ gdb를 시작할 때 나오는 intro message들을 출력하지 않는 옵션.
 <h4 id="orga778aa1"><span class="section-number-4">3.2.2</span> <code>bt</code> (backtrace)</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <p>
-함수의 호출 스택 정보를 표시한다.
+함수의 호출 스택 정보를 표시
 </p>
 </div>
 </div>
@@ -180,13 +233,13 @@ gdb를 시작할 때 나오는 intro message들을 출력하지 않는 옵션.
 <li><code>i b 1</code></li>
 </ul>
 <p>
-1번 breakpoint의 정보를 확인한다.
+1번 breakpoint의 정보를 확인
 </p>
 <ul class="org-ul">
 <li><code>i t 1</code></li>
 </ul>
 <p>
-1번 thread의 정보를 확인한다.
+1번 thread의 정보를 확인
 </p>
 </div>
 </div>
@@ -198,7 +251,7 @@ gdb를 시작할 때 나오는 intro message들을 출력하지 않는 옵션.
 <div class="outline-text-4" id="text-3-2-5">
 <ul class="org-ul">
 <li><code>p vec.size()</code>
-vec 변수의 크기를 확인한다.</li>
+vec 변수의 크기를 확인</li>
 </ul>
 </div>
 </div>
@@ -207,7 +260,7 @@ vec 변수의 크기를 확인한다.</li>
 <div class="outline-text-4" id="text-3-2-6">
 <ul class="org-ul">
 <li><code>b test.cpp:30</code>
-test.cpp 30번줄에 breakpoint를 설정한다</li>
+test.cpp 30번줄에 breakpoint를 설정</li>
 </ul>
 </div>
 </div>
@@ -216,7 +269,7 @@ test.cpp 30번줄에 breakpoint를 설정한다</li>
 <div class="outline-text-4" id="text-3-2-7">
 <ul class="org-ul">
 <li><code>d br 1 (or, d 1)</code>
-1번 breakpoint를 제거한다.</li>
+1번 breakpoint를 제거</li>
 </ul>
 </div>
 </div>
@@ -224,7 +277,7 @@ test.cpp 30번줄에 breakpoint를 설정한다</li>
 <h4 id="orge91e4a2"><span class="section-number-4">3.2.8</span> <code>n</code> (next)</h4>
 <div class="outline-text-4" id="text-3-2-8">
 <p>
-현재 커서가 가르키는 라인을 실행하고 다음 라인으로 넘어간다. (함수를 실행하면 함수 안으로 들어가지 않는다.)
+현재 커서 위의 라인을 실행하고 다음 라인으로 넘어간다. 즉, n을 통해 다음 라인으로 넘어갈 경우 함수 안으로 들어가지 않는다.
 </p>
 </div>
 </div>
@@ -232,7 +285,7 @@ test.cpp 30번줄에 breakpoint를 설정한다</li>
 <h4 id="org002a883"><span class="section-number-4">3.2.9</span> <code>s</code> (step)</h4>
 <div class="outline-text-4" id="text-3-2-9">
 <p>
-현재 커서가 가르키는 라인을 실행하고 다음 라인으로 넘어간다. (함수를 실행하면 함수 안으로 들어간다.)
+현재 커서 위의 라인을 실행하고 다음 라인으로 넘어간다. 즉, s을 통해 다음 라인으로 넘어갈 경우 함수 안으로 들어간다.
 </p>
 </div>
 </div>
@@ -267,7 +320,7 @@ i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가
 }
 </pre>
 </div></li>
-<li><code>cond 8 foo(i) &gt; bar(rand())</code> : 8번 breakpoint를 foo(i) &gt; bar(rand())를 만족할 때만 실행하도록 설정한다.</li>
+<li><code>cond 8 foo(i) &gt; bar(rand())</code> : 8번 breakpoint를 foo(i) &gt; bar(rand())를 만족할 때만 실행하도록 설정</li>
 </ul>
 </div>
 </div>
@@ -275,7 +328,7 @@ i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가
 <h4 id="org214e94e"><span class="section-number-4">3.2.14</span> <code>C-x C-a</code></h4>
 <div class="outline-text-4" id="text-3-2-14">
 <p>
-현재 디버깅 중인 코드 화면을 보여준다.
+현재 디버깅 중인 코드 화면 표시
 </p>
 </div>
 </div>
