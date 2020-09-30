@@ -13,44 +13,45 @@ comments: true
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org2bb1bd9">1. Introduction</a></li>
-<li><a href="#org27c2e1b">2. Mostly used features</a>
+<li><a href="#org08123b7">2. How to debug code</a></li>
+<li><a href="#org27c2e1b">3. Mostly used features</a>
 <ul>
-<li><a href="#org001bbf3">2.1. Run command option</a>
+<li><a href="#org001bbf3">3.1. Run command option</a>
 <ul>
-<li><a href="#orgda71932">2.1.1. <code>-tui</code></a></li>
-<li><a href="#orgd3d70e8">2.1.2. <code>-q</code></a></li>
-<li><a href="#orge637005">2.1.3. <code>--ex</code></a></li>
-<li><a href="#orgf6bdda3">2.1.4. <code>--args</code></a></li>
+<li><a href="#orgda71932">3.1.1. <code>-tui</code></a></li>
+<li><a href="#orgd3d70e8">3.1.2. <code>-q</code></a></li>
+<li><a href="#orge637005">3.1.3. <code>--ex</code></a></li>
+<li><a href="#orgf6bdda3">3.1.4. <code>--args</code></a></li>
 </ul>
 </li>
-<li><a href="#org5c59954">2.2. Various keybindings</a>
+<li><a href="#org5c59954">3.2. Various keybindings</a>
 <ul>
-<li><a href="#org6dc6451">2.2.1. <code>t</code> (thread)</a></li>
-<li><a href="#orga778aa1">2.2.2. <code>bt</code> (backtrace)</a></li>
-<li><a href="#org8aaf641">2.2.3. <code>i</code> (info)</a></li>
-<li><a href="#orgcfd2859">2.2.4. <code>f</code> (file)</a></li>
-<li><a href="#org9409c83">2.2.5. <code>p</code> (print)</a></li>
-<li><a href="#orgf5fa80a">2.2.6. <code>b</code> (breakpoint)</a></li>
-<li><a href="#orga450da6">2.2.7. <code>d</code> (disable)</a></li>
-<li><a href="#orge91e4a2">2.2.8. <code>n</code> (next)</a></li>
-<li><a href="#org002a883">2.2.9. <code>s</code> (step)</a></li>
-<li><a href="#org76eb692">2.2.10. <code>c</code> (continue)</a></li>
-<li><a href="#org3b7e965">2.2.11. <code>l</code> (list)</a></li>
-<li><a href="#org272a853">2.2.12. <code>finish</code></a></li>
-<li><a href="#org13bffcb">2.2.13. <code>cond</code> (condition)</a></li>
-<li><a href="#org214e94e">2.2.14. <code>C-x C-a</code></a></li>
-<li><a href="#org538d1af">2.2.15. <code>C-l</code></a></li>
-<li><a href="#org32ca589">2.2.16. <code>C-p C-n</code></a></li>
+<li><a href="#org6dc6451">3.2.1. <code>t</code> (thread)</a></li>
+<li><a href="#orga778aa1">3.2.2. <code>bt</code> (backtrace)</a></li>
+<li><a href="#org8aaf641">3.2.3. <code>i</code> (info)</a></li>
+<li><a href="#orgcfd2859">3.2.4. <code>f</code> (file)</a></li>
+<li><a href="#org9409c83">3.2.5. <code>p</code> (print)</a></li>
+<li><a href="#orgf5fa80a">3.2.6. <code>b</code> (breakpoint)</a></li>
+<li><a href="#orga450da6">3.2.7. <code>d</code> (disable)</a></li>
+<li><a href="#orge91e4a2">3.2.8. <code>n</code> (next)</a></li>
+<li><a href="#org002a883">3.2.9. <code>s</code> (step)</a></li>
+<li><a href="#org76eb692">3.2.10. <code>c</code> (continue)</a></li>
+<li><a href="#org3b7e965">3.2.11. <code>l</code> (list)</a></li>
+<li><a href="#org272a853">3.2.12. <code>finish</code></a></li>
+<li><a href="#org13bffcb">3.2.13. <code>cond</code> (condition)</a></li>
+<li><a href="#org214e94e">3.2.14. <code>C-x C-a</code></a></li>
+<li><a href="#org538d1af">3.2.15. <code>C-l</code></a></li>
+<li><a href="#org32ca589">3.2.16. <code>C-p C-n</code></a></li>
 </ul>
 </li>
-<li><a href="#org66cc430">2.3. .gdbinit settings</a>
+<li><a href="#org66cc430">3.3. .gdbinit settings</a>
 <ul>
-<li><a href="#org6c5cd04">2.3.1. <code>set listsize &lt;number&gt;</code></a></li>
+<li><a href="#org6c5cd04">3.3.1. <code>set listsize &lt;number&gt;</code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org01b7e32">3. References</a></li>
+<li><a href="#org01b7e32">4. References</a></li>
 </ul>
 </div>
 </nav>
@@ -69,42 +70,70 @@ comments: true
 </p>
 </div>
 </div>
+<div id="outline-container-org08123b7" class="outline-2">
+<h2 id="org08123b7"><span class="section-number-2">2</span> How to debug code</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+gdb로 디버깅을 수행하기 위해서는 컴파일 당시 디버깅과 관련된 옵션을 설정해줘야 한다. <b>디버깅 옵션없이 컴파일하는 경우 디버깅 심볼들이 바이너리 파일에 저장되지 않으므로 소스코드의 어느 부분을 실행하는지에 대한 정보를 알 수 없다.</b> gcc/g++를 사용하는 경우 <code>-g</code> 옵션을 추가해줘야 정상적으로 디버깅을 할 수 있으며 cmake를 사용하는 경우 아래와 같은 타입으로 빌드해야 정상적으로 디버깅을 수행할 수 있다.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+$ make
+<span class="org-comment-delimiter"># </span><span class="org-comment">or</span>
+$ cmake -DCMAKE_BUILD_TYPE=Debug ..
+$ make
+</pre>
+</div>
+
+<p>
+<code>RelWithDebInfo</code> 타입의 경우 실제 바이너리의 실행속도가 <code>Release</code> 와 <code>Debug</code> 의 중간정도이며 컴파일 당시 컴파일러가 자체적으로 코드 최적화를 진행하는데 이러한 코드 최적화가 되고 난 다음의 코드를 디버깅할 수 있다. 따라서 몇몇 변수는 디버깅 도중 최적화되어 그 값을 확인할 수 없는 단점이 있다. <code>Debug</code> 타입의 경우 바이너리의 실행속도가 매우 느린 대신 컴파일러의 최적화없이 디버깅하므로 모든 변수의 정보를 볼 수 있다. 만약 디버깅 정보없이 가장 빠른 속도로 실행되는 바이너리를 컴파일하기 위해서는 다음과 같이 입력하면 된다.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Build with Release type (cannot debugging using gdb).</span>
+  $ cmake -DCMAKE_BUILD_TYPE=Release ..
+  $ make
+</pre>
+</div>
+</div>
+</div>
 
 <div id="outline-container-org27c2e1b" class="outline-2">
-<h2 id="org27c2e1b"><span class="section-number-2">2</span> Mostly used features</h2>
-<div class="outline-text-2" id="text-2">
+<h2 id="org27c2e1b"><span class="section-number-2">3</span> Mostly used features</h2>
+<div class="outline-text-2" id="text-3">
 </div>
 <div id="outline-container-org001bbf3" class="outline-3">
-<h3 id="org001bbf3"><span class="section-number-3">2.1</span> Run command option</h3>
-<div class="outline-text-3" id="text-2-1">
+<h3 id="org001bbf3"><span class="section-number-3">3.1</span> Run command option</h3>
+<div class="outline-text-3" id="text-3-1">
 </div>
 <div id="outline-container-orgda71932" class="outline-4">
-<h4 id="orgda71932"><span class="section-number-4">2.1.1</span> <code>-tui</code></h4>
-<div class="outline-text-4" id="text-2-1-1">
+<h4 id="orgda71932"><span class="section-number-4">3.1.1</span> <code>-tui</code></h4>
+<div class="outline-text-4" id="text-3-1-1">
 <p>
 현재 디버깅 중인 코드 화면을 보여주는 옵션.
 </p>
 </div>
 </div>
 <div id="outline-container-orgd3d70e8" class="outline-4">
-<h4 id="orgd3d70e8"><span class="section-number-4">2.1.2</span> <code>-q</code></h4>
-<div class="outline-text-4" id="text-2-1-2">
+<h4 id="orgd3d70e8"><span class="section-number-4">3.1.2</span> <code>-q</code></h4>
+<div class="outline-text-4" id="text-3-1-2">
 <p>
 gdb를 시작할 때 나오는 intro message들을 출력하지 않는 옵션.
 </p>
 </div>
 </div>
 <div id="outline-container-orge637005" class="outline-4">
-<h4 id="orge637005"><span class="section-number-4">2.1.3</span> <code>--ex</code></h4>
-<div class="outline-text-4" id="text-2-1-3">
+<h4 id="orge637005"><span class="section-number-4">3.1.3</span> <code>--ex</code></h4>
+<div class="outline-text-4" id="text-3-1-3">
 <p>
 &#x2013;ex "b test.cc::121" 과 같이 gdb를 시작하자마자 같이 실행할 명령어를 입력하는 옵션.
 </p>
 </div>
 </div>
 <div id="outline-container-orgf6bdda3" class="outline-4">
-<h4 id="orgf6bdda3"><span class="section-number-4">2.1.4</span> <code>--args</code></h4>
-<div class="outline-text-4" id="text-2-1-4">
+<h4 id="orgf6bdda3"><span class="section-number-4">3.1.4</span> <code>--args</code></h4>
+<div class="outline-text-4" id="text-3-1-4">
 <p>
 디버깅하는 프로그램의 파라미터를 같이 입력하는 옵션.
 </p>
@@ -112,28 +141,28 @@ gdb를 시작할 때 나오는 intro message들을 출력하지 않는 옵션.
 </div>
 </div>
 <div id="outline-container-org5c59954" class="outline-3">
-<h3 id="org5c59954"><span class="section-number-3">2.2</span> Various keybindings</h3>
-<div class="outline-text-3" id="text-2-2">
+<h3 id="org5c59954"><span class="section-number-3">3.2</span> Various keybindings</h3>
+<div class="outline-text-3" id="text-3-2">
 </div>
 <div id="outline-container-org6dc6451" class="outline-4">
-<h4 id="org6dc6451"><span class="section-number-4">2.2.1</span> <code>t</code> (thread)</h4>
-<div class="outline-text-4" id="text-2-2-1">
+<h4 id="org6dc6451"><span class="section-number-4">3.2.1</span> <code>t</code> (thread)</h4>
+<div class="outline-text-4" id="text-3-2-1">
 <p>
 현재 실행 중인 스레드의 정보를 표시한다.
 </p>
 </div>
 </div>
 <div id="outline-container-orga778aa1" class="outline-4">
-<h4 id="orga778aa1"><span class="section-number-4">2.2.2</span> <code>bt</code> (backtrace)</h4>
-<div class="outline-text-4" id="text-2-2-2">
+<h4 id="orga778aa1"><span class="section-number-4">3.2.2</span> <code>bt</code> (backtrace)</h4>
+<div class="outline-text-4" id="text-3-2-2">
 <p>
 함수의 호출 스택 정보를 표시한다.
 </p>
 </div>
 </div>
 <div id="outline-container-org8aaf641" class="outline-4">
-<h4 id="org8aaf641"><span class="section-number-4">2.2.3</span> <code>i</code> (info)</h4>
-<div class="outline-text-4" id="text-2-2-3">
+<h4 id="org8aaf641"><span class="section-number-4">3.2.3</span> <code>i</code> (info)</h4>
+<div class="outline-text-4" id="text-3-2-3">
 <ul class="org-ul">
 <li><code>i b 1</code></li>
 </ul>
@@ -149,11 +178,11 @@ gdb를 시작할 때 나오는 intro message들을 출력하지 않는 옵션.
 </div>
 </div>
 <div id="outline-container-orgcfd2859" class="outline-4">
-<h4 id="orgcfd2859"><span class="section-number-4">2.2.4</span> <code>f</code> (file)</h4>
+<h4 id="orgcfd2859"><span class="section-number-4">3.2.4</span> <code>f</code> (file)</h4>
 </div>
 <div id="outline-container-org9409c83" class="outline-4">
-<h4 id="org9409c83"><span class="section-number-4">2.2.5</span> <code>p</code> (print)</h4>
-<div class="outline-text-4" id="text-2-2-5">
+<h4 id="org9409c83"><span class="section-number-4">3.2.5</span> <code>p</code> (print)</h4>
+<div class="outline-text-4" id="text-3-2-5">
 <ul class="org-ul">
 <li><code>p vec.size()</code>
 vec 변수의 크기를 확인한다.</li>
@@ -161,8 +190,8 @@ vec 변수의 크기를 확인한다.</li>
 </div>
 </div>
 <div id="outline-container-orgf5fa80a" class="outline-4">
-<h4 id="orgf5fa80a"><span class="section-number-4">2.2.6</span> <code>b</code> (breakpoint)</h4>
-<div class="outline-text-4" id="text-2-2-6">
+<h4 id="orgf5fa80a"><span class="section-number-4">3.2.6</span> <code>b</code> (breakpoint)</h4>
+<div class="outline-text-4" id="text-3-2-6">
 <ul class="org-ul">
 <li><code>b test.cpp:30</code>
 test.cpp 30번줄에 breakpoint를 설정한다</li>
@@ -170,8 +199,8 @@ test.cpp 30번줄에 breakpoint를 설정한다</li>
 </div>
 </div>
 <div id="outline-container-orga450da6" class="outline-4">
-<h4 id="orga450da6"><span class="section-number-4">2.2.7</span> <code>d</code> (disable)</h4>
-<div class="outline-text-4" id="text-2-2-7">
+<h4 id="orga450da6"><span class="section-number-4">3.2.7</span> <code>d</code> (disable)</h4>
+<div class="outline-text-4" id="text-3-2-7">
 <ul class="org-ul">
 <li><code>d br 1 (or, d 1)</code>
 1번 breakpoint를 제거한다.</li>
@@ -179,27 +208,27 @@ test.cpp 30번줄에 breakpoint를 설정한다</li>
 </div>
 </div>
 <div id="outline-container-orge91e4a2" class="outline-4">
-<h4 id="orge91e4a2"><span class="section-number-4">2.2.8</span> <code>n</code> (next)</h4>
-<div class="outline-text-4" id="text-2-2-8">
+<h4 id="orge91e4a2"><span class="section-number-4">3.2.8</span> <code>n</code> (next)</h4>
+<div class="outline-text-4" id="text-3-2-8">
 <p>
 현재 커서가 가르키는 라인을 실행하고 다음 라인으로 넘어간다. (함수를 실행하면 함수 안으로 들어가지 않는다.)
 </p>
 </div>
 </div>
 <div id="outline-container-org002a883" class="outline-4">
-<h4 id="org002a883"><span class="section-number-4">2.2.9</span> <code>s</code> (step)</h4>
-<div class="outline-text-4" id="text-2-2-9">
+<h4 id="org002a883"><span class="section-number-4">3.2.9</span> <code>s</code> (step)</h4>
+<div class="outline-text-4" id="text-3-2-9">
 <p>
 현재 커서가 가르키는 라인을 실행하고 다음 라인으로 넘어간다. (함수를 실행하면 함수 안으로 들어간다.)
 </p>
 </div>
 </div>
 <div id="outline-container-org76eb692" class="outline-4">
-<h4 id="org76eb692"><span class="section-number-4">2.2.10</span> <code>c</code> (continue)</h4>
+<h4 id="org76eb692"><span class="section-number-4">3.2.10</span> <code>c</code> (continue)</h4>
 </div>
 <div id="outline-container-org3b7e965" class="outline-4">
-<h4 id="org3b7e965"><span class="section-number-4">2.2.11</span> <code>l</code> (list)</h4>
-<div class="outline-text-4" id="text-2-2-11">
+<h4 id="org3b7e965"><span class="section-number-4">3.2.11</span> <code>l</code> (list)</h4>
+<div class="outline-text-4" id="text-3-2-11">
 <ul class="org-ul">
 <li><code>l 10</code></li>
 <li><code>l thisIsFunction()</code></li>
@@ -207,11 +236,11 @@ test.cpp 30번줄에 breakpoint를 설정한다</li>
 </div>
 </div>
 <div id="outline-container-org272a853" class="outline-4">
-<h4 id="org272a853"><span class="section-number-4">2.2.12</span> <code>finish</code></h4>
+<h4 id="org272a853"><span class="section-number-4">3.2.12</span> <code>finish</code></h4>
 </div>
 <div id="outline-container-org13bffcb" class="outline-4">
-<h4 id="org13bffcb"><span class="section-number-4">2.2.13</span> <code>cond</code> (condition)</h4>
-<div class="outline-text-4" id="text-2-2-13">
+<h4 id="org13bffcb"><span class="section-number-4">3.2.13</span> <code>cond</code> (condition)</h4>
+<div class="outline-text-4" id="text-3-2-13">
 <ul class="org-ul">
 <li><p>
 <code>cond 8 i = 456</code>
@@ -230,32 +259,32 @@ i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가
 </div>
 </div>
 <div id="outline-container-org214e94e" class="outline-4">
-<h4 id="org214e94e"><span class="section-number-4">2.2.14</span> <code>C-x C-a</code></h4>
-<div class="outline-text-4" id="text-2-2-14">
+<h4 id="org214e94e"><span class="section-number-4">3.2.14</span> <code>C-x C-a</code></h4>
+<div class="outline-text-4" id="text-3-2-14">
 <p>
 현재 디버깅 중인 코드 화면을 보여준다.
 </p>
 </div>
 </div>
 <div id="outline-container-org538d1af" class="outline-4">
-<h4 id="org538d1af"><span class="section-number-4">2.2.15</span> <code>C-l</code></h4>
+<h4 id="org538d1af"><span class="section-number-4">3.2.15</span> <code>C-l</code></h4>
 </div>
 <div id="outline-container-org32ca589" class="outline-4">
-<h4 id="org32ca589"><span class="section-number-4">2.2.16</span> <code>C-p C-n</code></h4>
+<h4 id="org32ca589"><span class="section-number-4">3.2.16</span> <code>C-p C-n</code></h4>
 </div>
 </div>
 <div id="outline-container-org66cc430" class="outline-3">
-<h3 id="org66cc430"><span class="section-number-3">2.3</span> .gdbinit settings</h3>
-<div class="outline-text-3" id="text-2-3">
+<h3 id="org66cc430"><span class="section-number-3">3.3</span> .gdbinit settings</h3>
+<div class="outline-text-3" id="text-3-3">
 </div>
 <div id="outline-container-org6c5cd04" class="outline-4">
-<h4 id="org6c5cd04"><span class="section-number-4">2.3.1</span> <code>set listsize &lt;number&gt;</code></h4>
+<h4 id="org6c5cd04"><span class="section-number-4">3.3.1</span> <code>set listsize &lt;number&gt;</code></h4>
 </div>
 </div>
 </div>
 <div id="outline-container-org01b7e32" class="outline-2">
-<h2 id="org01b7e32"><span class="section-number-2">3</span> References</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="org01b7e32"><span class="section-number-2">4</span> References</h2>
+<div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li><a href="http://egloos.zum.com/psyoblade/v/2653919">gdb를 통한 디버깅 따라하기 - psyoblade Blog</a></li>
 </ol>
