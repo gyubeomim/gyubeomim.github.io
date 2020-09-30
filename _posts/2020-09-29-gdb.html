@@ -16,6 +16,11 @@ comments: true
 <li><a href="#org08123b7">2. How to debug code</a>
 <ul>
 <li><a href="#org0679246">2.1. Debugging with shell script</a></li>
+<li><a href="#org66cc430">2.2. .gdbinit settings</a>
+<ul>
+<li><a href="#org6c5cd04">2.2.1. <code>set listsize &lt;number&gt;</code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#org27c2e1b">3. Mostly used features</a>
@@ -43,14 +48,9 @@ comments: true
 <li><a href="#org3b7e965">3.2.11. <code>l</code> (list)</a></li>
 <li><a href="#org272a853">3.2.12. <code>finish</code></a></li>
 <li><a href="#org13bffcb">3.2.13. <code>cond</code> (condition)</a></li>
-<li><a href="#org214e94e">3.2.14. <code>C-x C-a</code></a></li>
-<li><a href="#org538d1af">3.2.15. <code>C-l</code></a></li>
-<li><a href="#org32ca589">3.2.16. <code>C-p C-n</code></a></li>
-</ul>
-</li>
-<li><a href="#org66cc430">3.3. .gdbinit settings</a>
-<ul>
-<li><a href="#org6c5cd04">3.3.1. <code>set listsize &lt;number&gt;</code></a></li>
+<li><a href="#org4e883d4">3.2.14. <code>&lt;C-x&gt; a</code></a></li>
+<li><a href="#org52f8127">3.2.15. <code>&lt;C-l&gt;</code></a></li>
+<li><a href="#org7b58043">3.2.16. <code>&lt;C-p,n&gt;</code></a></li>
 </ul>
 </li>
 </ul>
@@ -163,11 +163,25 @@ $ ./run_mvg_example.sh d 2
 </div>
 </div>
 </div>
-</div>
 
+<div id="outline-container-org66cc430" class="outline-3">
+<h3 id="org66cc430"><span class="section-number-3">2.2</span> .gdbinit settings</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+<code>.gdbinit</code> 은 gdb가 실행할 때 로딩하는 환경설정 파일이다. <code>.gdbinit</code> 파일을 홈폴더(~/)에 놓으면 gdb가 실행할 때 자동으로 불러온다.
+</p>
+</div>
+<div id="outline-container-org6c5cd04" class="outline-4">
+<h4 id="org6c5cd04"><span class="section-number-4">2.2.1</span> <code>set listsize &lt;number&gt;</code></h4>
+</div>
+</div>
+</div>
 <div id="outline-container-org27c2e1b" class="outline-2">
 <h2 id="org27c2e1b"><span class="section-number-2">3</span> Mostly used features</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+gdb에는 매우 많은 명령어들이 존재하지만 본 포스트에서는 필자가 주로 사용하는 명령어들만 설명한다. Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하였다.
+</p>
 </div>
 <div id="outline-container-org001bbf3" class="outline-3">
 <h3 id="org001bbf3"><span class="section-number-3">3.1</span> Run command option</h3>
@@ -324,27 +338,19 @@ i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가
 </ul>
 </div>
 </div>
-<div id="outline-container-org214e94e" class="outline-4">
-<h4 id="org214e94e"><span class="section-number-4">3.2.14</span> <code>C-x C-a</code></h4>
+<div id="outline-container-org4e883d4" class="outline-4">
+<h4 id="org4e883d4"><span class="section-number-4">3.2.14</span> <code>&lt;C-x&gt; a</code></h4>
 <div class="outline-text-4" id="text-3-2-14">
 <p>
 현재 디버깅 중인 코드 화면 표시
 </p>
 </div>
 </div>
-<div id="outline-container-org538d1af" class="outline-4">
-<h4 id="org538d1af"><span class="section-number-4">3.2.15</span> <code>C-l</code></h4>
+<div id="outline-container-org52f8127" class="outline-4">
+<h4 id="org52f8127"><span class="section-number-4">3.2.15</span> <code>&lt;C-l&gt;</code></h4>
 </div>
-<div id="outline-container-org32ca589" class="outline-4">
-<h4 id="org32ca589"><span class="section-number-4">3.2.16</span> <code>C-p C-n</code></h4>
-</div>
-</div>
-<div id="outline-container-org66cc430" class="outline-3">
-<h3 id="org66cc430"><span class="section-number-3">3.3</span> .gdbinit settings</h3>
-<div class="outline-text-3" id="text-3-3">
-</div>
-<div id="outline-container-org6c5cd04" class="outline-4">
-<h4 id="org6c5cd04"><span class="section-number-4">3.3.1</span> <code>set listsize &lt;number&gt;</code></h4>
+<div id="outline-container-org7b58043" class="outline-4">
+<h4 id="org7b58043"><span class="section-number-4">3.2.16</span> <code>&lt;C-p,n&gt;</code></h4>
 </div>
 </div>
 </div>
