@@ -89,14 +89,13 @@ cmake의 명령어는 대소문자를 구분하지 않는다. 따라서 <code>ME
 설명에 앞서서 간단한 <code>CMakeLists.txt</code> 파일의 예시를 소개한다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-function-name">cmake_minimum_required</span>(VERSION 2.8)
+<pre class="src src-sh"><span class="org-function-name">cmake_minimum_required</span>(VERSION 3.0)
+<span class="org-function-name">project</span>(opencv_test)
 
 <span class="org-builtin">set</span>(CMAKE_CXX_FLAGS ${<span class="org-variable-name">CMAKE_CXX_FLAGS</span>} <span class="org-string">"-std=c++11"</span>)
 
-<span class="org-function-name">project</span>(opencv_test)
-
-<span class="org-function-name">find_package</span>( OpenCV REQUIRED )
-<span class="org-function-name">find_package</span>( Eigen3 REQUIRED )
+<span class="org-function-name">find_package</span>(OpenCV 3.4 REQUIRED)
+<span class="org-function-name">find_package</span>(Eigen3 REQUIRED)
 
 <span class="org-function-name">include_directories</span>(
     ${<span class="org-variable-name">OpenCV_INCLUDE_DIRS</span>}
