@@ -16,11 +16,7 @@ comments: true
 <li><a href="#org08123b7">2. How to debug code</a>
 <ul>
 <li><a href="#org0679246">2.1. Debugging with shell script</a></li>
-<li><a href="#org66cc430">2.2. .gdbinit settings</a>
-<ul>
-<li><a href="#org6c5cd04">2.2.1. <code>set listsize &lt;number&gt;</code></a></li>
-</ul>
-</li>
+<li><a href="#org66cc430">2.2. .gdbinit settings</a></li>
 </ul>
 </li>
 <li><a href="#org27c2e1b">3. Mostly used features</a>
@@ -71,7 +67,7 @@ comments: true
 </figure>
 
 <p>
-본 포스트에서는 리눅스에서 사용하는 C/C++ 전용 디버거 gdb의 사용법 및 다양한 기능에 대해 설명한다. gdb에는 다양한 기능들이 많지만 본 포스트에서는 필자가 주로 사용하는 옵션들에 대해서만 설명한다. 포스트에서 설명하는 모든 내용들은 우분투 18.04 LTS 환경에서 테스트하였다.
+본 포스트에서는 리눅스에서 사용하는 C/C++ 전용 디버거 gdb의 사용법 및 다양한 기능에 대해 설명한다. gdb에는 다양한 기능들이 많지만 <b>본 포스트에서는 코드 디버깅에 초점을 맞춰서 필자가 주로 사용하는 옵션들에 대해서만 설명한다. 따라서 레지스터(EAX, EBX, &#x2026;) 보기와 같은 내용은 본 포스트에서는 다루지 않는다.</b> 포스트에서 설명하는 모든 내용들은 우분투 18.04 LTS 환경에서 테스트하였다.
 </p>
 
 <p>
@@ -169,11 +165,14 @@ $ ./run_mvg_example.sh d 2
 <h3 id="org66cc430"><span class="section-number-3">2.2</span> .gdbinit settings</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
-<code>.gdbinit</code> 은 gdb가 실행할 때 로딩하는 환경설정 파일이다. <code>.gdbinit</code> 파일을 홈폴더(~/)에 놓으면 gdb가 실행할 때 자동으로 불러온다.
+<code>.gdbinit</code> 은 gdb가 실행할 때 로딩하는 환경설정 파일이다. <code>.gdbinit</code> 파일을 홈폴더(~/)에 놓으면 gdb가 실행할 때 자동으로 불러온다. 현재 필자가 사용 중인 .gdbinit은 다음과 같다.
 </p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-builtin">set</span> disassembly-flavor intel  <span class="org-comment-delimiter"># </span><span class="org-comment">gdb&#47484; intel CPU &#47928;&#48277;&#51004;&#47196; &#49444;&#51221;</span>
+<span class="org-builtin">set</span> max-value-size unlimited  <span class="org-comment-delimiter"># </span><span class="org-comment">gdb&#47484; &#49892;&#54665; &#51473;&#51064; &#48148;&#51060;&#45320;&#47532;&#51032; &#52572;&#45824; &#47700;&#47784;&#47532; &#49324;&#51060;&#51592; &#49444;&#51221;</span>
+<span class="org-builtin">set</span> print thread-events off   <span class="org-comment-delimiter"># </span><span class="org-comment">Thread start, exit&#44284; &#44057;&#51008; &#47700;&#49884;&#51648;&#47484; &#52636;&#47141;&#54616;&#51648; &#50506;&#51020;</span>
+</pre>
 </div>
-<div id="outline-container-org6c5cd04" class="outline-4">
-<h4 id="org6c5cd04"><span class="section-number-4">2.2.1</span> <code>set listsize &lt;number&gt;</code></h4>
 </div>
 </div>
 </div>
