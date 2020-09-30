@@ -202,7 +202,7 @@ $ cmake --version
 </p>
 
 <p>
-예를들어, 아래와 같이 output 바이너리가 내부적으로 OpenCV와 Eigen 라이브러리를 사용하는 경우 <code>target_link_libraries()</code> 의 괄호 옆에는 바이너리의 이름을 적은 후 다음 라인부터 해당 라이브러리가 요구하는 라이브러리의 경로를 입력한다. 일반적으로 <code>find_package()</code> 를 통해 <code>${..._INCLUDE_DIRS}, ${..._LIBS}</code> 변수가 생성되므로 이를 사용한다.
+예를 들면, 아래와 같이 output 바이너리가 내부적으로 OpenCV와 Eigen 라이브러리를 사용하는 경우 <code>target_link_libraries()</code> 의 괄호 옆에는 바이너리의 이름을 적은 후 다음 라인부터 해당 라이브러리가 요구하는 라이브러리의 경로를 입력한다. 일반적으로 <code>find_package()</code> 를 통해 <code>${..._INCLUDE_DIRS}, ${..._LIBS}</code> 변수가 생성되므로 이를 사용한다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-function-name">add_executable</span>(output
