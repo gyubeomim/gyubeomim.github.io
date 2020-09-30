@@ -21,10 +21,12 @@ comments: true
 <li><a href="#org75c747e">3.1.1. <code>cmake_minimum_required()</code></a></li>
 <li><a href="#org4c82193">3.1.2. <code>project()</code></a></li>
 <li><a href="#org03fe1f1">3.1.3. <code>message()</code></a></li>
-<li><a href="#org3ca0ee7">3.1.4. <code>add_executable()</code></a></li>
-<li><a href="#orgd505451">3.1.5. <code>add_library()</code></a></li>
-<li><a href="#org320e65e">3.1.6. <code>add_dependencies()</code></a></li>
-<li><a href="#orgdbea02b">3.1.7. <code>install()</code></a></li>
+<li><a href="#orgbb48a68">3.1.4. <code>find_package()</code></a></li>
+<li><a href="#org2d70991">3.1.5. <code>include_directories()</code></a></li>
+<li><a href="#org3ca0ee7">3.1.6. <code>add_executable()</code></a></li>
+<li><a href="#orgd505451">3.1.7. <code>add_library()</code></a></li>
+<li><a href="#org92c3bbb">3.1.8. <code>target_link_libraries()</code></a></li>
+<li><a href="#orgdbea02b">3.1.9. <code>install()</code></a></li>
 </ul>
 </li>
 <li><a href="#org44f2e1e">3.2. Variables</a>
@@ -70,6 +72,9 @@ $ cmake --version
 <div id="outline-container-org60c2bd3" class="outline-2">
 <h2 id="org60c2bd3"><span class="section-number-2">3</span> CMakeLists.txt explaination</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+해당 섹션에서는 cmake의 명령어와 변수의 의미에 대해 설명한다. cmake는 <code>CMakeLists.txt</code> 라는 파일에 cmake 관련 문법에 맞춰서 코드를 작성한 후 cmake 명령을 통해 인식하는 방법으로 주로 사용한다. 간단한 프로젝트의 경우, 프로젝트 최상단 디렉토리에 <code>CMakeLists.txt</code> 파일 하나를 작성하는 방법이 있고 큰 프로젝트의 경우 디렉토리 별로 각각의 <code>CMakeLists.txt</code> 파일을 작성하는 방법이 있다. 예를 들어, ROS의 catkin_ws는 src 디렉토리에 <code>CMakeLists.txt</code> 파일이 존재하고 각각 ROS 패키지별로 <code>CMakeLists.txt</code> 파일이 존재하는 큰 프로젝트의 예시이다. 
+</p>
 </div>
 <div id="outline-container-org8f02a69" class="outline-3">
 <h3 id="org8f02a69"><span class="section-number-3">3.1</span> Commands</h3>
@@ -97,90 +102,120 @@ $ cmake --version
 <h4 id="org03fe1f1"><span class="section-number-4">3.1.3</span> <code>message()</code></h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
-터미널에 특정 메세지를 출력한다
+터미널에 특정 메세지를 출력한다. <code>message(STATUS ${CMAKE_PROJECT_NAME})</code> 과 같이 사용할 수 있다. STATUS 외에도 WARNING, AUTHOR_WARNING, SEND_ERROR, FATAL_ERROR와 같은 키워드들이 존재한다.
 </p>
-<div class="org-src-container">
-<pre class="src src-sh">$ message ( [&lt;Type&gt;] &lt;&#47700;&#49884;&#51648;&gt; )
-ex: $ message ( FATAL_ERROR <span class="org-string">"Fatal error occurred!"</span> )
-</pre>
-</div>
-<ul class="org-ul">
-<li>Type은 다음중 하나이며, 생략할 수 있다.
-<ul class="org-ul">
-<li>STATUS : 상태 메시지 출력 (메시지 앞에 '&#x2013;'가 추가되서 출력됨)</li>
-<li>WARNING : 경고 메시지를 출력하고, 계속 진행</li>
-<li>AUTHOR_WARNING : 프로젝트 개발자용 경고 메시지를 출력하고, 계속 진행</li>
-<li>SEND_ERROR : 오류 메시지를 출력하고 계속 진행하지만, Makefile 생성은 하지 않음</li>
-<li>FATAL_ERROR : 오류 메시지를 출력하고, 작업을 즉시 중단</li>
-</ul></li>
-</ul>
 </div>
 </div>
 
-<div id="outline-container-org3ca0ee7" class="outline-4">
-<h4 id="org3ca0ee7"><span class="section-number-4">3.1.4</span> <code>add_executable()</code></h4>
+<div id="outline-container-orgbb48a68" class="outline-4">
+<h4 id="orgbb48a68"><span class="section-number-4">3.1.4</span> <code>find_package()</code></h4>
 <div class="outline-text-4" id="text-3-1-4">
 <p>
-빌드 최종 결과물로 생성할 실행 파일을 추가한다. 이 명령을 반복하여 생성할 실행 파일을 계속 추가할 수 있다.
+특정 라이브러리의 경로를 찾는다. 일반적으로 <code>find_package({package_name})</code> 과 같이 사용한다. 정상적으로 라이브러리를 찾는 경우 <code>${..._INCLUDE_DIRS}, ${..._LIBS}, ${..._LIBRARY}</code> 와 같은 변수에 특정 라이브러리의 경로가 저장된다.
+</p>
+
+<p>
+예를 들어, OpenCV 라이브러리를 찾고자 하는 경우 <code>find_package(OpenCV)</code> 를 사용하면 <code>${OpenCV_INCLUDE_DIRS}</code> 에는 OpenCV의 헤더파일의 경로가 저장되며 <code>${OpenCV_LIBS}</code> 에는 라이브러리의 파일 경로가 저장된다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2d70991" class="outline-4">
+<h4 id="org2d70991"><span class="section-number-4">3.1.5</span> <code>include_directories()</code></h4>
+<div class="outline-text-4" id="text-3-1-5">
+<p>
+헤더 파일의 경로를 입력한다.
+</p>
+
+<p>
+아래와 같이 프로젝트 최상단 디렉토리 기준으로 경로를 입력할 수도 있고 특정 라이브러리의 헤더 파일 경로를 입력할 수도 있다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ add_executable ( app.out main.c foo.c bar.c )
+<pre class="src src-sh"><span class="org-function-name">include_directories</span>(
+    src/
+    util/
+    ${<span class="org-variable-name">OpenCV_INCLUDE_DIRS</span>}
+)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org3ca0ee7" class="outline-4">
+<h4 id="org3ca0ee7"><span class="section-number-4">3.1.6</span> <code>add_executable()</code></h4>
+<div class="outline-text-4" id="text-3-1-6">
+<p>
+빌드 최종 결과물로 바이너리를 생성한다.
+</p>
+
+<p>
+아래와 같이 괄호 옆에 실행파일의 이름을 설정하고 그 뒤로 코드 파일을 입력하면 된다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-function-name">add_executable</span> (output
+                src/main.cpp
+                src/foo.cpp
+                src/bar.cpp
+               )
 </pre>
 </div>
 </div>
 </div>
 
 <div id="outline-container-orgd505451" class="outline-4">
-<h4 id="orgd505451"><span class="section-number-4">3.1.5</span> <code>add_library()</code></h4>
-<div class="outline-text-4" id="text-3-1-5">
-<p>
-빌드 최종 결과물로 생성할 라이브러리를 추가한다. 이 명령을 반복하여 생성할 라이브러리를 계속 추가할 수 있다.
-</p>
-<div class="org-src-container">
-<pre class="src src-sh">$ add_library ( &lt;&#46972;&#51060;&#48652;&#47084;&#47532;_&#51060;&#47492;&gt; [STATIC|SHARED|MODULE] &lt;&#49548;&#49828;_&#54028;&#51068;&gt; &lt;&#49548;&#49828;_&#54028;&#51068;&gt; ... )
-ex: $ add_library ( app STATIC foo.c bar.c )
-</pre>
-</div>
-<p>
-&lt;라이브러리_이름&gt; : 생성할 라이브러리 이름 (lib~.a / lib~.so 에서 ~에 들어갈 값)
-[STATIC|SHARED|MODULE] : 라이브러리 종류 (생략시 STATIC)
-&lt;소스_파일&gt; : 라이브러리를 생성하는 데 필요한 소스 파일
-</p>
-</div>
-</div>
-
-<div id="outline-container-org320e65e" class="outline-4">
-<h4 id="org320e65e"><span class="section-number-4">3.1.6</span> <code>add_dependencies()</code></h4>
-<div class="outline-text-4" id="text-3-1-6">
-<p>
-Top-level target간의 의존성을 지정한다. Top-level target이란 add_executable, add_library, add_custom_target 명령으로 정의한 target들을 의미한다.
-</p>
-<div class="org-src-container">
-<pre class="src src-sh">$ add_dependencies ( &lt;Target_&#51060;&#47492;&gt; &lt;&#51032;&#51316;_&#45824;&#49345;&gt; &lt;&#51032;&#51316;_&#45824;&#49345;&gt; ... )
-$ add_dependencies ( flash app.out )
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgdbea02b" class="outline-4">
-<h4 id="orgdbea02b"><span class="section-number-4">3.1.7</span> <code>install()</code></h4>
+<h4 id="orgd505451"><span class="section-number-4">3.1.7</span> <code>add_library()</code></h4>
 <div class="outline-text-4" id="text-3-1-7">
 <p>
-<code>make install</code> 명령을 실행했을 때 무슨 동작을 수행할지를 지정한다.
+빌드 최종 결과물로 라이브러리를 생성한다.
+</p>
+
+<p>
+아래와 같이 괄호 옆에 라이브러리의 이름을 설정하고 그 옆에 정적/동적 라이브러리 여부를 설정한다. STATIC의 경우 정적 라이브러리(.a)이고 SHARED의 경우 동적 라이브러리(.so)를 의미한다. 그리고 그 다음 라인부터 코드 파일을 입력하면 된다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ install ( TARGETS &lt;Target_&#47785;&#47197;&gt;
-        RUNTIME DESTINATION &lt;&#48148;&#51060;&#45320;&#47532;_&#49444;&#52824;_&#44221;&#47196;&gt;
-        LIBRARY DESTINATION &lt;&#46972;&#51060;&#48652;&#47084;&#47532;_&#49444;&#52824;_&#44221;&#47196;&gt;
-        ARCHIVE DESTINATION &lt;&#50500;&#52852;&#51060;&#48652;_&#49444;&#52824;_&#44221;&#47196;&gt;
-        )
+<pre class="src src-sh"><span class="org-function-name">add_library</span> (outputlib STATIC
+             src/foo.cpp
+             src/bar.cpp
+            )
+</pre>
+</div>
+</div>
+</div>
 
-ex: $ install ( TARGETS app.out app
-        RUNTIME_DESTINATION /usr/local/bin
-        ARCHIVE_DESTINATION /usr/local/lib
+<div id="outline-container-org92c3bbb" class="outline-4">
+<h4 id="org92c3bbb"><span class="section-number-4">3.1.8</span> <code>target_link_libraries()</code></h4>
+<div class="outline-text-4" id="text-3-1-8">
+<p>
+<code>add_executable(), add_library()</code> 를 통해 바이너리(또는 라이브러리)를 생성할 때 해당 바이너리(또는 라이브러리)가 요구하는 라이브러리를 추가한다.
+</p>
+
+<p>
+예를들어, 아래와 같이 output 바이너리가 내부적으로 OpenCV와 Eigen 라이브러리를 사용하는 경우 <code>target_link_libraries()</code> 의 괄호 옆에는 바이너리의 이름을 적은 후 다음 라인부터 해당 라이브러리가 요구하는 라이브러리의 경로를 입력한다. 일반적으로 <code>find_package()</code> 를 통해 <code>${..._INCLUDE_DIRS}, ${..._LIBS}</code> 변수가 생성되므로 이를 사용한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-function-name">add_executable</span>(output
+                src/main.cpp
+                src/foo.cpp
+                src/bar.cpp
+               )
+<span class="org-function-name">target_link_libraries</span>(output
+                      ${<span class="org-variable-name">OpenCV_LIBS</span>}
+                      ${<span class="org-variable-name">EIGEN3_LIBS</span>}
+                     )
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdbea02b" class="outline-4">
+<h4 id="orgdbea02b"><span class="section-number-4">3.1.9</span> <code>install()</code></h4>
+<div class="outline-text-4" id="text-3-1-9">
+<p>
+<code>make install</code> 명령을 실행했을 때 실행할 동작을 지정한다. 아래 명령은 output을 /usr/local/bin에, liboutputlib.a는 /usr/local/lib에 설치하는 install target을 추가한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-function-name">install</span> (TARGETS output outputlib
+         RUNTIME_DESTINATION /usr/local/bin
+         ARCHIVE_DESTINATION /usr/local/lib
         )
-&#50696;: &#50948; &#47749;&#47161;&#51008; app.out&#51008; /usr/local/bin&#50640;, libapp.a&#45716; /usr/local/lib&#50640; &#49444;&#52824;&#54616;&#45716; install target&#51012; &#52628;&#44032;&#54620;&#45796;.
 </pre>
 </div>
 </div>
@@ -207,15 +242,9 @@ ex: $ install ( TARGETS app.out app
 <div id="outline-container-orgad7638d" class="outline-4">
 <h4 id="orgad7638d"><span class="section-number-4">3.2.2</span> <code>${CMAKE_BUILD_TYPE}</code></h4>
 <div class="outline-text-4" id="text-3-2-2">
-<ul class="org-ul">
-<li>빌드 타입 설정
-<ul class="org-ul">
-<li>Debug : 디버깅 목적의 빌드</li>
-<li>Release : 배포 목적의 빌드</li>
-<li>RelWithDebInfo : 배포 목적의 빌드지만, 디버깅 정보 포함</li>
-<li>MinSizeRel : 최소 크기로 최적화한 배포 목적 빌드</li>
-</ul></li>
-</ul>
+<p>
+빌드 타입을 설정한다. 빌드 타입에는 Release, RelWithDebInfo, Debug, MinSizeRel이 있다.
+</p>
 </div>
 </div>
 
@@ -223,11 +252,10 @@ ex: $ install ( TARGETS app.out app
 <h4 id="org4072d89"><span class="section-number-4">3.2.3</span> <code>${CMAKE_VERBOSE_MAKEFILE}</code></h4>
 <div class="outline-text-4" id="text-3-2-3">
 <p>
-Verbose Makefile 작성 여부 
-이 변수는 Switch변수이며, 다음과 같이 값을 true(또는 1)로 지정하면 빌드 상세 과정을 모두 출력하는 Makefile을 생성한다.
+Verbose Makefile 작성 여부를 확인한다. 다음과 같이 값을 true(또는 1)로 지정하면 빌드 상세 과정을 모두 출력하는 Makefile을 생성한다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ set ( CMAKE_VERBOSE_MAKEFILE true )
+<pre class="src src-sh"><span class="org-builtin">set</span> (CMAKE_VERBOSE_MAKEFILE true)
 </pre>
 </div>
 </div>
@@ -237,15 +265,12 @@ Verbose Makefile 작성 여부
 <h4 id="org5aab504"><span class="section-number-4">3.2.4</span> <code>${CMAKE_INSTALL_PREFIX}</code></h4>
 <div class="outline-text-4" id="text-3-2-4">
 <p>
-설치 매크로(make install)에서 실행 바이너리와 라이브러리 등의 최종 생성물을 복사할 설치 디렉토리를 지정한다. install() 명령에서 상대 경로를 사용한 경우, 이 변수에 지정한 디렉토리가 Base 디렉토리가 됩니다.
+설치 매크로(make install)에서 실행 바이너리와 라이브러리 등의 최종 생성물을 복사할 설치 디렉토리를 지정한다. install() 명령에서 상대 경로를 사용한 경우, 이 변수에 지정한 디렉토리가 Base 디렉토리가 된다. 이 변수를 별도로 지정하지 않으면 기본값은 <code>/usr/local</code> 이다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ set ( CMAKE_INSTALL_PREFIX /usr/bin )
+<pre class="src src-sh"><span class="org-builtin">set</span> (CMAKE_INSTALL_PREFIX /usr/bin)
 </pre>
 </div>
-<ul class="org-ul">
-<li>이 변수를 별도로 지정하지 않으면 기본값은 <code>/usr/local</code> 이다.</li>
-</ul>
 </div>
 </div>
 </div>
