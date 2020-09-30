@@ -36,23 +36,22 @@ comments: true
 <li><a href="#org5c59954">3.2. Various keybindings</a>
 <ul>
 <li><a href="#org8fb144a">3.2.1. <code>r</code> (run)</a></li>
-<li><a href="#org6dc6451">3.2.2. <code>t</code> (thread)</a></li>
-<li><a href="#orga778aa1">3.2.3. <code>bt</code> (backtrace)</a></li>
-<li><a href="#org8aaf641">3.2.4. <code>i</code> (info)</a></li>
-<li><a href="#org9409c83">3.2.5. <code>p</code> (print)</a></li>
-<li><a href="#orgf5fa80a">3.2.6. <code>b</code> (breakpoint)</a></li>
-<li><a href="#orga450da6">3.2.7. <code>d</code> (disable)</a></li>
-<li><a href="#orge91e4a2">3.2.8. <code>n</code> (next)</a></li>
-<li><a href="#org002a883">3.2.9. <code>s</code> (step)</a></li>
-<li><a href="#org76eb692">3.2.10. <code>c</code> (continue)</a></li>
-<li><a href="#org2d20f34">3.2.11. <code>q</code> (quit)</a></li>
-<li><a href="#orgcfd2859">3.2.12. <code>f</code> (file)</a></li>
+<li><a href="#orge91e4a2">3.2.2. <code>n</code> (next)</a></li>
+<li><a href="#org002a883">3.2.3. <code>s</code> (step)</a></li>
+<li><a href="#org6dc6451">3.2.4. <code>t</code> (thread)</a></li>
+<li><a href="#orga778aa1">3.2.5. <code>bt</code> (backtrace)</a></li>
+<li><a href="#org39dd427">3.2.6. <code>f</code> (frame)</a></li>
+<li><a href="#org8aaf641">3.2.7. <code>i</code> (info)</a></li>
+<li><a href="#org9409c83">3.2.8. <code>p</code> (print)</a></li>
+<li><a href="#orgf5fa80a">3.2.9. <code>b</code> (breakpoint)</a></li>
+<li><a href="#orga450da6">3.2.10. <code>d</code> (disable)</a></li>
+<li><a href="#org76eb692">3.2.11. <code>c</code> (continue)</a></li>
+<li><a href="#org2d20f34">3.2.12. <code>q</code> (quit)</a></li>
 <li><a href="#org3b7e965">3.2.13. <code>l</code> (list)</a></li>
-<li><a href="#org272a853">3.2.14. <code>finish</code></a></li>
-<li><a href="#org13bffcb">3.2.15. <code>cond</code> (condition)</a></li>
-<li><a href="#org4e883d4">3.2.16. <code>&lt;C-x&gt; a</code></a></li>
-<li><a href="#org52f8127">3.2.17. <code>&lt;C-l&gt;</code></a></li>
-<li><a href="#org7b58043">3.2.18. <code>&lt;C-p,n&gt;</code></a></li>
+<li><a href="#org13bffcb">3.2.14. <code>cond</code> (condition)</a></li>
+<li><a href="#org4e883d4">3.2.15. <code>&lt;C-x&gt; a</code></a></li>
+<li><a href="#org52f8127">3.2.16. <code>&lt;C-l&gt;</code></a></li>
+<li><a href="#org7b58043">3.2.17. <code>&lt;C-p,n&gt;</code></a></li>
 </ul>
 </li>
 </ul>
@@ -215,7 +214,7 @@ gdb를 시작할 때 나오는 메세지를 출력하지 않는 옵션
 <div class="outline-text-4" id="text-3-1-3">
 <p align="center">
 <img src="/pictures/200930/gdb_ex.gif" alt="gdb_ex.gif" align="center">
-&#x2013;ex "b test.cc::121" 과 같이 gdb가 시작할 때 동시에 실행할 명령어를 입력하는 옵션
+gdb가 시작할 때 동시에 실행할 명령어를 입력하는 옵션
 </p>
 </div>
 </div>
@@ -239,164 +238,153 @@ gdb를 시작할 때 나오는 메세지를 출력하지 않는 옵션
 <div id="outline-container-org8fb144a" class="outline-4">
 <h4 id="org8fb144a"><span class="section-number-4">3.2.1</span> <code>r</code> (run)</h4>
 <div class="outline-text-4" id="text-3-2-1">
-<p>
-현재 프로그램을 실행한다
+<p align="center">
+<img src="/pictures/200930/gdb_r.gif" alt="gdb_r.gif" align="center">
+현재 프로그램을 실행한다. Breakpoint가 설정되어 있다면 해당 breakpoint까지 코드를 실행한다.
 </p>
-</div>
-</div>
-<div id="outline-container-org6dc6451" class="outline-4">
-<h4 id="org6dc6451"><span class="section-number-4">3.2.2</span> <code>t</code> (thread)</h4>
-<div class="outline-text-4" id="text-3-2-2">
-<p>
-현재 실행 중인 스레드의 정보를 표시한다
-</p>
-</div>
-</div>
-<div id="outline-container-orga778aa1" class="outline-4">
-<h4 id="orga778aa1"><span class="section-number-4">3.2.3</span> <code>bt</code> (backtrace)</h4>
-<div class="outline-text-4" id="text-3-2-3">
-<p>
-함수의 호출 스택 정보를 표시한다
-</p>
-</div>
-</div>
-<div id="outline-container-org8aaf641" class="outline-4">
-<h4 id="org8aaf641"><span class="section-number-4">3.2.4</span> <code>i</code> (info)</h4>
-<div class="outline-text-4" id="text-3-2-4">
-<ul class="org-ul">
-<li><code>i b 1</code></li>
-</ul>
-<p>
-1번 breakpoint의 정보를 확인한다
-</p>
-<ul class="org-ul">
-<li><code>i t 1</code></li>
-</ul>
-<p>
-1번 thread의 정보를 확인한다
-</p>
-</div>
-</div>
-<div id="outline-container-org9409c83" class="outline-4">
-<h4 id="org9409c83"><span class="section-number-4">3.2.5</span> <code>p</code> (print)</h4>
-<div class="outline-text-4" id="text-3-2-5">
-<p>
-특정 함수나 변수의 정보를 확인한다
-</p>
-<ul class="org-ul">
-<li><code>p vec.size()</code>
-vec 변수의 크기를 확인한다</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgf5fa80a" class="outline-4">
-<h4 id="orgf5fa80a"><span class="section-number-4">3.2.6</span> <code>b</code> (breakpoint)</h4>
-<div class="outline-text-4" id="text-3-2-6">
-<ul class="org-ul">
-<li><code>b compute_projection_matrix.cc:30</code>
-copmute_projection_matrix.cc 30번줄에 breakpoint를 설정한다</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orga450da6" class="outline-4">
-<h4 id="orga450da6"><span class="section-number-4">3.2.7</span> <code>d</code> (disable)</h4>
-<div class="outline-text-4" id="text-3-2-7">
-<ul class="org-ul">
-<li><code>d br 1</code>
-1번 breakpoint를 제거. <code>d 1</code> 과 같이 br을 입력하지 않아도 breakpoint를 제거한다.</li>
-</ul>
 </div>
 </div>
 <div id="outline-container-orge91e4a2" class="outline-4">
-<h4 id="orge91e4a2"><span class="section-number-4">3.2.8</span> <code>n</code> (next)</h4>
-<div class="outline-text-4" id="text-3-2-8">
-<p>
+<h4 id="orge91e4a2"><span class="section-number-4">3.2.2</span> <code>n</code> (next)</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p align="center">
+<img src="/pictures/200930/gdb_n.gif" alt="gdb_n.gif" align="center">
 현재 커서 위의 라인을 실행하고 다음 라인으로 이동한다. 즉, n을 통해 다음 라인으로 넘어갈 경우 함수 안으로 들어가지 않는다.
 </p>
 </div>
 </div>
 <div id="outline-container-org002a883" class="outline-4">
-<h4 id="org002a883"><span class="section-number-4">3.2.9</span> <code>s</code> (step)</h4>
-<div class="outline-text-4" id="text-3-2-9">
-<p>
+<h4 id="org002a883"><span class="section-number-4">3.2.3</span> <code>s</code> (step)</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<p align="center">
+<img src="/pictures/200930/gdb_s.gif" alt="gdb_s.gif" align="center">
 현재 커서 위의 라인을 실행하고 해당 함수 및 클래스 내부로 이동한다. 즉, s을 통해 다음 라인으로 넘어갈 경우 함수 안으로 들어간다.
 </p>
 </div>
 </div>
-<div id="outline-container-org76eb692" class="outline-4">
-<h4 id="org76eb692"><span class="section-number-4">3.2.10</span> <code>c</code> (continue)</h4>
+<div id="outline-container-org6dc6451" class="outline-4">
+<h4 id="org6dc6451"><span class="section-number-4">3.2.4</span> <code>t</code> (thread)</h4>
+<div class="outline-text-4" id="text-3-2-4">
+<p align="center">
+<img src="/pictures/200930/gdb_t.gif" alt="gdb_t.gif" align="center">
+현재 실행 중인 스레드의 정보를 표시한다. 멀티스레드 프로그래밍을 하는 경우 여러 스레드의 정보가 표시된다.
+</p>
+</div>
+</div>
+<div id="outline-container-orga778aa1" class="outline-4">
+<h4 id="orga778aa1"><span class="section-number-4">3.2.5</span> <code>bt</code> (backtrace)</h4>
+<div class="outline-text-4" id="text-3-2-5">
+<p align="center">
+<img src="/pictures/200930/gdb_bt.gif" alt="gdb_bt.gif" align="center">
+함수의 호출 스택 정보를 표시한다
+</p>
+</div>
+</div>
+<div id="outline-container-org39dd427" class="outline-4">
+<h4 id="org39dd427"><span class="section-number-4">3.2.6</span> <code>f</code> (frame)</h4>
+<div class="outline-text-4" id="text-3-2-6">
+<p align="center">
+<img src="/pictures/200930/gdb_f.gif" alt="gdb_f.gif" align="center">
+현재 stack frame의 정보를 표시한다. <code>f {#}</code> 와 같이 특정 숫자를 입력하면 #번째 stack frame으로 이동한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org8aaf641" class="outline-4">
+<h4 id="org8aaf641"><span class="section-number-4">3.2.7</span> <code>i</code> (info)</h4>
+<div class="outline-text-4" id="text-3-2-7">
+
+<figure>
+<img src="/pictures/200930/gdb_i.gif" alt="gdb_i.gif" align="center">
+
+</figure>
+</div>
+</div>
+<div id="outline-container-org9409c83" class="outline-4">
+<h4 id="org9409c83"><span class="section-number-4">3.2.8</span> <code>p</code> (print)</h4>
+<div class="outline-text-4" id="text-3-2-8">
+<p align="center">
+<img src="/pictures/200930/gdb_p.gif" alt="gdb_p.gif" align="center">
+특정 함수나 변수의 정보를 확인한다
+</p>
+</div>
+</div>
+<div id="outline-container-orgf5fa80a" class="outline-4">
+<h4 id="orgf5fa80a"><span class="section-number-4">3.2.9</span> <code>b</code> (breakpoint)</h4>
+<div class="outline-text-4" id="text-3-2-9">
+<p align="center">
+<img src="/pictures/200930/gdb_b.gif" alt="gdb_b.gif" align="center">
+breakpoint를 설정한다. <code>b {#}</code> 과 같이 뒤에 번호를 붙이면 #번째 라인에 breakpoint를 설정한다.
+</p>
+</div>
+</div>
+<div id="outline-container-orga450da6" class="outline-4">
+<h4 id="orga450da6"><span class="section-number-4">3.2.10</span> <code>d</code> (disable)</h4>
 <div class="outline-text-4" id="text-3-2-10">
-<p>
+<p align="center">
+<img src="/pictures/200930/gdb_d.gif" alt="gdb_d.gif" align="center">
+breakpoint를 제거한다
+</p>
+</div>
+</div>
+<div id="outline-container-org76eb692" class="outline-4">
+<h4 id="org76eb692"><span class="section-number-4">3.2.11</span> <code>c</code> (continue)</h4>
+<div class="outline-text-4" id="text-3-2-11">
+<p align="center">
+<img src="/pictures/200930/gdb_c.gif" alt="gdb_c.gif" align="center">
 현재 커서로부터 다음 breakpoint까지 실행한다. 만약 breakpoint가 없는 경우 프로그램을 실행하는 것과 동일한 효과가 나타난다.
 </p>
 </div>
 </div>
 <div id="outline-container-org2d20f34" class="outline-4">
-<h4 id="org2d20f34"><span class="section-number-4">3.2.11</span> <code>q</code> (quit)</h4>
-<div class="outline-text-4" id="text-3-2-11">
-<p>
+<h4 id="org2d20f34"><span class="section-number-4">3.2.12</span> <code>q</code> (quit)</h4>
+<div class="outline-text-4" id="text-3-2-12">
+<p align="center">
+<img src="/pictures/200930/gdb_quit.gif" alt="gdb_quit.gif" align="center">
 gdb를 종료한다
 </p>
 </div>
 </div>
-<div id="outline-container-orgcfd2859" class="outline-4">
-<h4 id="orgcfd2859"><span class="section-number-4">3.2.12</span> <code>f</code> (file)</h4>
-</div>
 <div id="outline-container-org3b7e965" class="outline-4">
 <h4 id="org3b7e965"><span class="section-number-4">3.2.13</span> <code>l</code> (list)</h4>
 <div class="outline-text-4" id="text-3-2-13">
-<ul class="org-ul">
-<li><code>l 10</code></li>
-<li><code>l thisIsFunction()</code></li>
-</ul>
+<p align="center">
+<img src="/pictures/200930/gdb_l.gif" alt="gdb_l.gif" align="center">
+특정 라인으로 이동한다. 함수 이름을 입력하는 경우 특정 함수로 이동한다.
+</p>
 </div>
-</div>
-<div id="outline-container-org272a853" class="outline-4">
-<h4 id="org272a853"><span class="section-number-4">3.2.14</span> <code>finish</code></h4>
 </div>
 <div id="outline-container-org13bffcb" class="outline-4">
-<h4 id="org13bffcb"><span class="section-number-4">3.2.15</span> <code>cond</code> (condition)</h4>
-<div class="outline-text-4" id="text-3-2-15">
-<p>
+<h4 id="org13bffcb"><span class="section-number-4">3.2.14</span> <code>cond</code> (condition)</h4>
+<div class="outline-text-4" id="text-3-2-14">
+<p align="center">
+<img src="/pictures/200930/gdb_cond.gif" alt="gdb_cond.gif" align="center">
 breakpoint의 조건을 설정한다
 </p>
-<ul class="org-ul">
-<li><p>
-<code>cond 1 i = 456</code>
-i가 456이 될 때 1번 bp에서 멈추도록 지정한다. ignore 8 455도 가능하다.
-</p>
-<div class="org-src-container">
-<pre class="src src-c++"><span class="org-type">int</span> <span class="org-variable-name">i</span>=0;
-<span class="org-comment-delimiter">// </span><span class="org-comment">do something</span>
-<span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span>=0; i&lt;1000; i++) {
-  <span class="org-comment-delimiter">// </span><span class="org-comment">do something</span>
-}
-</pre>
-</div></li>
-<li><code>cond 1 foo(i) &gt; bar(rand())</code> : 1번 breakpoint를 foo(i) &gt; bar(rand())를 만족할 때만 실행하도록 설정</li>
-</ul>
 </div>
 </div>
 <div id="outline-container-org4e883d4" class="outline-4">
-<h4 id="org4e883d4"><span class="section-number-4">3.2.16</span> <code>&lt;C-x&gt; a</code></h4>
-<div class="outline-text-4" id="text-3-2-16">
-<p>
+<h4 id="org4e883d4"><span class="section-number-4">3.2.15</span> <code>&lt;C-x&gt; a</code></h4>
+<div class="outline-text-4" id="text-3-2-15">
+<p align="center">
+<img src="/pictures/200930/gdb_c_x_a.gif" alt="gdb_c_x_a.gif" align="center">
 현재 디버깅 중인 코드 화면 표시로써 <code>-tui</code> 옵션과 동일하다. 해당 키를 한 번 더 입력하면 토글된다.
 </p>
 </div>
 </div>
 <div id="outline-container-org52f8127" class="outline-4">
-<h4 id="org52f8127"><span class="section-number-4">3.2.17</span> <code>&lt;C-l&gt;</code></h4>
-<div class="outline-text-4" id="text-3-2-17">
-<p>
+<h4 id="org52f8127"><span class="section-number-4">3.2.16</span> <code>&lt;C-l&gt;</code></h4>
+<div class="outline-text-4" id="text-3-2-16">
+<p align="center">
+<img src="/pictures/200930/gdb_c_l.gif" alt="gdb_c_l.gif" align="center">
 터미널을 새로고침한다. <code>&lt;C-x&gt; a</code> 키를 통해 디버깅하는 경우 간혹 터미널의 그래픽이 깨지는 경우가 발생하는데 이 때 <code>&lt;C-l&gt;</code> 을 사용하면 그래픽이 다시 원상복구된다.
 </p>
 </div>
 </div>
 <div id="outline-container-org7b58043" class="outline-4">
-<h4 id="org7b58043"><span class="section-number-4">3.2.18</span> <code>&lt;C-p,n&gt;</code></h4>
-<div class="outline-text-4" id="text-3-2-18">
-<p>
+<h4 id="org7b58043"><span class="section-number-4">3.2.17</span> <code>&lt;C-p,n&gt;</code></h4>
+<div class="outline-text-4" id="text-3-2-17">
+<p align="center">
+<img src="/pictures/200930/gdb_c_n_p.gif" alt="gdb_c_n_p.gif" align="center">
 이전 명령어들을 네비게이션한다. <code>&lt;C-p&gt;</code> 를 통해 이전 명령어를 탐색할 수 있고 <code>&lt;C-n&gt;</code> 을 통해 다음 명령어를 탐색할 수 있다. 
 </p>
 </div>
