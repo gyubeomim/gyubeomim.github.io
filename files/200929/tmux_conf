@@ -10,7 +10,7 @@ bind C-a send-prefix
 bind Up copy-mode
 
 # copy-mode (need to install 'xclip')
-# bind-key -t vi-copy 'y' copy-pipe "xclip -sel clip -i"
+bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
 
 # visual bell
 set-option -g visual-bell on
