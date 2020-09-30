@@ -13,10 +13,43 @@ comments: true
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org2bb1bd9">1. Introduction</a></li>
-<li><a href="#orga9e9829">2. Commands</a></li>
-<li><a href="#orgb694398">3. Shortcuts</a></li>
-<li><a href="#org66cc430">4. .gdbinit settings</a></li>
-<li><a href="#org91755b7">5. Options</a></li>
+<li><a href="#org27c2e1b">2. Mostly used features</a>
+<ul>
+<li><a href="#org001bbf3">2.1. Run command option</a>
+<ul>
+<li><a href="#orgda71932">2.1.1. <code>-tui</code></a></li>
+<li><a href="#orgd3d70e8">2.1.2. <code>-q</code></a></li>
+<li><a href="#orge637005">2.1.3. <code>--ex</code></a></li>
+<li><a href="#orgf6bdda3">2.1.4. <code>--args</code></a></li>
+</ul>
+</li>
+<li><a href="#org5c59954">2.2. Various keybindings</a>
+<ul>
+<li><a href="#org6dc6451">2.2.1. <code>t</code> (thread)</a></li>
+<li><a href="#org185953e">2.2.2. <code>bt</code> (back trace)</a></li>
+<li><a href="#org8aaf641">2.2.3. <code>i</code> (info)</a></li>
+<li><a href="#orgcfd2859">2.2.4. <code>f</code> (file)</a></li>
+<li><a href="#org9409c83">2.2.5. <code>p</code> (print)</a></li>
+<li><a href="#orgf5fa80a">2.2.6. <code>b</code> (breakpoint)</a></li>
+<li><a href="#orga450da6">2.2.7. <code>d</code> (disable)</a></li>
+<li><a href="#orge91e4a2">2.2.8. <code>n</code> (next)</a></li>
+<li><a href="#org002a883">2.2.9. <code>s</code> (step)</a></li>
+<li><a href="#org76eb692">2.2.10. <code>c</code> (continue)</a></li>
+<li><a href="#org3b7e965">2.2.11. <code>l</code> (list)</a></li>
+<li><a href="#org272a853">2.2.12. <code>finish</code></a></li>
+<li><a href="#org13bffcb">2.2.13. <code>cond</code> (condition)</a></li>
+<li><a href="#org214e94e">2.2.14. <code>C-x C-a</code></a></li>
+<li><a href="#org538d1af">2.2.15. <code>C-l</code></a></li>
+<li><a href="#org32ca589">2.2.16. <code>C-p C-n</code></a></li>
+</ul>
+</li>
+<li><a href="#org66cc430">2.3. .gdbinit settings</a>
+<ul>
+<li><a href="#org6c5cd04">2.3.1. <code>set listsize &lt;number&gt;</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </nav>
@@ -24,79 +57,162 @@ comments: true
 <div id="outline-container-org2bb1bd9" class="outline-2">
 <h2 id="org2bb1bd9"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
+
+<figure>
+<img src="/pictures/200930/01.png" alt="01.png" align="center">
+
+</figure>
+
 <p>
-gdb는 리눅스에서 바이너리(실행) 파일을 디버깅하기 위한 프로그램이다. 다양한 옵션들이 존재하므로 따로 정리했다. 
+본 포스트에서는 리눅스에서 사용하는 C/C++ 전용 디버거 gdb의 사용법 및 다양한 기능에 대해 설명한다. gdb에는 다양한 기능들이 많지만 본 포스트에서는 필자가 주로 사용하는 옵션들에 대해서만 설명한다.
 </p>
-<hr>
 </div>
 </div>
-<div id="outline-container-orga9e9829" class="outline-2">
-<h2 id="orga9e9829"><span class="section-number-2">2</span> Commands</h2>
+<div id="outline-container-org27c2e1b" class="outline-2">
+<h2 id="org27c2e1b"><span class="section-number-2">2</span> Mostly used features</h2>
 <div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org001bbf3" class="outline-3">
+<h3 id="org001bbf3"><span class="section-number-3">2.1</span> Run command option</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-orgda71932" class="outline-4">
+<h4 id="orgda71932"><span class="section-number-4">2.1.1</span> <code>-tui</code></h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+현재 디버깅 중인 코드 화면을 보여주는 옵션.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd3d70e8" class="outline-4">
+<h4 id="orgd3d70e8"><span class="section-number-4">2.1.2</span> <code>-q</code></h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+gdb를 시작할 때 나오는 intro message들을 출력하지 않는 옵션.
+</p>
+</div>
+</div>
+<div id="outline-container-orge637005" class="outline-4">
+<h4 id="orge637005"><span class="section-number-4">2.1.3</span> <code>--ex</code></h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+&#x2013;ex "b test.cc::121" 과 같이 gdb를 시작하자마자 같이 실행할 명령어를 입력하는 옵션.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf6bdda3" class="outline-4">
+<h4 id="orgf6bdda3"><span class="section-number-4">2.1.4</span> <code>--args</code></h4>
+<div class="outline-text-4" id="text-2-1-4">
+<p>
+디버깅하는 프로그램의 파라미터를 같이 입력하는 옵션.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5c59954" class="outline-3">
+<h3 id="org5c59954"><span class="section-number-3">2.2</span> Various keybindings</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org6dc6451" class="outline-4">
+<h4 id="org6dc6451"><span class="section-number-4">2.2.1</span> <code>t</code> (thread)</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+현재 실행 중인 스레드의 정보를 표시한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org185953e" class="outline-4">
+<h4 id="org185953e"><span class="section-number-4">2.2.2</span> <code>bt</code> (back trace)</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+함수의 호출 스택 정보를 표시한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org8aaf641" class="outline-4">
+<h4 id="org8aaf641"><span class="section-number-4">2.2.3</span> <code>i</code> (info)</h4>
+<div class="outline-text-4" id="text-2-2-3">
 <ul class="org-ul">
-<li><code>t</code> (thread)
+<li><code>i b 1</code></li>
+</ul>
+<p>
+1번 breakpoint의 정보를 확인한다.
+</p>
 <ul class="org-ul">
-<li>현재 실행 중인 스레드의 정보를 표시한다.</li>
-</ul></li>
-<li><code>bt</code> (back trace)
-<ul class="org-ul">
-<li>함수의 호출 스택 정보를 표시한다.</li>
-</ul></li>
-<li><code>i</code> (info)
-<ul class="org-ul">
-<li><code>i b 1</code>
-<ul class="org-ul">
-<li>1번 breakpoint의 정보를 확인한다.</li>
-</ul></li>
-<li><code>i t 1</code>
-<ul class="org-ul">
-<li>1번 thread의 정보를 확인한다.</li>
-</ul></li>
-</ul></li>
-<li><code>f</code> (file)</li>
-<li><code>p</code> (print)
+<li><code>i t 1</code></li>
+</ul>
+<p>
+1번 thread의 정보를 확인한다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgcfd2859" class="outline-4">
+<h4 id="orgcfd2859"><span class="section-number-4">2.2.4</span> <code>f</code> (file)</h4>
+</div>
+<div id="outline-container-org9409c83" class="outline-4">
+<h4 id="org9409c83"><span class="section-number-4">2.2.5</span> <code>p</code> (print)</h4>
+<div class="outline-text-4" id="text-2-2-5">
 <ul class="org-ul">
 <li><code>p vec.size()</code>
-<ul class="org-ul">
-<li>vec 변수의 크기를 확인한다.</li>
-</ul></li>
-</ul></li>
-<li><code>b</code> (breakpoint)
+vec 변수의 크기를 확인한다.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf5fa80a" class="outline-4">
+<h4 id="orgf5fa80a"><span class="section-number-4">2.2.6</span> <code>b</code> (breakpoint)</h4>
+<div class="outline-text-4" id="text-2-2-6">
 <ul class="org-ul">
 <li><code>b test.cpp:30</code>
-<ul class="org-ul">
-<li>test.cpp 30번줄에 breakpoint를 설정한다</li>
-</ul></li>
-</ul></li>
-<li><code>d</code> (disable)
+test.cpp 30번줄에 breakpoint를 설정한다</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga450da6" class="outline-4">
+<h4 id="orga450da6"><span class="section-number-4">2.2.7</span> <code>d</code> (disable)</h4>
+<div class="outline-text-4" id="text-2-2-7">
 <ul class="org-ul">
 <li><code>d br 1 (or, d 1)</code>
-<ul class="org-ul">
-<li>1번 breakpoint를 제거한다.</li>
-</ul></li>
-</ul></li>
-<li><code>n</code> (next)
-<ul class="org-ul">
-<li>현재 커서가 가르키는 라인을 실행하고 다음 라인으로 넘어간다. (함수를 실행하면 함수 안으로 들어가지 않는다.)</li>
-</ul></li>
-<li><code>s</code> (step)
-<ul class="org-ul">
-<li>현재 커서가 가르키는 라인을 실행하고 다음 라인으로 넘어간다. (함수를 실행하면 함수 안으로 들어간다.)</li>
-</ul></li>
-<li><code>c</code> (continue)</li>
-<li><code>l</code> (list)
+1번 breakpoint를 제거한다.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge91e4a2" class="outline-4">
+<h4 id="orge91e4a2"><span class="section-number-4">2.2.8</span> <code>n</code> (next)</h4>
+<div class="outline-text-4" id="text-2-2-8">
+<p>
+현재 커서가 가르키는 라인을 실행하고 다음 라인으로 넘어간다. (함수를 실행하면 함수 안으로 들어가지 않는다.)
+</p>
+</div>
+</div>
+<div id="outline-container-org002a883" class="outline-4">
+<h4 id="org002a883"><span class="section-number-4">2.2.9</span> <code>s</code> (step)</h4>
+<div class="outline-text-4" id="text-2-2-9">
+<p>
+현재 커서가 가르키는 라인을 실행하고 다음 라인으로 넘어간다. (함수를 실행하면 함수 안으로 들어간다.)
+</p>
+</div>
+</div>
+<div id="outline-container-org76eb692" class="outline-4">
+<h4 id="org76eb692"><span class="section-number-4">2.2.10</span> <code>c</code> (continue)</h4>
+</div>
+<div id="outline-container-org3b7e965" class="outline-4">
+<h4 id="org3b7e965"><span class="section-number-4">2.2.11</span> <code>l</code> (list)</h4>
+<div class="outline-text-4" id="text-2-2-11">
 <ul class="org-ul">
 <li><code>l 10</code></li>
 <li><code>l thisIsFunction()</code></li>
-</ul></li>
-<li><code>finish</code></li>
-<li><p>
-<code>cond</code> (condition)
-</p>
+</ul>
+</div>
+</div>
+<div id="outline-container-org272a853" class="outline-4">
+<h4 id="org272a853"><span class="section-number-4">2.2.12</span> <code>finish</code></h4>
+</div>
+<div id="outline-container-org13bffcb" class="outline-4">
+<h4 id="org13bffcb"><span class="section-number-4">2.2.13</span> <code>cond</code> (condition)</h4>
+<div class="outline-text-4" id="text-2-2-13">
 <ul class="org-ul">
-<li><code>cond 8 i = 456</code>
-<ul class="org-ul">
 <li><p>
+<code>cond 8 i = 456</code>
 i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가능하다.
 </p>
 <div class="org-src-container">
@@ -107,68 +223,31 @@ i가 456이 될 때 8번 bp에서 멈추도록 지정한다. ignore 8 455도 가
 }
 </pre>
 </div></li>
-</ul></li>
 <li><code>cond 8 foo(i) &gt; bar(rand())</code> : 8번 breakpoint를 foo(i) &gt; bar(rand())를 만족할 때만 실행하도록 설정한다.</li>
 </ul>
-<hr></li>
-</ul>
 </div>
 </div>
-<div id="outline-container-orgb694398" class="outline-2">
-<h2 id="orgb694398"><span class="section-number-2">3</span> Shortcuts</h2>
-<div class="outline-text-2" id="text-3">
-<ul class="org-ul">
-<li><code>C-x C-a</code>
-<ul class="org-ul">
-<li>현재 디버깅 중인 코드 화면을 보여준다.</li>
-</ul></li>
-<li><code>C-l</code></li>
-<li><p>
-<code>C-p C-n</code>
+<div id="outline-container-org214e94e" class="outline-4">
+<h4 id="org214e94e"><span class="section-number-4">2.2.14</span> <code>C-x C-a</code></h4>
+<div class="outline-text-4" id="text-2-2-14">
+<p>
+현재 디버깅 중인 코드 화면을 보여준다.
 </p>
-<hr></li>
-</ul>
 </div>
 </div>
-<div id="outline-container-org66cc430" class="outline-2">
-<h2 id="org66cc430"><span class="section-number-2">4</span> .gdbinit settings</h2>
-<div class="outline-text-2" id="text-4">
-<ul class="org-ul">
-<li><p>
-<code>set listsize &lt;number&gt;</code> 
-</p>
-<hr></li>
-</ul>
+<div id="outline-container-org538d1af" class="outline-4">
+<h4 id="org538d1af"><span class="section-number-4">2.2.15</span> <code>C-l</code></h4>
+</div>
+<div id="outline-container-org32ca589" class="outline-4">
+<h4 id="org32ca589"><span class="section-number-4">2.2.16</span> <code>C-p C-n</code></h4>
 </div>
 </div>
-<div id="outline-container-org91755b7" class="outline-2">
-<h2 id="org91755b7"><span class="section-number-2">5</span> Options</h2>
-<div class="outline-text-2" id="text-5">
-<ul class="org-ul">
-<li><code>-i=mi</code> (&#x2013;interface=mi)
-<ul class="org-ul">
-<li>emacs에서만 동작하는 옵션.</li>
-<li>it makes gdb present a machine-oriented text interface rather than the human-oriented command prompt you get without it. see <a href="https://stackoverflow.com/a/28901568/7402755">reference</a></li>
-</ul></li>
-<li><code>-tui</code>
-<ul class="org-ul">
-<li>현재 디버깅 중인 코드 화면을 보여주는 옵션.</li>
-</ul></li>
-<li><code>-q</code>
-<ul class="org-ul">
-<li>gdb를 시작할 때 나오는 intro message들을 출력하지 않는 옵션.</li>
-</ul></li>
-<li><code>--ex</code>
-<ul class="org-ul">
-<li>&#x2013;ex "b test.cc::121" 과 같이 gdb를 시작하자마자 같이 실행할 명령어를 입력하는 옵션.</li>
-</ul></li>
-<li><p>
-<code>--args</code>
-</p>
-<ul class="org-ul">
-<li>디버깅하는 프로그램의 파라미터를 같이 입력하는 옵션.</li>
-</ul>
-<hr></li>
-</ul>
+<div id="outline-container-org66cc430" class="outline-3">
+<h3 id="org66cc430"><span class="section-number-3">2.3</span> .gdbinit settings</h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<div id="outline-container-org6c5cd04" class="outline-4">
+<h4 id="org6c5cd04"><span class="section-number-4">2.3.1</span> <code>set listsize &lt;number&gt;</code></h4>
+</div>
 </div>
 </div>
