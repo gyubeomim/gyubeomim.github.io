@@ -75,7 +75,7 @@ $ sudo service docker restart
 <h3 id="orga8548f4"><span class="section-number-3">2.2</span> Bash autocompletion in docker</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
-Docker에 접속하면 기본적으로 bash에서 tab 자동 완성(autocompletion)이 작동하지 않는다. 아래 작성한 방법들 모두 적용해본 결과 정상적으로 작동하는 걸 확인했다. 정확히 어느 파트는 필요없는 지에 대한 내용은 아직 모르겠다. ROS 명령어들을 자동완성하고 싶은 경우 <b>source /opt/ros/kinetic/setup.bash</b> 를 .bashrc 파일에 넣어줘야 한다.
+Docker에 접속하면 기본적으로 bash에서 tab 자동 완성(autocompletion)이 작동하지 않는다. 아래 작성한 방법들 모두 적용해본 결과 정상적으로 작동하는 걸 확인했다. 정확히 어느 파트는 필요없는 지에 대한 내용은 아직 모르겠다. ROS 명령어들을 자동완성하고 싶은 경우 <b>source /opt/ros/melodic/setup.bash</b> 를 .bashrc 파일에 넣어줘야 한다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">  $ apt-get install bash_completion
@@ -175,8 +175,8 @@ $ docker run -i --net host --name hello -t ubuntu:18.04 /bin/bash
 <span class="org-comment-delimiter"># </span><span class="org-comment">--net :</span>
 <span class="org-comment-delimiter"># </span><span class="org-comment">--name : &#51060;&#47492;</span>
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">ros_kinetic&#51060;&#46972;&#45716; &#52968;&#53580;&#51060;&#45320;&#47484; edward:starlaw &#51060;&#48120;&#51648;&#47196; &#51200;&#51109;&#54620;&#45796;. &#51089;&#49457;&#51088;&#45716; edward0im, &#47700;&#49464;&#51648;&#45716; {...}</span>
-$ docker commit -a <span class="org-string">"edward0im"</span> -m <span class="org-string">"catkin_ws installed"</span> ros_kinetic edward:starlaw
+<span class="org-comment-delimiter"># </span><span class="org-comment">ros_melodic&#51060;&#46972;&#45716; &#52968;&#53580;&#51060;&#45320;&#47484; edward:starlaw &#51060;&#48120;&#51648;&#47196; &#51200;&#51109;&#54620;&#45796;. &#51089;&#49457;&#51088;&#45716; edward0im, &#47700;&#49464;&#51648;&#45716; {...}</span>
+$ docker commit -a <span class="org-string">"edward0im"</span> -m <span class="org-string">"catkin_ws installed"</span> ros_melodic edward:starlaw
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">&#50896;&#44201; dockerhub&#50640;&#49436; &#53945;&#51221; &#51060;&#48120;&#51648;&#47484; &#48155;&#50500;&#50740;</span>
 $ docker pull ubuntu:18.04
