@@ -13,14 +13,14 @@ comments: true
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org3931fea">1. Introduction</a></li>
-<li><a href="#org70072ee">2. How to setup</a>
+<li><a href="#org03c7cf4">2. How to setup</a>
 <ul>
-<li><a href="#org2bbd38e">2.1. w/o sudo</a></li>
-<li><a href="#orgbc1fe7d">2.2. Bash autocompletion in docker container</a></li>
-<li><a href="#org76bdae5">2.3. Connect to the internet in docker container</a></li>
+<li><a href="#org4cd0877">2.1. w/o sudo command</a></li>
+<li><a href="#org050fc51">2.2. Bash autocompletion</a></li>
+<li><a href="#orgd46f74a">2.3. Connect to the internet</a></li>
 <li><a href="#org7a40032">2.4. nvidia-docker</a>
 <ul>
-<li><a href="#org39e1b1e">2.4.1. How to setup</a></li>
+<li><a href="#orged34ff8">2.4.1. How to setup</a></li>
 <li><a href="#org508aa95">2.4.2. Usage</a></li>
 </ul>
 </li>
@@ -64,8 +64,8 @@ comments: true
 </p>
 </div>
 </div>
-<div id="outline-container-org70072ee" class="outline-2">
-<h2 id="org70072ee"><span class="section-number-2">2</span> How to setup</h2>
+<div id="outline-container-org03c7cf4" class="outline-2">
+<h2 id="org03c7cf4"><span class="section-number-2">2</span> How to setup</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Ubuntu 18.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 설치할 수 있다.
@@ -75,8 +75,8 @@ Ubuntu 18.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 
 </pre>
 </div>
 </div>
-<div id="outline-container-org2bbd38e" class="outline-3">
-<h3 id="org2bbd38e"><span class="section-number-3">2.1</span> w/o sudo</h3>
+<div id="outline-container-org4cd0877" class="outline-3">
+<h3 id="org4cd0877"><span class="section-number-3">2.1</span> w/o sudo command</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 우분투에서 docker를 처음 설치하고 실행하면 매번 실행할 때마다 sudo 명령어를 입력해줘야 한다. 이를 sudo 명령어없이 편하게 사용하려면 현재 계정을 docker 그룹에 포함시키면 된다. 명령어는 아래와 같다.
@@ -89,8 +89,8 @@ $ sudo service docker restart
 </div>
 </div>
 </div>
-<div id="outline-container-orgbc1fe7d" class="outline-3">
-<h3 id="orgbc1fe7d"><span class="section-number-3">2.2</span> Bash autocompletion in docker container</h3>
+<div id="outline-container-org050fc51" class="outline-3">
+<h3 id="org050fc51"><span class="section-number-3">2.2</span> Bash autocompletion</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Docker에 접속하면 기본적으로 bash에서 tab 자동 완성(autocompletion)이 작동하지 않는다. 아래 작성한 방법들 모두 적용해본 결과 정상적으로 작동하는 걸 확인했다. ROS 명령어들을 자동완성하고 싶은 경우 <code>source /opt/ros/melodic/setup.bash</code> 를 .bashrc 파일에 넣어줘야 한다.
@@ -121,8 +121,8 @@ Docker에 접속하면 기본적으로 bash에서 tab 자동 완성(autocompleti
 </div>
 </div>
 </div>
-<div id="outline-container-org76bdae5" class="outline-3">
-<h3 id="org76bdae5"><span class="section-number-3">2.3</span> Connect to the internet in docker container</h3>
+<div id="outline-container-orgd46f74a" class="outline-3">
+<h3 id="orgd46f74a"><span class="section-number-3">2.3</span> Connect to the internet</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Docker 컨테이너는 NAT 기술을 사용하여 외부 네트워크로 통신한다. 실제 인터넷 선은 하나 밖에 제공되어 있지 않고 그 선을 통해 데이터가 나가야 하기 때문에 Linux의 <code>iptables</code> 명령을 사용해서 해당 브릿지 인터페이스에 MASQUERADE 기능을 부여하거나 SNAT 값을 줘야 한다. 해당 방법은 이 <a href="https://blog.neonkid.xyz/87">블로그</a>를 통해 얻은 정보이다.
@@ -168,8 +168,8 @@ RETURN     all  --  anywhere             anywhere
 <code>nvidia-docker</code> 는 호스트 컴퓨터에 Nvidia 드라이버가 있을 경우 컨테이너에서 GPU를 사용할 수 있도록 해주는 프로그램이다. <b>docker가 최근 19.03.5 버전부터 자체적으로 nvidia-docker 명령어를 흡수하면서 보다 간단하게 사용할 수 있게 되었다.</b>
 </p>
 </div>
-<div id="outline-container-org39e1b1e" class="outline-4">
-<h4 id="org39e1b1e"><span class="section-number-4">2.4.1</span> How to setup</h4>
+<div id="outline-container-orged34ff8" class="outline-4">
+<h4 id="orged34ff8"><span class="section-number-4">2.4.1</span> How to setup</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <ul class="org-ul">
 <li><p>
