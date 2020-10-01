@@ -13,14 +13,14 @@ comments: true
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org3931fea">1. Introduction</a></li>
-<li><a href="#org39e1b1e">2. How to setup</a>
+<li><a href="#org70072ee">2. How to setup</a>
 <ul>
 <li><a href="#org2bbd38e">2.1. w/o sudo</a></li>
 <li><a href="#orgbc1fe7d">2.2. Bash autocompletion in docker container</a></li>
 <li><a href="#org76bdae5">2.3. Connect to the internet in docker container</a></li>
 <li><a href="#org7a40032">2.4. nvidia-docker</a>
 <ul>
-<li><a href="#org53ef0e1">2.4.1. How to setup</a></li>
+<li><a href="#org39e1b1e">2.4.1. How to setup</a></li>
 <li><a href="#org508aa95">2.4.2. Usage</a></li>
 </ul>
 </li>
@@ -36,12 +36,12 @@ comments: true
 <li><a href="#org5b2c3f0">3.1.4. <code>images</code></a></li>
 <li><a href="#org1ca351c">3.1.5. <code>attach</code></a></li>
 <li><a href="#org824a512">3.1.6. <code>run</code></a></li>
-<li><a href="#orgf31b9cb">3.1.7. <code>build</code></a>
+<li><a href="#orgac7e762">3.1.7. <code>commit</code></a></li>
+<li><a href="#orgf31b9cb">3.1.8. <code>build</code></a>
 <ul>
-<li><a href="#orgf011837">3.1.7.1. Dockerfile</a></li>
+<li><a href="#orgf011837">3.1.8.1. Dockerfile</a></li>
 </ul>
 </li>
-<li><a href="#orgac7e762">3.1.8. <code>commit</code></a></li>
 <li><a href="#org1060811">3.1.9. <code>push, pull</code></a>
 <ul>
 <li><a href="#org9d3eba0">3.1.9.1. Docker hub</a></li>
@@ -64,8 +64,8 @@ comments: true
 </p>
 </div>
 </div>
-<div id="outline-container-org39e1b1e" class="outline-2">
-<h2 id="org39e1b1e"><span class="section-number-2">2</span> How to setup</h2>
+<div id="outline-container-org70072ee" class="outline-2">
+<h2 id="org70072ee"><span class="section-number-2">2</span> How to setup</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Ubuntu 18.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 설치할 수 있다.
@@ -168,8 +168,8 @@ RETURN     all  --  anywhere             anywhere
 <code>nvidia-docker</code> 는 호스트 컴퓨터에 Nvidia 드라이버가 있을 경우 컨테이너에서 GPU를 사용할 수 있도록 해주는 프로그램이다. <b>docker가 최근 19.03.5 버전부터 자체적으로 nvidia-docker 명령어를 흡수하면서 보다 간단하게 사용할 수 있게 되었다.</b>
 </p>
 </div>
-<div id="outline-container-org53ef0e1" class="outline-4">
-<h4 id="org53ef0e1"><span class="section-number-4">2.4.1</span> How to setup</h4>
+<div id="outline-container-org39e1b1e" class="outline-4">
+<h4 id="org39e1b1e"><span class="section-number-4">2.4.1</span> How to setup</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <ul class="org-ul">
 <li><p>
@@ -290,16 +290,29 @@ $ docker run -i --net host --name hello -t ubuntu:18.04 /bin/bash
 </div>
 </div>
 </div>
-<div id="outline-container-orgf31b9cb" class="outline-4">
-<h4 id="orgf31b9cb"><span class="section-number-4">3.1.7</span> <code>build</code></h4>
+<div id="outline-container-orgac7e762" class="outline-4">
+<h4 id="orgac7e762"><span class="section-number-4">3.1.7</span> <code>commit</code></h4>
 <div class="outline-text-4" id="text-3-1-7">
+<p>
+현재 컨테이너의 변경사항을 이미지로 저장
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">scratch &#52968;&#53580;&#51060;&#45320;&#47484; edward0im/1804:scratch &#51060;&#48120;&#51648;&#47196; &#51200;&#51109;&#54620;&#45796;. &#51089;&#49457;&#51088;&#45716; edward0im&#51060;&#44256; &#47700;&#49464;&#51648;&#45716; -m &#50741;&#49496;&#51012; &#53685;&#54644; &#51077;&#47141;&#54620;&#45796;.</span>
+$ docker commit -a <span class="org-string">"edward0im"</span> -m <span class="org-string">"catkin_ws installed"</span> scratch edward0im/1804:scratch
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf31b9cb" class="outline-4">
+<h4 id="orgf31b9cb"><span class="section-number-4">3.1.8</span> <code>build</code></h4>
+<div class="outline-text-4" id="text-3-1-8">
 <p>
 Dockerfile 파일을 이미지로 생성한다.
 </p>
 </div>
 <div id="outline-container-orgf011837" class="outline-5">
-<h5 id="orgf011837"><span class="section-number-5">3.1.7.1</span> Dockerfile</h5>
-<div class="outline-text-5" id="text-3-1-7-1">
+<h5 id="orgf011837"><span class="section-number-5">3.1.8.1</span> Dockerfile</h5>
+<div class="outline-text-5" id="text-3-1-8-1">
 <p>
 Dockerfile 파일은 docker 이미지를 생성할 수 있는 파일이다. Dockerfile의 문법에 맞춰서 작성하면 <code>build</code> 명령을 통해 원하는 이미지를 만들 수 있다. 아래는 필자가 사용하는 Dockerfile 파일 중 하나로써 Ubuntu 18.04와 ROS를 자동으로 설치해준다.
 </p>
@@ -441,19 +454,6 @@ $ docker run --name sample -d -p 80:80 -v /root/data:/data sample:0.1
 <span class="org-comment-delimiter"># </span><span class="org-comment">-v /root/data:/data : &#54840;&#49828;&#53944;&#51032; /root/data &#46356;&#47113;&#53664;&#47532;&#47484; &#52968;&#53580;&#51060;&#45320;&#51032; /data &#46356;&#47113;&#53664;&#47532;&#50640; &#50672;&#44208;</span>
 </pre>
 </div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgac7e762" class="outline-4">
-<h4 id="orgac7e762"><span class="section-number-4">3.1.8</span> <code>commit</code></h4>
-<div class="outline-text-4" id="text-3-1-8">
-<p>
-현재 컨테이너의 변경사항을 이미지로 저장
-</p>
-<div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">scratch &#52968;&#53580;&#51060;&#45320;&#47484; edward0im/1804:scratch &#51060;&#48120;&#51648;&#47196; &#51200;&#51109;&#54620;&#45796;. &#51089;&#49457;&#51088;&#45716; edward0im&#51060;&#44256; &#47700;&#49464;&#51648;&#45716; -m &#50741;&#49496;&#51012; &#53685;&#54644; &#51077;&#47141;&#54620;&#45796;.</span>
-$ docker commit -a <span class="org-string">"edward0im"</span> -m <span class="org-string">"catkin_ws installed"</span> scratch edward0im/1804:scratch
-</pre>
 </div>
 </div>
 </div>
