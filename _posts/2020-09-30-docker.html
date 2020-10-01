@@ -13,14 +13,14 @@ comments: true
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org3931fea">1. Introduction</a></li>
-<li><a href="#orgec160e6">2. How to setup</a>
+<li><a href="#org07ae2b4">2. How to setup</a>
 <ul>
 <li><a href="#org7cdbace">2.1. w/o sudo command</a></li>
 <li><a href="#org5719af5">2.2. Bash autocompletion in docker</a></li>
 <li><a href="#org76bdae5">2.3. Connect to the internet in docker container</a></li>
 <li><a href="#org7a40032">2.4. nvidia-docker</a>
 <ul>
-<li><a href="#orga88eccd">2.4.1. How to setup</a></li>
+<li><a href="#orgec160e6">2.4.1. How to setup</a></li>
 <li><a href="#org508aa95">2.4.2. Usage</a></li>
 </ul>
 </li>
@@ -54,12 +54,12 @@ comments: true
 <h2 id="org3931fea"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-본 포스트에서는 Docker의 사용법 및 다양한 옵션들에 대해 설명한다. Docker는 컨테이너라는 가상의 이미지를 생성하여 메인 운영체제 시스템과 독립적인 프로그램을 돌릴 수 있는 장점이 있다. 리눅스를 사용하면서 버전 문제로 인해 빌드에 실패해 본 경험이 있는 사용자들에게 Docker를 추천한다. 본 포스트에서 설명하는 모든 내용은 우분투 18.04 LTS 버전에서 정상적으로 작동하였다.
+본 포스트에서는 Docker의 사용법 및 다양한 옵션들에 대해 설명한다. Docker는 컨테이너라는 가상의 이미지를 생성하여 메인 운영체제 시스템과 리소스는 공유하지만 버전에 독립적인 프로그램을 돌릴 수 있는 가상화 프로그램이다. 리눅스를 사용하면서 버전 문제로 인해 빌드에 실패해 본 경험이 있는 사용자들에게 Docker를 추천한다. 본 포스트에서 설명하는 모든 내용은 우분투 18.04 LTS 버전에서 정상적으로 작동하였다.
 </p>
 </div>
 </div>
-<div id="outline-container-orgec160e6" class="outline-2">
-<h2 id="orgec160e6"><span class="section-number-2">2</span> How to setup</h2>
+<div id="outline-container-org07ae2b4" class="outline-2">
+<h2 id="org07ae2b4"><span class="section-number-2">2</span> How to setup</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Ubuntu 18.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 설치할 수 있다.
@@ -162,8 +162,8 @@ RETURN     all  --  anywhere             anywhere
 <code>nvidia-docker</code> 는 호스트 컴퓨터에 Nvidia 드라이버가 있을 경우 컨테이너에서 GPU를 사용할 수 있도록 해주는 프로그램이다. <b>docker가 최근 19.03.5 버전부터 자체적으로 nvidia-docker 명령어를 흡수하면서 보다 간단하게 사용할 수 있게 되었다.</b>
 </p>
 </div>
-<div id="outline-container-orga88eccd" class="outline-4">
-<h4 id="orga88eccd"><span class="section-number-4">2.4.1</span> How to setup</h4>
+<div id="outline-container-orgec160e6" class="outline-4">
+<h4 id="orgec160e6"><span class="section-number-4">2.4.1</span> How to setup</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <ul class="org-ul">
 <li><p>
