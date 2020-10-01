@@ -1,8 +1,8 @@
 ---
 layout: post
-title: (Linux) Docker 사용법 정리 
+title: (Linux) Docker 사용법 및 다양한 옵션 설명
 description: 
-date: 2020-10-01
+date: 2020-09-30
 categories: [Technology]
 tag: [Linux, Docker]
 use_math: true
@@ -12,54 +12,54 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0899604">1. Introduction</a></li>
-<li><a href="#orgd4e1587">2. How to setup</a>
+<li><a href="#org3931fea">1. Introduction</a></li>
+<li><a href="#orgec160e6">2. How to setup</a>
 <ul>
-<li><a href="#org126c629">2.1. w/o sudo command</a></li>
-<li><a href="#orgf67f368">2.2. Bash autocompletion in docker</a></li>
-<li><a href="#org3118581">2.3. Connect to the internet in docker container</a></li>
-<li><a href="#org0f22c91">2.4. nvidia-docker</a>
+<li><a href="#org7cdbace">2.1. w/o sudo command</a></li>
+<li><a href="#org5719af5">2.2. Bash autocompletion in docker</a></li>
+<li><a href="#org76bdae5">2.3. Connect to the internet in docker container</a></li>
+<li><a href="#org7a40032">2.4. nvidia-docker</a>
 <ul>
-<li><a href="#orgf83dd9b">2.4.1. How to setup</a></li>
-<li><a href="#org2ef9a91">2.4.2. Usage</a></li>
+<li><a href="#orga88eccd">2.4.1. How to setup</a></li>
+<li><a href="#org508aa95">2.4.2. Usage</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org2be5c0c">3. Mostly used features</a>
+<li><a href="#org62ece60">3. Mostly used features</a>
 <ul>
-<li><a href="#org1efe582">3.1. commands</a>
+<li><a href="#org230a391">3.1. commands</a>
 <ul>
-<li><a href="#org4d8ac06">3.1.1. <code>rm</code></a></li>
-<li><a href="#orgcbc0c32">3.1.2. <code>rmi</code></a></li>
-<li><a href="#org70b23d3">3.1.3. <code>ps</code></a></li>
-<li><a href="#org0f78e41">3.1.4. <code>images</code></a></li>
-<li><a href="#orge9456d4">3.1.5. <code>attach</code></a></li>
-<li><a href="#orgedd3b7c">3.1.6. <code>run</code></a></li>
-<li><a href="#org5eb568d">3.1.7. <code>build</code></a></li>
-<li><a href="#org519b5da">3.1.8. <code>commit</code></a></li>
-<li><a href="#org153831c">3.1.9. <code>push, pull</code></a></li>
+<li><a href="#orgbee4aeb">3.1.1. <code>rm</code></a></li>
+<li><a href="#orgfda4dde">3.1.2. <code>rmi</code></a></li>
+<li><a href="#org4017c37">3.1.3. <code>ps</code></a></li>
+<li><a href="#org5b2c3f0">3.1.4. <code>images</code></a></li>
+<li><a href="#org1ca351c">3.1.5. <code>attach</code></a></li>
+<li><a href="#org824a512">3.1.6. <code>run</code></a></li>
+<li><a href="#orgf31b9cb">3.1.7. <code>build</code></a></li>
+<li><a href="#orgac7e762">3.1.8. <code>commit</code></a></li>
+<li><a href="#org1060811">3.1.9. <code>push, pull</code></a></li>
 </ul>
 </li>
-<li><a href="#orgb41e495">3.2. Dockerfile</a></li>
-<li><a href="#org98901f5">3.3. Docker hub</a></li>
+<li><a href="#orgf011837">3.2. Dockerfile</a></li>
+<li><a href="#org9d3eba0">3.3. Docker hub</a></li>
 </ul>
 </li>
-<li><a href="#org2b66b34">4. References</a></li>
+<li><a href="#org2041d9e">4. References</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org0899604" class="outline-2">
-<h2 id="org0899604"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org3931fea" class="outline-2">
+<h2 id="org3931fea"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 본 포스트에서는 Docker의 사용법 및 다양한 옵션들에 대해 설명한다. Docker는 컨테이너라는 가상의 이미지를 생성하여 메인 운영체제 시스템과 독립적인 프로그램을 돌릴 수 있는 장점이 있다. 리눅스를 사용하면서 버전 문제로 인해 빌드에 실패해 본 경험이 있는 사용자들에게 Docker를 추천한다. 본 포스트에서 설명하는 모든 내용은 우분투 18.04 LTS 버전에서 정상적으로 작동하였다.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd4e1587" class="outline-2">
-<h2 id="orgd4e1587"><span class="section-number-2">2</span> How to setup</h2>
+<div id="outline-container-orgec160e6" class="outline-2">
+<h2 id="orgec160e6"><span class="section-number-2">2</span> How to setup</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Ubuntu 18.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 설치할 수 있다.
@@ -69,8 +69,8 @@ Ubuntu 18.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 
 </pre>
 </div>
 </div>
-<div id="outline-container-org126c629" class="outline-3">
-<h3 id="org126c629"><span class="section-number-3">2.1</span> w/o sudo command</h3>
+<div id="outline-container-org7cdbace" class="outline-3">
+<h3 id="org7cdbace"><span class="section-number-3">2.1</span> w/o sudo command</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 우분투에서 docker를 처음 설치하고 실행하면 매번 실행할 때마다 sudo 명령어를 입력해줘야 한다. 이를 sudo 명령어없이 편하게 사용하려면 현재 계정을 docker 그룹에 포함시키면 된다. 명령어는 아래와 같다.
@@ -83,8 +83,8 @@ $ sudo service docker restart
 </div>
 </div>
 </div>
-<div id="outline-container-orgf67f368" class="outline-3">
-<h3 id="orgf67f368"><span class="section-number-3">2.2</span> Bash autocompletion in docker</h3>
+<div id="outline-container-org5719af5" class="outline-3">
+<h3 id="org5719af5"><span class="section-number-3">2.2</span> Bash autocompletion in docker</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Docker에 접속하면 기본적으로 bash에서 tab 자동 완성(autocompletion)이 작동하지 않는다. 아래 작성한 방법들 모두 적용해본 결과 정상적으로 작동하는 걸 확인했다. ROS 명령어들을 자동완성하고 싶은 경우 <code>source /opt/ros/melodic/setup.bash</code> 를 .bashrc 파일에 넣어줘야 한다.
@@ -115,8 +115,8 @@ Docker에 접속하면 기본적으로 bash에서 tab 자동 완성(autocompleti
 </div>
 </div>
 </div>
-<div id="outline-container-org3118581" class="outline-3">
-<h3 id="org3118581"><span class="section-number-3">2.3</span> Connect to the internet in docker container</h3>
+<div id="outline-container-org76bdae5" class="outline-3">
+<h3 id="org76bdae5"><span class="section-number-3">2.3</span> Connect to the internet in docker container</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Docker 컨테이너는 NAT 기술을 사용하여 외부 네트워크로 통신한다. 실제 인터넷 선은 하나 밖에 제공되어 있지 않고 그 선을 통해 데이터가 나가야 하기 때문에 Linux의 <code>iptables</code> 명령을 사용해서 해당 브릿지 인터페이스에 MASQUERADE 기능을 부여하거나 SNAT 값을 줘야 한다. 해당 방법은 이 <a href="https://blog.neonkid.xyz/87">블로그</a>를 통해 얻은 정보이다.
@@ -155,15 +155,15 @@ RETURN     all  --  anywhere             anywhere
 </div>
 </div>
 </div>
-<div id="outline-container-org0f22c91" class="outline-3">
-<h3 id="org0f22c91"><span class="section-number-3">2.4</span> nvidia-docker</h3>
+<div id="outline-container-org7a40032" class="outline-3">
+<h3 id="org7a40032"><span class="section-number-3">2.4</span> nvidia-docker</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 <code>nvidia-docker</code> 는 호스트 컴퓨터에 Nvidia 드라이버가 있을 경우 컨테이너에서 GPU를 사용할 수 있도록 해주는 프로그램이다. <b>docker가 최근 19.03.5 버전부터 자체적으로 nvidia-docker 명령어를 흡수하면서 보다 간단하게 사용할 수 있게 되었다.</b>
 </p>
 </div>
-<div id="outline-container-orgf83dd9b" class="outline-4">
-<h4 id="orgf83dd9b"><span class="section-number-4">2.4.1</span> How to setup</h4>
+<div id="outline-container-orga88eccd" class="outline-4">
+<h4 id="orga88eccd"><span class="section-number-4">2.4.1</span> How to setup</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <ul class="org-ul">
 <li><p>
@@ -199,8 +199,8 @@ $ sudo add-apt-repository <span class="org-string">"deb [arch=amd64] https://dow
 </ul>
 </div>
 </div>
-<div id="outline-container-org2ef9a91" class="outline-4">
-<h4 id="org2ef9a91"><span class="section-number-4">2.4.2</span> Usage</h4>
+<div id="outline-container-org508aa95" class="outline-4">
+<h4 id="org508aa95"><span class="section-number-4">2.4.2</span> Usage</h4>
 <div class="outline-text-4" id="text-2-4-2">
 <p>
 <code>nvidia-docker</code> 명령어는 <code>docker run --gpus all</code> 와 동일하다. 만약 non-cuda 이미지에서 GPU를 사용하고 싶을 경우 아래와 같은 명령어를 사용하면 된다. 출처는 <a href="https://github.com/NVIDIA/nvidia-docker/wiki/Usage#non-cuda-image">여기</a>이다.
@@ -214,59 +214,59 @@ $ docker run --gpus all -e <span class="org-variable-name">NVIDIA_VISIBLE_DEVICE
 </div>
 </div>
 </div>
-<div id="outline-container-org2be5c0c" class="outline-2">
-<h2 id="org2be5c0c"><span class="section-number-2">3</span> Mostly used features</h2>
+<div id="outline-container-org62ece60" class="outline-2">
+<h2 id="org62ece60"><span class="section-number-2">3</span> Mostly used features</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 가장 자주 사용하는 docker 명령어들을 정리하였다.
 </p>
 </div>
-<div id="outline-container-org1efe582" class="outline-3">
-<h3 id="org1efe582"><span class="section-number-3">3.1</span> commands</h3>
+<div id="outline-container-org230a391" class="outline-3">
+<h3 id="org230a391"><span class="section-number-3">3.1</span> commands</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-org4d8ac06" class="outline-4">
-<h4 id="org4d8ac06"><span class="section-number-4">3.1.1</span> <code>rm</code></h4>
+<div id="outline-container-orgbee4aeb" class="outline-4">
+<h4 id="orgbee4aeb"><span class="section-number-4">3.1.1</span> <code>rm</code></h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 특정 컨테이너 삭제
 </p>
 </div>
 </div>
-<div id="outline-container-orgcbc0c32" class="outline-4">
-<h4 id="orgcbc0c32"><span class="section-number-4">3.1.2</span> <code>rmi</code></h4>
+<div id="outline-container-orgfda4dde" class="outline-4">
+<h4 id="orgfda4dde"><span class="section-number-4">3.1.2</span> <code>rmi</code></h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p>
 특정 이미지 삭제
 </p>
 </div>
 </div>
-<div id="outline-container-org70b23d3" class="outline-4">
-<h4 id="org70b23d3"><span class="section-number-4">3.1.3</span> <code>ps</code></h4>
+<div id="outline-container-org4017c37" class="outline-4">
+<h4 id="org4017c37"><span class="section-number-4">3.1.3</span> <code>ps</code></h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
 현재 실행 중인 컨테이너 목록 검색
 </p>
 </div>
 </div>
-<div id="outline-container-org0f78e41" class="outline-4">
-<h4 id="org0f78e41"><span class="section-number-4">3.1.4</span> <code>images</code></h4>
+<div id="outline-container-org5b2c3f0" class="outline-4">
+<h4 id="org5b2c3f0"><span class="section-number-4">3.1.4</span> <code>images</code></h4>
 <div class="outline-text-4" id="text-3-1-4">
 <p>
 이미지 목록 검색
 </p>
 </div>
 </div>
-<div id="outline-container-orge9456d4" class="outline-4">
-<h4 id="orge9456d4"><span class="section-number-4">3.1.5</span> <code>attach</code></h4>
+<div id="outline-container-org1ca351c" class="outline-4">
+<h4 id="org1ca351c"><span class="section-number-4">3.1.5</span> <code>attach</code></h4>
 <div class="outline-text-4" id="text-3-1-5">
 <p>
 현재 실행 중인 컨테이너에 접속
 </p>
 </div>
 </div>
-<div id="outline-container-orgedd3b7c" class="outline-4">
-<h4 id="orgedd3b7c"><span class="section-number-4">3.1.6</span> <code>run</code></h4>
+<div id="outline-container-org824a512" class="outline-4">
+<h4 id="org824a512"><span class="section-number-4">3.1.6</span> <code>run</code></h4>
 <div class="outline-text-4" id="text-3-1-6">
 <p>
 이미지를 컨테이너로 실행
@@ -284,16 +284,16 @@ $ docker run -i --net host --name hello -t ubuntu:18.04 /bin/bash
 </div>
 </div>
 </div>
-<div id="outline-container-org5eb568d" class="outline-4">
-<h4 id="org5eb568d"><span class="section-number-4">3.1.7</span> <code>build</code></h4>
+<div id="outline-container-orgf31b9cb" class="outline-4">
+<h4 id="orgf31b9cb"><span class="section-number-4">3.1.7</span> <code>build</code></h4>
 <div class="outline-text-4" id="text-3-1-7">
 <p>
 Dockerfile을 이미지로 생성
 </p>
 </div>
 </div>
-<div id="outline-container-org519b5da" class="outline-4">
-<h4 id="org519b5da"><span class="section-number-4">3.1.8</span> <code>commit</code></h4>
+<div id="outline-container-orgac7e762" class="outline-4">
+<h4 id="orgac7e762"><span class="section-number-4">3.1.8</span> <code>commit</code></h4>
 <div class="outline-text-4" id="text-3-1-8">
 <p>
 현재 컨테이너의 변경사항을 이미지로 저장
@@ -305,8 +305,8 @@ $ docker commit -a <span class="org-string">"edward0im"</span> -m <span class="o
 </div>
 </div>
 </div>
-<div id="outline-container-org153831c" class="outline-4">
-<h4 id="org153831c"><span class="section-number-4">3.1.9</span> <code>push, pull</code></h4>
+<div id="outline-container-org1060811" class="outline-4">
+<h4 id="org1060811"><span class="section-number-4">3.1.9</span> <code>push, pull</code></h4>
 <div class="outline-text-4" id="text-3-1-9">
 <p>
 git의 pull, push와 동일하게 원격 hub로부터 이미지를 가져오거나 저장
@@ -319,8 +319,8 @@ $ docker pull ubuntu:18.04
 </div>
 </div>
 </div>
-<div id="outline-container-orgb41e495" class="outline-3">
-<h3 id="orgb41e495"><span class="section-number-3">3.2</span> Dockerfile</h3>
+<div id="outline-container-orgf011837" class="outline-3">
+<h3 id="orgf011837"><span class="section-number-3">3.2</span> Dockerfile</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Dockerfile은 docker 이미지를 생성할 수 있는 파일이다. 아래는 필자가 사용하는 Dockerfile 파일 중 하나로써 Ubuntu 18.04와 ROS를 자동으로 설치해준다.
@@ -491,8 +491,8 @@ $ docker run --name sample -d -p 80:80 -v /root/data:/data sample:0.1
 </div>
 </div>
 </div>
-<div id="outline-container-org98901f5" class="outline-3">
-<h3 id="org98901f5"><span class="section-number-3">3.3</span> Docker hub</h3>
+<div id="outline-container-org9d3eba0" class="outline-3">
+<h3 id="org9d3eba0"><span class="section-number-3">3.3</span> Docker hub</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 docker도 github처럼 저장소 사이트가 존재한다. <a href="https://hub.docker.com">해당 사이트</a>에 가입하고 Pull, Push 명령어를 통해 원격저장소와 데이터를 주고 받을 수 있다. 
@@ -511,8 +511,8 @@ $ docker pull edward0im/scratch
 </div>
 </div>
 </div>
-<div id="outline-container-org2b66b34" class="outline-2">
-<h2 id="org2b66b34"><span class="section-number-2">4</span> References</h2>
+<div id="outline-container-org2041d9e" class="outline-2">
+<h2 id="org2041d9e"><span class="section-number-2">4</span> References</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li><a href="https://www.slideshare.net/pyrasis/docker-fordummies-44424016">도커 무작정 따라하기</a></li>
