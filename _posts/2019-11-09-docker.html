@@ -13,33 +13,37 @@ comments: true
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgfa012eb">1. Introduction</a></li>
-<li><a href="#orge34bb90">2. How to setup</a>
+<li><a href="#org2613baa">2. How to setup</a>
 <ul>
 <li><a href="#org46ec111">2.1. w/o sudo command</a></li>
 <li><a href="#orga8548f4">2.2. Bash autocompletion in docker</a></li>
 <li><a href="#orgf4a0e12">2.3. Connect to the internet in docker container</a></li>
+<li><a href="#orgb58f80b">2.4. nvidia-docker</a>
+<ul>
+<li><a href="#orge34bb90">2.4.1. How to setup</a></li>
+<li><a href="#orgd6051fd">2.4.2. Usage</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#org6d468b8">3. Mostly used features</a>
 <ul>
-<li><a href="#org101c052">3.1. <code>rm</code></a></li>
-<li><a href="#org5837515">3.2. <code>rmi</code></a></li>
-<li><a href="#org2ef05f2">3.3. <code>ps</code></a></li>
-<li><a href="#orgd696ea2">3.4. <code>images</code></a></li>
-<li><a href="#orgdecb465">3.5. <code>attach</code></a></li>
-<li><a href="#org668a2b8">3.6. <code>run</code></a></li>
-<li><a href="#org1fa1a50">3.7. <code>build</code></a></li>
-<li><a href="#org3083855">3.8. <code>commit</code></a></li>
-<li><a href="#org6869c55">3.9. <code>push, pull</code></a></li>
-<li><a href="#orgb58f80b">3.10. nvidia-docker</a>
+<li><a href="#org6b7cfd7">3.1. commands</a>
 <ul>
-<li><a href="#orgd78f15b">3.10.1. Installation</a></li>
-<li><a href="#orgd6051fd">3.10.2. Usage</a></li>
+<li><a href="#org101c052">3.1.1. <code>rm</code></a></li>
+<li><a href="#org5837515">3.1.2. <code>rmi</code></a></li>
+<li><a href="#org2ef05f2">3.1.3. <code>ps</code></a></li>
+<li><a href="#orgd696ea2">3.1.4. <code>images</code></a></li>
+<li><a href="#orgdecb465">3.1.5. <code>attach</code></a></li>
+<li><a href="#org668a2b8">3.1.6. <code>run</code></a></li>
+<li><a href="#org1fa1a50">3.1.7. <code>build</code></a></li>
+<li><a href="#org3083855">3.1.8. <code>commit</code></a></li>
+<li><a href="#org6869c55">3.1.9. <code>push, pull</code></a></li>
 </ul>
 </li>
-<li><a href="#org3650773">3.11. docker service</a></li>
-<li><a href="#org5996edb">3.12. Dockerfile</a></li>
-<li><a href="#org43c494a">3.13. Docker Hub</a></li>
+<li><a href="#org3650773">3.2. docker service</a></li>
+<li><a href="#org5996edb">3.3. Dockerfile</a></li>
+<li><a href="#org43c494a">3.4. Docker Hub</a></li>
 </ul>
 </li>
 <li><a href="#orga47da84">4. Reference</a></li>
@@ -55,8 +59,8 @@ comments: true
 </p>
 </div>
 </div>
-<div id="outline-container-orge34bb90" class="outline-2">
-<h2 id="orge34bb90"><span class="section-number-2">2</span> How to setup</h2>
+<div id="outline-container-org2613baa" class="outline-2">
+<h2 id="org2613baa"><span class="section-number-2">2</span> How to setup</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Ubuntu 18.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 설치할 수 있다.
@@ -152,117 +156,16 @@ RETURN     all  --  anywhere             anywhere
 </div>
 </div>
 </div>
-</div>
-<div id="outline-container-org6d468b8" class="outline-2">
-<h2 id="org6d468b8"><span class="section-number-2">3</span> Mostly used features</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-가장 자주 사용하는 docker 명령어들을 정리하였다.
-</p>
-</div>
-<div id="outline-container-org101c052" class="outline-3">
-<h3 id="org101c052"><span class="section-number-3">3.1</span> <code>rm</code></h3>
-<div class="outline-text-3" id="text-3-1">
-<p>
-특정 컨테이너 삭제
-</p>
-</div>
-</div>
-<div id="outline-container-org5837515" class="outline-3">
-<h3 id="org5837515"><span class="section-number-3">3.2</span> <code>rmi</code></h3>
-<div class="outline-text-3" id="text-3-2">
-<p>
-특정 이미지 삭제
-</p>
-</div>
-</div>
-<div id="outline-container-org2ef05f2" class="outline-3">
-<h3 id="org2ef05f2"><span class="section-number-3">3.3</span> <code>ps</code></h3>
-<div class="outline-text-3" id="text-3-3">
-<p>
-현재 실행 중인 컨테이너 목록 검색
-</p>
-</div>
-</div>
-<div id="outline-container-orgd696ea2" class="outline-3">
-<h3 id="orgd696ea2"><span class="section-number-3">3.4</span> <code>images</code></h3>
-<div class="outline-text-3" id="text-3-4">
-<p>
-이미지 목록 검색
-</p>
-</div>
-</div>
-<div id="outline-container-orgdecb465" class="outline-3">
-<h3 id="orgdecb465"><span class="section-number-3">3.5</span> <code>attach</code></h3>
-<div class="outline-text-3" id="text-3-5">
-<p>
-현재 실행 중인 컨테이너에 접속
-</p>
-</div>
-</div>
-<div id="outline-container-org668a2b8" class="outline-3">
-<h3 id="org668a2b8"><span class="section-number-3">3.6</span> <code>run</code></h3>
-<div class="outline-text-3" id="text-3-6">
-<p>
-이미지를 컨테이너로 실행
-</p>
-<div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">docker run&#51008; &#53552;&#48120;&#45328;&#50640;&#49436; &#48148;&#47196; &#49892;&#54665;&#54616;&#44592;&#48372;&#45796; &#48372;&#53685; shell script (.sh) &#54028;&#51068;&#47196; &#51200;&#51109;&#54616;&#50668; &#54620; &#48264;&#50640; &#49892;&#54665;&#54620;&#45796;.</span>
-$ docker run -it --name ros -v ~/docker:/root/data edward:starlaw
-$ docker run -i -t --name hello ubuntu:18.04 /bin/bash
-$ docker run -i --net host --name hello -t ubuntu:18.04 /bin/bash
-<span class="org-comment-delimiter"># </span><span class="org-comment">i : interactive</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">t : pseudo-tty</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">--net :</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">--name : &#51060;&#47492;</span>
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-org1fa1a50" class="outline-3">
-<h3 id="org1fa1a50"><span class="section-number-3">3.7</span> <code>build</code></h3>
-<div class="outline-text-3" id="text-3-7">
-<p>
-Dockerfile을 이미지로 생성
-</p>
-</div>
-</div>
-<div id="outline-container-org3083855" class="outline-3">
-<h3 id="org3083855"><span class="section-number-3">3.8</span> <code>commit</code></h3>
-<div class="outline-text-3" id="text-3-8">
-<p>
-현재 컨테이너의 변경사항을 이미지로 저장
-</p>
-<div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">ros_melodic&#51060;&#46972;&#45716; &#52968;&#53580;&#51060;&#45320;&#47484; edward:starlaw &#51060;&#48120;&#51648;&#47196; &#51200;&#51109;&#54620;&#45796;. &#51089;&#49457;&#51088;&#45716; edward0im, &#47700;&#49464;&#51648;&#45716; {...}</span>
-$ docker commit -a <span class="org-string">"edward0im"</span> -m <span class="org-string">"catkin_ws installed"</span> ros_melodic edward:starlaw
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-org6869c55" class="outline-3">
-<h3 id="org6869c55"><span class="section-number-3">3.9</span> <code>push, pull</code></h3>
-<div class="outline-text-3" id="text-3-9">
-<p>
-git의 pull, push와 동일하게 원격 hub로부터 이미지를 가져오거나 저장
-</p>
-<div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">&#50896;&#44201; dockerhub&#50640;&#49436; &#53945;&#51221; &#51060;&#48120;&#51648;&#47484; &#48155;&#50500;&#50740;</span>
-$ docker pull ubuntu:18.04
-</pre>
-</div>
-</div>
-</div>
 <div id="outline-container-orgb58f80b" class="outline-3">
-<h3 id="orgb58f80b"><span class="section-number-3">3.10</span> nvidia-docker</h3>
-<div class="outline-text-3" id="text-3-10">
+<h3 id="orgb58f80b"><span class="section-number-3">2.4</span> nvidia-docker</h3>
+<div class="outline-text-3" id="text-2-4">
 <p>
 <b>nvidia-docker</b> 는 호스트 컴퓨터에 NVIDIA 드라이버가 있을 경우 컨테이너에서 GPU를 사용할 수 있도록 해주는 프로그램이다.
 </p>
 </div>
-<div id="outline-container-orgd78f15b" class="outline-4">
-<h4 id="orgd78f15b"><span class="section-number-4">3.10.1</span> Installation</h4>
-<div class="outline-text-4" id="text-3-10-1">
+<div id="outline-container-orge34bb90" class="outline-4">
+<h4 id="orge34bb90"><span class="section-number-4">2.4.1</span> How to setup</h4>
+<div class="outline-text-4" id="text-2-4-1">
 <ul class="org-ul">
 <li><p>
 자세한 내용은 <a href="https://github.com/NVIDIA/nvidia-docker">여기</a>에 소개되어 있다.
@@ -298,8 +201,8 @@ $ sudo add-apt-repository <span class="org-string">"deb [arch=amd64] https://dow
 </div>
 </div>
 <div id="outline-container-orgd6051fd" class="outline-4">
-<h4 id="orgd6051fd"><span class="section-number-4">3.10.2</span> Usage</h4>
-<div class="outline-text-4" id="text-3-10-2">
+<h4 id="orgd6051fd"><span class="section-number-4">2.4.2</span> Usage</h4>
+<div class="outline-text-4" id="text-2-4-2">
 <p>
 <b>nvidia-docker</b> 명령어는 <b>docker run &#x2013;runtime=nvidia</b> 와 동일하다. 만약 non-cuda 이미지에서 GPU를 사용하고 싶을 경우 아래와 같은 명령어를 사용하면 된다. 출처는 <a href="https://github.com/NVIDIA/nvidia-docker/wiki/Usage#non-cuda-image">여기</a>이다.
 </p>
@@ -311,9 +214,115 @@ $ docker run --runtime=nvidia -e <span class="org-variable-name">NVIDIA_VISIBLE_
 </div>
 </div>
 </div>
+</div>
+<div id="outline-container-org6d468b8" class="outline-2">
+<h2 id="org6d468b8"><span class="section-number-2">3</span> Mostly used features</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+가장 자주 사용하는 docker 명령어들을 정리하였다.
+</p>
+</div>
+<div id="outline-container-org6b7cfd7" class="outline-3">
+<h3 id="org6b7cfd7"><span class="section-number-3">3.1</span> commands</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-org101c052" class="outline-4">
+<h4 id="org101c052"><span class="section-number-4">3.1.1</span> <code>rm</code></h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+특정 컨테이너 삭제
+</p>
+</div>
+</div>
+<div id="outline-container-org5837515" class="outline-4">
+<h4 id="org5837515"><span class="section-number-4">3.1.2</span> <code>rmi</code></h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+특정 이미지 삭제
+</p>
+</div>
+</div>
+<div id="outline-container-org2ef05f2" class="outline-4">
+<h4 id="org2ef05f2"><span class="section-number-4">3.1.3</span> <code>ps</code></h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+현재 실행 중인 컨테이너 목록 검색
+</p>
+</div>
+</div>
+<div id="outline-container-orgd696ea2" class="outline-4">
+<h4 id="orgd696ea2"><span class="section-number-4">3.1.4</span> <code>images</code></h4>
+<div class="outline-text-4" id="text-3-1-4">
+<p>
+이미지 목록 검색
+</p>
+</div>
+</div>
+<div id="outline-container-orgdecb465" class="outline-4">
+<h4 id="orgdecb465"><span class="section-number-4">3.1.5</span> <code>attach</code></h4>
+<div class="outline-text-4" id="text-3-1-5">
+<p>
+현재 실행 중인 컨테이너에 접속
+</p>
+</div>
+</div>
+<div id="outline-container-org668a2b8" class="outline-4">
+<h4 id="org668a2b8"><span class="section-number-4">3.1.6</span> <code>run</code></h4>
+<div class="outline-text-4" id="text-3-1-6">
+<p>
+이미지를 컨테이너로 실행
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">docker run&#51008; &#53552;&#48120;&#45328;&#50640;&#49436; &#48148;&#47196; &#49892;&#54665;&#54616;&#44592;&#48372;&#45796; &#48372;&#53685; shell script (.sh) &#54028;&#51068;&#47196; &#51200;&#51109;&#54616;&#50668; &#54620; &#48264;&#50640; &#49892;&#54665;&#54620;&#45796;.</span>
+$ docker run -it --name ros -v ~/docker:/root/data edward:starlaw
+$ docker run -i -t --name hello ubuntu:18.04 /bin/bash
+$ docker run -i --net host --name hello -t ubuntu:18.04 /bin/bash
+<span class="org-comment-delimiter"># </span><span class="org-comment">i : interactive</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">t : pseudo-tty</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">--net :</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">--name : &#51060;&#47492;</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org1fa1a50" class="outline-4">
+<h4 id="org1fa1a50"><span class="section-number-4">3.1.7</span> <code>build</code></h4>
+<div class="outline-text-4" id="text-3-1-7">
+<p>
+Dockerfile을 이미지로 생성
+</p>
+</div>
+</div>
+<div id="outline-container-org3083855" class="outline-4">
+<h4 id="org3083855"><span class="section-number-4">3.1.8</span> <code>commit</code></h4>
+<div class="outline-text-4" id="text-3-1-8">
+<p>
+현재 컨테이너의 변경사항을 이미지로 저장
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">ros_melodic&#51060;&#46972;&#45716; &#52968;&#53580;&#51060;&#45320;&#47484; edward:starlaw &#51060;&#48120;&#51648;&#47196; &#51200;&#51109;&#54620;&#45796;. &#51089;&#49457;&#51088;&#45716; edward0im, &#47700;&#49464;&#51648;&#45716; {...}</span>
+$ docker commit -a <span class="org-string">"edward0im"</span> -m <span class="org-string">"catkin_ws installed"</span> ros_melodic edward:starlaw
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6869c55" class="outline-4">
+<h4 id="org6869c55"><span class="section-number-4">3.1.9</span> <code>push, pull</code></h4>
+<div class="outline-text-4" id="text-3-1-9">
+<p>
+git의 pull, push와 동일하게 원격 hub로부터 이미지를 가져오거나 저장
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">&#50896;&#44201; dockerhub&#50640;&#49436; &#53945;&#51221; &#51060;&#48120;&#51648;&#47484; &#48155;&#50500;&#50740;</span>
+$ docker pull ubuntu:18.04
+</pre>
+</div>
+</div>
+</div>
+</div>
 <div id="outline-container-org3650773" class="outline-3">
-<h3 id="org3650773"><span class="section-number-3">3.11</span> docker service</h3>
-<div class="outline-text-3" id="text-3-11">
+<h3 id="org3650773"><span class="section-number-3">3.2</span> docker service</h3>
+<div class="outline-text-3" id="text-3-2">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">&#49436;&#48708;&#49828; &#46041;&#51089; &#49345;&#53468; &#54869;&#51064;</span>
 $ sudo service docker status
@@ -322,8 +331,8 @@ $ sudo service docker status
 </div>
 </div>
 <div id="outline-container-org5996edb" class="outline-3">
-<h3 id="org5996edb"><span class="section-number-3">3.12</span> Dockerfile</h3>
-<div class="outline-text-3" id="text-3-12">
+<h3 id="org5996edb"><span class="section-number-3">3.3</span> Dockerfile</h3>
+<div class="outline-text-3" id="text-3-3">
 <p>
 Dockerfile은 <code>docker build</code> 명령어를 사용하여 docker 이미지를 생성할 수 있는 파일이다. 아래에 Dockerfile의 간단한 사용 예시를 작성했다. 우선 example 폴더를 만들고 그 안에 아래와 같은 Dockerfile을 생성한다.
 </p>
@@ -373,8 +382,8 @@ $ sudo docker run --name hello-nginx -d -p 80:80 -v /root/data:/data hello:0.1
 </div>
 </div>
 <div id="outline-container-org43c494a" class="outline-3">
-<h3 id="org43c494a"><span class="section-number-3">3.13</span> Docker Hub</h3>
-<div class="outline-text-3" id="text-3-13">
+<h3 id="org43c494a"><span class="section-number-3">3.4</span> Docker Hub</h3>
+<div class="outline-text-3" id="text-3-4">
 <p>
 docker도 github처럼 사이트를 운영하고 있다. 여기에 가입하고 명령어를 통해 터미널에서 로그인할 수 있다.
 </p>
