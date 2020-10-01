@@ -120,7 +120,7 @@ Docker에 접속하면 기본적으로 bash에서 tab 자동 완성(autocompleti
 <h3 id="orgd46f74a"><span class="section-number-3">2.3</span> Connect to the internet</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
-Docker 컨테이너는 NAT 기술을 사용하여 외부 네트워크로 통신한다. 실제 인터넷 선은 하나 밖에 제공되어 있지 않고 그 선을 통해 데이터가 나가야 하기 때문에 Linux의 <code>iptables</code> 명령을 사용해서 해당 브릿지 인터페이스에 MASQUERADE 기능을 부여하거나 SNAT 값을 줘야 한다. 해당 방법은 이 <a href="https://blog.neonkid.xyz/87">블로그</a>를 통해 얻은 정보이다.
+Docker 컨테이너는 NAT 기술을 사용하여 외부 네트워크로 통신한다. 실제 인터넷 선은 하나 밖에 제공되어 있지 않고 그 선을 통해 데이터가 나가야 하기 때문에 Linux의 <code>iptables</code> 명령을 사용해서 해당 브릿지 인터페이스에 MASQUERADE 기능을 부여하거나 SNAT 값을 줘야 한다. 
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">  <span class="org-comment-delimiter"># </span><span class="org-comment">host &#47672;&#49888;&#50640;&#49436; &#50500;&#47000; &#47749;&#47161;&#50612;&#47484; &#49892;&#54665;&#54620;&#45796;. &#50500;&#47000; &#47749;&#47161;&#50612;&#47484; &#53685;&#54644; iptables&#50640; NAT &#51221;&#48372;&#47484; &#51077;&#47141;&#54620;&#45796;</span>
@@ -164,7 +164,7 @@ RETURN     all  --  anywhere             anywhere
 </p>
 
 <p>
-자세한 내용은 <a href="https://github.com/NVIDIA/nvidia-docker">여기</a>에 소개되어 있다.
+자세한 내용은 <a href="https://github.com/NVIDIA/nvidia-docker">공식 github</a>에 소개되어 있다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Add the package repositories</span>
@@ -482,6 +482,7 @@ $ docker pull edward0im/1804:scratch
 <ol class="org-ol">
 <li><a href="https://www.slideshare.net/pyrasis/docker-fordummies-44424016">도커 무작정 따라하기</a></li>
 <li><a href="https://ykarma1996.tistory.com/92">docker 컨테이너에서 GPU 사용 - ykarma1996 blog</a></li>
+<li><a href="https://blog.neonkid.xyz/87">Docker 네트워크 구성과 설정 - neonkid blog</a></li>
 </ol>
 </div>
 </div>
