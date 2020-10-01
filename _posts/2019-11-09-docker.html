@@ -13,14 +13,14 @@ comments: true
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgfa012eb">1. Introduction</a></li>
-<li><a href="#org2613baa">2. How to setup</a>
+<li><a href="#org098aa5c">2. How to setup</a>
 <ul>
 <li><a href="#org46ec111">2.1. w/o sudo command</a></li>
 <li><a href="#orga8548f4">2.2. Bash autocompletion in docker</a></li>
 <li><a href="#orgf4a0e12">2.3. Connect to the internet in docker container</a></li>
 <li><a href="#orgb58f80b">2.4. nvidia-docker</a>
 <ul>
-<li><a href="#orge34bb90">2.4.1. How to setup</a></li>
+<li><a href="#org2613baa">2.4.1. How to setup</a></li>
 <li><a href="#orgd6051fd">2.4.2. Usage</a></li>
 </ul>
 </li>
@@ -59,8 +59,8 @@ comments: true
 </p>
 </div>
 </div>
-<div id="outline-container-org2613baa" class="outline-2">
-<h2 id="org2613baa"><span class="section-number-2">2</span> How to setup</h2>
+<div id="outline-container-org098aa5c" class="outline-2">
+<h2 id="org098aa5c"><span class="section-number-2">2</span> How to setup</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Ubuntu 18.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 설치할 수 있다.
@@ -88,7 +88,7 @@ $ sudo service docker restart
 <h3 id="orga8548f4"><span class="section-number-3">2.2</span> Bash autocompletion in docker</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
-Docker에 접속하면 기본적으로 bash에서 tab 자동 완성(autocompletion)이 작동하지 않는다. 아래 작성한 방법들 모두 적용해본 결과 정상적으로 작동하는 걸 확인했다. 정확히 어느 파트는 필요없는 지에 대한 내용은 아직 모르겠다. ROS 명령어들을 자동완성하고 싶은 경우 <b>source /opt/ros/melodic/setup.bash</b> 를 .bashrc 파일에 넣어줘야 한다.
+Docker에 접속하면 기본적으로 bash에서 tab 자동 완성(autocompletion)이 작동하지 않는다. 아래 작성한 방법들 모두 적용해본 결과 정상적으로 작동하는 걸 확인했다. ROS 명령어들을 자동완성하고 싶은 경우 <b>source /opt/ros/melodic/setup.bash</b> 를 .bashrc 파일에 넣어줘야 한다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">  $ apt-get install bash_completion
@@ -163,8 +163,8 @@ RETURN     all  --  anywhere             anywhere
 <b>nvidia-docker</b> 는 호스트 컴퓨터에 NVIDIA 드라이버가 있을 경우 컨테이너에서 GPU를 사용할 수 있도록 해주는 프로그램이다.
 </p>
 </div>
-<div id="outline-container-orge34bb90" class="outline-4">
-<h4 id="orge34bb90"><span class="section-number-4">2.4.1</span> How to setup</h4>
+<div id="outline-container-org2613baa" class="outline-4">
+<h4 id="org2613baa"><span class="section-number-4">2.4.1</span> How to setup</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <ul class="org-ul">
 <li><p>
