@@ -13,13 +13,13 @@ comments: true
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgfa012eb">1. Introduction</a></li>
-<li><a href="#orge156dea">2. Installation</a></li>
+<li><a href="#org587c159">2. Installation</a></li>
 <li><a href="#org7da8784">3. Docker commands</a></li>
 <li><a href="#org46ec111">4. w/o sudo command</a></li>
 <li><a href="#org3650773">5. docker service</a></li>
 <li><a href="#orgb58f80b">6. nvidia-docker</a>
 <ul>
-<li><a href="#org587c159">6.1. Installation</a></li>
+<li><a href="#orgd78f15b">6.1. Installation</a></li>
 <li><a href="#orgd6051fd">6.2. Usage</a></li>
 </ul>
 </li>
@@ -36,16 +36,16 @@ comments: true
 <h2 id="orgfa012eb"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-리눅스에서 프로그램을 빌드하다가 한 번쯤은 버전 문제로 제대로 실행하지 못한 경험이 있을 것이다. Docker는 이러한 빌드 문제를 해결해줄 수 있는 좋은 솔루션이다. 필자 또한 빌드 문제로 많은 시간을 낭비하다가 결국 Docker를 사용하기 시작했다. 해당 포스트는 필자가 docker를 사용하면서 필요한 정보들을 정리해놓은 포스트이다. 
+본 포스트에서는 Docker의 사용법 및 다양한 옵션들에 대해 설명한다. Docker는 컨테이너라는 가상의 이미지를 생성하여 메인 운영체제 시스템과 독립적인 프로그램을 돌릴 수 있는 장점이 있다. 리눅스를 사용하면서 버전 문제로 인해 빌드에 실패해 본 경험이 있는 사용자들에게 Docker를 추천한다. 본 포스트에서 설명하는 모든 내용은 우분투 18.04 LTS 버전에서 정상적으로 작동하였다.
 </p>
 <hr>
 </div>
 </div>
-<div id="outline-container-orge156dea" class="outline-2">
-<h2 id="orge156dea"><span class="section-number-2">2</span> Installation</h2>
+<div id="outline-container-org587c159" class="outline-2">
+<h2 id="org587c159"><span class="section-number-2">2</span> Installation</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Ubuntu 16.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 설치할 수 있다.
+Ubuntu 18.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 설치할 수 있다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">$ sudo apt-get install docker*
@@ -78,8 +78,8 @@ $ docker attach {...}
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">docker run&#51008; &#53552;&#48120;&#45328;&#50640;&#49436; &#48148;&#47196; &#49892;&#54665;&#54616;&#44592;&#48372;&#45796; &#48372;&#53685; shell script (.sh) &#54028;&#51068;&#47196; &#51200;&#51109;&#54616;&#50668; &#54620; &#48264;&#50640; &#49892;&#54665;&#54620;&#45796;.</span>
 $ docker run -it --name ros -v ~/docker:/root/data edward:starlaw
-$ docker run -i -t --name hello ubuntu:16.04 /bin/bash
-$ docker run -i --net host --name hello -t ubuntu:16.04 /bin/bash
+$ docker run -i -t --name hello ubuntu:18.04 /bin/bash
+$ docker run -i --net host --name hello -t ubuntu:18.04 /bin/bash
 <span class="org-comment-delimiter"># </span><span class="org-comment">i : interactive</span>
 <span class="org-comment-delimiter"># </span><span class="org-comment">t : pseudo-tty</span>
 <span class="org-comment-delimiter"># </span><span class="org-comment">--net :</span>
@@ -89,7 +89,7 @@ $ docker run -i --net host --name hello -t ubuntu:16.04 /bin/bash
 $ docker commit -a <span class="org-string">"edward0im"</span> -m <span class="org-string">"catkin_ws installed"</span> ros_kinetic edward:starlaw
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">&#50896;&#44201; dockerhub&#50640;&#49436; &#53945;&#51221; &#51060;&#48120;&#51648;&#47484; &#48155;&#50500;&#50740;</span>
-$ docker pull ubuntu:16.04
+$ docker pull ubuntu:18.04
 </pre>
 </div>
 <hr>
@@ -128,8 +128,8 @@ $ sudo service docker status
 <b>nvidia-docker</b> 는 호스트 컴퓨터에 NVIDIA 드라이버가 있을 경우 컨테이너에서 GPU를 사용할 수 있도록 해주는 프로그램이다.
 </p>
 </div>
-<div id="outline-container-org587c159" class="outline-3">
-<h3 id="org587c159"><span class="section-number-3">6.1</span> Installation</h3>
+<div id="outline-container-orgd78f15b" class="outline-3">
+<h3 id="orgd78f15b"><span class="section-number-3">6.1</span> Installation</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li><p>
@@ -290,7 +290,7 @@ Dockerfile은 <code>docker build</code> 명령어를 사용하여 docker 이미�
 $ vim Dockerfile
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">Dockerfile</span>
-  FROM ubuntu:16.04   <span class="org-comment-delimiter"># </span><span class="org-comment">&#50612;&#46500; &#51060;&#48120;&#51648;&#47484; &#44592;&#48152;&#51004;&#47196; &#54624;&#51648; &#49444;&#51221; {&#51060;&#48120;&#51648;&#51060;&#47492;}:{&#53468;&#44536;}</span>
+  FROM ubuntu:18.04   <span class="org-comment-delimiter"># </span><span class="org-comment">&#50612;&#46500; &#51060;&#48120;&#51648;&#47484; &#44592;&#48152;&#51004;&#47196; &#54624;&#51648; &#49444;&#51221; {&#51060;&#48120;&#51648;&#51060;&#47492;}:{&#53468;&#44536;}</span>
   MAINTAINER Foo Bar foo@bar.com <span class="org-comment-delimiter"># </span><span class="org-comment">&#44288;&#47532;&#51088; &#51221;&#48372;</span>
 
   RUN apt-get update  <span class="org-comment-delimiter"># </span><span class="org-comment">RUN&#51004;&#47196; &#49752;&#49828;&#53356;&#47549;&#53944; &#54841;&#51008; &#47749;&#47161; &#49892;&#54665;</span>
