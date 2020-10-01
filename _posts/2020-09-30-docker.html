@@ -42,6 +42,7 @@ comments: true
 <li><a href="#org9d3eba0">3.1.9.1. Docker hub</a></li>
 </ul>
 </li>
+<li><a href="#orge7dcfc7">3.1.10. <code>&lt;C-p&gt; &lt;C-q&gt;</code></a></li>
 </ul>
 </li>
 </ul>
@@ -209,7 +210,7 @@ $ docker run --gpus all -e <span class="org-variable-name">NVIDIA_VISIBLE_DEVICE
 <h2 id="org62ece60"><span class="section-number-2">3</span> Mostly used features</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-docker에는 많은 명령어들이 존재하지만 해당 섹션에서는 필자가 자주 사용하는 docker 명령어들을 위주로 정리하였다.
+docker에는 많은 명령어들이 존재하지만 해당 섹션에서는 필자가 자주 사용하는 docker 명령어들을 위주로 정리하였다. Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 로 표시하였다.
 </p>
 </div>
 <div id="outline-container-org230a391" class="outline-3">
@@ -472,6 +473,14 @@ $ docker pull edward0im/1804:scratch
 </pre>
 </div>
 </div>
+</div>
+</div>
+<div id="outline-container-orge7dcfc7" class="outline-4">
+<h4 id="orge7dcfc7"><span class="section-number-4">3.1.10</span> <code>&lt;C-p&gt; &lt;C-q&gt;</code></h4>
+<div class="outline-text-4" id="text-3-1-10">
+<p>
+docker 컨테이너를 종료하지 않은 상태로 빠져나온다. 컨테이너는 백그라운드에서 계속 실행 상태에 있으며 다시 <code>attach</code> 명령을 통해 접속할 수 있다.
+</p>
 </div>
 </div>
 </div>
