@@ -182,7 +182,7 @@ $ docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
 </pre>
 </div>
 <p>
-만약 설치 도중 <code>docker-ce</code> 의존성 에러가 나는 경우 다음 코드를 추가적으로 실행해준다. 아래 코드는 <a href="https://github.com/NVIDIA/nvidia-docker/issues/607#issuecomment-358855221">공식 github</a>에서 가져왔다.
+만약 설치 도중 <code>docker-ce</code> 의존성 에러가 나는 경우 다음 코드를 추가적으로 실행해준다. 
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -195,7 +195,7 @@ $ sudo add-apt-repository <span class="org-string">"deb [arch=amd64] https://dow
 </div>
 
 <p>
-<code>nvidia-docker</code> 명령어는 다음과 같이 <code>--gpus all</code> 을 통해 사용할 수 있다. 만약 non-cuda 이미지에서 GPU를 사용하고 싶을 경우 아래와 같은 명령어를 사용하면 된다. 출처는 <a href="https://github.com/NVIDIA/nvidia-docker/wiki/Usage#non-cuda-image">공식 github</a>이다.
+<code>nvidia-docker</code> 명령어는 다음과 같이 <code>--gpus all</code> 을 통해 사용할 수 있다. 만약 non-cuda 이미지에서 GPU를 사용하고 싶을 경우 아래와 같은 명령어를 사용하면 된다. 
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">-e NVIDIA_VISIBLE_DEVICES=all &#51012; &#51077;&#47141;&#54616;&#47732; non-CUDA &#51060;&#48120;&#51648;&#50640;&#49436;&#46020; gpu&#47484; &#49324;&#50857;&#54624; &#49688; &#51080;&#45716; &#46319;</span>
