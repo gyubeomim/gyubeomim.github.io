@@ -13,14 +13,14 @@ comments: true
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org3931fea">1. Introduction</a></li>
-<li><a href="#orgb3956f4">2. How to setup</a>
+<li><a href="#org53ef0e1">2. How to setup</a>
 <ul>
 <li><a href="#org2bbd38e">2.1. w/o sudo</a></li>
 <li><a href="#orgbc1fe7d">2.2. Bash autocompletion in docker container</a></li>
 <li><a href="#org76bdae5">2.3. Connect to the internet in docker container</a></li>
 <li><a href="#org7a40032">2.4. nvidia-docker</a>
 <ul>
-<li><a href="#org59af3b6">2.4.1. How to setup</a></li>
+<li><a href="#orgb3956f4">2.4.1. How to setup</a></li>
 <li><a href="#org508aa95">2.4.2. Usage</a></li>
 </ul>
 </li>
@@ -64,8 +64,8 @@ comments: true
 </p>
 </div>
 </div>
-<div id="outline-container-orgb3956f4" class="outline-2">
-<h2 id="orgb3956f4"><span class="section-number-2">2</span> How to setup</h2>
+<div id="outline-container-org53ef0e1" class="outline-2">
+<h2 id="org53ef0e1"><span class="section-number-2">2</span> How to setup</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Ubuntu 18.04 LTS 환경에서 docker는 다음 명령어를 통해 간단하게 설치할 수 있다.
@@ -168,8 +168,8 @@ RETURN     all  --  anywhere             anywhere
 <code>nvidia-docker</code> 는 호스트 컴퓨터에 Nvidia 드라이버가 있을 경우 컨테이너에서 GPU를 사용할 수 있도록 해주는 프로그램이다. <b>docker가 최근 19.03.5 버전부터 자체적으로 nvidia-docker 명령어를 흡수하면서 보다 간단하게 사용할 수 있게 되었다.</b>
 </p>
 </div>
-<div id="outline-container-org59af3b6" class="outline-4">
-<h4 id="org59af3b6"><span class="section-number-4">2.4.1</span> How to setup</h4>
+<div id="outline-container-orgb3956f4" class="outline-4">
+<h4 id="orgb3956f4"><span class="section-number-4">2.4.1</span> How to setup</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <ul class="org-ul">
 <li><p>
@@ -314,43 +314,17 @@ RUN set -x &amp;&amp; <span class="org-sh-escaped-newline">\</span>
     apt-get update -y -qq &amp;&amp; <span class="org-sh-escaped-newline">\</span>
     apt-get upgrade -y -qq --no-install-recommends &amp;&amp; <span class="org-sh-escaped-newline">\</span>
     : <span class="org-string">"basic dependencies"</span> &amp;&amp; <span class="org-sh-escaped-newline">\</span>
-    apt-get install -y -qq <span class="org-sh-escaped-newline">\</span>
-            build-essential <span class="org-sh-escaped-newline">\</span>
-            pkg-config <span class="org-sh-escaped-newline">\</span>
-            cmake <span class="org-sh-escaped-newline">\</span>
-            git <span class="org-sh-escaped-newline">\</span>
-            wget <span class="org-sh-escaped-newline">\</span>
-            curl <span class="org-sh-escaped-newline">\</span>
-            tar <span class="org-sh-escaped-newline">\</span>
-            unzip &amp;&amp; <span class="org-sh-escaped-newline">\</span>
+    apt-get install -y -qq build-essential pkg-config cmake git wget curl tar unzip &amp;&amp; <span class="org-sh-escaped-newline">\</span>
     : <span class="org-string">"g2o dependencies"</span> &amp;&amp; <span class="org-sh-escaped-newline">\</span>
-    apt-get install -y -qq <span class="org-sh-escaped-newline">\</span>
-            libgoogle-glog-dev <span class="org-sh-escaped-newline">\</span>
-            libatlas-base-dev <span class="org-sh-escaped-newline">\</span>
-            libsuitesparse-dev &amp;&amp; <span class="org-sh-escaped-newline">\</span>
+    apt-get install -y -qq libgoogle-glog-dev libatlas-base-dev libsuitesparse-dev &amp;&amp; <span class="org-sh-escaped-newline">\</span>
     : <span class="org-string">"OpenCV dependencies"</span> &amp;&amp; <span class="org-sh-escaped-newline">\</span>
-    apt-get install -y -qq <span class="org-sh-escaped-newline">\</span>
-            libgtk-3-dev <span class="org-sh-escaped-newline">\</span>
-            libjpeg-dev <span class="org-sh-escaped-newline">\</span>
-            libpng++-dev <span class="org-sh-escaped-newline">\</span>
-            libtiff-dev <span class="org-sh-escaped-newline">\</span>
-            libopenexr-dev <span class="org-sh-escaped-newline">\</span>
-            libwebp-dev <span class="org-sh-escaped-newline">\</span>
-            ffmpeg <span class="org-sh-escaped-newline">\</span>
-            libavcodec-dev <span class="org-sh-escaped-newline">\</span>
-            libavformat-dev <span class="org-sh-escaped-newline">\</span>
-            libavutil-dev <span class="org-sh-escaped-newline">\</span>
-            libswscale-dev <span class="org-sh-escaped-newline">\</span>
-            libavresample-dev &amp;&amp; <span class="org-sh-escaped-newline">\</span>
+    apt-get install -y -qq libgtk-3-dev libjpeg-dev libpng++-dev libtiff-dev libopenexr-dev libwebp-dev ffmpeg libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavresample-dev &amp;&amp; <span class="org-sh-escaped-newline">\</span>
     : <span class="org-string">"Pangolin dependencies"</span> &amp;&amp; <span class="org-sh-escaped-newline">\</span>
-    apt-get install -y -qq <span class="org-sh-escaped-newline">\</span>
-            libglew-dev &amp;&amp; <span class="org-sh-escaped-newline">\</span>
+    apt-get install -y -qq libglew-dev &amp;&amp; <span class="org-sh-escaped-newline">\</span>
     : <span class="org-string">"other dependencies"</span> &amp;&amp; <span class="org-sh-escaped-newline">\</span>
-    apt-get install -y -qq <span class="org-sh-escaped-newline">\</span>
-            libyaml-cpp-dev &amp;&amp; <span class="org-sh-escaped-newline">\</span>
+    apt-get install -y -qq libyaml-cpp-dev &amp;&amp; <span class="org-sh-escaped-newline">\</span>
     : <span class="org-string">"remove cache"</span> &amp;&amp; <span class="org-sh-escaped-newline">\</span>
-    apt-get autoremove -y -qq &amp;&amp; <span class="org-sh-escaped-newline">\</span>
-    rm -rf /var/lib/apt/lists/*
+    apt-get autoremove -y -qq &amp;&amp; rm -rf /var/lib/apt/lists/*
 
 ARG <span class="org-variable-name">CMAKE_INSTALL_PREFIX</span>=/usr/local
 ARG <span class="org-variable-name">NUM_THREADS</span>=7
