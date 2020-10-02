@@ -43,8 +43,9 @@ comments: true
 <li><a href="#org8ba219a">3.1.11.1. Deal with merge conflict</a></li>
 </ul>
 </li>
-<li><a href="#org9ad1317">3.1.12. <code>push</code></a></li>
-<li><a href="#orga1bb078">3.1.13. <code>pull</code></a></li>
+<li><a href="#orgcfed0e7">3.1.12. <code>clone</code></a></li>
+<li><a href="#org9ad1317">3.1.13. <code>push</code></a></li>
+<li><a href="#orga1bb078">3.1.14. <code>pull</code></a></li>
 </ul>
 </li>
 </ul>
@@ -327,9 +328,21 @@ $ git mergetool meld .  <span class="org-comment-delimiter"># </span><span class
 </div>
 </div>
 </div>
-<div id="outline-container-org9ad1317" class="outline-4">
-<h4 id="org9ad1317"><span class="section-number-4">3.1.12</span> <code>push</code></h4>
+<div id="outline-container-orgcfed0e7" class="outline-4">
+<h4 id="orgcfed0e7"><span class="section-number-4">3.1.12</span> <code>clone</code></h4>
 <div class="outline-text-4" id="text-3-1-12">
+<p align="center">
+<img src="/pictures/201002/git_clone.gif" alt="git_clone.gif" align="center">
+원격저장소를 로컬 컴퓨터에 다운로드한다. Private 저장소를 clone하는 경우 아이디와 비밀번호를 입력해야 한다. Github 뿐만 아니라 Bitbucket, Gitlab 등 다양한 저장소의 url을 입력하면 다운로드받을 수 있다.
+</p>
+<pre class="example">
+$ git clone {repository url}
+</pre>
+</div>
+</div>
+<div id="outline-container-org9ad1317" class="outline-4">
+<h4 id="org9ad1317"><span class="section-number-4">3.1.13</span> <code>push</code></h4>
+<div class="outline-text-4" id="text-3-1-13">
 <p align="center">
 <img src="/pictures/201002/git_push.gif" alt="git_push.gif" align="center">
 로컬저장소의 commit 내역을 원격저장소로 업로드한다. 일반적으로 원격저장소로 push할 때는 원격을 의미하는 origin 키워드를 붙인다.
@@ -341,8 +354,8 @@ $ git mergetool meld .  <span class="org-comment-delimiter"># </span><span class
 </div>
 </div>
 <div id="outline-container-orga1bb078" class="outline-4">
-<h4 id="orga1bb078"><span class="section-number-4">3.1.13</span> <code>pull</code></h4>
-<div class="outline-text-4" id="text-3-1-13">
+<h4 id="orga1bb078"><span class="section-number-4">3.1.14</span> <code>pull</code></h4>
+<div class="outline-text-4" id="text-3-1-14">
 <p align="center">
 <img src="/pictures/201002/git_pull.gif" alt="git_pull.gif" align="center">
 원격저장소의 commit 내역을 로컬저장소로 다운로드한다.
@@ -357,4 +370,9 @@ $ git mergetool meld .  <span class="org-comment-delimiter"># </span><span class
 </div>
 <div id="outline-container-org80ac493" class="outline-2">
 <h2 id="org80ac493"><span class="section-number-2">4</span> References</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li><a href="https://medium.com/@pks2974/%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B8%B0%EC%B4%88-git-%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0-533b3689db81">자주 사용하는 기초 Git 명령어 정리하기 - pks2974 blog</a></li>
+</ol>
+</div>
 </div>
