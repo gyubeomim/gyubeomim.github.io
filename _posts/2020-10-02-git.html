@@ -29,11 +29,7 @@ comments: true
 <li><a href="#org04c45c1">3.1.4. <code>diff</code></a></li>
 <li><a href="#orgd16fdfb">3.1.5. <code>commit</code></a></li>
 <li><a href="#org52a73ed">3.1.6. <code>log</code></a></li>
-<li><a href="#org18d7896">3.1.7. <code>branch</code></a>
-<ul>
-<li><a href="#org5b68830">3.1.7.1. Delete remote branch</a></li>
-</ul>
-</li>
+<li><a href="#org18d7896">3.1.7. <code>branch</code></a></li>
 <li><a href="#orgb631be0">3.1.8. <code>checkout</code></a></li>
 <li><a href="#org46d9f03">3.1.9. <code>reset</code></a>
 <ul>
@@ -210,7 +206,7 @@ git으로 버전관리 중인 특정 파일을 삭제한다. 터미널의 rm 명
 <div class="outline-text-4" id="text-3-1-4">
 <p align="center">
 <img src="/pictures/201002/git_diff.gif" alt="git_diff.gif" align="center">
-코드의 변경사항을 자세히 출력한다. 일반적으로 가장 이전의 commit 내역과 비교하여 현재 변경사항을 출력한다
+코드의 변경사항을 자세히 출력한다. 추가된 코드는 초록색, 제거된 코드는 빨간색으로 나타낸다. 일반적으로 가장 최근의 commit 내역과 비교하여 현재 변경사항을 출력한다
 </p>
 </div>
 </div>
@@ -246,15 +242,10 @@ branch 목록을 출력한다. <code>-d, -D</code> 옵션을 사용하는 경우
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">$ git branch  <span class="org-comment-delimiter"># </span><span class="org-comment">Show branch list.</span>
-
 $ git branch -d {branch name}   <span class="org-comment-delimiter"># </span><span class="org-comment">Delete a branch.</span>
-
 $ git branch -D {branch name}   <span class="org-comment-delimiter"># </span><span class="org-comment">Force deletion of branch.</span>
 </pre>
 </div>
-</div>
-<div id="outline-container-org5b68830" class="outline-5">
-<h5 id="org5b68830"><span class="section-number-5">3.1.7.1</span> Delete remote branch</h5>
 </div>
 </div>
 <div id="outline-container-orgb631be0" class="outline-4">
@@ -267,29 +258,30 @@ $ git branch -D {branch name}   <span class="org-comment-delimiter"># </span><sp
 
 <div class="org-src-container">
 <pre class="src src-sh">$ git checkout   <span class="org-comment-delimiter"># </span><span class="org-comment">Refresh current branch's latest commit.</span>
-
 $ git checkout {commit hash}  <span class="org-comment-delimiter"># </span><span class="org-comment">Go to specific commit history.</span>
-
 $ git checkout {branch name}  <span class="org-comment-delimiter"># </span><span class="org-comment">Go to specific branch.</span>
 </pre>
 </div>
 
 <p align="center">
 <img src="/pictures/201002/git_checkout_b.gif" alt="git_checkout_b.gif" align="center">
-또한 위와 같이 <code>-b</code> 옵션을 사용하여 새로운 branch를 생성할 수 있다.
+또한 위와 같이 <code>-b</code> 옵션을 사용하여 새로운 branch를 생성할 수 있다. <b>이 때, 새로 생성된 branch는 현재 사용중인 branch로부터 생성된다. 즉, 현재 branch의 모든 코드가 새로운 branch로 복사된다.</b>
 </p>
 </div>
 </div>
 <div id="outline-container-org46d9f03" class="outline-4">
 <h4 id="org46d9f03"><span class="section-number-4">3.1.9</span> <code>reset</code></h4>
 <div class="outline-text-4" id="text-3-1-9">
+<p>
+stage 또는 commit 내역을 복원 또는 실행취소한다.
+</p>
 </div>
 <div id="outline-container-orgb6bfa74" class="outline-5">
 <h5 id="orgb6bfa74"><span class="section-number-5">3.1.9.1</span> Revert recent commit</h5>
 <div class="outline-text-5" id="text-3-1-9-1">
 <p align="center">
 <img src="/pictures/201002/git_reset_commit.gif" alt="git_reset_commit.gif" align="center">
-commit된 변경사항을 복원한다. 즉, 이전 commit 내역으로 되돌아간다. 이 때 가장 최신 commit 내역을 <code>HEAD</code> 라고하며 <code>HEAD</code> 에서 n번째 이전의 commit 내역은 <code>HEAD~#</code> 과 같이 표현한다. #에 원하는 숫자를 넣으면 된다.
+commit된 변경사항을 취소한다. 즉, 이전 commit 내역으로 되돌아간다. 이 때 가장 최신 commit 내역을 <code>HEAD</code> 라고하며 <code>HEAD</code> 에서 n번째 이전의 commit 내역은 <code>HEAD~#</code> 과 같이 표현한다. 현재 commit 내역을 취소하고 바로 직전의 commit으로 돌아가고 싶은 경우 <code>HEAD~1</code> 을 입력하면 된다.
 </p>
 </div>
 </div>
@@ -299,7 +291,7 @@ commit된 변경사항을 복원한다. 즉, 이전 commit 내역으로 되돌�
 <div class="outline-text-5" id="text-3-1-9-2">
 <p align="center">
 <img src="/pictures/201002/git_reset_commit.gif" alt="git_reset_commit.gif" align="center">
-위와 같이 stage된 변경사항을 unstage로 변경할 수도 있다.
+위와 같이 stage된 변경사항을 unstage로 변경할 수도 있다. 가장 최근 commit 내역 (<code>HEAD</code>) 의 모든 내용을 복원하므로 이전의 모든 stage된 내역들이 취소된다.
 </p>
 </div>
 </div>
@@ -309,7 +301,7 @@ commit된 변경사항을 복원한다. 즉, 이전 commit 내역으로 되돌�
 <div class="outline-text-4" id="text-3-1-10">
 <p align="center">
 <img src="/pictures/201002/git_merge.gif" alt="git_merge.gif" align="center">
-특정 branch를 현재 branch에 병합한다. 
+특정 branch를 현재 branch에 병합한다. 특정 branch의 commit 내역들이 현재 branch에 덮어쓰기된다.
 </p>
 </div>
 </div>
