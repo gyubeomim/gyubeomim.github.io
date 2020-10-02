@@ -512,14 +512,14 @@ ENTRYPOINT [<span class="org-string">"/bin/bash"</span>]
 
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">-t(--tag) &#50741;&#49496;&#51004;&#47196; &#51060;&#48120;&#51648; &#51060;&#47492;&#44284; &#53468;&#44536;&#47484; &#49444;&#51221;&#54624; &#49688; &#51080;&#45796;. &#51060;&#48120;&#51648; &#51060;&#47492;&#47564; &#49444;&#51221;&#54616;&#47732; &#53468;&#44536;&#45716; latest&#47196; &#49444;&#51221;&#46108;&#45796;</span>
-$ docker build -t sample:0.1 -f Dockerfile .
+$ docker build -t build_test -f Dockerfile .
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">&#50500;&#47000; &#47749;&#47161;&#50612;&#47196; &#51060;&#48120;&#51648; &#47785;&#47197;&#51012; &#52636;&#47141;&#54620;&#45796;</span>
 $ docker images
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">run &#47749;&#47161;&#51012; &#53685;&#54644; &#51060;&#48120;&#51648;&#47484; &#49892;&#54665;&#54624; &#49688; &#51080;&#45796;</span>
 $ docker run <span class="org-sh-escaped-newline">\</span>
-  --name sample <span class="org-sh-escaped-newline">\</span>
+  --name test <span class="org-sh-escaped-newline">\</span>
   sample:0.1
 </pre>
 </div>
