@@ -206,8 +206,8 @@ $ sudo systemctl restart docker
 $ docker run <span class="org-sh-escaped-newline">\</span>
   --gpus all <span class="org-sh-escaped-newline">\</span>
   -it <span class="org-sh-escaped-newline">\</span>
-  --name test_gpu <span class="org-string">\ </span>      <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;= your container name here</span>
-  edward0im/1804:scratch  <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;= your docker image name here</span>
+  --name {container name} <span class="org-string">\ </span> <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;= your container name here</span>
+  {image name}               <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;= your docker image name here</span>
 </pre>
 </div>
 
@@ -220,8 +220,8 @@ $ docker run <span class="org-sh-escaped-newline">\</span>
   --gpus all <span class="org-sh-escaped-newline">\</span>
   -e <span class="org-variable-name">NVIDIA_VISIBLE_DEVICES</span>=all <span class="org-sh-escaped-newline">\</span>
   -it <span class="org-sh-escaped-newline">\</span>
-  --name test_gpu <span class="org-string">\ </span>      <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;= your container name here</span>
-  edward0im/1804:scratch  <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;= your docker image name here</span>
+  --name {container name} <span class="org-string">\ </span> <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;= your container name here</span>
+  {image name}               <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;= your docker image name here</span>
 </pre>
 </div>
 
@@ -314,8 +314,8 @@ docker에는 많은 명령어들이 존재하지만 해당 섹션에서는 필�
   --net=host <span class="org-sh-escaped-newline">\</span>
   -it <span class="org-sh-escaped-newline">\</span>
   -v ~/shared_docker:/root/shared_docker <span class="org-sh-escaped-newline">\</span>
-  --name scratch <span class="org-string">\ </span>       <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;== type your container name here.</span>
-  edward0im/1804:scratch  <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;== type your docker image here.</span>
+  --name {container name} <span class="org-string">\ </span>  <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;== type your container name here.</span>
+  {image name}                <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;== type your docker image here.</span>
 <span class="org-comment-delimiter"># </span><span class="org-comment">-i: interactive, &#54364;&#51456;&#51077;&#47141;(stdin)&#51012; &#54876;&#49457;&#54868;&#54616;&#50668; bash&#50640; &#47749;&#47161;&#51012; &#51077;&#47141;&#54620;&#45796;</span>
 <span class="org-comment-delimiter"># </span><span class="org-comment">-t: pseudo-tty, bash&#47484; &#49324;&#50857;&#54616;&#47140;&#47732; &#54644;&#45817; &#50741;&#49496;&#51012; &#49324;&#50857;&#54644;&#50556; &#54620;&#45796;</span>
 <span class="org-comment-delimiter"># </span><span class="org-comment">--net: &#52968;&#53580;&#51060;&#45320;&#51032; &#45348;&#53944;&#50892;&#53356; &#47784;&#46300;&#47484; &#49440;&#53469;&#54620;&#45796;. host&#47484; &#49324;&#50857;&#54616;&#47732; &#52968;&#53580;&#51060;&#45320; &#50504;&#50640;&#49436; &#54840;&#49828;&#53944;&#51032; &#45348;&#53944;&#50892;&#53356;&#47484; &#44536;&#45824;&#47196; &#49324;&#50857;&#54620;&#45796;</span>
@@ -330,12 +330,12 @@ docker에는 많은 명령어들이 존재하지만 해당 섹션에서는 필�
 <h4 id="org155c827"><span class="section-number-4">3.1.7</span> <code>commit</code></h4>
 <div class="outline-text-4" id="text-3-1-7">
 <p>
-현재 컨테이너의 변경사항을 이미지로 저장한다. git의 commit 명령어와 유사한 기능이다.
+현재 컨테이너의 변경사항을 이미지로 저장한다. git의 commit 명령어와 유사한 기능이다
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">scratch &#52968;&#53580;&#51060;&#45320;&#47484; edward0im/1804:scratch &#51060;&#48120;&#51648;&#47196; &#51200;&#51109;&#54620;&#45796;.</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">&#51089;&#49457;&#51088;&#45716; edward0im&#51060;&#44256; &#47700;&#49464;&#51648;&#45716; -m &#50741;&#49496;&#51012; &#53685;&#54644; &#51077;&#47141;&#54620;&#45796;.</span>
-$ docker commit -a <span class="org-string">"edward0im"</span> -m <span class="org-string">"catkin_ws installed"</span> scratch edward0im/1804:scratch
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">scratch &#52968;&#53580;&#51060;&#45320;&#47484; edward0im/1804:scratch &#51060;&#48120;&#51648;&#47196; &#51200;&#51109;&#54620;&#45796;</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#51089;&#49457;&#51088;(-a)&#45716; edward0im&#51060;&#44256; &#47700;&#49464;&#51648;(-m)&#45716; Initial commit&#51060;&#45796;</span>
+$ docker commit -a <span class="org-string">"edward0im"</span> -m <span class="org-string">"Initial commit"</span> scratch edward0im/1804:scratch
 </pre>
 </div>
 </div>
@@ -345,7 +345,7 @@ $ docker commit -a <span class="org-string">"edward0im"</span> -m <span class="o
 <h4 id="orgefef859"><span class="section-number-4">3.1.8</span> <code>build</code></h4>
 <div class="outline-text-4" id="text-3-1-8">
 <p>
-Dockerfile 파일을 이미지로 빌드한다.
+Dockerfile 파일을 이미지로 빌드한다
 </p>
 </div>
 <div id="outline-container-org73afb3e" class="outline-5">
@@ -475,7 +475,7 @@ ENTRYPOINT [<span class="org-string">"/bin/bash"</span>]
 </div>
 
 <p>
-위와 같이 Dockerfile을 작성하고 파일이 존재하는 폴더에서 다음 명령을 실행하면 빌드된다.
+위와 같이 Dockerfile을 작성하고 파일이 존재하는 폴더에서 다음 명령을 실행하면 빌드된다
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">-t(--tag) &#50741;&#49496;&#51004;&#47196; &#51060;&#48120;&#51648; &#51060;&#47492;&#44284; &#53468;&#44536;&#47484; &#49444;&#51221;&#54624; &#49688; &#51080;&#45796;. &#51060;&#48120;&#51648; &#51060;&#47492;&#47564; &#49444;&#51221;&#54616;&#47732; &#53468;&#44536;&#45716; latest&#47196; &#49444;&#51221;&#46108;&#45796;</span>
@@ -502,32 +502,24 @@ $ docker run <span class="org-sh-escaped-newline">\</span>
 <h4 id="orgfd39baa"><span class="section-number-4">3.1.9</span> <code>push, pull</code></h4>
 <div class="outline-text-4" id="text-3-1-9">
 <p>
-git의 pull, push와 동일하게 원격 hub로부터 이미지를 가져오거나 저장
+git의 pull, push와 동일하게 원격 hub로부터 이미지를 가져오거나 저장한다
 </p>
-<div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">&#50896;&#44201; dockerhub&#50640;&#49436; &#47196;&#52972;&#47196; &#53945;&#51221; &#51060;&#48120;&#51648;&#47484; &#45796;&#50868;&#47196;&#46300;</span>
-$ docker pull {image name}
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">&#47196;&#52972;&#50640;&#49436; dockerhub&#51004;&#47196; &#53945;&#51221; &#51060;&#48120;&#51648;&#47484; &#50629;&#47196;&#46300;</span>
-$ docker push {image name}
-</pre>
-</div>
 </div>
 <div id="outline-container-orgcad75ad" class="outline-5">
 <h5 id="orgcad75ad"><span class="section-number-5">3.1.9.1</span> Docker hub</h5>
 <div class="outline-text-5" id="text-3-1-9-1">
 <p>
-docker도 github처럼 저장소 사이트가 존재한다. <a href="https://hub.docker.com">해당 사이트</a>에 가입하고 Pull, Push 명령어를 통해 원격저장소와 데이터를 주고 받을 수 있다. 
+docker도 github처럼 저장소 사이트가 존재한다. <a href="https://hub.docker.com">해당 사이트</a>에 가입하고 Pull, Push 명령어를 통해 원격저장소와 데이터를 주고 받을 수 있다
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Docker hub &#44228;&#51221; &#47196;&#44536;&#51064;</span>
 $ docker login
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">&#47196;&#52972;&#50640; &#51316;&#51116;&#54616;&#45716; edward0im/1804:scratch &#51060;&#48120;&#51648;&#47484; &#50896;&#44201;&#51200;&#51109;&#49548;&#50640; Push&#54620;&#45796;</span>
-$ docker push edward0im/1804:scratch
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#47196;&#52972;&#50640; &#51316;&#51116;&#54616;&#45716; &#51060;&#48120;&#51648;&#47484; &#50896;&#44201;&#51200;&#51109;&#49548;&#50640; Push&#54620;&#45796;</span>
+$ docker push {user ID}/{image name}:{tag}    <span class="org-comment-delimiter"># </span><span class="org-comment">e.g., edward0im/1804:scratch</span>
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">&#50896;&#44201;&#50640; &#51316;&#51116;&#54616;&#45716; edward0im/1804:scratch &#51060;&#48120;&#51648;&#47484; &#47196;&#52972;&#51200;&#51109;&#49548;&#50640; Pull&#54620;&#45796;.</span>
-$ docker pull edward0im/1804:scratch
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#50896;&#44201;&#50640; &#51316;&#51116;&#54616;&#45716; &#51060;&#48120;&#51648;&#47484; &#47196;&#52972;&#51200;&#51109;&#49548;&#50640; Pull&#54620;&#45796;.</span>
+$ docker pull {user ID}/{image name}:{tag}
 </pre>
 </div>
 </div>
@@ -537,7 +529,7 @@ $ docker pull edward0im/1804:scratch
 <h4 id="orgaea77e2"><span class="section-number-4">3.1.10</span> <code>&lt;C-p&gt; &lt;C-q&gt;</code></h4>
 <div class="outline-text-4" id="text-3-1-10">
 <p>
-docker 컨테이너를 종료하지 않은 상태로 빠져나온다. 컨테이너는 백그라운드에서 계속 실행 상태에 있으며 다시 <code>attach</code> 명령을 통해 접속할 수 있다.
+docker 컨테이너를 종료하지 않은 상태로 빠져나온다. 컨테이너는 백그라운드에서 계속 실행 상태에 있으며 다시 <code>attach</code> 명령을 통해 접속할 수 있다
 </p>
 </div>
 </div>
