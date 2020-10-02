@@ -1,0 +1,115 @@
+---
+layout: post
+title: (Linux) Git 사용법 및 다양한 옵션 설명
+description: 
+date: 2020-10-02
+categories: [Technology]
+tag: [Linux, git, github]
+use_math: true
+comments: true
+---
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org1471259">1. Introduction</a></li>
+<li><a href="#org082b5ef">2. How to setup</a></li>
+<li><a href="#org9d7787f">3. Useful features</a>
+<ul>
+<li><a href="#org07ae851">3.1. commands</a>
+<ul>
+<li><a href="#orgb88c125">3.1.1. <code>add</code></a></li>
+<li><a href="#org32b88d3">3.1.2. <code>rm</code></a></li>
+<li><a href="#org6640ab0">3.1.3. <code>status</code></a></li>
+<li><a href="#orgd16fdfb">3.1.4. <code>commit</code></a></li>
+<li><a href="#org9ad1317">3.1.5. <code>push</code></a></li>
+<li><a href="#orga1bb078">3.1.6. <code>pull</code></a></li>
+<li><a href="#org04c45c1">3.1.7. <code>diff</code></a></li>
+<li><a href="#org52a73ed">3.1.8. <code>log</code></a></li>
+<li><a href="#org18d7896">3.1.9. <code>branch</code></a></li>
+<li><a href="#orgb631be0">3.1.10. <code>checkout</code></a></li>
+<li><a href="#org46d9f03">3.1.11. <code>reset</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org80ac493">4. References</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org1471259" class="outline-2">
+<h2 id="org1471259"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+
+<figure>
+<img src="/pictures/201002/02.png" alt="02.png" align="center">
+
+</figure>
+
+<p>
+본 포스트에서는 Git의 사용법 및 다양한 옵션들에 대해 설명한다. Git은 코드의 추가/변경/삭제 내역을 추적을 위해 널리 사용되는 버전관리 프로그램이다. 본 포스트에서 설명하는 모든 내용은 우분투 18.04 LTS 버전에서 정상적으로 작동하였다.
+</p>
+</div>
+</div>
+<div id="outline-container-org082b5ef" class="outline-2">
+<h2 id="org082b5ef"><span class="section-number-2">2</span> How to setup</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Ubuntu 18.04 LTS 환경에서 git는 다음 명령어를 통해 간단하게 설치할 수 있다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ sudo apt install git
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9d7787f" class="outline-2">
+<h2 id="org9d7787f"><span class="section-number-2">3</span> Useful features</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+git에는 많은 명령어들이 존재하지만 해당 섹션에서는 필자가 자주 사용하는 git 명령어들을 위주로 정리하였다. 
+</p>
+</div>
+<div id="outline-container-org07ae851" class="outline-3">
+<h3 id="org07ae851"><span class="section-number-3">3.1</span> commands</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-orgb88c125" class="outline-4">
+<h4 id="orgb88c125"><span class="section-number-4">3.1.1</span> <code>add</code></h4>
+</div>
+<div id="outline-container-org32b88d3" class="outline-4">
+<h4 id="org32b88d3"><span class="section-number-4">3.1.2</span> <code>rm</code></h4>
+</div>
+<div id="outline-container-org6640ab0" class="outline-4">
+<h4 id="org6640ab0"><span class="section-number-4">3.1.3</span> <code>status</code></h4>
+</div>
+<div id="outline-container-orgd16fdfb" class="outline-4">
+<h4 id="orgd16fdfb"><span class="section-number-4">3.1.4</span> <code>commit</code></h4>
+</div>
+<div id="outline-container-org9ad1317" class="outline-4">
+<h4 id="org9ad1317"><span class="section-number-4">3.1.5</span> <code>push</code></h4>
+</div>
+<div id="outline-container-orga1bb078" class="outline-4">
+<h4 id="orga1bb078"><span class="section-number-4">3.1.6</span> <code>pull</code></h4>
+</div>
+<div id="outline-container-org04c45c1" class="outline-4">
+<h4 id="org04c45c1"><span class="section-number-4">3.1.7</span> <code>diff</code></h4>
+</div>
+<div id="outline-container-org52a73ed" class="outline-4">
+<h4 id="org52a73ed"><span class="section-number-4">3.1.8</span> <code>log</code></h4>
+</div>
+<div id="outline-container-org18d7896" class="outline-4">
+<h4 id="org18d7896"><span class="section-number-4">3.1.9</span> <code>branch</code></h4>
+</div>
+<div id="outline-container-orgb631be0" class="outline-4">
+<h4 id="orgb631be0"><span class="section-number-4">3.1.10</span> <code>checkout</code></h4>
+</div>
+<div id="outline-container-org46d9f03" class="outline-4">
+<h4 id="org46d9f03"><span class="section-number-4">3.1.11</span> <code>reset</code></h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org80ac493" class="outline-2">
+<h2 id="org80ac493"><span class="section-number-2">4</span> References</h2>
+</div>
