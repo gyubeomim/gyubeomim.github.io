@@ -155,11 +155,12 @@ cmake의 명령어는 대소문자를 구분하지 않는다. 따라서 <code>ME
 <p>
 특정 라이브러리의 경로를 찾는다. 일반적으로 <code>find_package({package_name})</code> 과 같이 사용한다.
 </p>
-<ul class="org-ul">
-<li><code>find_package({package_name} 3.4)</code> : 특정 라이브러리의 특정 버전을 찾는다.</li>
-<li><code>find_package({package_name} REQUIRED)</code> : 해당 라이브러리를 찾지 못하면 에러를 출력하며 cmake를 종료한다.</li>
-<li><code>find_package({package_name} COMPONENTS {aaa} {bbb})</code> : 해당 라이브러리의 모든 기능들을 불러오지 않고 특정 컴포넌트들만 불러온다.</li>
-</ul>
+<div class="org-src-container">
+<pre class="src src-cmake"><span class="org-function-name">find_package</span>({package_name} 3.4)                    <span class="org-comment"># &#53945;&#51221; &#46972;&#51060;&#48652;&#47084;&#47532;&#51032; &#53945;&#51221; &#48260;&#51204;&#51012; &#52286;&#45716;&#45796;.</span>
+<span class="org-function-name">find_package</span>({package_name} REQUIRED)               <span class="org-comment"># &#54644;&#45817; &#46972;&#51060;&#48652;&#47084;&#47532;&#47484; &#52286;&#51648; &#47803;&#54616;&#47732; &#50640;&#47084;&#47484; &#52636;&#47141;&#54616;&#47728; cmake&#47484; &#51333;&#47308;&#54620;&#45796;.</span>
+<span class="org-function-name">find_package</span>({package_name} COMPONENTS {aaa} {bbb}) <span class="org-comment"># &#54644;&#45817; &#46972;&#51060;&#48652;&#47084;&#47532;&#51032; &#47784;&#46304; &#44592;&#45733;&#46308;&#51012; &#48520;&#47084;&#50724;&#51648; &#50506;&#44256; &#53945;&#51221; &#52980;&#54252;&#45324;&#53944;&#46308;&#47564; &#48520;&#47084;&#50728;&#45796;.</span>
+</pre>
+</div>
 
 <p>
 정상적으로 라이브러리를 찾는 경우 <code>${..._INCLUDE_DIRS}, ${..._LIBS}, ${..._LIBRARY}</code> 와 같은 변수에 특정 라이브러리의 경로가 저장된다.
