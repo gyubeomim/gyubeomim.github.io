@@ -23,7 +23,7 @@ comments: true
 </li>
 <li><a href="#org62ece60">3. Mostly used features</a>
 <ul>
-<li><a href="#org230a391">3.1. commands</a>
+<li><a href="#orgf74ac15">3.1. Commands</a>
 <ul>
 <li><a href="#org4017c37">3.1.1. <code>ps</code></a></li>
 <li><a href="#org5b2c3f0">3.1.2. <code>images</code></a></li>
@@ -263,9 +263,13 @@ $ docker run <span class="org-sh-escaped-newline">\</span>
 <p>
 docker에는 많은 명령어들이 존재하지만 해당 섹션에서는 필자가 자주 사용하는 docker 명령어들을 위주로 정리하였다. Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 로 표시하였다.
 </p>
+
+<p>
+명령어 설명에 앞서서 docker의 용어에 대해 간단히 설명해보면 <code>이미지(=Image)</code> 는 docker에서 일종의 <b>실행프로그램(.exe)</b> 로 볼 수 있다. 이미지는 Dockerfile이라는 파일을 사용하여 빌드할 수 있으며 빌드한 후에도 commit 명령어를 통해 변경사항을 업데이트할 수 있다. <code>이미지</code> 를 실행하면 이를 <code>컨테이너(Container)</code> 라고 하는데 컨테이너는 <b>실행프로그램(.exe)</b> 이 실행된 <b>프로세스(process)</b> 로 생각하면 된다. <code>컨테이너</code> 에서 수행하는 작업은 <code>이미지</code> 에 영향을 미치지 않지만 추후 commit을 통해 이미지에 변경사항을 적용할 수 있다. 
+</p>
 </div>
-<div id="outline-container-org230a391" class="outline-3">
-<h3 id="org230a391"><span class="section-number-3">3.1</span> commands</h3>
+<div id="outline-container-orgf74ac15" class="outline-3">
+<h3 id="orgf74ac15"><span class="section-number-3">3.1</span> Commands</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
 <div id="outline-container-org4017c37" class="outline-4">
