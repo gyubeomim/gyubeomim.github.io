@@ -242,7 +242,7 @@ docker에는 많은 명령어들이 존재하지만 해당 섹션에서는 필�
 <h4 id="org04a91a7"><span class="section-number-4">3.1.1</span> <code>rm</code></h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
-특정 컨테이너 삭제
+특정 컨테이너를 제거한다. 현재 실행중인 컨에티너는 지울 수 없다
 </p>
 </div>
 </div>
@@ -250,7 +250,7 @@ docker에는 많은 명령어들이 존재하지만 해당 섹션에서는 필�
 <h4 id="orge89772b"><span class="section-number-4">3.1.2</span> <code>rmi</code></h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p>
-특정 이미지 삭제
+특정 이미지를 제거한다. 현재 실행중인 컨테이너가 의존하는 이미지는 지울 수 없다
 </p>
 </div>
 </div>
@@ -258,7 +258,7 @@ docker에는 많은 명령어들이 존재하지만 해당 섹션에서는 필�
 <h4 id="org52b434a"><span class="section-number-4">3.1.3</span> <code>ps</code></h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
-현재 실행 중인 컨테이너 목록 검색
+현재 실행 중인 컨테이너 목록을 검색한다
 </p>
 </div>
 </div>
@@ -266,7 +266,7 @@ docker에는 많은 명령어들이 존재하지만 해당 섹션에서는 필�
 <h4 id="orgd993110"><span class="section-number-4">3.1.4</span> <code>images</code></h4>
 <div class="outline-text-4" id="text-3-1-4">
 <p>
-이미지 목록 검색
+시스템에 설치된 이미지 목록을 검색한다
 </p>
 </div>
 </div>
@@ -274,54 +274,61 @@ docker에는 많은 명령어들이 존재하지만 해당 섹션에서는 필�
 <h4 id="orgc6effb8"><span class="section-number-4">3.1.5</span> <code>attach</code></h4>
 <div class="outline-text-4" id="text-3-1-5">
 <p>
-현재 실행 중인 컨테이너에 접속
+현재 실행 중인 컨테이너에 접속한다
 </p>
 </div>
 </div>
+
 <div id="outline-container-orgd97e625" class="outline-4">
 <h4 id="orgd97e625"><span class="section-number-4">3.1.6</span> <code>run</code></h4>
 <div class="outline-text-4" id="text-3-1-6">
 <p>
-이미지를 컨테이너로 실행
+이미지를 컨테이너로 실행한다. 일반적으로 <code>run</code> 명령어는 많은 옵션이 존재하기 때문에 터미널에서 실행하지 않고 쉘스크립트로 작성한 다음 실행한다. 아래는 필자가 사용하는 <code>run</code> 옵션의 예시이다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">docker run&#51008; &#53552;&#48120;&#45328;&#50640;&#49436; &#48148;&#47196; &#49892;&#54665;&#54616;&#44592;&#48372;&#45796; &#48372;&#53685; shell script (.sh) &#54028;&#51068;&#47196; &#51200;&#51109;&#54616;&#50668; &#54620; &#48264;&#50640; &#49892;&#54665;&#54620;&#45796;.</span>
-$ docker run -it --name ros -v ~/docker:/root/data edward0im/1804:scratch
-$ docker run -i -t --name hello ubuntu:18.04 /bin/bash
-$ docker run -i --net host --name hello -t ubuntu:18.04 /bin/bash
-<span class="org-comment-delimiter"># </span><span class="org-comment">i : interactive</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">t : pseudo-tty</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">--net :</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">--name : &#51060;&#47492;</span>
+<pre class="src src-sh">$ docker run <span class="org-sh-escaped-newline">\</span>
+  --net=host <span class="org-sh-escaped-newline">\</span>
+  -it <span class="org-sh-escaped-newline">\</span>
+  -v ~/shared_docker:/root/shared_docker <span class="org-sh-escaped-newline">\</span>
+  --name scratch <span class="org-string">\ </span>       <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;== type your container name here.</span>
+  edward0im/1804:scratch  <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;== type your docker image here.</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">-i: interactive, &#54364;&#51456;&#51077;&#47141;(stdin)&#51012; &#54876;&#49457;&#54868;&#54616;&#50668; bash&#50640; &#47749;&#47161;&#51012; &#51077;&#47141;&#54620;&#45796;</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">-t: pseudo-tty, bash&#47484; &#49324;&#50857;&#54616;&#47140;&#47732; &#54644;&#45817; &#50741;&#49496;&#51012; &#49324;&#50857;&#54644;&#50556; &#54620;&#45796;</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">--net: &#52968;&#53580;&#51060;&#45320;&#51032; &#45348;&#53944;&#50892;&#53356; &#47784;&#46300;&#47484; &#49440;&#53469;&#54620;&#45796;. host&#47484; &#49324;&#50857;&#54616;&#47732; &#52968;&#53580;&#51060;&#45320; &#50504;&#50640;&#49436; &#54840;&#49828;&#53944;&#51032; &#45348;&#53944;&#50892;&#53356;&#47484; &#44536;&#45824;&#47196; &#49324;&#50857;&#54620;&#45796;</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">-v: &#54840;&#49828;&#53944;&#51032; &#46356;&#47113;&#53664;&#47532;&#50752; &#44277;&#50976;&#54624; &#46356;&#47113;&#53664;&#47532;&#47484; &#51077;&#47141;&#54620;&#45796; {host directory}:{docker directory}</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">--name : &#52968;&#53580;&#51060;&#45320;&#51032; &#51060;&#47492;&#51012; &#49444;&#51221;&#54620;&#45796;</span>
 </pre>
 </div>
 </div>
 </div>
+
 <div id="outline-container-org155c827" class="outline-4">
 <h4 id="org155c827"><span class="section-number-4">3.1.7</span> <code>commit</code></h4>
 <div class="outline-text-4" id="text-3-1-7">
 <p>
-현재 컨테이너의 변경사항을 이미지로 저장
+현재 컨테이너의 변경사항을 이미지로 저장한다. git의 commit 명령어와 유사한 기능이다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">scratch &#52968;&#53580;&#51060;&#45320;&#47484; edward0im/1804:scratch &#51060;&#48120;&#51648;&#47196; &#51200;&#51109;&#54620;&#45796;. &#51089;&#49457;&#51088;&#45716; edward0im&#51060;&#44256; &#47700;&#49464;&#51648;&#45716; -m &#50741;&#49496;&#51012; &#53685;&#54644; &#51077;&#47141;&#54620;&#45796;.</span>
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">scratch &#52968;&#53580;&#51060;&#45320;&#47484; edward0im/1804:scratch &#51060;&#48120;&#51648;&#47196; &#51200;&#51109;&#54620;&#45796;.</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#51089;&#49457;&#51088;&#45716; edward0im&#51060;&#44256; &#47700;&#49464;&#51648;&#45716; -m &#50741;&#49496;&#51012; &#53685;&#54644; &#51077;&#47141;&#54620;&#45796;.</span>
 $ docker commit -a <span class="org-string">"edward0im"</span> -m <span class="org-string">"catkin_ws installed"</span> scratch edward0im/1804:scratch
 </pre>
 </div>
 </div>
 </div>
+
 <div id="outline-container-orgefef859" class="outline-4">
 <h4 id="orgefef859"><span class="section-number-4">3.1.8</span> <code>build</code></h4>
 <div class="outline-text-4" id="text-3-1-8">
 <p>
-Dockerfile 파일을 이미지로 생성한다.
+Dockerfile 파일을 이미지로 빌드한다.
 </p>
 </div>
 <div id="outline-container-org73afb3e" class="outline-5">
 <h5 id="org73afb3e"><span class="section-number-5">3.1.8.1</span> Dockerfile</h5>
 <div class="outline-text-5" id="text-3-1-8-1">
 <p>
-Dockerfile 파일은 docker 이미지를 생성할 수 있는 파일이다. Dockerfile의 문법에 맞춰서 작성하면 <code>build</code> 명령을 통해 원하는 이미지를 만들 수 있다. 아래는 필자가 사용하는 Dockerfile 파일 중 하나로써 Ubuntu 18.04와 ROS를 자동으로 설치해준다.
+Dockerfile 파일은 docker 이미지를 빌드할 수 있는 파일이다. Dockerfile의 문법에 맞춰서 작성하면 <code>build</code> 명령을 통해 원하는 이미지를 만들 수 있다. 아래는 필자가 사용하는 Dockerfile 파일 중 하나로써 Ubuntu 18.04와 ROS를 자동으로 설치해준다.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">this Dockerfile creates an Ubuntu 18.04 environment with ROS melodic.</span>
@@ -447,16 +454,18 @@ ENTRYPOINT [<span class="org-string">"/bin/bash"</span>]
 위와 같이 Dockerfile을 작성하고 파일이 존재하는 폴더에서 다음 명령을 실행하면 빌드된다.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$ docker build -t sample:0.1 -f Dockerfile .
-<span class="org-comment-delimiter"># </span><span class="org-comment">-t(--tag) &#50741;&#49496;&#51004;&#47196; &#51060;&#48120;&#51648; &#51060;&#47492;&#44284; &#53468;&#44536;&#47484; &#49444;&#51221;&#54624; &#49688; &#51080;&#45796;. &#51060;&#48120;&#51648; &#51060;&#47492;&#47564; &#49444;&#51221;&#54616;&#47732; &#53468;&#44536;&#45716; latest&#47196; &#49444;&#51221;&#46108;&#45796;.</span>
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">-t(--tag) &#50741;&#49496;&#51004;&#47196; &#51060;&#48120;&#51648; &#51060;&#47492;&#44284; &#53468;&#44536;&#47484; &#49444;&#51221;&#54624; &#49688; &#51080;&#45796;. &#51060;&#48120;&#51648; &#51060;&#47492;&#47564; &#49444;&#51221;&#54616;&#47732; &#53468;&#44536;&#45716; latest&#47196; &#49444;&#51221;&#46108;&#45796;</span>
+$ docker build -t sample:0.1 -f Dockerfile .
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">&#51104;&#49884; &#44592;&#45796;&#47532;&#47732; &#51060;&#48120;&#51648;&#44032; &#49373;&#49457;&#46108;&#45796;. &#50500;&#47000; &#47749;&#47161;&#50612;&#47196; &#51060;&#48120;&#51648; &#47785;&#47197;&#51012; &#52636;&#47141;&#54620;&#45796;.</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#50500;&#47000; &#47749;&#47161;&#50612;&#47196; &#51060;&#48120;&#51648; &#47785;&#47197;&#51012; &#52636;&#47141;&#54620;&#45796;</span>
 $ docker images
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">run &#47749;&#47161;&#51012; &#53685;&#54644; &#51060;&#48120;&#51648;&#47484; &#49892;&#54665;&#54624; &#49688; &#51080;&#45796;.</span>
-$ docker run --name sample -d -p 80:80 -v /root/data:/data sample:0.1
-<span class="org-comment-delimiter"># </span><span class="org-comment">&#51088;&#49464;&#54620; &#50741;&#49496;&#46308;&#51032; &#51032;&#48120;&#45716; &#45796;&#51020;&#44284; &#44057;&#45796;.</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">-d : &#52968;&#53580;&#51060;&#45320;&#47484; &#48177;&#44536;&#46972;&#50868;&#46300;&#47196; &#49892;&#54665;</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">run &#47749;&#47161;&#51012; &#53685;&#54644; &#51060;&#48120;&#51648;&#47484; &#49892;&#54665;&#54624; &#49688; &#51080;&#45796;</span>
+$ docker run <span class="org-sh-escaped-newline">\</span>
+  -p 80:80 <span class="org-sh-escaped-newline">\</span>
+  -v /root/data:/data <span class="org-sh-escaped-newline">\</span>
+  --name sample <span class="org-sh-escaped-newline">\</span>
+  sample:0.1
 <span class="org-comment-delimiter"># </span><span class="org-comment">-p 80:80 : &#54840;&#49828;&#53944;&#51032; 80&#48264; &#54252;&#53944;&#50752; &#52968;&#53580;&#51060;&#45320;&#51032; 80&#48264; &#54252;&#53944;&#47484; &#50672;&#44208;&#54616;&#44256; &#50808;&#48512;&#50640; &#45432;&#52636;</span>
 <span class="org-comment-delimiter"># </span><span class="org-comment">-v /root/data:/data : &#54840;&#49828;&#53944;&#51032; /root/data &#46356;&#47113;&#53664;&#47532;&#47484; &#52968;&#53580;&#51060;&#45320;&#51032; /data &#46356;&#47113;&#53664;&#47532;&#50640; &#50672;&#44208;</span>
 </pre>
@@ -464,6 +473,7 @@ $ docker run --name sample -d -p 80:80 -v /root/data:/data sample:0.1
 </div>
 </div>
 </div>
+
 <div id="outline-container-orgfd39baa" class="outline-4">
 <h4 id="orgfd39baa"><span class="section-number-4">3.1.9</span> <code>push, pull</code></h4>
 <div class="outline-text-4" id="text-3-1-9">
@@ -471,8 +481,11 @@ $ docker run --name sample -d -p 80:80 -v /root/data:/data sample:0.1
 git의 pull, push와 동일하게 원격 hub로부터 이미지를 가져오거나 저장
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">&#50896;&#44201; dockerhub&#50640;&#49436; &#53945;&#51221; &#51060;&#48120;&#51648;&#47484; &#48155;&#50500;&#50740;</span>
-$ docker pull ubuntu:18.04
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">&#50896;&#44201; dockerhub&#50640;&#49436; &#47196;&#52972;&#47196; &#53945;&#51221; &#51060;&#48120;&#51648;&#47484; &#45796;&#50868;&#47196;&#46300;</span>
+$ docker pull {image name}
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#47196;&#52972;&#50640;&#49436; dockerhub&#51004;&#47196; &#53945;&#51221; &#51060;&#48120;&#51648;&#47484; &#50629;&#47196;&#46300;</span>
+$ docker push {image name}
 </pre>
 </div>
 </div>
@@ -513,6 +526,7 @@ docker 컨테이너를 종료하지 않은 상태로 빠져나온다. 컨테이�
 <li><a href="https://www.slideshare.net/pyrasis/docker-fordummies-44424016">도커 무작정 따라하기</a></li>
 <li><a href="https://ykarma1996.tistory.com/92">docker 컨테이너에서 GPU 사용 - ykarma1996 blog</a></li>
 <li><a href="https://blog.neonkid.xyz/87">Docker 네트워크 구성과 설정 - neonkid blog</a></li>
+<li><a href="http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter20/28">가장 빨리 만나는 Docker 20장, 28. run - pyrasis blog</a></li>
 </ol>
 </div>
 </div>
