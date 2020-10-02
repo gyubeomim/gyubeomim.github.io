@@ -16,6 +16,7 @@ comments: true
 <li><a href="#org082b5ef">2. How to setup</a>
 <ul>
 <li><a href="#org565164c">2.1. Make a new local git project</a></li>
+<li><a href="#org731c356">2.2. Show git branch in bash terminal</a></li>
 </ul>
 </li>
 <li><a href="#org9d7787f">3. Useful features</a>
@@ -115,6 +116,45 @@ $ git init
 </p>
 </div>
 </div>
+
+<div id="outline-container-org731c356" class="outline-3">
+<h3 id="org731c356"><span class="section-number-3">2.2</span> Show git branch in bash terminal</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<figure>
+<img src="/pictures/201002/04.png" alt="04.png" align="center">
+
+</figure>
+
+<p>
+해당 섹션에서는 터미널에서 작업할 때 프롬프트(PS1)에 git branch가 같이 출력되도록 하는 방법에 대해 설명한다. ~/.bashrc 파일을 열고 맨 마지막 라인에 아래 코드를 추가한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">In ~/.bashrc</span>
+<span class="org-function-name">parse_git_branch</span>() {
+    git branch 2&gt; /dev/null | sed -e <span class="org-string">'/^[^*]/d'</span> -e <span class="org-string">'s/* \(.*\)/ \1/'</span>
+}
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">define colors</span>
+<span class="org-variable-name">C_DEFAULT</span>=<span class="org-string">"\[\033[m\]"</span>
+<span class="org-variable-name">C_YELLOW_NOBOLD</span>=<span class="org-string">"\[\033[0;33m\]"</span>
+<span class="org-variable-name">C_LIGHTRED</span>=<span class="org-string">"\[\033[1;31m\]"</span>
+<span class="org-variable-name">C_LIGHTCYAN</span>=<span class="org-string">"\[\033[1;36m\]"</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">w/ username</span>
+<span class="org-variable-name">PS1</span>=<span class="org-string">"${C_LIGHTRED}(user)${C_LIGHTCYAN}\w${C_YELLOW_NOBOLD}\$(</span><span class="org-sh-quoted-exec">parse_git_branch</span><span class="org-string">)${C_DEFAULT}\$ "</span>
+</pre>
+</div>
+
+<p>
+~/.bashrc 파일을 저장하고 다음 명령을 적용하면 정상적으로 git 프로젝트에 위치했을 때 branch가 표시된다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ source ~/.bashrc
+</pre>
+</div>
+</div>
+</div>
 </div>
 
 <div id="outline-container-org9d7787f" class="outline-2">
@@ -124,6 +164,7 @@ $ git init
 git에는 많은 명령어들이 존재하지만 해당 섹션에서는 필자가 자주 사용하는 git 명령어들을 위주로 정리하였다. 
 </p>
 </div>
+
 <div id="outline-container-org38d15df" class="outline-3">
 <h3 id="org38d15df"><span class="section-number-3">3.1</span> Commands</h3>
 <div class="outline-text-3" id="text-3-1">
