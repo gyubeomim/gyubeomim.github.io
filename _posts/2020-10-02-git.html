@@ -20,7 +20,7 @@ comments: true
 </li>
 <li><a href="#org9d7787f">3. Useful features</a>
 <ul>
-<li><a href="#org07ae851">3.1. commands</a>
+<li><a href="#org38d15df">3.1. Commands</a>
 <ul>
 <li><a href="#org6640ab0">3.1.1. <code>status</code></a></li>
 <li><a href="#orgb88c125">3.1.2. <code>add</code></a></li>
@@ -28,12 +28,25 @@ comments: true
 <li><a href="#org04c45c1">3.1.4. <code>diff</code></a></li>
 <li><a href="#orgd16fdfb">3.1.5. <code>commit</code></a></li>
 <li><a href="#org52a73ed">3.1.6. <code>log</code></a></li>
-<li><a href="#org18d7896">3.1.7. <code>branch</code></a></li>
+<li><a href="#org18d7896">3.1.7. <code>branch</code></a>
+<ul>
+<li><a href="#org5b68830">3.1.7.1. Delete remote branch</a></li>
+</ul>
+</li>
 <li><a href="#orgb631be0">3.1.8. <code>checkout</code></a></li>
-<li><a href="#org46d9f03">3.1.9. <code>reset</code></a></li>
+<li><a href="#org46d9f03">3.1.9. <code>reset</code></a>
+<ul>
+<li><a href="#org93b6077">3.1.9.1. Revert previous commit</a></li>
+</ul>
+</li>
 <li><a href="#org39b03ad">3.1.10. <code>merge</code></a></li>
-<li><a href="#org9ad1317">3.1.11. <code>push</code></a></li>
-<li><a href="#orga1bb078">3.1.12. <code>pull</code></a></li>
+<li><a href="#orgc10c270">3.1.11. <code>mergetool</code></a>
+<ul>
+<li><a href="#org8ba219a">3.1.11.1. Deal with merge conflict</a></li>
+</ul>
+</li>
+<li><a href="#org9ad1317">3.1.12. <code>push</code></a></li>
+<li><a href="#orga1bb078">3.1.13. <code>pull</code></a></li>
 </ul>
 </li>
 </ul>
@@ -110,8 +123,8 @@ $ git init
 git에는 많은 명령어들이 존재하지만 해당 섹션에서는 필자가 자주 사용하는 git 명령어들을 위주로 정리하였다. 
 </p>
 </div>
-<div id="outline-container-org07ae851" class="outline-3">
-<h3 id="org07ae851"><span class="section-number-3">3.1</span> commands</h3>
+<div id="outline-container-org38d15df" class="outline-3">
+<h3 id="org38d15df"><span class="section-number-3">3.1</span> Commands</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
 <div id="outline-container-org6640ab0" class="outline-4">
@@ -198,6 +211,9 @@ $ git branch -D {branch name}   <span class="org-comment-delimiter"># </span><sp
 </pre>
 </div>
 </div>
+<div id="outline-container-org5b68830" class="outline-5">
+<h5 id="org5b68830"><span class="section-number-5">3.1.7.1</span> Delete remote branch</h5>
+</div>
 </div>
 <div id="outline-container-orgb631be0" class="outline-4">
 <h4 id="orgb631be0"><span class="section-number-4">3.1.8</span> <code>checkout</code></h4>
@@ -223,6 +239,9 @@ $ git checkout {branch name}  <span class="org-comment-delimiter"># </span><span
 stage 또는 commit된 변경사항을 복원한다
 </p>
 </div>
+<div id="outline-container-org93b6077" class="outline-5">
+<h5 id="org93b6077"><span class="section-number-5">3.1.9.1</span> Revert previous commit</h5>
+</div>
 </div>
 <div id="outline-container-org39b03ad" class="outline-4">
 <h4 id="org39b03ad"><span class="section-number-4">3.1.10</span> <code>merge</code></h4>
@@ -232,9 +251,17 @@ stage 또는 commit된 변경사항을 복원한다
 </p>
 </div>
 </div>
-<div id="outline-container-org9ad1317" class="outline-4">
-<h4 id="org9ad1317"><span class="section-number-4">3.1.11</span> <code>push</code></h4>
+<div id="outline-container-orgc10c270" class="outline-4">
+<h4 id="orgc10c270"><span class="section-number-4">3.1.11</span> <code>mergetool</code></h4>
 <div class="outline-text-4" id="text-3-1-11">
+</div>
+<div id="outline-container-org8ba219a" class="outline-5">
+<h5 id="org8ba219a"><span class="section-number-5">3.1.11.1</span> Deal with merge conflict</h5>
+</div>
+</div>
+<div id="outline-container-org9ad1317" class="outline-4">
+<h4 id="org9ad1317"><span class="section-number-4">3.1.12</span> <code>push</code></h4>
+<div class="outline-text-4" id="text-3-1-12">
 <p>
 로컬저장소의 commit 내역을 원격저장소로 업로드한다. 일반적으로 원격저장소로 push할 때는 원격을 의미하는 origin 키워드를 붙인다.
 </p>
@@ -245,8 +272,8 @@ stage 또는 commit된 변경사항을 복원한다
 </div>
 </div>
 <div id="outline-container-orga1bb078" class="outline-4">
-<h4 id="orga1bb078"><span class="section-number-4">3.1.12</span> <code>pull</code></h4>
-<div class="outline-text-4" id="text-3-1-12">
+<h4 id="orga1bb078"><span class="section-number-4">3.1.13</span> <code>pull</code></h4>
+<div class="outline-text-4" id="text-3-1-13">
 <p>
 원격저장소의 commit 내역을 로컬저장소로 다운로드한다.
 </p>
