@@ -1,13 +1,3 @@
----
-layout: post
-title: (Linux) Docker 사용법 및 다양한 옵션 설명
-description: 
-date: 2020-09-30
-categories: [Technology]
-tag: [Linux, Docker]
-use_math: true
-comments: true
----
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -51,12 +41,25 @@ comments: true
 </ul>
 </div>
 </nav>
-
+---
+layout: post
+title: (Linux) Docker 사용법 및 다양한 옵션 설명
+description: 
+date: 2020-09-30
+categories: [Technology]
+tag: [Linux, Docker]
+use_math: true
+comments: true
+---
 <div id="outline-container-org2af43e8" class="outline-2">
 <h2 id="org2af43e8"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-본 포스트에서는 Docker의 사용법 및 다양한 옵션들에 대해 설명한다. Docker는 컨테이너라는 가상의 이미지를 생성하여 메인 운영체제 시스템과 리소스는 공유하지만 버전에 독립적인 프로그램을 돌릴 수 있는 가상화 프로그램이다. 리눅스를 사용하면서 버전 문제로 인해 빌드에 실패해 본 경험이 있는 사용자들에게 Docker를 추천한다. 본 포스트에서 설명하는 모든 내용은 우분투 18.04 LTS 버전에서 정상적으로 작동하였다.
+본 포스트에서는 Docker의 사용법 및 다양한 옵션들에 대해 설명한다. Docker는 컨테이너라는 가상의 이미지를 생성하여 메인 운영체제 시스템과 리소스는 공유하지만 버전에 독립적인 프로그램을 돌릴 수 있는 가상화 프로그램이다. 리눅스를 사용하면서 버전 문제로 인해 빌드에 실패해 본 경험이 있는 사용자들에게 Docker를 추천한다.
+</p>
+
+<p>
+본 포스트에서 설명하는 모든 내용은 우분투 18.04 LTS 버전에서 정상적으로 작동하였으며 사용한 docker의 버전은 <code>19.03.06</code> 버전이다.
 </p>
 </div>
 </div>
@@ -170,46 +173,54 @@ RETURN     all  --  anywhere             anywhere
 <h3 id="orgeed4007"><span class="section-number-3">2.4</span> nvidia-docker</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
-<code>nvidia-docker</code> 는 호스트 컴퓨터에 Nvidia 드라이버가 있을 경우 컨테이너에서 GPU를 사용할 수 있도록 해주는 프로그램이다. <b>docker가 최근 19.03.5 버전부터 자체적으로 nvidia-docker 명령어를 흡수하면서 <code>--gpus</code> 옵션으로 보다 간단하게 사용할 수 있게 되었다.</b>
+<code>nvidia-docker</code> 는 호스트 컴퓨터에 Nvidia 드라이버가 있을 경우 컨테이너에서 GPU를 사용할 수 있도록 해주는 프로그램이다. <b>2019년 하반기에 업데이트된 docker 19.03.5 버전부터 자체적으로 nvidia-docker 명령어를 흡수하면서 <code>--gpus</code> 옵션으로 보다 간단하게 사용할 수 있게 되었다.</b> <code>--gpus</code> 옵션을 사용하기 위해서는 <code>nvidia-container-runtime</code> 이라는 프로그램을 설치해야 한다.
 </p>
 
-<p>
-자세한 내용은 <a href="https://github.com/NVIDIA/nvidia-docker">공식 github</a>에 소개되어 있다.
-</p>
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Add the package repositories</span>
-$ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+<pre class="src src-sh">$ curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey |  sudo apt-key add -
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">distribution is ubuntu18.04</span>
 $ <span class="org-variable-name">distribution</span>=$(. /etc/os-release;<span class="org-builtin">echo</span> $<span class="org-variable-name">ID</span>$<span class="org-variable-name">VERSION_ID</span>)
-$ curl -s -L https://nvidia.github.io/nvidia-docker/$<span class="org-variable-name">distribution</span>/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+$ curl -s -L https://nvidia.github.io/nvidia-container-runtime/$<span class="org-variable-name">distribution</span>/nvidia-container-runtime.list | sudo tee /etc/apt/sources.list.d/nvidia-container-runtime.list
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Install nvidia-container-runtime</span>
 $ sudo apt update
+$ sudo apt install nvidia-container-runtime
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">Install nvidia-docker2 and reload the Docker daemon configuration</span>
-$ sudo apt install -y nvidia-docker2
-$ sudo pkill -SIGHUP dockerd
+<span class="org-comment-delimiter"># </span><span class="org-comment">Check it's installed successfully.</span>
+$ nvidia-container-runtime-hook --help
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">Test nvidia-smi with the latest official CUDA image</span>
-$ docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
-</pre>
-</div>
-<p>
-만약 설치 도중 <code>docker-ce</code> 의존성 에러가 나는 경우 다음 코드를 추가적으로 실행해준다. 
-</p>
-<div class="org-src-container">
-<pre class="src src-sh">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-$ sudo apt-key fingerprint 0EBFCD88
-$ sudo add-apt-repository <span class="org-string">"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable</span>
-<span class="org-string">$ sudo apt update</span>
-<span class="org-string">$ sudo apt install docker-ce</span>
-<span class="org-string">$ sudo service docker restart</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Restart docker daemon.</span>
+$ sudo systemctl restart docker
 </pre>
 </div>
 
 <p>
-<code>nvidia-docker</code> 명령어는 다음과 같이 <code>--gpus all</code> 을 통해 사용할 수 있다. 만약 non-cuda 이미지에서 GPU를 사용하고 싶을 경우 아래와 같은 명령어를 사용하면 된다. 
+정상적으로 <code>nvidia-container-runtime</code> 이 설치한 후 docker 서비스를 재시작하였다면 다음과 같이 <code>--gpus all</code> 을 통해 호스트 컴퓨터의 GPU를 사용할 수 있다.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">-e NVIDIA_VISIBLE_DEVICES=all &#51012; &#51077;&#47141;&#54616;&#47732; non-CUDA &#51060;&#48120;&#51648;&#50640;&#49436;&#46020; gpu&#47484; &#49324;&#50857;&#54624; &#49688; &#51080;&#45796;.</span>
+$ docker run <span class="org-sh-escaped-newline">\</span>
+  --gpus all <span class="org-sh-escaped-newline">\</span>
+  -it <span class="org-sh-escaped-newline">\</span>
+  --name test_gpu <span class="org-string">\ </span>      <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;= your container name here</span>
+  edward0im/1804:scratch  <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;= your docker image name here</span>
+</pre>
+</div>
+
+<p>
+만약 non-cuda 이미지에서 GPU를 사용하고 싶을 경우 아래와 같은 명령어를 사용하면 된다. 
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">-e NVIDIA_VISIBLE_DEVICES=all &#51012; &#51077;&#47141;&#54616;&#47732; non-CUDA &#51060;&#48120;&#51648;&#50640;&#49436;&#46020; gpu&#47484; &#49324;&#50857;&#54624; &#49688; &#51080;&#45716; &#46319;</span>
-$ docker run --gpus all -e <span class="org-variable-name">NVIDIA_VISIBLE_DEVICES</span>=all -it --name ros_nvidia2 edward0im/1804:scratch
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">-e NVIDIA_VISIBLE_DEVICES=all &#51012; &#51077;&#47141;&#54616;&#47732; non-CUDA &#51060;&#48120;&#51648;&#50640;&#49436;&#46020; gpu&#47484; &#49324;&#50857;&#54624; &#49688; &#51080;&#45796;.</span>
+$ docker run <span class="org-sh-escaped-newline">\</span>
+  --gpus all <span class="org-sh-escaped-newline">\</span>
+  -e <span class="org-variable-name">NVIDIA_VISIBLE_DEVICES</span>=all <span class="org-sh-escaped-newline">\</span>
+  -it <span class="org-sh-escaped-newline">\</span>
+  --name test_gpu <span class="org-string">\ </span>      <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;= your container name here</span>
+  edward0im/1804:scratch  <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;= your docker image name here</span>
 </pre>
 </div>
 </div>
