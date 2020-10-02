@@ -13,22 +13,27 @@ comments: true
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org1471259">1. Introduction</a></li>
-<li><a href="#org082b5ef">2. How to setup</a></li>
+<li><a href="#org082b5ef">2. How to setup</a>
+<ul>
+<li><a href="#org565164c">2.1. Make a new local git project</a></li>
+</ul>
+</li>
 <li><a href="#org9d7787f">3. Useful features</a>
 <ul>
 <li><a href="#org07ae851">3.1. commands</a>
 <ul>
-<li><a href="#orgb88c125">3.1.1. <code>add</code></a></li>
-<li><a href="#org32b88d3">3.1.2. <code>rm</code></a></li>
-<li><a href="#org6640ab0">3.1.3. <code>status</code></a></li>
-<li><a href="#orgd16fdfb">3.1.4. <code>commit</code></a></li>
-<li><a href="#org9ad1317">3.1.5. <code>push</code></a></li>
-<li><a href="#orga1bb078">3.1.6. <code>pull</code></a></li>
-<li><a href="#org04c45c1">3.1.7. <code>diff</code></a></li>
-<li><a href="#org52a73ed">3.1.8. <code>log</code></a></li>
-<li><a href="#org18d7896">3.1.9. <code>branch</code></a></li>
-<li><a href="#orgb631be0">3.1.10. <code>checkout</code></a></li>
-<li><a href="#org46d9f03">3.1.11. <code>reset</code></a></li>
+<li><a href="#org6640ab0">3.1.1. <code>status</code></a></li>
+<li><a href="#orgb88c125">3.1.2. <code>add</code></a></li>
+<li><a href="#org32b88d3">3.1.3. <code>rm</code></a></li>
+<li><a href="#org04c45c1">3.1.4. <code>diff</code></a></li>
+<li><a href="#orgd16fdfb">3.1.5. <code>commit</code></a></li>
+<li><a href="#org52a73ed">3.1.6. <code>log</code></a></li>
+<li><a href="#org18d7896">3.1.7. <code>branch</code></a></li>
+<li><a href="#orgb631be0">3.1.8. <code>checkout</code></a></li>
+<li><a href="#org46d9f03">3.1.9. <code>reset</code></a></li>
+<li><a href="#org39b03ad">3.1.10. <code>merge</code></a></li>
+<li><a href="#org9ad1317">3.1.11. <code>push</code></a></li>
+<li><a href="#orga1bb078">3.1.12. <code>pull</code></a></li>
 </ul>
 </li>
 </ul>
@@ -52,6 +57,7 @@ comments: true
 </p>
 </div>
 </div>
+
 <div id="outline-container-org082b5ef" class="outline-2">
 <h2 id="org082b5ef"><span class="section-number-2">2</span> How to setup</h2>
 <div class="outline-text-2" id="text-2">
@@ -62,8 +68,41 @@ Ubuntu 18.04 LTS 환경에서 git는 다음 명령어를 통해 간단하게 설
 <pre class="src src-sh">$ sudo apt install git
 </pre>
 </div>
+
+<p>
+처음 git을 설치하였다면 commit을 수행했을 때 입력할 작성자의 이름 및 이메일 주소를 설정해야한다. 아래 명령을 터미널에 입력한다.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ git config --global user.email <span class="org-string">"your email"</span>
+$ git config --global user.name <span class="org-string">"your name"</span>
+</pre>
 </div>
 </div>
+
+<div id="outline-container-org565164c" class="outline-3">
+<h3 id="org565164c"><span class="section-number-3">2.1</span> Make a new local git project</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+로컬 컴퓨터에서 특정 프로젝트를 git으로 버전관리하고 싶은 경우 프로젝트의 최상단 디렉토리로 이동한 다음 아래의 명령을 입력한다.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Go to the root of the project.</span>
+$ cd /path/to/project/root
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Make a new git project</span>
+$ git init
+</pre>
+</div>
+
+<p>
+위 명령이 정상적으로 적용되었다면 프로젝트 최상단경로에 <code>.git</code> 폴더가 생성되었을 것이다. 해당 폴더가 생긴 순간부터 파일의 추가/삭제/변경 기록을 자동으로 추적한다.
+</p>
+</div>
+</div>
+</div>
+
 <div id="outline-container-org9d7787f" class="outline-2">
 <h2 id="org9d7787f"><span class="section-number-2">3</span> Useful features</h2>
 <div class="outline-text-2" id="text-3">
@@ -75,38 +114,147 @@ git에는 많은 명령어들이 존재하지만 해당 섹션에서는 필자�
 <h3 id="org07ae851"><span class="section-number-3">3.1</span> commands</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
+<div id="outline-container-org6640ab0" class="outline-4">
+<h4 id="org6640ab0"><span class="section-number-4">3.1.1</span> <code>status</code></h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+코드의 변경사항을 출력한다. 
+</p>
+</div>
+</div>
 <div id="outline-container-orgb88c125" class="outline-4">
-<h4 id="orgb88c125"><span class="section-number-4">3.1.1</span> <code>add</code></h4>
+<h4 id="orgb88c125"><span class="section-number-4">3.1.2</span> <code>add</code></h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+코드의 변경사항을 stage한다. 프로젝트 최상단 경로에서 다음과 같이 사용하는 경우 모든 프로젝트의 변경사항을 일괄적으로 stage한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ git add .
+</pre>
+</div>
+
+<p>
+또는 특정 파일만 stage할 수 있다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ git add /path/to/specific/file
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-org32b88d3" class="outline-4">
-<h4 id="org32b88d3"><span class="section-number-4">3.1.2</span> <code>rm</code></h4>
+<h4 id="org32b88d3"><span class="section-number-4">3.1.3</span> <code>rm</code></h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+git으로 버전관리 중인 특정 파일을 삭제한다. 터미널의 rm 명령과 유사하다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ git rm /path/to/specific/file
+</pre>
 </div>
-<div id="outline-container-org6640ab0" class="outline-4">
-<h4 id="org6640ab0"><span class="section-number-4">3.1.3</span> <code>status</code></h4>
 </div>
-<div id="outline-container-orgd16fdfb" class="outline-4">
-<h4 id="orgd16fdfb"><span class="section-number-4">3.1.4</span> <code>commit</code></h4>
-</div>
-<div id="outline-container-org9ad1317" class="outline-4">
-<h4 id="org9ad1317"><span class="section-number-4">3.1.5</span> <code>push</code></h4>
-</div>
-<div id="outline-container-orga1bb078" class="outline-4">
-<h4 id="orga1bb078"><span class="section-number-4">3.1.6</span> <code>pull</code></h4>
 </div>
 <div id="outline-container-org04c45c1" class="outline-4">
-<h4 id="org04c45c1"><span class="section-number-4">3.1.7</span> <code>diff</code></h4>
+<h4 id="org04c45c1"><span class="section-number-4">3.1.4</span> <code>diff</code></h4>
+<div class="outline-text-4" id="text-3-1-4">
+<p>
+코드의 변경사항을 자세히 출력한다. 일반적으로 가장 이전의 commit 내역과 비교하여 현재 변경사항을 출력한다
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd16fdfb" class="outline-4">
+<h4 id="orgd16fdfb"><span class="section-number-4">3.1.5</span> <code>commit</code></h4>
+<div class="outline-text-4" id="text-3-1-5">
+<p>
+stage 상태의 변경사항들을 저장(commit)한다. Unstage 상태의 변경사항들은 저장하지 않는다. 메세지를 추가하여 해당 저장 내용이 어떤 내용인지 같이 기록할 수 있다. 이 때, 로컬저장소에만 저장하기 때문에 원격저장소는 변경되지 않는다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ git commit -m <span class="org-string">"message here"</span> 
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-org52a73ed" class="outline-4">
-<h4 id="org52a73ed"><span class="section-number-4">3.1.8</span> <code>log</code></h4>
+<h4 id="org52a73ed"><span class="section-number-4">3.1.6</span> <code>log</code></h4>
+<div class="outline-text-4" id="text-3-1-6">
+<p>
+commit 기록을 출력한다. 작성자, 이메일, commit 날짜, 메세지 등을 볼 수 있다.
+</p>
+</div>
 </div>
 <div id="outline-container-org18d7896" class="outline-4">
-<h4 id="org18d7896"><span class="section-number-4">3.1.9</span> <code>branch</code></h4>
+<h4 id="org18d7896"><span class="section-number-4">3.1.7</span> <code>branch</code></h4>
+<div class="outline-text-4" id="text-3-1-7">
+<p>
+branch 목록을 출력한다. <code>-d, -D</code> 옵션을 사용하는 경우 branch를 제거할 수 있다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ git branch  <span class="org-comment-delimiter"># </span><span class="org-comment">Show branch list.</span>
+
+$ git branch -d {branch name}   <span class="org-comment-delimiter"># </span><span class="org-comment">Delete a branch.</span>
+
+$ git branch -D {branch name}   <span class="org-comment-delimiter"># </span><span class="org-comment">Force deletion of branch.</span>
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-orgb631be0" class="outline-4">
-<h4 id="orgb631be0"><span class="section-number-4">3.1.10</span> <code>checkout</code></h4>
+<h4 id="orgb631be0"><span class="section-number-4">3.1.8</span> <code>checkout</code></h4>
+<div class="outline-text-4" id="text-3-1-8">
+<p>
+특정 commit 내역을 불러오거나 특정 branch로 이동한다. checkout만 사용하는 경우 현재 branch를 최신 commit 내역으로 새로고침한다. 일반적으로 다음과 같은 3가지 사용 예시들이 존재한다.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ git checkout   <span class="org-comment-delimiter"># </span><span class="org-comment">Refresh current branch's latest commit.</span>
+
+$ git checkout {commit hash}  <span class="org-comment-delimiter"># </span><span class="org-comment">Go to specific commit history.</span>
+
+$ git checkout {branch name}  <span class="org-comment-delimiter"># </span><span class="org-comment">Go to specific branch.</span>
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-org46d9f03" class="outline-4">
-<h4 id="org46d9f03"><span class="section-number-4">3.1.11</span> <code>reset</code></h4>
+<h4 id="org46d9f03"><span class="section-number-4">3.1.9</span> <code>reset</code></h4>
+<div class="outline-text-4" id="text-3-1-9">
+<p>
+stage 또는 commit된 변경사항을 복원한다
+</p>
+</div>
+</div>
+<div id="outline-container-org39b03ad" class="outline-4">
+<h4 id="org39b03ad"><span class="section-number-4">3.1.10</span> <code>merge</code></h4>
+<div class="outline-text-4" id="text-3-1-10">
+<p>
+특정 branch를 현재 branch에 병합한다. 만약 두 branch 모두 동일한 파일을 변경한 commit 내역이 있는 경우 Merge Conflict가 발생한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org9ad1317" class="outline-4">
+<h4 id="org9ad1317"><span class="section-number-4">3.1.11</span> <code>push</code></h4>
+<div class="outline-text-4" id="text-3-1-11">
+<p>
+로컬저장소의 commit 내역을 원격저장소로 업로드한다. 일반적으로 원격저장소로 push할 때는 원격을 의미하는 origin 키워드를 붙인다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ git push origin {branch name}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga1bb078" class="outline-4">
+<h4 id="orga1bb078"><span class="section-number-4">3.1.12</span> <code>pull</code></h4>
+<div class="outline-text-4" id="text-3-1-12">
+<p>
+원격저장소의 commit 내역을 로컬저장소로 다운로드한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ git pull origin {branch name}
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
