@@ -16,9 +16,9 @@ comments: true
 <li><a href="#org03c7cf4">2. How to setup</a>
 <ul>
 <li><a href="#org4cd0877">2.1. w/o sudo command</a></li>
-<li><a href="#org050fc51">2.2. Bash autocompletion</a></li>
-<li><a href="#orgd46f74a">2.3. Connect to the internet</a></li>
-<li><a href="#org7a40032">2.4. nvidia-docker</a></li>
+<li><a href="#org7a40032">2.2. nvidia-docker</a></li>
+<li><a href="#org050fc51">2.3. Bash autocompletion</a></li>
+<li><a href="#orgd46f74a">2.4. Connect to the internet</a></li>
 </ul>
 </li>
 <li><a href="#org62ece60">3. Mostly used features</a>
@@ -99,86 +99,10 @@ $ sudo service docker restart
 </div>
 </div>
 </div>
-<div id="outline-container-org050fc51" class="outline-3">
-<h3 id="org050fc51"><span class="section-number-3">2.2</span> Bash autocompletion</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-필자가 테스트해본 결과 Ubuntu 18.04 LTS에서 설치한 <b>docker 19.03.06 버전은 별도의 과정없이 자동완성이 되는 것을 확인하였다.</b> 만약 자신의 docker 내부 bash에서 자동완성이 되지 않는 경우 아래 절차대로 실행하면 자동완성이 설정된다. 하지만, 아래 코드를 수행해도 <code>apt</code> 관련 자동완성은 되지 않는다.
-</p>
-<div class="org-src-container">
-<pre class="src src-sh">$ apt install bash-completion
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">download bash completion file into /etc/bash_completion.d/ </span>
-$ curl https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker -o /etc/bash_completion.d/docker.sh
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">/etc/.bash.bashrc &#54028;&#51068;&#51012; &#50676;&#44256; &#50500;&#47000; &#53076;&#46300;&#47484; &#51452;&#49437; &#54644;&#51228;&#54620;&#45796;.</span>
-$ vim /etc/bash.bashrc
-
-<span class="org-keyword">if ! </span><span class="org-builtin">shopt</span> -oq posix; <span class="org-keyword">then</span>
-    <span class="org-keyword">if</span> [ -f /usr/share/bash-completion/bash_completion ]; <span class="org-keyword">then</span>
-        <span class="org-builtin">.</span> /usr/share/bash-completion/bash_completion
-    <span class="org-keyword">elif</span> [ -f /etc/bash_completion ]; <span class="org-keyword">then</span>
-        <span class="org-builtin">.</span> /etc/bash_completion
-    <span class="org-keyword">fi</span>
-<span class="org-keyword">fi</span>
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">~/.bashrc &#50640;&#46020; &#48708;&#49847;&#54620; completion &#53076;&#46300;&#44032; &#51080;&#45716;&#45936; &#54644;&#45817; &#53076;&#46300;&#47484; &#51452;&#49437; &#54644;&#51228;&#54620;&#45796;.</span>
-<span class="org-keyword">if</span> [ -f /etc/bash_completion ] &amp;&amp; <span class="org-keyword">! </span><span class="org-builtin">shopt</span> -oq posix; <span class="org-keyword">then</span>
-    <span class="org-builtin">.</span> /etc/bash_completion
-<span class="org-keyword">fi</span>
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">&#48320;&#44221;&#49324;&#54637;&#51012; &#51201;&#50857;&#54620;&#45796;. </span>
-$ source /etc/bash.bashrc
-$ source ~/.bashrc
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgd46f74a" class="outline-3">
-<h3 id="orgd46f74a"><span class="section-number-3">2.3</span> Connect to the internet</h3>
-<div class="outline-text-3" id="text-2-3">
-<p>
-Docker 컨테이너는 NAT 기술을 사용하여 외부 네트워크로 통신한다. 실제 인터넷 선은 하나 밖에 제공되어 있지 않고 그 선을 통해 데이터가 나가야 하기 때문에 Linux의 <code>iptables</code> 명령을 사용해서 해당 브릿지 인터페이스에 MASQUERADE 기능을 부여하거나 SNAT 값을 줘야 한다. <b>해당 섹션의 내용 또한 필자는 아래 과정을 진행하지 않고도 docker 19.03.06 버전에서 인터넷 사용이 가능하였다.</b> 만약 인터넷이 정상적으로 동작하지 않는 경우 아래 과정을 진행하면 된다.
-</p>
-<div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">host &#47672;&#49888;&#50640;&#49436; &#50500;&#47000; &#47749;&#47161;&#50612;&#47484; &#49892;&#54665;&#54620;&#45796;. &#50500;&#47000; &#47749;&#47161;&#50612;&#47484; &#53685;&#54644; iptables&#50640; NAT &#51221;&#48372;&#47484; &#51077;&#47141;&#54620;&#45796;</span>
-$ sudo iptables -t nat -A PREROUTING -d 0.0.0.0/0 -m addrtype --dst-type LOCAL -j DOCKER
-$ sudo iptables -t nat -A OUTPUT -m addrtype --dst-type LOCAL -j DOCKER
-$ sudo iptables -t nat -A POSTROUTING -s 172.17.0.0/16 -j MASQUERADE
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">&#47749;&#47161;&#50612;&#44032; &#51221;&#49345;&#51201;&#51004;&#47196; &#51089;&#46041;&#54664;&#45716;&#51648; &#54869;&#51064;&#54620;&#45796;.</span>
-$ sudo iptables -t nat -L
-
-Chain PREROUTING (policy ACCEPT)
-target     prot opt source               destination         
-DOCKER     all  --  anywhere             anywhere             ADDRTYPE match dst-type LOCAL
-DOCKER     all  --  anywhere             anywhere             ADDRTYPE match dst-type LOCAL
-
-Chain INPUT (policy ACCEPT)
-target     prot opt source               destination         
-
-Chain OUTPUT (policy ACCEPT)
-target     prot opt source               destination         
-DOCKER     all  --  anywhere            !127.0.0.0/8          ADDRTYPE match dst-type LOCAL
-DOCKER     all  --  anywhere             anywhere             ADDRTYPE match dst-type LOCAL
-
-Chain POSTROUTING (policy ACCEPT)
-target     prot opt source               destination         
-MASQUERADE  all  --  172.17.0.0/16        anywhere            
-MASQUERADE  all  --  172.17.0.0/16        anywhere            
-
-Chain DOCKER (4 references)
-target     prot opt source               destination         
-RETURN     all  --  anywhere             anywhere  
-</pre>
-</div>
-</div>
-</div>
 
 <div id="outline-container-org7a40032" class="outline-3">
-<h3 id="org7a40032"><span class="section-number-3">2.4</span> nvidia-docker</h3>
-<div class="outline-text-3" id="text-2-4">
+<h3 id="org7a40032"><span class="section-number-3">2.2</span> nvidia-docker</h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
 <code>nvidia-docker</code> 는 호스트 컴퓨터에 Nvidia GPU가 장착되어 있을 경우 컨테이너에서 해당 GPU를 사용할 수 있도록 해주는 프로그램이다. <b>2019년 하반기에 업데이트된 docker 19.03.5 버전부터 자체적으로 nvidia-docker 명령어를 흡수하면서 <code>--gpus</code> 옵션으로 보다 간단하게 사용할 수 있게 되었다.</b> <code>--gpus</code> 옵션을 사용하기 위해서는 <code>nvidia-container-runtime</code> 이라는 프로그램을 설치해야 한다. 
 </p>
@@ -252,6 +176,90 @@ $ docker run <span class="org-sh-escaped-newline">\</span>
 |  GPU       PID   Type   Process name                             Usage      |
 |=============================================================================|
 +-----------------------------------------------------------------------------+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org050fc51" class="outline-3">
+<h3 id="org050fc51"><span class="section-number-3">2.3</span> Bash autocompletion</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+(<b>필자가 테스트해본 결과 Ubuntu 18.04 LTS에서 설치한 docker 19.03.06 버전은 별도의 과정없이 자동완성이 되는 것을 확인하였다. 만약 자동완성이 되지 않는 경우 아래 과정을 진행하면 된다.</b>)
+</p>
+
+<p>
+만약 자신의 docker 내부 bash에서 자동완성이 되지 않는 경우 아래 절차대로 실행하면 자동완성이 설정된다. 하지만, 아래 코드를 수행해도 <code>apt</code> 관련 자동완성은 되지 않았다. <code>apt</code> 명령어 자동완성을 제외한 다른 자동완성들은 정상적으로 작동하였다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ apt install bash-completion
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">download bash completion file into /etc/bash_completion.d/ </span>
+$ curl https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker -o /etc/bash_completion.d/docker.sh
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">/etc/.bash.bashrc &#54028;&#51068;&#51012; &#50676;&#44256; &#50500;&#47000; &#53076;&#46300;&#47484; &#51452;&#49437; &#54644;&#51228;&#54620;&#45796;.</span>
+$ vim /etc/bash.bashrc
+
+<span class="org-keyword">if ! </span><span class="org-builtin">shopt</span> -oq posix; <span class="org-keyword">then</span>
+    <span class="org-keyword">if</span> [ -f /usr/share/bash-completion/bash_completion ]; <span class="org-keyword">then</span>
+        <span class="org-builtin">.</span> /usr/share/bash-completion/bash_completion
+    <span class="org-keyword">elif</span> [ -f /etc/bash_completion ]; <span class="org-keyword">then</span>
+        <span class="org-builtin">.</span> /etc/bash_completion
+    <span class="org-keyword">fi</span>
+<span class="org-keyword">fi</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">~/.bashrc &#50640;&#46020; &#48708;&#49847;&#54620; completion &#53076;&#46300;&#44032; &#51080;&#45716;&#45936; &#54644;&#45817; &#53076;&#46300;&#47484; &#51452;&#49437; &#54644;&#51228;&#54620;&#45796;.</span>
+<span class="org-keyword">if</span> [ -f /etc/bash_completion ] &amp;&amp; <span class="org-keyword">! </span><span class="org-builtin">shopt</span> -oq posix; <span class="org-keyword">then</span>
+    <span class="org-builtin">.</span> /etc/bash_completion
+<span class="org-keyword">fi</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#48320;&#44221;&#49324;&#54637;&#51012; &#51201;&#50857;&#54620;&#45796;. </span>
+$ source /etc/bash.bashrc
+$ source ~/.bashrc
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd46f74a" class="outline-3">
+<h3 id="orgd46f74a"><span class="section-number-3">2.4</span> Connect to the internet</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+(<b>docker 19.03.06 버전에서는 &#x2013;net=host 옵션만 사용해도 인터넷 사용이 가능하였다. 만약 인터넷이 정상적으로 동작하지 않는 경우 아래 과정을 진행하면 된다.</b>)
+</p>
+
+<p>
+Docker 컨테이너는 NAT 기술을 사용하여 외부 네트워크로 통신한다. 실제 인터넷 선은 하나 밖에 제공되어 있지 않고 그 선을 통해 데이터가 나가야 하기 때문에 Linux의 <code>iptables</code> 명령을 사용해서 해당 브릿지 인터페이스에 MASQUERADE 기능을 부여하거나 SNAT 값을 줘야 한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">host &#47672;&#49888;&#50640;&#49436; &#50500;&#47000; &#47749;&#47161;&#50612;&#47484; &#49892;&#54665;&#54620;&#45796;. &#50500;&#47000; &#47749;&#47161;&#50612;&#47484; &#53685;&#54644; iptables&#50640; NAT &#51221;&#48372;&#47484; &#51077;&#47141;&#54620;&#45796;</span>
+$ sudo iptables -t nat -A PREROUTING -d 0.0.0.0/0 -m addrtype --dst-type LOCAL -j DOCKER
+$ sudo iptables -t nat -A OUTPUT -m addrtype --dst-type LOCAL -j DOCKER
+$ sudo iptables -t nat -A POSTROUTING -s 172.17.0.0/16 -j MASQUERADE
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#47749;&#47161;&#50612;&#44032; &#51221;&#49345;&#51201;&#51004;&#47196; &#51089;&#46041;&#54664;&#45716;&#51648; &#54869;&#51064;&#54620;&#45796;.</span>
+$ sudo iptables -t nat -L
+
+Chain PREROUTING (policy ACCEPT)
+target     prot opt source               destination         
+DOCKER     all  --  anywhere             anywhere             ADDRTYPE match dst-type LOCAL
+DOCKER     all  --  anywhere             anywhere             ADDRTYPE match dst-type LOCAL
+
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+DOCKER     all  --  anywhere            !127.0.0.0/8          ADDRTYPE match dst-type LOCAL
+DOCKER     all  --  anywhere             anywhere             ADDRTYPE match dst-type LOCAL
+
+Chain POSTROUTING (policy ACCEPT)
+target     prot opt source               destination         
+MASQUERADE  all  --  172.17.0.0/16        anywhere            
+MASQUERADE  all  --  172.17.0.0/16        anywhere            
+
+Chain DOCKER (4 references)
+target     prot opt source               destination         
+RETURN     all  --  anywhere             anywhere  
 </pre>
 </div>
 </div>
