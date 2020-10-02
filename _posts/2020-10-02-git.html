@@ -17,6 +17,7 @@ comments: true
 <ul>
 <li><a href="#org565164c">2.1. Make a new local git project</a></li>
 <li><a href="#org731c356">2.2. Show git branch in bash terminal</a></li>
+<li><a href="#org28908d4">2.3. Using git credential for fast push and pull</a></li>
 </ul>
 </li>
 <li><a href="#org9d7787f">3. Useful features</a>
@@ -150,6 +151,51 @@ $ git init
 <pre class="src src-sh">$ source ~/.bashrc
 </pre>
 </div>
+</div>
+</div>
+
+<div id="outline-container-org28908d4" class="outline-3">
+<h3 id="org28908d4"><span class="section-number-3">2.3</span> Using git credential for fast push and pull</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+git push, pull 명령어를 자주 사용하는 경우 매 순간마다 아이디/비밀번호를 입력해야 한다. 해당 섹션에서는 git credential 기능을 통해 한 번 아이디/비밀번호를 입력하면 특정 시간동안 자동으로 캐시를 생성하여 빠르게 push, pull을 사용하는 방법에 대해 설명한다.
+</p>
+
+<p>
+Credential 기능을 원하는 git 프로젝트의 최상단 경로로 이동한 후 다음 명령어를 입력한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Move to git project.</span>
+$ cd /path/to/git/project
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Add credential</span>
+$ git config credential.helper <span class="org-string">"cache --timeout=864000000"</span>
+</pre>
+</div>
+
+<p>
+정상적으로 코드가 적용된 경우 git 프로젝트의 <code>.git/config</code> 파일을 열어보면 다음과 같은 구문이 추가되었다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[remote <span class="org-string">"origin"</span>]
+        url = https://github.com/.../...
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch <span class="org-string">"master"</span>]
+        remote = origin
+        merge = refs/heads/master
+[credential]
+        helper = cache --timeout=864000000   <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;== This part is added.</span>
+</pre>
+</div>
+
+<p>
+해당 구문이 정상적으로 추가되었다면 <b>해당 git 프로젝트는 864000000 [s] (= 10000 [days]) 동안 아이디/비밀번호를 추가적으로 입력하지 않아도 빠르게 push, pull 명령을 사용할 수 있다.</b>
+</p>
 </div>
 </div>
 </div>
