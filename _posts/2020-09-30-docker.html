@@ -386,9 +386,6 @@ Dockerfile 파일을 이미지로 빌드한다
 <p>
 Dockerfile 파일은 docker 이미지를 빌드할 수 있는 파일이다. Dockerfile의 문법에 맞춰서 작성하면 <code>build</code> 명령을 통해 원하는 이미지를 만들 수 있다. 아래는 필자가 사용하는 Dockerfile 파일 중 하나로써 Ubuntu 18.04와 ROS를 자동으로 설치해준다.
 </p>
-<details>
-<summary>more...</summary>
-<p>
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">this Dockerfile creates an Ubuntu 18.04 environment with ROS melodic.</span>
 FROM ubuntu:18.04
@@ -508,11 +505,11 @@ WORKDIR /root
 ENTRYPOINT [<span class="org-string">"/bin/bash"</span>]
 </pre>
 </div>
-</p>
-</details>
+
 <p>
 위와 같이 Dockerfile을 작성하고 파일이 존재하는 폴더에서 다음 명령을 실행하면 빌드된다
 </p>
+
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">-t(--tag) &#50741;&#49496;&#51004;&#47196; &#51060;&#48120;&#51648; &#51060;&#47492;&#44284; &#53468;&#44536;&#47484; &#49444;&#51221;&#54624; &#49688; &#51080;&#45796;. &#51060;&#48120;&#51648; &#51060;&#47492;&#47564; &#49444;&#51221;&#54616;&#47732; &#53468;&#44536;&#45716; latest&#47196; &#49444;&#51221;&#46108;&#45796;</span>
 $ docker build -t sample:0.1 -f Dockerfile .
