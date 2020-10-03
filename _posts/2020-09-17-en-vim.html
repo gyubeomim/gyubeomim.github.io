@@ -1,0 +1,1049 @@
+--- 
+layout: post
+title: (Linux)(EN) Vim: Introduction to useful plugins and C++/Python development environment
+description: 
+date: 2020-09-17
+categories: [Technology]
+tag: [Linux, Editor, vim, C++, Python, English]
+use_math: true
+comments: true
+---
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgfa678bf">1. Introduction</a></li>
+<li><a href="#org2edeea5">2. How to setup</a>
+<ul>
+<li><a href="#orgbbb642d">2.1. youcompleteme setting</a>
+<ul>
+<li><a href="#orged246d9">2.1.1. C++</a></li>
+<li><a href="#org3a6c407">2.1.2. Python</a></li>
+</ul>
+</li>
+<li><a href="#orga5878eb">2.2. vim-lsp setting</a>
+<ul>
+<li><a href="#orga734b2d">2.2.1. C++</a></li>
+<li><a href="#org8fb72c6">2.2.2. Python</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org2c6a507">3. My vim configuration</a>
+<ul>
+<li><a href="#orgad44bf8">3.1. General features</a>
+<ul>
+<li><a href="#org8c57b3f">3.1.1. Original keybindings</a>
+<ul>
+<li><a href="#org33bccae">3.1.1.1. <code>h, j, k, l</code></a></li>
+<li><a href="#org84dd29e">3.1.1.2. <code>&lt;ESC&gt;</code></a></li>
+<li><a href="#org5499769">3.1.1.3. <code>a, A, i, I</code></a></li>
+<li><a href="#orgdcd76e3">3.1.1.4. <code>s, S</code></a></li>
+<li><a href="#orgfdc5852">3.1.1.5. <code>o, O</code></a></li>
+<li><a href="#org775d7b0">3.1.1.6. <code>dd, D</code></a></li>
+<li><a href="#org26776af">3.1.1.7. <code>yy, Y, p, P</code></a></li>
+<li><a href="#org4062caf">3.1.1.8. <code>v, V</code></a></li>
+<li><a href="#org0dd9baf">3.1.1.9. <code>&lt;C-v&gt;</code></a></li>
+<li><a href="#org21ea277">3.1.1.10. <code>r</code></a></li>
+<li><a href="#orgbab9d2a">3.1.1.11. <code>gg, G</code></a></li>
+<li><a href="#orgd8276f1">3.1.1.12. <code>u</code></a></li>
+<li><a href="#orge44ddf0">3.1.1.13. <code>z.</code></a></li>
+<li><a href="#org788521f">3.1.1.14. <code>&lt;C-u&gt;, &lt;C-d&gt;</code></a></li>
+<li><a href="#org089a4db">3.1.1.15. <code>&lt;C-a&gt;</code></a></li>
+<li><a href="#org23d8ce6">3.1.1.16. <code>/{search word}, n, N</code></a></li>
+<li><a href="#orgc0aa4c7">3.1.1.17. <code>"+y, "+gP</code></a></li>
+<li><a href="#org80fab7e">3.1.1.18. <code>:e {file name}</code></a></li>
+<li><a href="#orgf7f625d">3.1.1.19. <code>:w</code></a></li>
+<li><a href="#orgd1cd176">3.1.1.20. <code>:q</code></a></li>
+<li><a href="#org8fe4a5c">3.1.1.21. <code>:%s</code></a></li>
+<li><a href="#orgbfff293">3.1.1.22. <code>:vsplit (:vs)</code></a></li>
+<li><a href="#orgff6f63d">3.1.1.23. <code>:split (:sp)</code></a></li>
+<li><a href="#orgeec41f2">3.1.1.24. <code>&lt;C-w&gt;&lt;C-w&gt;, &lt;C-w&gt;ArrowKey</code></a></li>
+<li><a href="#org2a6fb4e">3.1.1.25. <code>&lt;C-o&gt;, &lt;C-i&gt;</code></a></li>
+</ul>
+</li>
+<li><a href="#org03e29c0">3.1.2. Custom keybindings</a>
+<ul>
+<li><a href="#org9cecd18">3.1.2.1. <code>t</code></a></li>
+<li><a href="#orgddb59dd">3.1.2.2. <code>&lt;C-d&gt;</code></a></li>
+<li><a href="#org6bdf1db">3.1.2.3. <code>&lt;C-f&gt;</code></a></li>
+<li><a href="#org63b25b1">3.1.2.4. <code>&lt;C-h,j,k,l&gt;</code></a></li>
+<li><a href="#org2163884">3.1.2.5. <code>U</code></a></li>
+<li><a href="#org5e974d4">3.1.2.6. <code>Q</code></a></li>
+<li><a href="#orga972d1c">3.1.2.7. <code>, .</code></a></li>
+<li><a href="#org34b6070">3.1.2.8. <code>&lt;C-p&gt;</code></a></li>
+<li><a href="#orgb3b54ca">3.1.2.9. <code>&lt;C-z&gt;</code></a></li>
+<li><a href="#org38aa8ba">3.1.2.10. <code>&lt;leader&gt;s</code></a></li>
+<li><a href="#org457d3d4">3.1.2.11. <code>&lt;C-e&gt;, &lt;A-e&gt;</code></a></li>
+<li><a href="#org7073699">3.1.2.12. <code>&lt;C-c&gt;&lt;C-c&gt;, &lt;C-c&gt;&lt;C-v&gt;</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgefeea63">3.2. Plugin Features</a>
+<ul>
+<li><a href="#org9458172">3.2.1. The-NERD-tree</a>
+<ul>
+<li><a href="#org8dc0e5f">3.2.1.1. <code>&lt;C-n&gt;</code></a></li>
+</ul>
+</li>
+<li><a href="#orged3ca6f">3.2.2. snipMate</a></li>
+<li><a href="#org354eba7">3.2.3. tComment</a>
+<ul>
+<li><a href="#orgee54755">3.2.3.1. <code>&lt;C-_&gt;&lt;C-_&gt;</code></a></li>
+</ul>
+</li>
+<li><a href="#orgd383d94">3.2.4. EasyMotion</a>
+<ul>
+<li><a href="#org5d108ad">3.2.4.1. <code>&lt;leader&gt;&lt;leader&gt;w, b</code></a></li>
+</ul>
+</li>
+<li><a href="#org56a9879">3.2.5. Mark</a>
+<ul>
+<li><a href="#orgb66f027">3.2.5.1. <code>&lt;F4&gt;, &lt;F5&gt;</code></a></li>
+</ul>
+</li>
+<li><a href="#org9cffaf1">3.2.6. tagbar</a>
+<ul>
+<li><a href="#org9ad6267">3.2.6.1. <code>&lt;C-t&gt;</code></a></li>
+</ul>
+</li>
+<li><a href="#org62fa6b1">3.2.7. youcompleteme, vim-lsp</a>
+<ul>
+<li><a href="#org35e2760">3.2.7.1. <code>&lt;A-.&gt;, &lt;A-,&gt;</code></a></li>
+<li><a href="#org9a33352">3.2.7.2. <code>&lt;leader&gt;f</code></a></li>
+</ul>
+</li>
+<li><a href="#org1c2d968">3.2.8. vim-airline</a>
+<ul>
+<li><a href="#org0cb896e">3.2.8.1. <code>&lt;leader&gt;q, w, c</code></a></li>
+</ul>
+</li>
+<li><a href="#orga6cefd6">3.2.9. vim-gitgutter</a>
+<ul>
+<li><a href="#org1d674b5">3.2.9.1. <code>&lt;leader&gt;gn, gp</code></a></li>
+<li><a href="#org88ad457">3.2.9.2. <code>&lt;leader&gt;gr</code></a></li>
+</ul>
+</li>
+<li><a href="#orga1e2c3d">3.2.10. vim-diminactive</a></li>
+<li><a href="#org5321a13">3.2.11. AutoClose</a></li>
+<li><a href="#org811e65a">3.2.12. vim-indent-guides</a></li>
+<li><a href="#orgafb1e0e">3.2.13. vim-fugitive</a></li>
+<li><a href="#orgcb50faf">3.2.14. vim-cpp-enhanced-highlight</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orga7796f5">4. References</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-orgfa678bf" class="outline-2">
+<h2 id="orgfa678bf"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+
+<figure>
+<img src="/pictures/200917/01.png" alt="01.png" align="center">
+
+</figure>
+
+<p>
+This post explains how to build C++/Python development environment through Vim editor on Linux. In this post, vim's code navigations plugin used <code>youcompleteme</code> and <code>vim-lsp</code>, and <code>youcompleteme</code> was a uniquely powerful code navigation plugin in vim before the <code>vim-lsp</code> came out in 2016. However, as <code>vim-lsp</code> supporting various programming languages appeared, both are now widely used.
+</p>
+
+<p>
+As of now(2020.09), the installation process of <code>youcompleteme</code> is simple, but the setting is a little complicated, whereas the installation process of <code>vim-lsp</code> is a bit complicated due to the problem of vim and clang version problems, but after installation it can be used very simply. <b>As a result of actual testing, there was no difference in speed and functionality between the two plugins, adn using either one alone provides sufficient functionality indenpendently, so you can use the any configuration of the two.</b> <a href="/files/200917/vimrc1_ycm">vimrc1(ycm)</a>, <a href="/files/200917/vimrc2_lsp">vimrc2(vim-lsp)</a>
+</p>
+
+<p>
+The font of the vim editor is <code>Hack</code> and the theme is <code>codedark</code>. Most of the contents are explained through C++ code, but the same functions apply when using Python. Everything described in the post was tested on Ubuntu 18.04 LTS environment.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2edeea5" class="outline-2">
+<h2 id="org2edeea5"><span class="section-number-2">2</span> How to setup</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+As of the time of posting (2020.09), to use <code>vim-lsp</code>, you need to install the <code>vim 8.2</code> version. So to install it, go to the C++ section of the <code>vim-lsp</code> section and install the corresponding versino. When using <code>ycm</code>, it was confirmed that it works normally in all versions of vim. For <code>ycm</code> users, open a terminal and install vim with the following command.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ sudo apt install vim
+</pre>
+</div>
+
+<p>
+Next, install the Vundle plugin. The Vundle plugin is a plugin manager that allows you to easily download other plugins. Install the Vundle plugin with the following command.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Make ~/.vim/bundle directory.</span>
+$ mkdir ~/.vim/bundle -p
+$ cd ~/.vim/bundle
+$ git clone https://github.com/VundleVim/Vundle.vim
+</pre>
+</div>
+
+<p>
+If the Vundle plugin has been downloaded successfully, you are ready to install other plugins. After downloading either <a href="/files/200917/vimrc1_ycm">vimrc1(ycm)</a>, <a href="/files/200917/vimrc2_lsp">vimrc2(vim-lsp)</a>, move it to the home folder(~/). At this time, a dot(.) must be added in front of the vimrc file name to be recognized by vim normally. And after downloading <a href="/files/200917/codedark.vim">codedark</a> theme, move it to ~/.vim/colors folder.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Move .vimrc to home folder.</span>
+$ mv  ~/Downloads/vimrc1_ycm  ~/.vimrc
+<span class="org-comment-delimiter"># </span><span class="org-comment">or</span>
+$ mv  ~/Downloads/vimrc2_lsp  ~/.vimrc
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Move codedark.vim to ~/.vim/colors folder.</span>
+$ mkdir ~/.vim/colors -p
+$ mv  ~/Downloads/codedark.vim  ~/.vim/colors
+</pre>
+</div>
+
+<p>
+Next, install the plugins. First, open the .vimrc file.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ vim  ~/.vimrc
+</pre>
+</div>
+
+<p>
+If the .vimrc file is open, run the <code>:BundleInstall</code> command. When the command is executed normmaly, several plugins registered in the .vimrc file are installed sequentially according to the Vundle plugin. If it was completed normally, all functions were installed normally except for the automatic completion function of <code>youcompleteme</code> and <code>vim-lsp</code>.
+</p>
+</div>
+
+<div id="outline-container-orgbbb642d" class="outline-3">
+<h3 id="orgbbb642d"><span class="section-number-3">2.1</span> youcompleteme setting</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+(You only need to use one of the <code>youcompleteme</code> or <code>vim-lsp</code> plugin settings)
+</p>
+
+<p>
+<code>youcompleteme (ycm)</code> plugin is a code completion and code navigation plugin that can be used in vim. <code>ycm</code> plugin does not work imeediately after downloading, but can be used through a separate installation.
+</p>
+
+<p>
+First, download it through Vundle and then move it to the ~/.vim/bundle/youcompleteme folder.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ cd  ~/.vim/bundle/youcompleteme
+</pre>
+</div>
+
+<p>
+Next, install <code>ycm</code>. <code>ycm</code> supports autocompletion of various languages, but this post installs only the modules appropriate to the C++/Python development environment. <b>As far as I know, python is automatically completed without installing a separate module. Therefore, only the C++ autocompletion module will be installed.</b>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Current folder: ~/.vim/bundle/youcompleteme/</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Install ycm (for c++)</span>
+$ python3  ./install.py  --clang-completer 
+</pre>
+</div>
+
+<p>
+If the installation is successfully completed, copy the <code>.ycm_extra_conf.py</code> file to the <code>~/.vim</code> folder. The role of the <code>.ycm_extra_conf.py</code> file is described in the next section.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Copy .ycm_extra_conf.py to ~/.vim</span>
+$ cp  ~/.vim/bundle/youcompleteme/third_party/ycmd/.ycm_extra_conf.py  ~/.vim/
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orged246d9" class="outline-4">
+<h4 id="orged246d9"><span class="section-number-4">2.1.1</span> C++</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+The previously copied <code>~/.vim/.ycm_extra_conf.py</code> file reads the standard header file from <code>/usr/include, /usr/local/include</code> folder, and then automatically completes the standard headers installed in the system. Therefore, in the case of C++, automatic completion of standard headers such as vector, map and algorithm becomes possible. <b>However, the autocompletion function for classes, member functions, and member variables arbitrarily decalred by the developer is not supported. In order to perform automatric completion of arbitrarily declared functions and variables, proceed in the following order. But AFAIK, this feature is applied only to the cmake project.</b>
+</p>
+
+<ol class="org-ol">
+<li><p>
+When building in cmake project, add <code>-DCMAKE_EXPORT_COMPILE_COMMANDS=1</code> option to create <code>compile_commands.json</code> file in build folder. Even if the code is not necessarily built by <code>make</code> command, if only the json ifle is created, it is possible to code navigation.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">In cmake project, make build folder and go to the folder.</span>
+$ mkdir build
+$ cd build
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">This option creates 'compile_commands.json' file.</span>
+$ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..
+</pre>
+</div></li>
+<li><p>
+Copy the <code>~/.vim/.ycm_extra_conf.py</code> file to the top of the cmake project and set the <code>compile_commands.json</code> file created earlier as a link file at the top of the project.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Copy .ycm_extra_conf.py file to the root of the cmake project.</span>
+$ cp  ~/.vim/.ycm_extra_conf.py  /path/to/cmake/project/
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Create a soft link of compile_commands.json file to the cmake project root path.</span>
+$ cd /path/to/cmake/project/
+$ ln -s ./build/compile_commands.json ./
+</pre>
+</div></li>
+<li><p>
+Type the path where the <code>compile_commands.json</code> link file exists in the <code>compilation_database_folder</code> variable on line 107 of <code>.ycm_extra_conf.py</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Open .ycm_extra_conf.py</span>
+$ vim /path/to/cmake/project/.ycm_extra_conf.py
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">At line 107, there is compilation_database_folder variable.</span>
+<span class="org-variable-name">compilation_database_folder</span>=<span class="org-string">'./'</span>
+</pre>
+</div></li>
+<li>Start programming after running vim in the top folder of the cmake project.</li>
+</ol>
+
+<p>
+As above, <b>whenever you create a new cmake project, copy <code>.ycm_extra_conf.py</code> to the top-level project folder and proceed as above to use the autocompletion and code navigation function for the arbitrarily delcared codes.</b>
+</p>
+
+
+<figure>
+<img src="/pictures/200917/ycm_ac.gif" alt="ycm_ac.gif" align="center">
+
+</figure>
+
+<p>
+If all settings are completed normally, you can use the autocompletion function for the arbitrarily written code and standard header code as above.
+</p>
+
+
+<figure>
+<img src="/pictures/200917/ycm_nav.gif" alt="ycm_nav.gif" align="center">
+
+</figure>
+
+<p>
+And code navigation is also possible as above.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3a6c407" class="outline-4">
+<h4 id="org3a6c407"><span class="section-number-4">2.1.2</span> Python</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+If you want to navigate Python code with <code>ycm</code> plugin, unlike C++, if you open the file without a specific process, the code is automatically recognized. Therefore, as described above, if the <code>.ycm_extra_conf.py</code> file is located in the <code>~/.vim/.ycm_extra_conf.py</code> path, code navigation is possible in any path.
+</p>
+
+
+<figure>
+<img src="/pictures/200923/python_code_nav.gif" alt="python_code_nav.gif" align="center">
+
+</figure>
+
+<p>
+As above, code autocompletion and navigation to functions and variables become possible.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga5878eb" class="outline-3">
+<h3 id="orga5878eb"><span class="section-number-3">2.2</span> vim-lsp setting</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+(You only need to use one of the <code>youcompleteme</code> or <code>vim-lsp</code> plugin settings)
+</p>
+</div>
+<div id="outline-container-orga734b2d" class="outline-4">
+<h4 id="orga734b2d"><span class="section-number-4">2.2.1</span> C++</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+As a result of testing based on the current (2020.09), <code>vim-lsp</code> did not work properly in vim 7.x, 8.0, 8.1 versions, and only vim 8.2 version worked normally. In addition, code navigation is possible only when clangd-9 version or higher is installed. <b>Therefore, in this section, we used Ubuntu 18.04 LTS, vim 8.2 and clangd-9 versions.</b> Vim 8.2 version can be used after downloading the source code form <a href="https://ftp.nluug.nl/pub/vim/unix/">vim ftp</a> site and building it through <a href="https://gist.github.com/stonelasley/eb947e2d16cc4d11f89c41c905f5a0d5">installation script</a>. clangd-9 can be installed with the following command.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ sudo apt install clangd-9 
+</pre>
+</div>
+
+<p>
+<b>Unlike <code>ycm</code>, <code>vim-lsp</code> is automatically recognized if a <code>compile_commands.json</code> file exists as a link file at the top of the cmake project without using .ycm_extra_conf.py file.</b> Therefore, proceed as follows.
+</p>
+
+<ol class="org-ol">
+<li><p>
+When building in cmake project, add <code>-DCMAKE_EXPORT_COMPILE_COMMANDS=1</code> option to create <code>compile_commands.json</code> file in build folder. Even if the code is not necessarily built by <code>make</code> command, if only the json ifle is created, it is possible to code navigation.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">In cmake project, make build folder and go to the folder.</span>
+$ mkdir build
+$ cd build
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">This option creates 'compile_commands.json' file.</span>
+$ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..
+</pre>
+</div></li>
+<li><p>
+Make the <code>compile_commands.json</code> link file created earlier to the top of the project.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Create a soft link of compile_commands.json file to the cmake project root path.</span>
+$ cd /path/to/cmake/project/
+$ ln -s ./build/compile_commands.json ./
+</pre>
+</div></li>
+<li>Start programming after running vim in the top folder of the cmake project.</li>
+</ol>
+
+
+<figure>
+<img src="/pictures/200917/ycm_ac.gif" alt="ycm_ac.gif" align="center">
+
+</figure>
+
+<p>
+If all settings are completed normally, you can use the autocompletion function for the arbitrarily declared code and standard header code like <code>ycm</code>.
+</p>
+
+
+
+<figure>
+<img src="/pictures/200917/ycm_nav.gif" alt="ycm_nav.gif" align="center">
+
+</figure>
+
+<p>
+And code navigation is also possible as well as <code>ycm</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8fb72c6" class="outline-4">
+<h4 id="org8fb72c6"><span class="section-number-4">2.2.2</span> Python</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+In the case of Python, unlike C++, autocompletion is supported without an <code>compile_commands.json</code> file. However, in order to use this feature in <code>vim-lsp</code>, a program caleed <code>pyls</code> must be installed in the system.
+</p>
+
+<p>
+<code>pyls</code> can be easily installed with the following command.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Install pyls</span>
+$ pip install python-language-server --user
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Check pyls is installed successfully</span>
+$ pyls --help
+</pre>
+</div>
+
+
+<figure>
+<img src="/pictures/200923/python_code_nav.gif" alt="python_code_nav.gif" align="center">
+
+</figure>
+
+<p>
+As above, it is possible to automatically complete the code and navigation to functions and variables in the same way as <code>ycm</code>.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2c6a507" class="outline-2">
+<h2 id="org2c6a507"><span class="section-number-2">3</span> My vim configuration</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+This section describes various general features and plugin features of vim that I use. The .vimrc file can be downloaded from <a href="/files/200917/vimrc1_ycm">vimrc1(ycm)</a>, <a href="/files/200917/vimrc2_lsp">vimrc2(lsp)</a>. The keybinding is set arbitrarily by the author, so you can change it as much as you want.
+</p>
+</div>
+
+<div id="outline-container-orgad44bf8" class="outline-3">
+<h3 id="orgad44bf8"><span class="section-number-3">3.1</span> General features</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+In the <b>Original keybindings</b> section, the basic keybinding of vim itself is described. If the keybinding is arbitrarily changed, it is described in the <b>Custom keybindings</b> section. There are numerous features and keybindings in vim, but I have not explained them all, and I have focused on the keybindings that are actually used frequently.
+</p>
+
+<p>
+Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybinding is expressed as <code>&lt;A-{...}&gt;</code>. (NORMAL), (INSERT) and (VISUAL) refer to each mode.
+</p>
+</div>
+
+<div id="outline-container-org8c57b3f" class="outline-4">
+<h4 id="org8c57b3f"><span class="section-number-4">3.1.1</span> Original keybindings</h4>
+<div class="outline-text-4" id="text-3-1-1">
+</div>
+<div id="outline-container-org33bccae" class="outline-5">
+<h5 id="org33bccae"><span class="section-number-5">3.1.1.1</span> <code>h, j, k, l</code></h5>
+<div class="outline-text-5" id="text-3-1-1-1">
+<p align="center">
+<img src="/pictures/200917/hjkl.gif" alt="hjkl.gif" align="center">
+(NORMAL) 커서를 상하좌우 방향으로 움직인다. 일반적으로 방향키 대신 사용한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org84dd29e" class="outline-5">
+<h5 id="org84dd29e"><span class="section-number-5">3.1.1.2</span> <code>&lt;ESC&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-1-2">
+<p align="center">
+<img src="/pictures/200917/esc.gif" alt="esc.gif" align="center">
+(INSERT)=&gt;(NORMAL) 모드로 변경한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org5499769" class="outline-5">
+<h5 id="org5499769"><span class="section-number-5">3.1.1.3</span> <code>a, A, i, I</code></h5>
+<div class="outline-text-5" id="text-3-1-1-3">
+<p align="center">
+<img src="/pictures/200917/aiAI.gif" alt="aiAI.gif" align="center">
+(NORMAL)=&gt;(INSERT) 모드로 변경한다. a,i는 현재 커서에서 한 칸 앞뒤에서 모드를 변경하며 A,I는 현재 라인의 맨 앞과 뒤로 이동한 후 모드를 변경한다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgdcd76e3" class="outline-5">
+<h5 id="orgdcd76e3"><span class="section-number-5">3.1.1.4</span> <code>s, S</code></h5>
+<div class="outline-text-5" id="text-3-1-1-4">
+<p align="center">
+<img src="/pictures/200917/sS.gif" alt="sS.gif" align="center">
+(NORMAL)=&gt;(INSERT) 모드로 변경할 때 s는 현재 커서의 칸을 지우면서 변경하고 S는 현재 라인 전체를 지우면서 변경한다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgfdc5852" class="outline-5">
+<h5 id="orgfdc5852"><span class="section-number-5">3.1.1.5</span> <code>o, O</code></h5>
+<div class="outline-text-5" id="text-3-1-1-5">
+<p align="center">
+<img src="/pictures/200917/oO.gif" alt="oO.gif" align="center">
+(NORMAL)=&gt;(INSERT) 모드로 변경한다. o는 현재 라인의 한 칸 아래에서 모드를 변경하며 O는 한 칸 위에서 모드를 변경한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org775d7b0" class="outline-5">
+<h5 id="org775d7b0"><span class="section-number-5">3.1.1.6</span> <code>dd, D</code></h5>
+<div class="outline-text-5" id="text-3-1-1-6">
+<p align="center">
+<img src="/pictures/200917/dD.gif" alt="dD.gif" align="center">
+(NORMAL) 현재 라인의 코드를 지운다. dd는 한 줄 전체를 지우며 D는 현재 커서로부터 뒷칸을 전부 지운다.
+</p>
+</div>
+</div>
+<div id="outline-container-org26776af" class="outline-5">
+<h5 id="org26776af"><span class="section-number-5">3.1.1.7</span> <code>yy, Y, p, P</code></h5>
+<div class="outline-text-5" id="text-3-1-1-7">
+<p align="center">
+<img src="/pictures/200917/yyYpP.gif" alt="yyYpP.gif" align="center">
+(NORMAL) 현재 라인의 코드를 복사/붙여넣기한다. y,p로 인한 복사/붙여넣기는 클립보드에 저장되지 않고 vim에서만 사용한다. 즉, Ctrl + c, Ctrl + v처럼 다른 프로그램에 복붙이 불가능하다. p는 현재 커서 기준 한 칸 아래에 붙여넣기하며 P는 한 칸 위에 붙여넣기한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org4062caf" class="outline-5">
+<h5 id="org4062caf"><span class="section-number-5">3.1.1.8</span> <code>v, V</code></h5>
+<div class="outline-text-5" id="text-3-1-1-8">
+<p align="center">
+<img src="/pictures/200917/vV.gif" alt="vV.gif" align="center">
+(NORMAL)=&gt;(VISUAL) 모드로 변경한다. (VISUAL) 모드는 마우스 드래그를 통해 선택을 하는것과 동일한 효과를 가지는 모드이며 d,y,s 등 각종 키바인딩들을 응용할 수 있다. v는 한 칸 단위로 VISUAL 모드를 선택할 수 있으며 V는 현재 라인 전체를 VISUAL 모드로 변경한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org0dd9baf" class="outline-5">
+<h5 id="org0dd9baf"><span class="section-number-5">3.1.1.9</span> <code>&lt;C-v&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-1-9">
+<p align="center">
+<img src="/pictures/200917/c_v.gif" alt="c_v.gif" align="center">
+(VISUAL) 커스텀 영역(Visual Block)을 선택할 수 있다. a,i,s,y,p 키와 응용해서 주로 사용한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org21ea277" class="outline-5">
+<h5 id="org21ea277"><span class="section-number-5">3.1.1.10</span> <code>r</code></h5>
+<div class="outline-text-5" id="text-3-1-1-10">
+<p align="center">
+<img src="/pictures/200917/r.gif" alt="r.gif" align="center">
+(NORMAL) 현재 커서의 한 단어를 변경한다. (INSERT) 모드로 넘어가지 않고 변경할 수 있다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgbab9d2a" class="outline-5">
+<h5 id="orgbab9d2a"><span class="section-number-5">3.1.1.11</span> <code>gg, G</code></h5>
+<div class="outline-text-5" id="text-3-1-1-11">
+<p align="center">
+<img src="/pictures/200917/ggG.gif" alt="ggG.gif" align="center">
+(NORMAL) 현재 파일의 가장 위로 가거나 가장 아래로 이동한다. gg는 가장 위로 이동하며 G는 가장 아래로 이동한다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd8276f1" class="outline-5">
+<h5 id="orgd8276f1"><span class="section-number-5">3.1.1.12</span> <code>u</code></h5>
+<div class="outline-text-5" id="text-3-1-1-12">
+<p align="center">
+<img src="/pictures/200917/u.gif" alt="u.gif" align="center">
+(NORMAL) 변경사항을 취소한다(undo).
+</p>
+</div>
+</div>
+<div id="outline-container-orge44ddf0" class="outline-5">
+<h5 id="orge44ddf0"><span class="section-number-5">3.1.1.13</span> <code>z.</code></h5>
+<div class="outline-text-5" id="text-3-1-1-13">
+<p align="center">
+<img src="/pictures/200917/zdot.gif" alt="zdot.gif" align="center">
+(NORMAL) 커서를 화면의 중앙으로 이동한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org788521f" class="outline-5">
+<h5 id="org788521f"><span class="section-number-5">3.1.1.14</span> <code>&lt;C-u&gt;, &lt;C-d&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-1-14">
+<p align="center">
+<img src="/pictures/200917/c_u_c_d.gif" alt="c_u_c_d.gif" align="center">
+(NORMAL) 커서를 한 페이지 단위로 빠르게 이동한다. C-u 키를 사용하면 위로 이동하며 C-d 키를 사용하면 아래로 이동한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org089a4db" class="outline-5">
+<h5 id="org089a4db"><span class="section-number-5">3.1.1.15</span> <code>&lt;C-a&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-1-15">
+<p align="center">
+<img src="/pictures/200917/c_a.gif" alt="c_a.gif" align="center">
+(NORMAL) 현재 커서의 뒷쪽에 있는 숫자를 1씩 증가시킨다.
+</p>
+</div>
+</div>
+<div id="outline-container-org23d8ce6" class="outline-5">
+<h5 id="org23d8ce6"><span class="section-number-5">3.1.1.16</span> <code>/{search word}, n, N</code></h5>
+<div class="outline-text-5" id="text-3-1-1-16">
+<p align="center">
+<img src="/pictures/200917/slashnN.gif" alt="slashnN.gif" align="center">
+(NORMAL) 특정 단어를 검색한다. n은 아래 방향으로 검색하며 N은 윗 방향으로 검색한다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc0aa4c7" class="outline-5">
+<h5 id="orgc0aa4c7"><span class="section-number-5">3.1.1.17</span> <code>"+y, "+gP</code></h5>
+<div class="outline-text-5" id="text-3-1-1-17">
+<p align="center">
+<img src="/pictures/200917/copypaste_y_gP.gif" alt="copypaste_y_gP.gif" align="center">
+(NORMAL) 선택 영역을 클립보드에 복사/붙여넣기한다. 일반 Ctrl + c, Ctrl + v와 동일한 복사/붙여넣기이다.
+</p>
+</div>
+</div>
+<div id="outline-container-org80fab7e" class="outline-5">
+<h5 id="org80fab7e"><span class="section-number-5">3.1.1.18</span> <code>:e {file name}</code></h5>
+<div class="outline-text-5" id="text-3-1-1-18">
+<p align="center">
+<img src="/pictures/200917/colon_e.gif" alt="colon_e.gif" align="center">
+(NORMAL) 특정 파일을 연다. :e! 는 현재 변경된 코드를 저장하지 않고 다른 파일을 연다는 의미이다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf7f625d" class="outline-5">
+<h5 id="orgf7f625d"><span class="section-number-5">3.1.1.19</span> <code>:w</code></h5>
+<div class="outline-text-5" id="text-3-1-1-19">
+<p align="center">
+<img src="/pictures/200917/colon_w.gif" alt="colon_w.gif" align="center">
+(NORMAL) 현재 파일을 저장한다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd1cd176" class="outline-5">
+<h5 id="orgd1cd176"><span class="section-number-5">3.1.1.20</span> <code>:q</code></h5>
+<div class="outline-text-5" id="text-3-1-1-20">
+<p align="center">
+<img src="/pictures/200917/colon_q.gif" alt="colon_q.gif" align="center">
+(NORMAL) 현재 파일을 닫는다. :q! 는 현재 변경된 코드를 저장하지 않고 닫는다는 의미이다.
+</p>
+</div>
+</div>
+<div id="outline-container-org8fe4a5c" class="outline-5">
+<h5 id="org8fe4a5c"><span class="section-number-5">3.1.1.21</span> <code>:%s</code></h5>
+<div class="outline-text-5" id="text-3-1-1-21">
+<p align="center">
+<img src="/pictures/200917/percent_s.gif" alt="percent_s.gif" align="center">
+(NORMAL) 특정 단어를 일괄적으로 변경한다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgbfff293" class="outline-5">
+<h5 id="orgbfff293"><span class="section-number-5">3.1.1.22</span> <code>:vsplit (:vs)</code></h5>
+<div class="outline-text-5" id="text-3-1-1-22">
+<p align="center">
+<img src="/pictures/200917/vsplit.gif" alt="vsplit.gif" align="center">
+(NORMAL) 세로로 창을 분할한다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgff6f63d" class="outline-5">
+<h5 id="orgff6f63d"><span class="section-number-5">3.1.1.23</span> <code>:split (:sp)</code></h5>
+<div class="outline-text-5" id="text-3-1-1-23">
+<p align="center">
+<img src="/pictures/200917/split.gif" alt="split.gif" align="center">
+(NORMAL) 가로로 창을 분할한다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgeec41f2" class="outline-5">
+<h5 id="orgeec41f2"><span class="section-number-5">3.1.1.24</span> <code>&lt;C-w&gt;&lt;C-w&gt;, &lt;C-w&gt;ArrowKey</code></h5>
+<div class="outline-text-5" id="text-3-1-1-24">
+<p align="center">
+<img src="/pictures/200917/c_w_c_w.gif" alt="c_w_c_w.gif" align="center">
+(NORMAL) 여러 창들을 이동한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org2a6fb4e" class="outline-5">
+<h5 id="org2a6fb4e"><span class="section-number-5">3.1.1.25</span> <code>&lt;C-o&gt;, &lt;C-i&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-1-25">
+<p align="center">
+<img src="/pictures/200917/c_o_c_i.gif" alt="c_o_c_i.gif" align="center">
+(NORMAL) 이전에 열어놨던 여러 버퍼들로 이동한다. 예를 들어, A-&gt;B-&gt;C-&gt;D 파일 순서로 코딩을 진행하는 경우 &lt;C-o&gt; 키로 D-&gt;C-&gt;B-&gt;A 파일 순서로 네비게이션 할 수 있다. 다시 반대로 가고 싶은 경우 &lt;C-i&gt; 키를 사용하면 된다.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org03e29c0" class="outline-4">
+<h4 id="org03e29c0"><span class="section-number-4">3.1.2</span> Custom keybindings</h4>
+<div class="outline-text-4" id="text-3-1-2">
+</div>
+<div id="outline-container-org9cecd18" class="outline-5">
+<h5 id="org9cecd18"><span class="section-number-5">3.1.2.1</span> <code>t</code></h5>
+<div class="outline-text-5" id="text-3-1-2-1">
+<p align="center">
+<img src="/pictures/200917/t.gif" alt="t.gif" align="center">
+(NORMAL) 변수나 함수를 검색하는 경우 해당 단어가 하이라이팅되는데 이 때 t를 누르면 하이라이팅이 해제된다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgddb59dd" class="outline-5">
+<h5 id="orgddb59dd"><span class="section-number-5">3.1.2.2</span> <code>&lt;C-d&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-2-2">
+<p align="center">
+<img src="/pictures/200917/custom_c_d.gif" alt="custom_c_d.gif" align="center">
+(INSERT) 현재 커서의 한 단어를 지운다. (NORMAL) 모드로 변경하지 않고 단어를 바로 지울 수 있다.
+</p>
+</div>
+</div>
+<div id="outline-container-org6bdf1db" class="outline-5">
+<h5 id="org6bdf1db"><span class="section-number-5">3.1.2.3</span> <code>&lt;C-f&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-2-3">
+<p align="center">
+<img src="/pictures/200917/custom_c_f.gif" alt="custom_c_f.gif" align="center">
+(NORMAL) 현재 커서에서 한 칸 아래에 빈 칸을 생성한다. (INSERT) 모드로 변경하지 않고 빈 칸을 생성할 수 있다.
+</p>
+</div>
+</div>
+<div id="outline-container-org63b25b1" class="outline-5">
+<h5 id="org63b25b1"><span class="section-number-5">3.1.2.4</span> <code>&lt;C-h,j,k,l&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-2-4">
+<p align="center">
+<img src="/pictures/200917/custom_c_hjkl.gif" alt="custom_c_hjkl.gif" align="center">
+(NORMAL) 여러 창들을 이동한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org2163884" class="outline-5">
+<h5 id="org2163884"><span class="section-number-5">3.1.2.5</span> <code>U</code></h5>
+<div class="outline-text-5" id="text-3-1-2-5">
+<p align="center">
+<img src="/pictures/200917/custom_U.gif" alt="custom_U.gif" align="center">
+(NORMAL) 실행취소했던 작업을 다시 원상복구한다(redo).
+</p>
+</div>
+</div>
+<div id="outline-container-org5e974d4" class="outline-5">
+<h5 id="org5e974d4"><span class="section-number-5">3.1.2.6</span> <code>Q</code></h5>
+<div class="outline-text-5" id="text-3-1-2-6">
+<p align="center">
+<img src="/pictures/200917/custom_Q.gif" alt="custom_Q.gif" align="center">
+(NORMAL) 현재 파일을 저장하지 않고 바로 종료한다. :q! 와 동일한 명령어이다.
+</p>
+</div>
+</div>
+<div id="outline-container-orga972d1c" class="outline-5">
+<h5 id="orga972d1c"><span class="section-number-5">3.1.2.7</span> <code>, .</code></h5>
+<div class="outline-text-5" id="text-3-1-2-7">
+<p align="center">
+<img src="/pictures/200917/custom_dot_comma.gif" alt="custom_dot_comma.gif" align="center">
+(NORMAL) 빈 칸 단위로 빠르게 코드를 네비게이션한다. 원래 키바인딩은 {, } 이지만 이를 , .로 변경하였다
+</p>
+</div>
+</div>
+<div id="outline-container-org34b6070" class="outline-5">
+<h5 id="org34b6070"><span class="section-number-5">3.1.2.8</span> <code>&lt;C-p&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-2-8">
+<p align="center">
+<img src="/pictures/200917/custom_c_p.gif" alt="custom_c_p.gif" align="center">
+(NORMAL) 현재 파일의 전체 경로를 상태창에 출력한다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb3b54ca" class="outline-5">
+<h5 id="orgb3b54ca"><span class="section-number-5">3.1.2.9</span> <code>&lt;C-z&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-2-9">
+<p align="center">
+<img src="/pictures/200917/custom_c_z.gif" alt="custom_c_z.gif" align="center">
+(INSERT) 모드에서 실행취소(undo)를 수행한다. (NORMAL) 모드로 넘어가지 않고 바로 실행취소할 수 있다.
+</p>
+</div>
+</div>
+<div id="outline-container-org38aa8ba" class="outline-5">
+<h5 id="org38aa8ba"><span class="section-number-5">3.1.2.10</span> <code>&lt;leader&gt;s</code></h5>
+<div class="outline-text-5" id="text-3-1-2-10">
+<p align="center">
+<img src="/pictures/200917/custom_leader_s.gif" alt="custom_leader_s.gif" align="center">
+(NORMAL) 현재 커서에 있는 단어들과 동일한 단어를 일괄적으로 변경한다. %s 는 단어를 직접 입력해야 하지만 해당 명령어는 커서에 있는 단어를 자동으로 선택해준다.
+</p>
+</div>
+</div>
+<div id="outline-container-org457d3d4" class="outline-5">
+<h5 id="org457d3d4"><span class="section-number-5">3.1.2.11</span> <code>&lt;C-e&gt;, &lt;A-e&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-2-11">
+<p align="center">
+<img src="/pictures/200917/custom_c_e_a_e.gif" alt="custom_c_e_a_e.gif" align="center">
+(NORMAL) 현재 라인의 맨 앞과 뒤로 이동한다. 이동한 후에도 (INSERT) 모드로 변경하지 않고 (NORMAL) 모드를 유지한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org7073699" class="outline-5">
+<h5 id="org7073699"><span class="section-number-5">3.1.2.12</span> <code>&lt;C-c&gt;&lt;C-c&gt;, &lt;C-c&gt;&lt;C-v&gt;</code></h5>
+<div class="outline-text-5" id="text-3-1-2-12">
+<p align="center">
+<img src="/pictures/200917/custom_c_c_c_c.gif" alt="custom_c_c_c_c.gif" align="center">
+(NORMAL) 현재 창의 크기를 증가시킨다.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgefeea63" class="outline-3">
+<h3 id="orgefeea63"><span class="section-number-3">3.2</span> Plugin Features</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-org9458172" class="outline-4">
+<h4 id="org9458172"><span class="section-number-4">3.2.1</span> The-NERD-tree</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+현재 폴더의 파일 목록을 볼 수 있는 플러그인
+</p>
+</div>
+<div id="outline-container-org8dc0e5f" class="outline-5">
+<h5 id="org8dc0e5f"><span class="section-number-5">3.2.1.1</span> <code>&lt;C-n&gt;</code></h5>
+<div class="outline-text-5" id="text-3-2-1-1">
+<p align="center">
+<img src="/pictures/200917/plug_nerd_tree.gif" alt="plug_nerd_tree.gif" align="center">
+(NORMAL) NERD tree를 실행한다.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orged3ca6f" class="outline-4">
+<h4 id="orged3ca6f"><span class="section-number-4">3.2.2</span> snipMate</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p align="center">
+<img src="/pictures/200917/plug_snipmate.gif" alt="plug_snipmate.gif" align="center">
+(NORMAL) 특정 키워드를 입력 후 Tab을 누르면 미리 저장된 Snippet들이 나오는 플러그인
+</p>
+</div>
+</div>
+<div id="outline-container-org354eba7" class="outline-4">
+<h4 id="org354eba7"><span class="section-number-4">3.2.3</span> tComment</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<p>
+단축키를 통해 간편하게 코멘트를 적용할 수 있는 플러그인
+</p>
+</div>
+<div id="outline-container-orgee54755" class="outline-5">
+<h5 id="orgee54755"><span class="section-number-5">3.2.3.1</span> <code>&lt;C-_&gt;&lt;C-_&gt;</code></h5>
+<div class="outline-text-5" id="text-3-2-3-1">
+<p align="center">
+<img src="/pictures/200917/plug_tcomment.gif" alt="plug_tcomment.gif" align="center">
+(NORMAL) 현재 라인이나 선택영역을 코멘트화한다.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd383d94" class="outline-4">
+<h4 id="orgd383d94"><span class="section-number-4">3.2.4</span> EasyMotion</h4>
+<div class="outline-text-4" id="text-3-2-4">
+<p>
+코드 사이를 빠르게 네비게이션할 수 있는 플러그인
+</p>
+</div>
+<div id="outline-container-org5d108ad" class="outline-5">
+<h5 id="org5d108ad"><span class="section-number-5">3.2.4.1</span> <code>&lt;leader&gt;&lt;leader&gt;w, b</code></h5>
+<div class="outline-text-5" id="text-3-2-4-1">
+<p align="center">
+<img src="/pictures/200917/plug_easymotion.gif" alt="plug_easymotion.gif" align="center">
+(NORMAL) 현재 커서 기준으로 앞과 뒤를 빠르게 이동한다.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org56a9879" class="outline-4">
+<h4 id="org56a9879"><span class="section-number-4">3.2.5</span> Mark</h4>
+<div class="outline-text-4" id="text-3-2-5">
+<p>
+단어를 하이라이팅해주는 플러그인
+</p>
+</div>
+<div id="outline-container-orgb66f027" class="outline-5">
+<h5 id="orgb66f027"><span class="section-number-5">3.2.5.1</span> <code>&lt;F4&gt;, &lt;F5&gt;</code></h5>
+<div class="outline-text-5" id="text-3-2-5-1">
+<p align="center">
+<img src="/pictures/200917/plug_mark.gif" alt="plug_mark.gif" align="center">
+(NORMAL) 현재 커서에 있는 단어를 마킹한다. &lt;F5&gt;를 통해 마킹하고 &lt;F4&gt;로 전체 취소할 수 있다.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org9cffaf1" class="outline-4">
+<h4 id="org9cffaf1"><span class="section-number-4">3.2.6</span> tagbar</h4>
+<div class="outline-text-4" id="text-3-2-6">
+<p>
+함수 및 변수 정보를 출력해주는 플러그인
+</p>
+</div>
+<div id="outline-container-org9ad6267" class="outline-5">
+<h5 id="org9ad6267"><span class="section-number-5">3.2.6.1</span> <code>&lt;C-t&gt;</code></h5>
+<div class="outline-text-5" id="text-3-2-6-1">
+<p align="center">
+<img src="/pictures/200917/plug_tagbar.gif" alt="plug_tagbar.gif" align="center">
+(NORMAL) 현재 파일의 함수 및 변수 정보를 출력한다. ctags가 설치되어 있어야 한다. 아래 명령을 통해 설치한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ sudo apt install ctags
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org62fa6b1" class="outline-4">
+<h4 id="org62fa6b1"><span class="section-number-4">3.2.7</span> youcompleteme, vim-lsp</h4>
+<div class="outline-text-4" id="text-3-2-7">
+<p align="center">
+<img src="/pictures/200917/plug_ycm_syntcheck.gif" alt="plug_ycm_syntcheck.gif" align="center">
+코드 자동완성 및 네비게이션, 구문 체크 등을 해주는 플러그인. 위 그림은 틀린 구문을 체크해주는 모습이다. <code>youcompleteme, vim-lsp</code> 모두 c++/python 개발환경에서는 동일한 기능을 제공하므로 한 번에 설명하였다.
+</p>
+</div>
+<div id="outline-container-org35e2760" class="outline-5">
+<h5 id="org35e2760"><span class="section-number-5">3.2.7.1</span> <code>&lt;A-.&gt;, &lt;A-,&gt;</code></h5>
+<div class="outline-text-5" id="text-3-2-7-1">
+<p align="center">
+<img src="/pictures/200917/plug_ycm.gif" alt="plug_ycm.gif" align="center">
+(NORMAL) 현재 커서의 함수 또는 변수의 정의로 이동한다. &lt;A-.&gt;을 통해 이동하고 &lt;A-,&gt;를 통해 원래 위치로 돌아온다. 
+</p>
+</div>
+</div>
+<div id="outline-container-org9a33352" class="outline-5">
+<h5 id="org9a33352"><span class="section-number-5">3.2.7.2</span> <code>&lt;leader&gt;f</code></h5>
+<div class="outline-text-5" id="text-3-2-7-2">
+<p align="center">
+<img src="/pictures/200917/plug_ycm_leader_f.gif" alt="plug_ycm_leader_f.gif" align="center">
+(NORMAL) 현재 커서의 함수 또는 변수가 사용된 레퍼런스들을 표시한다.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org1c2d968" class="outline-4">
+<h4 id="org1c2d968"><span class="section-number-4">3.2.8</span> vim-airline</h4>
+<div class="outline-text-4" id="text-3-2-8">
+<p>
+vim 화면 위, 아래 상태바에 여러 정보들을 보여주는 플러그인
+</p>
+</div>
+<div id="outline-container-org0cb896e" class="outline-5">
+<h5 id="org0cb896e"><span class="section-number-5">3.2.8.1</span> <code>&lt;leader&gt;q, w, c</code></h5>
+<div class="outline-text-5" id="text-3-2-8-1">
+<p align="center">
+<img src="/pictures/200917/plug_vimairline.gif" alt="plug_vimairline.gif" align="center">
+(NORMAL) q,w 키를 통해 다음 버퍼, 이전 버퍼로 이동한다. c를 통해 현재 버퍼를 닫을 수 있다.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga6cefd6" class="outline-4">
+<h4 id="orga6cefd6"><span class="section-number-4">3.2.9</span> vim-gitgutter</h4>
+<div class="outline-text-4" id="text-3-2-9">
+<p>
+git 버전 관리에 의한 코드 변경내역을 표시해주는 플러그인
+</p>
+<p align="center">
+<img src="/pictures/200917/plug_gitgutter_intro.gif" alt="plug_gitgutter_intro.gif" align="center">
+git을 통한 코드 변경내역이 감지되는 경우 표시해주는 플러그인이다. 위와 같이 코드 변경내역이 왼쪽 라인에 표시된다.
+</p>
+</div>
+<div id="outline-container-org1d674b5" class="outline-5">
+<h5 id="org1d674b5"><span class="section-number-5">3.2.9.1</span> <code>&lt;leader&gt;gn, gp</code></h5>
+<div class="outline-text-5" id="text-3-2-9-1">
+<p align="center">
+<img src="/pictures/200917/plug_gitgutter_gn_gp.gif" alt="plug_gitgutter_gn_gp.gif" align="center">
+(NORMAL) gn, gp 키를 통해 코드 변경내역을 빠르게 네비게이션한다.
+</p>
+</div>
+</div>
+<div id="outline-container-org88ad457" class="outline-5">
+<h5 id="org88ad457"><span class="section-number-5">3.2.9.2</span> <code>&lt;leader&gt;gr</code></h5>
+<div class="outline-text-5" id="text-3-2-9-2">
+<p align="center">
+<img src="/pictures/200917/plug_gitgutter_gr.gif" alt="plug_gitgutter_gr.gif" align="center">
+(NORMAL) 현재 커서에 코드 변경내역이 있다면 이를 실행취소한다.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga1e2c3d" class="outline-4">
+<h4 id="orga1e2c3d"><span class="section-number-4">3.2.10</span> vim-diminactive</h4>
+<div class="outline-text-4" id="text-3-2-10">
+<p align="center">
+<img src="/pictures/200917/custom_c_hjkl.gif" alt="custom_c_hjkl.gif" align="center">
+여러 창이 띄워져있을 때 현재 창을 하이라이팅해주는 플러그인
+</p>
+</div>
+</div>
+<div id="outline-container-org5321a13" class="outline-4">
+<h4 id="org5321a13"><span class="section-number-4">3.2.11</span> AutoClose</h4>
+<div class="outline-text-4" id="text-3-2-11">
+<p>
+괄호 (), {}, [] 등을 자동으로 완성시켜주는 플러그인
+</p>
+</div>
+</div>
+<div id="outline-container-org811e65a" class="outline-4">
+<h4 id="org811e65a"><span class="section-number-4">3.2.12</span> vim-indent-guides</h4>
+<div class="outline-text-4" id="text-3-2-12">
+<p>
+자동으로 코드의 들여쓰기를 해주는 플러그인. .vimrc 파일에서 <code>let g:indent_guides_enable_on_vim_startup</code> 변수를 1로 하면 vim이 시작할 때 같이 적용되며 0으로 하면 vim이 시작할 때 해당 플러그인은 적용되지 않는다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgafb1e0e" class="outline-4">
+<h4 id="orgafb1e0e"><span class="section-number-4">3.2.13</span> vim-fugitive</h4>
+<div class="outline-text-4" id="text-3-2-13">
+<p>
+:Gdiff, :Gblame과 같이 git 명령어를 사용할 수 있는 플러그인
+</p>
+</div>
+</div>
+<div id="outline-container-orgcb50faf" class="outline-4">
+<h4 id="orgcb50faf"><span class="section-number-4">3.2.14</span> vim-cpp-enhanced-highlight</h4>
+<div class="outline-text-4" id="text-3-2-14">
+<p>
+c++ 코드를 하이라이팅해주는 플러그인. vim에서는 기본적으로 c++ 코드를 제대로 하이라이팅해주지 못하므로 가독성을 위해 사용한다. 
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orga7796f5" class="outline-2">
+<h2 id="orga7796f5"><span class="section-number-2">4</span> References</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li><a href="https://blog.naver.com/gyurse/221231228949">Naver blog 포스트</a></li>
+<li><a href="https://www.youtube.com/watch?v=oLvFt-UJ7UI">vim을 강력하게 만들어줄 8가지 플러그인 - 개발자맛 Youtube</a></li>
+<li><a href="https://youtu.be/IKa8RaTLTYc">코딩할 때 vim이 최고인 이유. 개발환경 추천 영상 - 개발자맛 Youtube</a></li>
+<li><a href="https://nophotoplease.tistory.com/6">YouCompleteMe (YCM) 본격 vim을 IDE로 만들기 - nophotoplease 블로그</a></li>
+</ol>
+</div>
+</div>
