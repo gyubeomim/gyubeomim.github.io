@@ -1,13 +1,3 @@
---- 
-layout: post
-title: (Linux)(en) Vim - Useful plugins and C++/Python development environment
-description: 
-date: 2020-09-17
-categories: [Technology]
-tag: [Linux, Editor, vim, C++, Python, English]
-use_math: true
-comments: true
----
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -17,14 +7,14 @@ comments: true
 <ul>
 <li><a href="#orgbbb642d">2.1. youcompleteme setting</a>
 <ul>
-<li><a href="#org0b63ba5">2.1.1. C++</a></li>
-<li><a href="#orge5ba471">2.1.2. Python</a></li>
+<li><a href="#org42ea072">2.1.1. C++</a></li>
+<li><a href="#org967b709">2.1.2. Python</a></li>
 </ul>
 </li>
 <li><a href="#orga5878eb">2.2. vim-lsp setting</a>
 <ul>
-<li><a href="#org42ea072">2.2.1. C++</a></li>
-<li><a href="#org967b709">2.2.2. Python</a></li>
+<li><a href="#org54827ff">2.2.1. C++</a></li>
+<li><a href="#orgbdca55a">2.2.2. Python</a></li>
 </ul>
 </li>
 </ul>
@@ -138,7 +128,16 @@ comments: true
 </ul>
 </div>
 </nav>
-
+--- 
+layout: post
+title: (Linux)(en) Vim - Useful plugins and C++/Python development environment
+description: 
+date: 2020-09-17
+categories: [Technology]
+tag: [Linux, Editor, vim, C++, Python, English]
+use_math: true
+comments: true
+---
 <div id="outline-container-orgfa678bf" class="outline-2">
 <h2 id="orgfa678bf"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
@@ -257,8 +256,8 @@ $ cp  ~/.vim/bundle/youcompleteme/third_party/ycmd/.ycm_extra_conf.py  ~/.vim/
 </div>
 </div>
 
-<div id="outline-container-org0b63ba5" class="outline-4">
-<h4 id="org0b63ba5"><span class="section-number-4">2.1.1</span> C++</h4>
+<div id="outline-container-org42ea072" class="outline-4">
+<h4 id="org42ea072"><span class="section-number-4">2.1.1</span> C++</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 The previously copied <code>~/.vim/.ycm_extra_conf.py</code> file reads the standard header file from <code>/usr/include, /usr/local/include</code> folder, and then automatically completes the standard headers installed in the system. Therefore, in the case of C++, automatic completion of standard headers such as vector, map and algorithm becomes possible. <b>However, the autocompletion function for classes, member functions, and member variables arbitrarily decalred by the developer is not supported. In order to perform automatric completion of arbitrarily declared functions and variables, proceed in the following order. But AFAIK, this feature is applied only to the cmake project.</b>
@@ -329,8 +328,8 @@ And code navigation is also possible as above.
 </div>
 </div>
 
-<div id="outline-container-orge5ba471" class="outline-4">
-<h4 id="orge5ba471"><span class="section-number-4">2.1.2</span> Python</h4>
+<div id="outline-container-org967b709" class="outline-4">
+<h4 id="org967b709"><span class="section-number-4">2.1.2</span> Python</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 If you want to navigate Python code with <code>ycm</code> plugin, unlike C++, if you open the file without a specific process, the code is automatically recognized. Therefore, as described above, if the <code>.ycm_extra_conf.py</code> file is located in the <code>~/.vim/.ycm_extra_conf.py</code> path, code navigation is possible in any path.
@@ -356,8 +355,8 @@ As above, code autocompletion and navigation to functions and variables become p
 (You only need to use one of the <code>youcompleteme</code> or <code>vim-lsp</code> plugin settings)
 </p>
 </div>
-<div id="outline-container-org42ea072" class="outline-4">
-<h4 id="org42ea072"><span class="section-number-4">2.2.1</span> C++</h4>
+<div id="outline-container-org54827ff" class="outline-4">
+<h4 id="org54827ff"><span class="section-number-4">2.2.1</span> C++</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 As a result of testing based on the current (2020.09), <code>vim-lsp</code> did not work properly in vim 7.x, 8.0, 8.1 versions, and only vim 8.2 version worked normally. In addition, code navigation is possible only when clangd-9 version or higher is installed. <b>Therefore, in this section, we used Ubuntu 18.04 LTS, vim 8.2 and clangd-9 versions.</b> Vim 8.2 version can be used after downloading the source code form <a href="https://ftp.nluug.nl/pub/vim/unix/">vim ftp</a> site and building it through <a href="https://gist.github.com/stonelasley/eb947e2d16cc4d11f89c41c905f5a0d5">installation script</a>. clangd-9 can be installed with the following command.
@@ -420,8 +419,8 @@ And code navigation is also possible as well as <code>ycm</code>.
 </div>
 </div>
 
-<div id="outline-container-org967b709" class="outline-4">
-<h4 id="org967b709"><span class="section-number-4">2.2.2</span> Python</h4>
+<div id="outline-container-orgbdca55a" class="outline-4">
+<h4 id="orgbdca55a"><span class="section-number-4">2.2.2</span> Python</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 In the case of Python, unlike C++, autocompletion is supported without an <code>compile_commands.json</code> file. However, in order to use this feature in <code>vim-lsp</code>, a program caleed <code>pyls</code> must be installed in the system.
@@ -848,7 +847,6 @@ The-NERD-tree is a plugin that allows you to view the list of files in the curre
 <div class="outline-text-4" id="text-3-2-2">
 <p align="center">
 <img src="/pictures/200917/plug_snipmate.gif" alt="plug_snipmate.gif" align="center">
-(NORMAL) 특정 키워드를 입력 후 Tab을 누르면 미리 저장된 Snippet들이 나오는 플러그인
 This plugin displays snippets previously saved when you press Tab after entering a specific keyword.
 </p>
 </div>
@@ -930,7 +928,6 @@ This plugin outputs function and variable information
 <div class="outline-text-4" id="text-3-2-7">
 <p align="center">
 <img src="/pictures/200917/plug_ycm_syntcheck.gif" alt="plug_ycm_syntcheck.gif" align="center">
-코드 자동완성 및 네비게이션, 구문 체크 등을 해주는 플러그인. 위 그림은 틀린 구문을 체크해주는 모습이다. <code>youcompleteme, vim-lsp</code> 모두 c++/python 개발환경에서는 동일한 기능을 제공하므로 한 번에 설명하였다.
 Plugins that automatically completes code, navigates, and check syntax. The picture above shows checking for incorrect syntax. Both <code>youcompleteme</code> and <code>vim-lsp</code> are explained at once because they are provide the same feature in the C++/Python development environment.
 </p>
 </div>
