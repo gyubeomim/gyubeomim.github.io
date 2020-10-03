@@ -17,14 +17,14 @@ comments: true
 <ul>
 <li><a href="#orgbbb642d">2.1. youcompleteme setting</a>
 <ul>
-<li><a href="#org10d136f">2.1.1. C++</a></li>
-<li><a href="#org9ac885e">2.1.2. Python</a></li>
+<li><a href="#org0b63ba5">2.1.1. C++</a></li>
+<li><a href="#orge5ba471">2.1.2. Python</a></li>
 </ul>
 </li>
 <li><a href="#orga5878eb">2.2. vim-lsp setting</a>
 <ul>
-<li><a href="#org0b63ba5">2.2.1. C++</a></li>
-<li><a href="#orge5ba471">2.2.2. Python</a></li>
+<li><a href="#org42ea072">2.2.1. C++</a></li>
+<li><a href="#org967b709">2.2.2. Python</a></li>
 </ul>
 </li>
 </ul>
@@ -257,8 +257,8 @@ $ cp  ~/.vim/bundle/youcompleteme/third_party/ycmd/.ycm_extra_conf.py  ~/.vim/
 </div>
 </div>
 
-<div id="outline-container-org10d136f" class="outline-4">
-<h4 id="org10d136f"><span class="section-number-4">2.1.1</span> C++</h4>
+<div id="outline-container-org0b63ba5" class="outline-4">
+<h4 id="org0b63ba5"><span class="section-number-4">2.1.1</span> C++</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 The previously copied <code>~/.vim/.ycm_extra_conf.py</code> file reads the standard header file from <code>/usr/include, /usr/local/include</code> folder, and then automatically completes the standard headers installed in the system. Therefore, in the case of C++, automatic completion of standard headers such as vector, map and algorithm becomes possible. <b>However, the autocompletion function for classes, member functions, and member variables arbitrarily decalred by the developer is not supported. In order to perform automatric completion of arbitrarily declared functions and variables, proceed in the following order. But AFAIK, this feature is applied only to the cmake project.</b>
@@ -329,8 +329,8 @@ And code navigation is also possible as above.
 </div>
 </div>
 
-<div id="outline-container-org9ac885e" class="outline-4">
-<h4 id="org9ac885e"><span class="section-number-4">2.1.2</span> Python</h4>
+<div id="outline-container-orge5ba471" class="outline-4">
+<h4 id="orge5ba471"><span class="section-number-4">2.1.2</span> Python</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 If you want to navigate Python code with <code>ycm</code> plugin, unlike C++, if you open the file without a specific process, the code is automatically recognized. Therefore, as described above, if the <code>.ycm_extra_conf.py</code> file is located in the <code>~/.vim/.ycm_extra_conf.py</code> path, code navigation is possible in any path.
@@ -356,8 +356,8 @@ As above, code autocompletion and navigation to functions and variables become p
 (You only need to use one of the <code>youcompleteme</code> or <code>vim-lsp</code> plugin settings)
 </p>
 </div>
-<div id="outline-container-org0b63ba5" class="outline-4">
-<h4 id="org0b63ba5"><span class="section-number-4">2.2.1</span> C++</h4>
+<div id="outline-container-org42ea072" class="outline-4">
+<h4 id="org42ea072"><span class="section-number-4">2.2.1</span> C++</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 As a result of testing based on the current (2020.09), <code>vim-lsp</code> did not work properly in vim 7.x, 8.0, 8.1 versions, and only vim 8.2 version worked normally. In addition, code navigation is possible only when clangd-9 version or higher is installed. <b>Therefore, in this section, we used Ubuntu 18.04 LTS, vim 8.2 and clangd-9 versions.</b> Vim 8.2 version can be used after downloading the source code form <a href="https://ftp.nluug.nl/pub/vim/unix/">vim ftp</a> site and building it through <a href="https://gist.github.com/stonelasley/eb947e2d16cc4d11f89c41c905f5a0d5">installation script</a>. clangd-9 can be installed with the following command.
@@ -420,8 +420,8 @@ And code navigation is also possible as well as <code>ycm</code>.
 </div>
 </div>
 
-<div id="outline-container-orge5ba471" class="outline-4">
-<h4 id="orge5ba471"><span class="section-number-4">2.2.2</span> Python</h4>
+<div id="outline-container-org967b709" class="outline-4">
+<h4 id="org967b709"><span class="section-number-4">2.2.2</span> Python</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 In the case of Python, unlike C++, autocompletion is supported without an <code>compile_commands.json</code> file. However, in order to use this feature in <code>vim-lsp</code>, a program caleed <code>pyls</code> must be installed in the system.
@@ -482,7 +482,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-1">
 <p align="center">
 <img src="/pictures/200917/hjkl.gif" alt="hjkl.gif" align="center">
-(NORMAL) 커서를 상하좌우 방향으로 움직인다. 일반적으로 방향키 대신 사용한다.
+(NORMAL) Moves the cursor up, down, left and right. Usually used instead of arrow keys
 </p>
 </div>
 </div>
@@ -491,7 +491,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-2">
 <p align="center">
 <img src="/pictures/200917/esc.gif" alt="esc.gif" align="center">
-(INSERT)=&gt;(NORMAL) 모드로 변경한다.
+Change to (INSERT) to (NORMAL) mode
 </p>
 </div>
 </div>
@@ -502,6 +502,10 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <img src="/pictures/200917/aiAI.gif" alt="aiAI.gif" align="center">
 (NORMAL)=&gt;(INSERT) 모드로 변경한다. a,i는 현재 커서에서 한 칸 앞뒤에서 모드를 변경하며 A,I는 현재 라인의 맨 앞과 뒤로 이동한 후 모드를 변경한다.
 </p>
+
+<p>
+Change to (NORMAL) to (INSERT) mode. a,i keys change the mode one space before and after the current cursor, and A,I keys change the mode after moving to the beginning and the end of the current line.
+</p>
 </div>
 </div>
 <div id="outline-container-orgdcd76e3" class="outline-5">
@@ -509,7 +513,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-4">
 <p align="center">
 <img src="/pictures/200917/sS.gif" alt="sS.gif" align="center">
-(NORMAL)=&gt;(INSERT) 모드로 변경할 때 s는 현재 커서의 칸을 지우면서 변경하고 S는 현재 라인 전체를 지우면서 변경한다.
+When changin to (NORMAL) to (INSERT) mode, s key changes the current cursor by erasing the space, and S key changes by erasing the entire current line.
 </p>
 </div>
 </div>
@@ -518,16 +522,17 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-5">
 <p align="center">
 <img src="/pictures/200917/oO.gif" alt="oO.gif" align="center">
-(NORMAL)=&gt;(INSERT) 모드로 변경한다. o는 현재 라인의 한 칸 아래에서 모드를 변경하며 O는 한 칸 위에서 모드를 변경한다.
+Change to (NORMAL) to (INSERT) mode. o key changes the mode one space below the curernt line, and O key changes the mode one space above the current line.
 </p>
 </div>
 </div>
+
 <div id="outline-container-org775d7b0" class="outline-5">
 <h5 id="org775d7b0"><span class="section-number-5">3.1.1.6</span> <code>dd, D</code></h5>
 <div class="outline-text-5" id="text-3-1-1-6">
 <p align="center">
 <img src="/pictures/200917/dD.gif" alt="dD.gif" align="center">
-(NORMAL) 현재 라인의 코드를 지운다. dd는 한 줄 전체를 지우며 D는 현재 커서로부터 뒷칸을 전부 지운다.
+(NORMAL) Delete the code of the current line. dd key deletes an entire line and D key deletes all spaces after the current cursor.
 </p>
 </div>
 </div>
@@ -536,7 +541,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-7">
 <p align="center">
 <img src="/pictures/200917/yyYpP.gif" alt="yyYpP.gif" align="center">
-(NORMAL) 현재 라인의 코드를 복사/붙여넣기한다. y,p로 인한 복사/붙여넣기는 클립보드에 저장되지 않고 vim에서만 사용한다. 즉, Ctrl + c, Ctrl + v처럼 다른 프로그램에 복붙이 불가능하다. p는 현재 커서 기준 한 칸 아래에 붙여넣기하며 P는 한 칸 위에 붙여넣기한다.
+(NORMAL) Copy/paste the code of the current line. Copy/paste caused by y and p keys is not saved in the clipboardand is used only in vim. In other words, it is impossible to copy to other programs like Ctrl + c and Ctrl + v. p key is pasted one space below the curent cursor and P key is pasted one space above.
 </p>
 </div>
 </div>
@@ -545,7 +550,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-8">
 <p align="center">
 <img src="/pictures/200917/vV.gif" alt="vV.gif" align="center">
-(NORMAL)=&gt;(VISUAL) 모드로 변경한다. (VISUAL) 모드는 마우스 드래그를 통해 선택을 하는것과 동일한 효과를 가지는 모드이며 d,y,s 등 각종 키바인딩들을 응용할 수 있다. v는 한 칸 단위로 VISUAL 모드를 선택할 수 있으며 V는 현재 라인 전체를 VISUAL 모드로 변경한다.
+Change to (NORMAL) to (VISUAL) mode. (VISUAL) mode has the same effect as selecting through mouse drag, and various keybindings such and d,y,s keys can be applied. v key can select the (VISUAL) mode in units of one column, and V key changes the entires current line to the (VISUAL) mode.
 </p>
 </div>
 </div>
@@ -554,7 +559,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-9">
 <p align="center">
 <img src="/pictures/200917/c_v.gif" alt="c_v.gif" align="center">
-(VISUAL) 커스텀 영역(Visual Block)을 선택할 수 있다. a,i,s,y,p 키와 응용해서 주로 사용한다.
+(VISUAL) Custom area called visual block can be selected. It is maninly used in conjunction with the a,i,s,y,p keys.
 </p>
 </div>
 </div>
@@ -563,7 +568,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-10">
 <p align="center">
 <img src="/pictures/200917/r.gif" alt="r.gif" align="center">
-(NORMAL) 현재 커서의 한 단어를 변경한다. (INSERT) 모드로 넘어가지 않고 변경할 수 있다.
+(NORMAL) Changes one word of the current cursor. You can change it without going to (INSERT) mode.
 </p>
 </div>
 </div>
@@ -572,7 +577,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-11">
 <p align="center">
 <img src="/pictures/200917/ggG.gif" alt="ggG.gif" align="center">
-(NORMAL) 현재 파일의 가장 위로 가거나 가장 아래로 이동한다. gg는 가장 위로 이동하며 G는 가장 아래로 이동한다.
+(NORMAL) Moves to the top or bottom of the current file. gg moves to the top and G moves to the bottom.
 </p>
 </div>
 </div>
@@ -581,7 +586,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-12">
 <p align="center">
 <img src="/pictures/200917/u.gif" alt="u.gif" align="center">
-(NORMAL) 변경사항을 취소한다(undo).
+(NORMAL) Undo the changes.
 </p>
 </div>
 </div>
@@ -590,7 +595,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-13">
 <p align="center">
 <img src="/pictures/200917/zdot.gif" alt="zdot.gif" align="center">
-(NORMAL) 커서를 화면의 중앙으로 이동한다.
+(NORMAL) Moves the cursor to the center of the screen.
 </p>
 </div>
 </div>
@@ -599,7 +604,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-14">
 <p align="center">
 <img src="/pictures/200917/c_u_c_d.gif" alt="c_u_c_d.gif" align="center">
-(NORMAL) 커서를 한 페이지 단위로 빠르게 이동한다. C-u 키를 사용하면 위로 이동하며 C-d 키를 사용하면 아래로 이동한다.
+(NORMAL) MOves the cursor quickly by one page. Use the C-u key to move up, and the C-d key to move down.
 </p>
 </div>
 </div>
@@ -608,7 +613,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-15">
 <p align="center">
 <img src="/pictures/200917/c_a.gif" alt="c_a.gif" align="center">
-(NORMAL) 현재 커서의 뒷쪽에 있는 숫자를 1씩 증가시킨다.
+(NORMAL) Increments the number at the back of the current cursor by 1.
 </p>
 </div>
 </div>
@@ -617,7 +622,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-16">
 <p align="center">
 <img src="/pictures/200917/slashnN.gif" alt="slashnN.gif" align="center">
-(NORMAL) 특정 단어를 검색한다. n은 아래 방향으로 검색하며 N은 윗 방향으로 검색한다.
+(NORMAL) Search for a specific word. n searches downward and N searches upwards.
 </p>
 </div>
 </div>
@@ -626,7 +631,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-17">
 <p align="center">
 <img src="/pictures/200917/copypaste_y_gP.gif" alt="copypaste_y_gP.gif" align="center">
-(NORMAL) 선택 영역을 클립보드에 복사/붙여넣기한다. 일반 Ctrl + c, Ctrl + v와 동일한 복사/붙여넣기이다.
+(NORMAL) Copy/paste the selected area to the clipboard. It is the same copy/pasted as regualr Ctrl + C and Ctrl + v.
 </p>
 </div>
 </div>
@@ -635,7 +640,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-18">
 <p align="center">
 <img src="/pictures/200917/colon_e.gif" alt="colon_e.gif" align="center">
-(NORMAL) 특정 파일을 연다. :e! 는 현재 변경된 코드를 저장하지 않고 다른 파일을 연다는 의미이다.
+(NORMAL) Open a specific file. :e! means to open another file without saving the currently changed code.
 </p>
 </div>
 </div>
@@ -644,7 +649,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-19">
 <p align="center">
 <img src="/pictures/200917/colon_w.gif" alt="colon_w.gif" align="center">
-(NORMAL) 현재 파일을 저장한다.
+(NORMAL) Save the current file
 </p>
 </div>
 </div>
@@ -653,7 +658,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-20">
 <p align="center">
 <img src="/pictures/200917/colon_q.gif" alt="colon_q.gif" align="center">
-(NORMAL) 현재 파일을 닫는다. :q! 는 현재 변경된 코드를 저장하지 않고 닫는다는 의미이다.
+(NORMAL) Close the current file. :q! means to close the currently changed code without saving it.
 </p>
 </div>
 </div>
@@ -662,7 +667,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-21">
 <p align="center">
 <img src="/pictures/200917/percent_s.gif" alt="percent_s.gif" align="center">
-(NORMAL) 특정 단어를 일괄적으로 변경한다.
+(NORMAL) Changes a specific word collectively
 </p>
 </div>
 </div>
@@ -671,7 +676,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-22">
 <p align="center">
 <img src="/pictures/200917/vsplit.gif" alt="vsplit.gif" align="center">
-(NORMAL) 세로로 창을 분할한다.
+(NORMAL) Splits the window vertically
 </p>
 </div>
 </div>
@@ -680,7 +685,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-23">
 <p align="center">
 <img src="/pictures/200917/split.gif" alt="split.gif" align="center">
-(NORMAL) 가로로 창을 분할한다.
+(NORMAL) Splits the widnow horizontally
 </p>
 </div>
 </div>
@@ -689,7 +694,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-24">
 <p align="center">
 <img src="/pictures/200917/c_w_c_w.gif" alt="c_w_c_w.gif" align="center">
-(NORMAL) 여러 창들을 이동한다.
+(NORMAL) Moves multiple windows
 </p>
 </div>
 </div>
@@ -698,7 +703,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-1-25">
 <p align="center">
 <img src="/pictures/200917/c_o_c_i.gif" alt="c_o_c_i.gif" align="center">
-(NORMAL) 이전에 열어놨던 여러 버퍼들로 이동한다. 예를 들어, A-&gt;B-&gt;C-&gt;D 파일 순서로 코딩을 진행하는 경우 &lt;C-o&gt; 키로 D-&gt;C-&gt;B-&gt;A 파일 순서로 네비게이션 할 수 있다. 다시 반대로 가고 싶은 경우 &lt;C-i&gt; 키를 사용하면 된다.
+(NORMAL) Move to several previously opend buffers. For example, in the case of coding in the order of files A-&gt;B-&gt;C-&gt;D, you can navigate in the order of files D-&gt;C-&gt;B-&gt;A with the &lt;C-o&gt; key. If you want to go back again, just use the &lt;C-i&gt; key
 </p>
 </div>
 </div>
@@ -712,7 +717,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-2-1">
 <p align="center">
 <img src="/pictures/200917/t.gif" alt="t.gif" align="center">
-(NORMAL) 변수나 함수를 검색하는 경우 해당 단어가 하이라이팅되는데 이 때 t를 누르면 하이라이팅이 해제된다.
+(NORMAL) When searching for a variable or function, the word is highlighted, and pressing t will cancel the highlighting.
 </p>
 </div>
 </div>
@@ -721,7 +726,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-2-2">
 <p align="center">
 <img src="/pictures/200917/custom_c_d.gif" alt="custom_c_d.gif" align="center">
-(INSERT) 현재 커서의 한 단어를 지운다. (NORMAL) 모드로 변경하지 않고 단어를 바로 지울 수 있다.
+(INSERT) Deletes a word from the current cursor. You can erase words right away without changing to (NORMAL) mode.
 </p>
 </div>
 </div>
@@ -730,7 +735,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-2-3">
 <p align="center">
 <img src="/pictures/200917/custom_c_f.gif" alt="custom_c_f.gif" align="center">
-(NORMAL) 현재 커서에서 한 칸 아래에 빈 칸을 생성한다. (INSERT) 모드로 변경하지 않고 빈 칸을 생성할 수 있다.
+(NORMAL) Create a blank space one space below the current cursor. You can create b lanks without changing to (INSERT) mode.
 </p>
 </div>
 </div>
@@ -739,7 +744,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-2-4">
 <p align="center">
 <img src="/pictures/200917/custom_c_hjkl.gif" alt="custom_c_hjkl.gif" align="center">
-(NORMAL) 여러 창들을 이동한다.
+(NORMAL) Move multiple windows.
 </p>
 </div>
 </div>
@@ -748,7 +753,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-2-5">
 <p align="center">
 <img src="/pictures/200917/custom_U.gif" alt="custom_U.gif" align="center">
-(NORMAL) 실행취소했던 작업을 다시 원상복구한다(redo).
+(NORMAL) Restores the undoed work again (redo)
 </p>
 </div>
 </div>
@@ -757,7 +762,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-2-6">
 <p align="center">
 <img src="/pictures/200917/custom_Q.gif" alt="custom_Q.gif" align="center">
-(NORMAL) 현재 파일을 저장하지 않고 바로 종료한다. :q! 와 동일한 명령어이다.
+(NORMAL) Immediately exit without saving the curernt file. It is the same command  as :q!
 </p>
 </div>
 </div>
@@ -766,7 +771,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-2-7">
 <p align="center">
 <img src="/pictures/200917/custom_dot_comma.gif" alt="custom_dot_comma.gif" align="center">
-(NORMAL) 빈 칸 단위로 빠르게 코드를 네비게이션한다. 원래 키바인딩은 {, } 이지만 이를 , .로 변경하였다
+(NORMAL) Navigates the code quickly by space. Originally, the keybindings was { and }, but I changed it to , and .
 </p>
 </div>
 </div>
@@ -775,7 +780,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-2-8">
 <p align="center">
 <img src="/pictures/200917/custom_c_p.gif" alt="custom_c_p.gif" align="center">
-(NORMAL) 현재 파일의 전체 경로를 상태창에 출력한다.
+(NORMAL) Displays the full path of the current file in the status window
 </p>
 </div>
 </div>
@@ -784,7 +789,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-2-9">
 <p align="center">
 <img src="/pictures/200917/custom_c_z.gif" alt="custom_c_z.gif" align="center">
-(INSERT) 모드에서 실행취소(undo)를 수행한다. (NORMAL) 모드로 넘어가지 않고 바로 실행취소할 수 있다.
+Perform undo in (INSERT) mode. You can undo immediately without going to the (NORMAL) mode.
 </p>
 </div>
 </div>
@@ -793,7 +798,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-2-10">
 <p align="center">
 <img src="/pictures/200917/custom_leader_s.gif" alt="custom_leader_s.gif" align="center">
-(NORMAL) 현재 커서에 있는 단어들과 동일한 단어를 일괄적으로 변경한다. %s 는 단어를 직접 입력해야 하지만 해당 명령어는 커서에 있는 단어를 자동으로 선택해준다.
+(NORMAL) Changes the same words as the word currently in the cursor at once. %s requires you to type the word directly, but this command automatically selects the word at the cursor.
 </p>
 </div>
 </div>
@@ -802,7 +807,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-2-11">
 <p align="center">
 <img src="/pictures/200917/custom_c_e_a_e.gif" alt="custom_c_e_a_e.gif" align="center">
-(NORMAL) 현재 라인의 맨 앞과 뒤로 이동한다. 이동한 후에도 (INSERT) 모드로 변경하지 않고 (NORMAL) 모드를 유지한다.
+(NORMAL) Moves to the front and back of the current line. Even after moving, the mode remains (NORMAL) without changing to the (INSERT) mode.
 </p>
 </div>
 </div>
@@ -811,7 +816,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-1-2-12">
 <p align="center">
 <img src="/pictures/200917/custom_c_c_c_c.gif" alt="custom_c_c_c_c.gif" align="center">
-(NORMAL) 현재 창의 크기를 증가시킨다.
+(NORMAL) Increases the size of the current window
 </p>
 </div>
 </div>
@@ -825,7 +830,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <h4 id="org9458172"><span class="section-number-4">3.2.1</span> The-NERD-tree</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
-현재 폴더의 파일 목록을 볼 수 있는 플러그인
+The-NERD-tree is a plugin that allows you to view the list of files in the current folder
 </p>
 </div>
 <div id="outline-container-org8dc0e5f" class="outline-5">
@@ -833,7 +838,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-2-1-1">
 <p align="center">
 <img src="/pictures/200917/plug_nerd_tree.gif" alt="plug_nerd_tree.gif" align="center">
-(NORMAL) NERD tree를 실행한다.
+(NORMAL) Execute NERD tree
 </p>
 </div>
 </div>
@@ -844,6 +849,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <p align="center">
 <img src="/pictures/200917/plug_snipmate.gif" alt="plug_snipmate.gif" align="center">
 (NORMAL) 특정 키워드를 입력 후 Tab을 누르면 미리 저장된 Snippet들이 나오는 플러그인
+This plugin displays snippets previously saved when you press Tab after entering a specific keyword.
 </p>
 </div>
 </div>
@@ -851,7 +857,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <h4 id="org354eba7"><span class="section-number-4">3.2.3</span> tComment</h4>
 <div class="outline-text-4" id="text-3-2-3">
 <p>
-단축키를 통해 간편하게 코멘트를 적용할 수 있는 플러그인
+This plugin allows you to easily apply comments through shortcut keys
 </p>
 </div>
 <div id="outline-container-orgee54755" class="outline-5">
@@ -859,7 +865,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-2-3-1">
 <p align="center">
 <img src="/pictures/200917/plug_tcomment.gif" alt="plug_tcomment.gif" align="center">
-(NORMAL) 현재 라인이나 선택영역을 코멘트화한다.
+(NORMAL) Comment on the current line or selected area.
 </p>
 </div>
 </div>
@@ -868,7 +874,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <h4 id="orgd383d94"><span class="section-number-4">3.2.4</span> EasyMotion</h4>
 <div class="outline-text-4" id="text-3-2-4">
 <p>
-코드 사이를 빠르게 네비게이션할 수 있는 플러그인
+This plugin is to quickly navigate between codes
 </p>
 </div>
 <div id="outline-container-org5d108ad" class="outline-5">
@@ -876,7 +882,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-2-4-1">
 <p align="center">
 <img src="/pictures/200917/plug_easymotion.gif" alt="plug_easymotion.gif" align="center">
-(NORMAL) 현재 커서 기준으로 앞과 뒤를 빠르게 이동한다.
+(NORMAL) Quickly move forward and backward based on the curernt cursor
 </p>
 </div>
 </div>
@@ -885,7 +891,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <h4 id="org56a9879"><span class="section-number-4">3.2.5</span> Mark</h4>
 <div class="outline-text-4" id="text-3-2-5">
 <p>
-단어를 하이라이팅해주는 플러그인
+This plugin highlights words
 </p>
 </div>
 <div id="outline-container-orgb66f027" class="outline-5">
@@ -893,7 +899,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-2-5-1">
 <p align="center">
 <img src="/pictures/200917/plug_mark.gif" alt="plug_mark.gif" align="center">
-(NORMAL) 현재 커서에 있는 단어를 마킹한다. &lt;F5&gt;를 통해 마킹하고 &lt;F4&gt;로 전체 취소할 수 있다.
+(NORMAL) Marks the word currently at the cursor. You can mark with &lt;F5&gt; and cancel all with &lt;F4&gt;
 </p>
 </div>
 </div>
@@ -902,7 +908,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <h4 id="org9cffaf1"><span class="section-number-4">3.2.6</span> tagbar</h4>
 <div class="outline-text-4" id="text-3-2-6">
 <p>
-함수 및 변수 정보를 출력해주는 플러그인
+This plugin outputs function and variable information
 </p>
 </div>
 <div id="outline-container-org9ad6267" class="outline-5">
@@ -910,7 +916,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-2-6-1">
 <p align="center">
 <img src="/pictures/200917/plug_tagbar.gif" alt="plug_tagbar.gif" align="center">
-(NORMAL) 현재 파일의 함수 및 변수 정보를 출력한다. ctags가 설치되어 있어야 한다. 아래 명령을 통해 설치한다.
+(NORMAL) Displays information on functions and variables of the current file. ctags must be installed. Install ctags with the command below.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">$ sudo apt install ctags
@@ -925,6 +931,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <p align="center">
 <img src="/pictures/200917/plug_ycm_syntcheck.gif" alt="plug_ycm_syntcheck.gif" align="center">
 코드 자동완성 및 네비게이션, 구문 체크 등을 해주는 플러그인. 위 그림은 틀린 구문을 체크해주는 모습이다. <code>youcompleteme, vim-lsp</code> 모두 c++/python 개발환경에서는 동일한 기능을 제공하므로 한 번에 설명하였다.
+Plugins that automatically completes code, navigates, and check syntax. The picture above shows checking for incorrect syntax. Both <code>youcompleteme</code> and <code>vim-lsp</code> are explained at once because they are provide the same feature in the C++/Python development environment.
 </p>
 </div>
 <div id="outline-container-org35e2760" class="outline-5">
@@ -932,7 +939,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-2-7-1">
 <p align="center">
 <img src="/pictures/200917/plug_ycm.gif" alt="plug_ycm.gif" align="center">
-(NORMAL) 현재 커서의 함수 또는 변수의 정의로 이동한다. &lt;A-.&gt;을 통해 이동하고 &lt;A-,&gt;를 통해 원래 위치로 돌아온다. 
+(NORMAL) Moves to the definition of the function or variable of the current cursor. Move though &lt;A-.&gt; and return to the original position through &lt;A-,&gt;
 </p>
 </div>
 </div>
@@ -941,7 +948,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <div class="outline-text-5" id="text-3-2-7-2">
 <p align="center">
 <img src="/pictures/200917/plug_ycm_leader_f.gif" alt="plug_ycm_leader_f.gif" align="center">
-(NORMAL) 현재 커서의 함수 또는 변수가 사용된 레퍼런스들을 표시한다.
+(NORMAL) Displays the references to which the function or variable is used.
 </p>
 </div>
 </div>
@@ -950,7 +957,7 @@ Control keybinding is expressed as <code>&lt;C-{...}&gt;</code> and Alt keybindi
 <h4 id="org1c2d968"><span class="section-number-4">3.2.8</span> vim-airline</h4>
 <div class="outline-text-4" id="text-3-2-8">
 <p>
-vim 화면 위, 아래 상태바에 여러 정보들을 보여주는 플러그인
+This plugin shows various information on the status bar at the top and bottom of the vim screen.
 </p>
 </div>
 <div id="outline-container-org0cb896e" class="outline-5">
@@ -958,7 +965,7 @@ vim 화면 위, 아래 상태바에 여러 정보들을 보여주는 플러그�
 <div class="outline-text-5" id="text-3-2-8-1">
 <p align="center">
 <img src="/pictures/200917/plug_vimairline.gif" alt="plug_vimairline.gif" align="center">
-(NORMAL) q,w 키를 통해 다음 버퍼, 이전 버퍼로 이동한다. c를 통해 현재 버퍼를 닫을 수 있다.
+(NORMAL) Moves to the next buffer and the previous buffer through the q,w keys. You can close the current buffer via c key
 </p>
 </div>
 </div>
@@ -967,11 +974,11 @@ vim 화면 위, 아래 상태바에 여러 정보들을 보여주는 플러그�
 <h4 id="orga6cefd6"><span class="section-number-4">3.2.9</span> vim-gitgutter</h4>
 <div class="outline-text-4" id="text-3-2-9">
 <p>
-git 버전 관리에 의한 코드 변경내역을 표시해주는 플러그인
+This plugin displays code changes by git version control
 </p>
 <p align="center">
 <img src="/pictures/200917/plug_gitgutter_intro.gif" alt="plug_gitgutter_intro.gif" align="center">
-git을 통한 코드 변경내역이 감지되는 경우 표시해주는 플러그인이다. 위와 같이 코드 변경내역이 왼쪽 라인에 표시된다.
+Displays code changes through git when it is detected. As above, the code changes are displayed on the left side
 </p>
 </div>
 <div id="outline-container-org1d674b5" class="outline-5">
@@ -979,7 +986,7 @@ git을 통한 코드 변경내역이 감지되는 경우 표시해주는 플러�
 <div class="outline-text-5" id="text-3-2-9-1">
 <p align="center">
 <img src="/pictures/200917/plug_gitgutter_gn_gp.gif" alt="plug_gitgutter_gn_gp.gif" align="center">
-(NORMAL) gn, gp 키를 통해 코드 변경내역을 빠르게 네비게이션한다.
+(NORAML) Use the gn and gp keys to quickly navigate the code changes
 </p>
 </div>
 </div>
@@ -988,7 +995,7 @@ git을 통한 코드 변경내역이 감지되는 경우 표시해주는 플러�
 <div class="outline-text-5" id="text-3-2-9-2">
 <p align="center">
 <img src="/pictures/200917/plug_gitgutter_gr.gif" alt="plug_gitgutter_gr.gif" align="center">
-(NORMAL) 현재 커서에 코드 변경내역이 있다면 이를 실행취소한다.
+(NORMAL) If there is a code change history at the current cursor, undo it.
 </p>
 </div>
 </div>
@@ -998,7 +1005,7 @@ git을 통한 코드 변경내역이 감지되는 경우 표시해주는 플러�
 <div class="outline-text-4" id="text-3-2-10">
 <p align="center">
 <img src="/pictures/200917/custom_c_hjkl.gif" alt="custom_c_hjkl.gif" align="center">
-여러 창이 띄워져있을 때 현재 창을 하이라이팅해주는 플러그인
+This plugin highlights the current window when multiple windows are open
 </p>
 </div>
 </div>
@@ -1006,7 +1013,7 @@ git을 통한 코드 변경내역이 감지되는 경우 표시해주는 플러�
 <h4 id="org5321a13"><span class="section-number-4">3.2.11</span> AutoClose</h4>
 <div class="outline-text-4" id="text-3-2-11">
 <p>
-괄호 (), {}, [] 등을 자동으로 완성시켜주는 플러그인
+This plugin automatically completes parenthesis (), {}, [], etc.
 </p>
 </div>
 </div>
@@ -1014,7 +1021,7 @@ git을 통한 코드 변경내역이 감지되는 경우 표시해주는 플러�
 <h4 id="org811e65a"><span class="section-number-4">3.2.12</span> vim-indent-guides</h4>
 <div class="outline-text-4" id="text-3-2-12">
 <p>
-자동으로 코드의 들여쓰기를 해주는 플러그인. .vimrc 파일에서 <code>let g:indent_guides_enable_on_vim_startup</code> 변수를 1로 하면 vim이 시작할 때 같이 적용되며 0으로 하면 vim이 시작할 때 해당 플러그인은 적용되지 않는다.
+This plugin automatically indents the code. In the .vimrc file, if the variable <code>let g:indent_guides_enable_in_vim_startup</code> is set to 1, it is applied when vim starts. and if it is set to 0, the plugin is not applied when vim is started.
 </p>
 </div>
 </div>
@@ -1022,7 +1029,7 @@ git을 통한 코드 변경내역이 감지되는 경우 표시해주는 플러�
 <h4 id="orgafb1e0e"><span class="section-number-4">3.2.13</span> vim-fugitive</h4>
 <div class="outline-text-4" id="text-3-2-13">
 <p>
-:Gdiff, :Gblame과 같이 git 명령어를 사용할 수 있는 플러그인
+This plugin makes you to use git commands with :G{command} prefix. e.g., :Gdiff, :Gblame
 </p>
 </div>
 </div>
@@ -1030,7 +1037,7 @@ git을 통한 코드 변경내역이 감지되는 경우 표시해주는 플러�
 <h4 id="orgcb50faf"><span class="section-number-4">3.2.14</span> vim-cpp-enhanced-highlight</h4>
 <div class="outline-text-4" id="text-3-2-14">
 <p>
-c++ 코드를 하이라이팅해주는 플러그인. vim에서는 기본적으로 c++ 코드를 제대로 하이라이팅해주지 못하므로 가독성을 위해 사용한다. 
+This plugin highlights C++ code with decent colors. Vim basically does not properly highlight C++ code, so it is used for readability.
 </p>
 </div>
 </div>
