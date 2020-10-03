@@ -12,52 +12,53 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1471259">1. Introduction</a></li>
-<li><a href="#org082b5ef">2. How to setup</a>
+<li><a href="#org64d9b24">1. Introduction</a></li>
+<li><a href="#org19d8905">2. How to setup</a>
 <ul>
-<li><a href="#org565164c">2.1. Make a new local git project</a></li>
-<li><a href="#org731c356">2.2. Show git branch in bash terminal</a></li>
-<li><a href="#orgb1df1e5">2.3. Git credential for fast push and pull</a></li>
+<li><a href="#org2495d87">2.1. Make a new local git project</a></li>
+<li><a href="#org5ec60e7">2.2. Show git branch in bash terminal</a></li>
+<li><a href="#orgf6b34dc">2.3. Git credential for fast push and pull</a></li>
+<li><a href="#org9bde6dc">2.4. .gitignore usage</a></li>
 </ul>
 </li>
-<li><a href="#org9d7787f">3. Useful features</a>
+<li><a href="#org458c004">3. Useful features</a>
 <ul>
-<li><a href="#org38d15df">3.1. Commands</a>
+<li><a href="#org1ad5308">3.1. Commands</a>
 <ul>
-<li><a href="#org6640ab0">3.1.1. <code>status</code></a></li>
-<li><a href="#orgb88c125">3.1.2. <code>add</code></a></li>
-<li><a href="#org32b88d3">3.1.3. <code>rm</code></a></li>
-<li><a href="#org04c45c1">3.1.4. <code>diff</code></a></li>
-<li><a href="#orgd16fdfb">3.1.5. <code>commit</code></a></li>
-<li><a href="#org52a73ed">3.1.6. <code>log</code></a></li>
-<li><a href="#org18d7896">3.1.7. <code>branch</code></a></li>
-<li><a href="#orgb631be0">3.1.8. <code>checkout</code></a></li>
-<li><a href="#org46d9f03">3.1.9. <code>reset</code></a>
+<li><a href="#org7c5e113">3.1.1. <code>status</code></a></li>
+<li><a href="#org8c4ae38">3.1.2. <code>add</code></a></li>
+<li><a href="#org05eaeaa">3.1.3. <code>rm</code></a></li>
+<li><a href="#orgfdb129a">3.1.4. <code>diff</code></a></li>
+<li><a href="#org9b40f50">3.1.5. <code>commit</code></a></li>
+<li><a href="#org1113d59">3.1.6. <code>log</code></a></li>
+<li><a href="#orgc8c4986">3.1.7. <code>branch</code></a></li>
+<li><a href="#org5f9362d">3.1.8. <code>checkout</code></a></li>
+<li><a href="#orgfa1be12">3.1.9. <code>reset</code></a>
 <ul>
-<li><a href="#orgb6bfa74">3.1.9.1. Revert recent commit</a></li>
-<li><a href="#org9d86a96">3.1.9.2. Revert recent stage</a></li>
+<li><a href="#orge183401">3.1.9.1. Revert recent commit</a></li>
+<li><a href="#orgcc0a88b">3.1.9.2. Revert recent stage</a></li>
 </ul>
 </li>
-<li><a href="#org39b03ad">3.1.10. <code>merge</code></a></li>
-<li><a href="#orgc10c270">3.1.11. <code>mergetool</code></a>
+<li><a href="#org0bd82b5">3.1.10. <code>merge</code></a></li>
+<li><a href="#org1301fc6">3.1.11. <code>mergetool</code></a>
 <ul>
-<li><a href="#org8ba219a">3.1.11.1. Deal with merge conflict</a></li>
+<li><a href="#orgc99b9e8">3.1.11.1. Deal with merge conflict</a></li>
 </ul>
 </li>
-<li><a href="#orgcfed0e7">3.1.12. <code>clone</code></a></li>
-<li><a href="#org9ad1317">3.1.13. <code>push</code></a></li>
-<li><a href="#orga1bb078">3.1.14. <code>pull</code></a></li>
+<li><a href="#orgfbfbd9a">3.1.12. <code>clone</code></a></li>
+<li><a href="#orgcc4bf30">3.1.13. <code>push</code></a></li>
+<li><a href="#org0e3dd06">3.1.14. <code>pull</code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org80ac493">4. References</a></li>
+<li><a href="#orga5016c2">4. References</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org1471259" class="outline-2">
-<h2 id="org1471259"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org64d9b24" class="outline-2">
+<h2 id="org64d9b24"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 
 <figure>
@@ -71,11 +72,11 @@ comments: true
 </div>
 </div>
 
-<div id="outline-container-org082b5ef" class="outline-2">
-<h2 id="org082b5ef"><span class="section-number-2">2</span> How to setup</h2>
+<div id="outline-container-org19d8905" class="outline-2">
+<h2 id="org19d8905"><span class="section-number-2">2</span> How to setup</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Ubuntu 18.04 LTS 환경에서 git는 다음 명령어를 통해 간단하게 설치할 수 있다.
+Ubuntu 18.04 LTS 환경에서 git는 다음 명령어를 통해 간단하게 설치할 수 있다. 
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">$ sudo apt install git
@@ -97,8 +98,8 @@ $ git config --global user.name <span class="org-string">"your name"</span>
 </p>
 </div>
 
-<div id="outline-container-org565164c" class="outline-3">
-<h3 id="org565164c"><span class="section-number-3">2.1</span> Make a new local git project</h3>
+<div id="outline-container-org2495d87" class="outline-3">
+<h3 id="org2495d87"><span class="section-number-3">2.1</span> Make a new local git project</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 로컬 컴퓨터에서 특정 프로젝트를 git으로 버전관리하고 싶은 경우 프로젝트의 최상단 디렉토리로 이동한 다음 아래의 명령을 입력한다.
@@ -119,8 +120,8 @@ $ git init
 </div>
 </div>
 
-<div id="outline-container-org731c356" class="outline-3">
-<h3 id="org731c356"><span class="section-number-3">2.2</span> Show git branch in bash terminal</h3>
+<div id="outline-container-org5ec60e7" class="outline-3">
+<h3 id="org5ec60e7"><span class="section-number-3">2.2</span> Show git branch in bash terminal</h3>
 <div class="outline-text-3" id="text-2-2">
 
 <figure>
@@ -144,7 +145,7 @@ $ git init
 <span class="org-variable-name">C_LIGHTCYAN</span>=<span class="org-string">"\[\033[1;36m\]"</span>
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">w/ username</span>
-<span class="org-variable-name">PS1</span>=<span class="org-string">"${C_LIGHTRED}(user)${C_LIGHTCYAN}\w${C_YELLOW_NOBOLD}\$(</span><span class="org-sh-quoted-exec">parse_git_branch</span><span class="org-string">)${C_DEFAULT}\$ "</span>
+<span class="org-variable-name">PS1</span>=<span class="org-string">"${C_LIGHTRED}(user)${C_LIGHTCYAN}\w${C_YELLOW_NOBOLD}\$(parse_git_branch)${C_DEFAULT}\$ "</span>
 </pre>
 </div>
 
@@ -158,8 +159,8 @@ $ git init
 </div>
 </div>
 
-<div id="outline-container-orgb1df1e5" class="outline-3">
-<h3 id="orgb1df1e5"><span class="section-number-3">2.3</span> Git credential for fast push and pull</h3>
+<div id="outline-container-orgf6b34dc" class="outline-3">
+<h3 id="orgf6b34dc"><span class="section-number-3">2.3</span> Git credential for fast push and pull</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 git push, pull 명령어를 자주 사용하는 경우 매 순간마다 아이디/비밀번호를 입력해야 한다. <b>해당 섹션에서는 git credential 기능을 통해 한 번 아이디/비밀번호를 입력하면 특정 시간동안 캐시를 생성하여 빠르게 push, pull을 사용하는 방법에 대해 설명한다.</b>
@@ -182,18 +183,18 @@ $ git config credential.helper <span class="org-string">"cache --timeout=8640000
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">[core]
-        repositoryformatversion = 0
-        filemode = true
-        bare = false
-        logallrefupdates = true
+        <span class="org-variable-name">repositoryformatversion</span> = 0
+        <span class="org-variable-name">filemode</span> = true
+        <span class="org-variable-name">bare</span> = false
+        <span class="org-variable-name">logallrefupdates</span> = true
 [remote <span class="org-string">"origin"</span>]
-        url = https://github.com/.../...
-        fetch = +refs/heads/*:refs/remotes/origin/*
+        <span class="org-variable-name">url</span> = https://github.com/.../...
+        <span class="org-variable-name">fetch</span> = +refs/heads/*:refs/remotes/origin/*
 [branch <span class="org-string">"master"</span>]
-        remote = origin
-        merge = refs/heads/master
+        <span class="org-variable-name">remote</span> = origin
+        <span class="org-variable-name">merge</span> = refs/heads/master
 [credential]
-        helper = cache --timeout=864000000   <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;== This part is added.</span>
+        <span class="org-variable-name">helper</span> = cache --timeout=864000000   <span class="org-comment-delimiter"># </span><span class="org-comment">&lt;== This part is added.</span>
 </pre>
 </div>
 
@@ -202,22 +203,55 @@ $ git config credential.helper <span class="org-string">"cache --timeout=8640000
 </p>
 </div>
 </div>
-</div>
 
-<div id="outline-container-org9d7787f" class="outline-2">
-<h2 id="org9d7787f"><span class="section-number-2">3</span> Useful features</h2>
+<div id="outline-container-org9bde6dc" class="outline-3">
+<h3 id="org9bde6dc"><span class="section-number-3">2.4</span> .gitignore usage</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+git 프로젝트들 관리하다보면 특정 폴더나 파일은 git으로 버전관리하고 싶지 않은 경우가 발생한다. 예를 들어, cmake 프로젝트에서 일반적으로 사용하는 <code>build</code> 폴더나 ROS에서 사용하는 <code>build, devel</code> 폴더는 컴퓨터마다 빌드 결과물이 제각각 다르므로 버전 관리를 하지 않아도 된다. <b>따라서 버전 관리를 원하지 않은 파일/폴더는 <code>.gitignore</code> 라는 파일에 경로를 입력하고 git 프로젝트의 최상단에 위치시키면 자동으로 git에서 <code>.gitignore</code> 파일에 작성된 파일/폴더는 버전 관리 대상에서 제외한다.</b>
+</p>
+
+<p>
+아래는 필자가 사용중인 <code>.gitignore</code> 파일의 예시이다. 와일드카드(*)를 사용하면 정규표현식을 사용하여 편하게 원하지 않는 파일들을 목록에서 제외할 수 있다.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">build/
+devel/
+logs/
+data/
+summaries/
+.clangd/
+
+*.pyc
+*.zip
+*.npy
+*.bag
+*.tar.gz
+
+.DS_Store
+.ycm_extra_conf.py
+
+run*.sh
+compile_commands.json
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org458c004" class="outline-2">
+<h2 id="org458c004"><span class="section-number-2">3</span> Useful features</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 git에는 많은 명령어들이 존재하지만 해당 섹션에서는 필자가 자주 사용하는 git 명령어들을 위주로 정리하였다. 
 </p>
 </div>
 
-<div id="outline-container-org38d15df" class="outline-3">
-<h3 id="org38d15df"><span class="section-number-3">3.1</span> Commands</h3>
+<div id="outline-container-org1ad5308" class="outline-3">
+<h3 id="org1ad5308"><span class="section-number-3">3.1</span> Commands</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-org6640ab0" class="outline-4">
-<h4 id="org6640ab0"><span class="section-number-4">3.1.1</span> <code>status</code></h4>
+<div id="outline-container-org7c5e113" class="outline-4">
+<h4 id="org7c5e113"><span class="section-number-4">3.1.1</span> <code>status</code></h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p align="center">
 <img src="/pictures/201002/git_status.gif" alt="git_status.gif" align="center">
@@ -225,8 +259,8 @@ git에는 많은 명령어들이 존재하지만 해당 섹션에서는 필자�
 </p>
 </div>
 </div>
-<div id="outline-container-orgb88c125" class="outline-4">
-<h4 id="orgb88c125"><span class="section-number-4">3.1.2</span> <code>add</code></h4>
+<div id="outline-container-org8c4ae38" class="outline-4">
+<h4 id="org8c4ae38"><span class="section-number-4">3.1.2</span> <code>add</code></h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p align="center">
 <img src="/pictures/201002/git_add.gif" alt="git_add.gif" align="center">
@@ -239,8 +273,8 @@ $ git add /path/to/specific/file <span class="org-comment-delimiter"># </span><s
 </div>
 </div>
 </div>
-<div id="outline-container-org32b88d3" class="outline-4">
-<h4 id="org32b88d3"><span class="section-number-4">3.1.3</span> <code>rm</code></h4>
+<div id="outline-container-org05eaeaa" class="outline-4">
+<h4 id="org05eaeaa"><span class="section-number-4">3.1.3</span> <code>rm</code></h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p align="center">
 <img src="/pictures/201002/git_rm.gif" alt="git_rm.gif" align="center">
@@ -252,8 +286,8 @@ git으로 버전관리 중인 특정 파일을 삭제한다. 터미널의 rm 명
 </div>
 </div>
 </div>
-<div id="outline-container-org04c45c1" class="outline-4">
-<h4 id="org04c45c1"><span class="section-number-4">3.1.4</span> <code>diff</code></h4>
+<div id="outline-container-orgfdb129a" class="outline-4">
+<h4 id="orgfdb129a"><span class="section-number-4">3.1.4</span> <code>diff</code></h4>
 <div class="outline-text-4" id="text-3-1-4">
 <p align="center">
 <img src="/pictures/201002/git_diff.gif" alt="git_diff.gif" align="center">
@@ -262,8 +296,8 @@ git으로 버전관리 중인 특정 파일을 삭제한다. 터미널의 rm 명
 </div>
 </div>
 
-<div id="outline-container-orgd16fdfb" class="outline-4">
-<h4 id="orgd16fdfb"><span class="section-number-4">3.1.5</span> <code>commit</code></h4>
+<div id="outline-container-org9b40f50" class="outline-4">
+<h4 id="org9b40f50"><span class="section-number-4">3.1.5</span> <code>commit</code></h4>
 <div class="outline-text-4" id="text-3-1-5">
 <p align="center">
 <img src="/pictures/201002/git_commit.gif" alt="git_commit.gif" align="center">
@@ -275,8 +309,8 @@ stage 상태의 변경사항들을 저장(commit)한다. Unstage 상태의 변�
 </div>
 </div>
 </div>
-<div id="outline-container-org52a73ed" class="outline-4">
-<h4 id="org52a73ed"><span class="section-number-4">3.1.6</span> <code>log</code></h4>
+<div id="outline-container-org1113d59" class="outline-4">
+<h4 id="org1113d59"><span class="section-number-4">3.1.6</span> <code>log</code></h4>
 <div class="outline-text-4" id="text-3-1-6">
 <p align="center">
 <img src="/pictures/201002/git_log.gif" alt="git_log.gif" align="center">
@@ -284,8 +318,8 @@ commit 기록을 출력한다. 작성자, 이메일, commit 날짜, 메세지 �
 </p>
 </div>
 </div>
-<div id="outline-container-org18d7896" class="outline-4">
-<h4 id="org18d7896"><span class="section-number-4">3.1.7</span> <code>branch</code></h4>
+<div id="outline-container-orgc8c4986" class="outline-4">
+<h4 id="orgc8c4986"><span class="section-number-4">3.1.7</span> <code>branch</code></h4>
 <div class="outline-text-4" id="text-3-1-7">
 <p align="center">
 <img src="/pictures/201002/git_branch.gif" alt="git_branch.gif" align="center">
@@ -299,8 +333,8 @@ $ git branch -D {branch name}   <span class="org-comment-delimiter"># </span><sp
 </div>
 </div>
 </div>
-<div id="outline-container-orgb631be0" class="outline-4">
-<h4 id="orgb631be0"><span class="section-number-4">3.1.8</span> <code>checkout</code></h4>
+<div id="outline-container-org5f9362d" class="outline-4">
+<h4 id="org5f9362d"><span class="section-number-4">3.1.8</span> <code>checkout</code></h4>
 <div class="outline-text-4" id="text-3-1-8">
 <p align="center">
 <img src="/pictures/201002/git_checkout.gif" alt="git_checkout.gif" align="center">
@@ -320,15 +354,15 @@ $ git checkout {branch name}  <span class="org-comment-delimiter"># </span><span
 </p>
 </div>
 </div>
-<div id="outline-container-org46d9f03" class="outline-4">
-<h4 id="org46d9f03"><span class="section-number-4">3.1.9</span> <code>reset</code></h4>
+<div id="outline-container-orgfa1be12" class="outline-4">
+<h4 id="orgfa1be12"><span class="section-number-4">3.1.9</span> <code>reset</code></h4>
 <div class="outline-text-4" id="text-3-1-9">
 <p>
 stage 또는 commit 내역을 복원 또는 실행취소한다.
 </p>
 </div>
-<div id="outline-container-orgb6bfa74" class="outline-5">
-<h5 id="orgb6bfa74"><span class="section-number-5">3.1.9.1</span> Revert recent commit</h5>
+<div id="outline-container-orge183401" class="outline-5">
+<h5 id="orge183401"><span class="section-number-5">3.1.9.1</span> Revert recent commit</h5>
 <div class="outline-text-5" id="text-3-1-9-1">
 <p align="center">
 <img src="/pictures/201002/git_reset_commit.gif" alt="git_reset_commit.gif" align="center">
@@ -337,8 +371,8 @@ commit된 변경사항을 취소한다. 즉, 이전 commit 내역으로 되돌�
 </div>
 </div>
 
-<div id="outline-container-org9d86a96" class="outline-5">
-<h5 id="org9d86a96"><span class="section-number-5">3.1.9.2</span> Revert recent stage</h5>
+<div id="outline-container-orgcc0a88b" class="outline-5">
+<h5 id="orgcc0a88b"><span class="section-number-5">3.1.9.2</span> Revert recent stage</h5>
 <div class="outline-text-5" id="text-3-1-9-2">
 <p align="center">
 <img src="/pictures/201002/git_reset_stage.gif" alt="git_reset_stage.gif" align="center">
@@ -347,8 +381,8 @@ commit된 변경사항을 취소한다. 즉, 이전 commit 내역으로 되돌�
 </div>
 </div>
 </div>
-<div id="outline-container-org39b03ad" class="outline-4">
-<h4 id="org39b03ad"><span class="section-number-4">3.1.10</span> <code>merge</code></h4>
+<div id="outline-container-org0bd82b5" class="outline-4">
+<h4 id="org0bd82b5"><span class="section-number-4">3.1.10</span> <code>merge</code></h4>
 <div class="outline-text-4" id="text-3-1-10">
 <p align="center">
 <img src="/pictures/201002/git_merge.gif" alt="git_merge.gif" align="center">
@@ -356,12 +390,12 @@ commit된 변경사항을 취소한다. 즉, 이전 commit 내역으로 되돌�
 </p>
 </div>
 </div>
-<div id="outline-container-orgc10c270" class="outline-4">
-<h4 id="orgc10c270"><span class="section-number-4">3.1.11</span> <code>mergetool</code></h4>
+<div id="outline-container-org1301fc6" class="outline-4">
+<h4 id="org1301fc6"><span class="section-number-4">3.1.11</span> <code>mergetool</code></h4>
 <div class="outline-text-4" id="text-3-1-11">
 </div>
-<div id="outline-container-org8ba219a" class="outline-5">
-<h5 id="org8ba219a"><span class="section-number-5">3.1.11.1</span> Deal with merge conflict</h5>
+<div id="outline-container-orgc99b9e8" class="outline-5">
+<h5 id="orgc99b9e8"><span class="section-number-5">3.1.11.1</span> Deal with merge conflict</h5>
 <div class="outline-text-5" id="text-3-1-11-1">
 <p>
 만약 두 branch 모두 동일한 파일을 변경한 commit 내역이 있는 경우 Merge Conflict가 발생한다. Merge conflic가 발생했을 경우 <code>meld</code> 와 같은 병합툴을 사용하여 해결할 수 있다. 우선 <code>meld</code> 를 설치한 후 아래 명령어를 입력한다.
@@ -378,8 +412,8 @@ $ git mergetool meld .  <span class="org-comment-delimiter"># </span><span class
 </div>
 </div>
 </div>
-<div id="outline-container-orgcfed0e7" class="outline-4">
-<h4 id="orgcfed0e7"><span class="section-number-4">3.1.12</span> <code>clone</code></h4>
+<div id="outline-container-orgfbfbd9a" class="outline-4">
+<h4 id="orgfbfbd9a"><span class="section-number-4">3.1.12</span> <code>clone</code></h4>
 <div class="outline-text-4" id="text-3-1-12">
 <p align="center">
 <img src="/pictures/201002/git_clone.gif" alt="git_clone.gif" align="center">
@@ -390,8 +424,8 @@ $ git clone {repository url}
 </pre>
 </div>
 </div>
-<div id="outline-container-org9ad1317" class="outline-4">
-<h4 id="org9ad1317"><span class="section-number-4">3.1.13</span> <code>push</code></h4>
+<div id="outline-container-orgcc4bf30" class="outline-4">
+<h4 id="orgcc4bf30"><span class="section-number-4">3.1.13</span> <code>push</code></h4>
 <div class="outline-text-4" id="text-3-1-13">
 <p align="center">
 <img src="/pictures/201002/git_push.gif" alt="git_push.gif" align="center">
@@ -403,8 +437,8 @@ $ git clone {repository url}
 </div>
 </div>
 </div>
-<div id="outline-container-orga1bb078" class="outline-4">
-<h4 id="orga1bb078"><span class="section-number-4">3.1.14</span> <code>pull</code></h4>
+<div id="outline-container-org0e3dd06" class="outline-4">
+<h4 id="org0e3dd06"><span class="section-number-4">3.1.14</span> <code>pull</code></h4>
 <div class="outline-text-4" id="text-3-1-14">
 <p align="center">
 <img src="/pictures/201002/git_pull.gif" alt="git_pull.gif" align="center">
@@ -418,8 +452,8 @@ $ git clone {repository url}
 </div>
 </div>
 </div>
-<div id="outline-container-org80ac493" class="outline-2">
-<h2 id="org80ac493"><span class="section-number-2">4</span> References</h2>
+<div id="outline-container-orga5016c2" class="outline-2">
+<h2 id="orga5016c2"><span class="section-number-2">4</span> References</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li><a href="https://medium.com/@pks2974/%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B8%B0%EC%B4%88-git-%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0-533b3689db81">자주 사용하는 기초 Git 명령어 정리하기 - pks2974 blog</a></li>
