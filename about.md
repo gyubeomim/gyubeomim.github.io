@@ -18,7 +18,7 @@ My name is Edward Gyubeom Im. I obtained my Master's Degree in Department of Tra
 
 <div class="figure">
 <p>
-<img src="/pictures/200828/cv.png" align="center" /> <br/>
+<img src="/pictures/201017/cv.png" align="center" /> <br/>
 </p>
 </div>
 
