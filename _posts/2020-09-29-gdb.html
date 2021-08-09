@@ -12,53 +12,53 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2bb1bd9">1. Introduction</a></li>
-<li><a href="#org08123b7">2. How to debug code</a>
+<li><a href="#orgf16a3f5">1. Introduction</a></li>
+<li><a href="#org8291447">2. How to debug code</a>
 <ul>
-<li><a href="#org0679246">2.1. Debugging with shell script</a></li>
-<li><a href="#org66cc430">2.2. .gdbinit settings</a></li>
+<li><a href="#org242f56e">2.1. Debugging with shell script</a></li>
+<li><a href="#org27061a8">2.2. .gdbinit settings</a></li>
 </ul>
 </li>
-<li><a href="#org27c2e1b">3. Mostly used features</a>
+<li><a href="#org50f4a3f">3. Mostly used features</a>
 <ul>
-<li><a href="#org001bbf3">3.1. Run command option</a>
+<li><a href="#orgefb3470">3.1. Run command option</a>
 <ul>
-<li><a href="#orgd3d70e8">3.1.1. <code>-q</code></a></li>
-<li><a href="#orgda71932">3.1.2. <code>-tui</code></a></li>
-<li><a href="#orge637005">3.1.3. <code>--ex</code></a></li>
-<li><a href="#orgf6bdda3">3.1.4. <code>--args</code></a></li>
+<li><a href="#org4f1a63e">3.1.1. <code>-q</code></a></li>
+<li><a href="#orgf251fad">3.1.2. <code>-tui</code></a></li>
+<li><a href="#org37042d4">3.1.3. <code>--ex</code></a></li>
+<li><a href="#org80852d9">3.1.4. <code>--args</code></a></li>
 </ul>
 </li>
-<li><a href="#org5c59954">3.2. Various keybindings</a>
+<li><a href="#org8c7dfc4">3.2. Various keybindings</a>
 <ul>
-<li><a href="#org8fb144a">3.2.1. <code>r</code> (run)</a></li>
-<li><a href="#orge91e4a2">3.2.2. <code>n</code> (next)</a></li>
-<li><a href="#org002a883">3.2.3. <code>s</code> (step)</a></li>
-<li><a href="#org6dc6451">3.2.4. <code>t</code> (thread)</a></li>
-<li><a href="#orga778aa1">3.2.5. <code>bt</code> (backtrace)</a></li>
-<li><a href="#org39dd427">3.2.6. <code>f</code> (frame)</a></li>
-<li><a href="#org8aaf641">3.2.7. <code>i</code> (info)</a></li>
-<li><a href="#org9409c83">3.2.8. <code>p</code> (print)</a></li>
-<li><a href="#orgf5fa80a">3.2.9. <code>b</code> (breakpoint)</a></li>
-<li><a href="#org1cc2f2b">3.2.10. <code>d</code> (delete)</a></li>
-<li><a href="#org76eb692">3.2.11. <code>c</code> (continue)</a></li>
-<li><a href="#org2d20f34">3.2.12. <code>q</code> (quit)</a></li>
-<li><a href="#org3b7e965">3.2.13. <code>l</code> (list)</a></li>
-<li><a href="#org13bffcb">3.2.14. <code>cond</code> (condition)</a></li>
-<li><a href="#org4e883d4">3.2.15. <code>&lt;C-x&gt; a</code></a></li>
-<li><a href="#org52f8127">3.2.16. <code>&lt;C-l&gt;</code></a></li>
-<li><a href="#org7b58043">3.2.17. <code>&lt;C-p,n&gt;</code></a></li>
+<li><a href="#org5b99d6c">3.2.1. <code>r</code> (run)</a></li>
+<li><a href="#orgbcf4ca5">3.2.2. <code>n</code> (next)</a></li>
+<li><a href="#org694f1ed">3.2.3. <code>s</code> (step)</a></li>
+<li><a href="#org832cc9c">3.2.4. <code>t</code> (thread)</a></li>
+<li><a href="#orgdf79312">3.2.5. <code>bt</code> (backtrace)</a></li>
+<li><a href="#orgda09c96">3.2.6. <code>f</code> (frame)</a></li>
+<li><a href="#org2972ea1">3.2.7. <code>i</code> (info)</a></li>
+<li><a href="#org54418ad">3.2.8. <code>p</code> (print)</a></li>
+<li><a href="#org497350b">3.2.9. <code>b</code> (breakpoint)</a></li>
+<li><a href="#org919fcc1">3.2.10. <code>d</code> (delete)</a></li>
+<li><a href="#org8d2644e">3.2.11. <code>c</code> (continue)</a></li>
+<li><a href="#orgfa69c1c">3.2.12. <code>q</code> (quit)</a></li>
+<li><a href="#org3f1cd42">3.2.13. <code>l</code> (list)</a></li>
+<li><a href="#org296e589">3.2.14. <code>cond</code> (condition)</a></li>
+<li><a href="#orgd45c681">3.2.15. <code>&lt;C-x&gt; a</code></a></li>
+<li><a href="#orgfd910db">3.2.16. <code>&lt;C-l&gt;</code></a></li>
+<li><a href="#orgbb82a99">3.2.17. <code>&lt;C-p,n&gt;</code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org01b7e32">4. References</a></li>
+<li><a href="#orgb0491be">4. References</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org2bb1bd9" class="outline-2">
-<h2 id="org2bb1bd9"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-orgf16a3f5" class="outline-2">
+<h2 id="orgf16a3f5"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 
 <figure>
@@ -80,8 +80,8 @@ gdb는 대부분의 경우 우분투에 미리 설치되어 있겠지만 만약 
 </div>
 </div>
 
-<div id="outline-container-org08123b7" class="outline-2">
-<h2 id="org08123b7"><span class="section-number-2">2</span> How to debug code</h2>
+<div id="outline-container-org8291447" class="outline-2">
+<h2 id="org8291447"><span class="section-number-2">2</span> How to debug code</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 gdb로 디버깅을 수행하기 위해서는 컴파일 당시 디버깅과 관련된 옵션을 설정해줘야 한다. <b>디버깅 옵션없이 컴파일하는 경우 디버깅 심볼들이 바이너리 파일에 저장되지 않으므로 소스코드의 어느 부분을 실행하는지에 대한 정보를 알 수 없다.</b> gcc/g++를 사용하는 경우 <code>-g</code> 옵션을 추가해줘야 정상적으로 디버깅을 할 수 있으며 cmake를 사용하는 경우 아래와 같은 타입으로 빌드해야 정상적으로 디버깅을 수행할 수 있다.
@@ -112,8 +112,8 @@ $ make
 </div>
 </div>
 
-<div id="outline-container-org0679246" class="outline-3">
-<h3 id="org0679246"><span class="section-number-3">2.1</span> Debugging with shell script</h3>
+<div id="outline-container-org242f56e" class="outline-3">
+<h3 id="org242f56e"><span class="section-number-3">2.1</span> Debugging with shell script</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 필자는 코드를 디버깅할 때 gdb의 수많은 옵션들을 일일히 타이핑하지 않고 별도의 bash 스크립트를 작성하여 이를 실행하는 방법을 주로 사용한다. <b>Bash 스크립트를 사용하면 디버깅할 때마다 터미널에 긴 명령어를 입력하지 않고도 빠르고 편리하게 코드를 디버깅할 수 있다.</b> 아래는 필자가 사용하는 bash 스크립트의 예시이다.
@@ -122,7 +122,7 @@ $ make
 <pre class="src src-sh"><span class="org-variable-name">MVG_EXAMPLE</span>=~/gitrepo/starlaw/cmake_projects/mvg_example
 
 <span class="org-keyword">case</span> $<span class="org-variable-name">1</span><span class="org-keyword"> in</span>
-    r)  <span class="org-comment-delimiter"># </span><span class="org-comment">Release </span>
+    <span class="org-builtin">r</span>)  <span class="org-comment-delimiter"># </span><span class="org-comment">Release </span>
         <span class="org-builtin">cd</span> ${<span class="org-variable-name">MVG_EXAMPLE</span>}/build
         cmake -DCMAKE_BUILD_TYPE=Release ..
         make -j
@@ -161,8 +161,8 @@ $ ./run_mvg_example.sh d 2
 </div>
 </div>
 
-<div id="outline-container-org66cc430" class="outline-3">
-<h3 id="org66cc430"><span class="section-number-3">2.2</span> .gdbinit settings</h3>
+<div id="outline-container-org27061a8" class="outline-3">
+<h3 id="org27061a8"><span class="section-number-3">2.2</span> .gdbinit settings</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 <code>.gdbinit</code> 은 gdb가 실행할 때 로딩하는 환경설정 파일이다. <code>.gdbinit</code> 파일을 홈폴더(~/)에 놓으면 gdb가 실행할 때 자동으로 불러온다. 현재 필자가 사용 중인 .gdbinit은 다음과 같다.
@@ -176,22 +176,22 @@ $ ./run_mvg_example.sh d 2
 </div>
 </div>
 </div>
-<div id="outline-container-org27c2e1b" class="outline-2">
-<h2 id="org27c2e1b"><span class="section-number-2">3</span> Mostly used features</h2>
+<div id="outline-container-org50f4a3f" class="outline-2">
+<h2 id="org50f4a3f"><span class="section-number-2">3</span> Mostly used features</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 gdb에는 매우 많은 명령어들이 존재하지만 해당 섹션에서는 필자가 주로 사용하는 명령어들만 설명한다. Control 키바인딩은 <code>&lt;C-{...}&gt;</code> 과 같이 표현하였다.
 </p>
 </div>
-<div id="outline-container-org001bbf3" class="outline-3">
-<h3 id="org001bbf3"><span class="section-number-3">3.1</span> Run command option</h3>
+<div id="outline-container-orgefb3470" class="outline-3">
+<h3 id="orgefb3470"><span class="section-number-3">3.1</span> Run command option</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 해당 섹션에서는 터미널에서 gdb를 실행할 때 사용하는 다양한 옵션들에 대해 설명한다.
 </p>
 </div>
-<div id="outline-container-orgd3d70e8" class="outline-4">
-<h4 id="orgd3d70e8"><span class="section-number-4">3.1.1</span> <code>-q</code></h4>
+<div id="outline-container-org4f1a63e" class="outline-4">
+<h4 id="org4f1a63e"><span class="section-number-4">3.1.1</span> <code>-q</code></h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p align="center">
 <img src="/pictures/200930/gdb_q.gif" alt="gdb_q.gif" align="center">
@@ -199,8 +199,8 @@ gdb를 시작할 때 나오는 메세지를 출력하지 않는 옵션
 </p>
 </div>
 </div>
-<div id="outline-container-orgda71932" class="outline-4">
-<h4 id="orgda71932"><span class="section-number-4">3.1.2</span> <code>-tui</code></h4>
+<div id="outline-container-orgf251fad" class="outline-4">
+<h4 id="orgf251fad"><span class="section-number-4">3.1.2</span> <code>-tui</code></h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p align="center">
 <img src="/pictures/200930/gdb_tui.gif" alt="gdb_tui.gif" align="center">
@@ -208,8 +208,8 @@ gdb를 시작할 때 나오는 메세지를 출력하지 않는 옵션
 </p>
 </div>
 </div>
-<div id="outline-container-orge637005" class="outline-4">
-<h4 id="orge637005"><span class="section-number-4">3.1.3</span> <code>--ex</code></h4>
+<div id="outline-container-org37042d4" class="outline-4">
+<h4 id="org37042d4"><span class="section-number-4">3.1.3</span> <code>--ex</code></h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p align="center">
 <img src="/pictures/200930/gdb_ex.gif" alt="gdb_ex.gif" align="center">
@@ -217,8 +217,8 @@ gdb가 시작할 때 동시에 실행할 명령어를 입력하는 옵션
 </p>
 </div>
 </div>
-<div id="outline-container-orgf6bdda3" class="outline-4">
-<h4 id="orgf6bdda3"><span class="section-number-4">3.1.4</span> <code>--args</code></h4>
+<div id="outline-container-org80852d9" class="outline-4">
+<h4 id="org80852d9"><span class="section-number-4">3.1.4</span> <code>--args</code></h4>
 <div class="outline-text-4" id="text-3-1-4">
 <p align="center">
 <img src="/pictures/200930/gdb_args.gif" alt="gdb_args.gif" align="center">
@@ -227,15 +227,15 @@ gdb가 시작할 때 동시에 실행할 명령어를 입력하는 옵션
 </div>
 </div>
 </div>
-<div id="outline-container-org5c59954" class="outline-3">
-<h3 id="org5c59954"><span class="section-number-3">3.2</span> Various keybindings</h3>
+<div id="outline-container-org8c7dfc4" class="outline-3">
+<h3 id="org8c7dfc4"><span class="section-number-3">3.2</span> Various keybindings</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 해당 섹션에서는 gdb가 실행되고 난 후 디버깅을 수행하면서 사용할 수 있는 키바인딩들에 대해 설명한다.
 </p>
 </div>
-<div id="outline-container-org8fb144a" class="outline-4">
-<h4 id="org8fb144a"><span class="section-number-4">3.2.1</span> <code>r</code> (run)</h4>
+<div id="outline-container-org5b99d6c" class="outline-4">
+<h4 id="org5b99d6c"><span class="section-number-4">3.2.1</span> <code>r</code> (run)</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p align="center">
 <img src="/pictures/200930/gdb_r.gif" alt="gdb_r.gif" align="center">
@@ -243,8 +243,8 @@ gdb가 시작할 때 동시에 실행할 명령어를 입력하는 옵션
 </p>
 </div>
 </div>
-<div id="outline-container-orge91e4a2" class="outline-4">
-<h4 id="orge91e4a2"><span class="section-number-4">3.2.2</span> <code>n</code> (next)</h4>
+<div id="outline-container-orgbcf4ca5" class="outline-4">
+<h4 id="orgbcf4ca5"><span class="section-number-4">3.2.2</span> <code>n</code> (next)</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <p align="center">
 <img src="/pictures/200930/gdb_n.gif" alt="gdb_n.gif" align="center">
@@ -252,8 +252,8 @@ gdb가 시작할 때 동시에 실행할 명령어를 입력하는 옵션
 </p>
 </div>
 </div>
-<div id="outline-container-org002a883" class="outline-4">
-<h4 id="org002a883"><span class="section-number-4">3.2.3</span> <code>s</code> (step)</h4>
+<div id="outline-container-org694f1ed" class="outline-4">
+<h4 id="org694f1ed"><span class="section-number-4">3.2.3</span> <code>s</code> (step)</h4>
 <div class="outline-text-4" id="text-3-2-3">
 <p align="center">
 <img src="/pictures/200930/gdb_s.gif" alt="gdb_s.gif" align="center">
@@ -261,8 +261,8 @@ gdb가 시작할 때 동시에 실행할 명령어를 입력하는 옵션
 </p>
 </div>
 </div>
-<div id="outline-container-org6dc6451" class="outline-4">
-<h4 id="org6dc6451"><span class="section-number-4">3.2.4</span> <code>t</code> (thread)</h4>
+<div id="outline-container-org832cc9c" class="outline-4">
+<h4 id="org832cc9c"><span class="section-number-4">3.2.4</span> <code>t</code> (thread)</h4>
 <div class="outline-text-4" id="text-3-2-4">
 <p align="center">
 <img src="/pictures/200930/gdb_t.gif" alt="gdb_t.gif" align="center">
@@ -270,8 +270,8 @@ gdb가 시작할 때 동시에 실행할 명령어를 입력하는 옵션
 </p>
 </div>
 </div>
-<div id="outline-container-orga778aa1" class="outline-4">
-<h4 id="orga778aa1"><span class="section-number-4">3.2.5</span> <code>bt</code> (backtrace)</h4>
+<div id="outline-container-orgdf79312" class="outline-4">
+<h4 id="orgdf79312"><span class="section-number-4">3.2.5</span> <code>bt</code> (backtrace)</h4>
 <div class="outline-text-4" id="text-3-2-5">
 <p align="center">
 <img src="/pictures/200930/gdb_bt.gif" alt="gdb_bt.gif" align="center">
@@ -279,8 +279,8 @@ gdb가 시작할 때 동시에 실행할 명령어를 입력하는 옵션
 </p>
 </div>
 </div>
-<div id="outline-container-org39dd427" class="outline-4">
-<h4 id="org39dd427"><span class="section-number-4">3.2.6</span> <code>f</code> (frame)</h4>
+<div id="outline-container-orgda09c96" class="outline-4">
+<h4 id="orgda09c96"><span class="section-number-4">3.2.6</span> <code>f</code> (frame)</h4>
 <div class="outline-text-4" id="text-3-2-6">
 <p align="center">
 <img src="/pictures/200930/gdb_f.gif" alt="gdb_f.gif" align="center">
@@ -288,8 +288,8 @@ gdb가 시작할 때 동시에 실행할 명령어를 입력하는 옵션
 </p>
 </div>
 </div>
-<div id="outline-container-org8aaf641" class="outline-4">
-<h4 id="org8aaf641"><span class="section-number-4">3.2.7</span> <code>i</code> (info)</h4>
+<div id="outline-container-org2972ea1" class="outline-4">
+<h4 id="org2972ea1"><span class="section-number-4">3.2.7</span> <code>i</code> (info)</h4>
 <div class="outline-text-4" id="text-3-2-7">
 <p align="center">
 <img src="/pictures/200930/gdb_i.gif" alt="gdb_i.gif" align="center">
@@ -297,8 +297,8 @@ breakpoint 또는 thread 등 여러 정보를 출력한다
 </p>
 </div>
 </div>
-<div id="outline-container-org9409c83" class="outline-4">
-<h4 id="org9409c83"><span class="section-number-4">3.2.8</span> <code>p</code> (print)</h4>
+<div id="outline-container-org54418ad" class="outline-4">
+<h4 id="org54418ad"><span class="section-number-4">3.2.8</span> <code>p</code> (print)</h4>
 <div class="outline-text-4" id="text-3-2-8">
 <p align="center">
 <img src="/pictures/200930/gdb_p.gif" alt="gdb_p.gif" align="center">
@@ -306,8 +306,8 @@ breakpoint 또는 thread 등 여러 정보를 출력한다
 </p>
 </div>
 </div>
-<div id="outline-container-orgf5fa80a" class="outline-4">
-<h4 id="orgf5fa80a"><span class="section-number-4">3.2.9</span> <code>b</code> (breakpoint)</h4>
+<div id="outline-container-org497350b" class="outline-4">
+<h4 id="org497350b"><span class="section-number-4">3.2.9</span> <code>b</code> (breakpoint)</h4>
 <div class="outline-text-4" id="text-3-2-9">
 <p align="center">
 <img src="/pictures/200930/gdb_b.gif" alt="gdb_b.gif" align="center">
@@ -315,8 +315,8 @@ breakpoint를 설정한다. <code>b {#}</code> 과 같이 뒤에 번호를 붙�
 </p>
 </div>
 </div>
-<div id="outline-container-org1cc2f2b" class="outline-4">
-<h4 id="org1cc2f2b"><span class="section-number-4">3.2.10</span> <code>d</code> (delete)</h4>
+<div id="outline-container-org919fcc1" class="outline-4">
+<h4 id="org919fcc1"><span class="section-number-4">3.2.10</span> <code>d</code> (delete)</h4>
 <div class="outline-text-4" id="text-3-2-10">
 <p align="center">
 <img src="/pictures/200930/gdb_d.gif" alt="gdb_d.gif" align="center">
@@ -324,8 +324,8 @@ breakpoint를 제거한다. <code>d {#}</code> 과 같이 뒤에 번호를 붙�
 </p>
 </div>
 </div>
-<div id="outline-container-org76eb692" class="outline-4">
-<h4 id="org76eb692"><span class="section-number-4">3.2.11</span> <code>c</code> (continue)</h4>
+<div id="outline-container-org8d2644e" class="outline-4">
+<h4 id="org8d2644e"><span class="section-number-4">3.2.11</span> <code>c</code> (continue)</h4>
 <div class="outline-text-4" id="text-3-2-11">
 <p align="center">
 <img src="/pictures/200930/gdb_c.gif" alt="gdb_c.gif" align="center">
@@ -333,8 +333,8 @@ breakpoint를 제거한다. <code>d {#}</code> 과 같이 뒤에 번호를 붙�
 </p>
 </div>
 </div>
-<div id="outline-container-org2d20f34" class="outline-4">
-<h4 id="org2d20f34"><span class="section-number-4">3.2.12</span> <code>q</code> (quit)</h4>
+<div id="outline-container-orgfa69c1c" class="outline-4">
+<h4 id="orgfa69c1c"><span class="section-number-4">3.2.12</span> <code>q</code> (quit)</h4>
 <div class="outline-text-4" id="text-3-2-12">
 <p align="center">
 <img src="/pictures/200930/gdb_quit.gif" alt="gdb_quit.gif" align="center">
@@ -342,8 +342,8 @@ gdb를 종료한다
 </p>
 </div>
 </div>
-<div id="outline-container-org3b7e965" class="outline-4">
-<h4 id="org3b7e965"><span class="section-number-4">3.2.13</span> <code>l</code> (list)</h4>
+<div id="outline-container-org3f1cd42" class="outline-4">
+<h4 id="org3f1cd42"><span class="section-number-4">3.2.13</span> <code>l</code> (list)</h4>
 <div class="outline-text-4" id="text-3-2-13">
 <p align="center">
 <img src="/pictures/200930/gdb_l.gif" alt="gdb_l.gif" align="center">
@@ -351,8 +351,8 @@ gdb를 종료한다
 </p>
 </div>
 </div>
-<div id="outline-container-org13bffcb" class="outline-4">
-<h4 id="org13bffcb"><span class="section-number-4">3.2.14</span> <code>cond</code> (condition)</h4>
+<div id="outline-container-org296e589" class="outline-4">
+<h4 id="org296e589"><span class="section-number-4">3.2.14</span> <code>cond</code> (condition)</h4>
 <div class="outline-text-4" id="text-3-2-14">
 <p align="center">
 <img src="/pictures/200930/gdb_cond.gif" alt="gdb_cond.gif" align="center">
@@ -360,8 +360,8 @@ breakpoint의 조건을 설정한다. 위 그림에서는 for 루프에서 i=345
 </p>
 </div>
 </div>
-<div id="outline-container-org4e883d4" class="outline-4">
-<h4 id="org4e883d4"><span class="section-number-4">3.2.15</span> <code>&lt;C-x&gt; a</code></h4>
+<div id="outline-container-orgd45c681" class="outline-4">
+<h4 id="orgd45c681"><span class="section-number-4">3.2.15</span> <code>&lt;C-x&gt; a</code></h4>
 <div class="outline-text-4" id="text-3-2-15">
 <p align="center">
 <img src="/pictures/200930/gdb_c_x_a.gif" alt="gdb_c_x_a.gif" align="center">
@@ -369,8 +369,8 @@ breakpoint의 조건을 설정한다. 위 그림에서는 for 루프에서 i=345
 </p>
 </div>
 </div>
-<div id="outline-container-org52f8127" class="outline-4">
-<h4 id="org52f8127"><span class="section-number-4">3.2.16</span> <code>&lt;C-l&gt;</code></h4>
+<div id="outline-container-orgfd910db" class="outline-4">
+<h4 id="orgfd910db"><span class="section-number-4">3.2.16</span> <code>&lt;C-l&gt;</code></h4>
 <div class="outline-text-4" id="text-3-2-16">
 <p align="center">
 <img src="/pictures/200930/gdb_c_l.gif" alt="gdb_c_l.gif" align="center">
@@ -378,8 +378,8 @@ breakpoint의 조건을 설정한다. 위 그림에서는 for 루프에서 i=345
 </p>
 </div>
 </div>
-<div id="outline-container-org7b58043" class="outline-4">
-<h4 id="org7b58043"><span class="section-number-4">3.2.17</span> <code>&lt;C-p,n&gt;</code></h4>
+<div id="outline-container-orgbb82a99" class="outline-4">
+<h4 id="orgbb82a99"><span class="section-number-4">3.2.17</span> <code>&lt;C-p,n&gt;</code></h4>
 <div class="outline-text-4" id="text-3-2-17">
 <p align="center">
 <img src="/pictures/200930/gdb_c_n_p.gif" alt="gdb_c_n_p.gif" align="center">
@@ -389,8 +389,8 @@ breakpoint의 조건을 설정한다. 위 그림에서는 for 루프에서 i=345
 </div>
 </div>
 </div>
-<div id="outline-container-org01b7e32" class="outline-2">
-<h2 id="org01b7e32"><span class="section-number-2">4</span> References</h2>
+<div id="outline-container-orgb0491be" class="outline-2">
+<h2 id="orgb0491be"><span class="section-number-2">4</span> References</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li><a href="http://egloos.zum.com/psyoblade/v/2653919">gdb를 통한 디버깅 따라하기 - psyoblade Blog</a></li>

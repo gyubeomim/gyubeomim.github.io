@@ -12,184 +12,184 @@ comments: true
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org147e96c">1. Epipolar Geometry and the Fundamental Matrix</a>
+<li><a href="#org098d0df">1. Epipolar Geometry and the Fundamental Matrix</a>
 <ul>
-<li><a href="#org45af972">1.1. Epipolar geometry</a></li>
-<li><a href="#org60b1ec4">1.2. The fundamental matrix $\mathbf{F}$</a>
+<li><a href="#org93b1350">1.1. Epipolar geometry</a></li>
+<li><a href="#org1ba9000">1.2. The fundamental matrix $\mathbf{F}$</a>
 <ul>
-<li><a href="#orgb8c11d5">1.2.1. Proof</a></li>
-<li><a href="#org92f89e4">1.2.2. Geometric derivation</a></li>
-<li><a href="#org1d56ced">1.2.3. Algebraic derivation</a></li>
+<li><a href="#org0105c09">1.2.1. Proof</a></li>
+<li><a href="#org9a4988a">1.2.2. Geometric derivation</a></li>
+<li><a href="#org4240508">1.2.3. Algebraic derivation</a></li>
 </ul>
 </li>
-<li><a href="#org1c44eec">1.3. The epipolar line homography</a>
+<li><a href="#orgb4b37c0">1.3. The epipolar line homography</a>
 <ul>
-<li><a href="#org85d291c">1.3.1. Result 9.5</a></li>
+<li><a href="#org12133ff">1.3.1. Result 9.5</a></li>
 </ul>
 </li>
-<li><a href="#org7eeac08">1.4. Fundamental matrices arising from special motions</a>
+<li><a href="#org3279d7d">1.4. Fundamental matrices arising from special motions</a>
 <ul>
-<li><a href="#org3adcae4">1.4.1. Pure translation</a></li>
+<li><a href="#org2fd33f7">1.4.1. Pure translation</a></li>
 </ul>
 </li>
-<li><a href="#org1870055">1.5. Retrieving the camera matrices</a>
+<li><a href="#org1fbbbb2">1.5. Retrieving the camera matrices</a>
 <ul>
-<li><a href="#org3cb2da0">1.5.1. Projective invariance and canonical cameras</a></li>
-<li><a href="#org0226739">1.5.2. Result 9.8</a></li>
-<li><a href="#orged22162">1.5.3. Proof</a></li>
-<li><a href="#org9c3a3b5">1.5.4. Canonical form of camera matrices</a></li>
-<li><a href="#org9f9450e">1.5.5. Result 9.9</a></li>
-<li><a href="#orgc787694">1.5.6. Projective ambiguity of cameras given F</a></li>
-<li><a href="#orgc3a12c5">1.5.7. Theorem 9.10</a></li>
-<li><a href="#org6f2ffea">1.5.8. Proof</a></li>
+<li><a href="#org60837dd">1.5.1. Projective invariance and canonical cameras</a></li>
+<li><a href="#org6876bd7">1.5.2. Result 9.8</a></li>
+<li><a href="#org4acbf28">1.5.3. Proof</a></li>
+<li><a href="#org1395de4">1.5.4. Canonical form of camera matrices</a></li>
+<li><a href="#org05f840b">1.5.5. Result 9.9</a></li>
+<li><a href="#org27fbdb8">1.5.6. Projective ambiguity of cameras given F</a></li>
+<li><a href="#org8b4f99e">1.5.7. Theorem 9.10</a></li>
+<li><a href="#org3c48dce">1.5.8. Proof</a></li>
 </ul>
 </li>
-<li><a href="#orgeee497f">1.6. Canonical cameras given F</a>
+<li><a href="#org664ef49">1.6. Canonical cameras given F</a>
 <ul>
-<li><a href="#org58ff6bb">1.6.1. Result 9.12</a></li>
-<li><a href="#orgb24059b">1.6.2. Result 9.13</a></li>
-<li><a href="#orgb750a41">1.6.3. Result 9.14</a></li>
-<li><a href="#org260b80c">1.6.4. Result 9.15</a></li>
+<li><a href="#orgbd898e6">1.6.1. Result 9.12</a></li>
+<li><a href="#org4f011de">1.6.2. Result 9.13</a></li>
+<li><a href="#orgbee65a4">1.6.3. Result 9.14</a></li>
+<li><a href="#org2e7a826">1.6.4. Result 9.15</a></li>
 </ul>
 </li>
-<li><a href="#org7f0f4df">1.7. The essential matrix</a>
+<li><a href="#org7692670">1.7. The essential matrix</a>
 <ul>
-<li><a href="#org148f543">1.7.1. Properties of the essential matrix</a></li>
-<li><a href="#orged8dddc">1.7.2. Result 9.17</a></li>
-<li><a href="#org82966de">1.7.3. Proof</a></li>
+<li><a href="#org7781e32">1.7.1. Properties of the essential matrix</a></li>
+<li><a href="#org5573a8b">1.7.2. Result 9.17</a></li>
+<li><a href="#org6318326">1.7.3. Proof</a></li>
 </ul>
 </li>
-<li><a href="#org6d55a3a">1.8. Extraction of cameras from the essential matrix</a>
+<li><a href="#org6a4d981">1.8. Extraction of cameras from the essential matrix</a>
 <ul>
-<li><a href="#org86aaecf">1.8.1. Result 9.18</a></li>
-<li><a href="#org7c388a5">1.8.2. Proof</a></li>
+<li><a href="#org232b3f3">1.8.1. Result 9.18</a></li>
+<li><a href="#org7578f37">1.8.2. Proof</a></li>
 </ul>
 </li>
-<li><a href="#org87c87eb">1.9. Geometrical interpretation of the four solutions</a></li>
+<li><a href="#org09ea3fb">1.9. Geometrical interpretation of the four solutions</a></li>
 </ul>
 </li>
-<li><a href="#org545bb29">2. 3D Reconstruction of Cameras and Structure</a>
+<li><a href="#orgccda7b5">2. 3D Reconstruction of Cameras and Structure</a>
 <ul>
-<li><a href="#org3834ce0">2.1. The projective reconstruction theorem</a>
+<li><a href="#org2fccbfa">2.1. The projective reconstruction theorem</a>
 <ul>
-<li><a href="#org1ab89c4">2.1.1. Theorem 10.1 (Projective reconstruction theorem)</a></li>
-<li><a href="#org4ceae28">2.1.2. Proof</a></li>
+<li><a href="#org0ef5eb4">2.1.1. Theorem 10.1 (Projective reconstruction theorem)</a></li>
+<li><a href="#orgce74423">2.1.2. Proof</a></li>
 </ul>
 </li>
-<li><a href="#org70607b5">2.2. Stratified reconstruction</a>
+<li><a href="#org2ba7b16">2.2. Stratified reconstruction</a>
 <ul>
-<li><a href="#org0a7e671">2.2.1. The step to affine reconstruction</a></li>
-<li><a href="#orgee43f2a">2.2.2. The step to metric reconstruction</a></li>
-<li><a href="#org118f747">2.2.3. Result 10.5</a></li>
-<li><a href="#org011930a">2.2.4. Proof</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org2c044b3">3. Computation of the Fundamental Matrix $\mathbf{F}$</a>
-<ul>
-<li><a href="#org2d6b37e">3.1. Basic equations</a>
-<ul>
-<li><a href="#org73a66cc">3.1.1. The minimum case - seven point correspondences</a></li>
-</ul>
-</li>
-<li><a href="#org3975f68">3.2. The normalized 8-point algorithm</a>
-<ul>
-<li><a href="#org767351c">3.2.1. Degenrate configurations</a></li>
-<li><a href="#orga42a174">3.2.2. Proof</a></li>
-</ul>
-</li>
-<li><a href="#org8fb3065">3.3. The Gold Standard method</a></li>
-</ul>
-</li>
-<li><a href="#orgc454c08">4. Structure Computation</a>
-<ul>
-<li><a href="#org69fe1b4">4.1. Problem statement</a></li>
-<li><a href="#org9e34551">4.2. Linear triangulation methods</a>
-<ul>
-<li><a href="#org984d05e">4.2.1. Inhomogeneous method</a></li>
-</ul>
-</li>
-<li><a href="#org4d95a2d">4.3. An optimial solution</a>
-<ul>
-<li><a href="#org2a44274">4.3.1. Reformulation of the minimization problem</a></li>
-<li><a href="#org6b5a4b1">4.3.2. Details of the minimization</a></li>
+<li><a href="#orgf85d5c4">2.2.1. The step to affine reconstruction</a></li>
+<li><a href="#orge1997aa">2.2.2. The step to metric reconstruction</a></li>
+<li><a href="#org37ab3f7">2.2.3. Result 10.5</a></li>
+<li><a href="#org27879f5">2.2.4. Proof</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org3d840bf">5. Scene planes and homographies</a>
+<li><a href="#org5cd7166">3. Computation of the Fundamental Matrix $\mathbf{F}$</a>
 <ul>
-<li><a href="#org42b4bf2">5.1. Homographies given the plane and vice versa</a>
+<li><a href="#orgb2e606f">3.1. Basic equations</a>
 <ul>
-<li><a href="#org039de92">5.1.1. Result 13.1</a></li>
-<li><a href="#orgfc11ff6">5.1.2. Proof</a></li>
-<li><a href="#orga79fb64">5.1.3. A calibrated stereo rig</a></li>
-<li><a href="#org627a3cb">5.1.4. Homographies compatible with epipolar geometry</a></li>
-<li><a href="#org48dff8c">5.1.5. Result 13.3</a></li>
-<li><a href="#orgf2bd829">5.1.6. Proof</a></li>
-<li><a href="#org3dcebc4">5.1.7. Corollary</a></li>
-<li><a href="#org754e42a">5.1.8. Proof</a></li>
+<li><a href="#org28334a6">3.1.1. The minimum case - seven point correspondences</a></li>
 </ul>
 </li>
-<li><a href="#orgdc4792a">5.2. Plane induced homographies given $\mathbf{F}$and image correspondences</a>
+<li><a href="#org5576fa1">3.2. The normalized 8-point algorithm</a>
 <ul>
-<li><a href="#orga5d7adb">5.2.1. Three points</a></li>
-<li><a href="#org00beb99">5.2.2. Result 13.6</a></li>
-<li><a href="#orgc347d14">5.2.3. Proof</a></li>
-<li><a href="#orgd2fcc3e">5.2.4. A point and line</a></li>
-<li><a href="#orgc5bc9d4">5.2.5. Result 13.7</a></li>
-<li><a href="#orgd72d294">5.2.6. Proof</a></li>
-<li><a href="#org798a4a9">5.2.7. The homography for a corresponding point and line</a></li>
-<li><a href="#org0361894">5.2.8. Result 13.8</a></li>
+<li><a href="#orgb761148">3.2.1. Degenrate configurations</a></li>
+<li><a href="#orgefa2bcf">3.2.2. Proof</a></li>
 </ul>
 </li>
-<li><a href="#orgfc02683">5.3. Computing $\mathbf{F}$given the homography induced by a plane</a></li>
-<li><a href="#org2e18a93">5.4. The infinite homography $\mathbf{H}_{\infty}$</a>
+<li><a href="#orgc443854">3.3. The Gold Standard method</a></li>
+</ul>
+</li>
+<li><a href="#org4b7d08d">4. Structure Computation</a>
 <ul>
-<li><a href="#org528dac0">5.4.1. Definition 13.10</a></li>
-<li><a href="#org15ed9ca">5.4.2. Affine and metric reconstruction</a></li>
+<li><a href="#orgea9eec4">4.1. Problem statement</a></li>
+<li><a href="#org57cc37e">4.2. Linear triangulation methods</a>
+<ul>
+<li><a href="#org2cb034c">4.2.1. Inhomogeneous method</a></li>
+</ul>
+</li>
+<li><a href="#org0f0b8fd">4.3. An optimial solution</a>
+<ul>
+<li><a href="#orge7ee13a">4.3.1. Reformulation of the minimization problem</a></li>
+<li><a href="#org53eca9d">4.3.2. Details of the minimization</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org328debe">6. Affine Epipolar Geometry</a>
+<li><a href="#org34812e0">5. Scene planes and homographies</a>
 <ul>
-<li><a href="#org19bfcf8">6.1. Affine epipolar geometry</a>
+<li><a href="#orgc939da6">5.1. Homographies given the plane and vice versa</a>
 <ul>
-<li><a href="#orgbf4e50c">6.1.1. Epipolar lines</a></li>
-<li><a href="#orgac36e7b">6.1.2. The epipoles</a></li>
+<li><a href="#org0469075">5.1.1. Result 13.1</a></li>
+<li><a href="#orgc53a607">5.1.2. Proof</a></li>
+<li><a href="#org92602c6">5.1.3. A calibrated stereo rig</a></li>
+<li><a href="#org452bdae">5.1.4. Homographies compatible with epipolar geometry</a></li>
+<li><a href="#orge85b662">5.1.5. Result 13.3</a></li>
+<li><a href="#org31bfc16">5.1.6. Proof</a></li>
+<li><a href="#org611486b">5.1.7. Corollary</a></li>
+<li><a href="#org20a2817">5.1.8. Proof</a></li>
 </ul>
 </li>
-<li><a href="#org83e7403">6.2. The affine fundamental matrix</a>
+<li><a href="#orge1c4778">5.2. Plane induced homographies given $\mathbf{F}$and image correspondences</a>
 <ul>
-<li><a href="#orga1bff03">6.2.1. Result 14.1</a></li>
-<li><a href="#org39a28b6">6.2.2. Derivation</a></li>
-<li><a href="#org7acd06e">6.2.3. Geometric derivation</a></li>
-<li><a href="#org8187754">6.2.4. Properties</a></li>
-<li><a href="#org5b9c406">6.2.5. The epipoles</a></li>
-<li><a href="#orgbee48e1">6.2.6. Epipolar lines</a></li>
+<li><a href="#orgfc2678a">5.2.1. Three points</a></li>
+<li><a href="#org9a11671">5.2.2. Result 13.6</a></li>
+<li><a href="#orga3e263e">5.2.3. Proof</a></li>
+<li><a href="#org8320f35">5.2.4. A point and line</a></li>
+<li><a href="#org0f237c0">5.2.5. Result 13.7</a></li>
+<li><a href="#org24a653e">5.2.6. Proof</a></li>
+<li><a href="#org9cae6b9">5.2.7. The homography for a corresponding point and line</a></li>
+<li><a href="#org4de0518">5.2.8. Result 13.8</a></li>
 </ul>
 </li>
-<li><a href="#org547bc12">6.3. Estimating $\mathbf{F}_{A}$from image point correspondences</a>
+<li><a href="#org02fe78e">5.3. Computing $\mathbf{F}$given the homography induced by a plane</a></li>
+<li><a href="#orgfa30ee8">5.4. The infinite homography $\mathbf{H}_{\infty}$</a>
 <ul>
-<li><a href="#org239421a">6.3.1. Algorithm 14.2</a></li>
+<li><a href="#orgf3df7af">5.4.1. Definition 13.10</a></li>
+<li><a href="#org3b44cad">5.4.2. Affine and metric reconstruction</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orga142c97">7. References</a></li>
-<li><a href="#org3384721">8. Closure</a></li>
+<li><a href="#org289cb01">6. Affine Epipolar Geometry</a>
+<ul>
+<li><a href="#org3349b44">6.1. Affine epipolar geometry</a>
+<ul>
+<li><a href="#orgc4aa44d">6.1.1. Epipolar lines</a></li>
+<li><a href="#org024740c">6.1.2. The epipoles</a></li>
+</ul>
+</li>
+<li><a href="#org34c7074">6.2. The affine fundamental matrix</a>
+<ul>
+<li><a href="#orgdeabc81">6.2.1. Result 14.1</a></li>
+<li><a href="#orgef37007">6.2.2. Derivation</a></li>
+<li><a href="#orgb4d08ce">6.2.3. Geometric derivation</a></li>
+<li><a href="#org900b6f2">6.2.4. Properties</a></li>
+<li><a href="#orga4d4898">6.2.5. The epipoles</a></li>
+<li><a href="#orgbcfb884">6.2.6. Epipolar lines</a></li>
+</ul>
+</li>
+<li><a href="#org8640985">6.3. Estimating $\mathbf{F}_{A}$from image point correspondences</a>
+<ul>
+<li><a href="#org90dbaa9">6.3.1. Algorithm 14.2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org40e9c52">7. References</a></li>
+<li><a href="#orgcb637de">8. Closure</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org147e96c" class="outline-2">
-<h2 id="org147e96c"><span class="section-number-2">1</span> Epipolar Geometry and the Fundamental Matrix</h2>
+<div id="outline-container-org098d0df" class="outline-2">
+<h2 id="org098d0df"><span class="section-number-2">1</span> Epipolar Geometry and the Fundamental Matrix</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org45af972" class="outline-3">
-<h3 id="org45af972"><span class="section-number-3">1.1</span> Epipolar geometry</h3>
+<div id="outline-container-org93b1350" class="outline-3">
+<h3 id="org93b1350"><span class="section-number-3">1.1</span> Epipolar geometry</h3>
 <div class="outline-text-3" id="text-1-1">
 
 <figure>
@@ -203,8 +203,8 @@ Epipolar geometry는 <b>2개의 카메라 이미지 사이에 정의되는 기�
 </div>
 </div>
 
-<div id="outline-container-org60b1ec4" class="outline-3">
-<h3 id="org60b1ec4"><span class="section-number-3">1.2</span> The fundamental matrix $\mathbf{F}$</h3>
+<div id="outline-container-org1ba9000" class="outline-3">
+<h3 id="org1ba9000"><span class="section-number-3">1.2</span> The fundamental matrix $\mathbf{F}$</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \mathbf{C}^{&prime;}$이 주어질 때 $\mathbf{F}&isin; \mathbb{R}^{3&times; 3}$이며 rank 2를 가지는 행렬</b> 을 의미한다. $\mathbf{F}$는 두 카메라의 이미지 평면에 있는 점들의 대응쌍 $\mathbf{x}, \mathbf{x}^{&prime;}$에 대하여
@@ -232,8 +232,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 \end{equation}
 </div>
 
-<div id="outline-container-orgb8c11d5" class="outline-4">
-<h4 id="orgb8c11d5"><span class="section-number-4">1.2.1</span> Proof</h4>
+<div id="outline-container-org0105c09" class="outline-4">
+<h4 id="org0105c09"><span class="section-number-4">1.2.1</span> Proof</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 ($\Rightarrow$)$\mathbf{l}^{&prime;} = \mathbf{Fx}$인 경우 Epipolar Line $\mathbf{l}^{&prime;}$에 위치한 점 $\mathbf{x}^{&prime;}$에 대하여 다음이 성립한다.
@@ -260,8 +260,8 @@ Fundamental Matrix는 <b>2개의 주어진 카메라의 중심점 $\mathbf{C}, \
 </div>
 </div>
 
-<div id="outline-container-org92f89e4" class="outline-4">
-<h4 id="org92f89e4"><span class="section-number-4">1.2.2</span> Geometric derivation</h4>
+<div id="outline-container-org9a4988a" class="outline-4">
+<h4 id="org9a4988a"><span class="section-number-4">1.2.2</span> Geometric derivation</h4>
 <div class="outline-text-4" id="text-1-2-2">
 
 <figure>
@@ -306,8 +306,8 @@ $\pi_{\mathbf{C}^{\prime}}$위에 프로젝션된 점을 $\mathbf{x}^{&prime;} =
 </div>
 </div>
 
-<div id="outline-container-org1d56ced" class="outline-4">
-<h4 id="org1d56ced"><span class="section-number-4">1.2.3</span> Algebraic derivation</h4>
+<div id="outline-container-org4240508" class="outline-4">
+<h4 id="org4240508"><span class="section-number-4">1.2.3</span> Algebraic derivation</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <p>
 Epipolar Line $\mathbf{l}^{&prime;} = \mathbf{P}^{&prime;}(\mathbf{X(\lambda)})$와 같다. 이 때 $\mathbf{X}(&lambda;)$는 카메라 $\mathbf{C}$의 중심점을 지나는 $\mathbf{x}$의 Back-projection 직선을 의미한다. $\mathbf{X}(&lambda;)$는 다음과 같이 다시 작성할 수 있다.
@@ -362,8 +362,8 @@ $\mathbf{P}^{&prime;}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;
 </div>
 </div>
 
-<div id="outline-container-org1c44eec" class="outline-3">
-<h3 id="org1c44eec"><span class="section-number-3">1.3</span> The epipolar line homography</h3>
+<div id="outline-container-orgb4b37c0" class="outline-3">
+<h3 id="orgb4b37c0"><span class="section-number-3">1.3</span> The epipolar line homography</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 두 카메라 $\mathbf{C}, \mathbf{C}^{&prime;}$이 존재하고 이미지 평면 위의 한 점을 각각 $\mathbf{x}, \mathbf{x}^{&prime;}$라고 하면 이에 상응하는 Epipolar Line $\mathbf{l}, \mathbf{l}^{&prime;}$이 존재한다. 이 때, <b>$\mathbf{l}$과 $\mathbf{l}^{\prime}$사이에는 별도의 대응 관계가 성립</b> 하는데 이는
@@ -379,8 +379,8 @@ $\mathbf{P}^{&prime;}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;
 </p>
 </div>
 
-<div id="outline-container-org85d291c" class="outline-4">
-<h4 id="org85d291c"><span class="section-number-4">1.3.1</span> Result 9.5</h4>
+<div id="outline-container-org12133ff" class="outline-4">
+<h4 id="org12133ff"><span class="section-number-4">1.3.1</span> Result 9.5</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 카메라 중심점 $\mathbf{C}$를 통과하면서 Epipole $\mathbf{e}$를 지나지 않는 직선 $\mathbf{k}$가 있을 때 $\mathbf{k}$는 Epipolar Line $\mathbf{l}$과 반드시 한 점 $\mathbf{p}$에서 만난다. $\mathbf{p}$는
@@ -408,12 +408,12 @@ $\mathbf{P}^{&prime;}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;
 </div>
 </div>
 
-<div id="outline-container-org7eeac08" class="outline-3">
-<h3 id="org7eeac08"><span class="section-number-3">1.4</span> Fundamental matrices arising from special motions</h3>
+<div id="outline-container-org3279d7d" class="outline-3">
+<h3 id="org3279d7d"><span class="section-number-3">1.4</span> Fundamental matrices arising from special motions</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-org3adcae4" class="outline-4">
-<h4 id="org3adcae4"><span class="section-number-4">1.4.1</span> Pure translation</h4>
+<div id="outline-container-org2fd33f7" class="outline-4">
+<h4 id="org2fd33f7"><span class="section-number-4">1.4.1</span> Pure translation</h4>
 <div class="outline-text-4" id="text-1-4-1">
 
 <figure>
@@ -456,15 +456,15 @@ $\mathbf{P}^{&prime;}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;
 </div>
 </div>
 
-<div id="outline-container-org1870055" class="outline-3">
-<h3 id="org1870055"><span class="section-number-3">1.5</span> Retrieving the camera matrices</h3>
+<div id="outline-container-org1fbbbb2" class="outline-3">
+<h3 id="org1fbbbb2"><span class="section-number-3">1.5</span> Retrieving the camera matrices</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-org3cb2da0" class="outline-4">
-<h4 id="org3cb2da0"><span class="section-number-4">1.5.1</span> Projective invariance and canonical cameras</h4>
+<div id="outline-container-org60837dd" class="outline-4">
+<h4 id="org60837dd"><span class="section-number-4">1.5.1</span> Projective invariance and canonical cameras</h4>
 </div>
-<div id="outline-container-org0226739" class="outline-4">
-<h4 id="org0226739"><span class="section-number-4">1.5.2</span> Result 9.8</h4>
+<div id="outline-container-org6876bd7" class="outline-4">
+<h4 id="org6876bd7"><span class="section-number-4">1.5.2</span> Result 9.8</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <p>
 두 카메라 $\mathbf{C}, \mathbf{C}^{&prime;}$에 대응하는 이미지 평면 상의 점들 $\mathbf{x}, \mathbf{x}^{&prime;}$과 Fundamental Matrix $\mathbf{F}$가 존재할 때 $\mathbf{F}$는 $\mathbf{x}\leftrightarrow \mathbf{x}^{\prime}$대응쌍의 Homography 변환에 상관없이 동일하다. 다시 말하면, $\mathbb{P}^{3} \mapsto\mathbb{P}^{3}$을 만족하는 Homograhpy 변환 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재할 때 $\mathbf{H}$는
@@ -481,8 +481,8 @@ $\mathbf{P}^{&prime;}\mathbf{C}$는 카메라 $\mathbf{C}$의 중심점을 $&pi;
 </div>
 </div>
 
-<div id="outline-container-orged22162" class="outline-4">
-<h4 id="orged22162"><span class="section-number-4">1.5.3</span> Proof</h4>
+<div id="outline-container-org4acbf28" class="outline-4">
+<h4 id="org4acbf28"><span class="section-number-4">1.5.3</span> Proof</h4>
 <div class="outline-text-4" id="text-1-5-3">
 <p>
 $(\mathbf{PH},\mathbf{P}^{&prime;}\mathbf{H})$에 해당하는 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{&prime;}$에 대해서
@@ -519,8 +519,8 @@ $(\mathbf{PH},\mathbf{P}^{&prime;}\mathbf{H})$에 해당하는 대응점쌍 $\ma
 </div>
 </div>
 
-<div id="outline-container-org9c3a3b5" class="outline-4">
-<h4 id="org9c3a3b5"><span class="section-number-4">1.5.4</span> Canonical form of camera matrices</h4>
+<div id="outline-container-org1395de4" class="outline-4">
+<h4 id="org1395de4"><span class="section-number-4">1.5.4</span> Canonical form of camera matrices</h4>
 <div class="outline-text-4" id="text-1-5-4">
 <p>
 위와 같은 성질에 따라 동일한 Fundamental Matrix $\mathbf{F}$에 여러 $(\mathbf{P},\mathbf{P}^{\prime})$쌍이 대응되므로 $\mathbf{F}$와 $(\mathbf{P},\mathbf{P}^{&prime;})$는 One-to-Many Correspondence 관계가 된다. 따라서 이러한 모호성에도 불구하고 <b>$\mathbf{F}$의 정확한 변환을 표현하기 위해 $\mathbf{P}=[\mathbf{I}|0]$, $\mathbf{P}^{&prime;}=[\mathbf{M}|\mathbf{m}]$과 같이 처음 카메라 행렬 $\mathbf{P}$를 단순하게 나타내는 방법을 Canonical Form</b> 이라고 한다. 하지만 $\mathbf{P}=[\mathbf{I}|0]$이라고 해서 $\mathbf{P}^{&prime;}$이 유일하게 결정되는 것은 아니다. 
@@ -569,8 +569,8 @@ $(\mathbf{PH},\mathbf{P}^{&prime;}\mathbf{H})$에 해당하는 대응점쌍 $\ma
 </div>
 </div>
 
-<div id="outline-container-org9f9450e" class="outline-4">
-<h4 id="org9f9450e"><span class="section-number-4">1.5.5</span> Result 9.9</h4>
+<div id="outline-container-org05f840b" class="outline-4">
+<h4 id="org05f840b"><span class="section-number-4">1.5.5</span> Result 9.9</h4>
 <div class="outline-text-4" id="text-1-5-5">
 <p>
 Canonical Form에 상응하는 Fundamental Matrix $\mathbf{F}$를 구해보면 두 카메라 행렬 $\mathbf{P}= [\mathbf{I}|0], \mathbf{P}^{&prime;}=[\mathbf{M}|\mathbf{m}]$에 대해 다음 공식이 성립한다.
@@ -587,11 +587,11 @@ Canonical Form에 상응하는 Fundamental Matrix $\mathbf{F}$를 구해보면 �
 </div>
 </div>
 
-<div id="outline-container-orgc787694" class="outline-4">
-<h4 id="orgc787694"><span class="section-number-4">1.5.6</span> Projective ambiguity of cameras given F</h4>
+<div id="outline-container-org27fbdb8" class="outline-4">
+<h4 id="org27fbdb8"><span class="section-number-4">1.5.6</span> Projective ambiguity of cameras given F</h4>
 </div>
-<div id="outline-container-orgc3a12c5" class="outline-4">
-<h4 id="orgc3a12c5"><span class="section-number-4">1.5.7</span> Theorem 9.10</h4>
+<div id="outline-container-org8b4f99e" class="outline-4">
+<h4 id="org8b4f99e"><span class="section-number-4">1.5.7</span> Theorem 9.10</h4>
 <div class="outline-text-4" id="text-1-5-7">
 <p>
 Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하기 때문에 필연적으로 모호성이 발생하게 된다. 만약 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;})$의 $\mathbf{F}$와 $(~{\mathbf{P}}, ~{\mathbf{P}}^{&prime;})$의 $\mathbf{F}$가 동일한 경우, $(\mathbf{P},\mathbf{P}^{&prime;})$와 $(~{\mathbf{P}}, ~{\mathbf{P}}^{&prime;})$를 연결하는 Homography $\mathbf{H}$가 존재한다.
@@ -606,8 +606,8 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 </div>
 </div>
 
-<div id="outline-container-org6f2ffea" class="outline-4">
-<h4 id="org6f2ffea"><span class="section-number-4">1.5.8</span> Proof</h4>
+<div id="outline-container-org3c48dce" class="outline-4">
+<h4 id="org3c48dce"><span class="section-number-4">1.5.8</span> Proof</h4>
 <div class="outline-text-4" id="text-1-5-8">
 <p>
 두 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{\prime})$, $(~{\mathbf{P}}, ~{\mathbf{P}}^{&prime;})$이 주어졌을 때 이를 Canonical Form으로 쓰면 다음과 같다.
@@ -700,12 +700,12 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 </div>
 </div>
 
-<div id="outline-container-orgeee497f" class="outline-3">
-<h3 id="orgeee497f"><span class="section-number-3">1.6</span> Canonical cameras given F</h3>
+<div id="outline-container-org664ef49" class="outline-3">
+<h3 id="org664ef49"><span class="section-number-3">1.6</span> Canonical cameras given F</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
-<div id="outline-container-org58ff6bb" class="outline-4">
-<h4 id="org58ff6bb"><span class="section-number-4">1.6.1</span> Result 9.12</h4>
+<div id="outline-container-orgbd898e6" class="outline-4">
+<h4 id="orgbd898e6"><span class="section-number-4">1.6.1</span> Result 9.12</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <p>
 <b>임의의 정방행렬 $\mathbf{F}&isin; \mathbb{R}^{3&times; 3}$가 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;})$에 대응하는 Fundemental Matrix일 필요충분 조건은 $\mathbf{P}^{&prime;\intercal}\mathbf{F}\mathbf{P}$가 반대칭 행렬(skew symmetric matrix)일 때</b> 이다.
@@ -721,8 +721,8 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 </div>
 </div>
 
-<div id="outline-container-orgb24059b" class="outline-4">
-<h4 id="orgb24059b"><span class="section-number-4">1.6.2</span> Result 9.13</h4>
+<div id="outline-container-org4f011de" class="outline-4">
+<h4 id="org4f011de"><span class="section-number-4">1.6.2</span> Result 9.13</h4>
 <div class="outline-text-4" id="text-1-6-2">
 <p>
 임의의 정방행렬 $\mathbf{F}&isin; \mathbb{R}^{3&times; 3}$가 주어지고 임의의 반대칭행렬 $\mathbf{S}&isin; \mathbb{R}^{3&times; 3}$이 주어졌을 때 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;})$이 다음과 같다면
@@ -787,8 +787,8 @@ Fundamental Matrix $\mathbf{F}$는 Homography 변환에 상관없이 동일하�
 </div>
 </div>
 
-<div id="outline-container-orgb750a41" class="outline-4">
-<h4 id="orgb750a41"><span class="section-number-4">1.6.3</span> Result 9.14</h4>
+<div id="outline-container-orgbee65a4" class="outline-4">
+<h4 id="orgbee65a4"><span class="section-number-4">1.6.3</span> Result 9.14</h4>
 <div class="outline-text-4" id="text-1-6-3">
 <p>
 $\mathbf{P}^{&prime;}$의 rank가 3이 되는 $\mathbf{s}$를 선택할 때 $\mathbf{e}^{&prime;}$의 수직이 아닌 $\mathbf{s}$를 사용해야 하므로 $\mathbf{s}=\mathbf{e}^{&prime;}$로 설정하면
@@ -820,8 +820,8 @@ $\mathbf{P}^{&prime;}$의 rank가 3이 되는 $\mathbf{s}$를 선택할 때 $\ma
 </div>
 </div>
 
-<div id="outline-container-org260b80c" class="outline-4">
-<h4 id="org260b80c"><span class="section-number-4">1.6.4</span> Result 9.15</h4>
+<div id="outline-container-org2e7a826" class="outline-4">
+<h4 id="org2e7a826"><span class="section-number-4">1.6.4</span> Result 9.15</h4>
 <div class="outline-text-4" id="text-1-6-4">
 \begin{equation}
   \begin{aligned}
@@ -836,8 +836,8 @@ Null Space 값인 $\mathbf{e}^{&prime;}$는 스케일에 불변하므로 $\frac{
 </div>
 </div>
 
-<div id="outline-container-org7f0f4df" class="outline-3">
-<h3 id="org7f0f4df"><span class="section-number-3">1.7</span> The essential matrix</h3>
+<div id="outline-container-org7692670" class="outline-3">
+<h3 id="org7692670"><span class="section-number-3">1.7</span> The essential matrix</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 임의의 카메라 행렬 $\mathbf{P}= \mathbf{K}[\mathbf{R}|\mathbf{t}]$가 주어졌을 때 이미지 평면 상의 점 $\mathbf{x}$에 대해 $\mathbf{x}= \mathbf{PX}= \mathbf{K}[\mathbf{R}|\mathbf{t}]\mathbf{X}$가 성립한다. 이 때, <b>정규화된 이미지 평면 위의 점을 $\bar{\mathbf{x}}$</b> 라고 하면
@@ -904,11 +904,11 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 \end{equation}
 </div>
 
-<div id="outline-container-org148f543" class="outline-4">
-<h4 id="org148f543"><span class="section-number-4">1.7.1</span> Properties of the essential matrix</h4>
+<div id="outline-container-org7781e32" class="outline-4">
+<h4 id="org7781e32"><span class="section-number-4">1.7.1</span> Properties of the essential matrix</h4>
 </div>
-<div id="outline-container-orged8dddc" class="outline-4">
-<h4 id="orged8dddc"><span class="section-number-4">1.7.2</span> Result 9.17</h4>
+<div id="outline-container-org5573a8b" class="outline-4">
+<h4 id="org5573a8b"><span class="section-number-4">1.7.2</span> Result 9.17</h4>
 <div class="outline-text-4" id="text-1-7-2">
 <p>
 <b>임의의 정방행렬 $\mathbf{E}&isin; \mathbb{R}^{3&times; 3}$이 Essential Matrix이기 위한 필요충분조건은 $\mathbf{E}$의 가장 큰 두 특이값 $\sigma_{1}, \sigma_{2}$값이 동일하고 세번째 특이값 $&sigma;_{3}=0$인 조건</b> 이다.
@@ -916,8 +916,8 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 </div>
 </div>
 
-<div id="outline-container-org82966de" class="outline-4">
-<h4 id="org82966de"><span class="section-number-4">1.7.3</span> Proof</h4>
+<div id="outline-container-org6318326" class="outline-4">
+<h4 id="org6318326"><span class="section-number-4">1.7.3</span> Proof</h4>
 <div class="outline-text-4" id="text-1-7-3">
 <p>
 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;}) = ([\mathbf{I}|0], \ [\mathbf{R}|\mathbf{t}])$에 대한 Fundamental Matrix $\mathbf{F}$가 있다고 하면
@@ -1002,12 +1002,12 @@ Essential Matrix은 $3\times 3$크기의 정방행렬이며 $\mathbf{E} \in \mat
 </div>
 </div>
 
-<div id="outline-container-org6d55a3a" class="outline-3">
-<h3 id="org6d55a3a"><span class="section-number-3">1.8</span> Extraction of cameras from the essential matrix</h3>
+<div id="outline-container-org6a4d981" class="outline-3">
+<h3 id="org6a4d981"><span class="section-number-3">1.8</span> Extraction of cameras from the essential matrix</h3>
 <div class="outline-text-3" id="text-1-8">
 </div>
-<div id="outline-container-org86aaecf" class="outline-4">
-<h4 id="org86aaecf"><span class="section-number-4">1.8.1</span> Result 9.18</h4>
+<div id="outline-container-org232b3f3" class="outline-4">
+<h4 id="org232b3f3"><span class="section-number-4">1.8.1</span> Result 9.18</h4>
 <div class="outline-text-4" id="text-1-8-1">
 <p>
 Essential Matrix $\mathbf{E}$가 다음과 같이 주어졌을 때
@@ -1024,8 +1024,8 @@ Essential Matrix $\mathbf{E}$가 다음과 같이 주어졌을 때
 </div>
 </div>
 
-<div id="outline-container-org7c388a5" class="outline-4">
-<h4 id="org7c388a5"><span class="section-number-4">1.8.2</span> Proof</h4>
+<div id="outline-container-org7578f37" class="outline-4">
+<h4 id="org7578f37"><span class="section-number-4">1.8.2</span> Proof</h4>
 <div class="outline-text-4" id="text-1-8-2">
 <p>
 행렬 $\mathbf{E}$는 다음과 같이 분해할 수 있다.
@@ -1119,8 +1119,8 @@ Essential Matrix $\mathbf{E}$가 위 두 가지 케이스로만 분해된다는 
 </div>
 </div>
 
-<div id="outline-container-org87c87eb" class="outline-3">
-<h3 id="org87c87eb"><span class="section-number-3">1.9</span> Geometrical interpretation of the four solutions</h3>
+<div id="outline-container-org09ea3fb" class="outline-3">
+<h3 id="org09ea3fb"><span class="section-number-3">1.9</span> Geometrical interpretation of the four solutions</h3>
 <div class="outline-text-3" id="text-1-9">
 
 <figure>
@@ -1188,8 +1188,8 @@ $\mathbf{E}= \mathbf{t}^{&and;}\mathbf{R}$을 어떻게 분해하느냐에 따�
 </div>
 </div>
 
-<div id="outline-container-org545bb29" class="outline-2">
-<h2 id="org545bb29"><span class="section-number-2">2</span> 3D Reconstruction of Cameras and Structure</h2>
+<div id="outline-container-orgccda7b5" class="outline-2">
+<h2 id="orgccda7b5"><span class="section-number-2">2</span> 3D Reconstruction of Cameras and Structure</h2>
 <div class="outline-text-2" id="text-2">
 
 <figure>
@@ -1202,12 +1202,12 @@ $\mathbf{E}= \mathbf{t}^{&and;}\mathbf{R}$을 어떻게 분해하느냐에 따�
 </p>
 </div>
 
-<div id="outline-container-org3834ce0" class="outline-3">
-<h3 id="org3834ce0"><span class="section-number-3">2.1</span> The projective reconstruction theorem</h3>
+<div id="outline-container-org2fccbfa" class="outline-3">
+<h3 id="org2fccbfa"><span class="section-number-3">2.1</span> The projective reconstruction theorem</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org1ab89c4" class="outline-4">
-<h4 id="org1ab89c4"><span class="section-number-4">2.1.1</span> Theorem 10.1 (Projective reconstruction theorem)</h4>
+<div id="outline-container-org0ef5eb4" class="outline-4">
+<h4 id="org0ef5eb4"><span class="section-number-4">2.1.1</span> Theorem 10.1 (Projective reconstruction theorem)</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 두 카메라의 이미지 평면 상 대응쌍 점들인 $\mathbf{x}, \mathbf{x}^{&prime;}$이 충분히 주어져서 이를 통해 Fundamental Matrix $\mathbf{F}$를 구했다고 가정해보자. 이 때, 사영모호성으로 인해 다음과 같은 두 카메라 행렬 대응쌍
@@ -1242,8 +1242,8 @@ $\mathbf{E}= \mathbf{t}^{&and;}\mathbf{R}$을 어떻게 분해하느냐에 따�
 </div>
 </div>
 
-<div id="outline-container-org4ceae28" class="outline-4">
-<h4 id="org4ceae28"><span class="section-number-4">2.1.2</span> Proof</h4>
+<div id="outline-container-orgce74423" class="outline-4">
+<h4 id="orgce74423"><span class="section-number-4">2.1.2</span> Proof</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 이전 섹션에서 동일한 Fundamental Matrix $\mathbf{F}$를 공유하는 카메라 행렬 대응쌍 사이에 $\mathbf{P}_{2} = \mathbf{P}_{1}\mathbf{H}^{-1}, \mathbf{P}_{2}^{&prime;} =\mathbf{P}_{1}^{&prime;}\mathbf{H}^{-1}$를 만족하는 Homography 행렬 $\mathbf{H}&isin; \mathbb{R}^{4&times; 4}$가 존재한다는 것을 증명하였다. 이를 적용해보면
@@ -1281,8 +1281,8 @@ $\mathbf{E}= \mathbf{t}^{&and;}\mathbf{R}$을 어떻게 분해하느냐에 따�
 </div>
 </div>
 
-<div id="outline-container-org70607b5" class="outline-3">
-<h3 id="org70607b5"><span class="section-number-3">2.2</span> Stratified reconstruction</h3>
+<div id="outline-container-org2ba7b16" class="outline-3">
+<h3 id="org2ba7b16"><span class="section-number-3">2.2</span> Stratified reconstruction</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Fundamental Matrix $\mathbf{F}$를 사용하여 계산한 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$의 사영모호성 문제를 해결하기 위해 Ground Truth 카메라 행렬 대응쌍인
@@ -1308,8 +1308,8 @@ Fundamental Matrix $\mathbf{F}$를 사용하여 계산한 카메라 행렬 대�
 </p>
 </div>
 
-<div id="outline-container-org0a7e671" class="outline-4">
-<h4 id="org0a7e671"><span class="section-number-4">2.2.1</span> The step to affine reconstruction</h4>
+<div id="outline-container-orgf85d5c4" class="outline-4">
+<h4 id="orgf85d5c4"><span class="section-number-4">2.2.1</span> The step to affine reconstruction</h4>
 <div class="outline-text-4" id="text-2-2-1">
 
 <figure>
@@ -1370,8 +1370,8 @@ Affine Reconstruction 단계에서는 평행한 직선들의 특성을 보존하
 </div>
 
 
-<div id="outline-container-orgee43f2a" class="outline-4">
-<h4 id="orgee43f2a"><span class="section-number-4">2.2.2</span> The step to metric reconstruction</h4>
+<div id="outline-container-orge1997aa" class="outline-4">
+<h4 id="orge1997aa"><span class="section-number-4">2.2.2</span> The step to metric reconstruction</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 Metric Reconstruction 단계에서는 직교하는 선들을 보존하는 Homography 행렬 $\mathbf{H}_{S}$를 찾아야 한다.
@@ -1425,8 +1425,8 @@ Metric Reconstruction 단계에서는 직교하는 선들을 보존하는 Homogr
 </div>
 </div>
 
-<div id="outline-container-org118f747" class="outline-4">
-<h4 id="org118f747"><span class="section-number-4">2.2.3</span> Result 10.5</h4>
+<div id="outline-container-org37ab3f7" class="outline-4">
+<h4 id="org37ab3f7"><span class="section-number-4">2.2.3</span> Result 10.5</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <p>
 이미지 평면에 프로젝션된 Absolute Conic을 $&omega;$라고 하고 Affine Reconstruction으로 구한 카메라 행렬을 $\mathbf{P}=[\mathbf{M}\ | \ \mathbf{m}]$이라고 할 때 Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{S}$는 다음과 같이 구할 수 있다.
@@ -1443,8 +1443,8 @@ Metric Reconstruction 단계에서는 직교하는 선들을 보존하는 Homogr
 </div>
 </div>
 
-<div id="outline-container-org011930a" class="outline-4">
-<h4 id="org011930a"><span class="section-number-4">2.2.4</span> Proof</h4>
+<div id="outline-container-org27879f5" class="outline-4">
+<h4 id="org27879f5"><span class="section-number-4">2.2.4</span> Proof</h4>
 <div class="outline-text-4" id="text-2-2-4">
 <p>
 Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{S} = \begin{bmatrix}\mathbf{A}^{-1} &amp; \\ &amp; 1 \end{bmatrix}$이라고 하고 이 때 이미지 평면을 $\pi_{s}$, 카메라 행렬을 $\mathbf{P}_{s}$라고 하면 $\mathbf{H}_{S}(\pi) = \pi_{s}$관계가 성립하고 무한대 평면을 Homography 변환한 공식은
@@ -1494,12 +1494,12 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{S} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-org2c044b3" class="outline-2">
-<h2 id="org2c044b3"><span class="section-number-2">3</span> Computation of the Fundamental Matrix $\mathbf{F}$</h2>
+<div id="outline-container-org5cd7166" class="outline-2">
+<h2 id="org5cd7166"><span class="section-number-2">3</span> Computation of the Fundamental Matrix $\mathbf{F}$</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org2d6b37e" class="outline-3">
-<h3 id="org2d6b37e"><span class="section-number-3">3.1</span> Basic equations</h3>
+<div id="outline-container-orgb2e606f" class="outline-3">
+<h3 id="orgb2e606f"><span class="section-number-3">3.1</span> Basic equations</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 두 카메라의 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{&prime;}$이 존재할 때
@@ -1561,8 +1561,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{S} = \begin{bmatri
 </p>
 </div>
 
-<div id="outline-container-org73a66cc" class="outline-4">
-<h4 id="org73a66cc"><span class="section-number-4">3.1.1</span> The minimum case - seven point correspondences</h4>
+<div id="outline-container-org28334a6" class="outline-4">
+<h4 id="org28334a6"><span class="section-number-4">3.1.1</span> The minimum case - seven point correspondences</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 7개의 대응점쌍이 주어진 경우 $\mathbf{A}&isin; \mathbb{R}^{7&times; 9}$인 rank 7 행렬이 된다. 이에 따라 Null Space의 차원이 2가 되므로 무수한 해가 존재한다. $\mathbf{Af}=0$의 풀어서 두 개의 선형독립인 Fundamental Matrix $\mathbf{F}_{1}, \mathbf{F}_{2}$를 구하고 
@@ -1582,8 +1582,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{S} = \begin{bmatri
 
 
 
-<div id="outline-container-org3975f68" class="outline-3">
-<h3 id="org3975f68"><span class="section-number-3">3.2</span> The normalized 8-point algorithm</h3>
+<div id="outline-container-org5576fa1" class="outline-3">
+<h3 id="org5576fa1"><span class="section-number-3">3.2</span> The normalized 8-point algorithm</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 행렬 $\mathbf{A}$는 주어진 대응점쌍 $\mathbf{x}&harr; \mathbf{x}^{&prime;}$으로 구성된 행렬이므로 <b>대응점쌍들을 정규화(normalization)하지 않고 바로 해를 구하는 경우 $\mathbf{x}_{i} = (1000000,20000000,1)$과 같이 마지막 값에 비해서 처음 두 값의 크기가 매우 크게 되므로 수치적으로 불안정한 문제</b> 를 가진다. 따라서 $\mathbf{x}_{i}, \mathbf{x}_{i}^{&prime;}$를 Centroid가 0이고 Centroid로부터 평균거리가 $\sqrt{2}$가 되도록하는 Homography 변환 $\mathbf{H}, \mathbf{H}^{&prime;}$를 적용한다.
@@ -1611,8 +1611,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{S} = \begin{bmatri
 </p>
 </div>
 
-<div id="outline-container-org767351c" class="outline-4">
-<h4 id="org767351c"><span class="section-number-4">3.2.1</span> Degenrate configurations</h4>
+<div id="outline-container-orgb761148" class="outline-4">
+<h4 id="orgb761148"><span class="section-number-4">3.2.1</span> Degenrate configurations</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 두 개의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{\prime}, \{\mathbf{X}_{i}\})$, $(\mathbf{Q}, \mathbf{Q}^{&prime;}, \{\mathbf{Y}_{i}\})$가 다음의 조건을 만족하면 서로 <b>Conjugate Configuration</b> 이라고 한다.
@@ -1634,8 +1634,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{S} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-orga42a174" class="outline-4">
-<h4 id="orga42a174"><span class="section-number-4">3.2.2</span> Proof</h4>
+<div id="outline-container-orgefa2bcf" class="outline-4">
+<h4 id="orgefa2bcf"><span class="section-number-4">3.2.2</span> Proof</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <p>
 임의의 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;}, \{\mathbf{X}_{i}\})$이 Critical Triple이라는 것을 보이기 위해서는 이와 대응하는 카메라 행렬 대응쌍 $(\mathbf{Q}, \mathbf{Q}^{&prime;}, \{\mathbf{Y}_{i}\})$이 같은 Fundamental Matrix $\mathbf{F}$를 가진다는 사실을 사용해야 한다. $\mathbb{P}^{3}$공간에서 이차곡면은 4x4 크기의 행렬로 정의된다.
@@ -1689,8 +1689,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{S} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-org8fb3065" class="outline-3">
-<h3 id="org8fb3065"><span class="section-number-3">3.3</span> The Gold Standard method</h3>
+<div id="outline-container-orgc443854" class="outline-3">
+<h3 id="orgc443854"><span class="section-number-3">3.3</span> The Gold Standard method</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 이미지 평면 상의 대응점 쌍 $\mathbf{x}&harr; \mathbf{x}^{&prime;}$는 일반적으로 노이즈를 포함하고 있으므로 이를 통해 Fundamental Matrix $\mathbf{F}$를 정확하게 계산할 수 없고 $\|\mathbf{Af}\|$의 크기를 최소화하는 근사해 $\mathbf{F}^{&prime;}$를 계산할 수 밖에 없다. 따라서 <b>$\mathbf{F}^{&prime;}$를 더 정확하게 계산하기 위해 2D Homography 문제와 마찬가지로 주어진 데이터 $\mathbf{x}, \mathbf{x}^{&prime;}$를 Ground Truth $\hat{\mathbf{x}}, \hat{\mathbf{x}}^{&prime;}$과 가까워지게 보정하는 방법을 The Gold Standard method</b> 라고 한다.
@@ -1745,8 +1745,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{S} = \begin{bmatri
 </div>
 </div>
 
-<div id="outline-container-orgc454c08" class="outline-2">
-<h2 id="orgc454c08"><span class="section-number-2">4</span> Structure Computation</h2>
+<div id="outline-container-org4b7d08d" class="outline-2">
+<h2 id="org4b7d08d"><span class="section-number-2">4</span> Structure Computation</h2>
 <div class="outline-text-2" id="text-4">
 
 <figure>
@@ -1755,8 +1755,8 @@ Metric Reconstruction을 수행하는 Homography $\mathbf{H}_{S} = \begin{bmatri
 </figure>
 </div>
 
-<div id="outline-container-org69fe1b4" class="outline-3">
-<h3 id="org69fe1b4"><span class="section-number-3">4.1</span> Problem statement</h3>
+<div id="outline-container-orgea9eec4" class="outline-3">
+<h3 id="orgea9eec4"><span class="section-number-3">4.1</span> Problem statement</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 해당 섹션에서는 두 카메라 행렬 대응쌍 $\mathbf{P},\mathbf{P}^{&prime;}$와 이미지 평면의 대응점 쌍 $\mathbf{x}, \mathbf{x}^{&prime;}$가 주어진 경우 $\mathbb{P}^{3}$공간 상의 점 $\mathbf{X}$를 구하는 방법에 대해 설명한다. <b>이론적으로는 대응점 쌍 $\mathbf{x}, \mathbf{x}^{&prime;}$를 Back-projection하여 얻은 두 직선의 교차점을 통해 $\mathbf{X}$를 계산할 수 있으나 실제 데이터는 노이즈가 존재하기 때문에 두 Back-projection 직선이 교차하지 않는다.</b> 또한 노이즈로 인해 두 이미지 평면 상에서 Epipolar Line $\mathbf{l}, \mathbf{l}^{\prime}$또한 $\mathbf{x}, \mathbf{x}^{&prime;}$와 만나지 않는다.
@@ -1829,8 +1829,8 @@ $&tau;$가 사영모호성에 불변이기 위해서는 임의의 Homography $\m
 </div>
 </div>
 
-<div id="outline-container-org9e34551" class="outline-3">
-<h3 id="org9e34551"><span class="section-number-3">4.2</span> Linear triangulation methods</h3>
+<div id="outline-container-org57cc37e" class="outline-3">
+<h3 id="org57cc37e"><span class="section-number-3">4.2</span> Linear triangulation methods</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 해당 섹션에서는 $\mathbf{X}&isin; \mathbb{P}^{3}$를 구하기 위해 선형방정식을 사용하는 방법을 설명한다. $\mathbf{x}=\mathbf{PX}, \mathbf{x}^{&prime;}=\mathbf{P}^{&prime;}\mathbf{X}$로부터
@@ -1907,8 +1907,8 @@ $\mathbf{p}_{i,row}^{\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했�
 </p>
 </div>
 
-<div id="outline-container-org984d05e" class="outline-4">
-<h4 id="org984d05e"><span class="section-number-4">4.2.1</span> Inhomogeneous method</h4>
+<div id="outline-container-org2cb034c" class="outline-4">
+<h4 id="org2cb034c"><span class="section-number-4">4.2.1</span> Inhomogeneous method</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <p>
 카메라 행렬 대응쌍 $\mathbf{P},\mathbf{P}^{&prime;}$이 Affine 변환까지(up to affinity) 결정되는 경우 $\mathbf{X}=(X,\ Y,\ Z,\ 1)^{\intercal}$로 놓고 $\|\mathbf{AX}\|$를 최소화하는 근사해 $\hat{\mathbf{X}}$를 구하는 방법을 Inhomogeneous method라고 한다. $\mathbf{X}$는 Affine Point이므로 $\|\mathbf{X}\|=1$제약조건이 사라지게 된다. 따라서, <b>Inhomogeneous method는 임의의 Affine 변환 $\mathbf{H}_{A}$에 대해 불변인 특성을 지닌다.</b>
@@ -1917,8 +1917,8 @@ $\mathbf{p}_{i,row}^{\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했�
 </div>
 </div>
 
-<div id="outline-container-org4d95a2d" class="outline-3">
-<h3 id="org4d95a2d"><span class="section-number-3">4.3</span> An optimial solution</h3>
+<div id="outline-container-org0f0b8fd" class="outline-3">
+<h3 id="org0f0b8fd"><span class="section-number-3">4.3</span> An optimial solution</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 해당 섹션에서는 최적의 $\mathbf{X}&isin;\mathbb{P}^{3}$을 구하기 위한 Optimal Triangulation 방법에 대해 설명한다. 우선 비선형 최소제곱법(non-linear least square)을 통해 $\mathbf{X}$를 구하는 방법이 있다.
@@ -1931,8 +1931,8 @@ $\mathbf{p}_{i,row}^{\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했�
 </ul>
 </div>
 
-<div id="outline-container-org2a44274" class="outline-4">
-<h4 id="org2a44274"><span class="section-number-4">4.3.1</span> Reformulation of the minimization problem</h4>
+<div id="outline-container-orge7ee13a" class="outline-4">
+<h4 id="orge7ee13a"><span class="section-number-4">4.3.1</span> Reformulation of the minimization problem</h4>
 <div class="outline-text-4" id="text-4-3-1">
 
 <figure>
@@ -1952,8 +1952,8 @@ $\mathbf{p}_{i,row}^{\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했�
 </div>
 </div>
 
-<div id="outline-container-org6b5a4b1" class="outline-4">
-<h4 id="org6b5a4b1"><span class="section-number-4">4.3.2</span> Details of the minimization</h4>
+<div id="outline-container-org53eca9d" class="outline-4">
+<h4 id="org53eca9d"><span class="section-number-4">4.3.2</span> Details of the minimization</h4>
 <div class="outline-text-4" id="text-4-3-2">
 <p>
 우선 $\mathbf{x}=(x,y,1)^{\intercal}$와 $\mathbf{x}^{&prime;}=(x^{&prime;},y^{&prime;},1)^{\intercal}$를 각각 원점 $(0,0,1)^{\intercal}$로 변환시킨다.
@@ -2099,12 +2099,12 @@ $\mathbf{p}_{i,row}^{\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했�
 </div>
 </div>
 
-<div id="outline-container-org3d840bf" class="outline-2">
-<h2 id="org3d840bf"><span class="section-number-2">5</span> Scene planes and homographies</h2>
+<div id="outline-container-org34812e0" class="outline-2">
+<h2 id="org34812e0"><span class="section-number-2">5</span> Scene planes and homographies</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org42b4bf2" class="outline-3">
-<h3 id="org42b4bf2"><span class="section-number-3">5.1</span> Homographies given the plane and vice versa</h3>
+<div id="outline-container-orgc939da6" class="outline-3">
+<h3 id="orgc939da6"><span class="section-number-3">5.1</span> Homographies given the plane and vice versa</h3>
 <div class="outline-text-3" id="text-5-1">
 
 <figure>
@@ -2117,8 +2117,8 @@ $\mathbf{p}_{i,row}^{\intercal}$를 $\mathbf{P}$의 i번째 행(row)라고 했�
 </p>
 </div>
 
-<div id="outline-container-org039de92" class="outline-4">
-<h4 id="org039de92"><span class="section-number-4">5.1.1</span> Result 13.1</h4>
+<div id="outline-container-org0469075" class="outline-4">
+<h4 id="org0469075"><span class="section-number-4">5.1.1</span> Result 13.1</h4>
 <div class="outline-text-4" id="text-5-1-1">
 <p>
 Canonical Form으로 변환한 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{P}^{&prime;})$과 월드 상의 평면 $\pi$다음과 같이 주어졌을 때
@@ -2146,8 +2146,8 @@ Canonical Form으로 변환한 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{
 </div>
 </div>
 
-<div id="outline-container-orgfc11ff6" class="outline-4">
-<h4 id="orgfc11ff6"><span class="section-number-4">5.1.2</span> Proof</h4>
+<div id="outline-container-orgc53a607" class="outline-4">
+<h4 id="orgc53a607"><span class="section-number-4">5.1.2</span> Proof</h4>
 <div class="outline-text-4" id="text-5-1-2">
 <p>
 두 카메라의 이미지 평면 $&pi;_{\mathbf{P}}, &pi;_{\mathbf{P}^{&prime;}}$가 주어졌을 때, 월드 평면 상의 점 $\mathbf{X}&isin; &pi;$를 $\pi_{\mathbf{P}}$평면으로 프로젝션한 점 $\mathbf{x}$는 다음과 같다.
@@ -2185,8 +2185,8 @@ Canonical Form으로 변환한 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{
 </div>
 </div>
 
-<div id="outline-container-orga79fb64" class="outline-4">
-<h4 id="orga79fb64"><span class="section-number-4">5.1.3</span> A calibrated stereo rig</h4>
+<div id="outline-container-org92602c6" class="outline-4">
+<h4 id="org92602c6"><span class="section-number-4">5.1.3</span> A calibrated stereo rig</h4>
 <div class="outline-text-4" id="text-5-1-3">
 <p>
 캘리브레이션 된 스테레오 카메라 행렬 대응쌍 $(\mathbf{P},\mathbf{P}^{&prime;})$가 다음과 같이 주어지고
@@ -2244,8 +2244,8 @@ Canonical Form으로 변환한 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{
 </div>
 </div>
 
-<div id="outline-container-org627a3cb" class="outline-4">
-<h4 id="org627a3cb"><span class="section-number-4">5.1.4</span> Homographies compatible with epipolar geometry</h4>
+<div id="outline-container-org452bdae" class="outline-4">
+<h4 id="org452bdae"><span class="section-number-4">5.1.4</span> Homographies compatible with epipolar geometry</h4>
 <div class="outline-text-4" id="text-5-1-4">
 
 <figure>
@@ -2281,8 +2281,8 @@ Canonical Form으로 변환한 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{
 </div>
 </div>
 
-<div id="outline-container-org48dff8c" class="outline-4">
-<h4 id="org48dff8c"><span class="section-number-4">5.1.5</span> Result 13.3</h4>
+<div id="outline-container-orge85b662" class="outline-4">
+<h4 id="orge85b662"><span class="section-number-4">5.1.5</span> Result 13.3</h4>
 <div class="outline-text-4" id="text-5-1-5">
 <p>
 일반적으로 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어졌을 때 $\mathbf{H}$는
@@ -2299,8 +2299,8 @@ Canonical Form으로 변환한 카메라 행렬 대응쌍 $(\mathbf{P}, \mathbf{
 </div>
 </div>
 
-<div id="outline-container-orgf2bd829" class="outline-4">
-<h4 id="orgf2bd829"><span class="section-number-4">5.1.6</span> Proof</h4>
+<div id="outline-container-org31bfc16" class="outline-4">
+<h4 id="org31bfc16"><span class="section-number-4">5.1.6</span> Proof</h4>
 <div class="outline-text-4" id="text-5-1-6">
 <p>
 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Projective Reconstruction을 수행하면 두 카메라 행렬 대응쌍을
@@ -2337,8 +2337,8 @@ $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Proj
 </div>
 </div>
 
-<div id="outline-container-org3dcebc4" class="outline-4">
-<h4 id="org3dcebc4"><span class="section-number-4">5.1.7</span> Corollary</h4>
+<div id="outline-container-org611486b" class="outline-4">
+<h4 id="org611486b"><span class="section-number-4">5.1.7</span> Corollary</h4>
 <div class="outline-text-4" id="text-5-1-7">
 <p>
 두 카메라 사이의 임의의 Homography $\mathbf{H}$가 Epipolar Geometry를 따르기 위해서는 $\mathbf{H}$가 월드 상의 평면 $&pi;$에 대한 Homography이어야 한다. $\mathbf{H}$가 월드 상의 평면 $&pi;$에 대한 Homography이기 위한 필요충분조건은 다음과 같다.
@@ -2352,8 +2352,8 @@ $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Proj
 </div>
 </div>
 
-<div id="outline-container-org754e42a" class="outline-4">
-<h4 id="org754e42a"><span class="section-number-4">5.1.8</span> Proof</h4>
+<div id="outline-container-org20a2817" class="outline-4">
+<h4 id="org20a2817"><span class="section-number-4">5.1.8</span> Proof</h4>
 <div class="outline-text-4" id="text-5-1-8">
 <p>
 ($\Rightarrow$) $\mathbf{H}$가 월드 상의 평면 $&pi;=(\mathbf{v}^{\intercal},1)^{\intercal}$에 대한 Homography이면서 $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$일 때 앞서 정리에 의해
@@ -2394,12 +2394,12 @@ $\mathbf{F}=\mathbf{e}^{&prime;&and;}\mathbf{A}$와 같이 주어진 경우 Proj
 </div>
 </div>
 
-<div id="outline-container-orgdc4792a" class="outline-3">
-<h3 id="orgdc4792a"><span class="section-number-3">5.2</span> Plane induced homographies given $\mathbf{F}$and image correspondences</h3>
+<div id="outline-container-orge1c4778" class="outline-3">
+<h3 id="orge1c4778"><span class="section-number-3">5.2</span> Plane induced homographies given $\mathbf{F}$and image correspondences</h3>
 <div class="outline-text-3" id="text-5-2">
 </div>
-<div id="outline-container-orga5d7adb" class="outline-4">
-<h4 id="orga5d7adb"><span class="section-number-4">5.2.1</span> Three points</h4>
+<div id="outline-container-orgfc2678a" class="outline-4">
+<h4 id="orgfc2678a"><span class="section-number-4">5.2.1</span> Three points</h4>
 <div class="outline-text-4" id="text-5-2-1">
 
 <figure>
@@ -2440,8 +2440,8 @@ $\mathbf{H}$를 구하는 방법에는 크게 두 가지 방법이 존재한다.
 </div>
 </div>
 
-<div id="outline-container-org00beb99" class="outline-4">
-<h4 id="org00beb99"><span class="section-number-4">5.2.2</span> Result 13.6</h4>
+<div id="outline-container-org9a11671" class="outline-4">
+<h4 id="org9a11671"><span class="section-number-4">5.2.2</span> Result 13.6</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <p>
 Fundamental Matrix $\mathbf{F}$와 세 개의 대응점 쌍 $(\mathbf{x}_{i},\mathbf{x}_{i}^{&prime;}), i=1,2,3$이 주어졌을 때 이들을 통해 계산한 월드 상의 평면 $&pi;$로 인한 Homography $\mathbf{H}$는
@@ -2465,8 +2465,8 @@ Fundamental Matrix $\mathbf{F}$와 세 개의 대응점 쌍 $(\mathbf{x}_{i},\ma
 </div>
 </div>
 
-<div id="outline-container-orgc347d14" class="outline-4">
-<h4 id="orgc347d14"><span class="section-number-4">5.2.3</span> Proof</h4>
+<div id="outline-container-orga3e263e" class="outline-4">
+<h4 id="orga3e263e"><span class="section-number-4">5.2.3</span> Proof</h4>
 <div class="outline-text-4" id="text-5-2-3">
 <p>
 Canonical 카메라 행렬 $\mathbf{P}=[\mathbf{I}\ | \ 0], \mathbf{P}^{&prime;}=[\mathbf{A}\ | \ \mathbf{e}^{&prime;}]$일 때 Fundmaental Matrix $\mathbf{F}=\mathbf{e}^{&prime; &and;}\mathbf{A}$와 같이 구할 수 있고 이 때 $\mathbf{e}^{&prime;&and;}\mathbf{F}= \mathbf{e}^{&prime;&and;}\mathbf{e}^{&prime;&and;}\mathbf{A}$가 되어서
@@ -2534,8 +2534,8 @@ Canonical 카메라 행렬 $\mathbf{P}=[\mathbf{I}\ | \ 0], \mathbf{P}^{&prime;}
 </div>
 </div>
 
-<div id="outline-container-orgd2fcc3e" class="outline-4">
-<h4 id="orgd2fcc3e"><span class="section-number-4">5.2.4</span> A point and line</h4>
+<div id="outline-container-org8320f35" class="outline-4">
+<h4 id="org8320f35"><span class="section-number-4">5.2.4</span> A point and line</h4>
 <div class="outline-text-4" id="text-5-2-4">
 
 <figure>
@@ -2549,8 +2549,8 @@ Canonical 카메라 행렬 $\mathbf{P}=[\mathbf{I}\ | \ 0], \mathbf{P}^{&prime;}
 </div>
 </div>
 
-<div id="outline-container-orgc5bc9d4" class="outline-4">
-<h4 id="orgc5bc9d4"><span class="section-number-4">5.2.5</span> Result 13.7</h4>
+<div id="outline-container-org0f237c0" class="outline-4">
+<h4 id="org0f237c0"><span class="section-number-4">5.2.5</span> Result 13.7</h4>
 <div class="outline-text-4" id="text-5-2-5">
 <p>
 월드 상에 직선 $\mathbf{L}$에 대응하는 이미지 평면 상에 대응선 쌍 $\mathbf{l}&harr; \mathbf{l}^{&prime;}$이 주어졌을 때 월드 상의 직선 $\mathbf{L}$을 사용하여 $\mathbf{l}$을 $\mathbf{l}^{&prime;}$로 변환하는 Homography $\mathbf{H}$는
@@ -2567,8 +2567,8 @@ Canonical 카메라 행렬 $\mathbf{P}=[\mathbf{I}\ | \ 0], \mathbf{P}^{&prime;}
 </div>
 </div>
 
-<div id="outline-container-orgd72d294" class="outline-4">
-<h4 id="orgd72d294"><span class="section-number-4">5.2.6</span> Proof</h4>
+<div id="outline-container-org24a653e" class="outline-4">
+<h4 id="org24a653e"><span class="section-number-4">5.2.6</span> Proof</h4>
 <div class="outline-text-4" id="text-5-2-6">
 <p>
 카메라 행렬 대응쌍 $\mathbf{P}= [\mathbf{I}\ | \ 0], \mathbf{P}^{&prime;}=[\mathbf{A}\ | \ \mathbf{e}^{&prime;}]$이 주어졌을 때 이미지 평면 상의 직선 $\mathbf{l}, \mathbf{l}^{&prime;}$을 Back-projection한 평면 $&pi;_{\mathbf{l}} = \mathbf{P}^{\intercal}\mathbf{l}, &pi;_{\mathbf{l}^{&prime;}} = \mathbf{P}^{&prime;\intercal}\mathbf{l}^{&prime;}$과 같이 나타낼 수 있다. 두 개의 Back-projection 평면들은 $&pi;_{\mathbf{l}},\ &pi;_{\mathbf{l}^{&prime;}}$이 교차하는 선이 월드 상의 직선 $\mathbf{L}$이 되고 이 때 $\mathbf{L}$을 포함하는 평면 $&pi;$는
@@ -2605,8 +2605,8 @@ Canonical 카메라 행렬 $\mathbf{P}=[\mathbf{I}\ | \ 0], \mathbf{P}^{&prime;}
 </div>
 </div>
 
-<div id="outline-container-org798a4a9" class="outline-4">
-<h4 id="org798a4a9"><span class="section-number-4">5.2.7</span> The homography for a corresponding point and line</h4>
+<div id="outline-container-org9cae6b9" class="outline-4">
+<h4 id="org9cae6b9"><span class="section-number-4">5.2.7</span> The homography for a corresponding point and line</h4>
 <div class="outline-text-4" id="text-5-2-7">
 <p>
 앞서 설명한 대응선 쌍 $\mathbf{l}&harr; \mathbf{l}^{&prime;}$을 이용한 Homography $\mathbf{H}(&mu;)$는 $\mu$값에 따라 Homography가 변하는 특징이 있다. 
@@ -2614,8 +2614,8 @@ Canonical 카메라 행렬 $\mathbf{P}=[\mathbf{I}\ | \ 0], \mathbf{P}^{&prime;}
 </div>
 </div>
 
-<div id="outline-container-org0361894" class="outline-4">
-<h4 id="org0361894"><span class="section-number-4">5.2.8</span> Result 13.8</h4>
+<div id="outline-container-org4de0518" class="outline-4">
+<h4 id="org4de0518"><span class="section-number-4">5.2.8</span> Result 13.8</h4>
 <div class="outline-text-4" id="text-5-2-8">
 <p>
 하나의 대응선 쌍 $\mathbf{l}&harr; \mathbf{l}^{&prime;}$과 하나의 대응점 쌍 $\mathbf{x}&harr; \mathbf{x}^{&prime;}$이 주어지면 이를 통해 $\mu$값을 특정되어 다음과 같은 유일한 Homography $\mathbf{H}$가 도출된다.
@@ -2661,8 +2661,8 @@ Canonical 카메라 행렬 $\mathbf{P}=[\mathbf{I}\ | \ 0], \mathbf{P}^{&prime;}
 </div>
 </div>
 
-<div id="outline-container-orgfc02683" class="outline-3">
-<h3 id="orgfc02683"><span class="section-number-3">5.3</span> Computing $\mathbf{F}$given the homography induced by a plane</h3>
+<div id="outline-container-org02fe78e" class="outline-3">
+<h3 id="org02fe78e"><span class="section-number-3">5.3</span> Computing $\mathbf{F}$given the homography induced by a plane</h3>
 <div class="outline-text-3" id="text-5-3">
 
 <figure>
@@ -2693,8 +2693,8 @@ Canonical 카메라 행렬 $\mathbf{P}=[\mathbf{I}\ | \ 0], \mathbf{P}^{&prime;}
 </div>
 </div>
 
-<div id="outline-container-org2e18a93" class="outline-3">
-<h3 id="org2e18a93"><span class="section-number-3">5.4</span> The infinite homography $\mathbf{H}_{\infty}$</h3>
+<div id="outline-container-orgfa30ee8" class="outline-3">
+<h3 id="orgfa30ee8"><span class="section-number-3">5.4</span> The infinite homography $\mathbf{H}_{\infty}$</h3>
 <div class="outline-text-3" id="text-5-4">
 
 <figure>
@@ -2703,8 +2703,8 @@ Canonical 카메라 행렬 $\mathbf{P}=[\mathbf{I}\ | \ 0], \mathbf{P}^{&prime;}
 </figure>
 </div>
 
-<div id="outline-container-org528dac0" class="outline-4">
-<h4 id="org528dac0"><span class="section-number-4">5.4.1</span> Definition 13.10</h4>
+<div id="outline-container-orgf3df7af" class="outline-4">
+<h4 id="orgf3df7af"><span class="section-number-4">5.4.1</span> Definition 13.10</h4>
 <div class="outline-text-4" id="text-5-4-1">
 <p>
 Scene Plane이 무한대 평면(plane at infinity) $&pi;_{&infin;}$인 경우, 이 때 계산한 Homography를 Infinity Homography $\mathbf{H}_{&infin;}$라고 한다.
@@ -2743,8 +2743,8 @@ Inifinite Homography $\mathbf{H}_{&infin;}$는 $d$가 무한대인 경우에 해
 </div>
 </div>
 
-<div id="outline-container-org15ed9ca" class="outline-4">
-<h4 id="org15ed9ca"><span class="section-number-4">5.4.2</span> Affine and metric reconstruction</h4>
+<div id="outline-container-org3b44cad" class="outline-4">
+<h4 id="org3b44cad"><span class="section-number-4">5.4.2</span> Affine and metric reconstruction</h4>
 <div class="outline-text-4" id="text-5-4-2">
 <p>
 만약 월드좌표계가 Affine인 경우 $&pi;_{&infin;}$는 $&pi;_{&infin;}=(0,0,0,1)^{\intercal}$과 같이 나타낼 수 있고 두 카메라 행렬이 $\mathbf{P}=[\mathbf{M}\ | \ \mathbf{m}], \ \mathbf{P}^{&prime;}=[\mathbf{M}^{&prime;} \ | \ \mathbf{m}^{&prime;}]$으로 주어진 경우 무한대 평면 상의 점 $\mathbf{X}&isin; &pi;_{&infin;}$를 각각 카메라에 프로젝션하면
@@ -2766,8 +2766,8 @@ Inifinite Homography $\mathbf{H}_{&infin;}$는 $d$가 무한대인 경우에 해
 </div>
 </div>
 
-<div id="outline-container-org328debe" class="outline-2">
-<h2 id="org328debe"><span class="section-number-2">6</span> Affine Epipolar Geometry</h2>
+<div id="outline-container-org289cb01" class="outline-2">
+<h2 id="org289cb01"><span class="section-number-2">6</span> Affine Epipolar Geometry</h2>
 <div class="outline-text-2" id="text-6">
 
 <figure>
@@ -2821,8 +2821,8 @@ Affine 카메라 행렬 $\mathbf{P}_{A}$의 중심점 $\mathbf{C}$는 $\mathbf{C
 </div>
 
 
-<div id="outline-container-org19bfcf8" class="outline-3">
-<h3 id="org19bfcf8"><span class="section-number-3">6.1</span> Affine epipolar geometry</h3>
+<div id="outline-container-org3349b44" class="outline-3">
+<h3 id="org3349b44"><span class="section-number-3">6.1</span> Affine epipolar geometry</h3>
 <div class="outline-text-3" id="text-6-1">
 
 <figure>
@@ -2831,8 +2831,8 @@ Affine 카메라 행렬 $\mathbf{P}_{A}$의 중심점 $\mathbf{C}$는 $\mathbf{C
 </figure>
 </div>
 
-<div id="outline-container-orgbf4e50c" class="outline-4">
-<h4 id="orgbf4e50c"><span class="section-number-4">6.1.1</span> Epipolar lines</h4>
+<div id="outline-container-orgc4aa44d" class="outline-4">
+<h4 id="orgc4aa44d"><span class="section-number-4">6.1.1</span> Epipolar lines</h4>
 <div class="outline-text-4" id="text-6-1-1">
 <p>
 두 개의 동일한 Affine 카메라가 주어졌을 때, 이들의 Back-projection 직선을 생각해보자. 첫 번째 Affine 카메라의 이미지 평면 상의 한 점 $\mathbf{x}$를 Back-projection하면
@@ -2849,8 +2849,8 @@ Affine 카메라 행렬 $\mathbf{P}_{A}$의 중심점 $\mathbf{C}$는 $\mathbf{C
 </div>
 </div>
 
-<div id="outline-container-orgac36e7b" class="outline-4">
-<h4 id="orgac36e7b"><span class="section-number-4">6.1.2</span> The epipoles</h4>
+<div id="outline-container-org024740c" class="outline-4">
+<h4 id="org024740c"><span class="section-number-4">6.1.2</span> The epipoles</h4>
 <div class="outline-text-4" id="text-6-1-2">
 <p>
 Epipolar Line들이 모두 평행하므로 <b>Epipole들은 모두 무한대 직선(line at infinity) 상에 존재한다.</b>
@@ -2859,12 +2859,12 @@ Epipolar Line들이 모두 평행하므로 <b>Epipole들은 모두 무한대 직
 </div>
 </div>
 
-<div id="outline-container-org83e7403" class="outline-3">
-<h3 id="org83e7403"><span class="section-number-3">6.2</span> The affine fundamental matrix</h3>
+<div id="outline-container-org34c7074" class="outline-3">
+<h3 id="org34c7074"><span class="section-number-3">6.2</span> The affine fundamental matrix</h3>
 <div class="outline-text-3" id="text-6-2">
 </div>
-<div id="outline-container-orga1bff03" class="outline-4">
-<h4 id="orga1bff03"><span class="section-number-4">6.2.1</span> Result 14.1</h4>
+<div id="outline-container-orgdeabc81" class="outline-4">
+<h4 id="orgdeabc81"><span class="section-number-4">6.2.1</span> Result 14.1</h4>
 <div class="outline-text-4" id="text-6-2-1">
 <p>
 두 개의 동일한 Affine 카메라가 주어졌을 때 이를 통해 Affine Fundamental Matrix $\mathbf{F}_{A}$를 정의할 수 있다. 이 때, $\mathbf{F}_{A}$는
@@ -2890,11 +2890,11 @@ Epipolar Line들이 모두 평행하므로 <b>Epipole들은 모두 무한대 직
 </div>
 </div>
 
-<div id="outline-container-org39a28b6" class="outline-4">
-<h4 id="org39a28b6"><span class="section-number-4">6.2.2</span> Derivation</h4>
+<div id="outline-container-orgef37007" class="outline-4">
+<h4 id="orgef37007"><span class="section-number-4">6.2.2</span> Derivation</h4>
 </div>
-<div id="outline-container-org7acd06e" class="outline-4">
-<h4 id="org7acd06e"><span class="section-number-4">6.2.3</span> Geometric derivation</h4>
+<div id="outline-container-orgb4d08ce" class="outline-4">
+<h4 id="orgb4d08ce"><span class="section-number-4">6.2.3</span> Geometric derivation</h4>
 <div class="outline-text-4" id="text-6-2-3">
 <p>
 두 개의 Affine 카메라 행렬 $\mathbf{P}_{A}, \mathbf{P}_{A}^{&prime;}$가 주어졌을 때 둘 사이에는 Affine 변환의 성질에 의해 평행한 선들이 보존된다. 따라서 두 이미지 평면의 Homography $\mathbf{H}_{A}$는 Affine Homography가 되어
@@ -2930,11 +2930,11 @@ Epipolar Line들이 모두 평행하므로 <b>Epipole들은 모두 무한대 직
 </div>
 </div>
 
-<div id="outline-container-org8187754" class="outline-4">
-<h4 id="org8187754"><span class="section-number-4">6.2.4</span> Properties</h4>
+<div id="outline-container-org900b6f2" class="outline-4">
+<h4 id="org900b6f2"><span class="section-number-4">6.2.4</span> Properties</h4>
 </div>
-<div id="outline-container-org5b9c406" class="outline-4">
-<h4 id="org5b9c406"><span class="section-number-4">6.2.5</span> The epipoles</h4>
+<div id="outline-container-orga4d4898" class="outline-4">
+<h4 id="orga4d4898"><span class="section-number-4">6.2.5</span> The epipoles</h4>
 <div class="outline-text-4" id="text-6-2-5">
 <p>
 Affine Fundamental Matrix $\mathbf{F}_{A}$가 주어졌을 때 이를 통해 Epipole $\mathbf{e}, \mathbf{e}^{&prime;}$를 계산할 수 있다. $\mathbf{F}_{A}$가
@@ -2959,8 +2959,8 @@ Affine Fundamental Matrix $\mathbf{F}_{A}$가 주어졌을 때 이를 통해 Epi
 </div>
 
 
-<div id="outline-container-orgbee48e1" class="outline-4">
-<h4 id="orgbee48e1"><span class="section-number-4">6.2.6</span> Epipolar lines</h4>
+<div id="outline-container-orgbcfb884" class="outline-4">
+<h4 id="orgbcfb884"><span class="section-number-4">6.2.6</span> Epipolar lines</h4>
 <div class="outline-text-4" id="text-6-2-6">
 <p>
 첫 번째 Affine 이미지 평면 상의 점 $\mathbf{x}$와 Affine Fundamental Matrix $\mathbf{F}_{A}$가 주어졌을 때 두 번째 Affine 이미지 평면 상의 Epipolar Line $\mathbf{l}^{&prime;}$는 다음과 같이 계산할 수 있다.
@@ -2980,8 +2980,8 @@ Affine Fundamental Matrix $\mathbf{F}_{A}$가 주어졌을 때 이를 통해 Epi
 </div>
 </div>
 
-<div id="outline-container-org547bc12" class="outline-3">
-<h3 id="org547bc12"><span class="section-number-3">6.3</span> Estimating $\mathbf{F}_{A}$from image point correspondences</h3>
+<div id="outline-container-org8640985" class="outline-3">
+<h3 id="org8640985"><span class="section-number-3">6.3</span> Estimating $\mathbf{F}_{A}$from image point correspondences</h3>
 <div class="outline-text-3" id="text-6-3">
 
 <figure>
@@ -2995,8 +2995,8 @@ Projective 카메라의 Fundamental Matrix $\mathbf{F}$를 계산하기 위해�
 </div>
 
 
-<div id="outline-container-org239421a" class="outline-4">
-<h4 id="org239421a"><span class="section-number-4">6.3.1</span> Algorithm 14.2</h4>
+<div id="outline-container-org90dbaa9" class="outline-4">
+<h4 id="org90dbaa9"><span class="section-number-4">6.3.1</span> Algorithm 14.2</h4>
 <div class="outline-text-4" id="text-6-3-1">
 <ul class="org-ul">
 <li><b>Objective:</b> Affine 이미지 평면에서 4개의 대응점 쌍 $(\mathbf{x}_{i},\mathbf{x}_{i}^{&prime;}),\ i=1,&ctdot;,4$가 주어졌을 때 이를 통해 Affine Fundamental Matrix를 구한다.</li>
@@ -3041,16 +3041,16 @@ $\mathbf{F}_{A} = \mathbf{e}^{&prime;&and;}\mathbf{H}_{A}$를 통해 Affine Fund
 </div>
 
 
-<div id="outline-container-orga142c97" class="outline-2">
-<h2 id="orga142c97"><span class="section-number-2">7</span> References</h2>
+<div id="outline-container-org40e9c52" class="outline-2">
+<h2 id="org40e9c52"><span class="section-number-2">7</span> References</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 <a href="https://www.robots.ox.ac.uk/~vgg/hzbook/">Hartley, Richard, and Andrew Zisserman. Multiple view geometry in computer vision. Cambridge university press, 2003</a>
 </p>
 </div>
 </div>
-<div id="outline-container-org3384721" class="outline-2">
-<h2 id="org3384721"><span class="section-number-2">8</span> Closure</h2>
+<div id="outline-container-orgcb637de" class="outline-2">
+<h2 id="orgcb637de"><span class="section-number-2">8</span> Closure</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 PDF version is available at <a href="https://www.facebook.com/groups/slamkr/permalink/1187090471650595/">here</a>.
