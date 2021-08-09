@@ -9,8 +9,11 @@ layout: default
 </div>
 
 {% if page.comments %}
-<div id="post-disqus" class="container">
-{% include disqus.html %}
+<!-- <div id="post-disqus" class="container"> -->
+<!-- {% include disqus.html %} -->
+  <!-- </div> -->
+<div id="post-utterance" class="container">
+{% include utterance.html %}
 </div>
 {% endif %}
 
