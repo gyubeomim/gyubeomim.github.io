@@ -14,8 +14,8 @@ title: Home
 
     <span class="post-date">{{ post.date | date_to_string }}</span>
 
-    <!-- COMMENT(edward): homepage without contents -->
-    <!-- {{ post.content }} -->
+    <!-- COMMENT(edward): homepage with/without contents -->
+    {{ post.content }} 
   </div>
   {% endfor %}
 </div>
