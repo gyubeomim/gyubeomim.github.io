@@ -58,7 +58,7 @@ figcaption {
  change the color of bold font.
 */
 b {
-    color: darkslateblue;
+    color: #515151;
     font-weight: bold;
 }
 
