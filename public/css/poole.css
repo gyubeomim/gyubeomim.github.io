@@ -52,7 +52,8 @@ html {
     /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
     font-family: sans-serif; 
     font-size: 16px;
-    line-height: 1.5;
+    font-weight: 100;
+    line-height: 2;
 }
 @media (min-width: 38em) {
   html {
@@ -118,7 +119,7 @@ h4, h5, h6 {
 /* Body text */
 p {
   margin-top: 0;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
 }
 
 strong {
