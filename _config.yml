@@ -10,7 +10,7 @@ tagline:             "Tech Evangelist & Engineer & Researcher"
 description:         ""
 url:                 https://edward0im.github.io
 baseurl:            ''
-paginate:            10
+paginate:            25
 
 # About/contact
 author:
