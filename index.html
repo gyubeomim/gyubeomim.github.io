@@ -12,7 +12,10 @@ title: Home
       </a>
     </h3>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+
+    {% include tag_collector.html tag_separator=',' %}
+
+    <span class="post-date">{{ post.date | date_to_string }} | {{ tag_list }}</span>
 
     <!-- COMMENT(edward): homepage with/without contents -->
     <!-- {{ post.content }}  -->

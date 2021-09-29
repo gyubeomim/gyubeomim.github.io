@@ -1,0 +1,17 @@
+- slug: linux
+  name: Linux
+
+- slug: editor
+  name: Einux
+  
+- slug: vim
+  name: Vim
+  
+- slug: emacs
+  name: Emacs
+
+- slug: c++
+  name: C++
+
+- slug: python
+  name: Python
