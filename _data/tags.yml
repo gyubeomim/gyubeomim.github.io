@@ -10,3 +10,87 @@
 
 - slug: emacs
   name: Emacs
+
+- slug: x11vnc
+  name: x11vnc
+
+- slug: robotics
+  name: Robotics
+
+- slug: coordinate-system
+  name: Coordinate System
+
+- slug: rotation-matrix
+  name: Rotation Matrix
+
+- slug: rigid-body-transformation
+  name: Rigid Body Transformation
+
+- slug: euler-angle
+  name: Euler Angle
+
+- slug: group-theory
+  name: Group Theory
+
+- slug: lie-group
+  name: Lie Group
+
+- slug: slam
+  name: SLAM
+
+- slug: linear-algebra
+  name: Linear Algebra
+
+- slug: geometry
+  name: Geometry
+
+- slug: plucker-coordinate
+  name: Plucker Coordinate
+
+- slug: computer-vision
+  name: Computer Vision
+
+- slug: multiple-view-geometry
+  name: Multiple View Geometry
+
+- slug: ti-nspire
+  name: TI Nspire
+
+- slug: kalman-filter
+  name: Kalman Filter
+
+- slug: pose-graph-optimization
+  name: Pose Graph Optimization
+
+- slug: algorithm
+  name: Algorithm
+
+- slug: problem-solving
+  name: Problem Solving
+
+- slug: boj
+  name: BOJ
+
+- slug: c-
+  name: C++
+
+- slug: cpp
+  name: cpp
+
+- slug: tmux
+  name: Tmux
+
+- slug: terminal
+  name: Terminal
+
+- slug: gbd
+  name: gbd
+
+- slug: gdb
+  name: gdb
+
+- slug: docker
+  name: Docker
+
+- slug: git
+  name: git
