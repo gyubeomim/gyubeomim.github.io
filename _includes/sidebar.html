@@ -21,8 +21,8 @@
     {% if node.title != null %}
     {% if node.layout == "page" %}
     <!-- comment(edward): comment out -->
-    <!-- <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a> -->
-    <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">About Me</a>
+<a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a> 
+    <!-- <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">About Me</a> -->
     {% endif %}
     {% endif %}
     {% endfor %}
