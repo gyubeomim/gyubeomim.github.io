@@ -8,4 +8,4 @@
   {% capture tag_page %}{{ include.tag.slug }}.html{% endcapture %}
 {% endif %}
 
-<a href="{{ site.baseurl }}/tag/{{ tag_page }}" title="Posts tagged '{{ include.tag.name }}'">{{ include.tag.name }}</a>{% if forloop.last == false %}{{ include.tag_separator }}{% endif %}
+<a href="{{ site.baseurl }}/tags/#{{ tag_page }}" title="Posts tagged '{{ include.tag.name }}'">{{ include.tag.name }}</a>{% if forloop.last == false %}{{ include.tag_separator }}{% endif %}
