@@ -18,6 +18,14 @@ author:
   url:               https://edward0im.github.io
   email:             gyurse@gmail.com
 
+navigation:
+  - name: About Me
+    url: /about
+  - name: Category
+    url: /category
+  - name: Tags
+    url: /tags
+
 # Disqus
 # discus-identifier: edward0im # add your discus identifier
   
