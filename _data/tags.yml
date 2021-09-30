@@ -91,3 +91,6 @@
 
 - slug: git
   name: git
+
+- slug: python
+  name: Python
