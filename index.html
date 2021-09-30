@@ -15,7 +15,9 @@ title: Home
 
     {% include tag_collector.html tag_separator=',' %}
 
-    <span class="post-date">{{ post.date | date_to_string }} | {{ tag_list }}</span>
+    <span class="post-date">{{ post.date | date_to_string }}</span>
+    {% include posts_by_tag.html %}
+    <br/>
 
     <!-- COMMENT(edward): homepage with/without contents -->
     <!-- {{ post.content }}  -->
