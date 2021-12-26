@@ -148,7 +148,7 @@ imap <C-S> <ESC>:w<CR>a
 
 " Copy & Paste from clipboard
 map <C-C> "+y
-map <C-V> "+gP
+map <C-Y> "+gP
 
 " Disable highlighted search word.
 nmap t :nohl<CR>
