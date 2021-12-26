@@ -142,8 +142,16 @@ nmap <C-P> :Cwd<CR>
 " Quit other windows except for the NERD-tree
 nmap <C-Q> :Only<CR>
 
+" Save buffer
+nmap <C-S> :w<CR>
+imap <C-S> <ESC>:w<CR>a
+
+" Copy & Paste from clipboard
+map <C-C> "+y
+map <C-V> "+gP
+
 " Disable highlighted search word.
-nmap t :let @/=""<CR>
+nmap t :nohl<CR>
 
 " \s press \s on the word you want to replace
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/
@@ -169,6 +177,12 @@ imap <C-L> <ESC>la
 "" forward, backward paragraph motion
 map . {
 map , }
+
+map ; <C-d>
+map ' <C-u>
+
+map <C-L> z.
+imap <C-L> <ESC>z.a
 
 " Go to the end of the line.
 imap <C-E> <ESC>A
