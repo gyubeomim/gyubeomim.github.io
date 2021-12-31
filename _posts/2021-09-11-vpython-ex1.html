@@ -1,0 +1,133 @@
+--- 
+layout: post
+title: VPython 예제1 - 1자유도 스프링-질량계 애니메이션
+description: 
+date: 2021-09-11
+categories: [Technology]
+tag: [Python, VPython]
+use_math: true
+comments: true
+---
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org6052eea">1. Problem definition</a></li>
+<li><a href="#orgaa2de54">2. Example code</a></li>
+</ul>
+</div>
+</nav>
+
+
+<div id="outline-container-org6052eea" class="outline-2">
+<h2 id="org6052eea"><span class="section-number-2">1</span> Problem definition</h2>
+<div class="outline-text-2" id="text-1">
+
+<figure>
+<img src="/pictures/211231/01.gif" alt="01.gif" align="center" width="500px">
+
+<figcaption><span class="figure-number">Figure 1: </span>1DOF spring-mass system</figcaption>
+</figure>
+
+<p align="center" width="500px">
+<img src="/pictures/211231/02.png" alt="02.png" align="center" width="500px">
+위의 조건을 바탕으로 1자유도계 스프링-질량계(1DOF spring-mass system)을 애니메이션화하는 코드를 작성하시오
+</p>
+</div>
+</div>
+<div id="outline-container-orgaa2de54" class="outline-2">
+<h2 id="orgaa2de54"><span class="section-number-2">2</span> Example code</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">code from https://www.youtube.com/watch?v=c3tX_qReGIM&#65279;</span>
+<span class="org-keyword">from</span> vpython <span class="org-keyword">import</span> *  <span class="org-comment-delimiter"># </span><span class="org-comment">7.6.2</span>
+<span class="org-variable-name">g</span> = 9.81  <span class="org-comment-delimiter"># </span><span class="org-comment">&#51473;&#47141;&#44032;&#49549;&#46020; 9.81 m/s^2</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#54868;&#47732; &#44061;&#52404;&#47484; &#49373;&#49457;&#54633;&#45768;&#45796;. backgroun &#49353;&#44284; &#52852;&#47700;&#46972; center &#54252;&#51064;&#53944;&#47484; &#49444;&#51221;&#54620;&#45796;</span>
+<span class="org-variable-name">scene</span> = canvas(background = vector(0.36, 0.47, 0.23), center = vector(0, -0.7, -0.5))
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#52380;&#51109;&#51032; &#47932;&#52404;&#47484; &#49373;&#49457;&#54633;&#45768;&#45796;. &#51116;&#51656;&#51008; wood&#51060;&#44256; &#49353;&#44628;&#51008; orange&#51077;&#45768;&#45796;.</span>
+<span class="org-variable-name">ceiling</span> = box(length = 1, width = 1, height = 0.01, color = color.orange)
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">ball&#51012; &#49373;&#49457;&#54633;&#45768;&#45796;. </span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#48152;&#51648;&#47492;&#51008; 0.1m</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#52488;&#44592; &#50948;&#52824;&#45716; y&#48169;&#54693;&#51004;&#47196; -0.5m&#51077;&#45768;&#45796;. (vpython&#50640;&#49436;&#45716; y&#48169;&#54693;&#51060; &#48145;&#48169;&#54693;&#51077;&#45768;&#45796;)</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#51656;&#47049;&#51008; 0.5kg</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#52488;&#44592;&#49549;&#46020;&#45716; 0&#51077;&#45768;&#45796;</span>
+<span class="org-variable-name">ball</span> = sphere(radius = 0.1, color = color.green, opacity=0.8)
+<span class="org-variable-name">ball.pos</span> = vector(0, -0.5, 0)
+<span class="org-variable-name">ball.m</span> = 0.5
+<span class="org-variable-name">ball.v</span> = vector(0,0,0)
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#49828;&#54532;&#47553;&#51012; &#49373;&#49457;&#54633;&#45768;&#45796;. &#53076;&#51068; &#49688;&#45716; 15&#48264;, radius(&#48152;&#51648;&#47492;)&#50752; thickness(&#46160;&#44760;)&#47484; &#49444;&#51221;&#54633;&#45768;&#45796; </span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44600;&#51060;&#45716; &#52380;&#51109;&#50640;&#49436; ball&#44620;&#51648;&#47196; &#49444;&#51221;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">spring</span> = helix(coils = 15, radius = 0.05, thickness = 0.01)
+<span class="org-variable-name">spring.pos</span> = ceiling.pos
+<span class="org-variable-name">spring.axis</span> = ball.pos - spring.pos
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">spring.L&#50640;&#45716; &#52488;&#44592; ball&#51032; &#50948;&#52824;&#44050;&#51060; &#46308;&#50612;&#44049;&#45768;&#45796;. (&#50668;&#44592;&#49436;&#45716; 0.5m&#47196; &#44256;&#51221;&#46121;&#45768;&#45796;)</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#49828;&#54532;&#47553;&#49345;&#49688;&#45716; 10 N/m&#51077;&#45768;&#45796;</span>
+<span class="org-variable-name">spring.L</span> = <span class="org-builtin">abs</span>(ball.pos.y)
+<span class="org-variable-name">spring.k</span> = 10.0
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#53581;&#49828;&#53944;&#47484; &#54364;&#49884;&#54616;&#45716; &#46972;&#48296;&#44061;&#52404;&#47484; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">label1</span> = label()
+<span class="org-variable-name">label2</span> = label()
+<span class="org-variable-name">label3</span> = label()
+
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#49828;&#54532;&#47553;&#51032; &#55192;&#51012; &#47532;&#53556;&#54616;&#45716; &#54632;&#49688;</span>
+<span class="org-keyword">def</span> <span class="org-function-name">spring_F</span>(spring):
+    <span class="org-keyword">return</span> -spring.k * (spring.length - spring.L) * spring.axis.norm()
+
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#50528;&#45768;&#47700;&#51060;&#49496; &#53076;&#46300; </span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+
+<span class="org-variable-name">dt</span> = 0.01
+<span class="org-variable-name">t</span> = 0
+
+<span class="org-keyword">while</span> <span class="org-constant">True</span>:
+    rate(100)           <span class="org-comment-delimiter"># </span><span class="org-comment">[Hz] &#47564;&#53372; &#47336;&#54532;&#47484; &#51648;&#50672;&#49884;&#53429;&#45768;&#45796;</span>
+
+    <span class="org-variable-name">F</span> = spring_F(spring)      <span class="org-comment-delimiter"># </span><span class="org-comment">&#55192;&#51012; &#44396;&#54644;&#49436; F &#48320;&#49688;&#50640; &#51200;&#51109;</span>
+
+    <span class="org-variable-name">ball.a</span> = vector(0, -g, 0) + F / ball.m   <span class="org-comment-delimiter"># </span><span class="org-comment">&#44032;&#49549;&#46020;</span>
+    <span class="org-variable-name">ball.v</span> += ball.a * dt                    <span class="org-comment-delimiter"># </span><span class="org-comment">&#49549;&#46020;</span>
+    <span class="org-variable-name">ball.pos</span> += ball.v  * dt                 <span class="org-comment-delimiter"># </span><span class="org-comment">&#50948;&#52824;</span>
+
+    <span class="org-variable-name">spring.axis</span> = ball.pos - spring.pos   <span class="org-comment-delimiter"># </span><span class="org-comment">&#49828;&#54532;&#47553;&#51060; &#44277;&#51012; &#46384;&#46972;&#44032;&#44172; &#54616;&#44592; &#50948;&#54620; &#53076;&#46300;</span>
+
+    <span class="org-variable-name">t</span> += dt
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#50948;&#52824;, &#49549;&#46020;, &#44032;&#49549;&#46020;&#47484; &#54364;&#49884;&#54633;&#45768;&#45796;</span>
+    <span class="org-variable-name">label1.pos</span> = ceiling.pos + vector(0.5,0.2,0)
+    <span class="org-variable-name">label1.text</span> = (<span class="org-string">'position is : %1.2f'</span> % ball.pos.y)
+    <span class="org-variable-name">label2.pos</span> = ceiling.pos + vector(0.5,0.05,0)
+    <span class="org-variable-name">label2.text</span> = (<span class="org-string">'velocity is : %1.2f'</span> % ball.v.y)
+    <span class="org-variable-name">label3.pos</span> = ceiling.pos + vector(0.5,-0.10,0)
+    <span class="org-variable-name">label3.text</span> = (<span class="org-string">'acc is : %1.2f'</span> % ball.a.y)
+
+    <span class="org-comment-delimiter">#</span><span class="org-comment">if ball.v.y &gt;= 0 and ball.v.y + ball.a.y * dt &lt;= 0:</span>
+     <span class="org-comment-delimiter">#   </span><span class="org-comment">print (t)// PGOToyExample &#53364;&#47000;&#49828; &#49373;&#49457;&#51088;</span>
+PGOToyExample::PGOToyExample(<span class="org-builtin">bool</span> verbose)
+    : vertex_id_(0), verbose_(verbose)
+{
+  num_poses_ = 15; // Pose &#45432;&#46300;&#51032; &#44060;&#49688;&#47484; &#51076;&#51032;&#47196; 15&#44060;&#47196; &#49444;&#51221;
+
+  // g2o solve &#49444;&#51221; &#53076;&#46300;
+  // Linear Solver&#45716; Pose(6), Landmark(3)&#51032; &#47928;&#51228;&#47484; &#54400; &#46412; &#49324;&#50857;&#54616;&#45716; BlockSolver &#49444;&#51221;
+  // Optimizer&#45716; Levenberg-Marquardt &#48169;&#48277; &#49324;&#50857;, Lambda &#52488;&#44592;&#44050; &#49444;&#51221;
+  std::unique_ptr&lt;g2o::BlockSolver_6_3::LinearSolverType&gt; linear_solver;
+  linear_solver = g2o::make_unique&lt;g2o::LinearSolverDense&lt;g2o::BlockSolver_6_3::PoseMatrixType&gt;&gt;();
+  g2o::OptimizationAlgorithmLevenberg* solver =
+      new g2o::OptimizationAlgorithmLevenberg(g2o::make_unique&lt;g2o::BlockSolver_6_3&gt;(std::move(linear_solver)));
+  solver-&gt;setUserLambdaInit(1);
+  optimizer_ = new g2o::SparseOptimizer();
+  optimizer_-&gt;setAlgorithm(solver);
+}
+</pre>
+</div>
+</div>
+</div>
