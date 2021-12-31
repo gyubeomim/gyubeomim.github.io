@@ -4,7 +4,7 @@ title: VPython 예제1 - 1자유도 스프링-질량계 애니메이션
 description: 
 date: 2021-09-11
 categories: [Technology]
-tag: [Python, VPython]
+tag: [python, vpython]
 use_math: true
 comments: true
 ---
@@ -35,6 +35,7 @@ comments: true
 </p>
 </div>
 </div>
+
 <div id="outline-container-orgaa2de54" class="outline-2">
 <h2 id="orgaa2de54"><span class="section-number-2">2</span> Example code</h2>
 <div class="outline-text-2" id="text-2">
@@ -110,23 +111,7 @@ comments: true
     <span class="org-variable-name">label3.text</span> = (<span class="org-string">'acc is : %1.2f'</span> % ball.a.y)
 
     <span class="org-comment-delimiter">#</span><span class="org-comment">if ball.v.y &gt;= 0 and ball.v.y + ball.a.y * dt &lt;= 0:</span>
-     <span class="org-comment-delimiter">#   </span><span class="org-comment">print (t)// PGOToyExample &#53364;&#47000;&#49828; &#49373;&#49457;&#51088;</span>
-PGOToyExample::PGOToyExample(<span class="org-builtin">bool</span> verbose)
-    : vertex_id_(0), verbose_(verbose)
-{
-  num_poses_ = 15; // Pose &#45432;&#46300;&#51032; &#44060;&#49688;&#47484; &#51076;&#51032;&#47196; 15&#44060;&#47196; &#49444;&#51221;
-
-  // g2o solve &#49444;&#51221; &#53076;&#46300;
-  // Linear Solver&#45716; Pose(6), Landmark(3)&#51032; &#47928;&#51228;&#47484; &#54400; &#46412; &#49324;&#50857;&#54616;&#45716; BlockSolver &#49444;&#51221;
-  // Optimizer&#45716; Levenberg-Marquardt &#48169;&#48277; &#49324;&#50857;, Lambda &#52488;&#44592;&#44050; &#49444;&#51221;
-  std::unique_ptr&lt;g2o::BlockSolver_6_3::LinearSolverType&gt; linear_solver;
-  linear_solver = g2o::make_unique&lt;g2o::LinearSolverDense&lt;g2o::BlockSolver_6_3::PoseMatrixType&gt;&gt;();
-  g2o::OptimizationAlgorithmLevenberg* solver =
-      new g2o::OptimizationAlgorithmLevenberg(g2o::make_unique&lt;g2o::BlockSolver_6_3&gt;(std::move(linear_solver)));
-  solver-&gt;setUserLambdaInit(1);
-  optimizer_ = new g2o::SparseOptimizer();
-  optimizer_-&gt;setAlgorithm(solver);
-}
+     <span class="org-comment-delimiter">#   </span><span class="org-comment">print (t)</span>
 </pre>
 </div>
 </div>
