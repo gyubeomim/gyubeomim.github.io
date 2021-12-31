@@ -1,0 +1,139 @@
+--- 
+layout: post
+title: VPython 예제10 - 2자유도 반한정계 스프링-질량 애니메이션
+description: 
+date: 2021-09-17
+categories: [Technology]
+tag: [python, vpython]
+use_math: true
+comments: true
+---
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgcc0501b">1. Problem definition</a></li>
+<li><a href="#org5a7477f">2. Example code</a></li>
+<li><a href="#org2be9abe">3. Reference</a></li>
+</ul>
+</div>
+</nav>
+
+
+<div id="outline-container-orgcc0501b" class="outline-2">
+<h2 id="orgcc0501b"><span class="section-number-2">1</span> Problem definition</h2>
+<div class="outline-text-2" id="text-1">
+
+<figure>
+<img src="/pictures/211231/19.gif" alt="19.gif" align="center" width="500px">
+
+<figcaption><span class="figure-number">Figure 1: </span>2DOF spring-mass system</figcaption>
+</figure>
+
+
+<figure>
+<img src="/pictures/211231/20.png" alt="20.png" align="center" width="500px">
+
+<figcaption><span class="figure-number">Figure 2: </span>Problem definition</figcaption>
+</figure>
+
+<p>
+위의 조건을 바탕으로 2자유도 반한정계 스프링-질량계의 움직임을 애니메이션화하는 코드를 작성하시오.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5a7477f" class="outline-2">
+<h2 id="org5a7477f"><span class="section-number-2">2</span> Example code</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">from</span> vpython <span class="org-keyword">import</span> *  <span class="org-comment-delimiter"># </span><span class="org-comment">7.6.2</span>
+<span class="org-keyword">from</span> math <span class="org-keyword">import</span> *
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44536;&#47000;&#54589; &#44536;&#47140;&#51452;&#45716; &#53076;&#46300;</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44536;&#47000;&#54589;&#52285;&#51012; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">scene.center</span> = vector(0,0,0)
+<span class="org-variable-name">scene.width</span> = 800
+<span class="org-variable-name">scene.height</span> = 300
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">2&#44060;&#51032; &#47932;&#52404;&#47484; &#49373;&#49457;&#54633;&#45768;&#45796;. &#44144;&#47532;&#45716; 5m &#44036;&#44201;&#51004;&#47196; &#51068;&#51221;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">block1</span> = box(pos=vector(-2.5,0,0), size=vector(2,2,2), color=color.green, opacity=0.8)
+<span class="org-variable-name">block2</span> = box(pos=vector(2.5,0,0), size=vector(2,2,2), color=color.orange, opacity=0.8)
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#48148;&#45797;&#44284; &#44592;&#51456;&#47732;&#51012; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">bottom_wall</span> = box(pos=vector(0,-1.25,0), size=vector(30,0.5,7))
+<span class="org-variable-name">origin_wall</span> = box(pos=vector(0,0,-4), size=vector(.2,5,1))
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#49828;&#54532;&#47553;&#51012; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">spring</span> = helix(pos=block1.pos, axis=vector(7,0,0), radius=0.5, coils=8, thickness=0.1, color=color.gray(0.5))
+
+<span class="org-variable-name">x1</span> = 2.5  <span class="org-comment-delimiter"># </span><span class="org-comment">&#52488;&#44592; &#50948;&#52824;</span>
+<span class="org-variable-name">x2</span> = 0.
+
+<span class="org-variable-name">v1</span> = 3.  <span class="org-comment-delimiter"># </span><span class="org-comment">&#52488;&#44592; &#49549;&#46020;</span>
+<span class="org-variable-name">v2</span> = 0.
+
+<span class="org-variable-name">k</span> = 20.  <span class="org-comment-delimiter"># </span><span class="org-comment">&#49828;&#54532;&#47553;&#44053;&#49457;</span>
+<span class="org-variable-name">m1</span> = 1.   <span class="org-comment-delimiter"># </span><span class="org-comment">&#51656;&#47049;</span>
+<span class="org-variable-name">m2</span> = 2.   
+
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#50528;&#45768;&#47700;&#51060;&#49496; &#53076;&#46300;</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+<span class="org-variable-name">t</span> = 0
+<span class="org-variable-name">dt</span> = 0.01
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#53581;&#49828;&#53944;&#47484; &#54364;&#49884;&#54624; &#46972;&#48296;&#44061;&#52404;&#47484; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">label1</span> = label()
+<span class="org-variable-name">label2</span> = label()
+<span class="org-variable-name">label3</span> = label()
+
+<span class="org-keyword">while</span> <span class="org-constant">True</span>:
+    rate(100) <span class="org-comment-delimiter"># </span><span class="org-comment">100 Hz, &#52488;&#45817; 100&#48264;&#50473; &#47336;&#54532;&#47484; &#46028;&#44256; dt=0.01&#51060;&#48064;&#47196; &#49884;&#44036; t&#45716; &#49892;&#51228; &#49884;&#44036;&#44284; &#51068;&#52824;&#54633;&#45768;&#45796;</span>
+    <span class="org-variable-name">t</span> += dt
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#50868;&#46041;&#48169;&#51221;&#49885;&#51012; &#53685;&#54644; a1,a2,a3&#47484; &#44396;&#54616;&#44256; v,x&#47196; &#51201;&#48516;&#54633;&#45768;&#45796;</span>
+    <span class="org-variable-name">a1</span> = k/m1 *(-x1 + x2)
+    <span class="org-variable-name">a2</span> = k/m2 *(x1 - x2)
+
+    <span class="org-variable-name">v1</span> += a1*dt
+    <span class="org-variable-name">v2</span> += a2*dt
+
+    <span class="org-variable-name">x1</span> += v1*dt
+    <span class="org-variable-name">x2</span> += v2*dt
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#48660;&#46973;&#51032; &#49892;&#49884;&#44036; &#50948;&#52824;&#47484; &#50629;&#45936;&#51060;&#53944;&#54633;&#45768;&#45796;</span>
+    <span class="org-variable-name">block1.pos.x</span> = x1 - 2.5
+    <span class="org-variable-name">block2.pos.x</span> = x2 + 2.5
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#49828;&#54532;&#47553; &#46608;&#54620; &#48660;&#46973;&#44284; &#44057;&#51060; &#50948;&#52824;&#47484; &#50629;&#45936;&#51060;&#53944;&#54633;&#45768;&#45796;</span>
+    <span class="org-comment-delimiter"># </span><span class="org-comment">pos : &#49828;&#54532;&#47553; &#51340;&#52769;&#51032; &#51340;&#54364;</span>
+    <span class="org-variable-name">spring.pos</span> = block1.pos
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">axis : &#49828;&#54532;&#47553; &#50864;&#52769;&#51032; &#51340;&#54364;</span>
+    <span class="org-variable-name">spring.axis.x</span> = block2.pos.x - block1.pos.x
+
+    <span class="org-variable-name">label1.pos</span> = bottom_wall.pos + vector(0,-0.5,0)
+    <span class="org-variable-name">label1.text</span> = <span class="org-string">'time : %.2f s'</span> % t
+    <span class="org-variable-name">label2.pos</span> = bottom_wall.pos + vector(0,-1.5,0)
+    <span class="org-variable-name">label2.text</span> = <span class="org-string">'mass1 : %.2f kg, mass2 : %.2f kg'</span> % (m1,m2)
+    <span class="org-variable-name">label3.pos</span> = bottom_wall.pos + vector(0,-2.5,0)
+    <span class="org-variable-name">label3.text</span> = <span class="org-string">'k : %.2f N/m'</span> % k
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org2be9abe" class="outline-2">
+<h2 id="org2be9abe"><span class="section-number-2">3</span> Reference</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li><a href="https://blog.naver.com/gyurse/221036236620">https://blog.naver.com/gyurse/221036236620</a></li>
+</ol>
+</div>
+</div>
