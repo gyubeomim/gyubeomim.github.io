@@ -1,0 +1,147 @@
+--- 
+layout: post
+title: VPython 예제4 - 진자의 등속원운동 애니메이션
+description: 
+date: 2021-09-13
+categories: [Technology]
+tag: [python, vpython]
+use_math: true
+comments: true
+---
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org6f37f56">1. Problem definition</a></li>
+<li><a href="#orgdc8b927">2. Example code</a></li>
+<li><a href="#org0571904">3. Reference</a></li>
+</ul>
+</div>
+</nav>
+
+
+<div id="outline-container-org6f37f56" class="outline-2">
+<h2 id="org6f37f56"><span class="section-number-2">1</span> Problem definition</h2>
+<div class="outline-text-2" id="text-1">
+
+<figure>
+<img src="/pictures/211231/07.gif" alt="07.gif" align="center" width="500px">
+
+<figcaption><span class="figure-number">Figure 1: </span>Free-fall</figcaption>
+</figure>
+
+
+<figure>
+<img src="/pictures/211231/08.png" alt="08.png" align="center" width="500px">
+
+<figcaption><span class="figure-number">Figure 2: </span>Problem definition</figcaption>
+</figure>
+
+<p>
+위의 조건을 바탕으로 등속원운동을 하는 물체의 애니메이션 코드를 작성하고 공의 x좌표를 x-t 그래프로 나타내는 코드를 작성하시오
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdc8b927" class="outline-2">
+<h2 id="orgdc8b927"><span class="section-number-2">2</span> Example code</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">code from  http://tcjd71.wixsite.com/vpython/blank-1</span>
+<span class="org-keyword">from</span> vpython <span class="org-keyword">import</span> *  <span class="org-comment-delimiter"># </span><span class="org-comment">7.6.2</span>
+
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44536;&#47000;&#54589; &#44536;&#47140;&#51452;&#45716; &#53076;&#46300;</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44536;&#47000;&#54589;&#52285;&#44284; &#44536;&#47000;&#54532;&#52285;&#51012; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">scene</span> = canvas(width=600, height=600, fov = 0.01*pi)
+<span class="org-variable-name">gd</span> = graph(x=600, y=0, title=<span class="org-string">'x-t'</span>, xtitle=<span class="org-string">'t'</span>, ytitle=<span class="org-string">'x'</span>, ymax=1, ymin=-1, xmax=10, background=vector(.3,.3,.3))
+<span class="org-variable-name">xt</span> = gcurve(graph=gd, color=color.orange, size=20, dot=<span class="org-constant">False</span>)
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#48317;&#44284; &#44277;&#51012; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">wall</span> = box(pos=vector(0,1,-2), length=4, height=3, width=0.01)
+<span class="org-variable-name">ball</span> = sphere(pos=vector(-1,0,0), radius=0.1, make_trail=<span class="org-constant">True</span>)
+
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44277;&#51032; &#44033;&#49549;&#46020;&#45716; 3 rad/s&#47196; &#51068;&#51221;&#54633;&#45768;&#45796; </span>
+<span class="org-variable-name">ball.w</span> = 3
+
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44277;&#51032; &#50880;&#51649;&#51076;&#51012; &#46609;&#44057;&#51060; &#46384;&#46972;&#44032;&#45716; &#44536;&#47548;&#51088;&#47484; &#48317;&#50640; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">shadow</span> = cylinder(axis=vector(0,0,wall.width), radius=ball.radius, color=vector(0.1,0.1,0.1))
+<span class="org-variable-name">shadow.pos.z</span> = wall.pos.z
+
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#53581;&#49828;&#53944;&#47484; &#54364;&#49884;&#54616;&#45716; &#46972;&#48296; &#44061;&#52404;&#47484; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">label1</span> = label()
+<span class="org-variable-name">label2</span> = label()
+
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#48148;&#45797;&#47732;&#51032; &#49892;&#47536;&#45908;&#47484; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">disk</span> = cylinder(axis=vector(0,0.01,0), radius=1.5, texture=textures.metal)
+<span class="org-variable-name">disk.pos.y</span> = -ball.radius
+
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44277;&#51032; &#44452;&#51201;&#51012; &#48317;&#50640; &#54364;&#54788;&#54616;&#44592; &#50948;&#54620; line &#44061;&#52404;&#47484; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">number</span> = 4000
+<span class="org-variable-name">l</span> = [0]*number
+<span class="org-variable-name">m</span> = [0]*number
+<span class="org-comment-delimiter"># </span><span class="org-comment">line = curve(y=np.linspace(0,2.5,number), z=-2+0.01, color=color.black)</span>
+<span class="org-variable-name">line</span> = curve(color=color.black)
+<span class="org-keyword">for</span> i <span class="org-keyword">in</span> <span class="org-builtin">range</span>(number):
+    line.append(vector(0, 2.5*i/number, -2+0.01))
+
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#50528;&#45768;&#47700;&#51060;&#49496; &#53076;&#46300;</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+
+<span class="org-variable-name">label3</span> = label()
+<span class="org-variable-name">t</span> = 0
+<span class="org-variable-name">dt</span> = 0.01
+
+<span class="org-keyword">while</span> <span class="org-constant">True</span>:
+    rate(100)   <span class="org-comment-delimiter"># </span><span class="org-comment">dt&#50752; rate[Hz]&#47484; &#49324;&#50857;&#54644; 1&#52488;&#50640; 100&#48264;&#50473; &#47336;&#54532;&#47484; &#46037;&#45768;&#45796;</span>
+    <span class="org-variable-name">t</span> += dt
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">rotate(A,theta,B) ==&gt; rotate(vector=A, angle=theta, axis=B)</span>
+    <span class="org-comment-delimiter"># </span><span class="org-comment">y&#52629;&#51012; &#44592;&#51456;&#51004;&#47196; &#47932;&#52404;&#44032; &#54924;&#51204;&#54633;&#45768;&#45796;. &#49892;&#51228; &#54620; &#47336;&#54532;&#45817; &#44033;&#49549;&#46020;&#45716; ball.w * dt = 0.003 rad/s &#51077;&#45768;&#45796;</span>
+    <span class="org-variable-name">ball.pos</span> = rotate(ball.pos, ball.w * dt, vector(0,1,0))
+    <span class="org-variable-name">shadow.pos.x</span> = ball.pos.x
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#44277;&#51032; &#44452;&#51201;&#51012; &#44536;&#47000;&#54532;&#52285;&#50640; &#54364;&#49884;&#54633;&#45768;&#45796;</span>
+    xt.plot(pos=(t,ball.pos.x))
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#44277;&#51032; &#50948;&#52824;&#47484; &#53581;&#49828;&#53944;&#47196; &#54364;&#49884;&#54633;&#45768;&#45796;</span>
+    <span class="org-variable-name">label1.pos</span> = ball.pos + vector(0,0.2,0)
+    <span class="org-variable-name">label1.text</span> = <span class="org-string">'(%1.2f, %1.2f, %1.2f)'</span> % (ball.pos.x, ball.pos.y,ball.pos.z)
+    <span class="org-variable-name">label2.pos</span> = shadow.pos + vector(0,0.2,0)
+    <span class="org-variable-name">label2.text</span> = <span class="org-string">'(%1.2f)'</span> % (shadow.pos.x)
+
+    <span class="org-variable-name">label3.pos</span> = wall.pos + vector(0, -0.1 , 0)
+    <span class="org-variable-name">label3.text</span> = <span class="org-string">'time : %.2f s'</span> % t
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#44277;&#51032; &#50880;&#51649;&#51076;&#51012; &#44452;&#51201;&#51004;&#47196; &#48317;&#50640; &#54364;&#49884;&#54616;&#45716; &#53076;&#46300;</span>
+    l.append(ball.pos.x)
+    l.pop(0)
+
+    <span class="org-keyword">for</span> j <span class="org-keyword">in</span> <span class="org-builtin">range</span>(number):
+        <span class="org-variable-name">m</span>[number-1-j] = l[j]
+        <span class="org-keyword">if</span> m[j] != 0:
+            line.modify(j, x=m[j])
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org0571904" class="outline-2">
+<h2 id="org0571904"><span class="section-number-2">3</span> Reference</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li><a href="https://blog.naver.com/gyurse/221033035160">https://blog.naver.com/gyurse/221033035160</a></li>
+</ol>
+</div>
+</div>
