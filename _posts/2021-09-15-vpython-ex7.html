@@ -1,0 +1,138 @@
+--- 
+layout: post
+title: VPython 예제7 - 공의 자유낙하 애니메이션 (free-fall) (2)
+description: 
+date: 2021-09-15
+categories: [Technology]
+tag: [python, vpython]
+use_math: true
+comments: true
+---
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7a06a72">1. Problem definition</a></li>
+<li><a href="#org25b6c72">2. Example code</a></li>
+<li><a href="#org7376ee1">3. Reference</a></li>
+</ul>
+</div>
+</nav>
+
+
+<div id="outline-container-org7a06a72" class="outline-2">
+<h2 id="org7a06a72"><span class="section-number-2">1</span> Problem definition</h2>
+<div class="outline-text-2" id="text-1">
+
+<figure>
+<img src="/pictures/211231/13.gif" alt="13.gif" align="center" width="500px">
+
+<figcaption><span class="figure-number">Figure 1: </span>Free-fall</figcaption>
+</figure>
+
+
+<figure>
+<img src="/pictures/211231/14.png" alt="14.png" align="center" width="500px">
+
+<figcaption><span class="figure-number">Figure 2: </span>Problem definition</figcaption>
+</figure>
+
+<p>
+위의 조건을 바탕으로 공의 자유낙하운동을 애니메이션화하는 코드를 작성하고 공의 x,v,a를 시간에 따라 그래프로 표현하는 코드를 작성하시오. 이 때, 공은 완전탄성충돌을 한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org25b6c72" class="outline-2">
+<h2 id="org25b6c72"><span class="section-number-2">2</span> Example code</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">code from    http://tcjd71.wixsite.com/vpython/blank-1</span>
+<span class="org-keyword">from</span> vpython <span class="org-keyword">import</span> *  <span class="org-comment-delimiter"># </span><span class="org-comment">7.6.2</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44536;&#47000;&#54589; &#44536;&#47140;&#51452;&#45716; &#53076;&#46300;</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44536;&#47000;&#54589;&#52285;&#51012; &#49444;&#51221;&#54616;&#45716; &#53076;&#46300;</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">scene.range = (5,5,5)</span>
+<span class="org-variable-name">scene.center</span> = vector(0,1,0)
+<span class="org-variable-name">scene.width</span> = 400
+<span class="org-variable-name">scene.height</span> = 400
+
+<span class="org-variable-name">size</span> = 0.2  <span class="org-comment-delimiter"># </span><span class="org-comment">&#44277;&#51032; &#48152;&#51648;&#47492; m</span>
+<span class="org-variable-name">g</span> = -9.81   <span class="org-comment-delimiter"># </span><span class="org-comment">&#51473;&#47141;&#44032;&#49549;&#46020;</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44277;&#51012; &#49373;&#49457;&#54616;&#44256; &#52488;&#44592; &#50948;&#52824;&#47484; 3m&#47196; &#49444;&#51221;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">ball</span> = sphere(radius=size, color=color.white)
+<span class="org-variable-name">ball.pos</span> = vector(0,3,0)
+<span class="org-variable-name">ball.v</span> = vector(0,0,0)
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#48148;&#45797;&#47732;&#51012; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">bottom</span> = box(pos=vector(0,-1+size,0), length=3, heigth=0.1, width=3, texture=textures.wood)
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">x-t,v-t,a-t &#44536;&#47000;&#54532;&#52285;&#51012; &#49373;&#49457;&#54633;&#45768;&#45796; </span>
+<span class="org-variable-name">gd</span> = graph(width=500, height=300, x=410, y=0, title=<span class="org-string">'y vs t'</span>, xtitle=<span class="org-string">'t'</span>, ytitle=<span class="org-string">'x'</span>, ymax=3, ymin=-3, xmax=10)
+<span class="org-variable-name">gd2</span> = graph(width=500, height=300, x=410, y=250, title=<span class="org-string">'v vs t'</span>, xtitle=<span class="org-string">'t'</span>, ytitle=<span class="org-string">'vel'</span>, ymax=20, ymin=-20, xmax=10)
+<span class="org-variable-name">gd3</span> = graph(width=500, height=300, x=410, y=400, title=<span class="org-string">'a vs t'</span>, xtitle=<span class="org-string">'t'</span>, ytitle=<span class="org-string">'acc'</span>, ymax=10, ymin=-10, xmax=10)
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44536;&#47000;&#54532;&#52285;&#50640; &#44536;&#47140;&#51656; &#44536;&#47000;&#54532; &#44257;&#49440;&#46308;&#51012; &#49444;&#51221;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">xt</span> = gcurve(graph=gd, color=color.cyan)
+<span class="org-variable-name">vt</span> = gcurve(graph=gd2, color=color.cyan)
+<span class="org-variable-name">at</span> = gcurve(graph=gd3, color=color.cyan)
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#49549;&#46020; &#54868;&#49332;&#54364; &#44061;&#52404;&#47484; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">vel_arrow</span> = arrow(pos=ball.pos, axis=ball.v, color=color.yellow)
+
+
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#50528;&#45768;&#47700;&#51060;&#49496; &#53076;&#46300;</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+
+<span class="org-variable-name">t</span> = 0
+<span class="org-variable-name">dt</span> = 0.0004   
+
+<span class="org-variable-name">label1</span> = label()
+<span class="org-variable-name">label2</span> = label()
+
+<span class="org-keyword">while</span> <span class="org-constant">True</span>:
+    rate(1/dt)  <span class="org-comment-delimiter"># </span><span class="org-comment">rate * dt = 1&#51060; &#46104;&#44172; &#49444;&#51221;&#54616;&#47732; &#49892;&#51228; &#49884;&#44036;&#44284; &#44057;&#51008; &#47336;&#54532;&#51452;&#44592;&#47484; &#50619;&#51012; &#49688; &#51080;&#49845;&#45768;&#45796;</span>
+    <span class="org-variable-name">t</span> += dt
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#44277;&#51060; &#46405;&#50640; &#45823;&#51004;&#47732; (y == 0) &#44277;&#51032; &#49549;&#46020;&#47484; &#48152;&#45824;&#47196; &#48148;&#45001;&#45768;&#45796;. &#50756;&#51204;&#53444;&#49457;&#52649;&#46028;</span>
+    <span class="org-keyword">if</span> ball.pos.y &lt;= 0:
+        <span class="org-variable-name">ball.v.y</span> = <span class="org-builtin">abs</span>(ball.v.y)
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#44277;&#51032; &#50948;&#52824;,&#49549;&#46020;,&#44032;&#49549;&#46020;&#47484; &#44536;&#47000;&#54532;&#54868;&#54633;&#45768;&#45796;</span>
+    xt.plot(pos=(t, ball.pos.y))
+    vt.plot(pos=(t,ball.v.y))
+    at.plot(pos=(t,g))
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#44277;&#51032; &#50948;&#52824;&#50752; &#49549;&#46020;&#47484; &#50629;&#45936;&#51060;&#53944;&#54633;&#45768;&#45796;</span>
+    <span class="org-variable-name">ball.pos</span> += ball.v*dt
+    <span class="org-variable-name">ball.v</span> += vector(0,g*dt,0)
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#49549;&#46020;&#54868;&#49332;&#54364;&#47484; &#50629;&#45936;&#51060;&#53944;&#54633;&#45768;&#45796;. 0.3&#51012; &#44273;&#54644;&#49436; &#54868;&#49332;&#54364;&#51032; &#53356;&#44592;&#47484; &#51460;&#51077;&#45768;&#45796;</span>
+    <span class="org-variable-name">vel_arrow.pos</span> = ball.pos
+    <span class="org-variable-name">vel_arrow.axis</span> = ball.v*0.3
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#53581;&#49828;&#53944; &#45936;&#51060;&#53552;</span>
+    <span class="org-variable-name">label1.pos</span> = bottom.pos + vector(0, -0.5,0)
+    <span class="org-variable-name">label1.text</span> = <span class="org-string">'time : %.2f s'</span> % t
+    <span class="org-variable-name">label2.pos</span> = bottom.pos + vector(0, -1.2,0)
+    <span class="org-variable-name">label2.text</span> = <span class="org-string">'vel : %.2f m/s'</span> % ball.v.y
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org7376ee1" class="outline-2">
+<h2 id="org7376ee1"><span class="section-number-2">3</span> Reference</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li><a href="https://blog.naver.com/gyurse/221034749868">https://blog.naver.com/gyurse/221034749868</a></li>
+</ol>
+</div>
+</div>
