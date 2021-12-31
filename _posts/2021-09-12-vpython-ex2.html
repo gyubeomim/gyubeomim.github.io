@@ -1,0 +1,92 @@
+--- 
+layout: post
+title: VPython 예제2 - 공의 자유낙하 애니메이션 (free-fall)
+description: 
+date: 2021-09-12
+categories: [Technology]
+tag: [python, vpython]
+use_math: true
+comments: true
+---
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7024d4e">1. Problem definition</a></li>
+<li><a href="#orgc493435">2. Example code</a></li>
+</ul>
+</div>
+</nav>
+
+
+<div id="outline-container-org7024d4e" class="outline-2">
+<h2 id="org7024d4e"><span class="section-number-2">1</span> Problem definition</h2>
+<div class="outline-text-2" id="text-1">
+
+<figure>
+<img src="/pictures/211231/03.gif" alt="03.gif" align="center" width="500px">
+
+<figcaption><span class="figure-number">Figure 1: </span>1DOF spring-mass system</figcaption>
+</figure>
+
+<p align="center" width="500px">
+<img src="/pictures/211231/04.png" alt="04.png" align="center" width="500px">
+위의 조건을 바탕으로 공이 27m 높이에서 자유낙하하는 애니메이션 코드를 작성하시오. 공의 질량은 무시하며 바닥과 공은 완성탄성충돌을 한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc493435" class="outline-2">
+<h2 id="orgc493435"><span class="section-number-2">2</span> Example code</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">code from https://youtu.be/H8CzQtx9vds&#65279;</span>
+<span class="org-keyword">from</span> vpython <span class="org-keyword">import</span> *  <span class="org-comment-delimiter"># </span><span class="org-comment">7.6.2</span>
+<span class="org-keyword">from</span> math <span class="org-keyword">import</span> *
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44277;&#44284; &#48148;&#45797;&#51012; &#49373;&#49457;&#54633;&#45768;&#45796;. &#44277;&#51032; &#50948;&#52824;&#45716; &#51648;&#47732;&#51004;&#47196;&#48512;&#53552; 18 + 9 = 27m &#50948;&#50640; &#51080;&#49845;&#45768;&#45796;. (vpython&#51008; y&#52629;&#51060; &#50948;&#50500;&#47000;&#48169;&#54693;&#51077;&#45768;&#45796;)</span>
+<span class="org-variable-name">ball</span> = sphere(pos=vector(-5,18,0), radius=1, color=color.green)
+<span class="org-variable-name">bottom</span> = box(pos=vector(0,-9,0), size=vector(25,0.5,25))
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#52488;&#44592;&#49549;&#46020;&#45716; x&#48169;&#54693;&#51004;&#47196; 0.7 m/s</span>
+<span class="org-variable-name">v</span> = vector(0.7, 0,0)
+<span class="org-variable-name">y</span> = ball.pos
+<span class="org-variable-name">g</span> = vector(0, -9.81, 0)
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44277;&#51032; &#44452;&#51201;&#51012; &#44536;&#47000;&#54589;&#54868;&#54616;&#44256; &#49549;&#46020;&#51032; &#53356;&#44592;&#47484; &#54868;&#49332;&#54364;&#47196; &#44536;&#47000;&#54589;&#54868;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">ball.trail</span> = curve(color=ball.color)
+<span class="org-variable-name">arrow</span> = arrow(pos=ball.pos, axis=v, color=color.yellow)
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#49549;&#46020;&#47484; &#54364;&#49884;&#54624; &#46972;&#48296; &#44061;&#52404;&#47484; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">label1</span> = label()
+
+<span class="org-variable-name">dt</span> = 0.005
+<span class="org-variable-name">t</span> = 0.0
+
+<span class="org-keyword">while</span> <span class="org-constant">True</span>:
+    rate(300)  <span class="org-comment-delimiter"># </span><span class="org-comment">300 Hz&#51032; &#49549;&#46020;&#47196; &#47336;&#54532;&#47484; &#49892;&#54665;&#54633;&#45768;&#45796;</span>
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#48148;&#45797;&#50640; &#45823;&#45716; &#49692;&#44036; &#49549;&#46020;&#51032; &#53356;&#44592;&#45716; &#44536;&#45824;&#47196;&#54616;&#44256; &#48169;&#54693;&#51012; &#48148;&#45001;&#45768;&#45796;</span>
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#50756;&#51204;&#53444;&#49457;&#52649;&#46028; </span>
+    <span class="org-keyword">if</span> ball.pos.y &lt; (bottom.pos.y + 1):
+        <span class="org-variable-name">v.y</span> = -v.y
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#44277;&#49885;&#51012; &#49324;&#50857;&#54644; &#49549;&#46020;&#50752; &#50948;&#52824;&#47484; &#44228;&#49328;&#54633;&#45768;&#45796;</span>
+    <span class="org-variable-name">v</span> += g*dt   
+    <span class="org-variable-name">y</span> += v*dt + 0.5*g*dt**2
+
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#44277;&#51032; &#50948;&#52824;&#50752; &#44452;&#51201;&#51012; &#50629;&#45936;&#51060;&#53944;&#54633;&#45768;&#45796;</span>
+    <span class="org-variable-name">ball.pos</span> = y
+    ball.trail.append(pos = ball.pos)
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#49549;&#46020; &#54868;&#49332;&#54364;&#47484; &#49444;&#51221;&#54633;&#45768;&#45796;</span>
+    <span class="org-variable-name">arrow.pos</span> = ball.pos
+    <span class="org-variable-name">arrow.axis</span> = v*0.3
+
+    <span class="org-variable-name">label1.pos</span> = bottom.pos + vector(0,-0.5,0)
+    <span class="org-variable-name">label1.text</span> = <span class="org-string">'v is : %.2f m/s'</span>  % v.y
+</pre>
+</div>
+</div>
+</div>
