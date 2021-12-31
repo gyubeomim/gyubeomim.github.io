@@ -1,0 +1,130 @@
+--- 
+layout: post
+title: VPython 예제3 - 1자유도 스프링-질량계 애니메이션(2)
+description: 
+date: 2021-09-12
+categories: [Technology]
+tag: [python, vpython]
+use_math: true
+comments: true
+---
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge016a25">1. Problem definition</a></li>
+<li><a href="#org3582ea1">2. Example code</a></li>
+</ul>
+</div>
+</nav>
+
+
+<div id="outline-container-orge016a25" class="outline-2">
+<h2 id="orge016a25"><span class="section-number-2">1</span> Problem definition</h2>
+<div class="outline-text-2" id="text-1">
+
+<figure>
+<img src="/pictures/211231/05.gif" alt="05.gif" align="center" width="500px">
+
+<figcaption><span class="figure-number">Figure 1: </span>1DOF spring-mass system</figcaption>
+</figure>
+
+<p align="center" width="500px">
+<img src="/pictures/211231/06.png" alt="06.png" align="center" width="500px">
+위의 조건을 바탕으로 1자유도 스프링-질량계(1DOF spring-mass system)와 운동에너지, 탄성에너지, 역학적에너지를 애니메이션화하는 코드를 작성하시오. 단, 마찰력은 무시한다.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3582ea1" class="outline-2">
+<h2 id="org3582ea1"><span class="section-number-2">2</span> Example code</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">code from https://youtu.be/UoN70GjnBTI</span>
+<span class="org-keyword">from</span> vpython <span class="org-keyword">import</span> *  <span class="org-comment-delimiter"># </span><span class="org-comment">7.6.2</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44536;&#47000;&#54589; &#44536;&#47140;&#51452;&#45716; &#53076;&#46300;</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+<span class="org-variable-name">m</span> = 0.5         <span class="org-comment-delimiter"># </span><span class="org-comment">&#51656;&#47049;</span>
+<span class="org-variable-name">k</span> = 20.0        <span class="org-comment-delimiter"># </span><span class="org-comment">&#44053;&#49457;</span>
+<span class="org-variable-name">v0</span> = 4.0        <span class="org-comment-delimiter"># </span><span class="org-comment">&#52488;&#44592;&#49549;&#46020;</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#47560;&#52272;&#47141;&#51012; &#44256;&#47140;&#54624; &#46412; &#49324;&#50857;&#54616;&#45716; &#53076;&#46300; (&#54788;&#51116; &#49324;&#50857; &#50504;&#54632;)</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">mu_k = 0.1</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">mu_s = 0.5</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">g = 9.81</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#44536;&#47000;&#54589;&#52285;&#51012; &#49373;&#49457;&#54616;&#44256; &#48317;&#51012; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">scene</span> = canvas(width=600, height=600, background=vector(0.5,0.6,0.5))
+<span class="org-variable-name">bottom</span> = box(length=3, height=0.01, width=1, texture=textures.metal)
+<span class="org-variable-name">wall</span> = box(length=0.01, height=0.5, width=1, texture=textures.metal)
+
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#47932;&#52404;&#50752; &#49828;&#54532;&#47553;&#51012; &#49373;&#49457;&#54633;&#45768;&#45796;. &#47932;&#52404;&#51032; &#52488;&#44592; &#50948;&#52824;&#45716; 0.2m&#51077;&#45768;&#45796;</span>
+<span class="org-variable-name">square</span> = box(length=0.2, height=0.2, width=0.2, texture=textures.wood)
+<span class="org-variable-name">spring</span> = helix(pos=vector(-bottom.length/2, 0,0), coils=15, radius=0.08,  thickness=0.02)
+
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#48148;&#45797;&#44284; &#48317;&#51032; &#50948;&#52824;&#47484; &#51221;&#54644;&#51452;&#44256; &#52488;&#44592;&#49549;&#46020; v0&#47484; &#51077;&#47141;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">bottom.pos</span> = vector(0, -square.height/2, 0)
+<span class="org-variable-name">wall.pos</span> = vector(-bottom.length/2, 0.5/2-square.height/2, 0)
+<span class="org-variable-name">square.vx</span> = v0
+
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#50868;&#46041;&#50640;&#45320;&#51648;, &#53444;&#49457;&#50640;&#45320;&#51648;, &#50669;&#54617;&#51201;&#50640;&#45320;&#51648;&#47484; &#54364;&#54788;&#54616;&#45716; &#48148;&#47484; &#49373;&#49457;&#54633;&#45768;&#45796;</span>
+<span class="org-variable-name">rod_k</span> = cylinder(pos=vector(-bottom.length/2, -0.5,0), axis=vector(0.1,0,0), radius=0.05, opacity=0.5)
+<span class="org-variable-name">rod_u</span> = cylinder(pos=vector(-bottom.length/2, -0.7,0), axis=vector(0.1,0,0), radius=0.05, opacity=0.5)
+<span class="org-variable-name">rod_e</span> = cylinder(pos=vector(-bottom.length/2, -0.9,0), axis=vector(0.1,0,0), radius=0.05, opacity=0.5)
+
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#53581;&#49828;&#53944; &#54364;&#49884;&#50857; &#46972;&#48296; &#44061;&#52404; &#49373;&#49457;</span>
+<span class="org-variable-name">label_k</span> = label(pos=vector(-bottom.length/2-0.1, -0.5, 0), text=<span class="org-string">'K'</span>)
+<span class="org-variable-name">label_u</span> = label(pos=vector(-bottom.length/2-0.1, -0.7, 0), text=<span class="org-string">'U'</span>)
+<span class="org-variable-name">label_e</span> = label(pos=vector(-bottom.length/2-0.1, -0.9, 0), text=<span class="org-string">'E'</span>)
+<span class="org-variable-name">label1</span> = label()
+<span class="org-variable-name">label2</span> = label()
+<span class="org-variable-name">label3</span> = label()
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#50528;&#45768;&#47700;&#51060;&#49496; &#53076;&#46300; </span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">------------------------------------------------------------------</span>
+
+<span class="org-variable-name">dt</span> = 0.0001
+
+<span class="org-keyword">while</span> <span class="org-constant">True</span>:
+    rate(2000)  <span class="org-comment-delimiter"># </span><span class="org-comment">2000 hz&#51032; &#49549;&#46020;&#47196; &#47336;&#54532;&#47484; &#46037;&#45768;&#45796; (dt&#44032; &#47588;&#50864; &#51089;&#51004;&#48064;&#47196; &#49892;&#51228;&#47196;&#45716; &#51312;&#44552; &#45908; &#45712;&#47532;&#44172; &#47336;&#54532;&#44032; &#46037;&#45768;&#45796;)</span>
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#50868;&#46041;&#48169;&#51221;&#49885;&#51012; &#53685;&#54644; &#44032;&#49549;&#46020;&#47484; &#44396;&#54616;&#44256;</span>
+    <span class="org-variable-name">square.a</span> = -(k/m) * square.pos.x
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">&#47560;&#52272;&#47141;&#51012; &#44256;&#47140;&#54624; &#46412; &#50500;&#47000;&#51032; &#53076;&#46300;&#47484; &#51452;&#49437;&#54644;&#51228;&#54616;&#47732; &#46121;&#45768;&#45796;</span>
+<span class="org-comment-delimiter">#   </span><span class="org-comment">if square.vx * (square.vx + square.a*dt) &gt; 0:</span>
+<span class="org-comment-delimiter">#       </span><span class="org-comment">square.a = (-k/m)*square.pos.x - mu_k*g*abs(square.vx)/square.vx</span>
+<span class="org-comment-delimiter">#   </span><span class="org-comment">elif abs(k*square.pos.x) &gt; mu_s*m*g:</span>
+<span class="org-comment-delimiter">#       </span><span class="org-comment">square.a = -(k/m)*square.pos.x</span>
+<span class="org-comment-delimiter">#   </span><span class="org-comment">else:</span>
+<span class="org-comment-delimiter">#       </span><span class="org-comment">square.a = 0</span>
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#49549;&#46020;&#50752; &#50948;&#52824;&#46020; &#44396;&#54633;&#45768;&#45796;</span>
+    <span class="org-variable-name">square.vx</span> += square.a*dt
+    <span class="org-variable-name">square.pos.x</span> += square.vx*dt
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#49828;&#54532;&#47553;&#51032; &#44600;&#51060;&#47484; &#44228;&#49328;&#54633;&#45768;&#45796;</span>
+    <span class="org-variable-name">spring.length</span> = (square.pos.x - square.length/2) - spring.pos.x
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">&#50868;&#46041;&#50640;&#45320;&#51648;, &#53444;&#49457;&#50640;&#45320;&#51648;, &#50669;&#54617;&#51201;&#50640;&#45320;&#51648;&#47484; &#54364;&#49884;&#54633;&#45768;&#45796;</span>
+    <span class="org-variable-name">rod_k.axis.x</span> = 0.5*m*square.vx**2/5    <span class="org-comment-delimiter"># </span><span class="org-comment">&#50780; 5&#47196; &#45208;&#45572;&#51648;? &#49828;&#52992;&#51068;&#51012; &#51460;&#51060;&#44592; &#50948;&#54644;!</span>
+    <span class="org-variable-name">rod_u.axis.x</span> = 0.5*k*square.pos.x**2/5
+    <span class="org-variable-name">rod_e.axis.x</span> = rod_k.axis.x + rod_u.axis.x
+
+    <span class="org-variable-name">label1.pos</span> = bottom.pos + vector(0,-0.1,0)
+    <span class="org-variable-name">label1.text</span> = <span class="org-string">'box position is : %.2f'</span> % square.pos.x
+    <span class="org-variable-name">label2.pos</span> = bottom.pos + vector(0,-0.3,0)
+    <span class="org-variable-name">label2.text</span> = <span class="org-string">'box length is : %.2f '</span> % square.length
+    <span class="org-variable-name">label3.pos</span> = bottom.pos + vector(1.2,-0.1,0)
+    <span class="org-variable-name">label3.text</span> = <span class="org-string">'m : %.2f kg, k : %.2f N/m'</span> % (m,k)
+</pre>
+</div>
+</div>
+</div>
