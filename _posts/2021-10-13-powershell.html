@@ -1,20 +1,10 @@
---- 
-layout: post
-title: Powershell 명령어를 활용한 시스템 분석 - 여러가지 명령어들
-description: 
-date: 2021-10-13
-categories: [Technology]
-tag: [windows, powershell]
-use_math: true
-comments: true
----
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org0ba82c5">1. Powershell commands</a>
 <ul>
-<li><a href="#org7cb8b31">1.1. GET-&#x2026;</a>
+<li><a href="#org8f3a107">1.1. Get-&#x2026;</a>
 <ul>
 <li><a href="#org1e30501">1.1.1. Get-Process</a></li>
 <li><a href="#org2b9879b">1.1.2. Get-Scheduledtask</a></li>
@@ -32,32 +22,32 @@ comments: true
 <li><a href="#orgb107eb1">1.1.14. Get-Appxpackage</a></li>
 </ul>
 </li>
-<li><a href="#org2fb11e7">1.2. STOP-&#x2026;</a>
+<li><a href="#org34f90fa">1.2. Stop-&#x2026;</a>
 <ul>
 <li><a href="#org4807072">1.2.1. Stop-Process</a></li>
 </ul>
 </li>
-<li><a href="#org713cf71">1.3. SET-&#x2026;</a>
+<li><a href="#org8c0f608">1.3. Set-&#x2026;</a>
 <ul>
 <li><a href="#orgff72582">1.3.1. Set-ExecutionPolicy</a></li>
 </ul>
 </li>
-<li><a href="#org3b59c90">1.4. EXPORT-&#x2026;, IMPORT-&#x2026;</a>
+<li><a href="#orge23b28d">1.4. Export-&#x2026;, Import-&#x2026;</a>
 <ul>
 <li><a href="#org3bae26a">1.4.1. Export-CSV, Import-CSV</a></li>
 </ul>
 </li>
-<li><a href="#org566f45f">1.5. NEW-&#x2026;</a>
+<li><a href="#orgb76e4fd">1.5. New-&#x2026;</a>
 <ul>
 <li><a href="#org3ace1cf">1.5.1. New-Item</a></li>
 </ul>
 </li>
-<li><a href="#org7c0be74">1.6. REMOVE-&#x2026;</a>
+<li><a href="#orgd7c0812">1.6. Remove-&#x2026;</a>
 <ul>
 <li><a href="#orgf7d7a06">1.6.1. Remove-Item</a></li>
 </ul>
 </li>
-<li><a href="#org1c06f1d">1.7. .net framework</a>
+<li><a href="#org20e63ab">1.7. .Net framework</a>
 <ul>
 <li><a href="#org73cfbbe">1.7.1. [Math]</a></li>
 </ul>
@@ -85,7 +75,16 @@ comments: true
 </ul>
 </div>
 </nav>
-
+--- 
+layout: post
+title: Powershell 명령어를 활용한 시스템 분석 - 여러가지 명령어들
+description: 
+date: 2021-10-13
+categories: [Technology]
+tag: [windows, powershell]
+use_math: true
+comments: true
+---
 
 <div id="outline-container-org0ba82c5" class="outline-2">
 <h2 id="org0ba82c5"><span class="section-number-2">1</span> Powershell commands</h2>
@@ -95,8 +94,8 @@ comments: true
 </p>
 </div>
 
-<div id="outline-container-org7cb8b31" class="outline-3">
-<h3 id="org7cb8b31"><span class="section-number-3">1.1</span> GET-&#x2026;</h3>
+<div id="outline-container-org8f3a107" class="outline-3">
+<h3 id="org8f3a107"><span class="section-number-3">1.1</span> Get-&#x2026;</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
 <div id="outline-container-org1e30501" class="outline-4">
@@ -460,8 +459,8 @@ get-appxpackage *getstarted* | remove-appxpackage
 
 
 
-<div id="outline-container-org2fb11e7" class="outline-3">
-<h3 id="org2fb11e7"><span class="section-number-3">1.2</span> STOP-&#x2026;</h3>
+<div id="outline-container-org34f90fa" class="outline-3">
+<h3 id="org34f90fa"><span class="section-number-3">1.2</span> Stop-&#x2026;</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
 <div id="outline-container-org4807072" class="outline-4">
@@ -485,8 +484,8 @@ stop-process -name lmgrd -confirm
 </div>
 
 
-<div id="outline-container-org713cf71" class="outline-3">
-<h3 id="org713cf71"><span class="section-number-3">1.3</span> SET-&#x2026;</h3>
+<div id="outline-container-org8c0f608" class="outline-3">
+<h3 id="org8c0f608"><span class="section-number-3">1.3</span> Set-&#x2026;</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
 <div id="outline-container-orgff72582" class="outline-4">
@@ -511,8 +510,8 @@ set-executionpolicy unrestricted
 </div>
 
 
-<div id="outline-container-org3b59c90" class="outline-3">
-<h3 id="org3b59c90"><span class="section-number-3">1.4</span> EXPORT-&#x2026;, IMPORT-&#x2026;</h3>
+<div id="outline-container-orge23b28d" class="outline-3">
+<h3 id="orge23b28d"><span class="section-number-3">1.4</span> Export-&#x2026;, Import-&#x2026;</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
 <div id="outline-container-org3bae26a" class="outline-4">
@@ -530,8 +529,8 @@ import-csv pslist.csv | select-object starttime | sort processname -Descending
 </div>
 
 
-<div id="outline-container-org566f45f" class="outline-3">
-<h3 id="org566f45f"><span class="section-number-3">1.5</span> NEW-&#x2026;</h3>
+<div id="outline-container-orgb76e4fd" class="outline-3">
+<h3 id="orgb76e4fd"><span class="section-number-3">1.5</span> New-&#x2026;</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
 <div id="outline-container-org3ace1cf" class="outline-4">
@@ -561,8 +560,8 @@ new-item -path c:\ -name dirtest -itemtype directory -whatif
 </div>
 </div>
 
-<div id="outline-container-org7c0be74" class="outline-3">
-<h3 id="org7c0be74"><span class="section-number-3">1.6</span> REMOVE-&#x2026;</h3>
+<div id="outline-container-orgd7c0812" class="outline-3">
+<h3 id="orgd7c0812"><span class="section-number-3">1.6</span> Remove-&#x2026;</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
 <div id="outline-container-orgf7d7a06" class="outline-4">
@@ -578,8 +577,8 @@ remove-item alias::get_event
 </div>
 </div>
 
-<div id="outline-container-org1c06f1d" class="outline-3">
-<h3 id="org1c06f1d"><span class="section-number-3">1.7</span> .net framework</h3>
+<div id="outline-container-org20e63ab" class="outline-3">
+<h3 id="org20e63ab"><span class="section-number-3">1.7</span> .Net framework</h3>
 <div class="outline-text-3" id="text-1-7">
 </div>
 <div id="outline-container-org73cfbbe" class="outline-4">
