@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: Powershell 명령어를 활용한 시스템 분석 - 여러가지 명령어 설명
+title: Powershell 명령어를 활용한 시스템 분석 - 여러가지 명령어들
 description: 
 date: 2021-10-13
 categories: [Technology]
@@ -664,42 +664,49 @@ ComputerName 컴퓨터 이름을 확인합니다
 <h3 id="org16fe98e"><span class="section-number-3">3.2</span> Examples</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
-<li>1</li>
-</ul>
-<p>
-$a = 5
+<li><p>
+1
+</p>
+<div class="org-src-container">
+<pre class="src src-powershell">$a = 5
 $a.gettype() .net 내장타입을 알 수 있습니다
 $a.gettype().name .net의 내장타입을 알 수 있습니다2
-</p>
+</pre>
+</div></li>
+</ul>
 
 
 <ul class="org-ul">
-<li>2 (iexplore 프로세스를 여는 예제코드)</li>
-</ul>
-<p>
-$ie = new-object -comobject "internetexplorer.application"
+<li><p>
+2 (iexplore 프로세스를 여는 예제코드)
+</p>
+<div class="org-src-container">
+<pre class="src src-powershell">$ie = new-object -comobject "internetexplorer.application"
 $ie | get-member -membertype method
-$ie.navigate("<a href="http://www.naver.com">http://www.naver.com</a>")
+$ie.navigate("http://www.naver.com")
 $ie.visible = $true
-</p>
+</pre>
+</div></li>
 
-<ul class="org-ul">
-<li>3 (%userprofile% 로 이동합니다)</li>
-</ul>
-<p>
-cd $env:userprofile
+<li><p>
+3 (%userprofile% 로 이동합니다)
 </p>
+<div class="org-src-container">
+<pre class="src src-powershell">cd $env:userprofile
+</pre>
+</div></li>
 
-<ul class="org-ul">
-<li>4 (schtasks에서 ashley 글자가 들어간 예약내용을 확인합니다)</li>
-</ul>
-<p>
-$tasks = schtasks.exe /query /fo csv | ConvertFrom-Csv
-$tasks | Where-Object {$_.taskname -like "<b>ashley</b>"}
+<li><p>
+4 (schtasks에서 ashley 글자가 들어간 예약내용을 확인합니다)
 </p>
+<div class="org-src-container">
+<pre class="src src-powershell">$tasks = schtasks.exe /query /fo csv | ConvertFrom-Csv
+$tasks | Where-Object {$_.taskname -like "*ashley*"}
+</pre>
+</div></li>
+</ul>
 </div>
 </div>
-
 
 <div id="outline-container-orgf7c1ab8" class="outline-3">
 <h3 id="orgf7c1ab8"><span class="section-number-3">3.3</span> Powershell Function</h3>
@@ -714,9 +721,8 @@ $tasks | Where-Object {$_.taskname -like "<b>ashley</b>"}
 <ul class="org-ul">
 <li>pingsrv "ip_adrress"</li>
 </ul>
-
-<p>
-function pingsrv ([string] $srv ) {
+<div class="org-src-container">
+<pre class="src src-powershell">function pingsrv ([string] $srv ) {
         $wmiobj=get-wmiobject win32_pingstatus -filter "address='$srv'"
         if($wmiobj.statuscode -eq 0) {
                 write-host $srv "연결됐습니다!"
@@ -725,7 +731,8 @@ function pingsrv ([string] $srv ) {
                 write-host $srv 연결이안되네요!"
         }
 }
-</p>
+</pre>
+</div>
 
 
 <p>
@@ -734,26 +741,23 @@ function pingsrv ([string] $srv ) {
 <ul class="org-ul">
 <li>Prompt</li>
 </ul>
-
-<p>
-function prompt {
+<div class="org-src-container">
+<pre class="src src-powershell">function prompt {
         $historyList = @(get-history)
         if($historyList.count -gt 0) {
                 $lastcommand = $historyList[$historyList.count - 1]
                 $lastid = $lastcommand.id
         }
-</p>
 
-<p>
         write-host ("PS(+ ($lastid+1) + ") + $(get-location) +"&gt;") -nonewline
         return "
 }
-</p>
+</pre>
 </div>
 </div>
 </div>
 </div>
-
+</div>
 
 <div id="outline-container-org974bc53" class="outline-2">
 <h2 id="org974bc53"><span class="section-number-2">4</span> Reference</h2>
