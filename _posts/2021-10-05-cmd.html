@@ -306,9 +306,6 @@ edward.txt 파일의 내용을 cmd창에 표시합니다
 <pre class="example">
 type edward.txt
 </pre>
-<p>
-#+END_SRC
-</p>
 </div>
 </div>
 
@@ -319,14 +316,14 @@ type edward.txt
 20130202.png 파일의 소유자를 현재 계정으로 설정합니다 
 </p>
 <pre class="example">
-- takeown.exe /f C:\Users\gyurs\Downloads\20130202.png 
+takeown.exe /f C:\Users\gyurs\Downloads\20130202.png 
 </pre>
 <p>
 ​
         20130202.png 파일의 소유자를 Administrators 그룹으로 넘깁니다 
 </p>
 <pre class="example">
-- takeown.exe /f C:\Users\gyurs\Downloads\20130202.png /A 
+takeown.exe /f C:\Users\gyurs\Downloads\20130202.png /A 
 </pre>
 
 <p>
@@ -334,7 +331,7 @@ Downloads 폴더 안에 있는 모든 파일의 권한을 Administrators 그룹�
 Administrators 그룹으로 넘김, 모든 하위파일까지 적용, 중간에 읽기 권한없는 폴더를 만나도 권한을 부여하고 계속 실행 
 </p>
 <pre class="example">
-- takeown.exe /f C:\Users\gyurs\Downloads\* /A /r /d y 
+takeown.exe /f C:\Users\gyurs\Downloads\* /A /r /d y 
 </pre>
 </div>
 </div>
@@ -346,21 +343,21 @@ Administrators 그룹으로 넘김, 모든 하위파일까지 적용, 중간에 
 edward.txt 파일의 속성을 숨김, 읽기전용, 시스템파일로 변경합니다 
 </p>
 <pre class="example">
-- attrib.exe +h +r +s edward.txt 
+attrib.exe +h +r +s edward.txt 
 </pre>
 
 <p>
 edward.txt 파일의 숨김, 읽기전용, 시스템파일 속성을 해제합니다 
 </p>
 <pre class="example">
-- attrib.exe -h -r -s edward.txt 
+attrib.exe -h -r -s edward.txt 
 </pre>
 
 <p>
 현재 cmd창이 가리키는 폴더와 하위파일,폴더를 전부 숨김, 읽기전용, 시스템파일로 변경합니다 
 </p>
 <pre class="example">
-- attrib.exe +h +r +s /s /d 
+attrib.exe +h +r +s /s /d 
 </pre>
 </div>
 </div>
@@ -372,63 +369,63 @@ edward.txt 파일의 숨김, 읽기전용, 시스템파일 속성을 해제합�
 test.txt 파일의 권한 중 edward 계정이 파일의 모든 권한을 획득합니다 
 </p>
 <pre class="example">
-- icacls.exe C:\Users\edward\Downloads\test.txt /grant edward:F 
+icacls.exe C:\Users\edward\Downloads\test.txt /grant edward:F 
 </pre>
 
 <p>
 20130202.png파일의 권한 중 edward 계정의 모든 접근을 거부합니다 (쓰기, 읽기, 수정,삭제&#x2026;) 
 </p>
 <pre class="example">
-- icacls.exe C:\Users\edward\Downloads\20130202.png /deny edward:F 
+icacls.exe C:\Users\edward\Downloads\20130202.png /deny edward:F 
 </pre>
 
 <p>
 20130203.png 파일의 권한 상속을 제거합니다 
 </p>
 <pre class="example">
-- icacls.exe C:\Users\edward\Downloads\20130203.png /inheritance:R 
+icacls.exe C:\Users\edward\Downloads\20130203.png /inheritance:R 
 </pre>
 
 <p>
 fire.txt 파일의 권한 중 edward 계정이 가지고 있는 모든 권한을 제거합니다 (edward 계정은 해당 파일에 어떤 수정도 못합니다) 
 </p>
 <pre class="example">
-- icacls.exe C:\Users\edward\Downloads\fire.txt /remove:g edward 
+icacls.exe C:\Users\edward\Downloads\fire.txt /remove:g edward 
 </pre>
 
 <p>
 fire.txt 파일의 권한 중 edward 계정이 가지고 있는 모든 접근 제한들을 제거합니다 
 </p>
 <pre class="example">
-- icacls.exe C:\Users\edward\Downloads\fire.txt /remove:d edward 
+icacls.exe C:\Users\edward\Downloads\fire.txt /remove:d edward 
 </pre>
 
 <p>
 Downloads 파일 안에 있는 모든 파일과 폴더를 edward는 접근할 수 없게 합니다 
 </p>
 <pre class="example">
-- icacls.exe C:\Users\edward\Downloads\* /deny edward:F /T /C 
+icacls.exe C:\Users\edward\Downloads\* /deny edward:F /T /C 
 </pre>
 
 <p>
 모든 변경사항을 DEFAULT 값으로 되돌립니다 
 </p>
 <pre class="example">
-- icacls.exe C:\Users\edward\Downloads\* /reset 
+icacls.exe C:\Users\edward\Downloads\* /reset 
 </pre>
 
 <p>
 modify.txt 파일의 권한을 확인합니다 
 </p>
 <pre class="example">
-- icacls.exe C:\Users\edward\Downloads\modify.txt 
+icacls.exe C:\Users\edward\Downloads\modify.txt 
 </pre>
 
 <p>
 modify.txt 파일의 권한을 edward 계정에게 오직 읽기 권한만 줍니다 (쓰기, 삭제 등등 불가)(상속이 안되어있는 경우에만) 
 </p>
 <pre class="example">
-- icacls.exe C:\Users\edward\Downloads\modify.txt /grant edward:R 
+icacls.exe C:\Users\edward\Downloads\modify.txt /grant edward:R 
 </pre>
 </div>
 </div>
@@ -440,7 +437,7 @@ modify.txt 파일의 권한을 edward 계정에게 오직 읽기 권한만 줍�
 aa.txt와 bb.txt 파일이 같은지 다른지 검사합니다 (다른 부분의 라인번호 출력하기)
 </p>
 <pre class="example">
-- fc.exe /n aa.txt bb.txt
+fc.exe /n aa.txt bb.txt
 </pre>
 </div>
 </div>
@@ -457,21 +454,21 @@ create 구문이 oracledatabase_admin2.sql 파일안에 있는지 검색합니�
 라인수, 파일이름, 대소문자를 구분없이 
 </p>
 <pre class="example">
-- findstr.exe /n /s /i create oracledatabase_admin2.sql 
+findstr.exe /n /s /i create oracledatabase_admin2.sql 
 </pre>
 
 <p>
 C드라이브의 모든 파일 중 create 구문이 들어간 파일을 검색합니다 
 </p>
 <pre class="example">
-- findstr.exe /n /s /i create c:\* 
+findstr.exe /n /s /i create c:\* 
 </pre>
 
 <p>
 gyurs 유저 폴더 안에서 create 구문을 검색하고 결과를 result.txt에 저장합니다 
 </p>
 <pre class="example">
-- findstr.exe /n /s /i create c:\users\gyurs\* &gt; result.txt 
+findstr.exe /n /s /i create c:\users\gyurs\* &gt; result.txt 
 </pre>
 </div>
 </div>
@@ -483,28 +480,28 @@ gyurs 유저 폴더 안에서 create 구문을 검색하고 결과를 result.txt
 현재의 TimeZone을 확인합니다 
 </p>
 <pre class="example">
-- w32tm.exe /tz 
+w32tm.exe /tz 
 </pre>
 
 <p>
 현재 로컬컴퓨터의 시간을 동기화합니다 
 </p>
 <pre class="example">
-- w32tm.exe /resync 
+w32tm.exe /resync 
 </pre>
 
 <p>
 1601년 1월 1일부터 지난 시간(초)를 계산해 날짜를 표시해줍니다(NT 시스템 시간) 
 </p>
 <pre class="example">
-- w32tm.exe /ntte 131028948948477834 
+w32tm.exe /ntte 131028948948477834 
 </pre>
 
 <p>
 1900년 1월 1일부터 지난 시간(초)를 계산해 날짜를 표시해줍니다 (NTP 시스템 시간) 
 </p>
 <pre class="example">
-- w32tm.exe /ntpte 3763314900 
+w32tm.exe /ntpte 3763314900 
 </pre>
 </div>
 </div>
@@ -516,42 +513,42 @@ gyurs 유저 폴더 안에서 create 구문을 검색하고 결과를 result.txt
 현재 등록된 모든 예약작업을 확인합니다 
 </p>
 <pre class="example">
-- schtasks.exe /query /fo LIST /v | more 
+schtasks.exe /query /fo LIST /v | more 
 </pre>
 
 <p>
 Ashley라는 이름으로 매주 월요일 아침 8시마다 시스템계정으로 calc.exe 프로그램을 실행합니다 
 </p>
 <pre class="example">
-- schtasks.exe /create /tn "Ashley" /tr "c:\windows\system32\calc.exe" /sc weekly /d MON /st 08:00:00 /ru "System" 
+schtasks.exe /create /tn "Ashley" /tr "c:\windows\system32\calc.exe" /sc weekly /d MON /st 08:00:00 /ru "System" 
 </pre>
 
 <p>
 ashley2라는 이름으로 1분마다 notepad.exe 프로그램을 최고권한으로 실행합니다 
 </p>
 <pre class="example">
-- schtasks.exe /create /tn ashley2 /tr "c:\windows\system32\notepad.exe" /sc minute /mo 1 /rl highest 
+schtasks.exe /create /tn ashley2 /tr "c:\windows\system32\notepad.exe" /sc minute /mo 1 /rl highest 
 </pre>
 
 <p>
 ashley3라는 이름으로  최고권한으로 실행해서1분마다 hello라는 메세지창을 출력합니다 
 </p>
 <pre class="example">
-- schtasks.exe /create /tn ashley3 /tr "c:\windows\system32\msg.exe * /v /w hello" /sc minute /mo 1 /rl highest 
+schtasks.exe /create /tn ashley3 /tr "c:\windows\system32\msg.exe * /v /w hello" /sc minute /mo 1 /rl highest 
 </pre>
 
 <p>
 ashley라는 이름의 예약작업을 강제로 삭제합니다 
 </p>
 <pre class="example">
-- schtasks.exe /delete /tn ashley /f 
+schtasks.exe /delete /tn ashley /f 
 </pre>
 
 <p>
 생성한 ashley라는 예약작업의 계정 (SID)를 확인합니다 
 </p>
 <pre class="example">
-- schtasks.exe /ShowSid /TN "\ashley
+schtasks.exe /ShowSid /TN "\ashley
 </pre>
 </div>
 </div>
@@ -563,28 +560,28 @@ ashley라는 이름의 예약작업을 강제로 삭제합니다
 현재 컴퓨터의 IP 주소를 확인합니다
 </p>
 <pre class="example">
-- ipconfig.exe 
+ipconfig.exe 
 </pre>
 
 <p>
 IP를 사용하지 않습니다 (인터넷을 사용하지 않습니다)
 </p>
 <pre class="example">
-- ipconfig.exe /release
+ipconfig.exe /release
 </pre>
 
 <p>
 IP를 다시 사용합니다
 </p>
 <pre class="example">
-- ipconfig.exe /renew
+ipconfig.exe /renew
 </pre>
 
 <p>
 현재 컴퓨터의 모든 DNS 주소 테이블을 초기화합니다
 </p>
 <pre class="example">
-- ipconfig.exe /flushdns
+ipconfig.exe /flushdns
 </pre>
 </div>
 </div>
@@ -596,7 +593,7 @@ IP를 다시 사용합니다
 현재 컴퓨터가 통신하고 있는 모든 IP 주소 + 포트 + 프로그램 이름을 확인합니다 (-b 옵션은 관리자권한 필요)
 </p>
 <pre class="example">
-- netstat.exe -abno
+netstat.exe -abno
 </pre>
 </div>
 </div>
@@ -608,7 +605,7 @@ IP를 다시 사용합니다
 내 컴퓨터가 naver.com 서버까지 도달하기 위해 거치는 라우터들의 정보를 표시해줍니다 (라우터까지 도달하는 시간도 표시)
 </p>
 <pre class="example">
-- tracert.exe naver.com 
+tracert.exe naver.com 
 </pre>
 </div>
 </div>
@@ -620,7 +617,7 @@ IP를 다시 사용합니다
 내 컴퓨터가 naver.com 서버까지 도달하기 위해 거치는 라우터들의 정보를 표시해줍니다
 </p>
 <pre class="example">
-- pathping.exe naver.com
+pathping.exe naver.com
 </pre>
 </div>
 </div>
@@ -636,7 +633,7 @@ IP를 다시 사용합니다
 흰 색상에 검정글씨로 바꿉니다 
 </p>
 <pre class="example">
-- color f0 
+color f0 
 </pre>
 </div>
 </div>
@@ -652,7 +649,7 @@ IP를 다시 사용합니다
 MAC주소를 자세히 확인합니다 
 </p>
 <pre class="example">
-- getmac.exe /v 
+getmac.exe /v 
 </pre>
 
 <p>
@@ -677,14 +674,14 @@ MAC주소를 자세히 확인합니다
 현재 캐시에 저장된 NBT 상태를 확인합니다 
 </p>
 <pre class="example">
-- nbtstat.exe -c 
+nbtstat.exe -c 
 </pre>
 
 <p>
 저장된 NBT 세션들의 목록을 보여줍니다 
 </p>
 <pre class="example">
-- nbtstat.exe -S
+nbtstat.exe -S
 </pre>
 
 <p>
@@ -704,14 +701,14 @@ MAC주소를 자세히 확인합니다
 c:\drivers에 모든 패키지를 추가합니다 
 </p>
 <pre class="example">
-- pnputil.exe -a c:\drivers\*.inf 
+pnputil.exe -a c:\drivers\*.inf 
 </pre>
 
 <p>
 패키지를 열거합니다 
 </p>
 <pre class="example">
-- pnputil.exe -e 
+pnputil.exe -e 
 </pre>
 
 <p>
@@ -779,35 +776,35 @@ c:\drivers에 모든 패키지를 추가합니다
 disk들의 목록을 확인합니다
 </p>
 <pre class="example">
-- diskpart&gt; list disk
+diskpart&gt; list disk
 </pre>
 
 <p>
 disk0를 선택합니다
 </p>
 <pre class="example">
-- diskpart&gt; select disk 0
+diskpart&gt; select disk 0
 </pre>
 
 <p>
 disk 내부의 volume 목록을 확인합니다
 </p>
 <pre class="example">
-- diskpart&gt; list volume
+diskpart&gt; list volume
 </pre>
 
 <p>
 volume 1번은 선택합니다
 </p>
 <pre class="example">
-- diskpart&gt; select volume 1
+diskpart&gt; select volume 1
 </pre>
 
 <p>
 (위 명령어 후) volume의 드라이브 명칭을 F: 로 변경합니다
 </p>
 <pre class="example">
-- diskpart&gt; assign letter=F
+diskpart&gt; assign letter=F
 </pre>
 </div>
 </div>
@@ -821,7 +818,7 @@ volume 1번은 선택합니다
 <h4 id="org1a93605"><span class="section-number-4">1.2.37</span> chkntfs.exe (디스크검사 예약)</h4>
 <div class="outline-text-4" id="text-1-2-37">
 <pre class="example">
-- chkntfs.exe c: /c 
+chkntfs.exe c: /c 
 </pre>
 </div>
 </div>
@@ -833,7 +830,7 @@ volume 1번은 선택합니다
 D드라이브를 검사하고 에러가 나면 복구합니다 
 </p>
 <pre class="example">
-- chkdsk.exe D: /f /r 
+chkdsk.exe D: /f /r 
 </pre>
 
 <p>
@@ -849,14 +846,14 @@ D드라이브를 검사하고 에러가 나면 복구합니다
 시스템파일을 검사하고 이상이 있으면 복구합니다 
 </p>
 <pre class="example">
-- sfc.exe /scannow 
+sfc.exe /scannow 
 </pre>
 
 <p>
 시스템파일을 검사만 합니다 
 </p>
 <pre class="example">
-- sfc.exe /verifyonly
+sfc.exe /verifyonly
 </pre>
 
 <p>
@@ -897,7 +894,7 @@ desktop에 있는 파일들을 c:\test에 복사합니다
 비어있는 디렉토리 제외, Multi Thread 20개 사용, 복사실패 시 1번 재시도, 대기시간 1초, 7개의 하위디렉토리 복사 
 </p>
 <pre class="example">
-- robocopy.exe C:\Users\edward\Desktop c:\test /S /MT:20 /R:1 /W:1 /LEV:7 
+robocopy.exe C:\Users\edward\Desktop c:\test /S /MT:20 /R:1 /W:1 /LEV:7 
 </pre>
 
 <p>
@@ -914,14 +911,14 @@ deskop에 있는 파일들을 c:\test에 복사합니다
 하위 디렉토리, 오류가 생겨도 계속 복사, 조용히 복사, 겹치는 파일 묻지 않고 복사, 특성을 복사, 숨겨진파일과 시스템파일 모두 복사합니다 
 </p>
 <pre class="example">
-- xcopy.exe C:\Users\edward\Desktop c:\test /s /c /q /y /k /h
+xcopy.exe C:\Users\edward\Desktop c:\test /s /c /q /y /k /h
 </pre>
 
 <p>
 WebcacheV01.dat 파일을 바탕화면에 복사합니다 (taskhost, dllhost 프로세스를 먼저 종료해야합니다) 
 </p>
 <pre class="example">
-- xcopy.exe /s /h /i /y "%Localappdata%\Microsoft\Windows\Webcache\*.dat" %userprofile%\desktop 
+xcopy.exe /s /h /i /y "%Localappdata%\Microsoft\Windows\Webcache\*.dat" %userprofile%\desktop 
 </pre>
 
 <p>
@@ -953,7 +950,7 @@ WebcacheV01.dat 파일을 바탕화면에 복사합니다 (taskhost, dllhost 프
 path 환경변수를 영구적으로 설정합니다
 </p>
 <pre class="example">
-- setx.exe path "%path%;경로" /m  
+setx.exe path "%path%;경로" /m  
 </pre>
 
 <p>
@@ -969,28 +966,28 @@ path 환경변수를 영구적으로 설정합니다
 컴퓨터를 바로 강제로 종료합니다 
 </p>
 <pre class="example">
-- shutdown.exe /s /t 0 /f 
+shutdown.exe /s /t 0 /f 
 </pre>
 
 <p>
 컴퓨터를 100초 뒤에 강제로 종료합니다 
 </p>
 <pre class="example">
-- shutdown.exe /s /t 100 /f
+shutdown.exe /s /t 100 /f
 </pre>
 
 <p>
 컴퓨터를 바로 강제로 재시작합니다 
 </p>
 <pre class="example">
-- shutdown.exe /r /t 0 /f 
+shutdown.exe /r /t 0 /f 
 </pre>
 
 <p>
 컴퓨터를 로그오프합니다
 </p>
 <pre class="example">
-- shutdown.exe /l 
+shutdown.exe /l 
 </pre>
 
 <p>
@@ -1019,14 +1016,14 @@ path 환경변수를 영구적으로 설정합니다
 C drive의 모든 파일(시스템파일포함)을 D drive로 백업합니다 
 </p>
 <pre class="example">
-- wbadmin START BACKUP -include:C: -backupTarget:D: 
+wbadmin START BACKUP -include:C: -backupTarget:D: 
 </pre>
 
 <p>
 C drive의 모든 파일(시스템파일포함)을 D drive로 백업합니다 (콘솔창에 결과를 띄우지 않습니다)
 </p>
 <pre class="example">
-- wbadmin START BACKUP -include:C: -backupTarget:D:  -quiet
+wbadmin START BACKUP -include:C: -backupTarget:D:  -quiet
 </pre>
 
 <p>
@@ -1042,7 +1039,7 @@ C drive의 모든 파일(시스템파일포함)을 D drive로 백업합니다 (�
 C 드라이브의 여유공간을 확인합니다
 </p>
 <pre class="example">
-- fsutil volume diskfree c:
+fsutil volume diskfree c:
 </pre>
 
 <p>
@@ -1078,14 +1075,14 @@ C 드라이브의 여유공간을 확인합니다
 해당 .dat 파일의 상태를 확인합니다 
 </p>
 <pre class="example">
-- esentutl.exe /mh WebCacheV01.dat 
+esentutl.exe /mh WebCacheV01.dat 
 </pre>
 
 <p>
 해당 .dat 파일이 dirty shutdown 상태이면 clean shutdown 상태로 고쳐줍니다 
 </p>
 <pre class="example">
-- esentutl.exe /p WebCacheV01.dat 
+esentutl.exe /p WebCacheV01.dat 
 </pre>
 
 <p>
@@ -1130,7 +1127,7 @@ C 드라이브의 여유공간을 확인합니다
 <h4 id="org0714eb1"><span class="section-number-4">1.2.72</span> slmgr.exe (라이센스 등록2)</h4>
 <div class="outline-text-4" id="text-1-2-72">
 <pre class="example">
-- slmgr.exe /ipk /dlv /ato 
+slmgr.exe /ipk /dlv /ato 
 </pre>
 
 <p>
@@ -1158,7 +1155,7 @@ C 드라이브의 여유공간을 확인합니다
 aaa 폴더의 바로가기 폴더 bbb를 만듭니다 
 </p>
 <pre class="example">
-- mklink.exe /d c:/bbb c:/aaa 
+mklink.exe /d c:/bbb c:/aaa 
 </pre>
 
 <p>
@@ -1194,14 +1191,14 @@ aaa 폴더의 바로가기 폴더 bbb를 만듭니다
 메모장 프로세스를 강제로 자식노드까지 전부 종료합니다 
 </p>
 <pre class="example">
-- taskkill.exe /f /im "notepad.exe" /t 
+taskkill.exe /f /im "notepad.exe" /t 
 </pre>
 
 <p>
 PID가 1000보다 큰 모든 프로세스들을 종료합니다 
 </p>
 <pre class="example">
-- taskkill.exe /fi "pid gt 1000" /f 
+taskkill.exe /fi "pid gt 1000" /f 
 </pre>
 <p>
 ​
@@ -1217,28 +1214,28 @@ PID가 1000보다 큰 모든 프로세스들을 종료합니다
 svchost.exe 프로그램의 서비스목록을 확인합니다 
 </p>
 <pre class="example">
-- tasklist /svc /fi "imagename eq svchost.exe" 
+tasklist /svc /fi "imagename eq svchost.exe" 
 </pre>
 
 <p>
 특정 서비스의 정보를 확인합니다
 </p>
 <pre class="example">
-- tasklist.exe /svc /fi "services eq &lt;servicename&gt;" 
+tasklist.exe /svc /fi "services eq &lt;servicename&gt;" 
 </pre>
 
 <p>
 explorer 라는 이름이 들어가는 프로그램 목록을 확인합니다
 </p>
 <pre class="example">
-- tasklist.exe | find /i "explorer" 
+tasklist.exe | find /i "explorer" 
 </pre>
 
 <p>
 tasklist.exe 프로그램이 사용하는 dll 목록을 확인합니다 
 </p>
 <pre class="example">
-- tasklist.exe /m /fi "imagename eq tasklist.exe" 
+tasklist.exe /m /fi "imagename eq tasklist.exe" 
 </pre>
 
 <p>
@@ -1254,7 +1251,7 @@ tasklist.exe 프로그램이 사용하는 dll 목록을 확인합니다
 100초동안 잠시 cmd창을 멈춤니다
 </p>
 <pre class="example">
-- timeout.exe /t 100 /nobreak 
+timeout.exe /t 100 /nobreak 
 </pre>
 
 <p>
@@ -1295,7 +1292,7 @@ tasklist.exe 프로그램이 사용하는 dll 목록을 확인합니다
 <h4 id="org51299e4"><span class="section-number-4">1.2.92</span> gpupdate.exe(그룹 정책 업데이트)</h4>
 <div class="outline-text-4" id="text-1-2-92">
 <pre class="example">
-- gpupdate.exe /force 
+gpupdate.exe /force 
 </pre>
 
 <p>
@@ -1308,7 +1305,7 @@ tasklist.exe 프로그램이 사용하는 dll 목록을 확인합니다
 <h4 id="org4cd7acc"><span class="section-number-4">1.2.93</span> cmdkey.exe(자격증명 저장 관리)</h4>
 <div class="outline-text-4" id="text-1-2-93">
 <pre class="example">
-- cmdkey.exe /add:&lt;targetname&gt; /user:&lt;username&gt; /pass:&lt;password&gt; 
+cmdkey.exe /add:&lt;targetname&gt; /user:&lt;username&gt; /pass:&lt;password&gt; 
 </pre>
 </div>
 </div>
@@ -1320,21 +1317,21 @@ tasklist.exe 프로그램이 사용하는 dll 목록을 확인합니다
 mysql_ed.sql 파일에서 create가 들어간 구문을 찾습니다 
 </p>
 <pre class="example">
-- find.exe mysql_ed.sql "create" /n /i 
+find.exe mysql_ed.sql "create" /n /i 
 </pre>
 
 <p>
 abc.txt 파일의 라인 수를 셉니다 
 </p>
 <pre class="example">
-- find.exe /c /v abc.txt "" 
+find.exe /c /v abc.txt "" 
 </pre>
 
 <p>
 현재 동작하는 프로세스 중 대소문자를 구분하지 않고 sql 글자가 들어간 구문을 검색합니다 
 </p>
 <pre class="example">
-- tasklist.exe | find.exe /i "sql" 
+tasklist.exe | find.exe /i "sql" 
 </pre>
 </div>
 </div>
@@ -1366,28 +1363,28 @@ abc.txt 파일의 라인 수를 셉니다
 절전 모드 
 </p>
 <pre class="example">
-- rundll32.exe powrprof.dll SetSuspendState 0,1,0 
+rundll32.exe powrprof.dll SetSuspendState 0,1,0 
 </pre>
 
 <p>
 환경 변수 
 </p>
 <pre class="example">
-- rundll32.exe sysdm.cpl EditEnvironmentVariables 
+rundll32.exe sysdm.cpl EditEnvironmentVariables 
 </pre>
 
 <p>
 화면 잠금 
 </p>
 <pre class="example">
-- rundll32.exe user32.dll LockWorkStation 
+rundll32.exe user32.dll LockWorkStation 
 </pre>
 
 <p>
 자격증명 저장 관리 
 </p>
 <pre class="example">
-- rundll32.exe keymgr.dll KRShowKeyMgr 
+rundll32.exe keymgr.dll KRShowKeyMgr 
 </pre>
 </div>
 </div>
@@ -1416,7 +1413,7 @@ abc.txt 파일의 라인 수를 셉니다
 바탕화면에서 edw로 시작하는 파일을 전부 검색합니다 
 </p>
 <pre class="example">
-- where.exe edw* /r c:\users\gyurs\Desktop\ 
+where.exe edw* /r c:\users\gyurs\Desktop\ 
 </pre>
 
 <p>
@@ -1449,28 +1446,28 @@ abc.txt 파일의 라인 수를 셉니다
 최대 절전모드를 해제합니다
 </p>
 <pre class="example">
-- powercfg.exe /hibernate off
+powercfg.exe /hibernate off
 </pre>
 
 <p>
 절전모드에서 깨울 수 있는 기기들의 목록을 보여줍니다
 </p>
 <pre class="example">
-- powercfg.exe /devicequery s1_supported
+powercfg.exe /devicequery s1_supported
 </pre>
 
 <p>
 현재 컴퓨터에 설정된 전원관리 방법을 확인합니다
 </p>
 <pre class="example">
-- powercfg.exe /a 
+powercfg.exe /a 
 </pre>
 
 <p>
 컴퓨터의 전원소비에 대한 보고서를 만들어줍니다
 </p>
 <pre class="example">
-- powercfg.exe /energy
+powercfg.exe /energy
 </pre>
 
 <p>
@@ -1486,28 +1483,28 @@ abc.txt 파일의 라인 수를 셉니다
 해당 레지스트리 값을 추가합니다 (psexec을 사용하기 위해) 
 </p>
 <pre class="example">
-- reg.exe add hklm\software\microsoft\windows\currentversion\policies\system /v LocalAccountTokenFilterPolicy /t reg_dword /d 1 /f 
+reg.exe add hklm\software\microsoft\windows\currentversion\policies\system /v LocalAccountTokenFilterPolicy /t reg_dword /d 1 /f 
 </pre>
 
 <p>
 UAC 세팅을 해제합니다 (재부팅 필요) 
 </p>
 <pre class="example">
-- reg.exe add hklm\software\microsoft\windows\currentversion\policies\system /v EnableLua /t reg_dword /d 0 /f 
+reg.exe add hklm\software\microsoft\windows\currentversion\policies\system /v EnableLua /t reg_dword /d 0 /f 
 </pre>
 
 <p>
 IPC-의 기본공유를 해제합니다 
 </p>
 <pre class="example">
-- reg.exe add hkey_local_machine\system\currentcontrolset\control\lsa\ /v RestrictAnonymous /t reg_dword /d 2 /f 
+reg.exe add hkey_local_machine\system\currentcontrolset\control\lsa\ /v RestrictAnonymous /t reg_dword /d 2 /f 
 </pre>
 
 <p>
 ADMIN-, C-의 기본공유를 해제합니다 
 </p>
 <pre class="example">
-- reg.exe add hkey_local_machine\system\currentcontrolset\services\lanmanserver\parameters /v AutoshareWks /t reg_dword /d 0 /f 
+reg.exe add hkey_local_machine\system\currentcontrolset\services\lanmanserver\parameters /v AutoshareWks /t reg_dword /d 0 /f 
 </pre>
 
 <p>
@@ -1525,7 +1522,7 @@ net stats
 시스템 마지막 부팅시간을 확인합니다 
 </p>
 <pre class="example">
-- net stats work 
+net stats work 
 </pre></li>
 
 <li><p>
@@ -1533,14 +1530,14 @@ net share
 IPC- 자동공유를 중지합니다 (C-, ADMIN-도 삭제할 수 있습니다) 
 </p>
 <pre class="example">
-- net.exe share IPC- /delete 
+net.exe share IPC- /delete 
 </pre>
 
 <p>
 IPC- 자동공유를 다시 설정합니다 
 </p>
 <pre class="example">
-- net.exe share IPC- /grant:gyurse,full 
+net.exe share IPC- /grant:gyurse,full 
 </pre></li>
 </ul>
 
@@ -1553,21 +1550,21 @@ net user
 ashley 라는 계정을 생성합니다. 비밀번호는 qwer1234 fullname은 Iron Man, comment는 hello guys, 계정은 활성화상태입니다 
 </p>
 <pre class="example">
-- net.exe user ashley qwer1234 /add /fullname:"Iron Man" /comment:"hello guys" /active:yes 
+net.exe user ashley qwer1234 /add /fullname:"Iron Man" /comment:"hello guys" /active:yes 
 </pre>
 
 <p>
 ashley의 자세한 정보를 확인합니다 
 </p>
 <pre class="example">
-- net.exe user ashley 
+net.exe user ashley 
 </pre>
 
 <p>
 ashley 계정을 삭제합니다 
 </p>
 <pre class="example">
-- net.exe user ashley /delete 
+net.exe user ashley /delete 
 </pre></li>
 </ul>
 <p>
@@ -1579,14 +1576,14 @@ net localgroup
 ashleygroup 이라는 이름의 localgroup을 생성합니다 comment도 같이 생성합니다 
 </p>
 <pre class="example">
-- net.exe localgroup ASHLEYGROUP /add /comment:"here is ashley world" 
+net.exe localgroup ASHLEYGROUP /add /comment:"here is ashley world" 
 </pre>
 
 <p>
 ashley 계정을 ASHLEYGROUP 그룹에 추가시킵니다 
 </p>
 <pre class="example">
-- net.exe localgroup ASHLEYGROUP ashley /add 
+net.exe localgroup ASHLEYGROUP ashley /add 
 </pre></li>
 
 <li><p>
@@ -1594,14 +1591,14 @@ net use
 localhost의 컴퓨터 자체에 계정명 ashley, 패스워드 qwer1234로 접속합니다 (사용자와 연결이 아닙니다) 
 </p>
 <pre class="example">
-- net.exe use \\localhost\IPC- /user:ashley qwer1234 
+net.exe use \\localhost\IPC- /user:ashley qwer1234 
 </pre>
 
 <p>
 localhost의 share라는 폴더에 계정명/패스워드로 접속합니다 
 </p>
 <pre class="example">
-- net.exe use \\localhost\share /user:ashley qwer1234 
+net.exe use \\localhost\share /user:ashley qwer1234 
 </pre></li>
 
 <li><p>
@@ -1609,7 +1606,7 @@ net time
 localhost의 시간을 확인할 수 있습니다 
 </p>
 <pre class="example">
-- net time \\localhost 
+net time \\localhost 
 </pre></li>
 </ul>
 
@@ -1626,14 +1623,14 @@ localhost의 시간을 확인할 수 있습니다
 컴퓨터의 모든 사용자들에게 5초동안 유효한 hello guys 메세지를 보냅니다 
 </p>
 <pre class="example">
-- msg.exe * /v /time:5 hello guys 
+msg.exe * /v /time:5 hello guys 
 </pre>
 
 <p>
 localhost의 모든 세션 사용자들에게 hello guys2 메세지를 보냅니다 
 </p>
 <pre class="example">
-- msg.exe * /server:localhost /v /w hello guys2 
+msg.exe * /server:localhost /v /w hello guys2 
 </pre>
 
 <p>
@@ -1649,21 +1646,21 @@ localhost의 모든 세션 사용자들에게 hello guys2 메세지를 보냅니
 c:\temp경로를 X: 드라이브로 치환합니다 
 </p>
 <pre class="example">
-- subst.exe X: C:\temp\ 
+subst.exe X: C:\temp\ 
 </pre>
 
 <p>
 X 드라이브에 접속합니다 
 </p>
 <pre class="example">
-- cmd&gt; X: 
+cmd&gt; X: 
 </pre>
 
 <p>
 해당 치환경로를 삭제합니다 
 </p>
 <pre class="example">
-- subst.exe X: /d 
+subst.exe X: /d 
 </pre>
 
 <p>
@@ -1681,36 +1678,36 @@ netsh advfirewall (cmd&gt; wf를 통해 확인할 수 있습니다)
 새로운 방화벽 허용룰을 추가합니다 이름은 TCP-445이고 tcp 445번 포트의 접속을 허용합니다 
 </p>
 <pre class="example">
-- netsh.exe advfirewall firewall add rule name="TCP-445" dir=in action=allow protocol=tcp localport=445 
+netsh.exe advfirewall firewall add rule name="TCP-445" dir=in action=allow protocol=tcp localport=445 
 </pre>
 
 <p>
 tcp-445라는 이름을 가진 방화벽 정책을 확인합니다 
 </p>
 <pre class="example">
-- netsh.exe advfirewall firewall show rule name="tcp-445" 
+netsh.exe advfirewall firewall show rule name="tcp-445" 
 </pre>
 
 <p>
 현재 방화벽 설정을 파일로 저장하고 나중에 가져올 수 있습니다 
 </p>
 <pre class="example">
-- netsh.exe advfirewall export c:\advfirewallpolicy.wfw 
-- netsh.exe advfirewall import c:\advfirewallpolicy.wfw 
+netsh.exe advfirewall export c:\advfirewallpolicy.wfw 
+netsh.exe advfirewall import c:\advfirewallpolicy.wfw 
 </pre>
 
 <p>
 현재 방화벽 설정을 볼 수 있습니다 
 </p>
 <pre class="example">
-- netsh.exe advfirewall firewall show rule name=all | more 
+netsh.exe advfirewall firewall show rule name=all | more 
 </pre>
 
 <p>
 2000 - 3000 번 포트 접속을 막습니다 
 </p>
 <pre class="example">
-- netsh.exe advfirewall firewall add rule name="Block_2000_3000" dir=in action=block protocol=tcp localport=2000-3000 
+netsh.exe advfirewall firewall add rule name="Block_2000_3000" dir=in action=block protocol=tcp localport=2000-3000 
 </pre></li>
 
 <li><p>
@@ -1718,43 +1715,43 @@ netsh interface
 네트워크 인터페이스 목록을 확인합니다 
 </p>
 <pre class="example">
-- netsh.exe interface show interface 
+netsh.exe interface show interface 
 </pre>
 
 <p>
 모든 네트워크 인터페이스 목록을 확인합니다 
 </p>
 <pre class="example">
-- netsh.exe interface dump 
+netsh.exe interface dump 
 </pre>
 
 <p>
 원격포트가 443번인 모든 ipv4 tcp 연결을 확인합니다 
 </p>
 <pre class="example">
-- netsh.exe interface ipv4 show tcpconnections remoteport=443 
+netsh.exe interface ipv4 show tcpconnections remoteport=443 
 </pre>
 
 <p>
 ipv4 프로토콜의 여러 매개변수들을 확인합니다 
 </p>
 <pre class="example">
-- netsh.exe interface ipv4 show global 
+netsh.exe interface ipv4 show global 
 </pre>
 
 <p>
 현재 네트워크카드의 IP 관련된 설정을 확인합니다 
 </p>
 <pre class="example">
-- netsh.exe interface ipv4 show config 
+netsh.exe interface ipv4 show config 
 </pre>
 
 <p>
 IP를 DHCP로 설정합니다 
 </p>
 <pre class="example">
-- netsh.exe interface ip set address name ="Ethernet" source=dhcp 
-- netsh.exe interface ip set dns "Ethernet" dhcp 
+netsh.exe interface ip set address name ="Ethernet" source=dhcp 
+netsh.exe interface ip set dns "Ethernet" dhcp 
 </pre></li>
 </ul>
 
@@ -1825,7 +1822,7 @@ IP를 DHCP로 설정합니다
 Winsxs 폴더를 정리합니다. 구성요소저장소에 있는 모든 구성요소의 교체된 버전이 제거됩니다 
 </p>
 <pre class="example">
-- dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase 
+dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase 
 </pre>
 </div>
 </div>
@@ -1918,42 +1915,42 @@ Winsxs 폴더를 정리합니다. 구성요소저장소에 있는 모든 구성�
 숨겨진 파일, 시스템 파일 등 모든 파일을 확인합니다 
 </p>
 <pre class="example">
-- dir /a 
+dir /a 
 </pre>
 
 <p>
 디렉토리에 붙은 PROGRA~1 같은 별칭들을 확인합니다 
 </p>
 <pre class="example">
-- dir /x 
+dir /x 
 </pre>
 
 <p>
 간단하게 이름만 확인합니다 
 </p>
 <pre class="example">
-- dir /b 
+dir /b 
 </pre>
 
 <p>
 내컴퓨터의 모든 파일을 하위디렉토리까지 전부 확인해서 myallfiles.txt로 저장합니다 
 </p>
 <pre class="example">
-- dir /s c:\ &gt; myallfiles.txt
+dir /s c:\ &gt; myallfiles.txt
 </pre>
 
 <p>
 해당 디렉토리에서 edw로 시작하는 파일만 확인합니다 
 </p>
 <pre class="example">
-- dir /a /x edw* 
+dir /a /x edw* 
 </pre>
 
 <p>
 해당 디렉토리의 소유자를 확인합니다 
 </p>
 <pre class="example">
-- dir /q 
+dir /q 
 </pre>
 
 <p>
@@ -1969,14 +1966,14 @@ Winsxs 폴더를 정리합니다. 구성요소저장소에 있는 모든 구성�
 c 드라이브로 이동합니다 
 </p>
 <pre class="example">
-- cd c:\ 
+cd c:\ 
 </pre>
 
 <p>
 사용자 계정폴더로 이동합니다 
 </p>
 <pre class="example">
-- cd %userprofile% 
+cd %userprofile% 
 </pre>
 
 <p>
@@ -1992,7 +1989,7 @@ c 드라이브로 이동합니다
 현재 날짜를 확인합니다 
 </p>
 <pre class="example">
-- date /t
+date /t
 </pre>
 
 <p>
@@ -2008,7 +2005,7 @@ c 드라이브로 이동합니다
 현재 시간을 확인합니다 
 </p>
 <pre class="example">
-- time /t 
+time /t 
 </pre>
 
 <p>
@@ -2024,14 +2021,14 @@ c 드라이브로 이동합니다
 cmd창 언어코드를 한글로 설정합니다 
 </p>
 <pre class="example">
-- chcp 949 
+chcp 949 
 </pre>
 
 <p>
 cmd창 언어코드를 영어로 설정합니다 
 </p>
 <pre class="example">
-- chcp 437 
+chcp 437 
 </pre>
 
 <p>
@@ -2047,14 +2044,14 @@ cmd창 언어코드를 영어로 설정합니다
 현재 cmd창이 가리키는 폴더를 엽니다 
 </p>
 <pre class="example">
-- start . 
+start . 
 </pre>
 
 <p>
 edward.txt라는 파일을 메모장으로 생성합니다 
 </p>
 <pre class="example">
-- start notepad edward.txt 
+start notepad edward.txt 
 </pre>
 
 <p>
@@ -2084,21 +2081,21 @@ edward.txt라는 파일을 메모장으로 생성합니다
 ADMIN-, IPC- 공유가 설정되어있어야 합니다 
 </p>
 <pre class="example">
-- net.exe share 
+net.exe share 
 </pre>
 
 <p>
 타겟컴퓨터에 해당 레지스트리 값을 추가합니다 
 </p>
 <pre class="example">
-- reg.exe add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f 
+reg.exe add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f 
 </pre>
 
 <p>
 타겟컴퓨터에 445번 포트를 개방합니다 
 </p>
 <pre class="example">
-- netsh.exe advfirewall firewall add rule name="TCP-445" dir=in action=allow protocol=tcp localport=445 
+netsh.exe advfirewall firewall add rule name="TCP-445" dir=in action=allow protocol=tcp localport=445 
 </pre>
 
 <p>
@@ -2109,7 +2106,7 @@ ADMIN-, IPC- 공유가 설정되어있어야 합니다
 내컴퓨터, psexec 명령어를 사용합니다 
 </p>
 <pre class="example">
-- psexec \\172.30.1.15 -u &lt;hostname&gt; -p &lt;password&gt; &lt;command&gt; 
+psexec \\172.30.1.15 -u &lt;hostname&gt; -p &lt;password&gt; &lt;command&gt; 
 </pre>
 
 <p>
@@ -2126,7 +2123,7 @@ service 자동시작프로그램들을 확인합니다
 띄어쓰기로 구분, 서비스목록만 확인, EULA 서약 자동 확인 
 </p>
 <pre class="example">
-- autorunsc.exe -ct -a s /accepteula 
+autorunsc.exe -ct -a s /accepteula 
 </pre>
 
 <p>
@@ -2134,7 +2131,7 @@ service 자동시작프로그램들을 확인합니다
 띄어쓰기로 구분, 시간형식 timestamp로, 로그온목록만 확인, EULA 서약 자동 확인 
 </p>
 <pre class="example">
-- autorunsc.exe -ct -t -a lb /accepteula 
+autorunsc.exe -ct -t -a lb /accepteula 
 </pre>
 </div>
 </div>
@@ -2151,169 +2148,169 @@ service 자동시작프로그램들을 확인합니다
 프로그램을 hide 모드로 실행합니다 
 </p>
 <pre class="example">
-- nircmd.exe exec hide &lt;processname&gt; 
+nircmd.exe exec hide &lt;processname&gt; 
 </pre>
 
 <p>
 컴퓨터 음량을 최대치로 설정합니다 
 </p>
 <pre class="example">
-- nircmd.exe setsysvolume 65535 
+nircmd.exe setsysvolume 65535 
 </pre>
 
 <p>
 컴퓨터의 음량을 음소거합니다 
 </p>
 <pre class="example">
-- nircmd.exe mutesysvolume 1 
+nircmd.exe mutesysvolume 1 
 </pre>
 
 <p>
 chrome.exe 프로그램의 볼륨을 제거합니다 
 </p>
 <pre class="example">
-- nircmd.exe changeappvolume chrome.exe -1 
+nircmd.exe changeappvolume chrome.exe -1 
 </pre>
 
 <p>
 컴퓨터의 밝기를 최저로 합니다 
 </p>
 <pre class="example">
-- nircmd.exe setbrightness 0 
+nircmd.exe setbrightness 0 
 </pre>
 
 <p>
 cmd 프로그램을 관리자권한으로 엽니다 
 </p>
 <pre class="example">
-- nircmd.exe elevate cmd 
+nircmd.exe elevate cmd 
 </pre>
 
 <p>
 주파수가 500 정도인 소리를 2초동안 냅니다 
 </p>
 <pre class="example">
-- nircmd.exe beep 500 2000 
+nircmd.exe beep 500 2000 
 </pre>
 
 <p>
 explorer.exe 프로세스를 강제로 재시작합니다 
 </p>
 <pre class="example">
-- nircmd.exe restartexplorer 
+nircmd.exe restartexplorer 
 </pre>
 
 <p>
 cdrom을 엽니다 
 </p>
 <pre class="example">
-- nircmd.exe cdrom open 
+nircmd.exe cdrom open 
 </pre>
 
 <p>
 시스템에서 로그아웃하거나 종료합니다 
 </p>
 <pre class="example">
-- nircmd.exe exitwin logoff 
-- nircmd.exe exitwin poweroff force 
+nircmd.exe exitwin logoff 
+nircmd.exe exitwin poweroff force 
 </pre>
 
 <p>
 시스템을 잠급니다 
 </p>
 <pre class="example">
-- nircmd.exe lockws 
+nircmd.exe lockws 
 </pre>
 
 <p>
 시스템을 절전모드로 합니다 
 </p>
 <pre class="example">
-- nircmd.exe standby 
+nircmd.exe standby 
 </pre>
 
 <p>
 시스템을 강제로 최대절전모드로 합니다 
 </p>
 <pre class="example">
-- nircmd.exe hibernate force 
+nircmd.exe hibernate force 
 </pre>
 
 <p>
 컴퓨터의 화면을 끕니다 
 </p>
 <pre class="example">
-- nircmd.exe monitor off 
+nircmd.exe monitor off 
 </pre>
 
 <p>
 휴지통을 비웁니다 
 </p>
 <pre class="example">
-- nircmd.exe emptybin 
+nircmd.exe emptybin 
 </pre>
 
 <p>
 현재화면을 스크린샷으로 찍어서 해당 계정 폴더에 pic.png 파일로 저장합니다 
 </p>
 <pre class="example">
-- nircmd.exe savescreenshot %userprofile%\pic.png 
+nircmd.exe savescreenshot %userprofile%\pic.png 
 </pre>
 
 <p>
 현재 화면을 10번씩 5초단위로 찍어서 scr~.png이름으로 저장합니다 
 </p>
 <pre class="example">
-- nircmd.exe loop 10 5000 savescreenshot %userprofile%\scr~-loopcount-.png 
+nircmd.exe loop 10 5000 savescreenshot %userprofile%\scr~-loopcount-.png 
 </pre>
 
 <p>
 마우스를 우클릭하게 합니다 
 </p>
 <pre class="example">
-- nircmd.exe sendmouse right click 
+nircmd.exe sendmouse right click 
 </pre>
 
 <p>
 마우스를 더블클릭하게 합니다 
 </p>
 <pre class="example">
-- nircmd.exe sendmouse left dblclick 
+nircmd.exe sendmouse left dblclick 
 </pre>
 
 <p>
 마우스를 (30,-20)픽셀만큼 이동합니다 
 </p>
 <pre class="example">
-- nircmd.exe sendmouse move 30 -20 
+nircmd.exe sendmouse move 30 -20 
 </pre>
 
 <p>
 A를 타이핑합니다 
 </p>
 <pre class="example">
-- nircmd.exe sendkey A press 
+nircmd.exe sendkey A press 
 </pre>
 
 <p>
 ctrl 키를 계속 누른상태로 유지합니다 (shift, esc 가능) 
 </p>
 <pre class="example">
-- nircmd.exe sendkey ctrl down 
+nircmd.exe sendkey ctrl down 
 </pre>
 
 <p>
 hello라는 이름의 메세지 창을 2초 간격으로 3번 생성합니다 
 </p>
 <pre class="example">
-- nircmd.exe loop 3 2000 infobox "hello" "message" 
+nircmd.exe loop 3 2000 infobox "hello" "message" 
 </pre>
 
 <p>
 open calc?라는 물음창이 뜨고 확인을 누르면 calc.exe를 생성합니다 
 </p>
 <pre class="example">
-- nircmd.exe qbox "open calc?" "message" "calc.exe"
+nircmd.exe qbox "open calc?" "message" "calc.exe"
 </pre>
 </div>
 </div>
