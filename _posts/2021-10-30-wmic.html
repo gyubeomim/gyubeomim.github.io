@@ -1,0 +1,440 @@
+--- 
+layout: post
+title: WMIC 명령어를 활용한 시스템 분석 - 여러가지 명령어들
+description: 
+date: 2021-10-30
+categories: [Technology]
+tag: [windows, wmic]
+use_math: true
+comments: true
+---
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org1389f5c">1. WMIC commands</a>
+<ul>
+<li><a href="#orga18c2d3">1.1. os</a></li>
+<li><a href="#org0ccfab5">1.2. cpu</a></li>
+<li><a href="#orgc777dd2">1.3. logicaldist</a></li>
+<li><a href="#org2628df4">1.4. volume</a></li>
+<li><a href="#orgeac1ece">1.5. logon</a></li>
+<li><a href="#org2483dcf">1.6. environment</a></li>
+<li><a href="#org8007087">1.7. desktop</a></li>
+<li><a href="#org4d33a6f">1.8. service</a></li>
+<li><a href="#orgc368b18">1.9. computersystem</a></li>
+<li><a href="#orgf2a458a">1.10. bios</a></li>
+<li><a href="#org9a9016e">1.11. memorychip</a></li>
+<li><a href="#orgc98d4d9">1.12. path</a></li>
+<li><a href="#org5df5945">1.13. process</a></li>
+<li><a href="#orgc9cdac8">1.14. csproduct</a></li>
+<li><a href="#org8557c79">1.15. diskdrive</a></li>
+<li><a href="#orgf1a9eea">1.16. startup</a></li>
+<li><a href="#org7f217c5">1.17. product</a></li>
+<li><a href="#org1ce2dbe">1.18. useraccount</a></li>
+<li><a href="#orgf27950a">1.19. sysdriver</a></li>
+</ul>
+</li>
+<li><a href="#org2cb01d0">2. Batch script</a></li>
+<li><a href="#orge63195e">3. format</a></li>
+<li><a href="#org35a01e2">4. Reference</a></li>
+</ul>
+</div>
+</nav>
+
+
+<div id="outline-container-org1389f5c" class="outline-2">
+<h2 id="org1389f5c"><span class="section-number-2">1</span> WMIC commands</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orga18c2d3" class="outline-3">
+<h3 id="orga18c2d3"><span class="section-number-3">1.1</span> os</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+관련 정보 출력 (간략하게)
+</p>
+<pre class="example">
+wmic os list brief /format:list  
+</pre>
+
+<p>
+정보를 html 형식으로 출력해서 확인합니다
+</p>
+<pre class="example">
+wmic /output:osinfo.html os get /format:hform  
+</pre>
+
+<p>
+시스템을 종료하거나 리부팅합니다 
+</p>
+<pre class="example">
+wmic os where "status='ok'" call shutdown
+wmic os where "status='ok'" call reboot
+</pre>
+
+<p>
+OS의 속성을 확인할 수 있습니다 (컬럼)
+</p>
+<pre class="example">
+wmic os get /?
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0ccfab5" class="outline-3">
+<h3 id="org0ccfab5"><span class="section-number-3">1.2</span> cpu</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+관련 정보 출력 (간략하게)
+</p>
+<pre class="example">
+wmic cpu list brief /format:list
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc777dd2" class="outline-3">
+<h3 id="orgc777dd2"><span class="section-number-3">1.3</span> logicaldist</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+관련 정보를 확인합니다
+</p>
+<pre class="example">
+wmic logicaldisk where drivetype=3 get name,size,freespace,systemname /format:list  
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org2628df4" class="outline-3">
+<h3 id="org2628df4"><span class="section-number-3">1.4</span> volume</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+볼륨 정보를 확인합니다
+</p>
+<pre class="example">
+wmic volume list brief /format:list 
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgeac1ece" class="outline-3">
+<h3 id="orgeac1ece"><span class="section-number-3">1.5</span> logon</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+모든 로그온 세션의 목록을 확인합니다
+</p>
+<pre class="example">
+wmic logon list full /format:list | more
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org2483dcf" class="outline-3">
+<h3 id="org2483dcf"><span class="section-number-3">1.6</span> environment</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+환경설정 목록을 확인합니다
+</p>
+<pre class="example">
+wmic environment list full /format:list | more
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org8007087" class="outline-3">
+<h3 id="org8007087"><span class="section-number-3">1.7</span> desktop</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+데스크탑 화면 설정을 확인합니다
+</p>
+<pre class="example">
+wmic desktop list full /format:list | more 
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org4d33a6f" class="outline-3">
+<h3 id="org4d33a6f"><span class="section-number-3">1.8</span> service</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+관련 정보를 확인합니다
+</p>
+<pre class="example">
+wmic service list brief /format:list
+</pre>
+
+
+<p>
+관련 정보를 html table 형식으로 출력해서 확인합니다
+</p>
+<pre class="example">
+wmic /output:service.html service list brief /format:htable 
+</pre>
+
+<p>
+%ora% 구문이 들어가있는 이름의 서비스를 확인합니다
+</p>
+<pre class="example">
+wmic service where "name like '%ora%'" list brief
+</pre>
+
+<p>
+특정 서비스를 시작하거나 중지합니다
+</p>
+<pre class="example">
+wmic service where name="service_name" call startservice
+wmic service where name="service_name" call stopservice
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc368b18" class="outline-3">
+<h3 id="orgc368b18"><span class="section-number-3">1.9</span> computersystem</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+정보를 html 형식으로 출력해서 확인합니다
+</p>
+<pre class="example">
+wmic /output:compsystem.html computersystem get /format:hform 
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf2a458a" class="outline-3">
+<h3 id="orgf2a458a"><span class="section-number-3">1.10</span> bios</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+컴퓨터 s/n 넘버 확인하기
+</p>
+<pre class="example">
+wmic bios get serialnumber 
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org9a9016e" class="outline-3">
+<h3 id="org9a9016e"><span class="section-number-3">1.11</span> memorychip</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+메모리 확인하기
+</p>
+<pre class="example">
+wmic memorychip get banklabel, capacity
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc98d4d9" class="outline-3">
+<h3 id="orgc98d4d9"><span class="section-number-3">1.12</span> path</h3>
+<div class="outline-text-3" id="text-1-12">
+<p>
+프로세서 CPU 정보 확인하기
+</p>
+<pre class="example">
+wmic path win32_processor get numberofcores, numberoflogicalprocessors, processorid
+</pre>
+
+<p>
+그래픽카드 GPU 확인하기
+</p>
+<pre class="example">
+wmic path win32_VideoController get name 
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org5df5945" class="outline-3">
+<h3 id="org5df5945"><span class="section-number-3">1.13</span> process</h3>
+<div class="outline-text-3" id="text-1-13">
+<p>
+processid가 7332인 프로세스의 정보를 간략하게 확인합니다
+</p>
+<pre class="example">
+wmic process where processid=7332 list brief /format:list
+</pre>
+
+<p>
+해당 프로세스를 종료합니다
+</p>
+<pre class="example">
+wmic process where processid=7836 delete
+</pre>
+
+<p>
+해당 프로세스를 디버깅합니다
+</p>
+<pre class="example">
+wmic process where processid=5256 call attachdebugger
+</pre>
+
+<p>
+해당 cmd 명령을 실행합니다 
+</p>
+<pre class="example">
+wmic process call create "cmd.exe /c ipconfig" &gt;&gt; result.txt
+</pre>
+
+<p>
+iexplore.exe 를 종료합니다
+</p>
+<pre class="example">
+wmic process where name="iexplore.exe" call terminate
+</pre>
+
+<p>
+notepad.exe 의 우선순위를 64로 설정합니다 
+</p>
+<pre class="example">
+wmic process where name="notepad.exe" call setpriority 64
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orgc9cdac8" class="outline-3">
+<h3 id="orgc9cdac8"><span class="section-number-3">1.14</span> csproduct</h3>
+<div class="outline-text-3" id="text-1-14">
+<p>
+장비의 사양을 확인합니다
+</p>
+<pre class="example">
+wmic csproduct list brief /format:list
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org8557c79" class="outline-3">
+<h3 id="org8557c79"><span class="section-number-3">1.15</span> diskdrive</h3>
+<div class="outline-text-3" id="text-1-15">
+<p>
+디스크 모델명을 확인합니다 
+</p>
+<pre class="example">
+wmic diskdrive list brief /format:list
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf1a9eea" class="outline-3">
+<h3 id="orgf1a9eea"><span class="section-number-3">1.16</span> startup</h3>
+<div class="outline-text-3" id="text-1-16">
+<p>
+시작프로그램 목록을 확인합니다
+</p>
+<pre class="example">
+wmic startup list brief
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org7f217c5" class="outline-3">
+<h3 id="org7f217c5"><span class="section-number-3">1.17</span> product</h3>
+<div class="outline-text-3" id="text-1-17">
+<p>
+설치된 프로그램 리스트를 확인합니다
+</p>
+<pre class="example">
+wmic product get name 
+</pre>
+
+<p>
+설치된 프로그램을 삭제합니다
+</p>
+<pre class="example">
+wmic product where name="Adobe Reader 9" call uninstall
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org1ce2dbe" class="outline-3">
+<h3 id="org1ce2dbe"><span class="section-number-3">1.18</span> useraccount</h3>
+<div class="outline-text-3" id="text-1-18">
+<p>
+이름에 ad가 포함된 계정을 확인합니다
+</p>
+<pre class="example">
+wmic useraccount where "name like '%ad%'" list full
+</pre>
+
+<p>
+관리자(administrator)의 이름을 edward로 바꿉니다
+</p>
+<pre class="example">
+wmic useraccount where name="administrator" call rename name="edward"
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf27950a" class="outline-3">
+<h3 id="orgf27950a"><span class="section-number-3">1.19</span> sysdriver</h3>
+<div class="outline-text-3" id="text-1-19">
+<p>
+시스템 드라이버를 간략하게 확인합니다
+</p>
+<pre class="example">
+wmic sysdriver list brief /format:list
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org2cb01d0" class="outline-2">
+<h2 id="org2cb01d0"><span class="section-number-2">2</span> Batch script</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+OS, COMPUTERSYSTEM, SERVICE 관련 정보를 수집하는 스크립트입니다. .bat 파일로 저장하신 후 실행하시면 됩니다.
+</p>
+
+<p>
+Filename: getsysteminfo.bat 
+</p>
+<pre class="example">
+@echo off
+if %1$==$ (
+ rem use the localcomputername if nothing is specified
+set computer=%computername%
+) else (
+rem use the computername passed as a parameter
+set computer=%1
+)
+rem  Creating report for %computer%
+set htmlfile=%computer%.html
+
+rem redirect wmic output to NULL since we don't really need to see it
+wmic OS get /format:hform   &gt; "%htmlfile%"
+wmic computersystem get /format:hform  &gt;&gt; "%htmlfile%"
+wmic service where state="running" get caption,name,pathname,state,status,acceptpause,acceptstop,processid,systemname,startname  /format:htable &gt;&gt; "%htmlfile%"
+wmic service where state="stopped" get caption,name,pathname,state,status,acceptpause,acceptstop,processid,systemname,startname  /format:htable &gt;&gt; "%htmlfile%"
+wmic csproduct list brief /format:htable &gt;&gt; "%htmlfile%"
+wmic cpu list brief /format:htable &gt;&gt;"%htmlfile%"
+wmic diskdrive list brief /format:htable &gt;&gt;"%htmlfile%"
+wmic logicaldisk list brief /format:htable &gt;&gt;"%htmlfile%"
+wmic volume list brief /format:htable &gt;&gt;"%htmlfile%"
+wmic NICCONFIG list brief /format:htable &gt;&gt;"%htmlfile%"
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orge63195e" class="outline-2">
+<h2 id="orge63195e"><span class="section-number-2">3</span> format</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+/format : csv, list &#x2026;
+list full, brief, free, status, system&#x2026;
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org35a01e2" class="outline-2">
+<h2 id="org35a01e2"><span class="section-number-2">4</span> Reference</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li><a href="https://blog.naver.com/gyurse/220783759267">https://blog.naver.com/gyurse/220783759267</a></li>
+</ol>
+</div>
+</div>
