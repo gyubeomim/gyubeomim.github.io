@@ -103,3 +103,6 @@
 
 - slug: windows
   name: Windows
+
+- slug: powershell
+  name: Powershell

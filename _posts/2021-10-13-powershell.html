@@ -1,0 +1,765 @@
+--- 
+layout: post
+title: Powershell 명령어를 활용한 시스템 분석 - 여러가지 명령어 설명
+description: 
+date: 2021-10-13
+categories: [Technology]
+tag: [windows, powershell]
+use_math: true
+comments: true
+---
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org0ba82c5">1. Powershell commands</a>
+<ul>
+<li><a href="#org7cb8b31">1.1. GET-&#x2026;</a>
+<ul>
+<li><a href="#org1e30501">1.1.1. Get-Process</a></li>
+<li><a href="#org2b9879b">1.1.2. Get-Scheduledtask</a></li>
+<li><a href="#orgaf03c59">1.1.3. Get-WmiObject</a></li>
+<li><a href="#orgf727823">1.1.4. Get-Childitem</a></li>
+<li><a href="#orgf5d77b8">1.1.5. Get-PSDrive</a></li>
+<li><a href="#orgb057e1b">1.1.6. Get-Command</a></li>
+<li><a href="#org3afb1ba">1.1.7. Get-Help</a></li>
+<li><a href="#org11647cc">1.1.8. Get-Alias</a></li>
+<li><a href="#org6be013e">1.1.9. Get-Date</a></li>
+<li><a href="#org6d092c9">1.1.10. Get-Item</a></li>
+<li><a href="#org2d1a4ae">1.1.11. Get-History</a></li>
+<li><a href="#org4013772">1.1.12. Get-Eventlog</a></li>
+<li><a href="#org861713e">1.1.13. Get-Service</a></li>
+<li><a href="#orgb107eb1">1.1.14. Get-Appxpackage</a></li>
+</ul>
+</li>
+<li><a href="#org2fb11e7">1.2. STOP-&#x2026;</a>
+<ul>
+<li><a href="#org4807072">1.2.1. Stop-Process</a></li>
+</ul>
+</li>
+<li><a href="#org713cf71">1.3. SET-&#x2026;</a>
+<ul>
+<li><a href="#orgff72582">1.3.1. Set-ExecutionPolicy</a></li>
+</ul>
+</li>
+<li><a href="#org3b59c90">1.4. EXPORT-&#x2026;, IMPORT-&#x2026;</a>
+<ul>
+<li><a href="#org3bae26a">1.4.1. Export-CSV, Import-CSV</a></li>
+</ul>
+</li>
+<li><a href="#org566f45f">1.5. NEW-&#x2026;</a>
+<ul>
+<li><a href="#org3ace1cf">1.5.1. New-Item</a></li>
+</ul>
+</li>
+<li><a href="#org7c0be74">1.6. REMOVE-&#x2026;</a>
+<ul>
+<li><a href="#orgf7d7a06">1.6.1. Remove-Item</a></li>
+</ul>
+</li>
+<li><a href="#org1c06f1d">1.7. .net framework</a>
+<ul>
+<li><a href="#org73cfbbe">1.7.1. [Math]</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgfc39370">2. Powershell script</a>
+<ul>
+<li><a href="#orgd438d0f">2.1. show_uptime.ps1 (현재 시스템의 uptime을 출력하는 스크립트)</a></li>
+<li><a href="#org9ff02e8">2.2. getmyDriveStatus.ps1 (현재 자신의 Drive의 용량상태를 GB 단위로 확인하는 스크립트)</a></li>
+</ul>
+</li>
+<li><a href="#org6aaceb0">3. $ 변수의 활용</a>
+<ul>
+<li><a href="#org090b8ab">3.1. $ Variables</a></li>
+<li><a href="#org16fe98e">3.2. Examples</a></li>
+<li><a href="#orgf7c1ab8">3.3. Powershell Function</a>
+<ul>
+<li><a href="#orgb457ae6">3.3.1. Variable Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org974bc53">4. Reference</a></li>
+</ul>
+</div>
+</nav>
+
+
+<div id="outline-container-org0ba82c5" class="outline-2">
+<h2 id="org0ba82c5"><span class="section-number-2">1</span> Powershell commands</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+포스팅에 사용한 파워쉘 버전은 5.1버전입니다. $PSVersionTable 명령어를 통해 파워쉘 버전을 확인할 수 있습니다.
+</p>
+</div>
+
+<div id="outline-container-org7cb8b31" class="outline-3">
+<h3 id="org7cb8b31"><span class="section-number-3">1.1</span> GET-&#x2026;</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org1e30501" class="outline-4">
+<h4 id="org1e30501"><span class="section-number-4">1.1.1</span> Get-Process</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+프로세스 정보를 확인합니다
+</p>
+<ul class="org-ul">
+<li>get-process</li>
+<li>gps</li>
+</ul>
+
+<p>
+[s] 로 시작하는 모든 프로세스를 확인합니다
+</p>
+<ul class="org-ul">
+<li>get-process [s]*</li>
+</ul>
+
+<p>
+어떤 프로세스가 700개 이상의 핸들을 점유하고 있는 지 확인합니다
+</p>
+<ul class="org-ul">
+<li>get-process | where handles -gt 700 | sort cpu -descending</li>
+</ul>
+
+<p>
+workingset 메모리가 100M 이상인 프로세스를 확인합니다
+</p>
+<ul class="org-ul">
+<li>get-process | where-object {$_.workingset -gt 100mb} | sort pm -descending</li>
+</ul>
+
+<p>
+프로세스 중 마지막 10개만 정렬해서 htm 문서화합니다
+</p>
+<ul class="org-ul">
+<li>get-process | select-object -last 10 | select-object name, handle, cpu, id, workingset | convertto-html | out-file c:\process.htm</li>
+</ul>
+
+<p>
+프로세스 이름이 sv로 시작하는 프로세스를 확인합니다
+</p>
+<ul class="org-ul">
+<li>get-process | where ProcessName -Like sv*</li>
+</ul>
+
+<p>
+gvim 프로세스의 자세한 정보를 확인합니다
+</p>
+<ul class="org-ul">
+<li>get-process gvim | format-list *</li>
+</ul>
+
+<p>
+wmi*로 시작하는 프로세스를 전부 종료합니다
+</p>
+<ul class="org-ul">
+<li>get-process | where processname -like wmi* | kill</li>
+</ul>
+
+<p>
+vmw*로 시작하는 프로세스를 전부 종료합니다
+</p>
+<ul class="org-ul">
+<li>get-process | where processname -like vmw* | stop-process -Force</li>
+</ul>
+
+<p>
+"각각 프로세스들이 언제 시작됐는지 확인합니다
+</p>
+<ul class="org-ul">
+<li>get-process | select name, starttime</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2b9879b" class="outline-4">
+<h4 id="org2b9879b"><span class="section-number-4">1.1.2</span> Get-Scheduledtask</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+ashley라는 이름의 예약작업 정보를 확인합니다
+</p>
+<ul class="org-ul">
+<li>get-scheduledtask | where taskname -like <b>ashley</b> | fl *</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgaf03c59" class="outline-4">
+<h4 id="orgaf03c59"><span class="section-number-4">1.1.3</span> Get-WmiObject</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+win32_pingstatus를 이용해 IP를 확인합니다
+</p>
+<ul class="org-ul">
+<li>get-wmiobject win32_pingstatus -filter "address='localhost'"</li>
+</ul>
+
+<p>
+win32_logicaldisk를 이용해 c:\ 정보를 확인합니다
+</p>
+<ul class="org-ul">
+<li>get-wmiobject win32_logicaldisk</li>
+</ul>
+
+<p>
+설치된 프로그램 중 sql이 포함된 프로그램을 확인합니다
+</p>
+<ul class="org-ul">
+<li>get-wmiobject win32_product | where-object -filterscript { $_.tostring() -match "sql"}</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgf727823" class="outline-4">
+<h4 id="orgf727823"><span class="section-number-4">1.1.4</span> Get-Childitem</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+dir 과 비슷한 명령어입니다
+(dir)- get-childitem
+</p>
+
+<p>
+현재 폴더에서 *.html 파일 중 100mb 이하인 파일을 모두 삭제합니다
+</p>
+<ul class="org-ul">
+<li>get-childitem .\* -include *.html | where-object -filterscript { $_.length -lt 100mb} | remove-item -force</li>
+</ul>
+
+<p>
+해당 폴더에서 .jpg 파일을 전부 찾은 다음 이름순에 따라 겹치는 항목 없이 정렬합니다
+</p>
+<ul class="org-ul">
+<li>get-childitem c:\users\gyurs\desktop\edward\ -include *.jpg -recurse | sort-object -property directoryname -unique</li>
+</ul>
+
+<p>
+현재 폴더에 있는 .jpg 파일들 중 20160101 이후에 수정되거나 생성된 파일만 해당 경로로 강제로 복사합니다 (백업시 사용)
+</p>
+<ul class="org-ul">
+<li>get-childitem .\* -recurse -include *.jpg | where-object {($_.lastwritetime -gt 2016-01-01) -and ($_.creationtime -gt 2016-01-01)} | copy-item -destination c:\users\gyurs\downloads\ -force</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgf5d77b8" class="outline-4">
+<h4 id="orgf5d77b8"><span class="section-number-4">1.1.5</span> Get-PSDrive</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<p>
+현재 드라이브 정보를 조회할 수 있습니다
+</p>
+<ul class="org-ul">
+<li>get-psdrive</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgb057e1b" class="outline-4">
+<h4 id="orgb057e1b"><span class="section-number-4">1.1.6</span> Get-Command</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<p>
+특정 명령어의 커맨드 리스트를 보여줍니다
+</p>
+<ul class="org-ul">
+<li>get-command get-member</li>
+</ul>
+
+
+<p>
+form이라는 동사 커맨드가 들어간 커맨드를 찾을 때 사용합니다
+</p>
+<ul class="org-ul">
+<li>get-command -verb <b>form</b></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org3afb1ba" class="outline-4">
+<h4 id="org3afb1ba"><span class="section-number-4">1.1.7</span> Get-Help</h4>
+<div class="outline-text-4" id="text-1-1-7">
+<p>
+특정 커맨드의 사용법을 알려줍니다
+</p>
+<ul class="org-ul">
+<li>get-help get-member</li>
+</ul>
+
+
+<p>
+GET-MEMBER의 상세한 설명을 확인합니다
+</p>
+<ul class="org-ul">
+<li>get-help get-member -detailed</li>
+</ul>
+
+
+<p>
+GET-MEMBER의 모든 설명을 봅니다
+</p>
+<ul class="org-ul">
+<li>get-help get-member -full</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org11647cc" class="outline-4">
+<h4 id="org11647cc"><span class="section-number-4">1.1.8</span> Get-Alias</h4>
+<div class="outline-text-4" id="text-1-1-8">
+<p>
+모든 별칭의 리스트를 볼 수 있습니다
+</p>
+<ul class="org-ul">
+<li>get-alias</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org6be013e" class="outline-4">
+<h4 id="org6be013e"><span class="section-number-4">1.1.9</span> Get-Date</h4>
+<div class="outline-text-4" id="text-1-1-9">
+<p>
+현재의 시간을 구합니다
+</p>
+<ul class="org-ul">
+<li>get-date</li>
+</ul>
+
+<p>
+시스템 uptime을 구합니다
+</p>
+<ul class="org-ul">
+<li>(get-date) - (gcim.Win32_OperatingSystem).LastBootUpTime</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org6d092c9" class="outline-4">
+<h4 id="org6d092c9"><span class="section-number-4">1.1.10</span> Get-Item</h4>
+<div class="outline-text-4" id="text-1-1-10">
+<p>
+c:\Windows폴더에 가장 최근 접근한 시간을 보여줍니다
+</p>
+<ul class="org-ul">
+<li>(get-item C:\Windows).LastAccessTime</li>
+</ul>
+
+<p>
+c:\Windows\의 모든 파일을 w를 제외하고 보여줍니다
+</p>
+<ul class="org-ul">
+<li>get-item c:\Windows\*.* -exclude w*</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org2d1a4ae" class="outline-4">
+<h4 id="org2d1a4ae"><span class="section-number-4">1.1.11</span> Get-History</h4>
+<div class="outline-text-4" id="text-1-1-11">
+<p>
+지금까지 입력한 command의 목록을 볼 수 있습니다
+</p>
+<ul class="org-ul">
+<li>get-history</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org4013772" class="outline-4">
+<h4 id="org4013772"><span class="section-number-4">1.1.12</span> Get-Eventlog</h4>
+<div class="outline-text-4" id="text-1-1-12">
+<p>
+이벤트로그 목록을 확인합니다
+</p>
+<ul class="org-ul">
+<li>get-eventlog -list</li>
+</ul>
+
+<p>
+이벤트로그를 20160805 이후에 생성된 installer 구문이 들어간 로그를 10개만 확인합니다
+</p>
+<ul class="org-ul">
+<li>get-eventlog -logname application -message <b>installer</b> -after 2016-08-05 -newest 10</li>
+</ul>
+
+<p>
+이벤트로그(6009)로 시스템 부팅 시 발생한 로그를 확인합니다
+</p>
+<ul class="org-ul">
+<li>get-eventlog system | Where-Object {$_.eventid -eq 6009} | more</li>
+</ul>
+
+<p>
+이벤트로그를 통해 에러가 났던 로그를 확인합니다 (format-table형식으로)
+</p>
+<ul class="org-ul">
+<li>get-eventlog system | Where-Object {$_.entrytype -match "error"} | format-table eventid, source, timewritten -autosize | more</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org861713e" class="outline-4">
+<h4 id="org861713e"><span class="section-number-4">1.1.13</span> Get-Service</h4>
+<div class="outline-text-4" id="text-1-1-13">
+<p>
+현재 running 상태인 서비스 목록을 확인합니다
+(gsv)- get-service | where-object {$_.status -eq "running"}
+</p>
+
+<p>
+running 서비스 중에서 sql 글자가 들어간 서비스를 검색합니다
+</p>
+<ul class="org-ul">
+<li>get-service | where-object {$_.status -eq "running"} | where Name -like <b>sql</b></li>
+</ul>
+
+<p>
+sql*로 시작하는 프로세스 중 동작 중인 프로세스를 종료합니다
+</p>
+<ul class="org-ul">
+<li>get-service | where Name -like sql* |where status -eq running | Stop-Service -Force</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgb107eb1" class="outline-4">
+<h4 id="orgb107eb1"><span class="section-number-4">1.1.14</span> Get-Appxpackage</h4>
+<div class="outline-text-4" id="text-1-1-14">
+<p>
+파워쉘을 이용해 microsoft EDGE를 설치합니다
+</p>
+<ul class="org-ul">
+<li>get-appxpackage -allusers -name microsoft.microsoftedge | foreach {add-appxpackage -disabledevelopmentmode -register "$($_.installlocation)\appxmanifest.xml-verbose}</li>
+</ul>
+
+<p>
+get started 윈도우 10 app을 삭제합니다
+</p>
+<ul class="org-ul">
+<li>get-appxpackage <b>getstarted</b> | remove-appxpackage</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org2fb11e7" class="outline-3">
+<h3 id="org2fb11e7"><span class="section-number-3">1.2</span> STOP-&#x2026;</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org4807072" class="outline-4">
+<h4 id="org4807072"><span class="section-number-4">1.2.1</span> Stop-Process</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+lmgrd 프로세스를 종료하면 어떤 결과가 발생할 지 예측합니다
+</p>
+<ul class="org-ul">
+<li>stop-process -name lmgrd -whatif</li>
+</ul>
+
+<p>
+lmgrd 프로세스를 종료할 때 확인 프롬프트를 띄웁니다
+</p>
+<ul class="org-ul">
+<li>stop-process -name lmgrd -confirm</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org713cf71" class="outline-3">
+<h3 id="org713cf71"><span class="section-number-3">1.3</span> SET-&#x2026;</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-orgff72582" class="outline-4">
+<h4 id="orgff72582"><span class="section-number-4">1.3.1</span> Set-ExecutionPolicy</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+스크립트 실행 보안을 해제합니다
+</p>
+<ul class="org-ul">
+<li>set-executionpolicy remotesigned</li>
+</ul>
+
+
+<p>
+공유폴더에 위치한 서명안된 스크립트를 실행합니다
+</p>
+<ul class="org-ul">
+<li>set-executionpolicy unrestricted</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3b59c90" class="outline-3">
+<h3 id="org3b59c90"><span class="section-number-3">1.4</span> EXPORT-&#x2026;, IMPORT-&#x2026;</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-org3bae26a" class="outline-4">
+<h4 id="org3bae26a"><span class="section-number-4">1.4.1</span> Export-CSV, Import-CSV</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+process 목록을 csv로 저장시킨 후 정렬해서 불러옵니다
+</p>
+<ul class="org-ul">
+<li>ps | export-csv pslist.csv</li>
+<li>import-csv pslist.csv | select-object starttime | sort processname -Descending</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org566f45f" class="outline-3">
+<h3 id="org566f45f"><span class="section-number-3">1.5</span> NEW-&#x2026;</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-org3ace1cf" class="outline-4">
+<h4 id="org3ace1cf"><span class="section-number-4">1.5.1</span> New-Item</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<p>
+mkdir과 비슷하게 폴더를 만듭니다
+(ni)- new-item -type directory -path "path_name"
+</p>
+
+<p>
+새로운 txt 파일을 내용을 갖춘채로 만듭니다
+</p>
+<ul class="org-ul">
+<li>new-item .\new_file.txt -type file -force -value "this is text added to the file"</li>
+</ul>
+
+<p>
+디렉토리를 만들면 어떤 결과물이 나올지를 확인합니다(whatif)
+</p>
+<ul class="org-ul">
+<li>new-item -path c:\ -name dirtest -itemtype directory -whatif</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7c0be74" class="outline-3">
+<h3 id="org7c0be74"><span class="section-number-3">1.6</span> REMOVE-&#x2026;</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-orgf7d7a06" class="outline-4">
+<h4 id="orgf7d7a06"><span class="section-number-4">1.6.1</span> Remove-Item</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<p>
+alias로 등록되어 있는 get_event를 지웁니다
+</p>
+<ul class="org-ul">
+<li>remove-item alias::get_event</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1c06f1d" class="outline-3">
+<h3 id="org1c06f1d"><span class="section-number-3">1.7</span> .net framework</h3>
+<div class="outline-text-3" id="text-1-7">
+</div>
+<div id="outline-container-org73cfbbe" class="outline-4">
+<h4 id="org73cfbbe"><span class="section-number-4">1.7.1</span> [Math]</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<p>
+MATH::POW .net에서 함수를 가져와 2의 3승을 계산합니다
+</p>
+<ul class="org-ul">
+<li>[math]::pow(2,3)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgfc39370" class="outline-2">
+<h2 id="orgfc39370"><span class="section-number-2">2</span> Powershell script</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgd438d0f" class="outline-3">
+<h3 id="orgd438d0f"><span class="section-number-3">2.1</span> show_uptime.ps1 (현재 시스템의 uptime을 출력하는 스크립트)</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+<pre class="src src-powershell"># 지정 한 서버의 uptime 을 출력합니다.
+param([string] $Machine = ".")
+
+# Win32_OperationSystem 오브젝트를 변수에 저장.
+$OS = Get-WmiObject Win32_OperatingSystem -ComputerName $Machine
+
+# 시스템 관리용 시간 값을 일반적인 시간 값으로 변경하여 변수에 저장.
+$LastBootUpTime = [System.Management.ManagementDateTimeconverter]::ToDateTime($OS.LastBootUpTime)
+
+# 현재 시간을 구함.
+$Now = Get-Date
+
+#Uptime 계산.
+$UpTime = $Now - $LastBootUpTime
+
+# 각 값을 계산하여 string 형식으로 변환 후 출력
+[string]$UpTime.Days + Days, + [string]$UpTime.Hours + Hours, + [string]$UpTime.Minutes + Minutes."
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org9ff02e8" class="outline-3">
+<h3 id="org9ff02e8"><span class="section-number-3">2.2</span> getmyDriveStatus.ps1 (현재 자신의 Drive의 용량상태를 GB 단위로 확인하는 스크립트)</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+<pre class="src src-powershell">$disk = Get-WmiObject Win32_LogicalDisk -Filter "DeviceID='C:'| Select-Object Size, FreeSpace
+Write-Host ("{0}GB total-f [math]::truncate($disk.Size / 1GB))
+Write-Host ("{0}GB free-f [math]::truncate($disk.FreeSpace / 1GB))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org6aaceb0" class="outline-2">
+<h2 id="org6aaceb0"><span class="section-number-2">3</span> $ 변수의 활용</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org090b8ab" class="outline-3">
+<h3 id="org090b8ab"><span class="section-number-3">3.1</span> $ Variables</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+PowerShell 버전을 확인할 수 있습니다 
+</p>
+<ul class="org-ul">
+<li>$PSVersionTable</li>
+</ul>
+
+<p>
+ComputerName 컴퓨터 이름을 확인합니다 
+</p>
+<ul class="org-ul">
+<li>$env:computername</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org16fe98e" class="outline-3">
+<h3 id="org16fe98e"><span class="section-number-3">3.2</span> Examples</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>1</li>
+</ul>
+<p>
+$a = 5
+$a.gettype() .net 내장타입을 알 수 있습니다
+$a.gettype().name .net의 내장타입을 알 수 있습니다2
+</p>
+
+
+<ul class="org-ul">
+<li>2 (iexplore 프로세스를 여는 예제코드)</li>
+</ul>
+<p>
+$ie = new-object -comobject "internetexplorer.application"
+$ie | get-member -membertype method
+$ie.navigate("<a href="http://www.naver.com">http://www.naver.com</a>")
+$ie.visible = $true
+</p>
+
+<ul class="org-ul">
+<li>3 (%userprofile% 로 이동합니다)</li>
+</ul>
+<p>
+cd $env:userprofile
+</p>
+
+<ul class="org-ul">
+<li>4 (schtasks에서 ashley 글자가 들어간 예약내용을 확인합니다)</li>
+</ul>
+<p>
+$tasks = schtasks.exe /query /fo csv | ConvertFrom-Csv
+$tasks | Where-Object {$_.taskname -like "<b>ashley</b>"}
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgf7c1ab8" class="outline-3">
+<h3 id="orgf7c1ab8"><span class="section-number-3">3.3</span> Powershell Function</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+<div id="outline-container-orgb457ae6" class="outline-4">
+<h4 id="orgb457ae6"><span class="section-number-4">3.3.1</span> Variable Functions</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+"핑을 날려 서버상태를 확인합니다
+</p>
+<ul class="org-ul">
+<li>pingsrv "ip_adrress"</li>
+</ul>
+
+<p>
+function pingsrv ([string] $srv ) {
+        $wmiobj=get-wmiobject win32_pingstatus -filter "address='$srv'"
+        if($wmiobj.statuscode -eq 0) {
+                write-host $srv "연결됐습니다!"
+        }
+        else {
+                write-host $srv 연결이안되네요!"
+        }
+}
+</p>
+
+
+<p>
+"POWERSHELL 프롬프트 형식을 바꿉니다
+</p>
+<ul class="org-ul">
+<li>Prompt</li>
+</ul>
+
+<p>
+function prompt {
+        $historyList = @(get-history)
+        if($historyList.count -gt 0) {
+                $lastcommand = $historyList[$historyList.count - 1]
+                $lastid = $lastcommand.id
+        }
+</p>
+
+<p>
+        write-host ("PS(+ ($lastid+1) + ") + $(get-location) +"&gt;") -nonewline
+        return "
+}
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org974bc53" class="outline-2">
+<h2 id="org974bc53"><span class="section-number-2">4</span> Reference</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li><a href="https://blog.naver.com/gyurse/220783772277">https://blog.naver.com/gyurse/220783772277</a></li>
+</ol>
+</div>
+</div>
