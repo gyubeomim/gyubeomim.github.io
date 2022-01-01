@@ -19,7 +19,7 @@ author:
   email:             gyurse@gmail.com
 
 navigation:
-  - name: About Me
+  - name: About me
     url: /about
   - name: Category
     url: /category
