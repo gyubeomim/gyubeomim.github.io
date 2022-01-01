@@ -36,72 +36,44 @@ comments: true
 <h2 id="org2eb590b"><span class="section-number-2">1</span> cmd commands</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-모든 명령어는 win + R키나 cmd 명령창에서 실행하실 수 있습니다. 아랫쪽에 SYSINTERNALS 도구와 NIRSOFT 도구, 기타 명령어 목록도 있습니다.
+모든 명령어는 win + R키나 cmd 명령창에서 실행하실 수 있습니다. 아랫쪽에 sysinternals 와 nirsoft 명령어 목록도 있습니다.
 </p>
 </div>
 
 <div id="outline-container-orgddd64b6" class="outline-3">
 <h3 id="orgddd64b6"><span class="section-number-3">1.1</span> .msc</h3>
 <div class="outline-text-3" id="text-1-1">
-<p>
-eventvwr.msc(이벤트뷰어) 
-</p>
+<ul class="org-ul">
+<li>eventvwr.msc(이벤트뷰어)</li>
 
-<p>
-gpedit.msc(로컬 그룹 정책 설정) 
-</p>
+<li>gpedit.msc(로컬 그룹 정책 설정)</li>
 
-<p>
-secpol.msc(로컬 보안 설정) 
-</p>
+<li>secpol.msc(로컬 보안 설정)</li>
 
-<p>
-wmimgmt.msc(WMI 관리자) 
-</p>
+<li>wmimgmt.msc(WMI 관리자)</li>
 
-<p>
-certlm.msc (인증서관리자 - 로컬컴퓨터) 
-</p>
+<li>certlm.msc (인증서관리자 - 로컬컴퓨터)</li>
 
-<p>
-certmgr.msc(인증서관리자 - 현재사용자) 
-</p>
+<li>certmgr.msc(인증서관리자 - 현재사용자)</li>
 
-<p>
-fsmgmt.msc(공유폴더) 
-</p>
+<li>fsmgmt.msc(공유폴더)</li>
 
-<p>
-lusrmgr.msc(로컬 사용자 및 그룹) 
-</p>
+<li>lusrmgr.msc(로컬 사용자 및 그룹)</li>
 
-<p>
-printmanagement.msc(프린터 관리) 
-</p>
+<li>printmanagement.msc(프린터 관리)</li>
 
-<p>
-wf.msc(방화벽고급관리자) 
-</p>
+<li>wf.msc(방화벽고급관리자)</li>
 
-<p>
-devmgmt.msc (장치 관리자)(= hdwwiz.cpl) 
-</p>
+<li>devmgmt.msc (장치 관리자)(= hdwwiz.cpl)</li>
 
-<p>
-compmgmt.msc(컴퓨터관리) 
-</p>
+<li>compmgmt.msc(컴퓨터관리)</li>
 
-<p>
-perfmon.msc(성능모니터) 
-</p>
+<li>perfmon.msc(성능모니터)</li>
 
-<p>
-taskschd.msc(작업 스케쥴러) 
-</p>
+<li>taskschd.msc(작업 스케쥴러)</li>
 
-<p>
-comexp.msc (구성요소 COM,COM+,DCOM 서비스)(= dcomcnfg.exe) 
-</p>
+<li>comexp.msc (구성요소 COM,COM+,DCOM 서비스)(= dcomcnfg.exe)</li>
+</ul>
 </div>
 </div>
 
@@ -118,25 +90,12 @@ comexp.msc (구성요소 COM,COM+,DCOM 서비스)(= dcomcnfg.exe)
 </ul>
 
 <p>
-​
+​​​- takeown.exe (파일 권한 부여) 
 </p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>takeown.exe (파일 권한 부여) 
 
 <ul class="org-ul">
 <li>takeown.exe /f C:\Users\gyurs\Downloads\20130202.png</li>
-</ul></li>
 </ul>
-
 <p>
 ​
 </p>
@@ -144,10 +103,6 @@ comexp.msc (구성요소 COM,COM+,DCOM 서비스)(= dcomcnfg.exe)
 <ul class="org-ul">
 <li>takeown.exe /f C:\Users\gyurs\Downloads\20130202.png /A</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>takeown.exe /f C:\Users\gyurs\Downloads\* /A /r /d y</li>
@@ -188,25 +143,15 @@ icacls.exe (파일의 사용권한 설정 도구)
 
 <ul class="org-ul">
 <li>icacls.exe C:\Users\edward\Downloads\20130203.png /inheritance:R</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>icacls.exe C:\Users\edward\Downloads\fire.txt /remove:g edward</li>
 </ul>
 
-
 <ul class="org-ul">
 <li>icacls.exe C:\Users\edward\Downloads\fire.txt /remove:d edward</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>icacls.exe C:\Users\edward\Downloads\* /deny edward:F /T /C</li>
@@ -222,6 +167,7 @@ icacls.exe (파일의 사용권한 설정 도구)
 
 <ul class="org-ul">
 <li>icacls.exe C:\Users\edward\Downloads\modify.txt /grant edward:R</li>
+</ul></li>
 </ul>
 
 <p>
@@ -232,180 +178,76 @@ icacls.exe (파일의 사용권한 설정 도구)
 <ul class="org-ul">
 <li>fc.exe /n aa.txt bb.txt</li>
 </ul>
-
-<p>
-​
-</p>
 <ul class="org-ul">
 <li>ver.exe (윈도우 버전 확인)</li>
-</ul>
 
-
-<ul class="org-ul">
-<li>findstr.exe (문자열 검색) 
+<li><p>
+findstr.exe (문자열 검색) 
+</p>
 
 <ul class="org-ul">
 <li>findstr.exe /n /s /i create oracledatabase_admin2.sql</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>findstr.exe /n /s /i create c:\*</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>findstr.exe /n /s /i create c:\users\gyurs\* &gt; result.txt</li>
-</ul>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>w32tm.exe (Windows Time 서비스 설정) 
-
-<ul class="org-ul">
-<li>w32tm.exe /tz</li>
 </ul></li>
 </ul>
 
 <p>
-​
+​​​​- w32tm.exe (Windows Time 서비스 설정) 
 </p>
+
+<ul class="org-ul">
+<li>w32tm.exe /tz</li>
+</ul>
 
 <ul class="org-ul">
 <li>w32tm.exe /resync</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>w32tm.exe /ntte 131028948948477834</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>w32tm.exe /ntpte 3763314900</li>
 </ul>
 
 <p>
-​
+​​​​​- schtasks.exe (윈도우 스케쥴러)(예약작업)(taskschd.msc로 쉽게 확인가능합니다)
 </p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>schtasks.exe (윈도우 스케쥴러)(예약작업)(taskschd.msc로 쉽게 확인가능합니다)
 
 <ul class="org-ul">
 <li>schtasks.exe /query /fo LIST /v | more</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>schtasks.exe /create /tn "Ashley" /tr "c:\windows\system32\calc.exe" /sc weekly /d MON /st 08:00:00 /ru "System"</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
-<li>ashley2라는 이름으로 1분마다 notepad.exe 프로그램을 최고권한으로 실행합니다</li>
-
 <li>schtasks.exe /create /tn ashley2 /tr "c:\windows\system32\notepad.exe" /sc minute /mo 1 /rl highest</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>schtasks.exe /create /tn ashley3 /tr "c:\windows\system32\msg.exe * /v /w hello" /sc minute /mo 1 /rl highest</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>schtasks.exe /delete /tn ashley /f</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>schtasks.exe /ShowSid /TN "\ashley</li>
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li><p>
-ipconfig.exe (IP 주소 확인 + a)
+​​​- ipconfig.exe (IP 주소 확인 + a)
 </p>
 
 <ul class="org-ul">
@@ -422,21 +264,7 @@ ipconfig.exe (IP 주소 확인 + a)
 
 <ul class="org-ul">
 <li>ipconfig.exe /flushdns</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>netstat.exe (포트 확인 도구)
 
@@ -446,68 +274,32 @@ ipconfig.exe (IP 주소 확인 + a)
 </ul>
 
 <p>
-​
+​​- tracert.exe (라우터 확인 도구)
 </p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>tracert.exe (라우터 확인 도구)
 
 <ul class="org-ul">
 <li>tracert.exe naver.com</li>
-</ul></li>
 </ul>
 
 <p>
-​
+​​- pathping.exe (라우터 확인 도구 (old version))
 </p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>pathping.exe (라우터 확인 도구 (old version))
 
 <ul class="org-ul">
 <li>pathping.exe naver.com</li>
-</ul></li>
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
+​​​- winmgmt.exe (WMI 관리도구) 
 </p>
 
 <ul class="org-ul">
-<li>winmgmt.exe (WMI 관리도구)</li>
-
 <li>color.exe (프롬프트 색상을 바꿉니다) 
 
 <ul class="org-ul">
 <li>color f0</li>
 </ul></li>
-</ul>
 
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
 <li>fsquirt.exe (블루투스를 이용한 파일 송수신)</li>
 
 <li>getmac.exe (MAC주소를 출력하는 프로그램) 
@@ -518,108 +310,44 @@ ipconfig.exe (IP 주소 확인 + a)
 </ul>
 
 <p>
-​
+​​​​​- cls.exe (cmd창 깨끗하게 정리해주는 도구) 
 </p>
 
 <p>
-​
+​​​​- nbtstat.exe (NETBIOS 프로토콜 확인) 
 </p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>cls.exe (cmd창 깨끗하게 정리해주는 도구)</li>
-</ul>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>nbtstat.exe (NETBIOS 프로토콜 확인) 
 
 <ul class="org-ul">
 <li>nbtstat.exe -c</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>nbtstat.exe -S</li>
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
+​​​​​- label.exe (디스크 볼륨레이블 지정) 
 </p>
 
 <ul class="org-ul">
-<li>label.exe (디스크 볼륨레이블 지정)</li>
-
-<li>pnputil.exe (pnp 디바이스 열거/설치/삭제) 
+<li><p>
+pnputil.exe (pnp 디바이스 열거/설치/삭제) 
+</p>
 
 <ul class="org-ul">
 <li>pnputil.exe -a c:\drivers\*.inf</li>
-</ul></li>
 </ul>
-
-
 
 <ul class="org-ul">
 <li>pnputil.exe -e</li>
+</ul></li>
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
+​​- psr.exe (단계레코더) 
 </p>
 
 <ul class="org-ul">
-<li>psr.exe (단계레코더)</li>
-
 <li>qprocess.exe (tasklist의 단순형 프로그램)</li>
 
 <li>launchtm.exe (작업관리자)(taskmgr.exe와 동일합니다)</li>
@@ -643,75 +371,41 @@ ipconfig.exe (IP 주소 확인 + a)
 <li>changepk.exe (윈도우즈 제품키 입력)</li>
 
 <li>certutil.exe (인증서 유틸리티)</li>
-</ul>
 
-<p>
-​
+<li><p>
+diskpart.exe (디스크 파티션 설정) 
 </p>
-
-<ul class="org-ul">
-<li>diskpart.exe (디스크 파티션 설정) 
 
 <ul class="org-ul">
 <li>diskpart&gt; list disk</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>diskpart&gt; select disk 0</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>diskpart&gt; list volume</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>diskpart&gt; select volume 1</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>diskpart&gt; assign letter=F</li>
+</ul></li>
 </ul>
 
-<p>
-​
-</p>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>eventcreate.exe (사용자 지정 이벤트 생성)</li>
 
 <li>chkntfs.exe (디스크검사 예약) 
-
 <ul class="org-ul">
 <li>chkntfs.exe c: /c</li>
 </ul></li>
-</ul>
 
-<p>
-​
-</p>
-
-<ul class="org-ul">
 <li>chkdsk.exe (디스크 검사) 
 
 <ul class="org-ul">
@@ -720,20 +414,7 @@ ipconfig.exe (IP 주소 확인 + a)
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li><p>
-sfc.exe (시스템 파일 복구) 
+​​​- sfc.exe (시스템 파일 복구) 
 </p>
 
 <ul class="org-ul">
@@ -742,24 +423,13 @@ sfc.exe (시스템 파일 복구)
 
 <ul class="org-ul">
 <li>sfc.exe /verifyonly</li>
-</ul></li>
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
+​​​- mdsched.exe (메모리체크 도구)(재시작하면서 메모리를 체크한다)
 </p>
 
 <ul class="org-ul">
-<li>mdsched.exe (메모리체크 도구)(재시작하면서 메모리를 체크한다)</li>
-
 <li>certreq.exe (요청을 인증기관으로 제출하는 유틸리티)</li>
 
 <li>mrt.exe(악성소프트웨어 제거도구)</li>
@@ -778,20 +448,7 @@ sfc.exe (시스템 파일 복구)
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li><p>
-xcopy.exe (파일복사 프로그램) 
+​​- xcopy.exe (파일복사 프로그램) 
 </p>
 
 <ul class="org-ul">
@@ -800,24 +457,13 @@ xcopy.exe (파일복사 프로그램)
 
 <ul class="org-ul">
 <li>xcopy.exe /s /h /i /y "%Localappdata%\Microsoft\Windows\Webcache\*.dat" %userprofile%\desktop</li>
-</ul></li>
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
+​​​- copy.exe (간단한 파일복사) 
 </p>
 
 <ul class="org-ul">
-<li>copy.exe (간단한 파일복사)</li>
-
 <li>charmap.exe(문자표)</li>
 
 <li>wbemtest.exe(WMI 테스터)</li>
@@ -832,92 +478,50 @@ xcopy.exe (파일복사 프로그램)
 </ul>
 
 <p>
-​
+​- shutdown.exe (컴퓨터 종료) 
 </p>
-
-<ul class="org-ul">
-<li>shutdown.exe (컴퓨터 종료) 
 
 <ul class="org-ul">
 <li>shutdown.exe /s /t 0 /f</li>
-</ul></li>
-</ul>
 
-<p>
-​
-</p>
-
-<ul class="org-ul">
 <li>shutdown.exe /r /t 0 /f</li>
 
 <li>shutdown.exe /l</li>
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
+​​- tlntsvr.exe (텔넷서버실행) (추가기능 설치에서 telnet을 설치해야합니다) 
 </p>
 
 <ul class="org-ul">
-<li>tlntsvr.exe (텔넷서버실행) (추가기능 설치에서 telnet을 설치해야합니다)</li>
-
 <li>tlntadmn.exe (텔넷서버관리) (윈도우8부터는 없어진듯합니다)</li>
 </ul>
 
 <p>
-​
+​- wbadmin.exe(윈도우 백업관리자) 
 </p>
-
-<ul class="org-ul">
-<li>wbadmin.exe(윈도우 백업관리자) 
 
 <ul class="org-ul">
 <li>wbadmin START BACKUP -include:C: -backupTarget:D:</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>wbadmin START BACKUP -include:C: -backupTarget:D:  -quiet</li>
 </ul>
 
 <p>
-​
+​​​- fsutil.exe(디스크 구성 도구) 
 </p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>fsutil.exe(디스크 구성 도구) 
 
 <ul class="org-ul">
 <li>fsutil volume diskfree c:</li>
-</ul></li>
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
+​​- fltmc.exe(필터 드라이버 로딩 언로딩 목록 보기) 
 </p>
 
 <ul class="org-ul">
-<li>fltmc.exe(필터 드라이버 로딩 언로딩 목록 보기)</li>
-
 <li>cleanmgr.exe(디스크 정리)</li>
 
 <li>sndvol.exe (스피크 볼륨 콘트롤)</li>
@@ -940,20 +544,10 @@ esentutl.exe(서버데이터베이스 관리 도구)
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
+​​​- mmc.exe (콘솔 루터) 
 </p>
 
 <ul class="org-ul">
-<li>mmc.exe (콘솔 루터)</li>
-
 <li>msconfig.exe (시스템 구성요소 유틸리티)</li>
 
 <li>mstsc.exe (원격 데스크톱 연결)</li>
@@ -978,16 +572,10 @@ slmgr.exe (라이센스 등록2)
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
+​​- osk.exe (화상 키보드) 
 </p>
 
 <ul class="org-ul">
-<li>osk.exe (화상 키보드)</li>
-
 <li>wmplayer.exe (미디어 플레이어)</li>
 
 <li>mkdir.exe (디렉토리 만들기)</li>
@@ -1000,16 +588,10 @@ slmgr.exe (라이센스 등록2)
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
+​​- taskmgr.exe (작업 관리자) 
 </p>
 
 <ul class="org-ul">
-<li>taskmgr.exe (작업 관리자)</li>
-
 <li>cmd.exe (명령 프롬프트)</li>
 
 <li>explorer.exe (윈도우 탐색기)</li>
@@ -1018,92 +600,52 @@ slmgr.exe (라이센스 등록2)
 
 <li>systeminfo.exe(시스템정보)</li>
 
-<li>taskkill.exe (프로세스 종료) 
+<li><p>
+taskkill.exe (프로세스 종료) 
+</p>
 
 <ul class="org-ul">
 <li>taskkill.exe /f /im "notepad.exe" /t</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>taskkill.exe /fi "pid gt 1000" /f</li>
+</ul></li>
 </ul>
-
 <p>
 ​
+​​​- tasklist.exe (프로세스 목록) 
 </p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>tasklist.exe (프로세스 목록) 
 
 <ul class="org-ul">
 <li>tasklist /svc /fi "imagename eq svchost.exe"</li>
-</ul></li>
 </ul>
-
-
 
 <ul class="org-ul">
 <li>tasklist.exe /svc /fi "services eq &lt;servicename&gt;"</li>
 </ul>
 
-
-
 <ul class="org-ul">
 <li>tasklist.exe | find /i "explorer"</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>tasklist.exe /m /fi "imagename eq tasklist.exe"</li>
 </ul>
 
 <p>
-​
+​​​- timeout.exe (지정된 시간을 기다리는 프로그램) 
 </p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>timeout.exe (지정된 시간을 기다리는 프로그램) 
 
 <ul class="org-ul">
 <li>timeout.exe /t 100 /nobreak</li>
-</ul></li>
 </ul>
 
 <p>
-​
+​- tskill.exe (간단한 프로세스 종료 프로그램) 
 </p>
 
 <ul class="org-ul">
-<li>tskill.exe (간단한 프로세스 종료 프로그램)</li>
-
 <li>systempropertiesadvanced.exe (시스템속성 - 고급)</li>
 
 <li>systempropertiesdataexecutionprevention.exe (시스템속성 - 데이터실행방지 dep)</li>
@@ -1117,69 +659,34 @@ slmgr.exe (라이센스 등록2)
 <li>systempropertiesremote.exe (시스템속성 - 원격)</li>
 
 <li>gpupdate.exe(그룹 정책 업데이트) 
-
 <ul class="org-ul">
 <li>gpupdate.exe /force</li>
 </ul></li>
 </ul>
 
 <p>
-​
+​​- cmdkey.exe(자격증명 저장 관리) 
 </p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>cmdkey.exe(자격증명 저장 관리) 
-
 <ul class="org-ul">
 <li>cmdkey.exe /add:&lt;targetname&gt; /user:&lt;username&gt; /pass:&lt;password&gt;</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
-
 <ul class="org-ul">
-<li>find.exe (특정 문자열 찾기) 
+<li><p>
+find.exe (특정 문자열 찾기) 
+</p>
 
 <ul class="org-ul">
 <li>find.exe mysql_ed.sql "create" /n /i</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>find.exe /c /v abc.txt ""</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>tasklist.exe | find.exe /i "sql"</li>
-</ul>
+</ul></li>
 
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
 <li>optionalfeatures.exe(윈도우 기능 켜기/끄기)</li>
 
 <li>forfiles.exe (하위파일까지 전체탐색)(루프돌리는 배치파일 만들 때 유용)</li>
@@ -1211,13 +718,6 @@ rundll32.exe
 </ul></li>
 </ul>
 
-<p>
-​
-</p>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>runas.exe (권한상승 후 프로그램 실행)</li>
@@ -1236,78 +736,37 @@ rundll32.exe
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
+​​- control.exe (제어판) 
 </p>
 
 <ul class="org-ul">
-<li>control.exe (제어판)</li>
-
 <li>sc.exe (서비스컨트롤 명령어)</li>
 
 <li>soundrecorder.exe (음성 녹음기)</li>
 </ul>
 
 <p>
-​
+​​- powercfg.exe (전원옵션 명령어) 
 </p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>powercfg.exe (전원옵션 명령어) 
 
 <ul class="org-ul">
 <li>powercfg.exe /hibernate off</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>powercfg.exe /devicequery s1_supported</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>powercfg.exe /a</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>powercfg.exe /energy</li>
 </ul>
 
 <p>
-​
-</p>
-
-
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li><p>
-reg.exe (레지스트리 추가/수정 명령어) 
+​​​- reg.exe (레지스트리 추가/수정 명령어) 
 </p>
 
 <ul class="org-ul">
@@ -1324,28 +783,20 @@ reg.exe (레지스트리 추가/수정 명령어)
 
 <ul class="org-ul">
 <li>reg.exe add hkey_local_machine\system\currentcontrolset\services\lanmanserver\parameters /v AutoshareWks /t reg_dword /d 0 /f</li>
-</ul></li>
 </ul>
 
 <p>
-​
+​​- net.exe (네트워크 설정 명령어) 
 </p>
-
-<p>
-​
-</p>
-
 <ul class="org-ul">
-<li>net.exe (네트워크 설정 명령어) 
-<ul class="org-ul">
-<li>NET STATS 
+<li>net stats 
 
 <ul class="org-ul">
 <li>net stats work</li>
 </ul></li>
 
 <li><p>
-NET SHARE 
+net share 
 </p>
 
 <ul class="org-ul">
@@ -1355,7 +806,6 @@ NET SHARE
 <ul class="org-ul">
 <li>net.exe share IPC- /grant:gyurse,full</li>
 </ul></li>
-</ul></li>
 </ul>
 
 <p>
@@ -1364,7 +814,7 @@ NET SHARE
 
 <ul class="org-ul">
 <li><p>
-NET USER 
+net user 
 </p>
 
 <ul class="org-ul">
@@ -1379,50 +829,35 @@ NET USER
 <li>net.exe user ashley /delete</li>
 </ul></li>
 </ul>
-
 <p>
 ​
 </p>
-
 <ul class="org-ul">
-<li>NET LOCALGROUP 
+<li><p>
+net localgroup 
+</p>
 
 <ul class="org-ul">
 <li>net.exe localgroup ASHLEYGROUP /add /comment:"here is ashley world"</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>net.exe localgroup ASHLEYGROUP ashley /add</li>
-</ul>
+</ul></li>
 
-<p>
-​
+<li><p>
+net use 
 </p>
-
-<ul class="org-ul">
-<li>NET USE 
 
 <ul class="org-ul">
 <li>net.exe use \\localhost\IPC- /user:ashley qwer1234</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>net.exe use \\localhost\share/user:ashley qwer1234</li>
-</ul>
+</ul></li>
 
-
-<ul class="org-ul">
-<li>NET TIME 
+<li>net time 
 
 <ul class="org-ul">
 <li>net time \\localhost</li>
@@ -1430,145 +865,69 @@ NET USER
 </ul>
 
 <p>
-​
+​​​​- msg.exe (네트워크 사용자들에게 메세지 보내는 명령어) 
 </p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>msg.exe (네트워크 사용자들에게 메세지 보내는 명령어) 
 
 <ul class="org-ul">
 <li>msg.exe * /v /time:5 hello guys</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>msg.exe * /server:localhost /v /w hello guys2</li>
 </ul>
 
 <p>
-​
+​​​- subst.exe (디렉토리, 주소를 가상 드라이브로 치환해주는 명령어) 
 </p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>subst.exe (디렉토리, 주소를 가상 드라이브로 치환해주는 명령어) 
 
 <ul class="org-ul">
 <li>subst.exe X: C:\temp\</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>cmd&gt; X:</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>subst.exe X: /d</li>
 </ul>
 
 <p>
-​
+​​​​- netsh.exe (IP, 방화벽 등등 네트워크 설정 명령어 ) 
 </p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
 <ul class="org-ul">
-<li>netsh.exe (IP, 방화벽 등등 네트워크 설정 명령어 ) 
-<ul class="org-ul">
-<li>NETSH ADVFIREWALL (cmd&gt; wf를 통해 확인할 수 있습니다) 
+<li><p>
+netsh advfirewall (cmd&gt; wf를 통해 확인할 수 있습니다) 
+</p>
 
 <ul class="org-ul">
 <li>netsh.exe advfirewall firewall add rule name="TCP-445" dir=in action=allow protocol=tcp localport=445</li>
-</ul></li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>netsh.exe advfirewall firewall show rule name="tcp-445"</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>netsh.exe advfirewall export c:\advfirewallpolicy.wfw</li>
 <li>netsh.exe advfirewall import c:\advfirewallpolicy.wfw</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>netsh.exe advfirewall firewall show rule name=all | more</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>netsh.exe advfirewall firewall add rule name="Block_2000_3000" dir=in action=block protocol=tcp localport=2000-3000</li>
-</ul>
+</ul></li>
 
-
-<ul class="org-ul">
-<li>NETSH INTERFACE 
+<li><p>
+netsh interface 
+</p>
 
 <ul class="org-ul">
 <li>netsh.exe interface show interface</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>netsh.exe interface dump</li>
@@ -1577,10 +936,6 @@ NET USER
 <ul class="org-ul">
 <li>netsh.exe interface ipv4 show tcpconnections remoteport=443</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>netsh.exe interface ipv4 show global</li>
@@ -1593,93 +948,46 @@ NET USER
 <ul class="org-ul">
 <li>netsh.exe interface ip set address name ="Ethernet" source=dhcp</li>
 <li>netsh.exe interface ip set dns "Ethernet" dhcp</li>
-</ul>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>sihost.exe (explorer.exe 다시 시작하는 프로그램)</li>
-</ul>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>smartscreensetting.exe (smartscreen on/off 하는 명령어)</li>
-</ul>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>systemreset.exe (시스템초기화 명령어)</li>
-</ul>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>sdclt.exe (백업 &amp; 복구 관리자)</li>
-</ul>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>quser.exe (현재 사용자 출력)</li>
-</ul>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>logoff.exe (현재 계정 로그오프)</li>
-</ul>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>dism.exe (배포 이미지 서비스 및 관리도구) 
-
-<ul class="org-ul">
-<li>dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase</li>
 </ul></li>
 </ul>
 
 <p>
-​
+​​​- sihost.exe (explorer.exe 다시 시작하는 프로그램) 
 </p>
+
+<p>
+​- smartscreensetting.exe (smartscreen on/off 하는 명령어) 
+</p>
+
+<p>
+​- systemreset.exe (시스템초기화 명령어) 
+</p>
+
+<p>
+​- sdclt.exe (백업 &amp; 복구 관리자) 
+</p>
+
+<p>
+​- quser.exe (현재 사용자 출력) 
+</p>
+
+<p>
+​- logoff.exe (현재 계정 로그오프) 
+</p>
+
+<p>
+​​- dism.exe (배포 이미지 서비스 및 관리도구) 
+</p>
+
+<ul class="org-ul">
+<li>dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase</li>
+</ul>
 </div>
 </div>
 
 <div id="outline-container-orga9d8224" class="outline-3">
 <h3 id="orga9d8224"><span class="section-number-3">1.3</span> .cpl</h3>
 <div class="outline-text-3" id="text-1-3">
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>powercfg.cpl(전원옵션)</li>
 
@@ -1725,10 +1033,6 @@ NET USER
 
 <li>control admintools(관리 도구)</li>
 </ul>
-
-<p>
-​
-</p>
 </div>
 </div>
 
@@ -1768,28 +1072,7 @@ dir (디렉토리 목록 확인)
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li><p>
-cd (디렉토리 이동) 
+​​​​​- cd (디렉토리 이동) 
 </p>
 
 <ul class="org-ul">
@@ -1798,72 +1081,26 @@ cd (디렉토리 이동)
 
 <ul class="org-ul">
 <li>cd %userprofile%</li>
-</ul></li>
 </ul>
 
 <p>
-​
+​​​​​- date (날짜) 
 </p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>date (날짜) 
 
 <ul class="org-ul">
 <li>date /t</li>
-</ul></li>
 </ul>
 
 <p>
-​
+​​​- time (시간) 
 </p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>time (시간) 
 
 <ul class="org-ul">
 <li>time /t</li>
-</ul></li>
 </ul>
 
 <p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li><p>
-chcp (cmd창 언어) 
+​​​- chcp (cmd창 언어) 
 </p>
 
 <ul class="org-ul">
@@ -1872,82 +1109,23 @@ chcp (cmd창 언어)
 
 <ul class="org-ul">
 <li>chcp 437</li>
-</ul></li>
 </ul>
 
 <p>
-​
+​​​​- start (파일 또는 폴더 열기) 
 </p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>start (파일 또는 폴더 열기) 
 
 <ul class="org-ul">
 <li>start .</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>start notepad edward.txt</li>
 </ul>
 
 <p>
-​
+​​​​- tree (디렉토리 구조 확인) 
 </p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>tree (디렉토리 구조 확인)</li>
-</ul>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<hr>
 </div>
 </div>
 
@@ -1959,80 +1137,35 @@ chcp (cmd창 언어)
 <h4 id="org9711d2c"><span class="section-number-4">1.5.1</span> sysinternals</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <ul class="org-ul">
-<li>psexec.exe (원격명령어 실행 도구) 
+<li><p>
+psexec.exe (원격명령어 실행 도구) 
+</p>
 
 <ul class="org-ul">
 <li>net.exe share</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>reg.exe add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system/v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>netsh.exe advfirewall firewall add rule name="TCP-445" dir=in action=allow protocol=tcp localport=445</li>
 </ul>
 
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>psexec \\172.30.1.15 -u &lt;hostname&gt; -p &lt;password&gt; &lt;command&gt;</li>
-</ul>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<ul class="org-ul">
-<li>autorunsc.exe (자동실행 목록 확인) 
-
-<ul class="org-ul">
-<li>autorunsc.exe -ct -a s /accepteula</li>
 </ul></li>
 </ul>
 
 <p>
 ​
+​​​​- autorunsc.exe (자동실행 목록 확인) 
 </p>
 
-<p>
-​
-</p>
+<ul class="org-ul">
+<li>autorunsc.exe -ct -a s /accepteula</li>
+</ul>
 
 <ul class="org-ul">
 <li>autorunsc.exe -ct -t -a lb /accepteula</li>
@@ -2044,154 +1177,70 @@ chcp (cmd창 언어)
 <h4 id="org103638a"><span class="section-number-4">1.5.2</span> nirsoft</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <ul class="org-ul">
-<li>nircmd.exe (nirsoft cmd) 
+<li><p>
+nircmd.exe (nirsoft cmd) 
+</p>
 
 <ul class="org-ul">
 <li>nircmd.exe exec hide &lt;processname&gt;</li>
-</ul></li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>nircmd.exe setsysvolume 65535</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>nircmd.exe mutesysvolume 1</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>nircmd.exe changeappvolume chrome.exe -1</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>nircmd.exe setbrightness 0</li>
 </ul>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>nircmd.exe elevate cmd</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>nircmd.exe beep 500 2000</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>nircmd.exe restartexplorer</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>nircmd.exe cdrom open</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>nircmd.exe exitwin logoff</li>
-
 <li>nircmd.exe exitwin poweroff force</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>nircmd.exe lockws</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>nircmd.exe standby</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>nircmd.exe hibernate force</li>
 </ul>
 
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>nircmd.exe monitor off</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>nircmd.exe emptybin</li>
 </ul>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>nircmd.exe savescreenshot %userprofile%\pic.png</li>
@@ -2201,89 +1250,40 @@ chcp (cmd창 언어)
 <li>nircmd.exe loop 10 5000 savescreenshot %userprofile%\scr~-loopcount-.png</li>
 </ul>
 
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>nircmd.exe sendmouse right click</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>nircmd.exe sendmouse left dblclick</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>nircmd.exe sendmouse move 30 -20</li>
 </ul>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>nircmd.exe sendkey A press</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>nircmd.exe sendkey ctrl down</li>
 </ul>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
-
-<p>
-​
-</p>
 
 <ul class="org-ul">
 <li>nircmd.exe loop 3 2000 infobox "hello" "message"</li>
 </ul>
 
-<p>
-​
-</p>
-
 <ul class="org-ul">
 <li>nircmd.exe qbox "open calc?" "message" "calc.exe"</li>
+</ul></li>
 </ul>
+</div>
+</div>
+</div>
+</div>
 
-<p>
-​
-</p>
-</div>
-</div>
-</div>
-</div>
+
 <div id="outline-container-org46ef49d" class="outline-2">
 <h2 id="org46ef49d"><span class="section-number-2">2</span> Reference</h2>
 <div class="outline-text-2" id="text-2">
