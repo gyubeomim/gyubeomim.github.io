@@ -5,17 +5,17 @@ permalink:           pretty
 #relative_permalinks: true
 
 # Setup
-title:               Q U R I O S   
-tagline:             "Tech Evangelist & Engineer & Researcher"
+title:               A L I D A   
+tagline:             "Researcher & Software Engineer"
 description:         ""
-url:                 https://edward0im.github.io
+url:                 https://gyubeomim.github.io
 baseurl:            ''
 paginate:            25
 
 # About/contact
 author:
-  name:              Edward Gyubeom Im
-  url:               https://edward0im.github.io
+  name:              Gyubeom Edward Im
+  url:               https://gyubeomim.github.io
   email:             gyurse@gmail.com
 
 navigation:
@@ -52,7 +52,7 @@ google_analytics:
   ua: 'UA-109898110-1'
 
 github:
-  repo: 'https://github.com/edward0im/edward0im.github.io'
+  repo: 'https://github.com/gyubeomim/gyubeomim.github.io'
 
 category_dir: category/
 tag_dir: tag/
